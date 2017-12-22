@@ -1,0 +1,38 @@
+{
+  "name": "authenticator",
+  "version": "0.1.0",
+  "description": "For Google Authenticator and Battle.net Authenticator.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sneezry/Authenticator2.git"
+  },
+  "author": "Sneezry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sneezry/Authenticator2/issues"
+  },
+  "homepage": "https://github.com/Sneezry/Authenticator2#readme",
+  "devDependencies": {
+    "@types/chrome": "0.0.56",
+    "@types/crypto-js": "^3.1.38",
+    "@types/otplib": "^7.0.0",
+    "@types/vue": "^2.0.0",
+    "gts": "^0.5.2",
+    "typescript": "^2.6.1"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1",
+    "otplib": "^7.0.0",
+    "vue": "^2.5.13"
+  }
+}

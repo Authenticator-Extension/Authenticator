@@ -1,0 +1,67 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_extName__",
+    "short_name": "__MSG_extShortName__",
+    "version": "5.0",
+    "default_locale": "en",
+    "description": "__MSG_extDesc__",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "__MSG_extShortName__",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": [
+            "assist/aes.js",
+            "assist/md5.js",
+            "jsqrcode/grid.js",
+            "jsqrcode/version.js",
+            "jsqrcode/detector.js",
+            "jsqrcode/formatinf.js",
+            "jsqrcode/errorlevel.js",
+            "jsqrcode/bitmat.js",
+            "jsqrcode/datablock.js",
+            "jsqrcode/bmparser.js",
+            "jsqrcode/datamask.js",
+            "jsqrcode/rsdecoder.js",
+            "jsqrcode/gf256poly.js",
+            "jsqrcode/gf256.js",
+            "jsqrcode/decoder.js",
+            "jsqrcode/qrcode.js",
+            "jsqrcode/findpat.js",
+            "jsqrcode/alignpat.js",
+            "jsqrcode/databr.js",
+            "javascript/background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "css": ["css/content.css"],
+            "js": ["javascript/content.js"]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "optional_permissions": [
+        "clipboardWrite",
+        "https://www.google.com/"
+    ],
+    "offline_enabled": true,
+    "web_accessible_resources": [
+        "qr.html",
+        "images/scan.gif"
+    ],
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/; default-src 'none'"
+}

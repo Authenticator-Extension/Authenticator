@@ -1,0 +1,174 @@
+﻿{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "For Google Authenticator and Battle.net Authenticator.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " has been added.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Unrecognized QR code.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "description": "Secret Error."
+    },
+    "info": {
+        "message": "<p><strong>Authenticator</strong> for Google&trade; Authenticator,<br/>&copy; 2014 <a target='_blank' href='http://sneezry.com'>Sneezry</a>. Released under the Apache License 2.0.</p><p>Google&trade; is Google's trademark, Google Authenticator is Google’s trade name, those rights of ownership belong with Google Inc.</p><p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a> Copyright jsqrcode authors. Licensed under the Apache License.</p><p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p><p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a> Copyright its author. Licensed under the MIT License.</p><p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a> Copyright jsSHA authors. Licensed under the BSD License.</p><p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a> Copyright qrcode.js author. Licensed under the MIT License.</p><p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright crypto-js author. Licensed under the BSD License.</p><p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p><p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p><p>Thanks to Mike Robinson &lt;3</p>",
+        "description": "Information."
+    },
+    "add_qr": {
+        "message": "Scan QR Code",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Manual Entry",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Close",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "OK",
+        "description": "OK."
+    },
+    "err_acc_sec": {
+        "message": "Please input Account and Secret.",
+        "description": "Input Account and Secret."
+    },
+    "account": {
+        "message": "Account",
+        "description": "Account."
+    },
+    "secret": {
+        "message": "Secret",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Success.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Failure.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "About",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Export / Import",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Settings",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Security",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Current Passphrase",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "New Passphrase",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Passphrase",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Confirm Passphrase",
+        "description": "Confirmm Passphrase."
+    },
+    "security_warning": {
+        "message": "This passphrase will be used to encrypt your secrets. No one can help you if you forget the passphrase.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Update",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Some accounts and passphrase do not match.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Two passphrases do not match.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Encrypted",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Copied",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Feedback",
+        "description": "Feedback."
+    },
+    "source": {
+        "message": "Source Code",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Input passphrase to decrypt account data.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Sync Clock with Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Remember Passphrase",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Do you have a backup for your secrets? Please note that no one can help you with getting back locked account, don't wait until it's too late. We will remind you to make a backup again after 30 days.",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Capture failed, please reload the page you are veiwing and try again.",
+        "description": "Capture Failed"
+    },
+    "unencrypted_secret_warning": {
+        "message": "This secret is not encrypted! Click here to set a passphrase to fix this issue.",
+        "description": "Unencrypted Secret Warning"
+    },
+    "based_on_time": {
+        "message": "Time Based",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Counter Based",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Resize Popup Page",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Scale",
+        "description": "Scale"
+    }
+}
