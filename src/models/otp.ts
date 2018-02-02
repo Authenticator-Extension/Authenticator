@@ -1,12 +1,12 @@
 import * as CryptoJS from 'crypto-js';
 
 import {Encription} from './encryption';
-import {OPT, OPTType} from './interface';
+import {OTP, OTPType} from './interface';
 import {KeyUtilities} from './key-utilities';
 import {Storage} from './storage';
 
-export class OPTEntry implements OPT {
-  type: OPTType;
+export class OTPEntry implements OTP {
+  type: OTPType;
   index: number;
   issuer: string;
   secret: string;
@@ -15,7 +15,7 @@ export class OPTEntry implements OPT {
   counter: number;
 
   constructor(
-      type: OPTType, issuer: string, secret: string, account: string,
+      type: OTPType, issuer: string, secret: string, account: string,
       index: number) {
     this.type = type;
     this.index = index;
@@ -48,7 +48,7 @@ export class OPTEntry implements OPT {
   }
 
   async next(encryption: Encription) {
-    if (this.type !== OPTType.hotp) {
+    if (this.type !== OTPType.hotp) {
       return;
     }
     this.counter++;

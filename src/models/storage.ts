@@ -1,24 +1,24 @@
 import {Encription} from './encryption';
-import {OPTStorage, OPTType} from './interface';
-import {OPTEntry} from './opt';
+import {OTPStorage, OTPType} from './interface';
+import {OTPEntry} from './otp';
 
 export class Storage {
-  private static getOPTStorageFromEntry(
-      encryption: Encription, entry: OPTEntry): OPTStorage {
-    const storageItem: OPTStorage = {
+  private static getOTPStorageFromEntry(
+      encryption: Encription, entry: OTPEntry): OTPStorage {
+    const storageItem: OTPStorage = {
       account: entry.account,
       hash: entry.hash,
       index: entry.index,
       issuer: entry.issuer,
-      type: OPTType[entry.type],
+      type: OTPType[entry.type],
       secret: encryption.getEncryptedSecret(entry.secret),
       encrypted: encryption.getEncryptionStatus()
     };
     return storageItem;
   }
 
-  private static ensureUniqueIndex(_data: {[hash: string]: OPTStorage}) {
-    const tempEntryArray: OPTStorage[] = [];
+  private static ensureUniqueIndex(_data: {[hash: string]: OTPStorage}) {
+    const tempEntryArray: OTPStorage[] = [];
 
     for (const hash of Object.keys(_data)) {
       tempEntryArray.push(_data[hash]);
@@ -28,7 +28,7 @@ export class Storage {
       return a.index - b.index;
     });
 
-    const newData: {[hash: string]: OPTStorage} = {};
+    const newData: {[hash: string]: OTPStorage} = {};
     for (let i = 0; i < tempEntryArray.length; i++) {
       tempEntryArray[i].index = i;
       newData[tempEntryArray[i].hash] = tempEntryArray[i];
@@ -37,16 +37,16 @@ export class Storage {
     return newData;
   }
 
-  static async add(encryption: Encription, entry: OPTEntry) {
+  static async add(encryption: Encription, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OPTStorage}) => {
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry has already existed.');
               }
               const storageItem =
-                  this.getOPTStorageFromEntry(encryption, entry);
+                  this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
               chrome.storage.sync.set(_data, Promise.resolve);
@@ -58,16 +58,16 @@ export class Storage {
         });
   }
 
-  static async update(encryption: Encription, entry: OPTEntry) {
+  static async update(encryption: Encription, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OPTStorage}) => {
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               if (!_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry is not existing.');
               }
               const storageItem =
-                  this.getOPTStorageFromEntry(encryption, entry);
+                  this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
               chrome.storage.sync.set(_data, Promise.resolve);
@@ -81,25 +81,25 @@ export class Storage {
 
   static async get() {
     return new Promise(
-        (resolve: (value: OPTEntry[]) => void,
+        (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OPTStorage}) => {
-              const data: OPTEntry[] = [];
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+              const data: OTPEntry[] = [];
               for (const hash of Object.keys(_data)) {
                 const entryData = _data[hash];
-                let type: OPTType;
+                let type: OTPType;
                 switch (entryData.type) {
                   case 'totp':
                   case 'hotp':
                   case 'battle':
                   case 'steam':
-                    type = OPTType[entryData.type];
+                    type = OTPType[entryData.type];
                     break;
                   default:
-                    type = OPTType.totp;
+                    type = OTPType.totp;
                 }
-                const entry = new OPTEntry(
+                const entry = new OTPEntry(
                     type, entryData.issuer, entryData.secret, entryData.account,
                     entryData.index);
                 data.push(entry);
@@ -113,11 +113,11 @@ export class Storage {
         });
   }
 
-  static async delete(entry: OPTEntry) {
+  static async delete(entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OPTStorage}) => {
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 delete _data[entry.hash];
               }

@@ -1,14 +1,14 @@
 import {Encription} from './encryption';
 
-export enum OPTType {
+export enum OTPType {
   totp = 1,
   hotp,
   battle,
   steam
 }
 
-export interface OPT {
-  type: OPTType;
+export interface OTP {
+  type: OTPType;
   index: number;
   issuer: string;
   secret: string;
@@ -23,7 +23,7 @@ export interface OPT {
   generate(): string;
 }
 
-export interface OPTStorage {
+export interface OTPStorage {
   account: string;
   encrypted: boolean;
   hash: string;
