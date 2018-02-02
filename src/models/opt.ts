@@ -1,0 +1,63 @@
+import * as CryptoJS from 'crypto-js';
+
+import {Encription} from './encryption';
+import {OPT, OPTType} from './interface';
+import {KeyUtilities} from './key-utilities';
+import {Storage} from './storage';
+
+export class OPTEntry implements OPT {
+  type: OPTType;
+  index: number;
+  issuer: string;
+  secret: string;
+  account: string;
+  hash: string;
+  counter: number;
+
+  constructor(
+      type: OPTType, issuer: string, secret: string, account: string,
+      index: number) {
+    this.type = type;
+    this.index = index;
+    this.issuer = issuer;
+    this.secret = secret;
+    this.account = account;
+    this.hash = CryptoJS.MD5(secret).toString();
+    this.counter = 0;
+  }
+
+  async create(encryption: Encription) {
+    await Storage.add(encryption, this);
+    return;
+  }
+
+  async update(
+      encryption: Encription, issuer: string, account: string, index: number,
+      counter: number) {
+    this.issuer = issuer;
+    this.account = account;
+    this.index = index;
+    this.counter = counter;
+    Storage.update(encryption, this);
+    return;
+  }
+
+  async delete() {
+    Storage.delete(this);
+    return;
+  }
+
+  async next(encryption: Encription) {
+    if (this.type !== OPTType.hotp) {
+      return;
+    }
+    this.counter++;
+    await this.update(
+        encryption, this.issuer, this.secret, this.index, this.counter);
+    return;
+  }
+
+  generate() {
+    return KeyUtilities.generate(this.secret);
+  }
+}

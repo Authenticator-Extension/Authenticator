@@ -23,16 +23,16 @@
   },
   "homepage": "https://github.com/Sneezry/Authenticator2#readme",
   "devDependencies": {
-    "@types/chrome": "0.0.56",
+    "@types/chrome": "^0.0.59",
     "@types/crypto-js": "^3.1.38",
-    "@types/otplib": "^7.0.0",
+    "@types/jssha": "0.0.29",
     "@types/vue": "^2.0.0",
     "gts": "^0.5.2",
     "typescript": "^2.6.1"
   },
   "dependencies": {
     "crypto-js": "^3.1.9-1",
-    "otplib": "^7.0.0",
+    "jssha": "^2.3.1",
     "vue": "^2.5.13"
   }
 }
