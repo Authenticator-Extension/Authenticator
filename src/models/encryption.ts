@@ -1,6 +1,6 @@
-import * as CryptoJS from 'crypto-js';
+/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 
-export class Encription {
+class Encription {
   private password: string;
 
   constructor(password: string) {

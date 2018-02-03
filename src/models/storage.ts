@@ -1,8 +1,8 @@
-import {Encription} from './encryption';
-import {OTPStorage, OTPType} from './interface';
-import {OTPEntry} from './otp';
+/// <reference path="./encryption.ts" />
+/// <reference path="./interface.ts" />
+/// <reference path="./otp.ts" />
 
-export class Storage {
+class entryStorage {
   private static getOTPStorageFromEntry(
       encryption: Encription, entry: OTPEntry): OTPStorage {
     const storageItem: OTPStorage = {

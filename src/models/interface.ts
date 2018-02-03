@@ -1,19 +1,20 @@
-import {Encription} from './encryption';
+/// <reference path="./encryption.ts" />
 
-export enum OTPType {
+enum OTPType {
   totp = 1,
   hotp,
   battle,
   steam
 }
 
-export interface OTP {
+interface OTP {
   type: OTPType;
   index: number;
   issuer: string;
   secret: string;
   account: string;
   hash: string;
+  counter: number;
   create(encryption: Encription): Promise<void>;
   update(
       encryption: Encription, issuer: string, account: string, index: number,
@@ -23,7 +24,7 @@ export interface OTP {
   generate(): string;
 }
 
-export interface OTPStorage {
+interface OTPStorage {
   account: string;
   encrypted: boolean;
   hash: string;

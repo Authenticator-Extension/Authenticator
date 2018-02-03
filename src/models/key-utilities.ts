@@ -3,9 +3,10 @@
 // http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
-import jsSHA = require('jssha');
 
-export class KeyUtilities {
+/// <reference path="../../node_modules/@types/jssha/index.d.ts" />
+
+class KeyUtilities {
   private static dec2hex(s: number): string {
     return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
   }
@@ -85,6 +86,11 @@ export class KeyUtilities {
       len = 10;
       b26 = true;
     }
+
+    if (!key) {
+      throw new Error('Invalid secret key');
+    }
+
     if (counter === undefined) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
       if (localStorage.offset) {

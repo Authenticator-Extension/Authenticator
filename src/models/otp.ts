@@ -1,11 +1,9 @@
-import * as CryptoJS from 'crypto-js';
+/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
+/// <reference path="./encryption.ts" />
+/// <reference path="./interface.ts" />
+/// <reference path="./key-utilities.ts" />
 
-import {Encription} from './encryption';
-import {OTP, OTPType} from './interface';
-import {KeyUtilities} from './key-utilities';
-import {Storage} from './storage';
-
-export class OTPEntry implements OTP {
+class OTPEntry implements OTP {
   type: OTPType;
   index: number;
   issuer: string;
@@ -27,7 +25,7 @@ export class OTPEntry implements OTP {
   }
 
   async create(encryption: Encription) {
-    await Storage.add(encryption, this);
+    await entryStorage.add(encryption, this);
     return;
   }
 
@@ -38,12 +36,12 @@ export class OTPEntry implements OTP {
     this.account = account;
     this.index = index;
     this.counter = counter;
-    Storage.update(encryption, this);
+    entryStorage.update(encryption, this);
     return;
   }
 
   async delete() {
-    Storage.delete(this);
+    entryStorage.delete(this);
     return;
   }
 
