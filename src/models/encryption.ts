@@ -19,8 +19,14 @@ class Encription {
     if (!this.password) {
       return secret;
     }
-    return CryptoJS.AES.decrypt(secret, this.password)
-        .toString(CryptoJS.enc.Utf8);
+
+    try {
+      const decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
+                                  .toString(CryptoJS.enc.Utf8);
+      return decryptedSecret || 'Encrypted';
+    } catch (error) {
+      return 'Encrypted';
+    }
   }
 
   getEncryptionStatus(): boolean {

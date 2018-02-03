@@ -20,34 +20,23 @@
     },
     "background": {
         "scripts": [
-            "assist/aes.js",
-            "assist/md5.js",
-            "jsqrcode/grid.js",
-            "jsqrcode/version.js",
-            "jsqrcode/detector.js",
-            "jsqrcode/formatinf.js",
-            "jsqrcode/errorlevel.js",
-            "jsqrcode/bitmat.js",
-            "jsqrcode/datablock.js",
-            "jsqrcode/bmparser.js",
-            "jsqrcode/datamask.js",
-            "jsqrcode/rsdecoder.js",
-            "jsqrcode/gf256poly.js",
-            "jsqrcode/gf256.js",
-            "jsqrcode/decoder.js",
-            "jsqrcode/qrcode.js",
-            "jsqrcode/findpat.js",
-            "jsqrcode/alignpat.js",
-            "jsqrcode/databr.js",
-            "javascript/background.js"
+            "aes.js",
+            "md5.js",
+            "sha.js",
+            "build/models/encryption.js",
+            "build/models/interface.js",
+            "build/models/key-utilities.js",
+            "build/models/otp.js",
+            "build/models/storage.js",
+            "build/background.js"
         ],
         "persistent": false
     },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "css": ["css/content.css"],
-            "js": ["javascript/content.js"]
+            "css": [],
+            "js": ["build/content.js"]
         }
     ],
     "permissions": [

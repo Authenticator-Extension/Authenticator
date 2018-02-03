@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
+<link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
+<script src="vue.min.js"></script>
+<!-- <script src="sha.js"></script>
+<script src="build/models/encryption.js"></script>
+<script src="build/models/interface.js"></script> -->
+</head>
+<body>
+<div id="authenticator" v-cloak>
+    <div id="header">
+        <span>{{ i18n.extName }}</span>
+        <div id="infoAction" class=""><i class="fa fa-cog"></i></div>
+        <div id="editAction" edit="false"><i class="fa fa-pencil"></i></div>
+    </div>
+    <div id="codes">
+        <div class="entry" v-for="entry in entries">
+            <div class="deleteAction"><i class="fa fa-minus-circle"></i></div>
+            <div class="sector"></div>
+            <div class="issuer">{{ entry.issuer }}</div>
+            <div class="issuerEdit">
+                <input class="issuerEditBox" type="text" v-model="entry.issuer">
+            </div>
+            <div class="code">{{ entry.code }}</div>
+            <div class="account">{{ entry.account }}</div>
+            <div class="accountEdit">
+                <input class="accountEditBox" type="text" v-model="entry.account">
+            </div>
+            <div class="showqr"><i class="fa fa-qrcode"></i></div>
+            <div class="movehandle"><i class="fa fa-bars"></i></div>
+        </div>
+    </div>
+</div>
+<script src="build/popup.js"></script>
+</body>
+</html>

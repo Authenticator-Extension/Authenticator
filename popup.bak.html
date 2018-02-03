@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="qrcode.js/qrcode.js"></script>
+<link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
+<link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
+</head>
+<body>
+<div id="header">
+    <span id="extName">Authenticator</span>
+    <div id="infoAction" class=""><i class="fa fa-cog"></i></div>
+    <div id="editAction" edit="false"><i class="fa fa-pencil"></i></div>
+</div>
+
+    <div id="codes" class="timeout">
+    <div id="codeList"><div id="codeBox-0" class="codeBox"><div class="deleteAction" codeid="0" key="9656fee98177a1da719c77713c0a4192"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">Battlenet</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="0" value="Battlenet"></div><div class="code" id="code-0">68667399</div><div class="account">wow@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="0" value="wow@lizhe.org"></div><div id="showqr-0" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-1" class="codeBox"><div class="deleteAction" codeid="1" key="88e33315397f685d36ed7111f8d34d5d"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">DigitalOcean</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="1" value="DigitalOcean::cloud.digitalocean.com"></div><div class="code" id="code-1">897222</div><div class="account">lizhe</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="1" value="lizhe"></div><div id="showqr-1" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-2" class="codeBox"><div class="deleteAction" codeid="2" key="9a7cffc01fe554398f7c65bdce5dea54"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">Slack</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="2" value="Slack"></div><div class="code" id="code-2">924170</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="2" value="lizhe@lizhe.org"></div><div id="showqr-2" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-3" class="codeBox"><div class="deleteAction" codeid="3" key="0cbca6e2fbb8709e7e88f7f411fb9575"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">GitLab</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="3" value="GitLab"></div><div class="code" id="code-3">500089</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="3" value="lizhe@lizhe.org"></div><div id="showqr-3" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-4" class="codeBox"><div class="deleteAction" codeid="4" key="0fa1b8aa12e527faf02740d388b84a8f"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">GitHub</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="4" value="GitHub::github.com"></div><div class="code" id="code-4">815823</div><div class="account">github.com/Sneezry</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="4" value="github.com/Sneezry"></div><div id="showqr-4" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-5" class="codeBox"><div class="deleteAction" codeid="5" key="64f5275c47715e02126d010e527e9ec1"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">www.lakebtc.com</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="5" value="www.lakebtc.com"></div><div class="code" id="code-5">352408</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="5" value="lizhe@lizhe.org"></div><div id="showqr-5" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-6" class="codeBox"><div class="deleteAction" codeid="6" key="a3b427c8b1acc15bd12206b916826a23"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">yunbi.com</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="6" value="yunbi.com::www.huobi.com"></div><div class="code" id="code-6">976894</div><div class="account">btc@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="6" value="btc@lizhe.org"></div><div id="showqr-6" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-7" class="codeBox"><div class="deleteAction" codeid="7" key="8ca4561f7d0c11a8a513248a5524f882"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">huobi</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="7" value="huobi"></div><div class="code" id="code-7">391281</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="7" value="lizhe@lizhe.org"></div><div id="showqr-7" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-8" class="codeBox"><div class="deleteAction" codeid="8" key="98528e358aebc7fc63405f695f2a1ba8"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">Bitstamp</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="8" value="Bitstamp::www.bitstamp.net"></div><div class="code" id="code-8">049350</div><div class="account">663434@Bitstamp</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="8" value="663434@Bitstamp"></div><div id="showqr-8" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-9" class="codeBox"><div class="deleteAction" codeid="9" key="d824a57294d1e23975e4643aa2b717e3"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">GateHub</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="9" value="GateHub::signin.gatehub.net"></div><div class="code" id="code-9">793891</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="9" value="lizhe@lizhe.org"></div><div id="showqr-9" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-10" class="codeBox"><div class="deleteAction" codeid="10" key="c09ffd27293c6a72e3c1c68410cb9053"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">V2EX</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="10" value="V2EX::www.v2ex.com"></div><div class="code" id="code-10">644612</div><div class="account">@sneezry</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="10" value="@sneezry"></div><div id="showqr-10" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div><div id="codeBox-11" class="codeBox"><div class="deleteAction" codeid="11" key="09261f3f363798b890dd0b2f9b77bfab"><i class="fa fa-minus-circle"></i></div><div class="sector" style="background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABPklEQVRYR+2W0W2DQAyG/U/QdIJmg2SDZJN2g/bxeGreDLzQDZpN2g2aETIGCImrLIGE0qQJ50j4wUi8wPnu4/MdNsj4BeN85IDaDCUbrKpq0bbtKsa4jTEuiUjudQjhUQs1jk8CZOYdgFciWpzChBCS5rz0UZMmY+YXAO+9rbNzzgbIzEsAByJ6+C+FswEKVG/w0yxgD7kH8HwJclaDAiWnt67rA4Cnc5CzAwpUWZbrrut+zAIKWFEUbzHGytRv5hSGmb8BbMbPTaR4AJL92DTNcfzrMQXYn+otgK8B2hyggOV5/kFEUvrIJGAPKVVmZRZwKIUhhD8NhKa7mdQsXFtISmGWZftr46a8vyvglIVvHeuAt5q6S8OqXSwl3lOcYm0c4wbdoNaANt73oBvUGtDG+x50g1oD2njfg1qDv1OAVSkCKY1LAAAAAElFTkSuQmCC&quot;) center center / 20px 20px;"></div><div class="issuer">BigONE</div><div class="issuerEdit"><input class="issuerEditBox" type="text" codeid="11" value="BigONE"></div><div class="code" id="code-11">692926</div><div class="account">lizhe@lizhe.org</div><div class="accountEdit"><input class="accountEditBox" type="text" codeid="11" value="lizhe@lizhe.org"></div><div id="showqr-11" class="showqr"><i class="fa fa-qrcode"></i></div><div class="movehandle"><i class="fa fa-bars"></i></div></div></div>
+    <div id="add"><i class="fa fa-plus"></i></div>
+    </div>
+    <div id="notification"></div>
+    <div id="menu">
+    <div id="menuHead">
+    <span id="menuName">Settings</span>
+    <div id="menuClose"><i class="fa fa-arrow-left"></i></div>
+    </div>
+    <div class="menuList">
+        <p id="menuAbout"><i class="fa fa-info-circle"></i>About</p>
+    </div>
+    <div class="menuList">
+        <p id="menuExImport"><i class="fa fa-exchange"></i>Export / Import</p>
+        <p id="menuSecurity"><i class="fa fa-lock"></i>Security</p>
+        <p id="menuSyncTime"><i class="fa fa-refresh"></i>Sync Clock with Google</p>
+        <p id="menuResize"><i class="fa fa-expand"></i>Resize Popup Page</p>
+    </div>
+    <div class="menuList">
+        <p><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank" href="https://github.com/Sneezry/authenticator/issues/new">Feedback</a></p>
+        <p><i class="fa fa-globe"></i><a id="menuTranslate" target="_blank" href="https://crwd.in/authenticator-firefox">Translate</a></p>
+        <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Sneezry/authenticator">Source Code</a></p>
+    </div>
+    <div id="version">Version 4.20</div>
+    </div>
+    <div id="info">
+    <div id="infoClose"><i class="fa fa-times-circle"></i></div>
+    <div id="infoContent"></div>
+    </div>
+    <div id="addAccount">
+    <div id="addAccountClose"><i class="fa fa-times-circle"></i></div>
+    <div id="addAccountContent">
+    <div id="add_qr">Scan QR Code</div>
+    <div id="add_secret">Manual Entry</div>
+    <div id="secret_box">
+    <label for="account_input" id="account_label">Account</label>
+    <input type="text" id="account_input">
+    <label for="secret_input" id="secret_label">Secret</label>
+    <input type="text" id="secret_input">
+    <div class="radio_group">
+    <input type="radio" id="totp" name="otp_type" checked="true">
+    <label for="totp" id="totp_label">Time Based</label>
+    </div>
+    <div class="radio_group">
+    <input type="radio" id="hotp" name="otp_type">
+    <label for="hotp" id="hotp_label">Counter Based</label>
+    </div>
+    <div id="add_button">OK</div>
+    </div>
+    </div>
+    </div>
+    <div id="security">
+    <div id="securityClose"><i class="fa fa-times-circle"></i></div>
+    <div id="security_warning">This passphrase will be used to encrypt your secrets. No one can help you if you forget the passphrase.</div>
+    <label for="security_new_phrase" id="security_new_phrase_label">Passphrase</label>
+    <input id="security_new_phrase" type="password">
+    <label for="security_confirm_phrase" id="security_confirm_phrase_label">Confirm Passphrase</label>
+    <input id="security_confirm_phrase" type="password">
+    <div class="checkbox_group">
+    <input type="checkbox" id="remember_new_phrase" checked="true">
+    <label for="remember_new_phrase" id="remember_new_phrase_label">Remember Passphrase</label>
+    </div>
+    <div id="security_save">OK</div>
+    </div>
+    <div id="passphrase">
+    <div id="passphraseClose"><i class="fa fa-times-circle"></i></div>
+    <div id="passphrase_info">Input passphrase to decrypt account data.</div>
+    <label for="phrase" id="passphrase_phrase_label"></label>
+    <input id="phrase" type="password">
+    <div class="checkbox_group">
+    <input type="checkbox" id="remember_phrase" checked="true">
+    <label for="remember_phrase" id="remember_phrase_label">Remember Passphrase</label>
+    </div>
+    <div id="passphrase_ok">OK</div>
+    </div>
+    <div id="export">
+    <div id="exportClose"><i class="fa fa-times-circle"></i></div>
+    <div id="exportContent">
+    <textarea id="exportData"></textarea>
+    <div id="exportButton">Update</div>
+    </div>
+    </div>
+    
+    <div id="resize">
+    <div id="resizeClose"><i class="fa fa-times-circle"></i></div>
+    <label for="resize_list" id="resize_list_label">Scale</label>
+    <select id="resize_list">
+        <option value="100" selected="">100%</option>
+        <option value="90">90%</option>
+        <option value="80">80%</option>
+        <option value="67">67%</option>
+        <option value="57">57%</option>
+        <option value="50">50%</option>
+        <option value="40">40%</option>
+        <option value="33">33%</option>
+        <option value="25">25%</option>
+        <option value="20">20%</option>
+    </select>
+    <div id="resize_save">OK</div>
+    </div>
+    
+    <div id="message">
+    <div id="message_content"></div>
+    <div id="message_close">OK</div>
+    </div>
+    <div id="qr"></div>
+    <canvas id="sector" width="40" height="40" style="display:none"></canvas>
+    <input type="text" id="codeClipboard">
+    <script src="javascript/sector.js"></script>
+    <script src="javascript/popup.js"></script>
+    
+    
+</body>
+</html>

@@ -17,13 +17,14 @@ interface OTP {
   account: string;
   hash: string;
   counter: number;
+  code: string;
   create(encryption: Encription): Promise<void>;
   update(
       encryption: Encription, issuer: string, account: string, index: number,
       counter: number): Promise<void>;
   next(encryption: Encription): Promise<void>;
   delete(): Promise<void>;
-  generate(): string;
+  generate(): void;
 }
 
 interface OTPStorage {
@@ -34,4 +35,9 @@ interface OTPStorage {
   issuer: string;
   secret: string;
   type: string;
+}
+
+/* tslint:disable-next-line:interface-name */
+interface I18nMessage {
+  [key: string]: {message: string, description: string};
 }

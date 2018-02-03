@@ -50,11 +50,11 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, Promise.resolve);
+              chrome.storage.sync.set(_data, resolve);
             });
             return;
           } catch (error) {
-            return Promise.reject(error);
+            return reject(error);
           }
         });
   }
@@ -71,48 +71,70 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, Promise.resolve);
+              chrome.storage.sync.set(_data, resolve);
             });
             return;
           } catch (error) {
-            return Promise.reject(error);
+            return reject(error);
           }
         });
   }
 
-  static async get() {
+  static async get(encryption: Encription) {
     return new Promise(
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
-              const data: OTPEntry[] = [];
-              for (const hash of Object.keys(_data)) {
-                const entryData = _data[hash];
-                let type: OTPType;
-                switch (entryData.type) {
-                  case 'totp':
-                  case 'hotp':
-                  case 'battle':
-                  case 'steam':
-                    type = OTPType[entryData.type];
-                    break;
-                  default:
-                    type = OTPType.totp;
-                }
-                const entry = new OTPEntry(
-                    type, entryData.issuer, entryData.secret, entryData.account,
-                    entryData.index);
-                data.push(entry);
-              }
-              Promise.resolve(data);
-            });
-            return;
+            const data: OTPEntry[] = [];
+            data.push(new OTPEntry(
+                OTPType.totp, 'test issuer', 'abcd2345', 'sneezry', 0));
+            data.push(new OTPEntry(
+                OTPType.totp, 'test issuer1', 'bbcd2345', 'sneezry1', 1));
+            data.push(new OTPEntry(
+                OTPType.totp, 'test issuer2', 'abcc2345', 'sneezry2', 2));
+            return resolve(data);
           } catch (error) {
-            return Promise.reject(error);
+            return reject(error);
           }
         });
   }
+
+  // static async get(encryption: Encription) {
+  //   return new Promise(
+  //       (resolve: (value: OTPEntry[]) => void,
+  //        reject: (reason: Error) => void) => {
+  //         try {
+  //           chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) =>
+  //           {
+  //             const data: OTPEntry[] = [];
+  //             for (const hash of Object.keys(_data)) {
+  //               const entryData = _data[hash];
+  //               let type: OTPType;
+  //               switch (entryData.type) {
+  //                 case 'totp':
+  //                 case 'hotp':
+  //                 case 'battle':
+  //                 case 'steam':
+  //                   type = OTPType[entryData.type];
+  //                   break;
+  //                 default:
+  //                   type = OTPType.totp;
+  //               }
+  //               entryData.secret =
+  //                   encryption.getDecryptedSecret(entryData.secret);
+  //               const entry = new OTPEntry(
+  //                   type, entryData.issuer, entryData.secret,
+  //                   entryData.account, entryData.index);
+  //               data.push(entry);
+  //             }
+  //             return resolve(data);
+  //           });
+  //           return;
+  //         } catch (error) {
+  //           return reject(error);
+  //         }
+  //       });
+  // }
 
   static async delete(entry: OTPEntry) {
     return new Promise(
@@ -123,11 +145,11 @@ class EntryStorage {
                 delete _data[entry.hash];
               }
               _data = this.ensureUniqueIndex(_data);
-              return Promise.resolve();
+              return resolve();
             });
             return;
           } catch (error) {
-            return Promise.reject(error);
+            return reject(error);
           }
         });
   }

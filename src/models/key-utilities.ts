@@ -82,11 +82,11 @@ class KeyUtilities {
         key = secret;
         break;
       case OTPType.battle:
-        key = this.base32tohex(secret.substr(5));
+        key = this.base32tohex(secret);
         len = 8;
         break;
       case OTPType.steam:
-        key = this.base32tohex(secret.substr(4));
+        key = this.base32tohex(secret);
         len = 10;
         b26 = true;
         break;
@@ -111,7 +111,7 @@ class KeyUtilities {
     // external library for SHA functionality
     const hmacObj = new jsSHA('SHA-1', 'HEX');
     hmacObj.setHMACKey(key, 'HEX');
-    hmacObj.update(this.hex2str(time));
+    hmacObj.update(time);
     const hmac = hmacObj.getHMAC('HEX');
 
     let offset = 0;

@@ -12,6 +12,7 @@ class OTPEntry implements OTP {
   account: string;
   hash: string;
   counter: number;
+  code: string;
 
   constructor(
       type: OTPType, issuer: string, secret: string, account: string,
@@ -23,6 +24,7 @@ class OTPEntry implements OTP {
     this.account = account;
     this.hash = CryptoJS.MD5(secret).toString();
     this.counter = 0;
+    this.generate();
   }
 
   async create(encryption: Encription) {
@@ -57,6 +59,10 @@ class OTPEntry implements OTP {
   }
 
   generate() {
-    return KeyUtilities.generate(this.type, this.secret, this.counter);
+    if (this.secret === 'Encrypted') {
+      this.code = 'Encrypted';
+    } else {
+      this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
+    }
   }
 }
