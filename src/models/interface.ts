@@ -4,7 +4,8 @@ enum OTPType {
   totp = 1,
   hotp,
   battle,
-  steam
+  steam,
+  hex
 }
 
 interface OTP {

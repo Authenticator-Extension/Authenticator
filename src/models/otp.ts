@@ -56,6 +56,6 @@ class OTPEntry implements OTP {
   }
 
   generate() {
-    return KeyUtilities.generate(this.secret);
+    return KeyUtilities.generate(this.type, this.secret, this.counter);
   }
 }

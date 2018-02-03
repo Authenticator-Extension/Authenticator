@@ -5,6 +5,7 @@
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
 /// <reference path="../../node_modules/@types/jssha/index.d.ts" />
+/// <reference path="./interface.ts" />
 
 class KeyUtilities {
   private static dec2hex(s: number): string {
@@ -66,32 +67,37 @@ class KeyUtilities {
     return output;
   }
 
-  static generate(secret: string, counter?: number) {
+  static generate(type: OTPType, secret: string, counter: number) {
     secret = secret.replace(/\s/g, '');
     let len = 6;
     let b26 = false;
-    let key = '';
-    if (/^[a-z2-7]+=*$/.test(secret.toLowerCase())) {
-      key = this.base32tohex(secret);
-    } else if (/^[0-9a-f]+$/.test(secret.toLowerCase())) {
-      key = secret;
-    } else if (/^bliz\-/.test(secret.toLowerCase())) {
-      key = this.base32tohex(secret.substr(5));
-      len = 8;
-    } else if (/^blz\-/.test(secret.toLowerCase())) {
-      key = this.base32tohex(secret.substr(4));
-      len = 8;
-    } else if (/^stm\-/.test(secret.toLowerCase())) {
-      key = this.base32tohex(secret.substr(4));
-      len = 10;
-      b26 = true;
+    let key: string;
+    switch(type) {
+      case OTPType.totp:
+      case OTPType.hotp:
+        key = this.base32tohex(secret);
+        break;
+      case OTPType.hex:
+        key = secret;
+        break;
+      case OTPType.battle:
+        key = this.base32tohex(secret.substr(5));
+        len = 8;
+        break;
+      case OTPType.steam:
+        key = this.base32tohex(secret.substr(4));
+        len = 10;
+        b26 = true;
+        break;
+      default:
+        key = this.base32tohex(secret);
     }
 
     if (!key) {
       throw new Error('Invalid secret key');
     }
 
-    if (counter === undefined) {
+    if (type !== OTPType.hotp) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
       if (localStorage.offset) {
         epoch = epoch + Number(localStorage.offset);
