@@ -1,3 +1,4 @@
+/* tslint:disable:no-reference */
 /// <reference path="./encryption.ts" />
 
 enum OTPType {

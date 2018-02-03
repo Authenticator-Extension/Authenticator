@@ -1,8 +1,9 @@
+/* tslint:disable:no-reference */
 /// <reference path="./encryption.ts" />
 /// <reference path="./interface.ts" />
 /// <reference path="./otp.ts" />
 
-class entryStorage {
+class EntryStorage {
   private static getOTPStorageFromEntry(
       encryption: Encription, entry: OTPEntry): OTPStorage {
     const storageItem: OTPStorage = {

@@ -4,6 +4,7 @@
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
+/* tslint:disable:no-reference */
 /// <reference path="../../node_modules/@types/jssha/index.d.ts" />
 /// <reference path="./interface.ts" />
 
@@ -72,7 +73,7 @@ class KeyUtilities {
     let len = 6;
     let b26 = false;
     let key: string;
-    switch(type) {
+    switch (type) {
       case OTPType.totp:
       case OTPType.hotp:
         key = this.base32tohex(secret);

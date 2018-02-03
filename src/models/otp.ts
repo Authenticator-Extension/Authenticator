@@ -1,3 +1,4 @@
+/* tslint:disable:no-reference */
 /// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 /// <reference path="./encryption.ts" />
 /// <reference path="./interface.ts" />
@@ -25,7 +26,7 @@ class OTPEntry implements OTP {
   }
 
   async create(encryption: Encription) {
-    await entryStorage.add(encryption, this);
+    await EntryStorage.add(encryption, this);
     return;
   }
 
@@ -36,12 +37,12 @@ class OTPEntry implements OTP {
     this.account = account;
     this.index = index;
     this.counter = counter;
-    entryStorage.update(encryption, this);
+    EntryStorage.update(encryption, this);
     return;
   }
 
   async delete() {
-    entryStorage.delete(this);
+    EntryStorage.delete(this);
     return;
   }
 

@@ -1,3 +1,4 @@
+/* tslint:disable:no-reference */
 /// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 
 class Encription {
