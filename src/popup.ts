@@ -2,6 +2,7 @@
 /// <reference path="./models/interface.ts" />
 
 // need to find a better way to handle Vue types without modules
+// we use vue 1.0 here to solve csp issues
 /* tslint:disable-next-line:no-any */
 declare var Vue: any;
 

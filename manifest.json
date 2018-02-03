@@ -20,9 +20,9 @@
     },
     "background": {
         "scripts": [
-            "aes.js",
-            "md5.js",
-            "sha.js",
+            "js/aes.js",
+            "js/md5.js",
+            "js/sha.js",
             "build/models/encryption.js",
             "build/models/interface.js",
             "build/models/key-utilities.js",
