@@ -16,25 +16,48 @@
 <div id="authenticator" v-cloak>
     <div id="header">
         <span>{{ i18n.extName }}</span>
-        <div id="infoAction" class=""><i class="fa fa-cog"></i></div>
-        <div id="editAction" v-bind:edit="class.edit" v-on:click="class.edit = !class.edit"><i v-bind:class="{fa: true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
+        <div id="infoAction" class="" v-on:click="showMenu()"><i class="fa fa-cog"></i></div>
+        <div id="editAction" v-bind:edit="class.edit" v-on:click="class.edit = !class.edit"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
-    <div id="codes" v-bind:class="{timeout: class.timeout && !class.edit, edit: class.edit}">
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}">
         <div class="entry" v-for="entry in entries">
             <div class="deleteAction"><i class="fa fa-minus-circle"></i></div>
             <div class="sector" v-bind:style="{background: sector}"></div>
             <div class="issuer">{{ entry.issuer }}</div>
             <div class="issuerEdit">
-                <input class="issuerEditBox" type="text" v-model="entry.issuer">
+                <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
             </div>
             <div class="code" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
             <div class="account">{{ entry.account }}</div>
             <div class="accountEdit">
-                <input class="accountEditBox" type="text" v-model="entry.account">
+                <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
             </div>
             <div class="showqr"><i class="fa fa-qrcode"></i></div>
             <div class="movehandle"><i class="fa fa-bars"></i></div>
         </div>
+        <div id="add"><i class="fa fa-plus"></i></div>
+    </div>
+    <!-- MENU -->
+    <div id="menu" v-bind:class="{'slidein': class.slidein, 'slideout': class.slideout}">
+        <div id="menuHead">
+            <span id="menuName">{{ i18n.settings }}</span>
+            <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
+        </div>
+        <div class="menuList">
+            <p id="menuAbout"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+        </div>
+        <div class="menuList">
+            <p id="menuExImport"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+            <p id="menuSecurity"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
+            <p id="menuSyncTime"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
+            <p id="menuResize"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+        </div>
+        <div class="menuList">
+            <p><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank" href="https://github.com/Sneezry/authenticator/issues/new">{{ i18n.feedback }}</a></p>
+            <p><i class="fa fa-globe"></i><a id="menuTranslate" target="_blank" href="https://crwd.in/authenticator-firefox">{{ i18n.translate }}</a></p>
+            <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Sneezry/authenticator">{{ i18n.source }}</a></p>
+        </div>
+        <div id="version">Version {{ version }}</div>
     </div>
 </div>
 <script src="build/popup.js"></script>

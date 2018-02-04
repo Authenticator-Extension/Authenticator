@@ -8,15 +8,29 @@
 /* tslint:disable-next-line:no-any */
 declare var Vue: any;
 
-let encryption = new Encription('');
-
-function updateEncription(password: string) {
-  encryption = new Encription(password);
-}
-
-async function getEntries() {
+async function getEntries(encryption: Encription) {
   const optEntries: OTP[] = await EntryStorage.get(encryption);
   return optEntries;
+}
+
+async function getVersion() {
+  return new Promise(
+      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+        try {
+          const xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              const manifest: {version: string} = JSON.parse(xhr.responseText);
+              return resolve(manifest.version);
+            }
+            return;
+          };
+          xhr.open('GET', chrome.extension.getURL('/manifest.json'));
+          xhr.send();
+        } catch (error) {
+          return reject(error);
+        }
+      });
 }
 
 async function loadI18nMessages() {
@@ -95,15 +109,38 @@ function getSector(second: number) {
 }
 
 async function init() {
+  const version = await getVersion();
   const i18n = await loadI18nMessages();
-  const entries = await getEntries();
+  const encryption = new Encription('');
+  const entries = await getEntries(encryption);
 
   const authenticator = new Vue({
     el: '#authenticator',
-    data: {i18n, entries, class: {timeout: false, edit: false}, sector: ''},
+    data: {
+      version,
+      i18n,
+      entries,
+      encryption,
+      class: {timeout: false, edit: false, slidein: false, slideout: false},
+      sector: ''
+    },
     methods: {
       showBulls: (code: string) => {
         return new Array(code.length).fill('&bull;').join('');
+      },
+      updateEncription: (password: string) => {
+        authenticator.encryption = new Encription(password);
+      },
+      showMenu: () => {
+        authenticator.class.slidein = true;
+        authenticator.class.slideout = false;
+      },
+      closeMenu: () => {
+        authenticator.class.slidein = false;
+        authenticator.class.slideout = true;
+        setTimeout(() => {
+          authenticator.class.slideout = false;
+        }, 200);
       }
     }
   });

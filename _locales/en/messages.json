@@ -123,6 +123,10 @@
         "message": "Feedback",
         "description": "Feedback."
     },
+    "translate": {
+        "message": "Translate",
+        "description": "Translate."
+    },
     "source": {
         "message": "Source Code",
         "description": "Source Code."
@@ -144,7 +148,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Please note that no one can help you with getting back locked account, don't wait until it's too late. We will remind you to make a backup again after 30 days.",
+        "message": "NEVER REINSTALL THE EXTENSION TO TRY TO FIX ANY ISSUE, OR YOU WILL LOSE ALL YOUR DATA! Do you have a backup for your secrets? Please note that no one can help you with getting back locked account, don't wait until it's too late. We will remind you to make a backup again after 30 days.",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -170,5 +174,9 @@
     "scale": {
         "message": "Scale",
         "description": "Scale"
+    },
+    "export_info": {
+        "message": "Copy this text and save it somewhere else to backup your secrets. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "description": "Export menu info text"
     }
 }

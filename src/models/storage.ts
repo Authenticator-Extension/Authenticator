@@ -85,56 +85,36 @@ class EntryStorage {
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            const data: OTPEntry[] = [];
-            data.push(new OTPEntry(
-                OTPType.totp, 'test issuer', 'abcd2345', 'sneezry', 0));
-            data.push(new OTPEntry(
-                OTPType.totp, 'test issuer1', 'bbcd2345', 'sneezry1', 1));
-            data.push(new OTPEntry(
-                OTPType.totp, 'test issuer2', 'abcc2345', 'sneezry2', 2));
-            return resolve(data);
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+              const data: OTPEntry[] = [];
+              for (const hash of Object.keys(_data)) {
+                const entryData = _data[hash];
+                let type: OTPType;
+                switch (entryData.type) {
+                  case 'totp':
+                  case 'hotp':
+                  case 'battle':
+                  case 'steam':
+                    type = OTPType[entryData.type];
+                    break;
+                  default:
+                    type = OTPType.totp;
+                }
+                entryData.secret =
+                    encryption.getDecryptedSecret(entryData.secret);
+                const entry = new OTPEntry(
+                    type, entryData.issuer, entryData.secret, entryData.account,
+                    entryData.index);
+                data.push(entry);
+              }
+              return resolve(data);
+            });
+            return;
           } catch (error) {
             return reject(error);
           }
         });
   }
-
-  // static async get(encryption: Encription) {
-  //   return new Promise(
-  //       (resolve: (value: OTPEntry[]) => void,
-  //        reject: (reason: Error) => void) => {
-  //         try {
-  //           chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) =>
-  //           {
-  //             const data: OTPEntry[] = [];
-  //             for (const hash of Object.keys(_data)) {
-  //               const entryData = _data[hash];
-  //               let type: OTPType;
-  //               switch (entryData.type) {
-  //                 case 'totp':
-  //                 case 'hotp':
-  //                 case 'battle':
-  //                 case 'steam':
-  //                   type = OTPType[entryData.type];
-  //                   break;
-  //                 default:
-  //                   type = OTPType.totp;
-  //               }
-  //               entryData.secret =
-  //                   encryption.getDecryptedSecret(entryData.secret);
-  //               const entry = new OTPEntry(
-  //                   type, entryData.issuer, entryData.secret,
-  //                   entryData.account, entryData.index);
-  //               data.push(entry);
-  //             }
-  //             return resolve(data);
-  //           });
-  //           return;
-  //         } catch (error) {
-  //           return reject(error);
-  //         }
-  //       });
-  // }
 
   static async delete(entry: OTPEntry) {
     return new Promise(

@@ -19,9 +19,7 @@ interface OTP {
   counter: number;
   code: string;
   create(encryption: Encription): Promise<void>;
-  update(
-      encryption: Encription, issuer: string, account: string, index: number,
-      counter: number): Promise<void>;
+  update(encryption: Encription): Promise<void>;
   next(encryption: Encription): Promise<void>;
   delete(): Promise<void>;
   generate(): void;

@@ -448,11 +448,13 @@ body {
 #menu.slidein {
     left: 0;
     animation: slidein 0.2s 1 ease-out;
+    opacity: 1;
 }
 
 #menu.slideout {
     left: -55px;
     animation: slideout 0.2s 1 ease-in;
+    opacity: 0;
 }
 
 #menuHead {

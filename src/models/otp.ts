@@ -32,13 +32,7 @@ class OTPEntry implements OTP {
     return;
   }
 
-  async update(
-      encryption: Encription, issuer: string, account: string, index: number,
-      counter: number) {
-    this.issuer = issuer;
-    this.account = account;
-    this.index = index;
-    this.counter = counter;
+  async update(encryption: Encription) {
     EntryStorage.update(encryption, this);
     return;
   }
@@ -53,8 +47,7 @@ class OTPEntry implements OTP {
       return;
     }
     this.counter++;
-    await this.update(
-        encryption, this.issuer, this.secret, this.index, this.counter);
+    await this.update(encryption);
     return;
   }
 
