@@ -13,17 +13,17 @@
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div id="infoAction" class=""><i class="fa fa-cog"></i></div>
-        <div id="editAction" edit="false"><i class="fa fa-pencil"></i></div>
+        <div id="editAction" v-bind:edit="class.edit" v-on:click="class.edit = !class.edit"><i v-bind:class="{fa: true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
-    <div id="codes">
+    <div id="codes" v-bind:class="{timeout: class.timeout && !class.edit, edit: class.edit}">
         <div class="entry" v-for="entry in entries">
             <div class="deleteAction"><i class="fa fa-minus-circle"></i></div>
-            <div class="sector"></div>
+            <div class="sector" v-bind:style="{background: sector}"></div>
             <div class="issuer">{{ entry.issuer }}</div>
             <div class="issuerEdit">
                 <input class="issuerEditBox" type="text" v-model="entry.issuer">
             </div>
-            <div class="code">{{ entry.code }}</div>
+            <div class="code" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
             <div class="account">{{ entry.account }}</div>
             <div class="accountEdit">
                 <input class="accountEditBox" type="text" v-model="entry.account">

@@ -6,7 +6,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
-@-webkit-keyframes twinkling{
+@keyframes twinkling{
     0%{
         color:#DD4B39;
     }
@@ -15,7 +15,7 @@
     }
 }
 
-@-webkit-keyframes fadeshow{
+@keyframes fadeshow{
     0%{
         opacity:0;
     }
@@ -24,7 +24,7 @@
     }
 }
 
-@-webkit-keyframes fadehide{
+@keyframes fadehide{
     0%{
         opacity:1;
     }
@@ -33,7 +33,7 @@
     }
 }
 
-@-webkit-keyframes fadein{
+@keyframes fadein{
     0%{
         opacity:0;
         top:110px;
@@ -44,7 +44,7 @@
     }
 }
 
-@-webkit-keyframes fadeout{
+@keyframes fadeout{
     0%{
         opacity:1;
         top:10px;
@@ -55,7 +55,7 @@
     }
 }
 
-@-webkit-keyframes slidein{
+@keyframes slidein{
     0%{
         opacity:0;
         left:-55px;
@@ -66,7 +66,7 @@
     }
 }
 
-@-webkit-keyframes slideout{
+@keyframes slideout{
     0%{
         opacity:1;
         left:0;
@@ -77,7 +77,7 @@
     }
 }
 
-@-webkit-keyframes qrfadein{
+@keyframes qrfadein{
     0%{
         opacity:0;
     }
@@ -86,7 +86,7 @@
     }
 }
 
-@-webkit-keyframes qrfadeout{
+@keyframes qrfadeout{
     0%{
         opacity:1;
     }
@@ -139,12 +139,12 @@ body {
 
 #notification.fadein {
     top: 190px;
-    -webkit-animation: fadeshow 0.2s 1 ease-out;
+    animation: fadeshow 0.2s 1 ease-out;
 }
 
 #notification.fadeout {
     top: 190px;
-    -webkit-animation: fadehide 0.2s 1 ease-in;
+    animation: fadehide 0.2s 1 ease-in;
 }
 
 #codes {
@@ -201,7 +201,7 @@ body {
     cursor: pointer;
     overflow: hidden;
     border-radius: 2px;
-    -webkit-transition: height 0.2s;
+    transition: height 0.2s;
 }
 
 #codes:not(.edit) .entry[unencrypted="true"]:hover .warning {
@@ -224,14 +224,14 @@ body {
     font-size: 36px;
     color: #08C;
     width: 80%;
-    -webkit-user-select: text;
+    user-select: text;
     font-family: 'Droid Sans Mono';
     cursor: pointer;
 }
 
 #codes.edit .code {
     color: #CCC!important;
-    -webkit-user-select: none;
+    user-select: none;
     cursor: default;
 }
 
@@ -262,7 +262,7 @@ body {
 }
 
 #codes.timeout .code:not(.hotp) {
-    -webkit-animation: twinkling 1s infinite ease-in-out;
+    animation: twinkling 1s infinite ease-in-out;
 }
 
 .hotp {
@@ -301,7 +301,7 @@ body {
     opacity: 0;
 }
 
-.showqr:hover {
+.entry:hover .showqr {
     opacity: 1;
 }
 
@@ -447,12 +447,12 @@ body {
 
 #menu.slidein {
     left: 0;
-    -webkit-animation: slidein 0.2s 1 ease-out;
+    animation: slidein 0.2s 1 ease-out;
 }
 
 #menu.slideout {
     left: -55px;
-    -webkit-animation: slideout 0.2s 1 ease-in;
+    animation: slideout 0.2s 1 ease-in;
 }
 
 #menuHead {
@@ -531,7 +531,7 @@ body {
 #export.fadein,
 #resize.fadein {
     top: 10px;
-    -webkit-animation: fadein 0.2s 1 ease-out;
+    animation: fadein 0.2s 1 ease-out;
 }
 
 #info.fadeout,
@@ -541,7 +541,7 @@ body {
 #export.fadeout,
 #resize.fadeout {
     top: 110px;
-    -webkit-animation: fadeout 0.2s 1 ease-in;
+    animation: fadeout 0.2s 1 ease-in;
 }
 
 #infoClose,
@@ -632,12 +632,12 @@ body {
 
 #qr.qrfadein {
     top: 0;
-    -webkit-animation: qrfadein 0.2s 1 ease-out;
+    animation: qrfadein 0.2s 1 ease-out;
 }
 
 #qr.qrfadeout {
     top: 0;
-    -webkit-animation: qrfadeout 0.2s 1 ease-in;
+    animation: qrfadeout 0.2s 1 ease-in;
 }
 
 #secret_box {

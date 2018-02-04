@@ -47,16 +47,61 @@ async function getEntries() {
   return entries;
 }
 
+/* tslint:disable-next-line:no-any */
+async function updateCode(app: any) {
+  let second = new Date().getSeconds();
+  if (localStorage.offset) {
+    second += Number(localStorage.offset) + 30;
+  }
+  second = second % 30;
+  app.sector = getSector(second);
+  if (second > 25) {
+    app.class.timeout = true;
+  } else {
+    app.class.timeout = false;
+  }
+  if (second < 1) {
+    app.entries = await getEntries();
+  }
+}
+
+function getSector(second: number) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 40;
+  canvas.height = 40;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    return;
+  }
+  ctx.fillStyle = '#888';
+  ctx.beginPath();
+  ctx.moveTo(20, 20);
+  ctx.arc(
+      20, 20, 16, second / 30 * Math.PI * 2 - Math.PI / 2, Math.PI * 3 / 2,
+      false);
+  ctx.fill();
+  const url = canvas.toDataURL();
+  return `url(${url}) center / 20px 20px`;
+}
+
 async function init() {
   const i18n = await loadI18nMessages();
   const entries = await getEntries();
 
-  const authenticator =
-      new Vue({el: '#authenticator', data: {i18n, entries}, methods: {}});
+  const authenticator = new Vue({
+    el: '#authenticator',
+    data: {i18n, entries, class: {timeout: false, edit: false}, sector: ''},
+    methods: {
+      showBulls: (code: string) => {
+        return new Array(code.length).fill('&bull;').join('');
+      }
+    }
+  });
 
-  // setInterval(async () => {
-  //   authenticator.entries = await getEntries();
-  // }, 1000);
+  updateCode(authenticator);
+  setInterval(async () => {
+    await updateCode(authenticator);
+  }, 1000);
   return;
 }
 
