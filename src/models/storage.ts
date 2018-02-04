@@ -145,7 +145,8 @@ class EntryStorage {
                 delete _data[entry.hash];
               }
               _data = this.ensureUniqueIndex(_data);
-              return resolve();
+              chrome.storage.sync.set(_data, resolve);
+              return;
             });
             return;
           } catch (error) {

@@ -1,10 +1,23 @@
 /* tslint:disable:no-reference */
+/// <reference path="./models/encryption.ts" />
 /// <reference path="./models/interface.ts" />
+/// <reference path="./models/storage.ts" />
 
 // need to find a better way to handle Vue types without modules
 // we use vue 1.0 here to solve csp issues
 /* tslint:disable-next-line:no-any */
 declare var Vue: any;
+
+let encryption = new Encription('');
+
+function updateEncription(password: string) {
+  encryption = new Encription(password);
+}
+
+async function getEntries() {
+  const optEntries: OTP[] = await EntryStorage.get(encryption);
+  return optEntries;
+}
 
 async function loadI18nMessages() {
   return new Promise(
@@ -41,12 +54,6 @@ async function getDataFromBackground<T>(command: {}) {
       });
 }
 
-async function getEntries() {
-  const entries: OTP[] =
-      await getDataFromBackground<OTP[]>({action: 'GET_ENTRIES'});
-  return entries;
-}
-
 /* tslint:disable-next-line:no-any */
 async function updateCode(app: any) {
   let second = new Date().getSeconds();
@@ -61,7 +68,10 @@ async function updateCode(app: any) {
     app.class.timeout = false;
   }
   if (second < 1) {
-    app.entries = await getEntries();
+    const entries = app.entries as OTP[];
+    for (let i = 0; i < entries.length; i++) {
+      entries[i].generate();
+    }
   }
 }
 
