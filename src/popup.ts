@@ -121,8 +121,16 @@ async function init() {
       i18n,
       entries,
       encryption,
-      class: {timeout: false, edit: false, slidein: false, slideout: false},
-      sector: ''
+      class: {
+        timeout: false,
+        edit: false,
+        slidein: false,
+        slideout: false,
+        fadein: false,
+        fadeout: false
+      },
+      sector: '',
+      info: ''
     },
     methods: {
       showBulls: (code: string) => {
@@ -140,6 +148,19 @@ async function init() {
         authenticator.class.slideout = true;
         setTimeout(() => {
           authenticator.class.slideout = false;
+        }, 200);
+      },
+      showInfo: (tab: string) => {
+        authenticator.class.fadein = true;
+        authenticator.class.fadeout = false;
+        authenticator.info = tab;
+      },
+      closeInfo: () => {
+        authenticator.class.fadein = false;
+        authenticator.class.fadeout = true;
+        setTimeout(() => {
+          authenticator.class.fadeout = false;
+          authenticator.info = '';
         }, 200);
       }
     }

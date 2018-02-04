@@ -16,7 +16,7 @@
 <div id="authenticator" v-cloak>
     <div id="header">
         <span>{{ i18n.extName }}</span>
-        <div id="infoAction" class="" v-on:click="showMenu()"><i class="fa fa-cog"></i></div>
+        <div id="infoAction" class="" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="class.edit = !class.edit"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}">
@@ -35,8 +35,9 @@
             <div class="showqr"><i class="fa fa-qrcode"></i></div>
             <div class="movehandle"><i class="fa fa-bars"></i></div>
         </div>
-        <div id="add"><i class="fa fa-plus"></i></div>
+        <div id="add" v-on:click="showInfo('account')"><i class="fa fa-plus"></i></div>
     </div>
+
     <!-- MENU -->
     <div id="menu" v-bind:class="{'slidein': class.slidein, 'slideout': class.slideout}">
         <div id="menuHead">
@@ -44,13 +45,13 @@
             <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
         </div>
         <div class="menuList">
-            <p id="menuAbout"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+            <p id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
         </div>
         <div class="menuList">
-            <p id="menuExImport"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-            <p id="menuSecurity"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
+            <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+            <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
             <p id="menuSyncTime"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
-            <p id="menuResize"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+            <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
         </div>
         <div class="menuList">
             <p><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank" href="https://github.com/Sneezry/authenticator/issues/new">{{ i18n.feedback }}</a></p>
@@ -58,6 +59,80 @@
             <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Sneezry/authenticator">{{ i18n.source }}</a></p>
         </div>
         <div id="version">Version {{ version }}</div>
+    </div>
+
+    <div id="info" v-bind:class="{'fadein': class.fadein, 'fadeout': class.fadeout}">
+        <div id="infoClose" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
+        <div id="infoContent">
+            <!-- ABOUT -->
+            <div v-show="info === 'about'" v-html="i18n.info"></div>
+            <!-- ADD ACCOUNT -->
+            <div v-show="info === 'account'">
+                <div id="add_qr">{{ i18n.add_qr }}</div>
+                <div id="add_secret">{{ i18n.add_secret }}</div>
+                <div id="secret_box">
+                    <label for="account_input" id="account_label">{{ i18n.account }}</label>
+                    <input type="text" id="account_input">
+                    <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
+                    <input type="text" id="secret_input">
+                    <div class="radio_group">
+                        <input type="radio" id="totp" name="otp_type" checked="true">
+                        <label for="totp" id="totp_label">{{ i18n.based_on_time }}</label>
+                    </div>
+                    <div class="radio_group">
+                        <input type="radio" id="hotp" name="otp_type">
+                        <label for="hotp" id="hotp_label">{{ i18n.based_on_counter }}</label>
+                    </div>
+                    <div id="add_button">{{ i18n.ok }}</div>
+                </div>
+            </div>
+            <!-- SECURITY -->
+            <div v-show="info === 'security'">
+                <div id="security_warning">{{ i18n.security_warning }}</div>
+                <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
+                <input id="security_new_phrase" type="password">
+                <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
+                <input id="security_confirm_phrase" type="password">
+                <div class="checkbox_group">
+                    <input type="checkbox" id="remember_new_phrase" checked="true">
+                    <label for="remember_new_phrase" id="remember_new_phrase_label">{{ i18n.remember_phrase }}</label>
+                </div>
+                <div id="security_save">{{ i18n.ok }}</div>
+            </div>
+            <!-- PASSPHRASE -->
+            <div v-show="info === 'passphrase'">
+                <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
+                <label for="phrase" id="passphrase_phrase_label"></label>
+                <input id="phrase" type="password">
+                <div class="checkbox_group">
+                    <input type="checkbox" id="remember_phrase" checked="true">
+                    <label for="remember_phrase" id="remember_phrase_label">{{ i18n.remember_phrase }}</label>
+                </div>
+                <div id="passphrase_ok">{{ i18n.ok }}</div>
+            </div>
+            <!-- EXPORT -->
+            <div v-show="info === 'export'">
+                <textarea id="exportData"></textarea>
+                <div id="exportButton">{{ i18n.update }}</div>
+            </div>
+            <!-- RESIZE -->
+            <div v-show="info === 'resize'">
+                <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
+                <select id="resize_list">
+                    <option value="100" selected="">100%</option>
+                    <option value="90">90%</option>
+                    <option value="80">80%</option>
+                    <option value="67">67%</option>
+                    <option value="57">57%</option>
+                    <option value="50">50%</option>
+                    <option value="40">40%</option>
+                    <option value="33">33%</option>
+                    <option value="25">25%</option>
+                    <option value="20">20%</option>
+                </select>
+                <div id="resize_save">{{ i18n.ok }}</div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="build/popup.js"></script>
