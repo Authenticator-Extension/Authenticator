@@ -17,11 +17,12 @@
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div id="infoAction" class="" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
-        <div id="editAction" v-bind:edit="class.edit" v-on:click="class.edit = !class.edit"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
+        <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}">
+        <!-- ENTRIES -->
         <div class="entry" v-for="entry in entries">
-            <div class="deleteAction"><i class="fa fa-minus-circle"></i></div>
+            <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
             <div class="sector" v-bind:style="{background: sector}"></div>
             <div class="issuer">{{ entry.issuer }}</div>
             <div class="issuerEdit">
@@ -50,7 +51,7 @@
         <div class="menuList">
             <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
             <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
-            <p id="menuSyncTime"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
+            <p id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
             <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
         </div>
         <div class="menuList">
@@ -61,6 +62,7 @@
         <div id="version">Version {{ version }}</div>
     </div>
 
+    <!-- INFO -->
     <div id="info" v-bind:class="{'fadein': class.fadein, 'fadeout': class.fadeout}">
         <div id="infoClose" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
         <div id="infoContent">
@@ -112,14 +114,14 @@
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'">
-                <textarea id="exportData"></textarea>
-                <div id="exportButton">{{ i18n.update }}</div>
+                <textarea id="exportData" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" v-model="exportData"></textarea>
+                <div id="exportButton" v-on:click="updateEntries()">{{ i18n.update }}</div>
             </div>
             <!-- RESIZE -->
             <div v-show="info === 'resize'">
                 <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
-                <select id="resize_list">
-                    <option value="100" selected="">100%</option>
+                <select id="resize_list" v-model="zoom">
+                    <option value="100">100%</option>
                     <option value="90">90%</option>
                     <option value="80">80%</option>
                     <option value="67">67%</option>
@@ -130,9 +132,15 @@
                     <option value="25">25%</option>
                     <option value="20">20%</option>
                 </select>
-                <div id="resize_save">{{ i18n.ok }}</div>
+                <div id="resize_save" v-on:click="saveZoom()">{{ i18n.ok }}</div>
             </div>
         </div>
+    </div>
+
+    <!-- NOTIFICATITON -->
+    <div id="message" v-show="message !== ''">
+        <div id="message_content">{{ message }}</div>
+        <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
     </div>
 </div>
 <script src="build/popup.js"></script>

@@ -33,6 +33,7 @@ interface OTPStorage {
   issuer: string;
   secret: string;
   type: string;
+  counter: number;
 }
 
 /* tslint:disable-next-line:interface-name */

@@ -38,7 +38,7 @@ class OTPEntry implements OTP {
   }
 
   async delete() {
-    EntryStorage.delete(this);
+    await EntryStorage.delete(this);
     return;
   }
 

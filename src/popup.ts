@@ -59,12 +59,40 @@ async function loadI18nMessages() {
       });
 }
 
-async function getDataFromBackground<T>(command: {}) {
+async function syncTimeWithGoogle() {
   return new Promise(
-      (resolve: (value: T) => void, reject: (reason: Error) => void) => {
-        chrome.runtime.sendMessage(command, (response: T) => {
-          return resolve(response);
-        });
+      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+        try {
+          const xhr = new XMLHttpRequest();
+          xhr.open('HEAD', 'https://www.google.com/generate_204');
+          const xhrAbort = setTimeout(() => {
+            xhr.abort();
+            return resolve('updateFailure');
+          }, 5000);
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              clearTimeout(xhrAbort);
+              const date = xhr.getResponseHeader('date');
+              if (!date) {
+                return resolve('updateFailure');
+              }
+              const serverTime = new Date(date).getTime();
+              const clientTime = new Date().getTime();
+              const offset = Math.round((serverTime - clientTime) / 1000);
+
+              if (Math.abs(offset) <= 300) {  // within 5 minutes
+                localStorage.offset =
+                    Math.round((serverTime - clientTime) / 1000);
+                return resolve('updateSuccess');
+              } else {
+                return resolve('clock_too_far_off');
+              }
+            }
+          };
+          xhr.send();
+        } catch (error) {
+          return reject(error);
+        }
       });
 }
 
@@ -108,11 +136,23 @@ function getSector(second: number) {
   return `url(${url}) center / 20px 20px`;
 }
 
+function resize(zoom: number) {
+  if (zoom !== 100) {
+    document.body.style.marginBottom = 480 * (zoom / 100 - 1) + 'px';
+    document.body.style.marginRight = 320 * (zoom / 100 - 1) + 'px';
+    document.body.style.transform = 'scale(' + (zoom / 100) + ')';
+  }
+}
+
 async function init() {
+  const zoom = Number(localStorage.zoom) || 100;
+  resize(zoom);
+
   const version = await getVersion();
   const i18n = await loadI18nMessages();
   const encryption = new Encription('');
   const entries = await getEntries(encryption);
+  const exportData = await EntryStorage.getExport();
 
   const authenticator = new Vue({
     el: '#authenticator',
@@ -121,6 +161,8 @@ async function init() {
       i18n,
       entries,
       encryption,
+      exportData,
+      zoom,
       class: {
         timeout: false,
         edit: false,
@@ -130,7 +172,8 @@ async function init() {
         fadeout: false
       },
       sector: '',
-      info: ''
+      info: '',
+      message: ''
     },
     methods: {
       showBulls: (code: string) => {
@@ -162,6 +205,46 @@ async function init() {
           authenticator.class.fadeout = false;
           authenticator.info = '';
         }, 200);
+      },
+      updateEntries: async () => {
+        await EntryStorage.import(JSON.parse(authenticator.exportData));
+        authenticator.entries = await getEntries(authenticator.encryption);
+        updateCode(authenticator);
+        authenticator.message = authenticator.i18n.updateSuccess;
+      },
+      saveZoom: () => {
+        localStorage.zoom = authenticator.zoom;
+        resize(authenticator.zoom);
+      },
+      removeEntry: async (entry: OTPEntry) => {
+        if (confirm('Remove?')) {
+          await entry.delete();
+          authenticator.exportData = await EntryStorage.getExport();
+          authenticator.entries = await getEntries(authenticator.encryption);
+          updateCode(authenticator);
+        }
+        return;
+      },
+      syncClock: async () => {
+        chrome.permissions.request(
+            {origins: ['https://www.google.com/']}, async (granted) => {
+              if (granted) {
+                const message = await syncTimeWithGoogle();
+                authenticator.message = authenticator.i18n[message];
+              }
+              return;
+            });
+        return;
+      },
+      editEntry: () => {
+        authenticator.class.edit = !authenticator.class.edit;
+        const codes = document.getElementById('codes');
+        if (codes) {
+          // wait vue apply changes to dom
+          setTimeout(() => {
+            codes.scrollTop = authenticator.class.edit ? codes.scrollHeight : 0;
+          }, 0);
+        }
       }
     }
   });
@@ -172,5 +255,12 @@ async function init() {
   }, 1000);
   return;
 }
+
+chrome.permissions.contains(
+    {origins: ['https://www.google.com/']}, (hasPermission) => {
+      if (hasPermission) {
+        syncTimeWithGoogle();
+      }
+    });
 
 init();

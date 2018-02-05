@@ -699,6 +699,5 @@ body {
     left: 10px;
     top: 150px;
     box-shadow: 1px 1px 3px gray;
-    display: none;
     z-index: 1000;
 }
