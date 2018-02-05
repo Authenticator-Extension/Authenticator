@@ -174,6 +174,10 @@ async function getQrUrl(entry: OTPEntry) {
       });
 }
 
+function isCustomEvent(event: Event): event is CustomEvent {
+  return 'detail' in event;
+}
+
 async function init() {
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
@@ -193,6 +197,7 @@ async function init() {
       encryption,
       exportData,
       zoom,
+      OTPType,
       class: {
         timeout: false,
         edit: false,
@@ -208,9 +213,11 @@ async function init() {
       sector: '',
       info: '',
       message: '',
+      confirmMessage: '',
       qr: '',
       notification: '',
-      notificationTimeout: 0
+      notificationTimeout: 0,
+      newAccount: {show: false, account: '', secret: '', type: OTPType.totp}
     },
     methods: {
       showBulls: (code: string) => {
@@ -254,7 +261,7 @@ async function init() {
         resize(authenticator.zoom);
       },
       removeEntry: async (entry: OTPEntry) => {
-        if (confirm('Remove?')) {
+        if (await authenticator.confirm('Remove?')) {
           await entry.delete();
           authenticator.exportData = await EntryStorage.getExport();
           authenticator.entries = await getEntries(authenticator.encryption);
@@ -328,6 +335,51 @@ async function init() {
                 }, 1000);
               }
             });
+      },
+      addNewAccount: async () => {
+        const entry = new OTPEntry(
+            authenticator.newAccount.type, '', authenticator.newAccount.secret,
+            authenticator.newAccount.account, 0);
+        await entry.create(authenticator.encryption);
+        authenticator.exportData = await EntryStorage.getExport();
+        authenticator.entries = await getEntries(authenticator.encryption);
+        authenticator.newAccount.type = OTPType.totp;
+        authenticator.account = '';
+        authenticator.secret = '';
+        authenticator.newAccount.show = false;
+        authenticator.closeInfo();
+        authenticator.class.edit = false;
+
+        const codes = document.getElementById('codes');
+        if (codes) {
+          // wait vue apply changes to dom
+          setTimeout(() => {
+            codes.scrollTop = 0;
+          }, 0);
+        }
+      },
+      confirm: async (message: string) => {
+        return new Promise(
+            (resolve: (value: boolean) => void,
+             reject: (reason: Error) => void) => {
+              authenticator.confirmMessage = message;
+              window.addEventListener('confirm', (event) => {
+                authenticator.confirmMessage = '';
+                if (!isCustomEvent(event)) {
+                  return resolve(false);
+                }
+                return resolve(event.detail);
+              });
+              return;
+            });
+      },
+      confirmOK: () => {
+        const confirmEvent = new CustomEvent('confirm', {detail: true});
+        window.dispatchEvent(confirmEvent);
+      },
+      confirmCancel: () => {
+        const confirmEvent = new CustomEvent('confirm', {detail: false});
+        window.dispatchEvent(confirmEvent);
       }
     }
   });
@@ -336,6 +388,7 @@ async function init() {
   setInterval(async () => {
     await updateCode(authenticator);
   }, 1000);
+
   return;
 }
 

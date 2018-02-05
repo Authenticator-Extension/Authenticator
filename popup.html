@@ -71,22 +71,22 @@
             <div v-show="info === 'about'" v-html="i18n.info"></div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
-                <div id="add_qr">{{ i18n.add_qr }}</div>
-                <div id="add_secret">{{ i18n.add_secret }}</div>
-                <div id="secret_box">
+                <div v-show="!newAccount.show">
+                    <div id="add_qr">{{ i18n.add_qr }}</div>
+                    <div id="add_secret" v-on:click="newAccount.show = true">{{ i18n.add_secret }}</div>
+                </div>
+                <div id="secret_box" v-show="newAccount.show">
                     <label for="account_input" id="account_label">{{ i18n.account }}</label>
-                    <input type="text" id="account_input">
+                    <input type="text" id="account_input" v-model="newAccount.account">
                     <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
-                    <input type="text" id="secret_input">
-                    <div class="radio_group">
-                        <input type="radio" id="totp" name="otp_type" checked="true">
-                        <label for="totp" id="totp_label">{{ i18n.based_on_time }}</label>
-                    </div>
-                    <div class="radio_group">
-                        <input type="radio" id="hotp" name="otp_type">
-                        <label for="hotp" id="hotp_label">{{ i18n.based_on_counter }}</label>
-                    </div>
-                    <div id="add_button">{{ i18n.ok }}</div>
+                    <input type="text" id="secret_input" v-model="newAccount.secret">
+                    <select v-model="newAccount.type">
+                        <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
+                        <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
+                        <option v-bind:value="OTPType.battle">Battle.net</option>
+                        <option v-bind:value="OTPType.steam">Steam</option>
+                    </select>
+                    <div id="add_button" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
                 </div>
             </div>
             <!-- SECURITY -->
@@ -142,6 +142,15 @@
     <div id="message" v-show="message !== ''">
         <div id="message_content">{{ message }}</div>
         <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
+    </div>
+
+    <!-- CONFRIM -->
+    <div id="confirm" v-show="confirmMessage !== ''">
+        <div id="confirm_content">{{ confirmMessage }}</div>
+        <div class="buttons">
+            <div id="confirm_ok" v-on:click="confirmOK()">{{ i18n.ok }}</div>
+            <div id="confirm_cancel" v-on:click="confirmCancel()">Cancel</div>
+        </div>
     </div>
 
     <!-- NOTIFICATITON -->
