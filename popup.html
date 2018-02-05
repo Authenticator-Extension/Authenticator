@@ -24,12 +24,13 @@
         <!-- ENTRIES -->
         <div class="entry" v-for="entry in entries">
             <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
-            <div class="sector" v-bind:style="{background: sector}"></div>
+            <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
+            <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
             <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
             <div class="issuerEdit">
                 <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
             </div>
-            <div class="code" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+            <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
             <div class="account">{{ entry.account }}</div>
             <div class="accountEdit">
                 <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">

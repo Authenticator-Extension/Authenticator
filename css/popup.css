@@ -432,11 +432,11 @@ body {
     cursor: pointer;
 }
 
-.counter:not([disabled="true"]):hover {
+.counter:not(.disabled):hover {
     color: #000;
 }
 
-.counter[disabled="true"] {
+.counter.disabled {
     color: #CCC;
     cursor: default;
 }

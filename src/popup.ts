@@ -115,7 +115,9 @@ async function updateCode(app: any) {
   if (second < 1) {
     const entries = app.entries as OTP[];
     for (let i = 0; i < entries.length; i++) {
-      entries[i].generate();
+      if (entries[i].type !== OTPType.hotp) {
+        entries[i].generate();
+      }
     }
   }
 }
@@ -208,7 +210,8 @@ async function init() {
         qrfadein: false,
         qrfadeout: false,
         notificationFadein: false,
-        notificationFadeout: false
+        notificationFadeout: false,
+        hotpDiabled: false
       },
       sector: '',
       info: '',
@@ -337,9 +340,17 @@ async function init() {
             });
       },
       addNewAccount: async () => {
+        let type: OTPType;
+        if (!/^[a-z2-7]+=*$/i.test(authenticator.newAccount.secret) &&
+            /^[0-9a-f]+$/i.test(authenticator.newAccount.secret)) {
+          type = OTPType.hex;
+        } else {
+          type = authenticator.newAccount.type;
+        }
+
         const entry = new OTPEntry(
-            authenticator.newAccount.type, '', authenticator.newAccount.secret,
-            authenticator.newAccount.account, 0);
+            type, '', authenticator.newAccount.secret,
+            authenticator.newAccount.account, 0, 0);
         await entry.create(authenticator.encryption);
         authenticator.exportData = await EntryStorage.getExport();
         authenticator.entries = await getEntries(authenticator.encryption);
@@ -380,6 +391,17 @@ async function init() {
       confirmCancel: () => {
         const confirmEvent = new CustomEvent('confirm', {detail: false});
         window.dispatchEvent(confirmEvent);
+      },
+      nextCode: async (entry: OTPEntry) => {
+        if (authenticator.class.hotpDiabled) {
+          return;
+        }
+        authenticator.class.hotpDiabled = true;
+        await entry.next(authenticator.encryption);
+        authenticator.exportData = await EntryStorage.getExport();
+        setTimeout(() => {
+          authenticator.class.hotpDiabled = false;
+        }, 3000);
       }
     }
   });

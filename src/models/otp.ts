@@ -16,15 +16,19 @@ class OTPEntry implements OTP {
 
   constructor(
       type: OTPType, issuer: string, secret: string, account: string,
-      index: number) {
+      index: number, counter: number) {
     this.type = type;
     this.index = index;
     this.issuer = issuer;
     this.secret = secret;
     this.account = account;
     this.hash = CryptoJS.MD5(secret).toString();
-    this.counter = 0;
-    this.generate();
+    this.counter = counter;
+    if (this.type !== OTPType.hotp) {
+      this.generate();
+    } else {
+      this.code = '&bull;&bull;&bull;&bull;&bull;&bull;';
+    }
   }
 
   async create(encryption: Encription) {
@@ -33,7 +37,7 @@ class OTPEntry implements OTP {
   }
 
   async update(encryption: Encription) {
-    EntryStorage.update(encryption, this);
+    await EntryStorage.update(encryption, this);
     return;
   }
 
@@ -46,6 +50,7 @@ class OTPEntry implements OTP {
     if (this.type !== OTPType.hotp) {
       return;
     }
+    this.generate();
     this.counter++;
     await this.update(encryption);
     return;

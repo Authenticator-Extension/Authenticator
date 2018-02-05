@@ -193,7 +193,7 @@ class EntryStorage {
 
                 const entry = new OTPEntry(
                     type, entryData.issuer, entryData.secret, entryData.account,
-                    entryData.index);
+                    entryData.index, entryData.counter);
                 data.push(entry);
 
                 // we need migrate secret in old format here
