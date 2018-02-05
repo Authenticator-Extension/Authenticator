@@ -190,7 +190,7 @@ async function init() {
   const encryption: Encryption = new Encryption('');
   let entries: OTPEntry[] = [];
   let shouldShowPassphrase = false;
-  for (const hash in Object.keys(exportData)) {
+  for (const hash of Object.keys(exportData)) {
     if (exportData[hash].encrypted) {
       shouldShowPassphrase = true;
     } else {
