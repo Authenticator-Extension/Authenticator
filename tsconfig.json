@@ -1,5 +1,5 @@
 {
-  "extends": "./../../../../usr/local/lib/node_modules/gts/tsconfig-google.json",
+  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "lib": ["es6", "dom"],
     "target": "es6",
