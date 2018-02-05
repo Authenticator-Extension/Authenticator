@@ -8,6 +8,9 @@
 /* tslint:disable-next-line:no-any */
 declare var Vue: any;
 
+/* tslint:disable-next-line:no-any */
+declare var QRCode: any;
+
 async function getEntries(encryption: Encription) {
   const optEntries: OTP[] = await EntryStorage.get(encryption);
   return optEntries;
@@ -144,6 +147,33 @@ function resize(zoom: number) {
   }
 }
 
+async function getQrUrl(entry: OTPEntry) {
+  return new Promise(
+      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+        const label =
+            entry.issuer ? (entry.issuer + ':' + entry.account) : entry.account;
+        const type = entry.type === OTPType.hex ? OTPType[OTPType.totp] :
+                                                  OTPType[entry.type];
+        const otpauth = 'otpauth://' + type + '/' + label +
+            '?secret=' + entry.secret +
+            (entry.issuer ? ('&issuer=' + entry.issuer.split('::')[0]) : '') +
+            ((entry.type === OTPType.hotp) ? ('&counter=' + entry.counter) :
+                                             '');
+        /* tslint:disable-next-line:no-unused-expression */
+        new QRCode(
+            'qr', {
+              text: otpauth,
+              width: 128,
+              height: 128,
+              colorDark: '#000000',
+              colorLight: '#ffffff',
+              correctLevel: QRCode.CorrectLevel.L
+            },
+            resolve);
+        return;
+      });
+}
+
 async function init() {
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
@@ -169,11 +199,18 @@ async function init() {
         slidein: false,
         slideout: false,
         fadein: false,
-        fadeout: false
+        fadeout: false,
+        qrfadein: false,
+        qrfadeout: false,
+        notificationFadein: false,
+        notificationFadeout: false
       },
       sector: '',
       info: '',
-      message: ''
+      message: '',
+      qr: '',
+      notification: '',
+      notificationTimeout: 0
     },
     methods: {
       showBulls: (code: string) => {
@@ -245,6 +282,52 @@ async function init() {
             codes.scrollTop = authenticator.class.edit ? codes.scrollHeight : 0;
           }, 0);
         }
+      },
+      shouldShowQrIcon: (entry: OTPEntry) => {
+        return entry.type !== OTPType.battle && entry.type !== OTPType.steam;
+      },
+      showQr: async (entry: OTPEntry) => {
+        const qrUrl = await getQrUrl(entry);
+        authenticator.qr = `url(${qrUrl})`;
+        authenticator.class.qrfadein = true;
+        authenticator.class.qrfadeout = false;
+      },
+      hideQr: () => {
+        authenticator.class.qrfadein = false;
+        authenticator.class.qrfadeout = true;
+        setTimeout(() => {
+          authenticator.class.qrfadeout = false;
+        }, 200);
+      },
+      copyCode: (entry: OTPEntry) => {
+        if (authenticator.class.edit) {
+          return;
+        }
+        chrome.permissions.request(
+            {permissions: ['clipboardWrite']}, (granted) => {
+              if (granted) {
+                const codeClipboard = document.getElementById(
+                                          'codeClipboard') as HTMLInputElement;
+                if (!codeClipboard) {
+                  return;
+                }
+                codeClipboard.value = entry.code;
+                codeClipboard.focus();
+                codeClipboard.select();
+                document.execCommand('Copy');
+                authenticator.notification = authenticator.i18n.copied;
+                clearTimeout(authenticator.notificationTimeout);
+                authenticator.class.notificationFadein = true;
+                authenticator.class.notificationFadeout = false;
+                authenticator.notificationTimeout = setTimeout(() => {
+                  authenticator.class.notificationFadein = false;
+                  authenticator.class.notificationFadeout = true;
+                  setTimeout(() => {
+                    authenticator.class.notificationFadeout = false;
+                  }, 200);
+                }, 1000);
+              }
+            });
       }
     }
   });

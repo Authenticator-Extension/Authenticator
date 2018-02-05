@@ -6,6 +6,7 @@
 <script src="js/vue.min.js"></script>
 <script src="js/md5.js"></script>
 <script src="js/sha.js"></script>
+<script src="js/qrcode.js"></script>
 <script src="build/models/encryption.js"></script>
 <script src="build/models/interface.js"></script>
 <script src="build/models/key-utilities.js"></script>
@@ -24,16 +25,16 @@
         <div class="entry" v-for="entry in entries">
             <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
             <div class="sector" v-bind:style="{background: sector}"></div>
-            <div class="issuer">{{ entry.issuer }}</div>
+            <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
             <div class="issuerEdit">
                 <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
             </div>
-            <div class="code" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+            <div class="code" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
             <div class="account">{{ entry.account }}</div>
             <div class="accountEdit">
                 <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
             </div>
-            <div class="showqr"><i class="fa fa-qrcode"></i></div>
+            <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
             <div class="movehandle"><i class="fa fa-bars"></i></div>
         </div>
         <div id="add" v-on:click="showInfo('account')"><i class="fa fa-plus"></i></div>
@@ -137,11 +138,20 @@
         </div>
     </div>
 
-    <!-- NOTIFICATITON -->
+    <!-- MESSAGE -->
     <div id="message" v-show="message !== ''">
         <div id="message_content">{{ message }}</div>
         <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
     </div>
+
+    <!-- NOTIFICATITON -->
+    <div id="notification" v-bind:class="{'fadein': class.notificationFadein, 'fadeout': class.notificationFadeout}">{{ notification }}</div>
+
+    <!-- QR -->
+    <div id="qr" v-bind:class="{'qrfadein': class.qrfadein, 'qrfadeout': class.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
+
+    <!-- CLIPBOARD -->
+    <input type="text" id="codeClipboard" />
 </div>
 <script src="build/popup.js"></script>
 </body>
