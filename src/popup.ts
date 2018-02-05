@@ -11,8 +11,8 @@ declare var Vue: any;
 /* tslint:disable-next-line:no-any */
 declare var QRCode: any;
 
-async function getEntries(encryption: Encription) {
-  const optEntries: OTP[] = await EntryStorage.get(encryption);
+async function getEntries(encryption: Encryption) {
+  const optEntries: OTPEntry[] = await EntryStorage.get(encryption);
   return optEntries;
 }
 
@@ -186,9 +186,17 @@ async function init() {
 
   const version = await getVersion();
   const i18n = await loadI18nMessages();
-  const encryption = new Encription('');
-  const entries = await getEntries(encryption);
   const exportData = await EntryStorage.getExport();
+  const encryption: Encryption = new Encryption('');
+  let entries: OTPEntry[] = [];
+  let shouldShowPassphrase = false;
+  for (const hash in Object.keys(exportData)) {
+    if (exportData[hash].encrypted) {
+      shouldShowPassphrase = true;
+    } else {
+      entries = await getEntries(encryption);
+    }
+  }
 
   const authenticator = new Vue({
     el: '#authenticator',
@@ -197,9 +205,9 @@ async function init() {
       i18n,
       entries,
       encryption,
-      exportData,
       zoom,
       OTPType,
+      exportData: JSON.stringify(exportData, null, 2),
       class: {
         timeout: false,
         edit: false,
@@ -214,11 +222,12 @@ async function init() {
         hotpDiabled: false
       },
       sector: '',
-      info: '',
+      info: shouldShowPassphrase ? 'passphrase' : '',
       message: '',
       confirmMessage: '',
       qr: '',
       notification: '',
+      passphrase: '',
       notificationTimeout: 0,
       newAccount: {show: false, account: '', secret: '', type: OTPType.totp}
     },
@@ -226,8 +235,8 @@ async function init() {
       showBulls: (code: string) => {
         return new Array(code.length).fill('&bull;').join('');
       },
-      updateEncription: (password: string) => {
-        authenticator.encryption = new Encription(password);
+      updateEncryption: (password: string) => {
+        authenticator.encryption = new Encryption(password);
       },
       showMenu: () => {
         authenticator.class.slidein = true;
@@ -266,7 +275,8 @@ async function init() {
       removeEntry: async (entry: OTPEntry) => {
         if (await authenticator.confirm('Remove?')) {
           await entry.delete();
-          authenticator.exportData = await EntryStorage.getExport();
+          const exportData = await EntryStorage.getExport();
+          authenticator.exportData = JSON.stringify(exportData, null, 2);
           authenticator.entries = await getEntries(authenticator.encryption);
           updateCode(authenticator);
         }
@@ -352,7 +362,8 @@ async function init() {
             type, '', authenticator.newAccount.secret,
             authenticator.newAccount.account, 0, 0);
         await entry.create(authenticator.encryption);
-        authenticator.exportData = await EntryStorage.getExport();
+        const exportData = await EntryStorage.getExport();
+        authenticator.exportData = JSON.stringify(exportData, null, 2);
         authenticator.entries = await getEntries(authenticator.encryption);
         authenticator.newAccount.type = OTPType.totp;
         authenticator.account = '';
@@ -398,10 +409,19 @@ async function init() {
         }
         authenticator.class.hotpDiabled = true;
         await entry.next(authenticator.encryption);
-        authenticator.exportData = await EntryStorage.getExport();
+        const exportData = await EntryStorage.getExport();
+        authenticator.exportData = JSON.stringify(exportData, null, 2);
         setTimeout(() => {
           authenticator.class.hotpDiabled = false;
         }, 3000);
+      },
+      applyPassphrase: async () => {
+        authenticator.encryption.updateEncryptionPassword(
+            authenticator.passphrase);
+        const exportData = await EntryStorage.getExport();
+        authenticator.exportData = JSON.stringify(exportData, null, 2);
+        authenticator.entries = await getEntries(authenticator.encryption);
+        updateCode(authenticator);
       }
     }
   });

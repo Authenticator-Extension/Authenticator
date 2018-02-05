@@ -5,7 +5,7 @@
 
 class EntryStorage {
   private static getOTPStorageFromEntry(
-      encryption: Encription, entry: OTPEntry): OTPStorage {
+      encryption: Encryption, entry: OTPEntry): OTPStorage {
     const storageItem: OTPStorage = {
       account: entry.account,
       hash: entry.hash,
@@ -41,7 +41,8 @@ class EntryStorage {
 
   static async getExport() {
     return new Promise(
-        (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+        (resolve: (value: {[hash: string]: OTPStorage}) => void,
+         reject: (reason: Error) => void) => {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
@@ -51,7 +52,7 @@ class EntryStorage {
                   delete _data[hash];
                 }
               }
-              return resolve(JSON.stringify(_data, null, 2));
+              return resolve(_data);
             });
             return;
           } catch (error) {
@@ -115,7 +116,7 @@ class EntryStorage {
         });
   }
 
-  static async add(encryption: Encription, entry: OTPEntry) {
+  static async add(encryption: Encryption, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -136,7 +137,7 @@ class EntryStorage {
         });
   }
 
-  static async update(encryption: Encription, entry: OTPEntry) {
+  static async update(encryption: Encryption, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -157,7 +158,7 @@ class EntryStorage {
         });
   }
 
-  static async get(encryption: Encription) {
+  static async get(encryption: Encryption) {
     return new Promise(
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {

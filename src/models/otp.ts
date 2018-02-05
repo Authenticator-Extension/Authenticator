@@ -31,12 +31,12 @@ class OTPEntry implements OTP {
     }
   }
 
-  async create(encryption: Encription) {
+  async create(encryption: Encryption) {
     await EntryStorage.add(encryption, this);
     return;
   }
 
-  async update(encryption: Encription) {
+  async update(encryption: Encryption) {
     await EntryStorage.update(encryption, this);
     return;
   }
@@ -46,7 +46,7 @@ class OTPEntry implements OTP {
     return;
   }
 
-  async next(encryption: Encription) {
+  async next(encryption: Encryption) {
     if (this.type !== OTPType.hotp) {
       return;
     }

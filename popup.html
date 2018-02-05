@@ -107,12 +107,12 @@
             <div v-show="info === 'passphrase'">
                 <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
                 <label for="phrase" id="passphrase_phrase_label"></label>
-                <input id="phrase" type="password">
+                <input id="phrase" type="password" v-model="passphrase">
                 <div class="checkbox_group">
                     <input type="checkbox" id="remember_phrase" checked="true">
                     <label for="remember_phrase" id="remember_phrase_label">{{ i18n.remember_phrase }}</label>
                 </div>
-                <div id="passphrase_ok">{{ i18n.ok }}</div>
+                <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'">

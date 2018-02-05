@@ -18,9 +18,9 @@ interface OTP {
   hash: string;
   counter: number;
   code: string;
-  create(encryption: Encription): Promise<void>;
-  update(encryption: Encription): Promise<void>;
-  next(encryption: Encription): Promise<void>;
+  create(encryption: Encryption): Promise<void>;
+  update(encryption: Encryption): Promise<void>;
+  next(encryption: Encryption): Promise<void>;
   delete(): Promise<void>;
   generate(): void;
 }
