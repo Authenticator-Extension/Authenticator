@@ -459,6 +459,17 @@ async function init() {
     await updateCode(authenticator);
   }, 1000);
 
+  // Remind backup
+  const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
+  if (!localStorage.lastRemindingBackupTime) {
+    localStorage.lastRemindingBackupTime = clientTime;
+  } else if (
+      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
+      clientTime - localStorage.lastRemindingBackupTime < 0) {
+    authenticator.message = authenticator.i18n.remind_backup;
+    localStorage.lastRemindingBackupTime = clientTime;
+  }
+
   return;
 }
 
