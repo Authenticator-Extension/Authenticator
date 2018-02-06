@@ -18,6 +18,37 @@
         "default_title": "__MSG_extShortName__",
         "default_popup": "popup.html"
     },
+    "background": {
+        "scripts": [
+            "js/jsqrcode/grid.js",
+            "js/jsqrcode/version.js",
+            "js/jsqrcode/detector.js",
+            "js/jsqrcode/formatinf.js",
+            "js/jsqrcode/errorlevel.js",
+            "js/jsqrcode/bitmat.js",
+            "js/jsqrcode/datablock.js",
+            "js/jsqrcode/bmparser.js",
+            "js/jsqrcode/datamask.js",
+            "js/jsqrcode/rsdecoder.js",
+            "js/jsqrcode/gf256poly.js",
+            "js/jsqrcode/gf256.js",
+            "js/jsqrcode/decoder.js",
+            "js/jsqrcode/qrcode.js",
+            "js/jsqrcode/findpat.js",
+            "js/jsqrcode/alignpat.js",
+            "js/jsqrcode/databr.js",
+            "js/md5.js",
+            "js/aes.js",
+            "js/sha.js",
+            "js/qrcode.js",
+            "build/models/encryption.js",
+            "build/models/interface.js",
+            "build/models/otp.js",
+            "build/models/storage.js",
+            "build/background.js"
+        ],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],

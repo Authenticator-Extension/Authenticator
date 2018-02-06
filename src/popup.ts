@@ -16,24 +16,8 @@ async function getEntries(encryption: Encryption) {
   return optEntries;
 }
 
-async function getVersion() {
-  return new Promise(
-      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-        try {
-          const xhr = new XMLHttpRequest();
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              const manifest: {version: string} = JSON.parse(xhr.responseText);
-              return resolve(manifest.version);
-            }
-            return;
-          };
-          xhr.open('GET', chrome.extension.getURL('/manifest.json'));
-          xhr.send();
-        } catch (error) {
-          return reject(error);
-        }
-      });
+function getVersion() {
+  return chrome.runtime.getManifest().version;
 }
 
 async function loadI18nMessages() {
@@ -184,7 +168,7 @@ async function init() {
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
 
-  const version = await getVersion();
+  const version = getVersion();
   const i18n = await loadI18nMessages();
   const encryption: Encryption = new Encryption('');
   const shouldShowPassphrase = await EntryStorage.hasEncryptedEntrie();
@@ -445,6 +429,22 @@ async function init() {
         authenticator.encryption.updateEncryptionPassword(
             authenticator.newPassphrase.phrase);
         await authenticator.importEnties();
+        return;
+      },
+      beginCapture: () => {
+        chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
+          const tab = tabs[0];
+          if (!tab || !tab.id) {
+            return;
+          }
+          chrome.tabs.sendMessage(tab.id, {action: 'capture'}, (result) => {
+            if (result !== 'beginCapture') {
+              authenticator.message = authenticator.i18n.capture_failed;
+            } else {
+              window.close();
+            }
+          });
+        });
         return;
       }
     }

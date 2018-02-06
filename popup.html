@@ -74,7 +74,7 @@
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
                 <div v-show="!newAccount.show">
-                    <div id="add_qr">{{ i18n.add_qr }}</div>
+                    <div id="add_qr" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
                     <div id="add_secret" v-on:click="newAccount.show = true">{{ i18n.add_secret }}</div>
                 </div>
                 <div id="secret_box" v-show="newAccount.show">
