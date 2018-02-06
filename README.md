@@ -19,6 +19,6 @@ npm run compile
 
 ## FAQ
 
-### gts is found
+### gts is not found
 
 gts (Google TypeScript style) is installed locally by default, see <https://stackoverflow.com/questions/9679932/how-to-use-package-installed-locally-in-node-modules> to add local node modules into path, or run `npm install -g gts` to install gts global.
