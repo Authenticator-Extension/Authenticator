@@ -178,5 +178,9 @@
     "export_info": {
         "message": "Copy this text and save it somewhere else to backup your secrets. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
         "description": "Export menu info text"
+    },
+    "confirm_remove_entry" : {
+        "message": "Are you sure you want to delete this item? You cannot retrieve deleted secret. This action cannot be undone.",
+        "description": "Remove entry confirmation"
     }
 }
