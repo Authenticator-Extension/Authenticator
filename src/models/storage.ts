@@ -39,13 +39,34 @@ class EntryStorage {
     return newData;
   }
 
-  static async getExport() {
+  static async hasEncryptedEntrie() {
+    return new Promise(
+        (resolve: (value: boolean) => void,
+         reject: (reason: Error) => void) => {
+          chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            for (const hash of Object.keys(_data)) {
+              if (_data[hash].encrypted) {
+                return resolve(true);
+              }
+            }
+            return resolve(false);
+          });
+          return;
+        });
+  }
+
+  static async getExport(encryption: Encryption) {
     return new Promise(
         (resolve: (value: {[hash: string]: OTPStorage}) => void,
          reject: (reason: Error) => void) => {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
+                // decrypt the data to export
+                _data[hash].secret = _data[hash].encrypted ?
+                    encryption.getDecryptedSecret(_data[hash].secret) :
+                    _data[hash].secret;
+                _data[hash].encrypted = false;
                 // we need correct hash
                 if (hash !== _data[hash].hash) {
                   _data[_data[hash].hash] = _data[hash];
@@ -61,20 +82,23 @@ class EntryStorage {
         });
   }
 
-  static async import(data: {[hash: string]: OTPStorage}) {
+  static async import(
+      encryption: Encryption, data: {[hash: string]: OTPStorage}) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(data)) {
                 // never trust data import from user
-                if (!data[hash].secret) {
+                // we do not support encrypted data import any longer
+                if (!data[hash].secret || data[hash].encrypted) {
+                  // we need give a failed warning
                   continue;
                 }
 
                 data[hash].hash = data[hash].hash || hash;
                 data[hash].account = data[hash].account || '';
-                data[hash].encrypted = !!data[hash].encrypted;
+                data[hash].encrypted = encryption.getEncryptionStatus();
                 data[hash].index = data[hash].index || 0;
                 data[hash].issuer = data[hash].issuer || '';
                 data[hash].type = data[hash].type || OTPType[OTPType.totp];
@@ -103,6 +127,9 @@ class EntryStorage {
                     data[hash].type = OTPType[OTPType.steam];
                   }
                 }
+
+                data[hash].secret =
+                    encryption.getEncryptedSecret(data[hash].secret);
 
                 _data[hash] = data[hash];
               }
@@ -189,8 +216,9 @@ class EntryStorage {
                     entryData.type = OTPType[OTPType.totp];
                     needMigrate = true;
                 }
-                entryData.secret =
-                    encryption.getDecryptedSecret(entryData.secret);
+                entryData.secret = entryData.encrypted ?
+                    encryption.getDecryptedSecret(entryData.secret) :
+                    entryData.secret;
 
                 const entry = new OTPEntry(
                     type, entryData.issuer, entryData.secret, entryData.account,

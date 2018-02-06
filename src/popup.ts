@@ -186,17 +186,11 @@ async function init() {
 
   const version = await getVersion();
   const i18n = await loadI18nMessages();
-  const exportData = await EntryStorage.getExport();
   const encryption: Encryption = new Encryption('');
-  let entries: OTPEntry[] = [];
-  let shouldShowPassphrase = false;
-  for (const hash of Object.keys(exportData)) {
-    if (exportData[hash].encrypted) {
-      shouldShowPassphrase = true;
-    } else {
-      entries = await getEntries(encryption);
-    }
-  }
+  const shouldShowPassphrase = await EntryStorage.hasEncryptedEntrie();
+  const exportData =
+      shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
+  const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
 
   const authenticator = new Vue({
     el: '#authenticator',
@@ -262,11 +256,18 @@ async function init() {
           authenticator.info = '';
         }, 200);
       },
+      importEnties: async () => {
+        await EntryStorage.import(
+            authenticator.encryption, JSON.parse(authenticator.exportData));
+        await authenticator.updateEntries();
+        authenticator.message = authenticator.i18n.updateSuccess;
+      },
       updateEntries: async () => {
-        await EntryStorage.import(JSON.parse(authenticator.exportData));
+        const exportData =
+            await EntryStorage.getExport(authenticator.encryption);
+        authenticator.exportData = JSON.stringify(exportData, null, 2);
         authenticator.entries = await getEntries(authenticator.encryption);
         updateCode(authenticator);
-        authenticator.message = authenticator.i18n.updateSuccess;
       },
       saveZoom: () => {
         localStorage.zoom = authenticator.zoom;
@@ -275,10 +276,7 @@ async function init() {
       removeEntry: async (entry: OTPEntry) => {
         if (await authenticator.confirm('Remove?')) {
           await entry.delete();
-          const exportData = await EntryStorage.getExport();
-          authenticator.exportData = JSON.stringify(exportData, null, 2);
-          authenticator.entries = await getEntries(authenticator.encryption);
-          updateCode(authenticator);
+          await authenticator.updateEntries();
         }
         return;
       },
@@ -362,9 +360,7 @@ async function init() {
             type, '', authenticator.newAccount.secret,
             authenticator.newAccount.account, 0, 0);
         await entry.create(authenticator.encryption);
-        const exportData = await EntryStorage.getExport();
-        authenticator.exportData = JSON.stringify(exportData, null, 2);
-        authenticator.entries = await getEntries(authenticator.encryption);
+        await authenticator.updateEntries();
         authenticator.newAccount.type = OTPType.totp;
         authenticator.account = '';
         authenticator.secret = '';
@@ -409,8 +405,7 @@ async function init() {
         }
         authenticator.class.hotpDiabled = true;
         await entry.next(authenticator.encryption);
-        const exportData = await EntryStorage.getExport();
-        authenticator.exportData = JSON.stringify(exportData, null, 2);
+        await authenticator.updateEntries();
         setTimeout(() => {
           authenticator.class.hotpDiabled = false;
         }, 3000);
@@ -418,10 +413,7 @@ async function init() {
       applyPassphrase: async () => {
         authenticator.encryption.updateEncryptionPassword(
             authenticator.passphrase);
-        const exportData = await EntryStorage.getExport();
-        authenticator.exportData = JSON.stringify(exportData, null, 2);
-        authenticator.entries = await getEntries(authenticator.encryption);
-        updateCode(authenticator);
+        await authenticator.updateEntries();
       }
     }
   });
