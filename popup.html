@@ -5,6 +5,7 @@
 <link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
 <script src="js/vue.min.js"></script>
 <script src="js/md5.js"></script>
+<script src="js/aes.js"></script>
 <script src="js/sha.js"></script>
 <script src="js/qrcode.js"></script>
 <script src="build/models/encryption.js"></script>
@@ -66,7 +67,7 @@
 
     <!-- INFO -->
     <div id="info" v-bind:class="{'fadein': class.fadein, 'fadeout': class.fadeout}">
-        <div id="infoClose" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
+        <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
         <div id="infoContent">
             <!-- ABOUT -->
             <div v-show="info === 'about'" v-html="i18n.info"></div>
@@ -91,27 +92,19 @@
                 </div>
             </div>
             <!-- SECURITY -->
-            <div v-show="info === 'security'">
+            <div id="security" v-show="info === 'security'">
                 <div id="security_warning">{{ i18n.security_warning }}</div>
                 <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
-                <input id="security_new_phrase" type="password">
+                <input id="security_new_phrase" type="password" v-model="newPassphrase.phrase">
                 <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
-                <input id="security_confirm_phrase" type="password">
-                <div class="checkbox_group">
-                    <input type="checkbox" id="remember_new_phrase" checked="true">
-                    <label for="remember_new_phrase" id="remember_new_phrase_label">{{ i18n.remember_phrase }}</label>
-                </div>
-                <div id="security_save">{{ i18n.ok }}</div>
+                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm">
+                <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- PASSPHRASE -->
-            <div v-show="info === 'passphrase'">
+            <div id="passphrase" v-show="info === 'passphrase'">
                 <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
                 <label for="phrase" id="passphrase_phrase_label"></label>
                 <input id="phrase" type="password" v-model="passphrase">
-                <div class="checkbox_group">
-                    <input type="checkbox" id="remember_phrase" checked="true">
-                    <label for="remember_phrase" id="remember_phrase_label">{{ i18n.remember_phrase }}</label>
-                </div>
                 <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->

@@ -216,25 +216,24 @@ async function init() {
         hotpDiabled: false
       },
       sector: '',
-      info: shouldShowPassphrase ? 'passphrase' : '',
+      info: '',
       message: '',
       confirmMessage: '',
       qr: '',
       notification: '',
       passphrase: '',
       notificationTimeout: 0,
-      newAccount: {show: false, account: '', secret: '', type: OTPType.totp}
+      newAccount: {show: false, account: '', secret: '', type: OTPType.totp},
+      newPassphrase: {phrase: '', confirm: ''}
     },
     methods: {
       showBulls: (code: string) => {
         return new Array(code.length).fill('&bull;').join('');
       },
-      updateEncryption: (password: string) => {
-        authenticator.encryption = new Encryption(password);
-      },
       showMenu: () => {
         authenticator.class.slidein = true;
         authenticator.class.slideout = false;
+        return;
       },
       closeMenu: () => {
         authenticator.class.slidein = false;
@@ -242,11 +241,13 @@ async function init() {
         setTimeout(() => {
           authenticator.class.slideout = false;
         }, 200);
+        return;
       },
       showInfo: (tab: string) => {
         authenticator.class.fadein = true;
         authenticator.class.fadeout = false;
         authenticator.info = tab;
+        return;
       },
       closeInfo: () => {
         authenticator.class.fadein = false;
@@ -255,12 +256,14 @@ async function init() {
           authenticator.class.fadeout = false;
           authenticator.info = '';
         }, 200);
+        return;
       },
       importEnties: async () => {
         await EntryStorage.import(
             authenticator.encryption, JSON.parse(authenticator.exportData));
         await authenticator.updateEntries();
         authenticator.message = authenticator.i18n.updateSuccess;
+        return;
       },
       updateEntries: async () => {
         const exportData =
@@ -268,10 +271,12 @@ async function init() {
         authenticator.exportData = JSON.stringify(exportData, null, 2);
         authenticator.entries = await getEntries(authenticator.encryption);
         updateCode(authenticator);
+        return;
       },
       saveZoom: () => {
         localStorage.zoom = authenticator.zoom;
         resize(authenticator.zoom);
+        return;
       },
       removeEntry: async (entry: OTPEntry) => {
         if (await authenticator.confirm('Remove?')) {
@@ -300,15 +305,18 @@ async function init() {
             codes.scrollTop = authenticator.class.edit ? codes.scrollHeight : 0;
           }, 0);
         }
+        return;
       },
       shouldShowQrIcon: (entry: OTPEntry) => {
-        return entry.type !== OTPType.battle && entry.type !== OTPType.steam;
+        return entry.secret !== 'Encrypted' && entry.type !== OTPType.battle &&
+            entry.type !== OTPType.steam;
       },
       showQr: async (entry: OTPEntry) => {
         const qrUrl = await getQrUrl(entry);
         authenticator.qr = `url(${qrUrl})`;
         authenticator.class.qrfadein = true;
         authenticator.class.qrfadeout = false;
+        return;
       },
       hideQr: () => {
         authenticator.class.qrfadein = false;
@@ -316,9 +324,15 @@ async function init() {
         setTimeout(() => {
           authenticator.class.qrfadeout = false;
         }, 200);
+        return;
       },
       copyCode: (entry: OTPEntry) => {
         if (authenticator.class.edit) {
+          return;
+        }
+
+        if (entry.code === 'Encrypted') {
+          authenticator.showInfo('passphrase');
           return;
         }
         chrome.permissions.request(
@@ -346,6 +360,7 @@ async function init() {
                 }, 1000);
               }
             });
+        return;
       },
       addNewAccount: async () => {
         let type: OTPType;
@@ -375,6 +390,7 @@ async function init() {
             codes.scrollTop = 0;
           }, 0);
         }
+        return;
       },
       confirm: async (message: string) => {
         return new Promise(
@@ -394,10 +410,12 @@ async function init() {
       confirmOK: () => {
         const confirmEvent = new CustomEvent('confirm', {detail: true});
         window.dispatchEvent(confirmEvent);
+        return;
       },
       confirmCancel: () => {
         const confirmEvent = new CustomEvent('confirm', {detail: false});
         window.dispatchEvent(confirmEvent);
+        return;
       },
       nextCode: async (entry: OTPEntry) => {
         if (authenticator.class.hotpDiabled) {
@@ -409,14 +427,32 @@ async function init() {
         setTimeout(() => {
           authenticator.class.hotpDiabled = false;
         }, 3000);
+        return;
       },
       applyPassphrase: async () => {
         authenticator.encryption.updateEncryptionPassword(
             authenticator.passphrase);
         await authenticator.updateEntries();
+        authenticator.closeInfo();
+        return;
+      },
+      changePassphrase: async () => {
+        if (authenticator.newPassphrase.phrase !==
+            authenticator.newPassphrase.confirm) {
+          authenticator.message = authenticator.i18n.phrase_not_match;
+          return;
+        }
+        authenticator.encryption.updateEncryptionPassword(
+            authenticator.newPassphrase.phrase);
+        await authenticator.importEnties();
+        return;
       }
     }
   });
+
+  if (shouldShowPassphrase) {
+    authenticator.showInfo('passphrase');
+  }
 
   updateCode(authenticator);
   setInterval(async () => {

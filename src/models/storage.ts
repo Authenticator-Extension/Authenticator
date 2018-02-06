@@ -261,7 +261,7 @@ class EntryStorage {
                 if (needMigrate) {
                   const _entry: {[hash: string]: OTPStorage} = {};
                   _entry[hash] = entryData;
-                  this.import(_entry);
+                  this.import(encryption, _entry);
                 }
               }
 

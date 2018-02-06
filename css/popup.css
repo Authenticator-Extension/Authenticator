@@ -527,12 +527,7 @@ body {
     margin: 10px;
 }
 
-#info,
-#addAccount,
-#security,
-#passphrase,
-#export,
-#resize {
+#info {
     position: absolute;
     height: 460px;
     width: 300px;
@@ -545,32 +540,17 @@ body {
     z-index: 100;
 }
 
-#info.fadein,
-#addAccount.fadein,
-#security.fadein,
-#passphrase.fadein,
-#export.fadein,
-#resize.fadein {
+#info.fadein {
     top: 10px;
     animation: fadein 0.2s 1 ease-out;
 }
 
-#info.fadeout,
-#addAccount.fadeout,
-#security.fadeout,
-#passphrase.fadeout,
-#export.fadeout,
-#resize.fadeout {
+#info.fadeout {
     top: 110px;
     animation: fadeout 0.2s 1 ease-in;
 }
 
-#infoClose,
-#addAccountClose,
-#securityClose,
-#passphraseClose,
-#exportClose,
-#resizeClose {
+#infoClose {
     height: 20px;
     width: 20px;
     font-size: 14px;

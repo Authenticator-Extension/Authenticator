@@ -28,8 +28,5 @@
     "@types/jssha": "0.0.29",
     "gts": "^0.5.2",
     "typescript": "^2.6.1"
-  },
-  "dependencies": {
-    "vue": "^1.0.28-csp"
   }
 }
