@@ -18,24 +18,10 @@
         "default_title": "__MSG_extShortName__",
         "default_popup": "popup.html"
     },
-    "background": {
-        "scripts": [
-            "js/aes.js",
-            "js/md5.js",
-            "js/sha.js",
-            "build/models/encryption.js",
-            "build/models/interface.js",
-            "build/models/key-utilities.js",
-            "build/models/otp.js",
-            "build/models/storage.js",
-            "build/background.js"
-        ],
-        "persistent": false
-    },
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "css": [],
+            "css": ["css/content.css"],
             "js": ["build/content.js"]
         }
     ],
