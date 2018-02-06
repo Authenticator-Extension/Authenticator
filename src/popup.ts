@@ -263,7 +263,7 @@ async function init() {
         return;
       },
       removeEntry: async (entry: OTPEntry) => {
-        if (await authenticator.confirm(authenticator.i18n.confirm_remove_entry)) {
+        if (await authenticator.confirm(authenticator.i18n.confirm_delete)) {
           await entry.delete();
           await authenticator.updateEntries();
         }

@@ -142,8 +142,8 @@
     <div id="confirm" v-show="confirmMessage !== ''">
         <div id="confirm_content">{{ confirmMessage }}</div>
         <div class="buttons">
-            <div id="confirm_ok" v-on:click="confirmOK()">{{ i18n.ok }}</div>
-            <div id="confirm_cancel" v-on:click="confirmCancel()">Cancel</div>
+            <div id="confirm_ok" v-on:click="confirmOK()">{{ i18n.yes }}</div>
+            <div id="confirm_cancel" v-on:click="confirmCancel()">{{ i18n.no }}</div>
         </div>
     </div>
 

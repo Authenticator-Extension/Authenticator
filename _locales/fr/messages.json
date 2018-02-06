@@ -43,6 +43,14 @@
         "message": "OK",
         "description": "OK."
     },
+    "yes": {
+        "message": "Oui",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Non",
+        "description": "No."
+    },
     "err_acc_sec": {
         "message": "Entrez le Compte ainsi que le Secret.",
         "description": "Input Account and Secret."
@@ -94,6 +102,10 @@
     "confirm_phrase": {
         "message": "Confirmer le mot de passe",
         "description": "Confirmm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Souhaitez-vous vraiment supprimer ce secret?",
+        "description": "Confirm Delete."
     },
     "security_warning": {
         "message": "Ajouter un mot de passe pour crypter vos secrets. Personne ne peut vous aider si vous avez oublié votre mot de passe.",

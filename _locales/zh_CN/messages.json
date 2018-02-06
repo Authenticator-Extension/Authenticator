@@ -43,6 +43,14 @@
 		"message": "确定",
 		"description": "OK."
 	},
+	"yes": {
+	    	"message": "Yes",
+	    	"description": "Yes."
+	},
+	"no": {
+		"message": "No",
+		"description": "No."
+	},
 	"err_acc_sec": {
 		"message": "请输入账户和密钥。",
 		"description": "Input Account and Secret."
@@ -94,6 +102,10 @@
 	"confirm_phrase": {
 		"message": "确认密码",
 		"description": "Confirmm Phrase."
+	},
+	"confirm_delete" : {
+		"message": "您确定要删除此项吗？您无法找回已删除的密钥。此操作无法撤销。",
+		"description": "Remove entry confirmation"
 	},
 	"security_warning": {
 		"message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
@@ -178,9 +190,5 @@
 	"export_info": {
 			"message": "将此文本保存至安全的地方来备份你的密钥。想要将账号添加至其他应用？请点击账号右上角隐藏的图标。",
 			"description": "Export menu info text"
-	},
-	"confirm_remove_entry" : {
-			"message": "您确定要删除此项吗？您无法找回已删除的密钥。此操作无法撤销。",
-			"description": "Remove entry confirmation"
 	}
 }
