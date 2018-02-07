@@ -1,15 +1,24 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'capture') {
-    sendResponse('beginCapture');
-    showGrayLayout(message.passphrase);
-  } else if (message.action === 'errorsecret') {
-    alert(chrome.i18n.getMessage('errorsecret') + message.secret);
-  } else if (message.action === 'errorqr') {
-    alert(chrome.i18n.getMessage('errorqr'));
-  } else if (message.action === 'added') {
-    alert(message.account + chrome.i18n.getMessage('added'));
-  } else if (message.action === 'text') {
-    showQrCode(message.text);
+  switch (message.action) {
+    case 'capture':
+      sendResponse('beginCapture');
+      showGrayLayout(message.passphrase);
+      break;
+    case 'errorsecret':
+      alert(chrome.i18n.getMessage('errorsecret') + message.secret);
+      break;
+    case 'errorqr':
+      alert(chrome.i18n.getMessage('errorqr'));
+      break;
+    case 'added':
+      alert(message.account + chrome.i18n.getMessage('added'));
+      break;
+    case 'text':
+      showQrCode(message.text);
+      break;
+    default:
+      // invalid command, ignore it
+      break;
   }
 });
 
