@@ -104,7 +104,7 @@
             <div id="passphrase" v-show="info === 'passphrase'">
                 <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
                 <label for="phrase" id="passphrase_phrase_label"></label>
-                <input id="phrase" type="password" v-model="passphrase">
+                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()">
                 <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
