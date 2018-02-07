@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
@@ -113,6 +113,9 @@
                 <div id="downloadBackup">
                     <a download="authenticator.json.txt" v-bind:href="exportFile">{{ i18n.download_backup }}</a>
                 </div>
+		<div id="uploadBackup">
+		    <input type="file" v-on:change="importFile($event)" accept="application/json">
+		</div>
                 <div id="exportButton" v-on:click="updateEntries()">{{ i18n.update }}</div>
             </div>
             <!-- RESIZE -->

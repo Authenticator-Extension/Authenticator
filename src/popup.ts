@@ -282,6 +282,20 @@ async function init() {
         updateCode(authenticator);
         return;
       },
+      //TODO: Figure out what event & data are supposed to be typed as
+      importFile: (event: any) => {
+        if (event.target.files[0] &&
+            event.target.files[0].type.startsWith('text/')) {
+          const reader = new FileReader();
+          reader.onload = (data: any) => {
+            const importData = JSON.parse(data.target.result);
+            //Replace data with import data
+            // if current data has codes insert and check for duplicates
+          };
+          reader.readAsText(event.target.files[0]);
+        }
+        return;
+      },
       saveZoom: () => {
         localStorage.zoom = authenticator.zoom;
         resize(authenticator.zoom);
