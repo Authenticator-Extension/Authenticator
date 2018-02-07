@@ -190,5 +190,9 @@
     "export_info": {
         "message": "Copy this text and save it somewhere else to backup your secrets. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
         "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Download backup file",
+        "description": "Download backup file."
     }
 }

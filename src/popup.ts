@@ -164,6 +164,14 @@ function isCustomEvent(event: Event): event is CustomEvent {
   return 'detail' in event;
 }
 
+function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
+  let json = JSON.stringify(entryData, null, 2);
+  // for windows notepad
+  json = json.replace(/\n/g, '\r\n');
+  const base64Data = btoa(json);
+  return `data:application/octet-stream;base64,${base64Data}`;
+}
+
 async function init() {
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
@@ -175,6 +183,7 @@ async function init() {
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
+  const exportFile = getBackupFile(exportData);
 
   const authenticator = new Vue({
     el: '#authenticator',
@@ -186,6 +195,7 @@ async function init() {
       zoom,
       OTPType,
       exportData: JSON.stringify(exportData, null, 2),
+      exportFile,
       class: {
         timeout: false,
         edit: false,
@@ -255,6 +265,7 @@ async function init() {
             await EntryStorage.getExport(authenticator.encryption);
         authenticator.exportData = JSON.stringify(exportData, null, 2);
         authenticator.entries = await getEntries(authenticator.encryption);
+        authenticator.exportFile = getBackupFile(exportData);
         updateCode(authenticator);
         return;
       },

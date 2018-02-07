@@ -599,7 +599,7 @@ body {
 }
 
 #exportData {
-    height: 330px;
+    height: 320px;
     width: 100%;
     word-break: break-all;
     resize: none;
@@ -701,4 +701,8 @@ body {
     top: 150px;
     box-shadow: 1px 1px 3px gray;
     z-index: 1000;
+}
+
+#downloadBackup {
+    text-align: right;
 }
