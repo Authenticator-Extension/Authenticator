@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Some accounts and passphrase do not match.",
+        "message": "Some accounts and passphrase do not match, you cannot add new account. Please enter correct passphrase and try again.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {

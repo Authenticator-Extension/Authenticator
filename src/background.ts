@@ -11,7 +11,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     getQr(
         sender.tab, message.info.left, message.info.top, message.info.width,
-        message.info.height, message.info.windowWidth);
+        message.info.height, message.info.windowWidth, message.info.passphrase);
   }
 });
 
@@ -19,7 +19,7 @@ let contentTab: chrome.tabs.Tab;
 
 function getQr(
     tab: chrome.tabs.Tab, left: number, top: number, width: number,
-    height: number, windowWidth: number) {
+    height: number, windowWidth: number, passphrase: string) {
   chrome.tabs.captureVisibleTab(tab.windowId, {format: 'png'}, (dataUrl) => {
     contentTab = tab;
     const qr = new Image();
@@ -34,13 +34,15 @@ function getQr(
       }
       ctx.drawImage(qr, left, top, width, height, 0, 0, width, height);
       const url = captureCanvas.toDataURL();
-      qrcode.callback = getTotp;
+      qrcode.callback = (text) => {
+        getTotp(text, passphrase);
+      };
       qrcode.decode(url);
     };
   });
 }
 
-async function getTotp(text: string) {
+async function getTotp(text: string, passphrase: string) {
   const id = contentTab.id;
   if (!id) {
     return;
@@ -91,7 +93,7 @@ async function getTotp(text: string) {
           !/^[0-9a-f]+$/i.test(secret) && !/^[2-7a-z]+=*$/i.test(secret)) {
         chrome.tabs.sendMessage(id, {action: 'secretqr', secret});
       } else {
-        const encryption = new Encryption('');
+        const encryption = new Encryption(passphrase);
         const hash = CryptoJS.MD5(secret).toString();
         if (!/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret)) {
           type = 'hex';

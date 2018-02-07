@@ -250,12 +250,14 @@ class EntryStorage {
                 }
 
                 // we need correct the hash
-                const _hash = CryptoJS.MD5(entry.secret).toString();
-                if (hash !== _hash) {
-                  chrome.storage.sync.remove(hash);
-                  hash = _hash;
-                  entryData.hash = hash;
-                  needMigrate = true;
+                if (entry.secret !== 'Encrypted') {
+                  const _hash = CryptoJS.MD5(entry.secret).toString();
+                  if (hash !== _hash) {
+                    chrome.storage.sync.remove(hash);
+                    hash = _hash;
+                    entryData.hash = hash;
+                    needMigrate = true;
+                  }
                 }
 
                 if (needMigrate) {

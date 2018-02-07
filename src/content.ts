@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'capture') {
     sendResponse('beginCapture');
-    showGrayLayout();
+    showGrayLayout(message.passphrase);
   } else if (message.action === 'errorsecret') {
     alert(chrome.i18n.getMessage('errorsecret') + message.secret);
   } else if (message.action === 'errorqr') {
@@ -20,7 +20,7 @@ interface CaptureBoxPosition {
 
 let captureBoxPosition: CaptureBoxPosition = {left: 0, top: 0};
 
-function showGrayLayout() {
+function showGrayLayout(passphrase: string) {
   let grayLayout = document.getElementById('__ga_grayLayout__');
   if (!grayLayout) {
     grayLayout = document.createElement('div');
@@ -36,7 +36,9 @@ function showGrayLayout() {
     grayLayout.appendChild(captureBox);
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
-    grayLayout.onmouseup = grayLayoutUp;
+    grayLayout.onmouseup = (event) => {
+      grayLayoutUp(event, passphrase);
+    };
     grayLayout.oncontextmenu = (event) => {
       event.preventDefault();
       return;
@@ -86,7 +88,7 @@ function grayLayoutMove(event: MouseEvent) {
   return;
 }
 
-function grayLayoutUp(event: MouseEvent) {
+function grayLayoutUp(event: MouseEvent, passphrase: string) {
   const grayLayout = document.getElementById('__ga_grayLayout__');
   const captureBox = document.getElementById('__ga_captureBox__');
   if (!captureBox || !grayLayout) {
@@ -114,16 +116,25 @@ function grayLayoutUp(event: MouseEvent) {
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
-        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight);
+        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight,
+        passphrase);
   }, 200);
   return false;
 }
 
 function sendPosition(
-    left: number, top: number, width: number, height: number) {
+    left: number, top: number, width: number, height: number,
+    passphrase: string) {
   chrome.runtime.sendMessage({
     action: 'position',
-    info: {left, top, width, height, windowWidth: window.innerWidth}
+    info: {
+      left,
+      top,
+      width,
+      height,
+      windowWidth: window.innerWidth,
+      passphrase
+    }
   });
 }
 

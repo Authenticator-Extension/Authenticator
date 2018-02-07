@@ -347,6 +347,21 @@ async function init() {
             });
         return;
       },
+      addAccountManually: () => {
+        const entries = authenticator.entries as OTPEntry[];
+        for (let i = 0; i < entries.length; i++) {
+          // we have encrypted entry
+          // the current passphrass is incorrect
+          // shouldn't add new account with
+          // the current passphrass
+          if (entries[i].code === 'Encrypted') {
+            authenticator.message = authenticator.i18n.phrase_incorrect;
+            return;
+          }
+        }
+
+        authenticator.newAccount.show = true;
+      },
       addNewAccount: async () => {
         let type: OTPType;
         if (!/^[a-z2-7]+=*$/i.test(authenticator.newAccount.secret) &&
@@ -433,18 +448,32 @@ async function init() {
         return;
       },
       beginCapture: () => {
+        const entries = authenticator.entries as OTPEntry[];
+        for (let i = 0; i < entries.length; i++) {
+          // we have encrypted entry
+          // the current passphrass is incorrect
+          // shouldn't add new account with
+          // the current passphrass
+          if (entries[i].code === 'Encrypted') {
+            authenticator.message = authenticator.i18n.phrase_incorrect;
+            return;
+          }
+        }
+
         chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
           const tab = tabs[0];
           if (!tab || !tab.id) {
             return;
           }
-          chrome.tabs.sendMessage(tab.id, {action: 'capture'}, (result) => {
-            if (result !== 'beginCapture') {
-              authenticator.message = authenticator.i18n.capture_failed;
-            } else {
-              window.close();
-            }
-          });
+          chrome.tabs.sendMessage(
+              tab.id, {action: 'capture', passphrase: authenticator.passphrase},
+              (result) => {
+                if (result !== 'beginCapture') {
+                  authenticator.message = authenticator.i18n.capture_failed;
+                } else {
+                  window.close();
+                }
+              });
         });
         return;
       }
