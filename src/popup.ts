@@ -239,6 +239,7 @@ async function init() {
         setTimeout(() => {
           authenticator.class.fadeout = false;
           authenticator.info = '';
+          authenticator.newAccount.show = false;
         }, 200);
         return;
       },
