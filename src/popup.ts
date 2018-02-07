@@ -238,6 +238,19 @@ async function init() {
         return;
       },
       showInfo: (tab: string) => {
+        if (tab === 'export' || tab === 'security') {
+          const entries = authenticator.entries as OTPEntry[];
+          for (let i = 0; i < entries.length; i++) {
+            // we have encrypted entry
+            // the current passphrass is incorrect
+            // cannot export account data
+            // or change passphrase
+            if (entries[i].code === 'Encrypted') {
+              authenticator.message = authenticator.i18n.phrase_incorrect;
+              return;
+            }
+          }
+        }
         authenticator.class.fadein = true;
         authenticator.class.fadeout = false;
         authenticator.info = tab;

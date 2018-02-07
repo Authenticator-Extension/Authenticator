@@ -116,7 +116,7 @@
 		"description": "Update."
 	},
 	"phrase_incorrect": {
-		"message": "部分账户与密码不匹配，您无法添加新账户。请提供正确的密码后重试。",
+		"message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
 		"description": "Phrase Incorrect."
 	},
 	"phrase_not_match": {
@@ -136,9 +136,9 @@
 		"description": "Feedback."
 	},
 	"translate": {
-        "message": "参与翻译",
-        "description": "Translate."
-    },
+		"message": "参与翻译",
+		"description": "Translate."
+	},
 	"source": {
 		"message": "源代码",
 		"description": "Source Code."
