@@ -282,17 +282,21 @@ async function init() {
         updateCode(authenticator);
         return;
       },
-      //TODO: Figure out what event & data are supposed to be typed as
-      importFile: (event: any) => {
-        if (event.target.files[0] &&
-            event.target.files[0].type.startsWith('text/')) {
+      // TODO: Figure out what event & data are supposed to be typed as
+      importFile: (event: Event) => {
+        const target = event.target as HTMLInputElement;
+        if (!target || !target.files) {
+          return;
+        }
+        if (target.files[0] && target.files[0].type.startsWith('text/')) {
           const reader = new FileReader();
-          reader.onload = (data: any) => {
-            const importData = JSON.parse(data.target.result);
-            //Replace data with import data
+          reader.onload = () => {
+            const importData = JSON.parse(reader.result);
+            console.log(importData);
+            // Replace data with import data
             // if current data has codes insert and check for duplicates
           };
-          reader.readAsText(event.target.files[0]);
+          reader.readAsText(target.files[0]);
         }
         return;
       },
