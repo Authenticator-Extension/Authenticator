@@ -83,7 +83,7 @@ async function entry(_ui: UI) {
       showBulls: (code: string) => {
         return new Array(code.length).fill('&bull;').join('');
       },
-      importEnties: async () => {
+      importEntries: async () => {
         await EntryStorage.import(
             _ui.instance.encryption, JSON.parse(_ui.instance.exportData));
         await _ui.instance.updateEntries();

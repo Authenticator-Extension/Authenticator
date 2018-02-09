@@ -21,7 +21,7 @@ async function passphrase(_ui: UI) {
         }
         _ui.instance.encryption.updateEncryptionPassword(
             _ui.instance.newPassphrase.phrase);
-        await _ui.instance.importEnties();
+        await _ui.instance.importEntries();
         return;
       }
     }
