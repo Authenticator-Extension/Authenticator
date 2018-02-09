@@ -113,6 +113,8 @@ async function entry(_ui: UI) {
             _ui.instance.message = _ui.instance.i18n.updateSuccess;
           };
           reader.readAsText(target.files[0]);
+        } else {
+          _ui.instance.message = _ui.instance.i18n.updateFailure;
         }
         return;
       },
