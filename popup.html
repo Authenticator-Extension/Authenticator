@@ -113,10 +113,10 @@
                 <div id="downloadBackup">
                     <a download="authenticator.json.txt" v-bind:href="exportFile">{{ i18n.download_backup }}</a>
                 </div>
-		<div id="uploadBackup">
-		    <input type="file" v-on:change="importFile($event)" accept="application/json">
-		</div>
-                <div id="exportButton" v-on:click="updateEntries()">{{ i18n.update }}</div>
+                <div id="uploadBackup">
+                    <input type="file" v-on:change="importFile($event)" accept="application/json">
+                </div>
+                <div id="exportButton" v-on:click="importEnties()">{{ i18n.update }}</div>
             </div>
             <!-- RESIZE -->
             <div v-show="info === 'resize'">
@@ -162,6 +162,16 @@
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />
 </div>
+<script src="build/ui/add-account.js"></script>
+<script src="build/ui/class.js"></script>
+<script src="build/ui/entry.js"></script>
+<script src="build/ui/i18n.js"></script>
+<script src="build/ui/info.js"></script>
+<script src="build/ui/menu.js"></script>
+<script src="build/ui/message.js"></script>
+<script src="build/ui/passphrase.js"></script>
+<script src="build/ui/qr.js"></script>
+<script src="build/ui/ui.js"></script>
 <script src="build/popup.js"></script>
 </body>
 </html>

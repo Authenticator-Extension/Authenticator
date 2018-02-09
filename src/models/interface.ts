@@ -40,3 +40,15 @@ interface OTPStorage {
 interface I18nMessage {
   [key: string]: {message: string, description: string};
 }
+
+interface UIConfig {
+  el?: string;
+  data?: {
+    /* tslint:disable-next-line:no-any */
+    [name: string]: any
+  };
+  methods?: {
+    /* tslint:disable-next-line:no-any */
+    [name: string]: (...arg: any[]) => any
+  };
+}
