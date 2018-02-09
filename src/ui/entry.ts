@@ -61,7 +61,7 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
 
 async function entry(_ui: UI) {
   const encryption: Encryption = new Encryption('');
-  const shouldShowPassphrase = await EntryStorage.hasEncryptedEntrie();
+  const shouldShowPassphrase = await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
@@ -99,7 +99,6 @@ async function entry(_ui: UI) {
         updateCode(_ui.instance);
         return;
       },
-      // TODO: Figure out what event & data are supposed to be typed as
       importFile: (event: Event) => {
         const target = event.target as HTMLInputElement;
         if (!target || !target.files) {

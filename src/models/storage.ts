@@ -39,7 +39,7 @@ class EntryStorage {
     return newData;
   }
 
-  static async hasEncryptedEntrie() {
+  static async hasEncryptedEntry() {
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
