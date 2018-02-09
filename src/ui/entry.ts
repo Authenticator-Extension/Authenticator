@@ -106,11 +106,11 @@ async function entry(_ui: UI) {
         }
         if (target.files[0] && target.files[0].type.startsWith('text/')) {
           const reader = new FileReader();
-          reader.onload = () => {
+          reader.onload = async () => {
             const importData = JSON.parse(reader.result);
-            console.log(importData);
-            // Replace data with import data
-            // if current data has codes insert and check for duplicates
+            await EntryStorage.import(_ui.instance.encryption, importData);
+            await _ui.instance.updateEntries();
+            _ui.instance.message = _ui.instance.i18n.updateSuccess;
           };
           reader.readAsText(target.files[0]);
         }
