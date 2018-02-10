@@ -68,6 +68,7 @@
         "storage"
     ],
     "optional_permissions": [
+        "clipboardWrite",
         "https://www.google.com/"
     ],
     "web_accessible_resources": [
