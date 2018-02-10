@@ -6,11 +6,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "gts check",
     "clean": "gts clean",
+    "copyChrome": "cp -r build css images js _locales LICENSE *.html chrome",
+    "copyFirefox": "cp -r build css images js _locales LICENSE *.html firefox",
     "compile": "tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "posttest": "npm run check",
+    "chrome": "mkdir -p chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
+    "firefox": "mkdir -p firefox && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
   },
   "repository": {
     "type": "git",
