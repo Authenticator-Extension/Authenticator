@@ -4,6 +4,21 @@
 
 ## Build Setup
 
+Compile for chrome:
+
+```bash
+npm install
+npm run chrome
+```
+Compile for firefox:
+
+```bash
+npm install
+npm run firefox
+```
+
+Compile for development:
+
 ``` bash
 # install typescript
 npm install -g typescript
