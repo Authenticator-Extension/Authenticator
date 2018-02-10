@@ -39,6 +39,14 @@ class EntryStorage {
     return newData;
   }
 
+  private static ensureObject(_data: {[hash: string]: OTPStorage}) {
+    for (const hash of Object.keys(_data)) {
+      if (typeof _data[hash] !== 'object') {
+        // Drop invalid data?
+      }
+    }
+  }
+
   static async hasEncryptedEntry() {
     return new Promise(
         (resolve: (value: boolean) => void,
@@ -61,6 +69,7 @@ class EntryStorage {
          reject: (reason: Error) => void) => {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+              this.ensureObject(_data);
               for (const hash of Object.keys(_data)) {
                 // decrypt the data to export
                 _data[hash].secret = _data[hash].encrypted ?
