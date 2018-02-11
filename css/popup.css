@@ -708,3 +708,11 @@ body {
     color: gray;
     display: block;
 }
+
+#import_file {
+    display: none;
+}
+
+#upload_backup {
+    display: block;
+}

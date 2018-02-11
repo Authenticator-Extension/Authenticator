@@ -110,11 +110,10 @@
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'" id="infoContent">
-		<div id="security_warning">{{ i18n.export_info }}</div>
-		<a download="authenticator.json.txt" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
-                <div id="upload_backup">
-                    <input type="file" v-on:change="importFile($event)" accept="application/json">
-                </div>
+            <div id="security_warning">{{ i18n.export_info }}</div>
+            <a download="authenticator.json.txt" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
+            <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
+            <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json">
             </div>
             <!-- RESIZE -->
             <div v-show="info === 'resize'">
