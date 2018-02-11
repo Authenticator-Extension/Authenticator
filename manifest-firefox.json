@@ -63,8 +63,8 @@
     ],
     "permissions": [
         "activeTab",
-    "<all_urls>",
-    "clipboardWrite",
+        "<all_urls>",
+        "clipboardWrite",
         "storage"
     ],
     "optional_permissions": [
