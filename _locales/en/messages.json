@@ -44,12 +44,12 @@
         "description": "OK."
     },
     "yes": {
-    	"message": "Yes",
-    	"description": "Yes."
+        "message": "Yes",
+        "description": "Yes."
     },
     "no": {
-    	"message": "No",
-    	"description": "No."
+        "message": "No",
+        "description": "No."
     },
     "err_acc_sec": {
         "message": "Please enter account and secret.",
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-	"message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -194,5 +194,9 @@
     "download_backup": {
         "message": "Download Backup File",
         "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Import Backup File",
+        "description": "Import backup file."
     }
 }
