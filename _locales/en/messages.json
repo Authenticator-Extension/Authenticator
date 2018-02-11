@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "For Google Authenticator and Battle.net Authenticator.",
+        "message": "Authenticator generates 2-Step Verification codes in your browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -40,7 +40,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "OK",
+        "message": "Ok",
         "description": "OK."
     },
     "yes": {
@@ -52,7 +52,7 @@
     	"description": "No."
     },
     "err_acc_sec": {
-        "message": "Please input Account and Secret.",
+        "message": "Please enter account and secret.",
         "description": "Input Account and Secret."
     },
     "account": {
@@ -88,27 +88,27 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Passphrase",
+        "message": "Current Password",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Passphrase",
+        "message": "New Password",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Passphrase",
+        "message": "Password",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Passphrase",
+        "message": "Confirm Password",
         "description": "Confirmm Passphrase."
     },
     "confirm_delete" : {
-        "message": "Are you sure you want to delete this item? This action cannot be undone.",
+        "message": "Are you sure you want to delete this code? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This passphrase will be used to encrypt your secrets. No one can help you if you forget the passphrase.",
+        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Some accounts and passphrase do not match, you cannot add new account, export accounts or change passphrass. Please enter correct passphrase and try again.",
+	"message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Input passphrase to decrypt account data.",
+        "message": "Enter password to decrypt account data.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -152,7 +152,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Passphrase",
+        "message": "Remember Password",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -160,15 +160,15 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "NEVER REINSTALL THE EXTENSION TO TRY TO FIX ANY ISSUE, OR YOU WILL LOSE ALL YOUR DATA! Do you have a backup for your secrets? Please note that no one can help you with getting back locked account, don't wait until it's too late. We will remind you to make a backup again after 30 days.",
+        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page you are veiwing and try again.",
+        "message": "Capture failed, please reload the page and try again.",
         "description": "Capture Failed"
     },
     "unencrypted_secret_warning": {
-        "message": "This secret is not encrypted! Click here to set a passphrase to fix this issue.",
+        "message": "This secret is not encrypted! Click here to set a passphrase.",
         "description": "Unencrypted Secret Warning"
     },
     "based_on_time": {
@@ -192,7 +192,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download backup file",
+        "message": "Download Backup File",
         "description": "Download backup file."
     }
 }
