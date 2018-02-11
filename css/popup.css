@@ -322,6 +322,8 @@ body {
 #add_qr,
 #add_secret,
 #add_button,
+#download_backup,
+#upload_backup,
 #security_save,
 #passphrase_ok,
 #message_close,
@@ -575,6 +577,8 @@ body {
 #add_button:hover,
 #add_secret:hover,
 #add_qr:hover,
+#upload_backup:hover,
+#download_backup:hover,
 #editAction:hover,
 #infoAction:hover,
 #codes #add:hover,
@@ -609,10 +613,6 @@ body {
 #infoContent p {
     font-size: 12px;
     margin-bottom: 20px;
-}
-
-#infoContent a {
-    color: #4183c4;
 }
 
 #qr {
@@ -703,6 +703,8 @@ body {
     z-index: 1000;
 }
 
-#downloadBackup {
-    text-align: right;
+#download_backup {
+    text-decoration: none;
+    color: gray;
+    display: block;
 }
