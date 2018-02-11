@@ -111,12 +111,10 @@
             <!-- EXPORT -->
             <div v-show="info === 'export'" id="infoContent">
 		<div id="security_warning">{{ i18n.export_info }}</div>
-                <!-- <textarea id="exportData" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" v-model="exportData"></textarea> -->
 		<a download="authenticator.json.txt" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
                 <div id="upload_backup">
                     <input type="file" v-on:change="importFile($event)" accept="application/json">
                 </div>
-                <!-- <div id="exportButton" v-on:click="importEntries()">{{ i18n.update }}</div> -->
             </div>
             <!-- RESIZE -->
             <div v-show="info === 'resize'">
