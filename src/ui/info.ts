@@ -31,6 +31,7 @@ async function info(_ui: UI) {
         setTimeout(() => {
           _ui.instance.class.fadeout = false;
           _ui.instance.info = '';
+          _ui.instance.newAccount.show = false;
         }, 200);
         return;
       }
