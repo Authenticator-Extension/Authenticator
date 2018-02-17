@@ -142,7 +142,6 @@ async function entry(_ui: UI) {
         }
         _ui.instance.class.hotpDiabled = true;
         await entry.next(_ui.instance.encryption);
-        await _ui.instance.updateEntries();
         setTimeout(() => {
           _ui.instance.class.hotpDiabled = false;
         }, 3000);

@@ -12,7 +12,7 @@ class OTPEntry implements OTP {
   account: string;
   hash: string;
   counter: number;
-  code: string;
+  code = '&bull;&bull;&bull;&bull;&bull;&bull;';
 
   constructor(
       type: OTPType, issuer: string, secret: string, account: string,
@@ -26,8 +26,6 @@ class OTPEntry implements OTP {
     this.counter = counter;
     if (this.type !== OTPType.hotp) {
       this.generate();
-    } else {
-      this.code = '&bull;&bull;&bull;&bull;&bull;&bull;';
     }
   }
 
