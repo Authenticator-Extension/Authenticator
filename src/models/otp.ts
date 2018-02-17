@@ -58,7 +58,11 @@ class OTPEntry implements OTP {
     if (this.secret === 'Encrypted') {
       this.code = 'Encrypted';
     } else {
-      this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
+      try {
+        this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
+      } catch(error) {
+        this.code = 'Invalid';
+      }
     }
   }
 }

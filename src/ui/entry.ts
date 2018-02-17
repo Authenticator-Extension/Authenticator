@@ -81,6 +81,9 @@ async function entry(_ui: UI) {
     },
     methods: {
       showBulls: (code: string) => {
+        if (code.startsWith('&bull;')) {
+          return code;
+        }
         return new Array(code.length).fill('&bull;').join('');
       },
       importEntries: async () => {
@@ -104,7 +107,7 @@ async function entry(_ui: UI) {
         if (!target || !target.files) {
           return;
         }
-        if (target.files[0] && target.files[0].type.startsWith('text/')) {
+        if (target.files[0]) {
           const reader = new FileReader();
           reader.onload = async () => {
             const importData = JSON.parse(reader.result);
