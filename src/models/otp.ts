@@ -60,7 +60,7 @@ class OTPEntry implements OTP {
     } else {
       try {
         this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
-      } catch(error) {
+      } catch (error) {
         this.code = 'Invalid';
       }
     }

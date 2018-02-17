@@ -51,4 +51,6 @@ interface UIConfig {
     /* tslint:disable-next-line:no-any */
     [name: string]: (...arg: any[]) => any
   };
+  /* tslint:disable-next-line:no-any */
+  ready?: (...arg: any[]) => any;
 }

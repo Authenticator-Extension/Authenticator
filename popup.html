@@ -5,6 +5,7 @@
     <link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
     <link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
     <script src="js/vue.min.js"></script>
+    <script src="js/vue-dragula.js"></script>
     <script src="js/md5.js"></script>
     <script src="js/aes.js"></script>
     <script src="js/sha.js"></script>
@@ -22,7 +23,7 @@
         <div id="infoAction" class="" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
-    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}">
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}" v-dragula="entries">
         <!-- ENTRIES -->
         <div class="entry" v-for="entry in entries">
             <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>

@@ -716,3 +716,7 @@ body {
 #upload_backup {
     display: block;
 }
+
+.gu-mirror {
+    display: none;
+}

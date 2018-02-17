@@ -185,6 +185,26 @@ class EntryStorage {
         });
   }
 
+  static async set(encryption: Encryption, entries: OTPEntry[]) {
+    return new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          try {
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+              entries.forEach(entry => {
+                const storageItem =
+                    this.getOTPStorageFromEntry(encryption, entry);
+                _data[entry.hash] = storageItem;
+              });
+              _data = this.ensureUniqueIndex(_data);
+              chrome.storage.sync.set(_data, resolve);
+            });
+            return;
+          } catch (error) {
+            reject(error);
+          }
+        });
+  }
+
   static async get(encryption: Encryption) {
     return new Promise(
         (resolve: (value: OTPEntry[]) => void,

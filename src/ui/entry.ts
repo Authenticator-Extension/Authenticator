@@ -80,6 +80,10 @@ async function entry(_ui: UI) {
       notificationTimeout: 0
     },
     methods: {
+      updateStorage: async () => {
+        await EntryStorage.set(_ui.instance.encryption, _ui.instance.entries);
+        return;
+      },
       showBulls: (code: string) => {
         if (code.startsWith('&bull;')) {
           return code;
