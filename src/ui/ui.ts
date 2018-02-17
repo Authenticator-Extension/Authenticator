@@ -37,7 +37,7 @@ class UI {
 
   generate() {
     Vue.use(vueDragula);
-    this.ui.ready = async () => {
+    this.ui.ready = () => {
       Vue.vueDragula.eventBus.$on('drop', async () => {
         // wait for this.instance.entries sync from dom
         setTimeout(async () => {
