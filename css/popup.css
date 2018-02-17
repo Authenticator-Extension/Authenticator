@@ -270,7 +270,7 @@ body {
     cursor: default;
 }
 
-.hotp[hasCode="true"] {
+.hotp:not(.no-copy) {
     color: #08C;
     cursor: pointer;
 }
@@ -719,4 +719,8 @@ body {
 
 .gu-mirror {
     display: none;
+}
+
+.no-copy {
+    cursor: default;
 }

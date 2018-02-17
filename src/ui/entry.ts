@@ -80,6 +80,10 @@ async function entry(_ui: UI) {
       notificationTimeout: 0
     },
     methods: {
+      noCopy: (code: string) => {
+        return code === 'Encrypted' || code === 'Invalid' ||
+            code.startsWith('&bull;');
+      },
       updateStorage: async () => {
         await EntryStorage.set(_ui.instance.encryption, _ui.instance.entries);
         return;
@@ -155,7 +159,8 @@ async function entry(_ui: UI) {
         return;
       },
       copyCode: (entry: OTPEntry) => {
-        if (_ui.instance.class.edit) {
+        if (_ui.instance.class.edit || entry.code === 'Invalid' ||
+            entry.code.startsWith('&bull;')) {
           return;
         }
 
@@ -163,6 +168,7 @@ async function entry(_ui: UI) {
           _ui.instance.showInfo('passphrase');
           return;
         }
+
         chrome.permissions.request(
             {permissions: ['clipboardWrite']}, (granted) => {
               if (granted) {
