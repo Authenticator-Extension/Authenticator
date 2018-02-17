@@ -20,7 +20,8 @@
 <div id="authenticator" v-cloak>
     <div id="header">
         <span>{{ i18n.extName }}</span>
-        <div id="infoAction" class="" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
+        <div id="infoAction" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
+        <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit}" v-dragula="entries">

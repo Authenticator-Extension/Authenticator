@@ -427,6 +427,17 @@ body {
     cursor: pointer;
 }
 
+#scan {
+    position: absolute;
+    right: 50px;
+    bottom: 0;
+    height: 38px;
+    line-height: 41px;
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+}
+
 .counter {
     color: #888;
     font-size: 18px;
