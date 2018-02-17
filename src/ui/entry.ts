@@ -80,6 +80,9 @@ async function entry(_ui: UI) {
       notificationTimeout: 0
     },
     methods: {
+      updateCode: async () => {
+        return await updateCode(_ui.instance);
+      },
       noCopy: (code: string) => {
         return code === 'Encrypted' || code === 'Invalid' ||
             code.startsWith('&bull;');
@@ -107,7 +110,7 @@ async function entry(_ui: UI) {
         _ui.instance.exportData = JSON.stringify(exportData, null, 2);
         _ui.instance.entries = await getEntries(_ui.instance.encryption);
         _ui.instance.exportFile = getBackupFile(exportData);
-        updateCode(_ui.instance);
+        await _ui.instance.updateCode();
         return;
       },
       importFile: (event: Event) => {

@@ -29,11 +29,6 @@ async function init() {
     authenticator.showInfo('passphrase');
   }
 
-  updateCode(authenticator);
-  setInterval(async () => {
-    await updateCode(authenticator);
-  }, 1000);
-
   // Remind backup
   const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
   if (!localStorage.lastRemindingBackupTime) {
