@@ -4,8 +4,19 @@
 
 async function info(_ui: UI) {
   const ui: UIConfig = {
-    data: {info: ''},
+    data: {
+      info: '',
+      dropboxCode: '',
+      dropboxToken: localStorage.dropboxToken || ''
+    },
     methods: {
+      saveDropboxCode: async () => {
+        const dropbox = new Dropbox();
+        _ui.instance.dropboxToken =
+            await dropbox.getToken(_ui.instance.dropboxCode);
+        _ui.instance.closeInfo();
+        return;
+      },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
           const entries = _ui.instance.entries as OTPEntry[];
@@ -19,7 +30,19 @@ async function info(_ui: UI) {
               return;
             }
           }
+        } else if (tab === 'dropbox') {
+          chrome.permissions.request(
+              {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
+                if (granted) {
+                  _ui.instance.class.fadein = true;
+                  _ui.instance.class.fadeout = false;
+                  _ui.instance.info = tab;
+                }
+                return;
+              });
+          return;
         }
+
         _ui.instance.class.fadein = true;
         _ui.instance.class.fadeout = false;
         _ui.instance.info = tab;

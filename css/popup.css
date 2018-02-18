@@ -326,6 +326,7 @@ body {
 #upload_backup,
 #security_save,
 #passphrase_ok,
+#dropbox_ok,
 #message_close,
 #exportButton,
 #resize_save {
@@ -369,6 +370,7 @@ body {
 #exportButton,
 #security_save,
 #passphrase_ok,
+#dropbox_ok,
 #resize_save {
     font-size: 12px;
     margin: 20px 100px;
@@ -414,6 +416,16 @@ body {
 
 #infoAction.hidden {
     display: none;
+}
+
+#dropbox {
+    position: absolute;
+    left: 50px;
+    bottom: 0;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    color: #ccc;
 }
 
 #editAction {
@@ -599,6 +611,7 @@ body {
 #passphraseClose:hover,
 #security_save:hover,
 #passphrase_ok:hover,
+#dropbox_ok:hover,
 #export:hover,
 #resizeClose:hover,
 #resize_save:hover {
@@ -652,6 +665,7 @@ body {
     animation: qrfadeout 0.2s 1 ease-in;
 }
 
+#dropbox_box input,
 #secret_box input,
 #security input,
 #passphrase input {
@@ -662,6 +676,11 @@ body {
     border: #CCC 1px solid;
     background: white;
     outline: none;
+}
+
+#dropbox_box input:read-only {
+    background: #eee;
+    cursor: not-allowed;
 }
 
 .checkbox_group input[type="checkbox"],
@@ -681,6 +700,7 @@ body {
     font-size: 16px;
 }
 
+#dropbox_box label,
 #secret_box label,
 #security label,
 #passphrase label,
@@ -734,4 +754,9 @@ body {
 
 .no-copy {
     cursor: default;
+}
+
+#dropbox_authorization {
+    text-align: right;
+    padding: 0 10px;
 }

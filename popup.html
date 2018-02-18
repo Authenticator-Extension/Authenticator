@@ -15,12 +15,14 @@
     <script src="build/models/key-utilities.js"></script>
     <script src="build/models/otp.js"></script>
     <script src="build/models/storage.js"></script>
+    <script src="build/models/dropbox.js"></script>
 </head>
 <body>
 <div id="authenticator" v-cloak>
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div id="infoAction" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
+        <div id="dropbox" v-show="dropboxToken !== ''"><i class="fa fa-dropbox"></i></div>
         <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
@@ -56,6 +58,7 @@
         </div>
         <div class="menuList">
             <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+            <p id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
             <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
             <p id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
             <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
@@ -111,11 +114,22 @@
                 <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
-            <div v-show="info === 'export'" id="infoContent">
+            <div v-show="info === 'export'">
                 <div id="security_warning">{{ i18n.export_info }}</div>
                 <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
                 <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
                 <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json">
+            </div>
+            <!-- DROPBOX -->
+            <div v-show="info === 'dropbox'">
+                <div id="dropbox_box">
+                    <label for="code_input">{{ i18n.dropbox_code }}</label>
+                    <input type="text" id="code_input" v-model="dropboxCode">
+                    <label for="token_input">{{ i18n.dropbox_token }}</label>
+                    <input type="text" id="token_input" v-model="dropboxToken" readonly>
+                    <div id="dropbox_authorization"><a href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a></div>
+                    <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
+                </div>
             </div>
             <!-- RESIZE -->
             <div v-show="info === 'resize'">

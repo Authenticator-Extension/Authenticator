@@ -198,5 +198,21 @@
     "import_backup": {
         "message": "Import Backup File",
         "description": "Import backup file."
+    },
+    "dropbox_backup": {
+        "message": "Auto Backup to Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox Code",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox Token",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Dropbox Authorization",
+        "description": "Dropbox authorization."
     }
 }

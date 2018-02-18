@@ -62,12 +62,13 @@
     ],
     "optional_permissions": [
         "clipboardWrite",
-        "https://www.google.com/"
+        "https://www.google.com/",
+        "https://*.dropboxapi.com/*"
     ],
     "offline_enabled": true,
     "web_accessible_resources": [
         "qr.html",
         "images/scan.gif"
     ],
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/; default-src 'none'"
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'"
 }

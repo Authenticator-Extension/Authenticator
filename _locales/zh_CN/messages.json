@@ -198,5 +198,21 @@
     "import_backup": {
         "message": "导入备份文件",
         "description": "Import backup file."
+    },
+    "dropbox_backup": {
+        "message": "自动备份至Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox授权码",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox Token",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Dropbox授权",
+        "description": "Dropbox authorization."
     }
 }

@@ -9,6 +9,7 @@
 /// <reference path="./ui/add-account.ts" />
 /// <reference path="./ui/class.ts" />
 /// <reference path="./ui/ui.ts" />
+/// <reference path="./models/dropbox.ts" />
 
 async function init() {
   const ui = new UI({el: '#authenticator'});
@@ -30,15 +31,49 @@ async function init() {
   }
 
   // Remind backup
-  const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
-  if (!localStorage.lastRemindingBackupTime) {
-    localStorage.lastRemindingBackupTime = clientTime;
-  } else if (
-      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
-      clientTime - localStorage.lastRemindingBackupTime < 0) {
-    authenticator.message = authenticator.i18n.remind_backup;
-    localStorage.lastRemindingBackupTime = clientTime;
-  }
+  const backupReminder = setInterval(() => {
+    for (let i = 0; i < authenticator.entries.length; i++) {
+      if (authenticator.entries[i].secret === 'Encrypted') {
+        return;
+      }
+    }
+
+    clearInterval(backupReminder);
+    const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
+    if (!localStorage.lastRemindingBackupTime) {
+      localStorage.lastRemindingBackupTime = clientTime;
+    } else if (
+        clientTime - localStorage.lastRemindingBackupTime >= 30 ||
+        clientTime - localStorage.lastRemindingBackupTime < 0) {
+      // backup to Dropbox
+      if (authenticator.dropboxToken) {
+        chrome.permissions.contains(
+            {origins: ['https://*.dropboxapi.com/*']},
+            async (hasPermission) => {
+              if (hasPermission) {
+                try {
+                  const dropbox = new Dropbox();
+                  const res = await dropbox.upload(authenticator.encryption);
+                  if (res) {
+                    // we have uploaded backup to Dropbox
+                    // no need to remind
+                    localStorage.lastRemindingBackupTime = clientTime;
+                    return;
+                  }
+                } catch (error) {
+                  // ignore
+                }
+              }
+              authenticator.message = authenticator.i18n.remind_backup;
+              localStorage.lastRemindingBackupTime = clientTime;
+            });
+      } else {
+        authenticator.message = authenticator.i18n.remind_backup;
+        localStorage.lastRemindingBackupTime = clientTime;
+      }
+    }
+    return;
+  }, 1000);
 
   return;
 }

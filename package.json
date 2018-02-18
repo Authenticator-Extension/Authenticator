@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sneezry/Authenticator2.git"
+    "url": "git+https://github.com/Authenticator-Extension/Authenticator.git"
   },
   "author": "Sneezry",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Sneezry/Authenticator2/issues"
+    "url": "https://github.com/Authenticator-Extension/Authenticator/issues"
   },
-  "homepage": "https://github.com/Sneezry/Authenticator2#readme",
+  "homepage": "https://github.com/Authenticator-Extension/Authenticator#readme",
   "devDependencies": {
     "@types/chrome": "^0.0.59",
     "@types/crypto-js": "^3.1.38",
