@@ -63,10 +63,15 @@ class EntryStorage {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
                 // decrypt the data to export
-                _data[hash].secret = _data[hash].encrypted ?
-                    encryption.getDecryptedSecret(_data[hash].secret) :
-                    _data[hash].secret;
-                _data[hash].encrypted = false;
+                if (_data[hash].encrypted) {
+                  const decryptedSecret =
+                      encryption.getDecryptedSecret(_data[hash].secret);
+                  if (decryptedSecret !== _data[hash].secret &&
+                      decryptedSecret !== 'Encrypted') {
+                    _data[hash].secret = decryptedSecret;
+                    _data[hash].encrypted = false;
+                  }
+                }
                 // we need correct hash
                 if (hash !== _data[hash].hash) {
                   _data[_data[hash].hash] = _data[hash];

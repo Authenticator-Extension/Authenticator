@@ -32,6 +32,10 @@ async function init() {
 
   // Remind backup
   const backupReminder = setInterval(() => {
+    if (authenticator.entries.length === 0) {
+      return;
+    }
+
     for (let i = 0; i < authenticator.entries.length; i++) {
       if (authenticator.entries[i].secret === 'Encrypted') {
         return;
@@ -39,6 +43,7 @@ async function init() {
     }
 
     clearInterval(backupReminder);
+
     const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
     if (!localStorage.lastRemindingBackupTime) {
       localStorage.lastRemindingBackupTime = clientTime;
