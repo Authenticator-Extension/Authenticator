@@ -43,9 +43,9 @@ async function addAccount(_ui: UI) {
         const entries = _ui.instance.entries as OTPEntry[];
         for (let i = 0; i < entries.length; i++) {
           // we have encrypted entry
-          // the current passphrass is incorrect
+          // the current passphrase is incorrect
           // shouldn't add new account with
-          // the current passphrass
+          // the current passphrase
           if (entries[i].code === 'Encrypted') {
             _ui.instance.message = _ui.instance.i18n.phrase_incorrect;
             return;
@@ -73,9 +73,9 @@ async function addAccount(_ui: UI) {
         const entries = _ui.instance.entries as OTPEntry[];
         for (let i = 0; i < entries.length; i++) {
           // we have encrypted entry
-          // the current passphrass is incorrect
+          // the current passphrase is incorrect
           // shouldn't add new account with
-          // the current passphrass
+          // the current passphrase
           if (entries[i].code === 'Encrypted') {
             _ui.instance.message = _ui.instance.i18n.phrase_incorrect;
             return;

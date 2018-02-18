@@ -43,7 +43,7 @@ class Dropbox {
     const exportData = await EntryStorage.getExport(encryption);
     for (const hash of Object.keys(exportData)) {
       if (exportData[hash].encrypted) {
-        throw new Error('Error passphrass.');
+        throw new Error('Error passphrase.');
       }
     }
     const backup = JSON.stringify(exportData, null, 2);

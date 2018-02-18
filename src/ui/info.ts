@@ -22,7 +22,7 @@ async function info(_ui: UI) {
           const entries = _ui.instance.entries as OTPEntry[];
           for (let i = 0; i < entries.length; i++) {
             // we have encrypted entry
-            // the current passphrass is incorrect
+            // the current passphrase is incorrect
             // cannot export account data
             // or change passphrase
             if (entries[i].code === 'Encrypted') {
