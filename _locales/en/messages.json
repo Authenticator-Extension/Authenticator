@@ -104,7 +104,7 @@
         "description": "Confirmm Passphrase."
     },
     "confirm_delete" : {
-        "message": "Are you sure you want to delete this code? This action cannot be undone.",
+        "message": "Are you sure you want to delete this item? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "NEVER REINSTALL THE EXTENSION TO TRY TO FIX ANY ISSUE, OR YOU WILL LOSE ALL YOUR DATA! Do you have a backup for your secrets? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
