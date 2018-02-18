@@ -104,6 +104,16 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
     return;
   }
 
+  setTimeout(() => {
+    captureBox.style.display = 'none';
+    grayLayout.style.display = 'none';
+  }, 100);
+
+  if (event.button === 1 || event.button === 2) {
+    event.preventDefault();
+    return;
+  }
+
   let captureBoxLeft = Math.min(captureBoxPosition.left, event.clientX) + 1;
   let captureBoxTop = Math.min(captureBoxPosition.top, event.clientY) + 1;
   let captureBoxWidth = Math.abs(captureBoxPosition.left - event.clientX) - 1;
@@ -113,15 +123,6 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
   captureBoxWidth *= window.devicePixelRatio;
   captureBoxHeight *= window.devicePixelRatio;
 
-  if (event.button === 1 || event.button === 2) {
-    event.preventDefault();
-    return;
-  }
-
-  setTimeout(() => {
-    captureBox.style.display = 'none';
-    grayLayout.style.display = 'none';
-  }, 100);
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
