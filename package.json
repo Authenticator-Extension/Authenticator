@@ -1,0 +1,36 @@
+{
+  "name": "authenticator",
+  "version": "0.1.0",
+  "description": "For Google Authenticator and Battle.net Authenticator.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "copyChrome": "cp -r build css images js _locales LICENSE *.html chrome",
+    "copyFirefox": "cp -r build css images js _locales LICENSE *.html firefox",
+    "compile": "tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "chrome": "mkdir -p chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
+    "firefox": "mkdir -p firefox && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sneezry/Authenticator2.git"
+  },
+  "author": "Sneezry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sneezry/Authenticator2/issues"
+  },
+  "homepage": "https://github.com/Sneezry/Authenticator2#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.59",
+    "@types/crypto-js": "^3.1.38",
+    "@types/jssha": "0.0.29",
+    "gts": "^0.5.2",
+    "typescript": "^2.6.1"
+  }
+}

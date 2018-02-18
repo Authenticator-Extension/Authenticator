@@ -1,0 +1,202 @@
+﻿{
+    "extName": {
+        "message": "身份验证器",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "身份验证器",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "适用于Google身份验证器及战网安全令。",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": "已添加。",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "无法识别的QR码。",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
+        "description": "Secret Error."
+    },
+    "info": {
+        "message": "<p><strong>Authenticator</strong> for Google&trade; Authenticator,<br/>&copy; 2018 <a target='_blank' href='http://sneezry.com'>Sneezry</a>. Released under the MIT License.</p><p>Google&trade;是Google的商标，Google Authenticator是Google的商品名，以上所有权归Google公司所有。</p><p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a>的所有权归jsqrcode的作者所有。以Apache协议授权。</p><p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a>的所有权归ZXing的作者所有。以Apache协议授权。</p><p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a>的所有权归其作者所有。以MIT协议授权。</p><p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a>的所有权归jsSHA的作者所有。以BSD协议授权。</p><p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a>的所有权归qrcode.js作者所有。以MIT协议授权。</p><p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a>的所有权归crypto-js作者所有。以BSD协议授权。</p><p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a>的所有权归Steve Matteson所有。以Apache协议授权。</p><p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a>的所有权归Dave Gandy所有。以SIL OFL协议1.1授权。</p><p>感谢 <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>",
+        "description": "Information."
+    },
+    "add_qr": {
+        "message": "扫描QR码",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "手动输入",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "关闭",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "确定",
+        "description": "OK."
+    },
+    "yes": {
+            "message": "Yes",
+            "description": "Yes."
+    },
+    "no": {
+        "message": "No",
+        "description": "No."
+    },
+    "err_acc_sec": {
+        "message": "请输入账户和密钥。",
+        "description": "Input Account and Secret."
+    },
+    "account": {
+        "message": "账户",
+        "description": "Account."
+    },
+    "secret": {
+        "message": "密钥",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "成功。",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "失败。",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "关于",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "导出 / 导入",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "设置",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "安全",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "当前密码",
+        "description": "Current Phrase."
+    },
+    "new_phrase": {
+        "message": "新密码",
+        "description": "New Phrase."
+    },
+    "phrase": {
+        "message": "密码",
+        "description": "Phrase."
+    },
+    "confirm_phrase": {
+        "message": "确认密码",
+        "description": "Confirmm Phrase."
+    },
+    "confirm_delete" : {
+        "message": "您确定要删除此项吗？您无法找回已删除的密钥。此操作无法撤销。",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
+        "description": "Phrase Warning."
+    },
+    "update": {
+        "message": "更新",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
+        "description": "Phrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "两次密码不一致。",
+        "description": "Phrase Not Match."
+    },
+    "encrypted": {
+        "message": "已加密",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "已复制",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "问题反馈",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "参与翻译",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "源代码",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "输入密码以解码账户数据。",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "通过Google校准时间",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "记住密码",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "注意！您的本地时钟时间差过大，请修正后再进行操作。",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "永远不要通过重装扩展来尝试解决问题，否则您将丢失全部数据！您是否为密钥创建了备份？请注意，没有人可以帮助您找回被锁定的账户，不要等到为时已晚。我们将在30天后再次提醒您进行备份。",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "捕捉失败，请重载您正在浏览的页面后重试。",
+        "description": "Capture Failed"
+    },
+    "unencrypted_secret_warning": {
+        "message": "此密钥未被加密！点击此处来设置一个密码以解决此问题。",
+        "description": "Unencrypted Secret Warning"
+    },
+    "based_on_time": {
+        "message": "基于时间",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "基于计数器",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "调整弹出页面尺寸",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "比例",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "将此文本保存至安全的地方来备份你的密钥。想要将账号添加至其他应用？请点击账号右上角隐藏的图标。",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "下载备份文件",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "导入备份文件",
+        "description": "Import backup file."
+    }
+}
