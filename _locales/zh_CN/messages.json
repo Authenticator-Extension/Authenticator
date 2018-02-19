@@ -214,5 +214,9 @@
     "dropbox_authorization": {
         "message": "Dropbox授权",
         "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "显示全部条目",
+        "description": "Show all entries."
     }
 }

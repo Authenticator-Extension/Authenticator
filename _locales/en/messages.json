@@ -214,5 +214,9 @@
     "dropbox_authorization": {
         "message": "Dropbox Authorization",
         "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Show all entries",
+        "description": "Show all entries."
     }
 }

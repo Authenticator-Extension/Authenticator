@@ -59,6 +59,32 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
+async function getCurrentHostname() {
+  return new Promise(
+      (resolve: (value: string|null) => void,
+       reject: (reason: Error) => void) => {
+        chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
+          const tab = tabs[0];
+          if (!tab || !tab.url) {
+            return resolve(null);
+          }
+          const urlParser = document.createElement('a');
+          urlParser.href = tab.url;
+          const hostname = urlParser.hostname;
+          return resolve(hostname);
+        });
+      });
+}
+
+function hasMatchedEntry(currentHost: string, entries: OTPEntry[]) {
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].issuer.indexOf(currentHost) !== -1) {
+      return true;
+    }
+  }
+  return false;
+}
+
 async function entry(_ui: UI) {
   const cookie = document.cookie;
   const cookieMatch = cookie ? document.cookie.split('passphrase=') : null;
@@ -71,6 +97,8 @@ async function entry(_ui: UI) {
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
   const exportFile = getBackupFile(exportData);
+  const currentHost = await getCurrentHostname();
+  const shouldFilter = currentHost ? hasMatchedEntry(currentHost, entries) : false;
 
   const ui: UIConfig = {
     data: {
@@ -82,7 +110,10 @@ async function entry(_ui: UI) {
       exportFile,
       sector: '',
       notification: '',
-      notificationTimeout: 0
+      notificationTimeout: 0,
+      filter: true,
+      currentHost,
+      shouldFilter
     },
     methods: {
       updateCode: async () => {

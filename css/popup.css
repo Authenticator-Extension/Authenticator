@@ -204,6 +204,29 @@ body {
     transition: height 0.2s;
 }
 
+#codes.filter .entry[filtered] {
+    display: none;
+}
+
+#filter {
+    background: #fff4cc;
+    padding: 0 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+#filter:hover {
+    background: #fff1ba;
+}
+
+#codes.filter #filter {
+    display: block;
+}
+
 #codes:not(.edit) .entry[unencrypted="true"]:hover .warning {
     height: 24px;
 }
