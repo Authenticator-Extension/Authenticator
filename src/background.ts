@@ -126,9 +126,11 @@ chrome.runtime.onInstalled.addListener((details) => {
   let url: string|null = null;
 
   if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    url = 'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues'
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
   } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    url = 'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
   }
 
   if (url) {

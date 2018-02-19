@@ -98,7 +98,8 @@ async function entry(_ui: UI) {
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
   const exportFile = getBackupFile(exportData);
   const currentHost = await getCurrentHostname();
-  const shouldFilter = currentHost ? hasMatchedEntry(currentHost, entries) : false;
+  const shouldFilter =
+      currentHost ? hasMatchedEntry(currentHost, entries) : false;
 
   const ui: UIConfig = {
     data: {
