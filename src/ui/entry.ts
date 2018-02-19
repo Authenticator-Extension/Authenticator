@@ -60,8 +60,13 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
 }
 
 async function entry(_ui: UI) {
-  const encryption: Encryption = new Encryption('');
-  const shouldShowPassphrase = await EntryStorage.hasEncryptedEntry();
+  const cookie = document.cookie;
+  const cookieMatch = cookie ? document.cookie.split('passphrase=') : null;
+  const cachedPassphrase =
+      cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
+  const encryption: Encryption = new Encryption(cachedPassphrase || '');
+  const shouldShowPassphrase =
+      cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);

@@ -11,6 +11,7 @@ async function passphrase(_ui: UI) {
             _ui.instance.passphrase);
         await _ui.instance.updateEntries();
         _ui.instance.closeInfo();
+        document.cookie = 'passphrase=' + _ui.instance.passphrase;
         return;
       },
       changePassphrase: async () => {
