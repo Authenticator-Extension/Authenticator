@@ -39,11 +39,13 @@ class EntryStorage {
     return newData;
   }
 
-  private static ensureObject(_data: {[hash: string]: OTPStorage}) {
-    for (const hash of Object.keys(_data)) {
-      if (typeof _data[hash] !== 'object') {
-        // Drop invalid data?
-      }
+  private static ensureObject(
+      _data: {[hash: string]: OTPStorage}, hash: string) {
+    if (typeof _data[hash] !== 'object') {
+      console.log('Key ' + hash + 'is not an object');
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -53,8 +55,10 @@ class EntryStorage {
          reject: (reason: Error) => void) => {
           chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
             for (const hash of Object.keys(_data)) {
-              if (_data[hash].encrypted) {
-                return resolve(true);
+              if (this.ensureObject(_data, hash)) {
+                if (_data[hash].encrypted) {
+                  return resolve(true);
+                }
               }
             }
             return resolve(false);
@@ -69,17 +73,18 @@ class EntryStorage {
          reject: (reason: Error) => void) => {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
-              this.ensureObject(_data);
               for (const hash of Object.keys(_data)) {
-                // decrypt the data to export
-                _data[hash].secret = _data[hash].encrypted ?
-                    encryption.getDecryptedSecret(_data[hash].secret) :
-                    _data[hash].secret;
-                _data[hash].encrypted = false;
-                // we need correct hash
-                if (hash !== _data[hash].hash) {
-                  _data[_data[hash].hash] = _data[hash];
-                  delete _data[hash];
+                if (this.ensureObject(_data, hash)) {
+                  // decrypt the data to export
+                  _data[hash].secret = _data[hash].encrypted ?
+                      encryption.getDecryptedSecret(_data[hash].secret) :
+                      _data[hash].secret;
+                  _data[hash].encrypted = false;
+                  // we need correct hash
+                  if (hash !== _data[hash].hash) {
+                    _data[_data[hash].hash] = _data[hash];
+                    delete _data[hash];
+                  }
                 }
               }
               return resolve(_data);
@@ -202,77 +207,79 @@ class EntryStorage {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               const data: OTPEntry[] = [];
               for (let hash of Object.keys(_data)) {
-                const entryData = _data[hash];
-                let needMigrate = false;
+                if (this.ensureObject(_data, hash)) {
+                  const entryData = _data[hash];
+                  let needMigrate = false;
 
-                if (!entryData.type) {
-                  entryData.type = OTPType[OTPType.totp];
-                  needMigrate = true;
-                }
-
-                let type: OTPType;
-                switch (entryData.type) {
-                  case 'totp':
-                  case 'hotp':
-                  case 'battle':
-                  case 'steam':
-                    type = OTPType[entryData.type];
-                    break;
-                  default:
-                    // we need correct the type here
-                    // and save it
-                    type = OTPType.totp;
+                  if (!entryData.type) {
                     entryData.type = OTPType[OTPType.totp];
                     needMigrate = true;
-                }
-                entryData.secret = entryData.encrypted ?
-                    encryption.getDecryptedSecret(entryData.secret) :
-                    entryData.secret;
-
-                const entry = new OTPEntry(
-                    type, entryData.issuer, entryData.secret, entryData.account,
-                    entryData.index, entryData.counter);
-                data.push(entry);
-
-                // we need migrate secret in old format here
-                if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
-                  const secretMatches =
-                      entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
-                  if (secretMatches && secretMatches.length >= 3) {
-                    entryData.secret = entryData.encrypted ?
-                        secretMatches[2] :
-                        encryption.getEncryptedSecret(entry.secret);
-                    entryData.type = OTPType[OTPType.battle];
-                    needMigrate = true;
                   }
-                }
 
-                if (/^stm\-/.test(entryData.secret)) {
-                  const secretMatches = entryData.secret.match(/^stm\-(.*)/);
-                  if (secretMatches && secretMatches.length >= 2) {
-                    entryData.secret = entryData.encrypted ?
-                        secretMatches[2] :
-                        encryption.getEncryptedSecret(entry.secret);
-                    entryData.type = OTPType[OTPType.steam];
-                    needMigrate = true;
+                  let type: OTPType;
+                  switch (entryData.type) {
+                    case 'totp':
+                    case 'hotp':
+                    case 'battle':
+                    case 'steam':
+                      type = OTPType[entryData.type];
+                      break;
+                    default:
+                      // we need correct the type here
+                      // and save it
+                      type = OTPType.totp;
+                      entryData.type = OTPType[OTPType.totp];
+                      needMigrate = true;
                   }
-                }
+                  entryData.secret = entryData.encrypted ?
+                      encryption.getDecryptedSecret(entryData.secret) :
+                      entryData.secret;
 
-                // we need correct the hash
-                if (entry.secret !== 'Encrypted') {
-                  const _hash = CryptoJS.MD5(entry.secret).toString();
-                  if (hash !== _hash) {
-                    chrome.storage.sync.remove(hash);
-                    hash = _hash;
-                    entryData.hash = hash;
-                    needMigrate = true;
+                  const entry = new OTPEntry(
+                      type, entryData.issuer, entryData.secret,
+                      entryData.account, entryData.index, entryData.counter);
+                  data.push(entry);
+
+                  // we need migrate secret in old format here
+                  if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
+                    const secretMatches =
+                        entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
+                    if (secretMatches && secretMatches.length >= 3) {
+                      entryData.secret = entryData.encrypted ?
+                          secretMatches[2] :
+                          encryption.getEncryptedSecret(entry.secret);
+                      entryData.type = OTPType[OTPType.battle];
+                      needMigrate = true;
+                    }
                   }
-                }
 
-                if (needMigrate) {
-                  const _entry: {[hash: string]: OTPStorage} = {};
-                  _entry[hash] = entryData;
-                  this.import(encryption, _entry);
+                  if (/^stm\-/.test(entryData.secret)) {
+                    const secretMatches = entryData.secret.match(/^stm\-(.*)/);
+                    if (secretMatches && secretMatches.length >= 2) {
+                      entryData.secret = entryData.encrypted ?
+                          secretMatches[2] :
+                          encryption.getEncryptedSecret(entry.secret);
+                      entryData.type = OTPType[OTPType.steam];
+                      needMigrate = true;
+                    }
+                  }
+
+                  // we need correct the hash
+                  if (entry.secret !== 'Encrypted') {
+                    const _hash = CryptoJS.MD5(entry.secret).toString();
+                    if (hash !== _hash) {
+                      chrome.storage.sync.remove(hash);
+                      hash = _hash;
+                      entryData.hash = hash;
+                      needMigrate = true;
+                    }
+                  }
+
+                  if (needMigrate) {
+                    const _entry: {[hash: string]: OTPStorage} = {};
+                    _entry[hash] = entryData;
+                    this.import(encryption, _entry);
+                  }
                 }
               }
 
