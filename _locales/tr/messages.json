@@ -1,0 +1,222 @@
+{
+    "extName": {
+        "message": "Kimlik Doğrulayıcı",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Kimlik Doğrulayıcı",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " eklendi.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "QR kodu bulunamadı.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "description": "Secret Error."
+    },
+    "info": {
+        "message": "<p><strong>Authenticator<\/strong> for Google&trade; Authenticator,<br\/>&copy; 2018 <a target='_blank' href='http:\/\/sneezry.com'>Sneezry<\/a>. Released under the MIT License.<\/p><p>Google&trade; is Google's trademark, Google Authenticator is Google’s trade name, those rights of ownership belong with Google Inc.<\/p><p><a target='_blank' href='https:\/\/github.com\/LazarSoft\/jsqrcode'>jsqrcode<\/a> Copyright jsqrcode authors. Licensed under the Apache License.<\/p><p><a target='_blank' href='https:\/\/github.com\/zxing\/zxing'>ZXing<\/a> Copyright ZXing authors. Licensed under the Apache License.<\/p><p><a target='_blank' href='http:\/\/blog.tinisles.com\/2011\/10\/google-authenticator-one-time-password-algorithm-in-javascript\/'>totp.js<\/a> Copyright its author. Licensed under the MIT License.<\/p><p><a target='_blank' href='http:\/\/caligatio.github.com\/jsSHA\/'>jsSHA<\/a> Copyright jsSHA authors. Licensed under the BSD License.<\/p><p><a target='_blank' href='http:\/\/davidshimjs.github.io\/qrcodejs\/'>qrcode.js<\/a> Copyright qrcode.js author. Licensed under the MIT License.<\/p><p><a target='_blank' href='https:\/\/code.google.com\/p\/crypto-js\/'>crypto-js<\/a> Copyright crypto-js author. Licensed under the BSD License.<\/p><p><a target='_blank' href='https:\/\/www.google.com\/fonts\/specimen\/Droid+Sans+Mono'>Droid Sans Mono<\/a> Copyright Steve Matteson. Licensed under the Apache License.<\/p><p><a target='_blank' href='http:\/\/fontawesome.io'>Font Awesome<\/a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.<\/p><p>Thanks to <a target='_blank' href='https:\/\/github.com\/multiwebinc'>Mike Robinson<\/a> &lt;3<\/p>",
+        "description": "Information."
+    },
+    "add_qr": {
+        "message": "QR kodunu tara",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Manuel giriş",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Kapat",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Ok",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Evet",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Hayır",
+        "description": "No."
+    },
+    "err_acc_sec": {
+        "message": "Please enter account and secret.",
+        "description": "Input Account and Secret."
+    },
+    "account": {
+        "message": "Hesap",
+        "description": "Account."
+    },
+    "secret": {
+        "message": "Şifre",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Başarılı.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Hata.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Hakkında",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "İçe\/Dışa aktar",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Ayarlar",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Güvenlik",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Mevcut Şifre",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Yeni Şifre",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Şifre",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Şifreyi doğrula",
+        "description": "Confirmm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Güncelle",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Two passphrases do not match.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Şifrelendi",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Kopyalandı",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Geribildirim",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Çeviri",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Kaynak Kodu",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Enter password to decrypt account data.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Saati google ile senkronize et",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Şifreyi hatırla",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Dikkat! Yerel saatiniz farklı, devam etmek için lütfen düzeltin.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Capture failed, please reload the page and try again.",
+        "description": "Capture Failed"
+    },
+    "unencrypted_secret_warning": {
+        "message": "This secret is not encrypted! Click here to set a passphrase.",
+        "description": "Unencrypted Secret Warning"
+    },
+    "based_on_time": {
+        "message": "Zaman bazlı",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Counter Based",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Resize Popup Page",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Scale",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Download Backup File",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Import Backup File",
+        "description": "Import backup file."
+    },
+    "dropbox_backup": {
+        "message": "Auto Backup to Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox Code",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox Token",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Dropbox Authorization",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Show all entries",
+        "description": "Show all entries."
+    }
+}
