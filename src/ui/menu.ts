@@ -51,22 +51,6 @@ function resize(zoom: number) {
   }
 }
 
-function openHelp() {
-  console.log('help');
-  let url =
-      'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
-
-  if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
-  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
-  }
-
-  window.open(url, '_blank');
-}
-
 async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
@@ -86,10 +70,6 @@ async function menu(_ui: UI) {
         setTimeout(() => {
           _ui.instance.class.slideout = false;
         }, 200);
-        return;
-      },
-      openHelp: () => {
-        openHelp();
         return;
       },
       saveZoom: () => {
