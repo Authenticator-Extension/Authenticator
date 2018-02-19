@@ -57,10 +57,6 @@ class EntryStorage {
 
   private static isValidEntry(
       _data: {[hash: string]: OTPStorage}, hash: string) {
-    if (!_data.hasOwnProperty(hash)) {
-      console.log('Key "' + hash + '" does not exist');
-      return false;
-    }
     if (typeof _data[hash] !== 'object') {
       console.log('Key "' + hash + '" is not an object');
       return false;
