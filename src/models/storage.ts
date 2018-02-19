@@ -42,7 +42,7 @@ class EntryStorage {
   private static ensureObject(
       _data: {[hash: string]: OTPStorage}, hash: string) {
     if (typeof _data[hash] !== 'object') {
-      console.log('Key ' + hash + 'is not an object');
+      console.log('Key "' + hash + '" is not an object');
       return false;
     } else {
       return true;
