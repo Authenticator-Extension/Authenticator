@@ -116,3 +116,22 @@ async function getTotp(text: string, passphrase: string) {
   }
   return;
 }
+
+// Show issue page after first install
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason !== 'install') {
+    return;
+  }
+
+  let url: string|null = null;
+
+  if (navigator.userAgent.indexOf('Chrome') !== -1) {
+    url = 'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues'
+  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
+    url = 'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+  }
+
+  if (url) {
+    window.open(url, '_blank');
+  }
+});
