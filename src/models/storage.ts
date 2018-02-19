@@ -23,6 +23,9 @@ class EntryStorage {
     const tempEntryArray: OTPStorage[] = [];
 
     for (const hash of Object.keys(_data)) {
+      if (!this.isValidEntry(_data, hash)) {
+        continue;
+      }
       tempEntryArray.push(_data[hash]);
     }
 
@@ -39,12 +42,42 @@ class EntryStorage {
     return newData;
   }
 
+  private static isOTPStorage(entry: object) {
+    const properties = [
+      'account', 'hash', 'index', 'issuer', 'type', 'counter', 'secret',
+      'encrypted'
+    ];
+    for (let i = 0; i < properties.length; i++) {
+      if (!entry.hasOwnProperty(properties[i])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private static isValidEntry(
+      _data: {[hash: string]: OTPStorage}, hash: string) {
+    if (typeof _data[hash] !== 'object') {
+      console.log('Key "' + hash + '" is not an object');
+      return false;
+    } else {
+      if (!this.isOTPStorage(_data[hash])) {
+        console.log('Key "' + hash + '" is not OTPStorage');
+        return false;
+      }
+      return true;
+    }
+  }
+
   static async hasEncryptedEntry() {
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
           chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
             for (const hash of Object.keys(_data)) {
+              if (!this.isValidEntry(_data, hash)) {
+                continue;
+              }
               if (_data[hash].encrypted) {
                 return resolve(true);
               }
@@ -62,6 +95,9 @@ class EntryStorage {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
+                if (!this.isValidEntry(_data, hash)) {
+                  continue;
+                }
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
                   const decryptedSecret =
@@ -94,6 +130,9 @@ class EntryStorage {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(data)) {
+                if (!this.isValidEntry(_data, hash)) {
+                  continue;
+                }
                 // never trust data import from user
                 // we do not support encrypted data import any longer
                 if (!data[hash].secret || data[hash].encrypted) {
@@ -218,6 +257,9 @@ class EntryStorage {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               const data: OTPEntry[] = [];
               for (let hash of Object.keys(_data)) {
+                if (!this.isValidEntry(_data, hash)) {
+                  continue;
+                }
                 const entryData = _data[hash];
                 let needMigrate = false;
 
