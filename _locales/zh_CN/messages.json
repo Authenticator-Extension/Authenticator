@@ -104,7 +104,7 @@
         "description": "Confirmm Phrase."
     },
     "confirm_delete" : {
-        "message": "您确定要删除此项吗？您无法找回已删除的密钥。此操作无法撤销。",
+        "message": "您确定要删除此密钥吗？您无法找回已删除的密钥。此操作无法撤销。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "永远不要通过重装扩展来尝试解决问题，否则您将丢失全部数据！您是否为密钥创建了备份？请注意，没有人可以帮助您找回被锁定的账户，不要等到为时已晚。我们将在30天后再次提醒您进行备份。",
+        "message": "您是否为密钥创建了备份？请注意，没有人可以帮助您找回被锁定的账户，不要等到为时已晚。我们将在30天后再次提醒您进行备份。",
         "description": "Remind Backup"
     },
     "capture_failed": {
