@@ -61,7 +61,7 @@ class Dropbox {
             const now =
                 (new Date()).toISOString().slice(0, 10).replace(/-/g, '');
             const apiArg = {
-              path: `/Authenticator Backup/${now}.json`,
+              path: `/${now}.json`,
               mode: 'add',
               autorename: true
             };
