@@ -8,4 +8,5 @@ before_script:
 script:
   - "gts check"
   - "npm run firefox"
+  - "npm run chrome"
   - "addons-linter firefox"
