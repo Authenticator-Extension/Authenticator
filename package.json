@@ -1,0 +1,37 @@
+{
+  "name": "authenticator-extension",
+  "version": "0.1.0",
+  "description": "Authenticator generates 2-Step Verification codes in your browser.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check": "gts check",
+    "clean": "gts clean",
+    "copyChrome": "cp -r src build css images js _locales LICENSE *.html chrome",
+    "copyFirefox": "cp -r src build css images js _locales LICENSE *.html firefox",
+    "compile": "gts clean && tsc -p .",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check",
+    "chrome": "node ensureDir.js chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
+    "firefox": "node ensureDir.js firefox && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Authenticator-Extension/Authenticator.git"
+  },
+  "author": "Authenticator Extension",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Authenticator-Extension/Authenticator/issues"
+  },
+  "homepage": "https://github.com/Authenticator-Extension/Authenticator#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.59",
+    "@types/crypto-js": "^3.1.38",
+    "@types/jssha": "0.0.29",
+    "fs-extra": "^5.0.0",
+    "gts": "^0.5.2",
+    "typescript": "^2.6.1"
+  }
+}

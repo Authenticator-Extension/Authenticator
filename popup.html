@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-dragula.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/aes.js"></script>
+    <script src="js/sha.js"></script>
+    <script src="js/qrcode.js"></script>
+    <script src="build/models/encryption.js"></script>
+    <script src="build/models/interface.js"></script>
+    <script src="build/models/key-utilities.js"></script>
+    <script src="build/models/otp.js"></script>
+    <script src="build/models/storage.js"></script>
+    <script src="build/models/dropbox.js"></script>
+</head>
+<body>
+<div id="authenticator" v-cloak>
+    <div id="header">
+        <span>{{ i18n.extName }}</span>
+        <div id="infoAction" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
+        <div id="dropbox" v-show="dropboxToken !== '' && !class.edit"><i class="fa fa-dropbox"></i></div>
+        <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
+        <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
+    </div>
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter}">
+        <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
+        <div v-dragula="entries">
+            <!-- ENTRIES -->
+            <div class="entry" v-for="entry in entries" v-bind:filtered="entry.issuer.indexOf(currentHost) === -1">
+                <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
+                <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
+                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
+                <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
+                <div class="issuerEdit">
+                    <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
+                </div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+                <div class="account">{{ entry.account }}</div>
+                <div class="accountEdit">
+                    <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
+                </div>
+                <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
+                <div class="movehandle"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div id="add" v-on:click="showInfo('account')"><i class="fa fa-plus"></i></div>
+    </div>
+
+    <!-- MENU -->
+    <div id="menu" v-bind:class="{'slidein': class.slidein, 'slideout': class.slideout}">
+        <div id="menuHead">
+            <span id="menuName">{{ i18n.settings }}</span>
+            <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
+        </div>
+        <div class="menuList">
+            <p id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+        </div>
+        <div class="menuList">
+            <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+            <p id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+            <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
+            <p id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
+            <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+        </div>
+        <div class="menuList">
+            <p v-on:click="openHelp"><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank">{{ i18n.feedback }}</a></p>
+            <p><i class="fa fa-globe"></i><a id="menuTranslate" target="_blank" href="https://crwd.in/authenticator-firefox">{{ i18n.translate }}</a></p>
+            <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Authenticator-Extension/Authenticator">{{ i18n.source }}</a></p>
+        </div>
+        <div id="version">Version {{ version }}</div>
+    </div>
+
+    <!-- INFO -->
+    <div id="info" v-bind:class="{'fadein': class.fadein, 'fadeout': class.fadeout}">
+        <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
+        <div id="infoContent">
+            <!-- ABOUT -->
+            <div v-show="info === 'about'" v-html="i18n.info"></div>
+            <!-- ADD ACCOUNT -->
+            <div v-show="info === 'account'">
+                <div v-show="!newAccount.show">
+                    <div id="add_qr" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
+                    <div id="add_secret" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
+                </div>
+                <div id="secret_box" v-show="newAccount.show">
+                    <label for="account_input" id="account_label">{{ i18n.account }}</label>
+                    <input type="text" id="account_input" v-model="newAccount.account">
+                    <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
+                    <input type="text" id="secret_input" v-model="newAccount.secret">
+                    <select v-model="newAccount.type">
+                        <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
+                        <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
+                        <option v-bind:value="OTPType.battle">Battle.net</option>
+                        <option v-bind:value="OTPType.steam">Steam</option>
+                    </select>
+                    <div id="add_button" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
+                </div>
+            </div>
+            <!-- SECURITY -->
+            <div id="security" v-show="info === 'security'">
+                <div id="security_warning">{{ i18n.security_warning }}</div>
+                <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
+                <input id="security_new_phrase" type="password" v-model="newPassphrase.phrase">
+                <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
+                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm">
+                <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
+            </div>
+            <!-- PASSPHRASE -->
+            <div id="passphrase" v-show="info === 'passphrase'">
+                <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
+                <label for="phrase" id="passphrase_phrase_label"></label>
+                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()">
+                <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
+            </div>
+            <!-- EXPORT -->
+            <div v-show="info === 'export'">
+                <div id="export_info">{{ i18n.export_info }}</div>
+                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
+                <div v-if="isChrome()">
+                        <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
+                        <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json"/>
+                </div>
+                <a v-else id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+            </div>
+            <!-- DROPBOX -->
+            <div v-show="info === 'dropbox'">
+                <div id="dropbox_box">
+                    <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
+                    <label for="code_input">{{ i18n.dropbox_code }}</label>
+                    <input type="text" id="code_input" v-model="dropboxCode">
+                    <label for="token_input">{{ i18n.dropbox_token }}</label>
+                    <input type="text" id="token_input" v-model="dropboxToken" disabled>
+                    <div id="dropbox_authorization"><a href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a></div>
+                    <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
+                </div>
+            </div>
+            <!-- RESIZE -->
+            <div v-show="info === 'resize'">
+                <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
+                <select id="resize_list" v-model="zoom">
+                    <option value="100">100%</option>
+                    <option value="90">90%</option>
+                    <option value="80">80%</option>
+                    <option value="67">67%</option>
+                    <option value="57">57%</option>
+                    <option value="50">50%</option>
+                    <option value="40">40%</option>
+                    <option value="33">33%</option>
+                    <option value="25">25%</option>
+                    <option value="20">20%</option>
+                </select>
+                <div id="resize_save" v-on:click="saveZoom()">{{ i18n.ok }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MESSAGE -->
+    <div id="message" v-show="message !== ''">
+        <div id="message_content">{{ message }}</div>
+        <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
+    </div>
+
+    <!-- CONFRIM -->
+    <div id="confirm" v-show="confirmMessage !== ''">
+        <div id="confirm_content">{{ confirmMessage }}</div>
+        <div class="buttons">
+            <div id="confirm_ok" v-on:click="confirmOK()">{{ i18n.yes }}</div>
+            <div id="confirm_cancel" v-on:click="confirmCancel()">{{ i18n.no }}</div>
+        </div>
+    </div>
+
+    <!-- NOTIFICATITON -->
+    <div id="notification" v-bind:class="{'fadein': class.notificationFadein, 'fadeout': class.notificationFadeout}">{{ notification }}</div>
+
+    <!-- QR -->
+    <div id="qr" v-bind:class="{'qrfadein': class.qrfadein, 'qrfadeout': class.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
+
+    <!-- CLIPBOARD -->
+    <input type="text" id="codeClipboard" />
+</div>
+<script src="build/ui/add-account.js"></script>
+<script src="build/ui/class.js"></script>
+<script src="build/ui/entry.js"></script>
+<script src="build/ui/i18n.js"></script>
+<script src="build/ui/info.js"></script>
+<script src="build/ui/menu.js"></script>
+<script src="build/ui/message.js"></script>
+<script src="build/ui/passphrase.js"></script>
+<script src="build/ui/qr.js"></script>
+<script src="build/ui/ui.js"></script>
+<script src="build/popup.js"></script>
+</body>
+</html>
