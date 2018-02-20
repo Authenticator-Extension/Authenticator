@@ -8,13 +8,13 @@
     "clean": "gts clean",
     "copyChrome": "cp -r src build css images js _locales LICENSE *.html chrome",
     "copyFirefox": "cp -r src build css images js _locales LICENSE *.html firefox",
-    "compile": "tsc -p .",
+    "compile": "gts clean && tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
-    "chrome": "mkdir -p chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
-    "firefox": "mkdir -p firefox && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
+    "chrome": "node ensureDir.js chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
+    "firefox": "node ensureDir.js && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "@types/chrome": "^0.0.59",
     "@types/crypto-js": "^3.1.38",
     "@types/jssha": "0.0.29",
+    "fs-extra": "^5.0.0",
     "gts": "^0.5.2",
     "typescript": "^2.6.1"
   }
