@@ -127,7 +127,7 @@
                     <label for="code_input">{{ i18n.dropbox_code }}</label>
                     <input type="text" id="code_input" v-model="dropboxCode">
                     <label for="token_input">{{ i18n.dropbox_token }}</label>
-                    <input type="text" id="token_input" v-model="dropboxToken" readonly>
+                    <input type="text" id="token_input" v-model="dropboxToken" disabled>
                     <div id="dropbox_authorization"><a href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a></div>
                     <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
                 </div>
