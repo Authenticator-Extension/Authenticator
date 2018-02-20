@@ -59,6 +59,10 @@
         "message": "Account",
         "description": "Account."
     },
+    "username": {
+        "message": "Username",
+        "description": "Username."
+    },
     "secret": {
         "message": "Secret",
         "description": "Secret."
@@ -220,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Резервные копии, сохраненные в Dropbox, не шифруются (даже если вы установили пароль), используйте его на свой страх и риск.",
+        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
         "description": "Dropbox backup risk warning."
     }
 }
