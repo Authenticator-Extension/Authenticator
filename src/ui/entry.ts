@@ -150,7 +150,7 @@ async function entry(_ui: UI) {
         await _ui.instance.updateCode();
         return;
       },
-      importFile: (event: Event) => {
+      importFile: (event: Event, closeWindow: boolean) => {
         const target = event.target as HTMLInputElement;
         if (!target || !target.files) {
           return;
@@ -162,10 +162,17 @@ async function entry(_ui: UI) {
             await EntryStorage.import(_ui.instance.encryption, importData);
             await _ui.instance.updateEntries();
             _ui.instance.message = _ui.instance.i18n.updateSuccess;
+            if (closeWindow) {
+              window.close();
+            }
           };
           reader.readAsText(target.files[0]);
         } else {
           _ui.instance.message = _ui.instance.i18n.updateFailure;
+          if (closeWindow) {
+            window.alert(_ui.instance.i18n.updateFailure);
+            window.close();
+          }
         }
         return;
       },
