@@ -52,7 +52,6 @@ function resize(zoom: number) {
 }
 
 function openHelp() {
-  console.log('help');
   let url =
       'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
 
@@ -91,6 +90,13 @@ async function menu(_ui: UI) {
       openHelp: () => {
         openHelp();
         return;
+      },
+      isChrome: () => {
+        if (navigator.userAgent.indexOf('Chrome') !== -1) {
+          return true;
+        } else {
+          return false;
+        }
       },
       saveZoom: () => {
         localStorage.zoom = _ui.instance.zoom;
