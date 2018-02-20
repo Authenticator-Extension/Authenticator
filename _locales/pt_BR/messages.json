@@ -59,6 +59,10 @@
         "message": "Conta",
         "description": "Account."
     },
+    "accountName": {
+        "message": "Account name",
+        "description": "Account Name."
+    },
     "username": {
         "message": "Username",
         "description": "Username."
