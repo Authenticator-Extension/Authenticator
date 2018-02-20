@@ -192,15 +192,15 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Скачать резервную копию",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup File",
+        "message": "Импортировать резервную копию",
         "description": "Import backup file."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Автосохранение резервной копии в Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
