@@ -123,8 +123,8 @@
                 <div v-if="isChrome()">
                         <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
                         <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json"/>
-		</div>
-		<a v-else id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                </div>
+                <a v-else id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
