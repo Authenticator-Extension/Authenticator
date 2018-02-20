@@ -551,9 +551,6 @@ body {
     color: black;
 }
 
-#menu .menuList p:hover:after {
-    color: black;
-}
 
 #menu .menuList p:last-child {
     border-bottom: none;
@@ -640,7 +637,12 @@ body {
 #dropbox_ok:hover,
 #export:hover,
 #resizeClose:hover,
-#resize_save:hover {
+#resize_save:hover,
+#confirm_cancel:hover,
+#confirm_ok:hover,
+#menu .menuList p:hover:after,
+.entry:hover .movehandle,
+.showqr:hover {
     color: black;
 }
 

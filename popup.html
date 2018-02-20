@@ -41,7 +41,7 @@
                 <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
                 <div class="account">{{ entry.account }}</div>
                 <div class="accountEdit">
-                    <input class="accountEditBox" placeholder="{{ i18n.account }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
+                    <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
                 </div>
                 <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
                 <div class="movehandle"><i class="fa fa-bars"></i></div>
