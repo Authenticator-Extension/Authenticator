@@ -130,9 +130,6 @@ class EntryStorage {
           try {
             chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(data)) {
-                if (!this.isValidEntry(_data, hash)) {
-                  continue;
-                }
                 // never trust data import from user
                 // we do not support encrypted data import any longer
                 if (!data[hash].secret || data[hash].encrypted) {
