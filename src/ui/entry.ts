@@ -1,4 +1,5 @@
 /* tslint:disable:no-reference */
+/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 /// <reference path="../models/encryption.ts" />
 /// <reference path="../models/interface.ts" />
 /// <reference path="../models/storage.ts" />
@@ -90,9 +91,16 @@ async function entry(_ui: UI) {
   const cookieMatch = cookie ? document.cookie.split('passphrase=') : null;
   const cachedPassphrase =
       cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
-  const encryption: Encryption = new Encryption(cachedPassphrase || '');
+  const cachedPassphraseLocalStorage = localStorage.encodedPhrase ?
+      CryptoJS.AES.decrypt(localStorage.encodedPhrase, '')
+          .toString(CryptoJS.enc.Utf8) :
+      '';
+  const encryption: Encryption =
+      new Encryption(cachedPassphrase || cachedPassphraseLocalStorage || '');
   const shouldShowPassphrase =
-      cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
+      (cachedPassphrase || cachedPassphraseLocalStorage) ?
+      false :
+      await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);

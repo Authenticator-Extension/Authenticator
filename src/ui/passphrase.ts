@@ -23,6 +23,8 @@ async function passphrase(_ui: UI) {
         _ui.instance.encryption.updateEncryptionPassword(
             _ui.instance.newPassphrase.phrase);
         await _ui.instance.importEntries();
+        // remove cached passphrase in old version
+        localStorage.removeItem('encodedPhrase');
         return;
       }
     }
