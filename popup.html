@@ -1,4 +1,4 @@
-<!DOCTYPE html>/
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"/>
@@ -120,10 +120,11 @@
             <div v-show="info === 'export'">
                 <div id="security_warning">{{ i18n.export_info }}</div>
                 <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
-                <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
-                <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json">
-		<!-- Show FFOX only -->
-		<a id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                <div v-if="navigator.userAgent.indexOf('Chrome') !== -1">
+                        <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
+                        <input id="import_file_chrome" type="file" v-on:change="importFile($event)" accept="application/json"/>
+		</div>
+		<a v-else id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
