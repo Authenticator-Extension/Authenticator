@@ -95,6 +95,17 @@
     }
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background: #EEE;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    border: 2px solid #EEE;
+    border-radius: 5px;
+}
+
 [v-cloak] { display: none } 
 
 * {
@@ -158,17 +169,6 @@ body {
 #codes:hover {
     padding-right: 0;
     overflow-y: scroll;
-}
-
-#codes::-webkit-scrollbar {
-    width: 10px;
-    background: #EEE;
-}
-
-#codes::-webkit-scrollbar-thumb {
-    background-color: #AAA;
-    border: 2px solid #EEE;
-    border-radius: 5px;
 }
 
 #codeClipboard {
