@@ -1,7 +1,7 @@
 {
-  "name": "authenticator",
+  "name": "authenticator-extension",
   "version": "0.1.0",
-  "description": "For Google Authenticator and Battle.net Authenticator.",
+  "description": "Authenticator generates 2-Step Verification codes in your browser.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "gts check",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/Authenticator-Extension/Authenticator.git"
   },
-  "author": "Sneezry",
+  "author": "Authenticator Extension",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Authenticator-Extension/Authenticator/issues"
