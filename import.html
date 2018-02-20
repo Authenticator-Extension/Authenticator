@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Import Backup</title>
+	<script src="js/vue.min.js"></script>
+	<script src="js/vue-dragula.js"></script>
+	<script src="js/md5.js"></script>
+	<script src="js/aes.js"></script>
+	<script src="js/sha.js"></script>
+	<script src="js/qrcode.js"></script>
+	<script src="build/models/encryption.js"></script>
+	<script src="build/models/interface.js"></script>
+	<script src="build/models/key-utilities.js"></script>
+	<script src="build/models/otp.js"></script>
+	<script src="build/models/storage.js"></script>
+	<script src="build/models/dropbox.js"></script>
+</head>
+<body>
+<div id="authenticator">
+	<input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json"></input>
+
+</div>
+</body>
+<script src="build/ui/add-account.js"></script>
+<script src="build/ui/class.js"></script>
+<script src="build/ui/entry.js"></script>
+<script src="build/ui/i18n.js"></script>
+<script src="build/ui/info.js"></script>
+<script src="build/ui/menu.js"></script>
+<script src="build/ui/message.js"></script>
+<script src="build/ui/passphrase.js"></script>
+<script src="build/ui/qr.js"></script>
+<script src="build/ui/ui.js"></script>
+<script src="build/popup.js"></script>
+</html>
