@@ -14,7 +14,7 @@
     "pretest": "npm run compile",
     "posttest": "npm run check",
     "chrome": "node ensureDir.js chrome && npm run compile && npm run copyChrome && cp manifest-chrome.json chrome/manifest.json",
-    "firefox": "node ensureDir.js && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
+    "firefox": "node ensureDir.js firefox && npm run compile && npm run copyFirefox && cp manifest-firefox.json firefox/manifest.json"
   },
   "repository": {
     "type": "git",
