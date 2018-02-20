@@ -216,11 +216,11 @@
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Показать все записи",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Backups saved in Dropbox are unencrypted (even if you have set a passphrase), use it at your own risk.",
+        "message": "Резервные копии, сохраненные в Dropbox, не шифруются (даже если вы установили пароль), используйте его на свой страх и риск.",
         "description": "Dropbox backup risk warning."
     }
 }
