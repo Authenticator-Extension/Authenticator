@@ -1,3 +1,3 @@
-<DO NOT USE THIS TO ASK HOW TO RECOVER LOST ACCOUNTS>
-<MORE INFO HERE: https://github.com/Authenticator-Extension/Authenticator/wiki/Lost-Codes>
+<Do not use this to ask about lost codes / accounts>
+<More info here: https://github.com/Authenticator-Extension/Authenticator/wiki/Lost-Codes>
 
