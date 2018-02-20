@@ -26,24 +26,26 @@
         <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
-    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter}" v-dragula="entries">
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter}">
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
-        <!-- ENTRIES -->
-        <div class="entry" v-for="entry in entries" v-bind:filtered="entry.issuer.indexOf(currentHost) === -1">
-            <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
-            <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
-            <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
-            <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
-            <div class="issuerEdit">
-                <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
+        <div v-dragula="entries">
+            <!-- ENTRIES -->
+            <div class="entry" v-for="entry in entries" v-bind:filtered="entry.issuer.indexOf(currentHost) === -1">
+                <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
+                <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
+                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
+                <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
+                <div class="issuerEdit">
+                    <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
+                </div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+                <div class="account">{{ entry.account }}</div>
+                <div class="accountEdit">
+                    <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
+                </div>
+                <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
+                <div class="movehandle"><i class="fa fa-bars"></i></div>
             </div>
-            <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
-            <div class="account">{{ entry.account }}</div>
-            <div class="accountEdit">
-                <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
-            </div>
-            <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
-            <div class="movehandle"><i class="fa fa-bars"></i></div>
         </div>
         <div id="add" v-on:click="showInfo('account')"><i class="fa fa-plus"></i></div>
     </div>
