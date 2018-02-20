@@ -1,24 +1,23 @@
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<title>Import Backup</title>
-	<script src="js/vue.min.js"></script>
-	<script src="js/vue-dragula.js"></script>
-	<script src="js/md5.js"></script>
-	<script src="js/aes.js"></script>
-	<script src="js/sha.js"></script>
-	<script src="js/qrcode.js"></script>
-	<script src="build/models/encryption.js"></script>
-	<script src="build/models/interface.js"></script>
-	<script src="build/models/key-utilities.js"></script>
-	<script src="build/models/otp.js"></script>
-	<script src="build/models/storage.js"></script>
-	<script src="build/models/dropbox.js"></script>
+    <meta charset="utf-8"/>
+    <title>Import Backup</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/vue-dragula.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/aes.js"></script>
+    <script src="js/sha.js"></script>
+    <script src="js/qrcode.js"></script>
+    <script src="build/models/encryption.js"></script>
+    <script src="build/models/interface.js"></script>
+    <script src="build/models/key-utilities.js"></script>
+    <script src="build/models/otp.js"></script>
+    <script src="build/models/storage.js"></script>
+    <script src="build/models/dropbox.js"></script>
 </head>
 <body>
 <div id="authenticator">
-	<input id="import_file" type="file" v-on:change="importFile($event, true)" accept="application/json"></input>
-
+    <input id="import_file" type="file" v-on:change="importFile($event, true)" accept="application/json"></input>
 </div>
 </body>
 <script src="build/ui/add-account.js"></script>
