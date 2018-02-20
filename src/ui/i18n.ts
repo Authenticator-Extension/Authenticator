@@ -8,7 +8,7 @@ async function loadI18nMessages() {
        reject: (reason: Error) => void) => {
         try {
           const xhr = new XMLHttpRequest();
-          xhr.overrideMimeType("application/json");
+          xhr.overrideMimeType('application/json');
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               const i18nMessage: I18nMessage = JSON.parse(xhr.responseText);
