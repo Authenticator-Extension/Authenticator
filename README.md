@@ -1,6 +1,6 @@
-# Authenticator
+# Authenticator [![Crowdin](https://d322cqt584bo4o.cloudfront.net/authenticator-firefox/localized.svg)](https://crowdin.com/project/authenticator-firefox)
 
-> For Google Authenticator and Battle.net Authenticator.
+> Authenticator generates 2-Step Verification codes in your browser.
 
 ## Build Setup
 
