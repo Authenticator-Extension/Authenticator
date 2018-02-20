@@ -5,8 +5,10 @@ before_script:
   - "npm install -g typescript"
   - "npm install -g gts"
   - "npm install -g addons-linter"
+  - "npm install -g lintspaces-cli"
 script:
   - "gts check"
+  - "lintspaces -nt -d 'spaces' -i 'js-comments' src/* *.html manifest-*.json css/popup.css"
   - "npm run firefox"
   - "npm run chrome"
   - "addons-linter firefox"
