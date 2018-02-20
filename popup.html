@@ -118,7 +118,7 @@
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'">
-                <div id="security_warning">{{ i18n.export_info }}</div>
+                <div id="export_info">{{ i18n.export_info }}</div>
                 <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
                 <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
                 <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json">
@@ -126,6 +126,7 @@
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
+                    <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
                     <label for="code_input">{{ i18n.dropbox_code }}</label>
                     <input type="text" id="code_input" v-model="dropboxCode">
                     <label for="token_input">{{ i18n.dropbox_token }}</label>

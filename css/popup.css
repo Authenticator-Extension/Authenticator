@@ -729,12 +729,16 @@ body {
 #security label,
 #passphrase label,
 #security_warning,
+#dropbox_risk,
+#export_info,
 #passphrase_info {
     display: block;
     margin: 10px 0 0 10px;
 }
 
 #security_warning,
+#export_info,
+#dropbox_risk,
 #passphrase_info {
     color: gray;
 }

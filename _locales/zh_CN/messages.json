@@ -218,5 +218,9 @@
     "show_all_entries": {
         "message": "显示全部条目",
         "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "保存至Dropbox的备份没有加密（即使您已设置了密码），使用此功能需要您自担风险。",
+        "description": "Dropbox backup risk warning."
     }
 }
