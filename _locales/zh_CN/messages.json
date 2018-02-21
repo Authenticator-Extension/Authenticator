@@ -60,11 +60,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account name",
+        "message": "账户名称",
         "description": "Account Name."
     },
     "username": {
-        "message": "Username",
+        "message": "用户名",
         "description": "Username."
     },
     "secret": {
@@ -204,15 +204,15 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "导入备份",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "导入备份文件",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Backup Code",
+        "message": "导入备份代码",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -236,7 +236,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
         "description": "Dropbox backup risk warning."
     }
 }
