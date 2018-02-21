@@ -4,6 +4,8 @@
 /// <reference path="./models/interface.ts" />
 /// <reference path="./models/storage.ts" />
 
+let cachedPassphrase = '';
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'position') {
     if (!sender.tab) {
@@ -12,6 +14,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     getQr(
         sender.tab, message.info.left, message.info.top, message.info.width,
         message.info.height, message.info.windowWidth, message.info.passphrase);
+  } else if (message.action === 'cachePassphrase') {
+    cachedPassphrase = message.value;
+  } else if (message.action === 'passphrase') {
+    sendResponse(cachedPassphrase);
   }
 });
 
