@@ -51,16 +51,12 @@
         "message": "Hayır",
         "description": "No."
     },
-    "err_acc_sec": {
-        "message": "Please enter account and secret.",
-        "description": "Input Account and Secret."
-    },
     "account": {
         "message": "Hesap",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account name",
+        "message": "Account Name",
         "description": "Account Name."
     },
     "username": {
@@ -109,7 +105,7 @@
     },
     "confirm_phrase": {
         "message": "Şifreyi doğrula",
-        "description": "Confirmm Passphrase."
+        "description": "Confirm Passphrase."
     },
     "confirm_delete": {
         "message": "Are you sure you want to delete this secret? This action cannot be undone.",
@@ -128,7 +124,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Two passphrases do not match.",
+        "message": "Password does not match.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -174,10 +170,6 @@
     "capture_failed": {
         "message": "Capture failed, please reload the page and try again.",
         "description": "Capture Failed"
-    },
-    "unencrypted_secret_warning": {
-        "message": "This secret is not encrypted! Click here to set a passphrase.",
-        "description": "Unencrypted Secret Warning"
     },
     "based_on_time": {
         "message": "Zaman bazlı",
