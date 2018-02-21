@@ -23,10 +23,6 @@
         "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
         "description": "Secret Error."
     },
-    "info": {
-        "message": "<p><strong>Authenticator<\/strong> for Google&trade; Authenticator,<br\/>&copy; 2018 <a target='_blank' href='https:\/\/github.com\/Authenticator-Extension'>Authenticator Extension<\/a>. Released under the MIT License.<\/p><p>Google&trade; is Google's trademark, Google Authenticator is Google’s trade name, those rights of ownership belong with Google Inc.<\/p><p><a target='_blank' href='https:\/\/github.com\/LazarSoft\/jsqrcode'>jsqrcode<\/a> Copyright jsqrcode authors. Licensed under the Apache License.<\/p><p><a target='_blank' href='https:\/\/github.com\/zxing\/zxing'>ZXing<\/a> Copyright ZXing authors. Licensed under the Apache License.<\/p><p><a target='_blank' href='http:\/\/blog.tinisles.com\/2011\/10\/google-authenticator-one-time-password-algorithm-in-javascript\/'>totp.js<\/a> Copyright its author. Licensed under the MIT License.<\/p><p><a target='_blank' href='http:\/\/caligatio.github.com\/jsSHA\/'>jsSHA<\/a> Copyright jsSHA authors. Licensed under the BSD License.<\/p><p><a target='_blank' href='http:\/\/davidshimjs.github.io\/qrcodejs\/'>qrcode.js<\/a> Copyright qrcode.js author. Licensed under the MIT License.<\/p><p><a target='_blank' href='https:\/\/code.google.com\/p\/crypto-js\/'>crypto-js<\/a> Copyright crypto-js author. Licensed under the BSD License.<\/p><p><a target='_blank' href='https:\/\/www.google.com\/fonts\/specimen\/Droid+Sans+Mono'>Droid Sans Mono<\/a> Copyright Steve Matteson. Licensed under the Apache License.<\/p><p><a target='_blank' href='http:\/\/fontawesome.io'>Font Awesome<\/a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.<\/p><p>Thanks to <a target='_blank' href='https:\/\/github.com\/multiwebinc'>Mike Robinson<\/a> &lt;3<\/p>",
-        "description": "Information."
-    },
     "add_qr": {
         "message": "QR kodunu tara",
         "description": "Scan QR Code."
