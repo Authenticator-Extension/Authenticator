@@ -348,6 +348,7 @@ body {
 #add_secret,
 #add_button,
 #download_backup,
+#import_backup,
 #upload_backup,
 #security_save,
 #passphrase_ok,
@@ -624,6 +625,7 @@ body {
 #add_qr:hover,
 #upload_backup:hover,
 #download_backup:hover,
+#import_backup:hover,
 #editAction:hover,
 #infoAction:hover,
 #scan:hover,
@@ -766,7 +768,8 @@ body {
     z-index: 1000;
 }
 
-#download_backup {
+#download_backup,
+#import_backup {
     text-decoration: none;
     color: gray;
     display: block;
