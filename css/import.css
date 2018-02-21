@@ -57,6 +57,7 @@ button,
     outline: none;
 }
 
+button:hover,
 .import_file label:hover {
     color: black;
 }
