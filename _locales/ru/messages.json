@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "1",
         "description": "Extension Description."
     },
     "added": {
@@ -212,7 +212,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Backup Code",
+        "message": "Import Text Backup",
         "description": "Import backup code."
     },
     "dropbox_backup": {
