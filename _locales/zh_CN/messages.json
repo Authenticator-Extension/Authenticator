@@ -55,9 +55,9 @@
         "message": "账户名称",
         "description": "Account Name."
     },
-    "username": {
-        "message": "用户名",
-        "description": "Username."
+    "issuer": {
+        "message": "签发方",
+        "description": "Issuer."
     },
     "secret": {
         "message": "密钥",
