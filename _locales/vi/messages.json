@@ -212,7 +212,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Backup Code",
+        "message": "Import Text Backup",
         "description": "Import backup code."
     },
     "dropbox_backup": {
