@@ -51,16 +51,12 @@
         "message": "否",
         "description": "No."
     },
-    "err_acc_sec": {
-        "message": "请输入账户和密钥。",
-        "description": "Input Account and Secret."
-    },
     "account": {
         "message": "账户",
         "description": "Account."
     },
     "accountName": {
-        "message": "账户名称",
+        "message": "Account Name",
         "description": "Account Name."
     },
     "username": {
@@ -109,7 +105,7 @@
     },
     "confirm_phrase": {
         "message": "确认密码",
-        "description": "Confirmm Passphrase."
+        "description": "Confirm Passphrase."
     },
     "confirm_delete": {
         "message": "您确定要删除此密钥吗？此操作无法撤销。",
@@ -128,7 +124,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "两次密码不一致。",
+        "message": "Password does not match.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -174,10 +170,6 @@
     "capture_failed": {
         "message": "捕捉失败，请重载您正在浏览的页面后重试。",
         "description": "Capture Failed"
-    },
-    "unencrypted_secret_warning": {
-        "message": "此密钥未被加密！点击此处来设置一个密码以解决此问题。",
-        "description": "Unencrypted Secret Warning"
     },
     "based_on_time": {
         "message": "基于时间",
