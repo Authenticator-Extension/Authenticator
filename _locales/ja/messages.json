@@ -60,11 +60,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account name",
+        "message": "アカウント名",
         "description": "Account Name."
     },
     "username": {
-        "message": "Username",
+        "message": "ユーザー名",
         "description": "Username."
     },
     "secret": {
@@ -84,7 +84,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "エクスポート\/インポート",
         "description": "Export and Import."
     },
     "settings": {
@@ -96,7 +96,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "現在のパスワード",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -132,7 +132,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "暗号化",
         "description": "Encrypted."
     },
     "copied": {
@@ -140,7 +140,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "ご意見",
         "description": "Feedback."
     },
     "translate": {
@@ -160,7 +160,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "パスワードを記憶します。",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -180,11 +180,11 @@
         "description": "Unencrypted Secret Warning"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "タイム ベース",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "カウンター ベース",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -200,15 +200,15 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "バックアップファイルのダウンロード",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup File",
+        "message": "バックアップファイルのインポート",
         "description": "Import backup file."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Dropbox へ自動バックアップ",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
