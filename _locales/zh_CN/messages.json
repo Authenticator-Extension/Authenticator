@@ -226,5 +226,9 @@
     "dropbox_risk": {
         "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
         "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "您必须提供正确的密码才能导入备份。",
+        "description": "Error password warning when import backups."
     }
 }

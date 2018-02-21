@@ -93,3 +93,9 @@ button:hover,
     background: white;
     outline: none;
 }
+
+.error_password {
+    font-size: 18px;
+    color: gray;
+    text-align: center;
+}
