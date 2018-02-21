@@ -112,11 +112,19 @@ async function getCachedPassphrase() {
 async function entry(_ui: UI) {
   const cachedPassphrase = await getCachedPassphrase();
   const encryption: Encryption = new Encryption(cachedPassphrase);
-  const shouldShowPassphrase =
+  let shouldShowPassphrase =
       cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
+
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].code === 'Encrypted') {
+      shouldShowPassphrase = true;
+      break;
+    }
+  }
+
   const exportFile = getBackupFile(exportData);
   const currentHost = await getCurrentHostname();
   const shouldFilter =
