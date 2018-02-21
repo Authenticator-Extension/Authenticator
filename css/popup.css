@@ -132,6 +132,8 @@ body {
     text-align: center;
     font-size: 16px;
     border-bottom: #CCC 1px solid;
+    user-select: none;
+    -moz-user-select: none;
 }
 
 #notification {
@@ -346,6 +348,7 @@ body {
 #add_secret,
 #add_button,
 #download_backup,
+#import_backup,
 #upload_backup,
 #security_save,
 #passphrase_ok,
@@ -549,9 +552,6 @@ body {
     color: black;
 }
 
-#menu .menuList p:hover:after {
-    color: black;
-}
 
 #menu .menuList p:last-child {
     border-bottom: none;
@@ -625,6 +625,7 @@ body {
 #add_qr:hover,
 #upload_backup:hover,
 #download_backup:hover,
+#import_backup:hover,
 #editAction:hover,
 #infoAction:hover,
 #scan:hover,
@@ -638,7 +639,12 @@ body {
 #dropbox_ok:hover,
 #export:hover,
 #resizeClose:hover,
-#resize_save:hover {
+#resize_save:hover,
+#confirm_cancel:hover,
+#confirm_ok:hover,
+#menu .menuList p:hover:after,
+.entry:hover .movehandle,
+.showqr:hover {
     color: black;
 }
 
@@ -762,7 +768,8 @@ body {
     z-index: 1000;
 }
 
-#download_backup {
+#download_backup,
+#import_backup {
     text-decoration: none;
     color: gray;
     display: block;

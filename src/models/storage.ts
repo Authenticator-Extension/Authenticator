@@ -145,13 +145,6 @@ class EntryStorage {
                 data[hash].type = data[hash].type || OTPType[OTPType.totp];
                 data[hash].counter = data[hash].counter || 0;
 
-                const _hash = CryptoJS.MD5(data[hash].secret).toString();
-                if (_hash !== hash) {
-                  data[_hash] = data[hash];
-                  data[_hash].hash = _hash;
-                  delete data[hash];
-                }
-
                 if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
                   const secretMatches =
                       data[hash].secret.match(/^(blz\-|bliz\-)(.*)/);
@@ -169,10 +162,17 @@ class EntryStorage {
                   }
                 }
 
-                data[hash].secret =
-                    encryption.getEncryptedSecret(data[hash].secret);
+                const _hash = CryptoJS.MD5(data[hash].secret).toString();
+                if (_hash !== hash) {
+                  data[_hash] = data[hash];
+                  data[_hash].hash = _hash;
+                  delete data[hash];
+                }
 
-                _data[hash] = data[hash];
+                data[_hash].secret =
+                    encryption.getEncryptedSecret(data[_hash].secret);
+
+                _data[_hash] = data[_hash];
               }
               _data = this.ensureUniqueIndex(_data);
               chrome.storage.sync.set(_data, resolve);

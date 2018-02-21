@@ -1,4 +1,4 @@
-﻿{
+{
     "extName": {
         "message": "身份验证器",
         "description": "Extension Name."
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "info": {
-        "message": "<p><strong>Authenticator</strong> for Google&trade; Authenticator,<br/>&copy; 2018 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p><p>Google&trade;是Google的商标，Google Authenticator是Google的商品名，以上所有权归Google公司所有。</p><p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a>的所有权归jsqrcode的作者所有。以Apache协议授权。</p><p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a>的所有权归ZXing的作者所有。以Apache协议授权。</p><p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a>的所有权归其作者所有。以MIT协议授权。</p><p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a>的所有权归jsSHA的作者所有。以BSD协议授权。</p><p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a>的所有权归qrcode.js作者所有。以MIT协议授权。</p><p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a>的所有权归crypto-js作者所有。以BSD协议授权。</p><p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a>的所有权归Steve Matteson所有。以Apache协议授权。</p><p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a>的所有权归Dave Gandy所有。以SIL OFL协议1.1授权。</p><p>感谢 <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>",
+        "message": "<p><strong>Authenticator<\/strong> for Google&trade; Authenticator,<br\/>&copy; 2018 <a target='_blank' href='https:\/\/github.com\/Authenticator-Extension'>Authenticator Extension<\/a>. Released under the MIT License.<\/p><p>Google&trade;是Google的商标，Google Authenticator是Google的商品名，以上所有权归Google公司所有。<\/p><p><a target='_blank' href='https:\/\/github.com\/LazarSoft\/jsqrcode'>jsqrcode<\/a>的所有权归jsqrcode的作者所有。以Apache协议授权。<\/p><p><a target='_blank' href='https:\/\/github.com\/zxing\/zxing'>ZXing<\/a>的所有权归ZXing的作者所有。以Apache协议授权。<\/p><p><a target='_blank' href='http:\/\/blog.tinisles.com\/2011\/10\/google-authenticator-one-time-password-algorithm-in-javascript\/'>totp.js<\/a>的所有权归其作者所有。以MIT协议授权。<\/p><p><a target='_blank' href='http:\/\/caligatio.github.com\/jsSHA\/'>jsSHA<\/a>的所有权归jsSHA的作者所有。以BSD协议授权。<\/p><p><a target='_blank' href='http:\/\/davidshimjs.github.io\/qrcodejs\/'>qrcode.js<\/a>的所有权归qrcode.js作者所有。以MIT协议授权。<\/p><p><a target='_blank' href='https:\/\/code.google.com\/p\/crypto-js\/'>crypto-js<\/a>的所有权归crypto-js作者所有。以BSD协议授权。<\/p><p><a target='_blank' href='https:\/\/www.google.com\/fonts\/specimen\/Droid+Sans+Mono'>Droid Sans Mono<\/a>的所有权归Steve Matteson所有。以Apache协议授权。<\/p><p><a target='_blank' href='http:\/\/fontawesome.io'>Font Awesome<\/a>的所有权归Dave Gandy所有。以SIL OFL协议1.1授权。<\/p><p>感谢 <a target='_blank' href='https:\/\/github.com\/multiwebinc'>Mike Robinson<\/a> &lt;3<\/p>",
         "description": "Information."
     },
     "add_qr": {
@@ -44,8 +44,8 @@
         "description": "OK."
     },
     "yes": {
-            "message": "是",
-            "description": "Yes."
+        "message": "是",
+        "description": "Yes."
     },
     "no": {
         "message": "否",
@@ -58,6 +58,14 @@
     "account": {
         "message": "账户",
         "description": "Account."
+    },
+    "accountName": {
+        "message": "账户名称",
+        "description": "Account Name."
+    },
+    "username": {
+        "message": "用户名",
+        "description": "Username."
     },
     "secret": {
         "message": "密钥",
@@ -76,7 +84,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "导出 / 导入",
+        "message": "导出 \/ 导入",
         "description": "Export and Import."
     },
     "settings": {
@@ -89,27 +97,27 @@
     },
     "current_phrase": {
         "message": "当前密码",
-        "description": "Current Phrase."
+        "description": "Current Passphrase."
     },
     "new_phrase": {
         "message": "新密码",
-        "description": "New Phrase."
+        "description": "New Passphrase."
     },
     "phrase": {
         "message": "密码",
-        "description": "Phrase."
+        "description": "Passphrase."
     },
     "confirm_phrase": {
         "message": "确认密码",
-        "description": "Confirmm Phrase."
+        "description": "Confirmm Passphrase."
     },
-    "confirm_delete" : {
-        "message": "您确定要删除此密钥吗？您无法找回已删除的密钥。此操作无法撤销。",
+    "confirm_delete": {
+        "message": "您确定要删除此密钥吗？此操作无法撤销。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
         "message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
-        "description": "Phrase Warning."
+        "description": "Passphrase Warning."
     },
     "update": {
         "message": "更新",
@@ -117,11 +125,11 @@
     },
     "phrase_incorrect": {
         "message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
-        "description": "Phrase Incorrect."
+        "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
         "message": "两次密码不一致。",
-        "description": "Phrase Not Match."
+        "description": "Passphrase Not Match."
     },
     "encrypted": {
         "message": "已加密",
@@ -160,7 +168,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否为密钥创建了备份？请注意，没有人可以帮助您找回被锁定的账户，不要等到为时已晚。我们将在30天后再次提醒您进行备份。",
+        "message": "您是否为密钥创建了备份？不要等到为时已晚。",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -196,8 +204,16 @@
         "description": "Download backup file."
     },
     "import_backup": {
+        "message": "导入备份",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
         "message": "导入备份文件",
         "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "导入备份代码",
+        "description": "Import backup code."
     },
     "dropbox_backup": {
         "message": "自动备份至Dropbox",
@@ -220,7 +236,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "保存至Dropbox的备份没有加密（即使您已设置了密码），使用此功能需要您自担风险。",
+        "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
         "description": "Dropbox backup risk warning."
     }
 }

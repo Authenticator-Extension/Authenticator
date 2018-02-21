@@ -122,11 +122,64 @@ async function entry(_ui: UI) {
       notificationTimeout: 0,
       filter: true,
       currentHost,
-      shouldFilter
+      shouldFilter,
+      importType: 'import_file',
+      importCode: '',
+      importEncrypted: false,
+      importPassphrase: ''
     },
     methods: {
       updateCode: async () => {
         return await updateCode(_ui.instance);
+      },
+      importBackupCode: async () => {
+        try {
+          const exportData: {[hash: string]: OTPStorage} =
+              JSON.parse(_ui.instance.importCode);
+          const passphrase =
+              _ui.instance.importEncrypted && _ui.instance.importPassphrase ?
+              _ui.instance.importPassphrase :
+              null;
+          const decryptedBackup: {[hash: string]: OTPStorage} = {};
+          for (const hash of Object.keys(exportData)) {
+            if (typeof exportData[hash] !== 'object') {
+              continue;
+            }
+            if (!exportData[hash].secret) {
+              continue;
+            }
+            if (exportData[hash].encrypted && !passphrase) {
+              continue;
+            }
+            if (exportData[hash].encrypted) {
+              try {
+                exportData[hash].secret =
+                    CryptoJS.AES.decrypt(exportData[hash].secret, passphrase)
+                        .toString(CryptoJS.enc.Utf8);
+                exportData[hash].encrypted = false;
+              } catch (error) {
+                continue;
+              }
+            }
+            // exportData[hash].secret may be empty after decrypt with wrong
+            // passphrase
+            if (!exportData[hash].secret) {
+              continue;
+            }
+            decryptedBackup[hash] = exportData[hash];
+          }
+          if (Object.keys(decryptedBackup).length) {
+            await EntryStorage.import(_ui.instance.encryption, decryptedBackup);
+            await _ui.instance.updateEntries();
+            alert(_ui.instance.i18n.updateSuccess);
+            window.close();
+          } else {
+            alert(_ui.instance.i18n.updateFailure);
+          }
+          return;
+        } catch (error) {
+          throw error;
+        }
       },
       noCopy: (code: string) => {
         return code === 'Encrypted' || code === 'Invalid' ||

@@ -36,12 +36,12 @@
                 <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
-                    <input class="issuerEditBox" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
+                    <input class="issuerEditBox" placeholder="{{ i18n.username }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
                 <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
                 <div class="account">{{ entry.account }}</div>
                 <div class="accountEdit">
-                    <input class="accountEditBox" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
+                    <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
                 </div>
                 <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
                 <div class="movehandle"><i class="fa fa-bars"></i></div>
@@ -120,11 +120,7 @@
             <div v-show="info === 'export'">
                 <div id="export_info">{{ i18n.export_info }}</div>
                 <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
-                <div v-if="isChrome()">
-                        <label id="upload_backup" for="import_file">{{ i18n.import_backup }}</label>
-                        <input id="import_file" type="file" v-on:change="importFile($event)" accept="application/json"/>
-                </div>
-                <a v-else id="download_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                <a v-else id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">

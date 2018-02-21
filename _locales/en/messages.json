@@ -59,6 +59,14 @@
         "message": "Account",
         "description": "Account."
     },
+    "accountName": {
+        "message": "Account name",
+        "description": "Account Name."
+    },
+    "username": {
+      "message": "Username",
+      "description": "Username."
+    },
     "secret": {
         "message": "Secret",
         "description": "Secret."
@@ -196,8 +204,16 @@
         "description": "Download backup file."
     },
     "import_backup": {
+        "message": "Import Backup",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
         "message": "Import Backup File",
         "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Import Backup Code",
+        "description": "Import backup code."
     },
     "dropbox_backup": {
         "message": "Auto Backup to Dropbox",
@@ -220,7 +236,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Backups saved in Dropbox are unencrypted (even if you have set a passphrase), use it at your own risk.",
+        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
         "description": "Dropbox backup risk warning."
     }
 }
