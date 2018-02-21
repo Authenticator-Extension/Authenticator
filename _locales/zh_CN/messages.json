@@ -51,10 +51,6 @@
         "message": "否",
         "description": "No."
     },
-    "err_acc_sec": {
-        "message": "请输入账户和密钥。",
-        "description": "Input Account and Secret."
-    },
     "account": {
         "message": "账户",
         "description": "Account."
@@ -174,10 +170,6 @@
     "capture_failed": {
         "message": "捕捉失败，请重载您正在浏览的页面后重试。",
         "description": "Capture Failed"
-    },
-    "unencrypted_secret_warning": {
-        "message": "此密钥未被加密！点击此处来设置一个密码以解决此问题。",
-        "description": "Unencrypted Secret Warning"
     },
     "based_on_time": {
         "message": "基于时间",
