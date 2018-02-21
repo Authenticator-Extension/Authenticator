@@ -23,10 +23,6 @@
         "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
         "description": "Secret Error."
     },
-    "info": {
-        "message": "<p><strong>Authenticator<\/strong> for Google&trade; Authenticator,<br\/>&copy; 2018 <a target='_blank' href='https:\/\/github.com\/Authenticator-Extension'>Authenticator Extension<\/a>. Released under the MIT License.<\/p><p>Google&trade;是Google的商标，Google Authenticator是Google的商品名，以上所有权归Google公司所有。<\/p><p><a target='_blank' href='https:\/\/github.com\/LazarSoft\/jsqrcode'>jsqrcode<\/a>的所有权归jsqrcode的作者所有。以Apache协议授权。<\/p><p><a target='_blank' href='https:\/\/github.com\/zxing\/zxing'>ZXing<\/a>的所有权归ZXing的作者所有。以Apache协议授权。<\/p><p><a target='_blank' href='http:\/\/blog.tinisles.com\/2011\/10\/google-authenticator-one-time-password-algorithm-in-javascript\/'>totp.js<\/a>的所有权归其作者所有。以MIT协议授权。<\/p><p><a target='_blank' href='http:\/\/caligatio.github.com\/jsSHA\/'>jsSHA<\/a>的所有权归jsSHA的作者所有。以BSD协议授权。<\/p><p><a target='_blank' href='http:\/\/davidshimjs.github.io\/qrcodejs\/'>qrcode.js<\/a>的所有权归qrcode.js作者所有。以MIT协议授权。<\/p><p><a target='_blank' href='https:\/\/code.google.com\/p\/crypto-js\/'>crypto-js<\/a>的所有权归crypto-js作者所有。以BSD协议授权。<\/p><p><a target='_blank' href='https:\/\/www.google.com\/fonts\/specimen\/Droid+Sans+Mono'>Droid Sans Mono<\/a>的所有权归Steve Matteson所有。以Apache协议授权。<\/p><p><a target='_blank' href='http:\/\/fontawesome.io'>Font Awesome<\/a>的所有权归Dave Gandy所有。以SIL OFL协议1.1授权。<\/p><p>感谢 <a target='_blank' href='https:\/\/github.com\/multiwebinc'>Mike Robinson<\/a> &lt;3<\/p>",
-        "description": "Information."
-    },
     "add_qr": {
         "message": "扫描QR码",
         "description": "Scan QR Code."
@@ -51,10 +47,6 @@
         "message": "否",
         "description": "No."
     },
-    "err_acc_sec": {
-        "message": "请输入账户和密钥。",
-        "description": "Input Account and Secret."
-    },
     "account": {
         "message": "账户",
         "description": "Account."
@@ -63,9 +55,9 @@
         "message": "账户名称",
         "description": "Account Name."
     },
-    "username": {
-        "message": "用户名",
-        "description": "Username."
+    "issuer": {
+        "message": "签发方",
+        "description": "Issuer."
     },
     "secret": {
         "message": "密钥",
@@ -175,10 +167,6 @@
         "message": "捕捉失败，请重载您正在浏览的页面后重试。",
         "description": "Capture Failed"
     },
-    "unencrypted_secret_warning": {
-        "message": "此密钥未被加密！点击此处来设置一个密码以解决此问题。",
-        "description": "Unencrypted Secret Warning"
-    },
     "based_on_time": {
         "message": "基于时间",
         "description": "Time Based"
@@ -212,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "导入备份代码",
+        "message": "导入备份文本",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -238,5 +226,9 @@
     "dropbox_risk": {
         "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
         "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "您必须提供正确的密码才能导入备份。",
+        "description": "Error password warning when import backups."
     }
 }

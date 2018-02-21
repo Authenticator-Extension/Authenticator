@@ -348,6 +348,7 @@ body {
 #add_secret,
 #add_button,
 #download_backup,
+#dropbox_authorization,
 #import_backup,
 #upload_backup,
 #security_save,
@@ -625,6 +626,7 @@ body {
 #add_qr:hover,
 #upload_backup:hover,
 #download_backup:hover,
+#dropbox_authorization:hover,
 #import_backup:hover,
 #editAction:hover,
 #infoAction:hover,
@@ -769,6 +771,7 @@ body {
 }
 
 #download_backup,
+#dropbox_authorization,
 #import_backup {
     text-decoration: none;
     color: gray;
@@ -789,9 +792,4 @@ body {
 
 .no-copy {
     cursor: default;
-}
-
-#dropbox_authorization {
-    text-align: right;
-    padding: 0 10px;
 }
