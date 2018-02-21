@@ -204,8 +204,16 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "导入备份文件",
+        "message": "Import Backup",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Import Backup File",
         "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Import Backup Code",
+        "description": "Import backup code."
     },
     "dropbox_backup": {
         "message": "自动备份至Dropbox",
