@@ -45,7 +45,7 @@
             <button v-on:click="importBackupCode()">{{ i18n.import_backup_code }}</button>
         </div>
     </div>
-    <div v-if="shouldShowPassphrase" class="error_password"></div>
+    <div v-if="shouldShowPassphrase" class="error_password">{{ i18n.import_error_password }}</div>
 </div>
 <script src="build/ui/add-account.js"></script>
 <script src="build/ui/class.js"></script>
