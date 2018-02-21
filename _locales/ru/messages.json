@@ -204,8 +204,16 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Импортировать резервную копию",
+        "message": "Import Backup",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Import Backup File",
         "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Import Backup Code",
+        "description": "Import backup code."
     },
     "dropbox_backup": {
         "message": "Автосохранение резервной копии в Dropbox",
