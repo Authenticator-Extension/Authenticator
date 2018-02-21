@@ -55,9 +55,9 @@
         "message": "Account Name",
         "description": "Account Name."
     },
-    "username": {
-      "message": "Username",
-      "description": "Username."
+    "issuer": {
+      "message": "Issuer",
+      "description": "Issuer."
     },
     "secret": {
         "message": "Secret",
