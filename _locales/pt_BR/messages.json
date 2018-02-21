@@ -226,5 +226,9 @@
     "dropbox_risk": {
         "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
         "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "You must provide correct password to import backups.",
+        "description": "Error password warning when import backups."
     }
 }
