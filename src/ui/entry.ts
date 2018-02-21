@@ -88,7 +88,8 @@ function hasMatchedEntry(currentHost: string, entries: OTPEntry[]) {
 
 async function entry(_ui: UI) {
   const cookie = document.cookie;
-  const cookieMatch = cookie ? document.cookie.split('passphrase=') : null;
+  const cookieMatch =
+      cookie ? document.cookie.match(/passphrase=([^;]*)/) : null;
   const cachedPassphrase =
       cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
   const cachedPassphraseLocalStorage = localStorage.encodedPhrase ?
