@@ -52,11 +52,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "アカウント名",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "発行者",
         "description": "Issuer."
     },
     "secret": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "パスワードが一致しません。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
