@@ -142,9 +142,9 @@ body {
 
 #notification {
     position: absolute;
-    left: 100px;
+    left: 60px;
     top: -1000px;
-    width: 120px;
+    width: 200px;
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -549,6 +549,9 @@ body {
     font-size: 16px;
     color: gray;
     cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 #menu .menuList p:hover {

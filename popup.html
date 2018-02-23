@@ -57,19 +57,19 @@
             <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
         </div>
         <div class="menuList">
-            <p id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+            <p v-bind:title="i18n.about" id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
         </div>
         <div class="menuList">
-            <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-            <p id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
-            <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
-            <p id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
-            <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+            <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+            <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+            <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
+            <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
+            <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
         </div>
         <div class="menuList">
-            <p v-on:click="openHelp"><i class="fa fa-comments-o"></i>{{ i18n.feedback }}</p>
-            <p v-on:click="openLink('https://crwd.in/authenticator-firefox')"><i class="fa fa-globe"></i>{{ i18n.translate }}</p>
-            <p v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><i class="fa fa-code"></i>{{ i18n.source }}</p>
+            <p v-bind:title="i18n.feedback" v-on:click="openHelp"><i class="fa fa-comments-o"></i>{{ i18n.feedback }}</p>
+            <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><i class="fa fa-globe"></i>{{ i18n.translate }}</p>
+            <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><i class="fa fa-code"></i>{{ i18n.source }}</p>
         </div>
         <div id="version">Version {{ version }}</div>
     </div>
