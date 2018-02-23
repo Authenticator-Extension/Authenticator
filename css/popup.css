@@ -555,7 +555,8 @@ body {
     font-size: 16px;
     color: gray;
     cursor: pointer;
-    text-overflow: ellipsis;
+    display: grid;
+    grid-template-columns: 30px auto;
 }
 
 #menu .menuList p:hover {
