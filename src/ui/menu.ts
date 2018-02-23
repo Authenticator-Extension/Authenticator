@@ -74,6 +74,10 @@ async function menu(_ui: UI) {
   const ui: UIConfig = {
     data: {version, zoom},
     methods: {
+      openLink: (url: string) => {
+        window.open(url, '_blank');
+        return;
+      },
       showMenu: () => {
         _ui.instance.class.slidein = true;
         _ui.instance.class.slideout = false;

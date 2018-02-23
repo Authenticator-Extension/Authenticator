@@ -67,9 +67,9 @@
             <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
         </div>
         <div class="menuList">
-            <p v-on:click="openHelp"><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank">{{ i18n.feedback }}</a></p>
-            <p><i class="fa fa-globe"></i><a id="menuTranslate" target="_blank" href="https://crwd.in/authenticator-firefox">{{ i18n.translate }}</a></p>
-            <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Authenticator-Extension/Authenticator">{{ i18n.source }}</a></p>
+            <p v-on:click="openHelp"><i class="fa fa-comments-o"></i>{{ i18n.feedback }}</p>
+            <p v-on:click="openLink('https://crwd.in/authenticator-firefox')"><i class="fa fa-globe"></i>{{ i18n.translate }}</p>
+            <p v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><i class="fa fa-code"></i>{{ i18n.source }}</p>
         </div>
         <div id="version">Version {{ version }}</div>
     </div>
