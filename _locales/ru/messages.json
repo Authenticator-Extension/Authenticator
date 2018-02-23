@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Издатель",
         "description": "Issuer."
     },
     "secret": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Импорт текста резервной копии",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -212,11 +212,11 @@
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropbox маркер",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Get Code",
+        "message": "Получить код",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -224,11 +224,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "Внимание: резервные копии, сохраненные в Dropbox, не зашифрованы. Используйте на свой страх и риск.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Для импорта резервных копий необходимо указать правильный пароль.",
         "description": "Error password warning when import backups."
     }
 }
