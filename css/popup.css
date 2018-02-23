@@ -521,6 +521,7 @@ body {
 #menuBody {
     overflow-y: scroll;
     height: 442px;
+    width: inherit;
     background: #EEE;
     position: absolute;
 }
