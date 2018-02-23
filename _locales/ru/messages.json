@@ -28,23 +28,23 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Ручной ввод",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Закрыть",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Готово",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Да",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Нет",
         "description": "No."
     },
     "account": {
@@ -60,19 +60,19 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Секрет",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Успех.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Неудача.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "О расширении",
         "description": "About."
     },
     "export_import": {
@@ -80,7 +80,7 @@
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Настройки",
         "description": "Settings."
     },
     "security": {
@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Текущий пароль",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Новый Пароль",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Пароль",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Подтвердить Пароль",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -112,7 +112,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Обновить",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -128,7 +128,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Скопировано",
         "description": "Copied."
     },
     "feedback": {
@@ -152,11 +152,11 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Запомнить пароль",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Внимание! Ваши местные часы слишком далеко, пожалуйста, исправить перед продолжением.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Изменение размера страницы Popup",
+        "message": "Изменение размера всплывающего окна",
         "description": "Resize Popup Page"
     },
     "scale": {
