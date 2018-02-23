@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " добавлено.",
         "description": "Added Account."
     },
     "errorqr": {
