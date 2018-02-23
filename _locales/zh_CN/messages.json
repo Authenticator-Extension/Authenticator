@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Dropbox授权",
+        "message": "获取授权码",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
