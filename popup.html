@@ -118,14 +118,14 @@
                 <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
                 <input id="security_new_phrase" type="password" v-model="newPassphrase.phrase">
                 <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
-                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm">
+                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
                 <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- PASSPHRASE -->
             <div id="passphrase" v-show="info === 'passphrase'">
                 <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
                 <label for="phrase" id="passphrase_phrase_label"></label>
-                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()">
+                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()" autofocus>
                 <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
