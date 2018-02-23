@@ -812,6 +812,7 @@ body {
     border: #CCC 1px solid;
     background: white;
     font-size: 0;
+    height: 42px;
 }
 
 #dropbox_box .dropbox_code_input input {
@@ -820,10 +821,13 @@ body {
     font-size: 12px;
     width: 188px;
     display: inline-block;
+    height: 40px;
+    padding: 0px 0px 0px 10px;
+    vertical-align: top;
 }
 
 #dropbox_authorization {
-    display: inline-block;
+    display: inline-flex;
     font-size: 12px;
     width: 70px;
     border-left: 1px solid #ccc;
@@ -832,7 +836,8 @@ body {
     text-align: center;
     overflow: hidden;
     vertical-align: top;
-    margin: 7px 0;
+    height: 40px;
+    align-items: center;
 }
 
 #overlay {
