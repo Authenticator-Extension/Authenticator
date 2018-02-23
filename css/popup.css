@@ -734,7 +734,8 @@ body {
 
 #secret_box select {
     margin: 20px;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 5px;
 }
 
 #dropbox_box label,
