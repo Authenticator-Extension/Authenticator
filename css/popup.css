@@ -515,8 +515,14 @@ body {
     height: 480px;
     position: absolute;
     left: -1000px;
-    background: #EEE;
     top: 0;
+}
+
+#menuBody {
+    overflow-y: scroll;
+    height: 442px;
+    background: #EEE;
+    position: absolute;
 }
 
 #menu.slidein {
@@ -550,8 +556,6 @@ body {
     color: gray;
     cursor: pointer;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 #menu .menuList p:hover {
@@ -824,8 +828,6 @@ body {
     text-decoration: none;
     text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     vertical-align: top;
     margin: 7px 0;
 }
