@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Dropbox Authorization",
+        "message": "Get Code",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
