@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autenticazione",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autenticazione",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator genera codici di verifica 2-Step nel tuo browser.",
         "description": "Extension Description."
     },
     "added": {
