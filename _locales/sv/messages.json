@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Hemlig Nyckel fel. Endast Base32(A-Z, 2-7 och =) och Hex(0-9 och A-F) stöds. Men din hemliga nyckel är: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -40,11 +40,11 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nej",
         "description": "No."
     },
     "account": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Kontonamn",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Hemlig nyckel",
         "description": "Secret."
     },
     "updateSuccess": {
