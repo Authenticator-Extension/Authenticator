@@ -519,7 +519,7 @@ body {
 }
 
 #menuBody {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 442px;
     width: inherit;
     background: #EEE;
@@ -814,6 +814,8 @@ body {
     background: white;
     font-size: 0;
     height: 42px;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 #dropbox_box .dropbox_code_input input {
@@ -830,15 +832,15 @@ body {
 #dropbox_authorization {
     display: inline-flex;
     font-size: 12px;
-    width: 70px;
     border-left: 1px solid #ccc;
     padding: 3px;
     text-decoration: none;
     text-align: center;
     overflow: hidden;
     vertical-align: top;
-    height: 40px;
+    margin: 7px 0;
     align-items: center;
+    padding-left: 5px;
 }
 
 #overlay {
