@@ -1,3 +1,5 @@
+<img align="right" width="100" height="100" src="https://github.com/Authenticator-Extension/Authenticator/raw/dev/images/icon128.png">
+
 # Authenticator [![Build Status](https://travis-ci.org/Authenticator-Extension/Authenticator.svg?branch=dev)](https://travis-ci.org/Authenticator-Extension/Authenticator) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/authenticator-firefox/localized.svg)](https://crowdin.com/project/authenticator-firefox) 
 
 > Authenticator generates 2-Step Verification codes in your browser.
@@ -22,6 +24,8 @@ Compile for development:
 ``` bash
 # install typescript
 npm install -g typescript
+#install gts
+npm install -g gts
 # install dependencies
 npm install
 # check typescript style
@@ -31,9 +35,3 @@ gts fix
 # compile
 npm run compile
 ```
-
-## FAQ
-
-### gts is not found
-
-gts (Google TypeScript style) is installed locally by default, see <https://stackoverflow.com/questions/9679932/how-to-use-package-installed-locally-in-node-modules> to add local node modules into path, or run `npm install -g gts` to install gts global.
