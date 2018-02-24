@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Вы правда хотите удалить этот секрет? Это действие безвозвратное.",
+        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Этот пароль будет использоваться для вашего секрета. Ни кто вам не поможет если вы его забудете.",
+        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить новую учетную запись или вывести данные, пока не будет выполнен вход во все учётные записи. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
+        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Пороли не совпадают.",
+        "message": "Two passphrases do not match.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Введите пароль для доступа к данным учётной записи.",
+        "message": "Enter password to decrypt account data.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -160,11 +160,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Не ждите если у вас есть копия ваших секретов или иначе будет поздно!",
+        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Фокусировка не удалась, перезагрузите страницу и повторите попытку.",
+        "message": "Capture failed, please reload the page and try again.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -180,11 +180,11 @@
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Масштаб",
+        "message": "Scale",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Внимание: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку.",
+        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,7 +192,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Импорт резервной копии",
+        "message": "Import Backup File",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -208,15 +208,15 @@
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox код",
+        "message": "Dropbox Code",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox маркер",
+        "message": "Dropbox Token",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Получить код",
+        "message": "Dropbox Authorization",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
