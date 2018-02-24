@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "2段階認証",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "2段階認証",
         "description": "Extension Short Name."
     },
     "extDesc": {
