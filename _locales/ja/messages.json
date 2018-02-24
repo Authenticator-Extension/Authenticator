@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "すべてのアカウントが解読されるまで、新しいアカウントを追加したり、データをエクスポートすることはできません。続行する前に正しいパスワードを入力してください。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,11 +144,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "アカウントデータを復号化するパスワードを入力してください。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Google と時刻を同期",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -156,11 +156,11 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "危険！お使いの環境の日時が実際の日時と離れすぎています。続ける前にまずは修正してください。",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "認証のバックアップは取っていますか？忘れないうちにぜひ！",
         "description": "Remind Backup"
     },
     "capture_failed": {
