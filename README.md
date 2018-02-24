@@ -6,13 +6,13 @@
 
 ## Build Setup
 
-Compile for chrome:
+Compile for Chrome:
 
 ```bash
 npm install
 npm run chrome
 ```
-Compile for firefox:
+Compile for Firefox:
 
 ```bash
 npm install
