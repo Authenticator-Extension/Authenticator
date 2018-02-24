@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "キャプチャーできませんでした。再読込してもう一度お試しください。",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -176,15 +176,15 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "ポップアップのサイズを変更",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "大きさ",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "警告: バックアップはすべて暗号化されていません。別のアプリにアカウントを追加したい場合、アカウントの右上にカーソルを合わせ、非表示のボタンを押してください。",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,15 +192,15 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "バックアップのインポート",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "バックアップファイルのインポート",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "テキストのバックアップのインポート",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -208,27 +208,27 @@
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropboxのコード",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropboxのトークン",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Get Code",
+        "message": "コードを取得",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "すべての登録を表示",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "警告: Dropbox に保存したバックアップは暗号化されていません。お気をつけください。",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "バックアップをインポートするために正しいパスワードを入力してください。",
         "description": "Error password warning when import backups."
     }
 }
