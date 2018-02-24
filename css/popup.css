@@ -841,6 +841,11 @@ body {
     margin: 7px 0;
     align-items: center;
     padding-left: 5px;
+    color: gray;
+}
+
+#dropbox_authorization:hover {
+    color: black;
 }
 
 #overlay {
