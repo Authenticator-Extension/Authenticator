@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "2段階認証",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "2段階認証",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "認証コードが間違っています。Base32 (A-Z, 2-7, =) と HEX (0-9, A-F) のみ使用できます。認証コード: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "この認証を削除しても宜しいですか？ この操作を元に戻すことはできません。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "このパスワードは認証を暗号化するために使用されます。パスワードを紛失した場合には復旧できませんのでお気をつけください。",
         "description": "Passphrase Warning."
     },
     "update": {
