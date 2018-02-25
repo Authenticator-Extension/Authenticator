@@ -1,0 +1,238 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator用以在瀏覽器中生成二步認證程式碼。",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": "已新增。",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "無法識別的QR碼。",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "金鑰錯誤，僅支援Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的金鑰是：",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "掃描QR碼",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "手動輸入",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "關閉",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "確定",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "是",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "否",
+        "description": "No."
+    },
+    "account": {
+        "message": "賬戶",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "賬戶名稱",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "簽發方",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "金鑰",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "成功。",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "失敗。",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "關於",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "匯出 \/ 匯入",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "設定",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "安全",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "當前密碼",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "新密碼",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "密碼",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "確認密碼",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "您確定要刪除此金鑰嗎？此操作無法撤銷。",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "您的金鑰將使用此密碼進行加密。如果您忘記了密碼沒有人能夠提供幫助。",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "更新",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "部分賬戶與密碼不匹配，您無法新增新賬戶、匯出賬戶資料或者更改密碼。請提供正確的密碼後重試。",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "兩次密碼不一致。",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "已加密",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "已複製",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "問題反饋",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "參與翻譯",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "原始碼",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "輸入密碼以解碼賬戶資料。",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "通過Google校準時間",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "記住密碼",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "注意！您的本地時鐘時間差過大，請修正後再進行操作。",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "您是否為金鑰建立了備份？不要等到為時已晚。",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "捕捉失敗，請過載您正在瀏覽的頁面後重試。",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "基於時間",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "基於計數器",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "調整彈出頁面尺寸",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "比例",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "警告：所有備份均未加密。想要將賬號新增至其他應用？請點選賬號右上角隱藏的圖示。",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "下載備份檔案",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "匯入備份",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "匯入備份檔案",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "匯入備份文字",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "自動備份至Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox授權碼",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox Token",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "獲取授權碼",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "顯示全部條目",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "警告：儲存至Dropbox的備份均未備份，您需自擔風險。",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "您必須提供正確的密碼才能匯入備份。",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
+        "description": "localStorage password warning."
+    }
+}
