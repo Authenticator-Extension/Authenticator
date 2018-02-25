@@ -515,8 +515,15 @@ body {
     height: 480px;
     position: absolute;
     left: -1000px;
-    background: #EEE;
     top: 0;
+}
+
+#menuBody {
+    overflow-y: auto;
+    height: 442px;
+    width: inherit;
+    background: #EEE;
+    position: absolute;
 }
 
 #menu.slidein {
@@ -549,9 +556,8 @@ body {
     font-size: 16px;
     color: gray;
     cursor: pointer;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    display: grid;
+    grid-template-columns: 30px auto;
 }
 
 #menu .menuList p:hover {
@@ -574,6 +580,8 @@ body {
     font-size: 14px;
     display: line-block;
     width: 30px;
+    display: flex;
+    align-items: center;
 }
 
 #version {
@@ -805,6 +813,9 @@ body {
     border: #CCC 1px solid;
     background: white;
     font-size: 0;
+    height: 42px;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 #dropbox_box .dropbox_code_input input {
@@ -813,21 +824,28 @@ body {
     font-size: 12px;
     width: 188px;
     display: inline-block;
+    height: 40px;
+    padding: 0px 0px 0px 10px;
+    vertical-align: top;
 }
 
 #dropbox_authorization {
-    display: inline-block;
+    display: inline-flex;
     font-size: 12px;
-    width: 70px;
     border-left: 1px solid #ccc;
     padding: 3px;
     text-decoration: none;
     text-align: center;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     vertical-align: top;
     margin: 7px 0;
+    align-items: center;
+    padding-left: 5px;
+    color: gray;
+}
+
+#dropbox_authorization:hover {
+    color: black;
 }
 
 #overlay {
