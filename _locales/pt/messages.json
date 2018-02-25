@@ -230,5 +230,9 @@
     "import_error_password": {
         "message": "You must provide correct password to import backups.",
         "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "description": "localStorage password warning."
     }
 }
