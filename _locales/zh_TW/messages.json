@@ -12,123 +12,123 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": "已新增。",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "無法識別的QR碼。",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "金鑰錯誤，僅支援Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的金鑰是：",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "掃描QR碼",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "手動輸入",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "關閉",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "確定",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "是",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "否",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "賬戶",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "賬戶名稱",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "簽發方",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "金鑰",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "成功。",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "失敗。",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "關於",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "匯出 \/ 匯入",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "設定",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "安全",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "當前密碼",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "新密碼",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "密碼",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "確認密碼",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "您確定要刪除此金鑰嗎？此操作無法撤銷。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "您的金鑰將使用此密碼進行加密。如果您忘記了密碼沒有人能夠提供幫助。",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "更新",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "部分賬戶與密碼不匹配，您無法新增新賬戶、匯出賬戶資料或者更改密碼。請提供正確的密碼後重試。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "兩次密碼不一致。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "已加密",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "已複製",
         "description": "Copied."
     },
     "feedback": {
