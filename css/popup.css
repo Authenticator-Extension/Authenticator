@@ -776,7 +776,8 @@ body {
     position: absolute;
     width: 300px;
     padding: 10px;
-    border: gray;
+    border: gray 1px solid;
+    border-radius: 2px;
     background: white;
     left: 10px;
     top: 150px;
