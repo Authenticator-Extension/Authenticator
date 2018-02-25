@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator用以在瀏覽器中生成二步認證程式碼。",
         "description": "Extension Description."
     },
     "added": {
