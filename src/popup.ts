@@ -30,6 +30,11 @@ async function init() {
     authenticator.showInfo('passphrase');
   }
 
+  // localStorage passphrase warning
+  if (localStorage.encodedPhrase !== null) {
+    authenticator.alert(authenticator.i18n.local_passphrase_warning);
+  }
+
   // Remind backup
   const backupReminder = setInterval(() => {
     if (authenticator.entries.length === 0) {
