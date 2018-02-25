@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "認証コードが間違っています。Base32 (A-Z, 2-7, =) と HEX (0-9, A-F) のみ使用できます。認証コード: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "この認証を削除しても宜しいですか？ この操作を元に戻すことはできません。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "このパスワードは認証を暗号化するために使用されます。パスワードを紛失した場合には復旧できませんのでお気をつけください。",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "すべてのアカウントが解読されるまで、新しいアカウントを追加したり、データをエクスポートすることはできません。続行する前に正しいパスワードを入力してください。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,11 +144,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "アカウントデータを復号化するパスワードを入力してください。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Google と時刻を同期",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -156,15 +156,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "危険！お使いの環境の日時が実際の日時と離れすぎています。続ける前にまずは修正してください。",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "認証のバックアップは取っていますか？忘れないうちにぜひ！",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "キャプチャーできませんでした。再読込してもう一度お試しください。",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -176,15 +176,15 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "ポップアップのサイズを変更",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "大きさ",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "警告: バックアップはすべて暗号化されていません。別のアプリにアカウントを追加したい場合、アカウントの右上にカーソルを合わせ、非表示のボタンを押してください。",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,15 +192,15 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "バックアップのインポート",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "バックアップファイルのインポート",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "テキストのバックアップのインポート",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -208,27 +208,27 @@
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropboxのコード",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropboxのトークン",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Get Code",
+        "message": "コードを取得",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "すべての登録を表示",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "警告: Dropbox に保存したバックアップは暗号化されていません。お気をつけください。",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "バックアップをインポートするために正しいパスワードを入力してください。",
         "description": "Error password warning when import backups."
     }
 }
