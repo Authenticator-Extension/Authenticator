@@ -69,11 +69,11 @@ async function init() {
                   // ignore
                 }
               }
-              authenticator.message = authenticator.i18n.remind_backup;
+              authenticator.alert(authenticator.i18n.remind_backup);
               localStorage.lastRemindingBackupTime = clientTime;
             });
       } else {
-        authenticator.message = authenticator.i18n.remind_backup;
+        authenticator.alert(authenticator.i18n.remind_backup);
         localStorage.lastRemindingBackupTime = clientTime;
       }
     }

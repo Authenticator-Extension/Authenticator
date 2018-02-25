@@ -171,9 +171,9 @@
     </div>
 
     <!-- MESSAGE -->
-    <div id="message" v-show="message !== ''">
-        <div id="message_content">{{ message }}</div>
-        <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
+    <div id="message" v-show="message.length && messageIdle">
+        <div id="message_content">{{ message.length ? message[0] : '' }}</div>
+        <div id="message_close" v-on:click="closeAlert()">{{ i18n.ok }}</div>
     </div>
 
     <!-- CONFRIM -->
@@ -192,7 +192,7 @@
     <div id="qr" v-bind:class="{'qrfadein': class.qrfadein, 'qrfadeout': class.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
 
     <!-- OVERLAY -->
-    <div id="overlay" v-show="message !== '' || confirmMessage !== ''"></div>
+    <div id="overlay" v-show="message.length && messageIdle || confirmMessage !== ''"></div>
 
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />

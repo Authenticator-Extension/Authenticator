@@ -47,7 +47,7 @@ async function addAccount(_ui: UI) {
           // shouldn't add new account with
           // the current passphrase
           if (entries[i].code === 'Encrypted') {
-            _ui.instance.message = _ui.instance.i18n.phrase_incorrect;
+            _ui.instance.alert(_ui.instance.i18n.phrase_incorrect);
             return;
           }
         }
@@ -61,7 +61,7 @@ async function addAccount(_ui: UI) {
               tab.id, {action: 'capture', passphrase: _ui.instance.passphrase},
               (result) => {
                 if (result !== 'beginCapture') {
-                  _ui.instance.message = _ui.instance.i18n.capture_failed;
+                  _ui.instance.alert(_ui.instance.i18n.capture_failed);
                 } else {
                   window.close();
                 }
@@ -77,7 +77,7 @@ async function addAccount(_ui: UI) {
           // shouldn't add new account with
           // the current passphrase
           if (entries[i].code === 'Encrypted') {
-            _ui.instance.message = _ui.instance.i18n.phrase_incorrect;
+            _ui.instance.alert(_ui.instance.i18n.phrase_incorrect);
             return;
           }
         }

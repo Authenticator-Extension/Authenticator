@@ -112,7 +112,7 @@ async function menu(_ui: UI) {
             {origins: ['https://www.google.com/']}, async (granted) => {
               if (granted) {
                 const message = await syncTimeWithGoogle();
-                _ui.instance.message = _ui.instance.i18n[message];
+                _ui.instance.alert(_ui.instance.i18n[message]);
               }
               return;
             });
