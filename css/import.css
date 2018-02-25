@@ -11,6 +11,10 @@
 
 [v-cloak] { display: none }
 
+* {
+    font-family: arial, 'Microsoft YaHei';
+}
+
 #authenticator {
     width: 600px;
     position: relative;
