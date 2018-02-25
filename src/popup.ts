@@ -31,7 +31,8 @@ async function init() {
   }
 
   // localStorage passphrase warning
-  if (localStorage.encodedPhrase !== null) {
+  console.log(typeof localStorage.encodedPhrase);
+  if (localStorage.encodedPhrase) {
     authenticator.alert(authenticator.i18n.local_passphrase_warning);
   }
 
