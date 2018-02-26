@@ -22,12 +22,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
-interface CaptureBoxPosition {
-  left: number;
-  top: number;
-}
-
-let captureBoxPosition: CaptureBoxPosition = {left: 0, top: 0};
+sessionStorage.captureBoxPositionLeft = 0;
+sessionStorage.captureBoxPositionTop = 0;
 
 function showGrayLayout(passphrase: string) {
   let grayLayout = document.getElementById('__ga_grayLayout__');
@@ -66,8 +62,8 @@ function grayLayoutDown(event: MouseEvent) {
     return;
   }
 
-  captureBoxPosition.left = event.clientX;
-  captureBoxPosition.top = event.clientY;
+  sessionStorage.captureBoxPositionLeft = event.clientX;
+  sessionStorage.captureBoxPositionTop = event.clientY;
   captureBox.style.left = event.clientX + 'px';
   captureBox.style.top = event.clientY + 'px';
   captureBox.style.width = '1px';
@@ -86,10 +82,14 @@ function grayLayoutMove(event: MouseEvent) {
     return;
   }
 
-  const captureBoxLeft = Math.min(captureBoxPosition.left, event.clientX);
-  const captureBoxTop = Math.min(captureBoxPosition.top, event.clientY);
-  const captureBoxWidth = Math.abs(captureBoxPosition.left - event.clientX) - 1;
-  const captureBoxHeight = Math.abs(captureBoxPosition.top - event.clientY) - 1;
+  const captureBoxLeft =
+      Math.min(sessionStorage.captureBoxPositionLeft, event.clientX);
+  const captureBoxTop =
+      Math.min(sessionStorage.captureBoxPositionTop, event.clientY);
+  const captureBoxWidth =
+      Math.abs(sessionStorage.captureBoxPositionLeft - event.clientX) - 1;
+  const captureBoxHeight =
+      Math.abs(sessionStorage.captureBoxPositionTop - event.clientY) - 1;
   captureBox.style.left = captureBoxLeft + 'px';
   captureBox.style.top = captureBoxTop + 'px';
   captureBox.style.width = captureBoxWidth + 'px';
@@ -114,15 +114,18 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
     return;
   }
 
-  let captureBoxLeft = Math.min(captureBoxPosition.left, event.clientX) + 1;
-  let captureBoxTop = Math.min(captureBoxPosition.top, event.clientY) + 1;
-  let captureBoxWidth = Math.abs(captureBoxPosition.left - event.clientX) - 1;
-  let captureBoxHeight = Math.abs(captureBoxPosition.top - event.clientY) - 1;
+  let captureBoxLeft =
+      Math.min(sessionStorage.captureBoxPositionLeft, event.clientX) + 1;
+  let captureBoxTop =
+      Math.min(sessionStorage.captureBoxPositionTop, event.clientY) + 1;
+  let captureBoxWidth =
+      Math.abs(sessionStorage.captureBoxPositionLeft - event.clientX) - 1;
+  let captureBoxHeight =
+      Math.abs(sessionStorage.captureBoxPositionTop - event.clientY) - 1;
   captureBoxLeft *= window.devicePixelRatio;
   captureBoxTop *= window.devicePixelRatio;
   captureBoxWidth *= window.devicePixelRatio;
   captureBoxHeight *= window.devicePixelRatio;
-
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
