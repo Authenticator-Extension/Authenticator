@@ -54,13 +54,6 @@
             "build/background.js"
         ]
     },
-    "content_scripts": [
-        {
-            "matches": ["<all_urls>"],
-            "css": ["css/content.css"],
-            "js": ["build/content.js"]
-        }
-    ],
     "permissions": [
         "activeTab",
         "<all_urls>",
