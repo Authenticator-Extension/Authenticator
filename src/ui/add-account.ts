@@ -2,6 +2,18 @@
 /// <reference path="../models/interface.ts" />
 /// <reference path="./ui.ts" />
 
+async function insertContentScript() {
+  return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
+    try {
+      return chrome.tabs.executeScript({file: 'build/content.js'}, () => {
+        chrome.tabs.insertCSS({file: 'css/content.css'}, resolve);
+      });
+    } catch (error) {
+      return reject(error);
+    }
+  });
+}
+
 async function addAccount(_ui: UI) {
   const ui: UIConfig = {
     data: {
@@ -39,7 +51,11 @@ async function addAccount(_ui: UI) {
         }
         return;
       },
-      beginCapture: () => {
+      beginCapture: async () => {
+        if (navigator.userAgent.indexOf('Chrome') !== -1) {
+          await insertContentScript();
+        }
+
         const entries = _ui.instance.entries as OTPEntry[];
         for (let i = 0; i < entries.length; i++) {
           // we have encrypted entry
