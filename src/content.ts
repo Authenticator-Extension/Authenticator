@@ -126,6 +126,7 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
   captureBoxTop *= window.devicePixelRatio;
   captureBoxWidth *= window.devicePixelRatio;
   captureBoxHeight *= window.devicePixelRatio;
+  
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
