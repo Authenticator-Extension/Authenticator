@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -136,7 +136,7 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Traduzir",
         "description": "Translate."
     },
     "source": {
