@@ -208,15 +208,15 @@
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropbox код",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropbox маркер",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Dropbox Authorization",
+        "message": "Получить код",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
