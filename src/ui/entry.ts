@@ -89,17 +89,12 @@ function hasMatchedEntry(currentHost: string, entries: OTPEntry[]) {
 async function getCachedPassphrase() {
   return new Promise(
       (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-        const cookie = document.cookie;
-        const cookieMatch =
-            cookie ? document.cookie.match(/passphrase=([^;]*)/) : null;
-        const cachedPassphrase =
-            cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
         const cachedPassphraseLocalStorage = localStorage.encodedPhrase ?
             CryptoJS.AES.decrypt(localStorage.encodedPhrase, '')
                 .toString(CryptoJS.enc.Utf8) :
             '';
-        if (cachedPassphrase || cachedPassphraseLocalStorage) {
-          return resolve(cachedPassphrase || cachedPassphraseLocalStorage);
+        if (cachedPassphraseLocalStorage) {
+          return resolve(cachedPassphraseLocalStorage);
         }
 
         chrome.runtime.sendMessage(

@@ -3,7 +3,6 @@
 /// <reference path="./ui.ts" />
 
 function cachePassword(password: string) {
-  document.cookie = 'passphrase=' + password;
   chrome.runtime.sendMessage({action: 'cachePassphrase', value: password});
 }
 
