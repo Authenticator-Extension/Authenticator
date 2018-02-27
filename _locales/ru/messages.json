@@ -232,7 +232,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
         "description": "localStorage password warning."
     }
 }
