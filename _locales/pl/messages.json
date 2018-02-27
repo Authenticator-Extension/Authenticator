@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Uwierzytelnianie",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
