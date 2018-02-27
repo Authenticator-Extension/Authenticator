@@ -5,8 +5,8 @@
 async function insertContentScript() {
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
     try {
-      return chrome.tabs.executeScript({file: 'build/content.js'}, () => {
-        chrome.tabs.insertCSS({file: 'css/content.css'}, resolve);
+      return chrome.tabs.executeScript({file: '/build/content.js'}, () => {
+        chrome.tabs.insertCSS({file: '/css/content.css'}, resolve);
       });
     } catch (error) {
       return reject(error);
@@ -52,9 +52,7 @@ async function addAccount(_ui: UI) {
         return;
       },
       beginCapture: async () => {
-        if (navigator.userAgent.indexOf('Chrome') !== -1) {
-          await insertContentScript();
-        }
+        await insertContentScript();
 
         const entries = _ui.instance.entries as OTPEntry[];
         for (let i = 0; i < entries.length; i++) {
