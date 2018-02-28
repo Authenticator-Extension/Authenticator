@@ -74,6 +74,10 @@ async function menu(_ui: UI) {
   const ui: UIConfig = {
     data: {version, zoom},
     methods: {
+      openLink: (url: string) => {
+        window.open(url, '_blank');
+        return;
+      },
       showMenu: () => {
         _ui.instance.class.slidein = true;
         _ui.instance.class.slideout = false;
@@ -108,7 +112,7 @@ async function menu(_ui: UI) {
             {origins: ['https://www.google.com/']}, async (granted) => {
               if (granted) {
                 const message = await syncTimeWithGoogle();
-                _ui.instance.message = _ui.instance.i18n[message];
+                _ui.instance.alert(_ui.instance.i18n[message]);
               }
               return;
             });

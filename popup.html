@@ -56,22 +56,24 @@
             <span id="menuName">{{ i18n.settings }}</span>
             <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
         </div>
-        <div class="menuList">
-            <p id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+        <div id="menuBody">
+            <div class="menuList">
+                <p v-bind:title="i18n.about" id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+            </div>
+            <div class="menuList">
+                <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
+                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
+                <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
+                <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+            </div>
+                <div class="menuList">
+                <p v-bind:title="i18n.feedback" v-on:click="openHelp"><i class="fa fa-comments-o"></i>{{ i18n.feedback }}</p>
+                <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><i class="fa fa-globe"></i>{{ i18n.translate }}</p>
+                <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><i class="fa fa-code"></i>{{ i18n.source }}</p>
+            </div>
+            <div id="version">Version {{ version }}</div>
         </div>
-        <div class="menuList">
-            <p id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-            <p id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
-            <p id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
-            <p id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
-            <p id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
-        </div>
-        <div class="menuList">
-            <p v-on:click="openHelp"><i class="fa fa-comments-o"></i><a id="menuFeedback" target="_blank">{{ i18n.feedback }}</a></p>
-            <p><i class="fa fa-globe"></i><a id="menuTranslate" target="_blank" href="https://crwd.in/authenticator-firefox">{{ i18n.translate }}</a></p>
-            <p><i class="fa fa-code"></i><a id="menuSource" target="_blank" href="https://github.com/Authenticator-Extension/Authenticator">{{ i18n.source }}</a></p>
-        </div>
-        <div id="version">Version {{ version }}</div>
     </div>
 
     <!-- INFO -->
@@ -118,14 +120,14 @@
                 <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
                 <input id="security_new_phrase" type="password" v-model="newPassphrase.phrase">
                 <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
-                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm">
+                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
                 <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- PASSPHRASE -->
             <div id="passphrase" v-show="info === 'passphrase'">
                 <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
                 <label for="phrase" id="passphrase_phrase_label"></label>
-                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()">
+                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()" autofocus>
                 <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
@@ -139,10 +141,12 @@
                 <div id="dropbox_box">
                     <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
                     <label for="code_input">{{ i18n.dropbox_code }}</label>
-                    <input type="text" id="code_input" v-model="dropboxCode">
+                    <div class="dropbox_code_input">
+                        <input type="text" id="code_input" v-model="dropboxCode">
+                        <a id="dropbox_authorization" v-bind:title="i18n.dropbox_authorization" href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a>
+                    </div>
                     <label for="token_input">{{ i18n.dropbox_token }}</label>
                     <input type="text" id="token_input" v-model="dropboxToken" disabled>
-                    <a id="dropbox_authorization" href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a>
                     <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
                 </div>
             </div>
@@ -167,9 +171,9 @@
     </div>
 
     <!-- MESSAGE -->
-    <div id="message" v-show="message !== ''">
-        <div id="message_content">{{ message }}</div>
-        <div id="message_close" v-on:click="message = ''">{{ i18n.ok }}</div>
+    <div id="message" v-show="message.length && messageIdle">
+        <div id="message_content">{{ message.length ? message[0] : '' }}</div>
+        <div id="message_close" v-on:click="closeAlert()">{{ i18n.ok }}</div>
     </div>
 
     <!-- CONFRIM -->
@@ -186,6 +190,9 @@
 
     <!-- QR -->
     <div id="qr" v-bind:class="{'qrfadein': class.qrfadein, 'qrfadeout': class.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
+
+    <!-- OVERLAY -->
+    <div id="overlay" v-show="message.length && messageIdle || confirmMessage !== ''"></div>
 
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />

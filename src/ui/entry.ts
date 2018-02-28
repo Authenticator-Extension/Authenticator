@@ -220,7 +220,7 @@ async function entry(_ui: UI) {
         await EntryStorage.import(
             _ui.instance.encryption, JSON.parse(_ui.instance.exportData));
         await _ui.instance.updateEntries();
-        _ui.instance.message = _ui.instance.i18n.updateSuccess;
+        _ui.instance.alert(_ui.instance.i18n.updateSuccess);
         return;
       },
       updateEntries: async () => {
@@ -243,14 +243,14 @@ async function entry(_ui: UI) {
             const importData = JSON.parse(reader.result);
             await EntryStorage.import(_ui.instance.encryption, importData);
             await _ui.instance.updateEntries();
-            _ui.instance.message = _ui.instance.i18n.updateSuccess;
+            _ui.instance.alert(_ui.instance.i18n.updateSuccess);
             if (closeWindow) {
               window.close();
             }
           };
           reader.readAsText(target.files[0]);
         } else {
-          _ui.instance.message = _ui.instance.i18n.updateFailure;
+          _ui.instance.alert(_ui.instance.i18n.updateFailure);
           if (closeWindow) {
             window.alert(_ui.instance.i18n.updateFailure);
             window.close();

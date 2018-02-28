@@ -26,7 +26,7 @@ async function info(_ui: UI) {
             // cannot export account data
             // or change passphrase
             if (entries[i].code === 'Encrypted') {
-              _ui.instance.message = _ui.instance.i18n.phrase_incorrect;
+              _ui.instance.alert(_ui.instance.i18n.phrase_incorrect);
               return;
             }
           }

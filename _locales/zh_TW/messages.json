@@ -1,42 +1,42 @@
 {
     "extName": {
-        "message": "身份验证器",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "身份验证器",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "身份验证器用以在浏览器中生成二步认证代码。",
+        "message": "Authenticator用以在瀏覽器中生成二步認證程式碼。",
         "description": "Extension Description."
     },
     "added": {
-        "message": "已添加。",
+        "message": "已新增。",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "无法识别的QR码。",
+        "message": "無法識別的QR碼。",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
+        "message": "金鑰錯誤，僅支援Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的金鑰是：",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "扫描QR码",
+        "message": "掃描QR碼",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "手动输入",
+        "message": "手動輸入",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "关闭",
+        "message": "關閉",
         "description": "Close."
     },
     "ok": {
-        "message": "确定",
+        "message": "確定",
         "description": "OK."
     },
     "yes": {
@@ -48,19 +48,19 @@
         "description": "No."
     },
     "account": {
-        "message": "账户",
+        "message": "賬戶",
         "description": "Account."
     },
     "accountName": {
-        "message": "账户名称",
+        "message": "賬戶名稱",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "签发方",
+        "message": "簽發方",
         "description": "Issuer."
     },
     "secret": {
-        "message": "密钥",
+        "message": "金鑰",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -68,19 +68,19 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "失败。",
+        "message": "失敗。",
         "description": "Update Failure."
     },
     "about": {
-        "message": "关于",
+        "message": "關於",
         "description": "About."
     },
     "export_import": {
-        "message": "导出 \/ 导入",
+        "message": "匯出 \/ 匯入",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "设置",
+        "message": "設定",
         "description": "Settings."
     },
     "security": {
@@ -88,27 +88,27 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "当前密码",
+        "message": "當前密碼",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "新密码",
+        "message": "新密碼",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "密码",
+        "message": "密碼",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "确认密码",
-        "description": "Confirmm Passphrase."
+        "message": "確認密碼",
+        "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您确定要删除此密钥吗？此操作无法撤销。",
+        "message": "您確定要刪除此金鑰嗎？此操作無法撤銷。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
+        "message": "您的金鑰將使用此密碼進行加密。如果您忘記了密碼沒有人能夠提供幫助。",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
+        "message": "部分賬戶與密碼不匹配，您無法新增新賬戶、匯出賬戶資料或者更改密碼。請提供正確的密碼後重試。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "两次密码不一致。",
+        "message": "兩次密碼不一致。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -128,55 +128,55 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "已复制",
+        "message": "已複製",
         "description": "Copied."
     },
     "feedback": {
-        "message": "问题反馈",
+        "message": "問題反饋",
         "description": "Feedback."
     },
     "translate": {
-        "message": "参与翻译",
+        "message": "參與翻譯",
         "description": "Translate."
     },
     "source": {
-        "message": "源代码",
+        "message": "原始碼",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "输入密码以解码账户数据。",
+        "message": "輸入密碼以解碼賬戶資料。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "通过Google校准时间",
+        "message": "通過Google校準時間",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "记住密码",
+        "message": "記住密碼",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "注意！您的本地时钟时间差过大，请修正后再进行操作。",
+        "message": "注意！您的本地時鐘時間差過大，請修正後再進行操作。",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否为密钥创建了备份？不要等到为时已晚。",
+        "message": "您是否為金鑰建立了備份？不要等到為時已晚。",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "捕捉失败，请重载您正在浏览的页面后重试。",
+        "message": "捕捉失敗，請過載您正在瀏覽的頁面後重試。",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "基于时间",
+        "message": "基於時間",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "基于计数器",
+        "message": "基於計數器",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "调整弹出页面尺寸",
+        "message": "調整彈出頁面尺寸",
         "description": "Resize Popup Page"
     },
     "scale": {
@@ -184,31 +184,31 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "警告：所有备份均未加密。想要将账号添加至其他应用？请点击账号右上角隐藏的图标。",
+        "message": "警告：所有備份均未加密。想要將賬號新增至其他應用？請點選賬號右上角隱藏的圖示。",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "下载备份文件",
+        "message": "下載備份檔案",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "导入备份",
+        "message": "匯入備份",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "导入备份文件",
+        "message": "匯入備份檔案",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "导入备份文本",
+        "message": "匯入備份文字",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "自动备份至Dropbox",
+        "message": "自動備份至Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox授权码",
+        "message": "Dropbox授權碼",
         "description": "Dropbox code."
     },
     "dropbox_token": {
@@ -216,23 +216,23 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "获取授权码",
+        "message": "獲取授權碼",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "显示全部条目",
+        "message": "顯示全部條目",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
+        "message": "警告：儲存至Dropbox的備份均未備份，您需自擔風險。",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "您必须提供正确的密码才能导入备份。",
+        "message": "您必須提供正確的密碼才能匯入備份。",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "您的密码保存在了本地，请立即通过安全菜单更改密码。",
+        "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
         "description": "localStorage password warning."
     }
 }

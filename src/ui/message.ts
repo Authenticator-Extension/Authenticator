@@ -8,8 +8,18 @@ function isCustomEvent(event: Event): event is CustomEvent {
 
 async function message(_ui: UI) {
   const ui: UIConfig = {
-    data: {message: '', confirmMessage: ''},
+    data: {message: [], messageIdle: true, confirmMessage: ''},
     methods: {
+      alert: (message: string) => {
+        _ui.instance.message.unshift(message);
+      },
+      closeAlert: () => {
+        _ui.instance.messageIdle = false;
+        _ui.instance.message.shift();
+        setTimeout(() => {
+          _ui.instance.messageIdle = true;
+        }, 200);
+      },
       confirm: async (message: string) => {
         return new Promise(
             (resolve: (value: boolean) => void,

@@ -114,6 +114,10 @@
     box-sizing: border-box;
 }
 
+a {
+    color: #08C;
+}
+
 body {
     width: 320px;
     height: 480px;
@@ -138,9 +142,9 @@ body {
 
 #notification {
     position: absolute;
-    left: 100px;
+    left: 60px;
     top: -1000px;
-    width: 120px;
+    width: 200px;
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -348,7 +352,6 @@ body {
 #add_secret,
 #add_button,
 #download_backup,
-#dropbox_authorization,
 #import_backup,
 #upload_backup,
 #security_save,
@@ -512,8 +515,15 @@ body {
     height: 480px;
     position: absolute;
     left: -1000px;
-    background: #EEE;
     top: 0;
+}
+
+#menuBody {
+    overflow-y: auto;
+    height: 442px;
+    width: inherit;
+    background: #EEE;
+    position: absolute;
 }
 
 #menu.slidein {
@@ -546,6 +556,8 @@ body {
     font-size: 16px;
     color: gray;
     cursor: pointer;
+    display: grid;
+    grid-template-columns: 30px auto;
 }
 
 #menu .menuList p:hover {
@@ -568,6 +580,8 @@ body {
     font-size: 14px;
     display: line-block;
     width: 30px;
+    display: flex;
+    align-items: center;
 }
 
 #version {
@@ -626,7 +640,6 @@ body {
 #add_qr:hover,
 #upload_backup:hover,
 #download_backup:hover,
-#dropbox_authorization:hover,
 #import_backup:hover,
 #editAction:hover,
 #infoAction:hover,
@@ -729,7 +742,8 @@ body {
 
 #secret_box select {
     margin: 20px;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 5px;
 }
 
 #dropbox_box label,
@@ -762,7 +776,8 @@ body {
     position: absolute;
     width: 300px;
     padding: 10px;
-    border: gray;
+    border: gray 1px solid;
+    border-radius: 2px;
     background: white;
     left: 10px;
     top: 150px;
@@ -771,7 +786,6 @@ body {
 }
 
 #download_backup,
-#dropbox_authorization,
 #import_backup {
     text-decoration: none;
     color: gray;
@@ -792,4 +806,54 @@ body {
 
 .no-copy {
     cursor: default;
+}
+
+#dropbox_box .dropbox_code_input {
+    width: 260px;
+    margin: 0 10px 10px 10px;
+    border: #CCC 1px solid;
+    background: white;
+    font-size: 0;
+    height: 42px;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#dropbox_box .dropbox_code_input input {
+    border: none;
+    margin: 0;
+    font-size: 12px;
+    width: 188px;
+    display: inline-block;
+    height: 40px;
+    padding: 0px 0px 0px 10px;
+    vertical-align: top;
+}
+
+#dropbox_authorization {
+    display: inline-flex;
+    font-size: 12px;
+    border-left: 1px solid #ccc;
+    padding: 3px;
+    text-decoration: none;
+    text-align: center;
+    overflow: hidden;
+    vertical-align: top;
+    margin: 7px 0;
+    align-items: center;
+    padding-left: 5px;
+    color: gray;
+}
+
+#dropbox_authorization:hover {
+    color: black;
+}
+
+#overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 900;
 }

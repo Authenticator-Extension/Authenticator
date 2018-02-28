@@ -11,6 +11,10 @@
 
 [v-cloak] { display: none }
 
+* {
+    font-family: arial, 'Microsoft YaHei';
+}
+
 #authenticator {
     width: 600px;
     position: relative;
@@ -29,10 +33,10 @@
 .import_tab label {
     width: 250px;
     height: 50px;
-    line-height: 50px;
     font-size: 18px;
     text-align: center;
-    display: inline-block;
+    display: inline-grid;
+    align-items: center;
     margin: 20px;
     cursor: pointer;
     border-radius: 2px;
@@ -53,15 +57,15 @@
 
 button,
 .import_file label {
-    display: inline-block;
+    display: inline-grid;
     width: 260px;
     height: 60px;
-    line-height: 60px;
     border: #CCC 1px solid;
     background: white;
     border-radius: 2px;
     position: relative;
     text-align: center;
+    align-items: center;
     font-size: 16px;
     color: gray;
     cursor: pointer;

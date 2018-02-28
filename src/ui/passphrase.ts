@@ -22,7 +22,7 @@ async function passphrase(_ui: UI) {
       changePassphrase: async () => {
         if (_ui.instance.newPassphrase.phrase !==
             _ui.instance.newPassphrase.confirm) {
-          _ui.instance.message = _ui.instance.i18n.phrase_not_match;
+          _ui.instance.alert(_ui.instance.i18n.phrase_not_match);
           return;
         }
         _ui.instance.encryption.updateEncryptionPassword(

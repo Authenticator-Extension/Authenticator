@@ -30,6 +30,11 @@ async function init() {
     authenticator.showInfo('passphrase');
   }
 
+  // localStorage passphrase warning
+  if (localStorage.encodedPhrase) {
+    authenticator.alert(authenticator.i18n.local_passphrase_warning);
+  }
+
   // Remind backup
   const backupReminder = setInterval(() => {
     if (authenticator.entries.length === 0) {
@@ -69,11 +74,11 @@ async function init() {
                   // ignore
                 }
               }
-              authenticator.message = authenticator.i18n.remind_backup;
+              authenticator.alert(authenticator.i18n.remind_backup);
               localStorage.lastRemindingBackupTime = clientTime;
             });
       } else {
-        authenticator.message = authenticator.i18n.remind_backup;
+        authenticator.alert(authenticator.i18n.remind_backup);
         localStorage.lastRemindingBackupTime = clientTime;
       }
     }
