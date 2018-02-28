@@ -230,5 +230,9 @@
     "import_error_password": {
         "message": "Для импорта резервных копий необходимо указать правильный пароль.",
         "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
+        "description": "localStorage password warning."
     }
 }
