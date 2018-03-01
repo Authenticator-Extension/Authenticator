@@ -62,22 +62,67 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
 
 async function getCurrentHostname() {
   return new Promise(
-      (resolve: (value: string|null) => void,
+      (resolve: (value: (string|null)[]) => void,
        reject: (reason: Error) => void) => {
         chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
           const tab = tabs[0];
-          if (!tab || !tab.url) {
-            return resolve(null);
+          if (!tab) {
+            return resolve([null, null]);
           }
+
+          const title = tab.title ? tab.title.replace(/[^a-z0-9]/ig, '') : null;
+
+          if (!tab.url) {
+            return resolve([title, null]);
+          }
+
           const urlParser = document.createElement('a');
           urlParser.href = tab.url;
           const hostname = urlParser.hostname;
-          return resolve(hostname);
+
+          // try to parse name from hostname
+          // i.e. hostname is www.example.com
+          // name should be example
+          let nameFromDomain = '';
+
+          // ip address
+          if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
+            nameFromDomain = hostname;
+          }
+
+          // local network
+          if (hostname.indexOf('.') === -1) {
+            nameFromDomain = hostname;
+          }
+
+          const hostLevelUnits = hostname.split('.');
+
+          if (hostLevelUnits.length === 2) {
+            nameFromDomain = hostLevelUnits[0];
+          }
+
+          // www.example.com
+          // example.com.cn
+          if (hostLevelUnits.length > 2) {
+            // example.com.cn
+            if (['com', 'net', 'org', 'edu', 'gov', 'co'].indexOf(hostLevelUnits[hostLevelUnits.length - 2]) === -1) {
+              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
+            } else { // www.example.com
+              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
+            }
+          }
+
+          return resolve([title, nameFromDomain.replace(/-/g, '')]);
         });
       });
 }
 
-function hasMatchedEntry(currentHost: string, entries: OTPEntry[]) {
+function hasMatchedEntry(currentHost: (string|null)[], entries: OTPEntry[]) {
+  if (currentHost.length < 2) {
+    return;
+  }
+
+
   for (let i = 0; i < entries.length; i++) {
     if (entries[i].issuer.indexOf(currentHost) !== -1) {
       return true;
@@ -127,8 +172,7 @@ async function entry(_ui: UI) {
 
   const exportFile = getBackupFile(exportData);
   const currentHost = await getCurrentHostname();
-  const shouldFilter =
-      currentHost ? hasMatchedEntry(currentHost, entries) : false;
+  const shouldFilter = hasMatchedEntry(currentHost, entries);
 
   const ui: UIConfig = {
     data: {
