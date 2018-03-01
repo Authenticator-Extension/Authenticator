@@ -152,7 +152,9 @@ function isMatchedEntry(siteName: Array<string|null>, entry: OTPEntry) {
       return true;
     }
   }
-  if (siteTitle && issuer.indexOf(siteTitle) !== -1) {
+  // site title should be more detailed
+  // so we use siteTitle.indexOf(issuer)
+  if (siteTitle && siteTitle.indexOf(issuer) !== -1) {
     return true;
   }
 
