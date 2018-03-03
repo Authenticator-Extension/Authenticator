@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera vereficacion de dos pasos para tu navegador.",
+        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Codigo de QR no es reconosido.",
+        "message": "Código de QR no es reconocido.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Exito.",
+        "message": "Éxito.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Cambiar el tamaño de página Popup",
+        "message": "Cambiar el tamaño de página",
         "description": "Resize Popup Page"
     },
     "scale": {
