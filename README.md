@@ -4,7 +4,7 @@
 
 > Authenticator generates 2-Step Verification codes in your browser.
 
-Get Authenticator at the [Chrome Web Store](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai) or on [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/auth-helper/)
+You can install Authenticator from the [Chrome Web Store](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai) or [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/auth-helper/).
 
 ## Build Setup
 
