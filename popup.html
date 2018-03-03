@@ -30,7 +30,7 @@
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <div v-dragula="entries">
             <!-- ENTRIES -->
-            <div class="entry" v-for="entry in entries" v-bind:filtered="entry.issuer.indexOf(currentHost) === -1">
+            <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)">
                 <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
                 <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
                 <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
