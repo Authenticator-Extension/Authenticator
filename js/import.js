@@ -1,0 +1,1 @@
+document.title = chrome.i18n.getMessage('import_backup');

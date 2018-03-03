@@ -1,0 +1,238 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " 追加されました。",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "QR コードが認識できません。",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "認証コードが間違っています。Base32 (A-Z, 2-7, =) と HEX (0-9, A-F) のみ使用できます。認証コード: ",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "QRコードをスキャン",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "手動入力",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "閉じる",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "OK",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "はい",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "いいえ",
+        "description": "No."
+    },
+    "account": {
+        "message": "アカウント",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "アカウント名",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "発行者",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "シークレット",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "成功しました。",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "失敗しました。",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "このアプリついて",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "エクスポート\/インポート",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "設定",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "セキュリティ",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "現在のパスワード",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "新しいパスワード",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "パスワード",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "パスワードの再入力",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "この認証を削除しても宜しいですか？ この操作を元に戻すことはできません。",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "このパスワードは認証を暗号化するために使用されます。パスワードを紛失した場合には復旧できませんのでお気をつけください。",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "更新",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "すべてのアカウントが解読されるまで、新しいアカウントを追加したり、データをエクスポートすることはできません。続行する前に正しいパスワードを入力してください。",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "パスワードが一致しません。",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "暗号化",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "コピーしました。",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "ご意見",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "翻訳",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "ソース コード",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "アカウントデータを復号化するパスワードを入力してください。",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Google と時刻を同期",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "パスワードを記憶します。",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "危険！お使いの環境の日時が実際の日時と離れすぎています。続ける前にまずは修正してください。",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "認証のバックアップは取っていますか？忘れないうちにぜひ！",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "キャプチャーできませんでした。再読込してもう一度お試しください。",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "タイム ベース",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "カウンター ベース",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "ポップアップのサイズを変更",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "大きさ",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "警告: バックアップはすべて暗号化されていません。別のアプリにアカウントを追加したい場合、アカウントの右上にカーソルを合わせ、非表示のボタンを押してください。",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "バックアップファイルのダウンロード",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "バックアップのインポート",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "バックアップファイルのインポート",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "テキストのバックアップのインポート",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Dropbox へ自動バックアップ",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropboxのコード",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropboxのトークン",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "コードを取得",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "すべての登録を表示",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "警告: Dropbox に保存したバックアップは暗号化されていません。お気をつけください。",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "バックアップをインポートするために正しいパスワードを入力してください。",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "パスワードをローカル環境に保存しました。すぐにメニューのセキュリティから変更してください。",
+        "description": "localStorage password warning."
+    }
+}

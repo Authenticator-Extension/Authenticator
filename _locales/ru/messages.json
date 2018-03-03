@@ -1,0 +1,238 @@
+{
+    "extName": {
+        "message": "Авторизация",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Авторизация",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Аутентификатор генерирует коды подтверждения (Totp) 2-шаг в вашем браузере.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " добавлено.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Unrecognized QR code.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Секретный ошибка. Только Base32 (A-Z, 2-7 и =) и ШЕСТНАДЦАТЕРИЧНЫЙ (0-9 и A-F) поддерживаются. Однако ваш секрет: ",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Отсканировать QR-код",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Ручной ввод",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Закрыть",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Готово",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Да",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Нет",
+        "description": "No."
+    },
+    "account": {
+        "message": "Account",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Имя учётной записи",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Издатель",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Секрет",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Успех.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Неудача.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "О расширении",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Экспортировать и импортировать",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Настройки",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Настройки Безопасности",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Текущий пароль",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Новый Пароль",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Пароль",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Подтвердить Пароль",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Вы правда хотите удалить этот секрет? Это действие безвозвратное.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Этот пароль будет использоваться для вашего секрета. Ни кто вам не поможет если вы его забудете.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Обновить",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Вы не можете добавить новую учетную запись или вывести данные, пока не будет выполнен вход во все учётные записи. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Пороли не совпадают.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Encrypted",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Скопировано",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Отзыв",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Перевод",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Исходный код",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Введите пароль для доступа к данным учётной записи.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Синхронизировать время с Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Запомнить пароль",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Внимание! Ваши местные часы слишком далеко, пожалуйста, исправить перед продолжением.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Не ждите если у вас есть копия ваших секретов или иначе будет поздно!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Фокусировка не удалась, перезагрузите страницу и повторите попытку.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Time Based",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Counter Based",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Изменение размера всплывающего окна",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Масштаб",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Внимание: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Скачать резервную копию",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Импорт резервной копии",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Импортировать резервный файл",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Импорт текста резервной копии",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Автосохранение резервной копии в Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox код",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox маркер",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Получить код",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Показать все записи",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Внимание: резервные копии, сохраненные в Dropbox, не зашифрованы. Используйте на свой страх и риск.",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Для импорта резервных копий необходимо указать правильный пароль.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
+        "description": "localStorage password warning."
+    }
+}
