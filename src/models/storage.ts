@@ -42,14 +42,40 @@ class EntryStorage {
     return newData;
   }
 
-  private static isOTPStorage(entry: object) {
+  private static ensureOTPStorage(hash: string, entry: OTPTestObject) {
     const properties = [
       'account', 'hash', 'index', 'issuer', 'type', 'counter', 'secret',
       'encrypted'
     ];
     for (let i = 0; i < properties.length; i++) {
       if (!entry.hasOwnProperty(properties[i])) {
-        return false;
+        if (entry.hasOwnProperty('secret') && entry.hasOwnProperty('type')) {
+          console.log(
+              'Attempting to fix property ' + properties[i] + ' on secret ' +
+              hash);
+          switch (properties[i]) {
+            case 'account':
+              entry['account'] = '';
+              break;
+            case 'hash':
+              entry['hash'] = hash;
+              break;
+            case 'index':
+              entry['index'] = 0;
+              break;
+            case 'issuer':
+              entry['issuer'] = '';
+              break;
+            case 'counter':
+              entry['counter'] = 0;
+              break;
+            default:
+              break;
+          }
+          chrome.storage.sync.set({[hash]: entry});
+        } else {
+          return false;
+        }
       }
     }
     return true;
@@ -61,7 +87,7 @@ class EntryStorage {
       console.log('Key "' + hash + '" is not an object');
       return false;
     } else {
-      if (!this.isOTPStorage(_data[hash])) {
+      if (!this.ensureOTPStorage(hash, _data[hash])) {
         console.log('Key "' + hash + '" is not OTPStorage');
         return false;
       }
