@@ -42,16 +42,12 @@ class EntryStorage {
     return newData;
   }
 
-  private static isOTPStorage(entry: object) {
-    const properties = [
-      'account', 'hash', 'index', 'issuer', 'type', 'counter', 'secret',
-      'encrypted'
-    ];
-    for (let i = 0; i < properties.length; i++) {
-      if (!entry.hasOwnProperty(properties[i])) {
-        return false;
-      }
+  /* tslint:disable-next-line:no-any */
+  private static isOTPStorage(entry: any) {
+    if (!entry.hasOwnProperty('secret')) {
+      return false;
     }
+
     return true;
   }
 
@@ -252,95 +248,107 @@ class EntryStorage {
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
-              const data: OTPEntry[] = [];
-              for (let hash of Object.keys(_data)) {
-                if (!this.isValidEntry(_data, hash)) {
-                  continue;
-                }
-                const entryData = _data[hash];
-                let needMigrate = false;
+            chrome.storage.sync.get(
+                async (_data: {[hash: string]: OTPStorage}) => {
+                  const data: OTPEntry[] = [];
+                  for (let hash of Object.keys(_data)) {
+                    if (!this.isValidEntry(_data, hash)) {
+                      continue;
+                    }
+                    const entryData = _data[hash];
+                    let needMigrate = false;
 
-                if (!entryData.type) {
-                  entryData.type = OTPType[OTPType.totp];
-                  needMigrate = true;
-                }
+                    if (!entryData.hash) {
+                      entryData.hash = hash;
+                      needMigrate = true;
+                    }
 
-                let type: OTPType;
-                switch (entryData.type) {
-                  case 'totp':
-                  case 'hotp':
-                  case 'battle':
-                  case 'steam':
-                    type = OTPType[entryData.type];
-                    break;
-                  default:
-                    // we need correct the type here
-                    // and save it
-                    type = OTPType.totp;
-                    entryData.type = OTPType[OTPType.totp];
-                    needMigrate = true;
-                }
-                entryData.secret = entryData.encrypted ?
-                    encryption.getDecryptedSecret(entryData.secret) :
-                    entryData.secret;
+                    if (!entryData.type) {
+                      entryData.type = OTPType[OTPType.totp];
+                      needMigrate = true;
+                    }
 
-                const entry = new OTPEntry(
-                    type, entryData.issuer, entryData.secret, entryData.account,
-                    entryData.index, entryData.counter);
-                data.push(entry);
-
-                // we need migrate secret in old format here
-                if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
-                  const secretMatches =
-                      entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
-                  if (secretMatches && secretMatches.length >= 3) {
+                    let type: OTPType;
+                    switch (entryData.type) {
+                      case 'totp':
+                      case 'hotp':
+                      case 'battle':
+                      case 'steam':
+                        type = OTPType[entryData.type];
+                        break;
+                      default:
+                        // we need correct the type here
+                        // and save it
+                        type = OTPType.totp;
+                        entryData.type = OTPType[OTPType.totp];
+                        needMigrate = true;
+                    }
                     entryData.secret = entryData.encrypted ?
-                        secretMatches[2] :
-                        encryption.getEncryptedSecret(entry.secret);
-                    entryData.type = OTPType[OTPType.battle];
-                    needMigrate = true;
+                        encryption.getDecryptedSecret(entryData.secret) :
+                        entryData.secret;
+
+                    // we need migrate secret in old format here
+                    if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
+                      const secretMatches =
+                          entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
+                      if (secretMatches && secretMatches.length >= 3) {
+                        entryData.secret = secretMatches[2];
+                        entryData.type = OTPType[OTPType.battle];
+                        needMigrate = true;
+                      }
+                    }
+
+                    if (/^stm\-/.test(entryData.secret)) {
+                      const secretMatches =
+                          entryData.secret.match(/^stm\-(.*)/);
+                      if (secretMatches && secretMatches.length >= 2) {
+                        entryData.secret = secretMatches[1];
+                        entryData.type = OTPType[OTPType.steam];
+                        needMigrate = true;
+                      }
+                    }
+
+                    const entry = new OTPEntry(
+                        type, entryData.issuer, entryData.secret,
+                        entryData.account, entryData.index, entryData.counter);
+
+                    data.push(entry);
+
+                    // we need correct the hash
+                    if (entry.secret !== 'Encrypted') {
+                      const _hash = CryptoJS.MD5(entryData.secret).toString();
+                      if (hash !== _hash) {
+                        await this.remove(hash);
+                        hash = _hash;
+                        entryData.hash = hash;
+                        needMigrate = true;
+                      }
+                    }
+
+                    if (needMigrate) {
+                      const _entry: {[hash: string]: OTPStorage} = {};
+                      _entry[hash] = entryData;
+                      _entry[hash].encrypted = false;
+                      this.import(encryption, _entry);
+                    }
                   }
-                }
 
-                if (/^stm\-/.test(entryData.secret)) {
-                  const secretMatches = entryData.secret.match(/^stm\-(.*)/);
-                  if (secretMatches && secretMatches.length >= 2) {
-                    entryData.secret = entryData.encrypted ?
-                        secretMatches[2] :
-                        encryption.getEncryptedSecret(entry.secret);
-                    entryData.type = OTPType[OTPType.steam];
-                    needMigrate = true;
-                  }
-                }
-
-                // we need correct the hash
-                if (entry.secret !== 'Encrypted') {
-                  const _hash = CryptoJS.MD5(entry.secret).toString();
-                  if (hash !== _hash) {
-                    chrome.storage.sync.remove(hash);
-                    hash = _hash;
-                    entryData.hash = hash;
-                    needMigrate = true;
-                  }
-                }
-
-                if (needMigrate) {
-                  const _entry: {[hash: string]: OTPStorage} = {};
-                  _entry[hash] = entryData;
-                  this.import(encryption, _entry);
-                }
-              }
-
-              data.sort((a, b) => {
-                return a.index - b.index;
-              });
-              return resolve(data);
-            });
+                  data.sort((a, b) => {
+                    return a.index - b.index;
+                  });
+                  return resolve(data);
+                });
             return;
           } catch (error) {
             return reject(error);
           }
+        });
+  }
+
+  static async remove(hash: string) {
+    return new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          return chrome.storage.sync.remove(hash, resolve);
         });
   }
 
