@@ -36,6 +36,14 @@ interface OTPStorage {
   counter: number;
 }
 
+interface OTPTestObject {
+  account?: string;
+  hash?: string;
+  index?: number;
+  issuer?: string;
+  counter?: number;
+}
+
 /* tslint:disable-next-line:interface-name */
 interface I18nMessage {
   [key: string]: {message: string, description: string};
