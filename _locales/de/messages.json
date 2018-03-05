@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Aktuelles Passwort",
+        "message": "Aktuelles Kennwort",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Neues Passwort",
+        "message": "Neues Kennwort",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Passwort",
+        "message": "Kennwort",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Passwort bestätigen",
+        "message": "Kennwort bestätigen",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -112,7 +112,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Aktualisieren",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -120,15 +120,15 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Kennwort stimmt nicht überein.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Verschlüsselt",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopiert",
         "description": "Copied."
     },
     "feedback": {
