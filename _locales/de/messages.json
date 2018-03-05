@@ -136,11 +136,11 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Übersetzen",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Quellcode",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -192,7 +192,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Backup importieren",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -220,7 +220,7 @@
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Alle Einträge anzeigen",
         "description": "Show all entries."
     },
     "dropbox_risk": {
