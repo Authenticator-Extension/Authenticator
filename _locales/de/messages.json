@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Fehler.",
         "description": "Update Failure."
     },
     "about": {
@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "Vorsicht: Sicherungen, die in Dropbox gespeichert werden, sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
