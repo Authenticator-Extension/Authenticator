@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Die Authenticator Erweiterung generiert Zwei-Faktor-Authentifizierung Codes in Ihrem Browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Fehler beim Erkennen des QR Codes.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -24,15 +24,15 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "QR Code scannen",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Manuelle Eingabe",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Schließen",
         "description": "Close."
     },
     "ok": {
@@ -40,23 +40,23 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nein",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Konto",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Kontoname",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Aussteller",
         "description": "Issuer."
     },
     "secret": {
@@ -72,15 +72,15 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Über",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Exportieren \/ Importieren",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Einstellungen",
         "description": "Settings."
     },
     "security": {
@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Aktuelles Passwort",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Neues Passwort",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Passwort",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Passwort bestätigen",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
