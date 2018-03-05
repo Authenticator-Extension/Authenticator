@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Kennwort eingeben um Kontoinformationen zu entschlüsseln.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -152,7 +152,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Kennwort speichern",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
