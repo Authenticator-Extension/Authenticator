@@ -56,7 +56,8 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, '\r\n');
-  const base64Data = btoa(json);
+  const base64Data =
+      CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(json));
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
