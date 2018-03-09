@@ -159,6 +159,11 @@ class EntryStorage {
                   }
                 }
 
+                if (!/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
+                    /^[0-9a-f]+$/i.test(data[hash].secret)) {
+                  data[hash].type = OTPType[OTPType.hex];
+                }
+
                 const _hash = CryptoJS.MD5(data[hash].secret).toString();
                 if (_hash !== hash) {
                   data[_hash] = data[hash];
@@ -283,6 +288,7 @@ class EntryStorage {
                         entryData.type = OTPType[OTPType.totp];
                         needMigrate = true;
                     }
+
                     entryData.secret = entryData.encrypted ?
                         encryption.getDecryptedSecret(entryData.secret) :
                         entryData.secret;
@@ -306,6 +312,13 @@ class EntryStorage {
                         entryData.type = OTPType[OTPType.steam];
                         needMigrate = true;
                       }
+                    }
+
+                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                        /^[0-9a-f]+$/i.test(entryData.secret) &&
+                        entryData.type !== OTPType[OTPType.hex]) {
+                      entryData.type = OTPType[OTPType.hex];
+                      needMigrate = true;
                     }
 
                     const entry = new OTPEntry(
