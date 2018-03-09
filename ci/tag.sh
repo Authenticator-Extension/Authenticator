@@ -8,5 +8,6 @@ openssl aes-256-cbc -K $encrypted_2b3e3bd93233_key -iv $encrypted_2b3e3bd93233_i
 chmod 600 $TRAVIS_BUILD_DIR/ci/authenticator-build-key
 eval `ssh-agent -s`
 ssh-add $TRAVIS_BUILD_DIR/ci/authenticator-build-key
+git checkout $TRAVIS_BRANCH
 git tag $GIT_TAG -a -m "Automatic tag from TravisCI build $TRAVIS_BUILD_NUMBER"
 git push $GIT_TAG
