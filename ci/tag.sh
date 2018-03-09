@@ -12,4 +12,4 @@ git checkout $TRAVIS_BRANCH
 git tag $GIT_TAG -a -m "Automatic tag from TravisCI build $TRAVIS_BUILD_NUMBER"
 git tag
 git show $GIT_TAG
-git push $GIT_TAG HEAD:$TRAVIS_BRANCH
+git push origin $GIT_TAG
