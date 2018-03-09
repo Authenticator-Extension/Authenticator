@@ -297,7 +297,3 @@ const startBtn = document.getElementById('start');
 if (startBtn) {
   startBtn.onclick = testStart;
 }
-
-window.addEventListener('message', (message) => {
-  console.log(message);
-}, false);
