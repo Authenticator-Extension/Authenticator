@@ -62,6 +62,9 @@ class OTPEntry implements OTP {
         this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
       } catch (error) {
         this.code = 'Invalid';
+        if (parent) {
+          parent.postMessage(`Invalid secret: [${this.secret}]`, '*');
+        }
       }
     }
   }

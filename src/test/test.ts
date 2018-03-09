@@ -297,3 +297,7 @@ const startBtn = document.getElementById('start');
 if (startBtn) {
   startBtn.onclick = testStart;
 }
+
+window.addEventListener('message', (event) => {
+  testRes[testCaseIndex] = {pass: false, error: event.data};
+}, false);
