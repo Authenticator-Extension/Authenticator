@@ -15,6 +15,6 @@ script:
 deploy:
   # release tagging
  - provider: script
-   script: bash tag.sh
+   script: bash ci/tag.sh
    on:
     branch: release
