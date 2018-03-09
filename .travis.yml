@@ -18,4 +18,3 @@ deploy:
    script: bash ci/tag.sh
    on:
     branch: release
-    branch:  auto-tag
