@@ -137,6 +137,10 @@ function hasMatchedEntry(siteName: Array<string|null>, entries: OTPEntry[]) {
 }
 
 function isMatchedEntry(siteName: Array<string|null>, entry: OTPEntry) {
+  if (!entry.issuer) {
+    return false;
+  }
+
   const issuerHostMatches = entry.issuer.split('::');
   const issuer = issuerHostMatches[0].replace(/[^0-9a-z]/ig, '').toLowerCase();
 
