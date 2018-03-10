@@ -101,7 +101,7 @@
                     <div id="add_secret" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
                 <div id="secret_box" v-show="newAccount.show">
-                    <label for="account_input" id="account_label">{{ i18n.account }}</label>
+                    <label for="account_input" id="account_label">{{ i18n.accountName }}</label>
                     <input type="text" id="account_input" v-model="newAccount.account">
                     <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
                     <input type="text" id="secret_input" v-model="newAccount.secret">
