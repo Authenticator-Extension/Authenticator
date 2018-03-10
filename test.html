@@ -1,21 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-iframe {
-    display: none;
-}
-</style>
+  <meta charset="utf-8"/>
+  <title>Authenticator Tests</title>
+  <style>
+    * {
+      font-family: arial;
+    }
+
+    iframe {
+        display: none;
+    }
+  </style>
 </head>
 <body>
-<h1>Warning: This page is dangerous, if you do not know what it is, close it immediately!</h1>
-<iframe src="about:black" frameborder="0"></iframe>
-<button id="start">Test</button>
-Test will destroy all data! <input type="checkbox" id="lock">
-<hr>
-<div>
-<table id="test"></table>
-</div>
+  <h1 style="color:red;">This page is dangerous, if you do not know what this is close this immediately!</h1>
+  <iframe src="about:black" frameborder="0"></iframe>
+  <input type="checkbox" id="lock" /> All data will be destroyed!!! Check box to continue
+  <br></br>
+  <button id="start">Begin Test</button>
+  <hr></hr>
+  <div>
+    <table id="test"></table>
+  </div>
 <script src="build/test/test.js"></script>
 </body>
 </html>
