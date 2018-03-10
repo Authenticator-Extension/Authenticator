@@ -132,6 +132,21 @@ const cases: TestCase[] = [
         'type': 'totp'
       }
     }
+  },
+  {
+    name: 'Base32 with padding',
+    data: {
+      'b905232a977347a0a113a7d1c924fb8d': {
+        'account': 'test',
+        'counter': 0,
+        'encrypted': false,
+        'hash': 'b905232a977347a0a113a7d1c924fb8d',
+        'index': 0,
+        'issuer': '',
+        'secret': 'DKCE3SQPHJRJQGBGI322QA7Z5E======',
+        'type': 'totp'
+      }
+    }
   }
 ];
 
