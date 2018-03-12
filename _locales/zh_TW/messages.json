@@ -124,11 +124,11 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "已加密",
+        "message": "加密成功！",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "已複製",
+        "message": "複製成功！",
         "description": "Copied."
     },
     "feedback": {
