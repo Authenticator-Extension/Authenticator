@@ -48,11 +48,11 @@
         "description": "No."
     },
     "account": {
-        "message": "賬戶",
+        "message": "帳戶",
         "description": "Account."
     },
     "accountName": {
-        "message": "賬戶名稱",
+        "message": "帳戶名稱",
         "description": "Account Name."
     },
     "issuer": {
