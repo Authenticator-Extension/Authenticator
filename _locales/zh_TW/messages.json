@@ -168,15 +168,15 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "基於時間",
+        "message": "驗證碼",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "基於計數器",
+        "message": "一次性驗證碼",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "調整彈出頁面尺寸",
+        "message": "調整彈出視窗大小",
         "description": "Resize Popup Page"
     },
     "scale": {
