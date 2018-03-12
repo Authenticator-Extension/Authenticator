@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "安全",
+        "message": "安全性",
         "description": "Security."
     },
     "current_phrase": {
@@ -196,11 +196,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "匯入備份檔案",
+        "message": "以檔案匯入",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "匯入備份文字",
+        "message": "以文字匯入",
         "description": "Import backup code."
     },
     "dropbox_backup": {
