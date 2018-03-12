@@ -165,7 +165,8 @@ class EntryStorage {
                 }
 
                 const _hash = CryptoJS.MD5(data[hash].secret).toString();
-                if (_hash !== hash) {
+                // not a valid hash
+                if (!/^[0-9a-f]{32}$/.test(hash)) {
                   data[_hash] = data[hash];
                   data[_hash].hash = _hash;
                   delete data[hash];
@@ -256,7 +257,7 @@ class EntryStorage {
             chrome.storage.sync.get(
                 async (_data: {[hash: string]: OTPStorage}) => {
                   const data: OTPEntry[] = [];
-                  for (let hash of Object.keys(_data)) {
+                  for (const hash of Object.keys(_data)) {
                     if (!this.isValidEntry(_data, hash)) {
                       continue;
                     }
@@ -323,20 +324,26 @@ class EntryStorage {
 
                     const entry = new OTPEntry(
                         type, entryData.issuer, entryData.secret,
-                        entryData.account, entryData.index, entryData.counter);
-
+                        entryData.account, entryData.index, entryData.counter,
+                        entryData.hash);
                     data.push(entry);
 
-                    // we need correct the hash
-                    if (entry.secret !== 'Encrypted') {
-                      const _hash = CryptoJS.MD5(entryData.secret).toString();
-                      if (hash !== _hash) {
-                        await this.remove(hash);
-                        hash = _hash;
-                        entryData.hash = hash;
-                        needMigrate = true;
-                      }
-                    }
+                    // <del>we need correct the hash</del>
+                    // Do not correct hash, wrong password
+                    // may not only 'Encrypted', but also
+                    // other wrong secret. We cannot know
+                    // if the hash doesn't match the correct
+                    // secret
+                    // if (entry.secret !== 'Encrypted') {
+                    //   const _hash =
+                    //   CryptoJS.MD5(entryData.secret).toString(); if (hash !==
+                    //   _hash) {
+                    //     await this.remove(hash);
+                    //     hash = _hash;
+                    //     entryData.hash = hash;
+                    //     needMigrate = true;
+                    //   }
+                    // }
 
                     if (needMigrate) {
                       const _entry: {[hash: string]: OTPStorage} = {};
