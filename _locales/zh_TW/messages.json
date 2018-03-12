@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。如果您忘記了密碼沒有人能夠提供幫助。",
+        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分賬戶與密碼不匹配，您無法新增新賬戶、匯出賬戶資料或者更改密碼。請提供正確的密碼後重試。",
+        "message": "部分帳戶密碼輸入錯誤，您無法新增帳戶、匯出帳戶資料或更改密碼。請在輸入正確的密碼後重試。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "兩次密碼不一致。",
+        "message": "密碼錯誤。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "輸入密碼以解碼賬戶資料。",
+        "message": "輸入密碼以解碼帳戶資料。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -156,15 +156,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "注意！您的本地時鐘時間差過大，請修正後再進行操作。",
+        "message": "注意！您的本地時鐘時間差異過大，請於效準時間後再進行操作。",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否為金鑰建立了備份？不要等到為時已晚。",
+        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "捕捉失敗，請過載您正在瀏覽的頁面後重試。",
+        "message": "讀取失敗，請於重新載入頁面後重試。",
         "description": "Capture Failed"
     },
     "based_on_time": {
