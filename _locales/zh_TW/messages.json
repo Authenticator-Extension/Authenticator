@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator用以在瀏覽器中生成二步認證程式碼。",
+        "message": "Authenticator用以在瀏覽器中生成兩步驟驗證碼。",
         "description": "Extension Description."
     },
     "added": {
