@@ -147,6 +147,21 @@ const cases: TestCase[] = [
         'type': 'totp'
       }
     }
+  },
+  {
+    name: 'Incorrect but valid hash',
+    data: {
+      'ffffffffffffffffffffffffffffffff': {
+        'account': 'test',
+        'counter': 0,
+        'encrypted': false,
+        'hash': 'ffffffffffffffffffffffffffffffff',
+        'index': 0,
+        'issuer': '',
+        'secret': 'abcd2345',
+        'type': 'totp'
+      }
+    }
   }
 ];
 
