@@ -104,7 +104,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您確定要刪除此金鑰嗎？此操作無法撤銷。",
+        "message": "您確定要刪除此金鑰嗎？此操作無法復原。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
