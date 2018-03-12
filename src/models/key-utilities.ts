@@ -103,6 +103,7 @@ class KeyUtilities {
         key = this.base32tohex(secret);
         break;
       case OTPType.hex:
+      case OTPType.hhex:
         key = secret;
         break;
       case OTPType.battle:
@@ -122,7 +123,7 @@ class KeyUtilities {
       throw new Error('Invalid secret key');
     }
 
-    if (type !== OTPType.hotp) {
+    if (type !== OTPType.hotp && type !== OTPType.hhex) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
       if (localStorage.offset) {
         epoch = epoch + Number(localStorage.offset);

@@ -10,13 +10,16 @@ async function getQrUrl(entry: OTPEntry) {
       (resolve: (value: string) => void, reject: (reason: Error) => void) => {
         const label =
             entry.issuer ? (entry.issuer + ':' + entry.account) : entry.account;
-        const type = entry.type === OTPType.hex ? OTPType[OTPType.totp] :
-                                                  OTPType[entry.type];
+        const type = entry.type === OTPType.hex ?
+            OTPType[OTPType.totp] :
+            (entry.type === OTPType.hhex ? OTPType[OTPType.hotp] :
+                                           OTPType[entry.type]);
         const otpauth = 'otpauth://' + type + '/' + label +
             '?secret=' + entry.secret +
             (entry.issuer ? ('&issuer=' + entry.issuer.split('::')[0]) : '') +
-            ((entry.type === OTPType.hotp) ? ('&counter=' + entry.counter) :
-                                             '');
+            ((entry.type === OTPType.hotp || entry.type === OTPType.hhex) ?
+                 ('&counter=' + entry.counter) :
+                 '');
         /* tslint:disable-next-line:no-unused-expression */
         new QRCode(
             'qr', {

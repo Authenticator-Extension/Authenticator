@@ -101,8 +101,13 @@ async function getTotp(text: string, passphrase: string) {
       } else {
         const encryption = new Encryption(passphrase);
         const hash = CryptoJS.MD5(secret).toString();
-        if (!/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret)) {
+        if (!/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret) &&
+            type === 'totp') {
           type = 'hex';
+        } else if (
+            !/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret) &&
+            type === 'hotp') {
+          type = 'hhex';
         }
         const entryData: {[hash: string]: OTPStorage} = {};
         entryData[hash] = {

@@ -26,7 +26,8 @@ async function updateCode(app: any) {
   if (second < 1) {
     const entries = app.entries as OTP[];
     for (let i = 0; i < entries.length; i++) {
-      if (entries[i].type !== OTPType.hotp) {
+      if (entries[i].type !== OTPType.hotp &&
+          entries[i].type !== OTPType.hhex) {
         entries[i].generate();
       }
     }
@@ -362,7 +363,7 @@ async function entry(_ui: UI) {
         return;
       },
       nextCode: async (entry: OTPEntry) => {
-        if (_ui.instance.class.hotpDiabled) {
+        if (_ui.instance.class.Diabled) {
           return;
         }
         _ui.instance.class.hotpDiabled = true;

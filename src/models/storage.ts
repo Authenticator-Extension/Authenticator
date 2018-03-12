@@ -160,8 +160,15 @@ class EntryStorage {
                 }
 
                 if (!/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
-                    /^[0-9a-f]+$/i.test(data[hash].secret)) {
+                    /^[0-9a-f]+$/i.test(data[hash].secret) &&
+                    data[hash].type === OTPType[OTPType.totp]) {
                   data[hash].type = OTPType[OTPType.hex];
+                }
+
+                if (!/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
+                    /^[0-9a-f]+$/i.test(data[hash].secret) &&
+                    data[hash].type === OTPType[OTPType.hotp]) {
+                  data[hash].type = OTPType[OTPType.hhex];
                 }
 
                 const _hash = CryptoJS.MD5(data[hash].secret).toString();
@@ -280,6 +287,8 @@ class EntryStorage {
                       case 'hotp':
                       case 'battle':
                       case 'steam':
+                      case 'hex':
+                      case 'hhex':
                         type = OTPType[entryData.type];
                         break;
                       default:
@@ -323,8 +332,15 @@ class EntryStorage {
 
                     if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
                         /^[0-9a-f]+$/i.test(entryData.secret) &&
-                        entryData.type !== OTPType[OTPType.hex]) {
+                        entryData.type === OTPType[OTPType.totp]) {
                       entryData.type = OTPType[OTPType.hex];
+                      needMigrate = true;
+                    }
+
+                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                        /^[0-9a-f]+$/i.test(entryData.secret) &&
+                        entryData.type === OTPType[OTPType.hotp]) {
+                      entryData.type = OTPType[OTPType.hhex];
                       needMigrate = true;
                     }
 
@@ -344,10 +360,10 @@ class EntryStorage {
 
                     // Only correct invalid hash here
 
-                    if (entry.secret !== 'Encrypted' && !/^[0-9a-f]{32}$/.test(hash)) {
-                      const _hash =
-                      CryptoJS.MD5(entryData.secret).toString(); if (hash !==
-                      _hash) {
+                    if (entry.secret !== 'Encrypted' &&
+                        !/^[0-9a-f]{32}$/.test(hash)) {
+                      const _hash = CryptoJS.MD5(entryData.secret).toString();
+                      if (hash !== _hash) {
                         await this.remove(hash);
                         entryData.hash = _hash;
                         needMigrate = true;

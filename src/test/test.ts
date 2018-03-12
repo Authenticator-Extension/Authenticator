@@ -162,6 +162,21 @@ const cases: TestCase[] = [
         'type': 'totp'
       }
     }
+  },
+  {
+    name: 'HOTP with HEX secret',
+    data: {
+      '7c117a118e015b6232ff359958b9e270': {
+        'account': 'test',
+        'counter': 0,
+        'encrypted': false,
+        'hash': '7c117a118e015b6232ff359958b9e270',
+        'index': 0,
+        'issuer': '',
+        'secret': '2c52e8fcfac34091da63ef7b118f1cc50b925a42',
+        'type': 'hhex'
+      }
+    }
   }
 ];
 
@@ -277,11 +292,9 @@ async function test() {
     testResData[testCaseIndex] = JSON.stringify(data, null, 2);
 
     if (testRes[testCaseIndex].pass) {
-      if (Object.keys(data).length !== Object.keys(cases[Math.floor(testCaseIndex/2)].data).length) {
-        testRes[testCaseIndex] = {
-          pass: false,
-          error: `Missing data`
-        };
+      if (Object.keys(data).length !==
+          Object.keys(cases[Math.floor(testCaseIndex / 2)].data).length) {
+        testRes[testCaseIndex] = {pass: false, error: `Missing data`};
       } else {
         for (const hash of Object.keys(data)) {
           const item = data[hash];

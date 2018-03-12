@@ -26,7 +26,7 @@ class OTPEntry implements OTP {
         hash :
         CryptoJS.MD5(secret).toString();
     this.counter = counter;
-    if (this.type !== OTPType.hotp) {
+    if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();
     }
   }
@@ -47,7 +47,7 @@ class OTPEntry implements OTP {
   }
 
   async next(encryption: Encryption) {
-    if (this.type !== OTPType.hotp) {
+    if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
     this.generate();
