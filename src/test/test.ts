@@ -152,6 +152,7 @@ const cases: TestCase[] = [
 
 let testCaseIndex = 0;
 let testRes: Array<{pass: boolean, error: string}> = [];
+let testResData: string[] = [];
 
 function testStart() {
   if (document.getElementById('lock')) {
@@ -225,8 +226,8 @@ async function test() {
       cases[Math.floor(testCaseIndex / 2)].name,
       testCaseIndex % 2 ? 'Reopen' : '');
 
-  await clear();
   if (testCaseIndex % 2 === 0) {
+    clear();
     await set(cases[Math.floor(testCaseIndex / 2)].data);
   }
 
@@ -253,24 +254,34 @@ async function test() {
   }
 
   setTimeout(async () => {
+    const data = await get<{
+      /* tslint:disable-next-line:no-any */
+      [key: string]: any
+    }>();
+
+    testResData[testCaseIndex] = JSON.stringify(data, null, 2);
+
     if (testRes[testCaseIndex].pass) {
-      const data = await get<{
-        /* tslint:disable-next-line:no-any */
-        [key: string]: any
-      }>();
-      for (const hash of Object.keys(data)) {
-        const item = data[hash];
-        const keys = [
-          'issuer', 'account', 'secret', 'hash', 'index', 'type', 'counter',
-          'encrypted'
-        ];
-        for (const key of keys) {
-          if (item[key] === undefined) {
-            testRes[testCaseIndex] = {
-              pass: false,
-              error: `Missing key<${key}>: ${JSON.stringify(item)}`
-            };
-            break;
+      if (Object.keys(data).length !== Object.keys(cases[Math.floor(testCaseIndex/2)].data).length) {
+        testRes[testCaseIndex] = {
+          pass: false,
+          error: `Missing data`
+        };
+      } else {
+        for (const hash of Object.keys(data)) {
+          const item = data[hash];
+          const keys = [
+            'issuer', 'account', 'secret', 'hash', 'index', 'type', 'counter',
+            'encrypted'
+          ];
+          for (const key of keys) {
+            if (item[key] === undefined) {
+              testRes[testCaseIndex] = {
+                pass: false,
+                error: `Missing key<${key}>: ${JSON.stringify(item)}`
+              };
+              break;
+            }
           }
         }
       }
@@ -284,7 +295,7 @@ async function test() {
       document.getElementsByTagName('iframe')[0].src = 'about:blank';
     }
 
-    test();
+    await test();
   }, 1000);
 }
 
@@ -302,7 +313,9 @@ function showTestResult() {
                           'red'}">[${testRes[i].pass ? 'Pass' : 'Fail'}]</td>`;
     el.innerHTML +=
         `<td><h3 style="margin: 0">${cases[Math.floor(i / 2)].name}${
-            i % 2 === 1 ? ' (Reopen)' : ''}</h3>${testRes[i].error}<br></td>`;
+            i % 2 === 1 ? ' (Reopen)' :
+                          ''}</h3>${testRes[i].error}<br><pre><code>${
+            testResData[i]}</code></pre><br></td>`;
 
     testResultContainer.appendChild(el);
   }

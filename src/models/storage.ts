@@ -301,6 +301,9 @@ class EntryStorage {
                       if (secretMatches && secretMatches.length >= 3) {
                         entryData.secret = secretMatches[2];
                         entryData.type = OTPType[OTPType.battle];
+                        entryData.hash =
+                            CryptoJS.MD5(entryData.secret).toString();
+                        await this.remove(hash);
                         needMigrate = true;
                       }
                     }
@@ -311,6 +314,9 @@ class EntryStorage {
                       if (secretMatches && secretMatches.length >= 2) {
                         entryData.secret = secretMatches[1];
                         entryData.type = OTPType[OTPType.steam];
+                        entryData.hash =
+                            CryptoJS.MD5(entryData.secret).toString();
+                        await this.remove(hash);
                         needMigrate = true;
                       }
                     }
@@ -329,26 +335,29 @@ class EntryStorage {
                     data.push(entry);
 
                     // <del>we need correct the hash</del>
+
                     // Do not correct hash, wrong password
                     // may not only 'Encrypted', but also
                     // other wrong secret. We cannot know
                     // if the hash doesn't match the correct
                     // secret
-                    // if (entry.secret !== 'Encrypted') {
-                    //   const _hash =
-                    //   CryptoJS.MD5(entryData.secret).toString(); if (hash !==
-                    //   _hash) {
-                    //     await this.remove(hash);
-                    //     hash = _hash;
-                    //     entryData.hash = hash;
-                    //     needMigrate = true;
-                    //   }
-                    // }
+
+                    // Only correct invalid hash here
+
+                    if (entry.secret !== 'Encrypted' && !/^[0-9a-f]{32}$/.test(hash)) {
+                      const _hash =
+                      CryptoJS.MD5(entryData.secret).toString(); if (hash !==
+                      _hash) {
+                        await this.remove(hash);
+                        entryData.hash = _hash;
+                        needMigrate = true;
+                      }
+                    }
 
                     if (needMigrate) {
                       const _entry: {[hash: string]: OTPStorage} = {};
-                      _entry[hash] = entryData;
-                      _entry[hash].encrypted = false;
+                      _entry[entryData.hash] = entryData;
+                      _entry[entryData.hash].encrypted = false;
                       this.import(encryption, _entry);
                     }
                   }
@@ -356,6 +365,15 @@ class EntryStorage {
                   data.sort((a, b) => {
                     return a.index - b.index;
                   });
+
+                  for (let i = 0; i < data.length; i++) {
+                    if (data[i].index !== i) {
+                      const exportData = await this.getExport(encryption);
+                      await this.import(encryption, exportData);
+                      break;
+                    }
+                  }
+
                   return resolve(data);
                 });
             return;
