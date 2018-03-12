@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator用以在瀏覽器中生成二步認證程式碼。",
+        "message": "Authenticator用以在瀏覽器中生成兩步驟驗證碼。",
         "description": "Extension Description."
     },
     "added": {
@@ -48,11 +48,11 @@
         "description": "No."
     },
     "account": {
-        "message": "賬戶",
+        "message": "帳戶",
         "description": "Account."
     },
     "accountName": {
-        "message": "賬戶名稱",
+        "message": "帳戶名稱",
         "description": "Account Name."
     },
     "issuer": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "安全",
+        "message": "安全性",
         "description": "Security."
     },
     "current_phrase": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您確定要刪除此金鑰嗎？此操作無法撤銷。",
+        "message": "您確定要刪除此金鑰嗎？此操作無法復原。",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。如果您忘記了密碼沒有人能夠提供幫助。",
+        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,19 +116,19 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分賬戶與密碼不匹配，您無法新增新賬戶、匯出賬戶資料或者更改密碼。請提供正確的密碼後重試。",
+        "message": "部分帳戶密碼輸入錯誤，您無法新增帳戶、匯出帳戶資料或更改密碼。請在輸入正確的密碼後重試。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "兩次密碼不一致。",
+        "message": "密碼錯誤。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "已加密",
+        "message": "加密成功！",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "已複製",
+        "message": "複製成功！",
         "description": "Copied."
     },
     "feedback": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "輸入密碼以解碼賬戶資料。",
+        "message": "輸入密碼以解碼帳戶資料。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -156,27 +156,27 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "注意！您的本地時鐘時間差過大，請修正後再進行操作。",
+        "message": "注意！您的本地時鐘時間差異過大，請於效準時間後再進行操作。",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否為金鑰建立了備份？不要等到為時已晚。",
+        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "捕捉失敗，請過載您正在瀏覽的頁面後重試。",
+        "message": "讀取失敗，請於重新載入頁面後重試。",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "基於時間",
+        "message": "驗證碼",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "基於計數器",
+        "message": "一次性驗證碼",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "調整彈出頁面尺寸",
+        "message": "調整彈出視窗大小",
         "description": "Resize Popup Page"
     },
     "scale": {
@@ -196,11 +196,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "匯入備份檔案",
+        "message": "以檔案匯入",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "匯入備份文字",
+        "message": "以文字匯入",
         "description": "Import backup code."
     },
     "dropbox_backup": {
@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "警告：儲存至Dropbox的備份均未備份，您需自擔風險。",
+        "message": "警告：儲存至Dropbox的備份檔案均未加密，需自行承擔風險。",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
