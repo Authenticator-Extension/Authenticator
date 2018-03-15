@@ -140,14 +140,9 @@
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
                     <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
-                    <label for="code_input">{{ i18n.dropbox_code }}</label>
-                    <div class="dropbox_code_input">
-                        <input type="text" id="code_input" v-model="dropboxCode">
-                        <a id="dropbox_authorization" v-bind:title="i18n.dropbox_authorization" href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a>
-                    </div>
                     <label for="token_input">{{ i18n.dropbox_token }}</label>
                     <input type="text" id="token_input" v-model="dropboxToken" disabled>
-                    <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
+                    <div id="dropbox_get_code" v-on:click="openLink(dropboxTokenUrl)" target="_blank">{{ i18n.dropbox_authorization }}</div>
                 </div>
             </div>
             <!-- RESIZE -->
