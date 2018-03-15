@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Vous ne pouvez pas ajouter de nouveaux comptes ou exporter les données avant que tous les comptes ne soient déchiffrés. Veuillez saisir le mot de passe valide avant de pouvoir continuer.",
+        "message": "Vous ne pouvez pas ajouter de nouveaux comptes ou exporter les données avant que le déchiffrement de tous les comptes ne soit terminé. Veuillez saisir le mot de passe avant de pouvoir continuer.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
