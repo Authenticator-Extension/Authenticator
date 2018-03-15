@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentificateur",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " a bien été ajouté.",
+        "message": " à été ajouté.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -112,7 +112,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Mise à Jour.",
+        "message": "Mise à Jour",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -152,7 +152,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Mémoriser le Mot de Passe.",
+        "message": "Mémoriser le Mot de Passe",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -204,11 +204,11 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Sauvegarde Automatique dans DropBox",
+        "message": "Sauvegarde Automatique dans Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Code DropBox",
+        "message": "Code Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Attention: les sauvegardes DropBox ne sont pas protégées par chiffrement. Utilisez les à vos risques et périls.",
+        "message": "Attention: les sauvegardes Dropbox ne sont pas protégées par chiffrement. Utilisez les à vos risques et périls.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
