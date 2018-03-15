@@ -28,16 +28,16 @@ function getQrDebug(
       const infoDom = document.getElementById('info');
       if (infoDom) {
         infoDom.innerHTML = `Window Inner Width: ${windowWidth}<br>` +
-                            `Width: ${width}<br>` +
-                            `Height: ${height}<br>` +
-                            `Left: ${left}<br>` +
-                            `Top: ${top}<br>` +
-                            `Screen Width: ${window.screen.width}<br>` +
-                            `Screen Height: ${window.screen.height}<br>` +
-                            `Capture Width: ${qr.width}<br>` +
-                            `Capture Height: ${qr.height}<br>` +
-                            `Device Pixel Ratio:${window.devicePixelRatio}<br>` +
-                            `Tab ID: ${tab.id}<br>`;
+            `Width: ${width}<br>` +
+            `Height: ${height}<br>` +
+            `Left: ${left}<br>` +
+            `Top: ${top}<br>` +
+            `Screen Width: ${window.screen.width}<br>` +
+            `Screen Height: ${window.screen.height}<br>` +
+            `Capture Width: ${qr.width}<br>` +
+            `Capture Height: ${qr.height}<br>` +
+            `Device Pixel Ratio:${window.devicePixelRatio}<br>` +
+            `Tab ID: ${tab.id}<br>`;
       }
 
       const qrDom = document.getElementById('qr') as HTMLImageElement;
