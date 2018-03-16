@@ -27,7 +27,9 @@ function getQrDebug(
       const url = captureCanvas.toDataURL();
       const infoDom = document.getElementById('info');
       if (infoDom) {
-        infoDom.innerHTML = `Window Inner Width: ${windowWidth}<br>` +
+        infoDom.innerHTML = '<b>Scan Data:</b><br>' +
+            `<br>` +
+            `Window Inner Width: ${windowWidth}<br>` +
             `Width: ${width}<br>` +
             `Height: ${height}<br>` +
             `Left: ${left}<br>` +
@@ -37,7 +39,9 @@ function getQrDebug(
             `Capture Width: ${qr.width}<br>` +
             `Capture Height: ${qr.height}<br>` +
             `Device Pixel Ratio:${window.devicePixelRatio}<br>` +
-            `Tab ID: ${tab.id}<br>`;
+            `Tab ID: ${tab.id}<br>` +
+            '<br>' +
+            '<b>Captured Screenshot:</b>';
       }
 
       const qrDom = document.getElementById('qr') as HTMLImageElement;
