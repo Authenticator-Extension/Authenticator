@@ -1,238 +1,238 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Authentificateur",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Authentificateur",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator用以在瀏覽器中生成兩步驟驗證碼。",
+        "message": "Authenticator génère, dans votre navigateur, des codes d'authentification (TOTP) en deux étapes.",
         "description": "Extension Description."
     },
     "added": {
-        "message": "已新增。",
+        "message": " à été ajouté.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "無法識別的QR碼。",
+        "message": "Le QR code n'a pas été reconnu.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "金鑰錯誤，僅支援Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的金鑰是：",
+        "message": "Erreur sur la clef secrète. Seul les caractères Base32(A-Z, 2-7 et =) et HEX(0-9 et A-F) sont supportés. Néanmoins, votre clef secrète est: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "掃描QR碼",
+        "message": "Acquisition du QR code",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "手動輸入",
+        "message": "Saisie manuelle",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "關閉",
+        "message": "Fermer",
         "description": "Close."
     },
     "ok": {
-        "message": "確定",
+        "message": "Ok",
         "description": "OK."
     },
     "yes": {
-        "message": "是",
+        "message": "Oui",
         "description": "Yes."
     },
     "no": {
-        "message": "否",
+        "message": "Non",
         "description": "No."
     },
     "account": {
-        "message": "帳戶",
+        "message": "Compte",
         "description": "Account."
     },
     "accountName": {
-        "message": "帳戶名稱",
+        "message": "Nom du Compte",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "簽發方",
+        "message": "Emetteur",
         "description": "Issuer."
     },
     "secret": {
-        "message": "金鑰",
+        "message": "Secret",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "成功。",
+        "message": "Succés.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "失敗。",
+        "message": "Echec.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "關於",
+        "message": "A Propos",
         "description": "About."
     },
     "export_import": {
-        "message": "匯出 \/ 匯入",
+        "message": "Export \/ Import",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "設定",
+        "message": "Paramètres",
         "description": "Settings."
     },
     "security": {
-        "message": "安全性",
+        "message": "Securité",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "當前密碼",
+        "message": "Phrase secrète Actuelle",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "新密碼",
+        "message": "Nouvelle Phrase Secrète",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "密碼",
+        "message": "Phrase Secrète",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "確認密碼",
+        "message": "Confirmation de la phrase Secrète",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您確定要刪除此金鑰嗎？此操作無法復原。",
+        "message": "Etes-vous sûr de vouloir détruire ce secret ? Cette action ne peut pas être annulé.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
+        "message": "Ce mot de passe sera utilisé pour chiffrer vos clefs secrètes. Personne ne sera en mesure de vous aider à les retrouver, si vous les perdez.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "更新",
+        "message": "Mise à Jour",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分帳戶密碼輸入錯誤，您無法新增帳戶、匯出帳戶資料或更改密碼。請在輸入正確的密碼後重試。",
+        "message": "Vous ne pouvez pas ajouter de nouveaux comptes ou exporter les données avant que le déchiffrement de tous les comptes ne soit terminé. Veuillez saisir le mot de passe avant de pouvoir continuer.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "密碼錯誤。",
+        "message": "Le Mot de Passe ne correspond pas.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "加密成功！",
+        "message": "Chiffré",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "複製成功！",
+        "message": "Copié",
         "description": "Copied."
     },
     "feedback": {
-        "message": "問題反饋",
+        "message": "Feedback",
         "description": "Feedback."
     },
     "translate": {
-        "message": "參與翻譯",
+        "message": "Traduire",
         "description": "Translate."
     },
     "source": {
-        "message": "原始碼",
+        "message": "Code Source",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "輸入密碼以解碼帳戶資料。",
+        "message": "Saisir le Mot de Passe pour Déchiffrer les Données du Compte.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "通過Google校準時間",
+        "message": "Synchroniser l'horloge avec celle de Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "記住密碼",
+        "message": "Mémoriser le Mot de Passe",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "注意！您的本地時鐘時間差異過大，請於效準時間後再進行操作。",
+        "message": "Attention ! Un décalage trop important existe avec votre horloge locale, réglez ce problème avant de continuer.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
+        "message": "Avez vous sauvegardé vos clefs secrètes ? N'attendez pas qu'il soit trop tard !",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "讀取失敗，請於重新載入頁面後重試。",
+        "message": "La Capture à échoué, veuillez recharger la page et essayer à nouveau.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "驗證碼",
+        "message": "Basé sur le temps",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "一次性驗證碼",
+        "message": "Basé sur un compteur",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "調整彈出視窗大小",
+        "message": "Retailler la page du popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "比例",
+        "message": "Dimensionner",
         "description": "Scale"
     },
     "export_info": {
-        "message": "警告：所有備份均未加密。想要將賬號新增至其他應用？請點選賬號右上角隱藏的圖示。",
+        "message": "Attention: les backup ne sont pas protégés par chiffrement. Vous voulez ajouté un compte à une autre application ? Survollez la partie supérieur droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "下載備份檔案",
+        "message": "Télécharger un Fichier de Sauvegarde",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "匯入備份",
+        "message": "Import d'une sauvegarde",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "以檔案匯入",
+        "message": "Import d'un fichier de sauvegarde",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "以文字匯入",
+        "message": "Importation au format texte",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "自動備份至Dropbox",
+        "message": "Sauvegarde Automatique dans Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox授權碼",
+        "message": "Code Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Jeton Dropbox",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "獲取授權碼",
+        "message": "Obtenir le Code",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "顯示全部條目",
+        "message": "Afficher Toutes les Entrées",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "警告：儲存至Dropbox的備份檔案均未加密，需自行承擔風險。",
+        "message": "Attention: les sauvegardes Dropbox ne sont pas protégées par chiffrement. Utilisez les à vos risques et périls.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "您必須提供正確的密碼才能匯入備份。",
+        "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
+        "message": "Votre mot de passe est stocké localement, veuillez le changer immédiatement par l'intermédiaire du menu sécurité.",
         "description": "localStorage password warning."
     }
 }

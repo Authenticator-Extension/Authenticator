@@ -1,3 +1,2 @@
 *.js linguist-vendored
-*.css linguist-vendored
-*.html  linguist-vendored
+css/font-awesome.css linguist-vendored

@@ -24,8 +24,14 @@ async function addAccount(_ui: UI) {
       addNewAccount: async () => {
         let type: OTPType;
         if (!/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
-            /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret)) {
+            /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret) &&
+            _ui.instance.newAccount.type === 'totp') {
           type = OTPType.hex;
+        } else if (
+            !/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
+            /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret) &&
+            _ui.instance.newAccount.type === 'hotp') {
+          type = OTPType.hhex;
         } else {
           type = _ui.instance.newAccount.type;
         }

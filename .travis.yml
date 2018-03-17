@@ -12,3 +12,9 @@ script:
   - "npm run firefox"
   - "npm run chrome"
   - "addons-linter firefox"
+deploy:
+  # release tagging
+ - provider: script
+   script: bash ci/tag.sh
+   on:
+    branch: release
