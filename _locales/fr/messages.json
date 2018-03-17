@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Le QR code n'a pas été reconnu.",
+        "message": "Le code QR n'a pas été reconnu.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Acquisition du QR code",
+        "message": "Acquisition du code QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
