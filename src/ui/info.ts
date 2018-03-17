@@ -8,8 +8,8 @@ async function info(_ui: UI) {
       info: '',
       dropboxToken: localStorage.dropboxToken || '',
       dropboxTokenUrl:
-          'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=chrome-extension%3A%2F%2F' +
-          chrome.runtime.id + '%2Fdropboxtoken.html'
+          'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=' +
+          encodeURIComponent(chrome.extension.getURL('dropboxtoken.html'))
     },
     methods: {
       showInfo: (tab: string) => {
