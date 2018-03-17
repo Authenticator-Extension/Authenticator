@@ -159,8 +159,21 @@ class EntryStorage {
                   }
                 }
 
+                if (!/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
+                    /^[0-9a-f]+$/i.test(data[hash].secret) &&
+                    data[hash].type === OTPType[OTPType.totp]) {
+                  data[hash].type = OTPType[OTPType.hex];
+                }
+
+                if (!/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
+                    /^[0-9a-f]+$/i.test(data[hash].secret) &&
+                    data[hash].type === OTPType[OTPType.hotp]) {
+                  data[hash].type = OTPType[OTPType.hhex];
+                }
+
                 const _hash = CryptoJS.MD5(data[hash].secret).toString();
-                if (_hash !== hash) {
+                // not a valid hash
+                if (!/^[0-9a-f]{32}$/.test(hash)) {
                   data[_hash] = data[hash];
                   data[_hash].hash = _hash;
                   delete data[hash];
@@ -251,7 +264,7 @@ class EntryStorage {
             chrome.storage.sync.get(
                 async (_data: {[hash: string]: OTPStorage}) => {
                   const data: OTPEntry[] = [];
-                  for (let hash of Object.keys(_data)) {
+                  for (const hash of Object.keys(_data)) {
                     if (!this.isValidEntry(_data, hash)) {
                       continue;
                     }
@@ -274,6 +287,8 @@ class EntryStorage {
                       case 'hotp':
                       case 'battle':
                       case 'steam':
+                      case 'hex':
+                      case 'hhex':
                         type = OTPType[entryData.type];
                         break;
                       default:
@@ -283,6 +298,7 @@ class EntryStorage {
                         entryData.type = OTPType[OTPType.totp];
                         needMigrate = true;
                     }
+
                     entryData.secret = entryData.encrypted ?
                         encryption.getDecryptedSecret(entryData.secret) :
                         entryData.secret;
@@ -294,6 +310,9 @@ class EntryStorage {
                       if (secretMatches && secretMatches.length >= 3) {
                         entryData.secret = secretMatches[2];
                         entryData.type = OTPType[OTPType.battle];
+                        entryData.hash =
+                            CryptoJS.MD5(entryData.secret).toString();
+                        await this.remove(hash);
                         needMigrate = true;
                       }
                     }
@@ -304,31 +323,57 @@ class EntryStorage {
                       if (secretMatches && secretMatches.length >= 2) {
                         entryData.secret = secretMatches[1];
                         entryData.type = OTPType[OTPType.steam];
+                        entryData.hash =
+                            CryptoJS.MD5(entryData.secret).toString();
+                        await this.remove(hash);
                         needMigrate = true;
                       }
                     }
 
+                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                        /^[0-9a-f]+$/i.test(entryData.secret) &&
+                        entryData.type === OTPType[OTPType.totp]) {
+                      entryData.type = OTPType[OTPType.hex];
+                      needMigrate = true;
+                    }
+
+                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                        /^[0-9a-f]+$/i.test(entryData.secret) &&
+                        entryData.type === OTPType[OTPType.hotp]) {
+                      entryData.type = OTPType[OTPType.hhex];
+                      needMigrate = true;
+                    }
+
                     const entry = new OTPEntry(
                         type, entryData.issuer, entryData.secret,
-                        entryData.account, entryData.index, entryData.counter);
-
+                        entryData.account, entryData.index, entryData.counter,
+                        entryData.hash);
                     data.push(entry);
 
-                    // we need correct the hash
-                    if (entry.secret !== 'Encrypted') {
+                    // <del>we need correct the hash</del>
+
+                    // Do not correct hash, wrong password
+                    // may not only 'Encrypted', but also
+                    // other wrong secret. We cannot know
+                    // if the hash doesn't match the correct
+                    // secret
+
+                    // Only correct invalid hash here
+
+                    if (entry.secret !== 'Encrypted' &&
+                        !/^[0-9a-f]{32}$/.test(hash)) {
                       const _hash = CryptoJS.MD5(entryData.secret).toString();
                       if (hash !== _hash) {
                         await this.remove(hash);
-                        hash = _hash;
-                        entryData.hash = hash;
+                        entryData.hash = _hash;
                         needMigrate = true;
                       }
                     }
 
                     if (needMigrate) {
                       const _entry: {[hash: string]: OTPStorage} = {};
-                      _entry[hash] = entryData;
-                      _entry[hash].encrypted = false;
+                      _entry[entryData.hash] = entryData;
+                      _entry[entryData.hash].encrypted = false;
                       this.import(encryption, _entry);
                     }
                   }
@@ -336,6 +381,15 @@ class EntryStorage {
                   data.sort((a, b) => {
                     return a.index - b.index;
                   });
+
+                  for (let i = 0; i < data.length; i++) {
+                    if (data[i].index !== i) {
+                      const exportData = await this.getExport(encryption);
+                      await this.import(encryption, exportData);
+                      break;
+                    }
+                  }
+
                   return resolve(data);
                 });
             return;

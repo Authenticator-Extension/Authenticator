@@ -356,7 +356,7 @@ body {
 #upload_backup,
 #security_save,
 #passphrase_ok,
-#dropbox_ok,
+#dropbox_get_code,
 #message_close,
 #exportButton,
 #resize_save {
@@ -400,7 +400,7 @@ body {
 #exportButton,
 #security_save,
 #passphrase_ok,
-#dropbox_ok,
+#dropbox_get_code,
 #resize_save {
     font-size: 12px;
     margin: 20px 100px;
@@ -651,7 +651,7 @@ body {
 #passphraseClose:hover,
 #security_save:hover,
 #passphrase_ok:hover,
-#dropbox_ok:hover,
+#dropbox_get_code:hover,
 #export:hover,
 #resizeClose:hover,
 #resize_save:hover,

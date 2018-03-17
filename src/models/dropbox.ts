@@ -4,39 +4,8 @@
 /// <reference path="./storage.ts" />
 
 class Dropbox {
-  async getToken(code?: string) {
-    if (localStorage.dropboxToken) {
-      return localStorage.dropboxToken;
-    }
-
-    if (!code) {
-      return '';
-    }
-
-    const url = 'https://api.dropboxapi.com/oauth2/token';
-    return new Promise(
-        (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-          try {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', url);
-            xhr.setRequestHeader(
-                'Content-type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = () => {
-              if (xhr.readyState === 4) {
-                const res: {[key: string]: string} =
-                    JSON.parse(xhr.responseText);
-                localStorage.dropboxToken = res.access_token;
-                return resolve(res.access_token);
-              }
-              return;
-            };
-            xhr.send(
-                `client_id=013qun2m82h9jim&client_secret=pk5tt1jrxuwq240&grant_type=authorization_code&code=${
-                    code}`);
-          } catch (error) {
-            return reject(error);
-          }
-        });
+  async getToken() {
+    return localStorage.dropboxToken || '';
   }
 
   async upload(encryption: Encryption) {

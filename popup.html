@@ -32,13 +32,13 @@
             <!-- ENTRIES -->
             <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)">
                 <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
-                <div class="sector" v-if="entry.type !== OTPType.hotp" v-bind:style="{background: sector}"></div>
-                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
+                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-bind:style="{background: sector}"></div>
+                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
                     <input class="issuerEditBox" placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
-                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
                 <div class="account">{{ entry.account }}</div>
                 <div class="accountEdit">
                     <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
@@ -93,6 +93,7 @@
                 <p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
+                <p><a target='_blank' href='/qrdebug.html'>QR Debugging</a></p>
             </div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
@@ -101,7 +102,7 @@
                     <div id="add_secret" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
                 <div id="secret_box" v-show="newAccount.show">
-                    <label for="account_input" id="account_label">{{ i18n.account }}</label>
+                    <label for="account_input" id="account_label">{{ i18n.accountName }}</label>
                     <input type="text" id="account_input" v-model="newAccount.account">
                     <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
                     <input type="text" id="secret_input" v-model="newAccount.secret">
@@ -140,14 +141,9 @@
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
                     <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
-                    <label for="code_input">{{ i18n.dropbox_code }}</label>
-                    <div class="dropbox_code_input">
-                        <input type="text" id="code_input" v-model="dropboxCode">
-                        <a id="dropbox_authorization" v-bind:title="i18n.dropbox_authorization" href="https://www.dropbox.com/oauth2/authorize?response_type=code&client_id=013qun2m82h9jim" target="_blank">{{ i18n.dropbox_authorization }}</a>
-                    </div>
                     <label for="token_input">{{ i18n.dropbox_token }}</label>
                     <input type="text" id="token_input" v-model="dropboxToken" disabled>
-                    <div id="dropbox_ok" v-on:click="saveDropboxCode()">{{ i18n.ok }}</div>
+                    <div id="dropbox_get_code" v-on:click="openLink(dropboxTokenUrl)" target="_blank">{{ i18n.dropbox_authorization }}</div>
                 </div>
             </div>
             <!-- RESIZE -->

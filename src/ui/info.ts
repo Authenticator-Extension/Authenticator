@@ -6,17 +6,12 @@ async function info(_ui: UI) {
   const ui: UIConfig = {
     data: {
       info: '',
-      dropboxCode: '',
-      dropboxToken: localStorage.dropboxToken || ''
+      dropboxToken: localStorage.dropboxToken || '',
+      dropboxTokenUrl:
+          'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=chrome-extension%3A%2F%2F' +
+          chrome.runtime.id + '%2Fdropboxtoken.html'
     },
     methods: {
-      saveDropboxCode: async () => {
-        const dropbox = new Dropbox();
-        _ui.instance.dropboxToken =
-            await dropbox.getToken(_ui.instance.dropboxCode);
-        _ui.instance.closeInfo();
-        return;
-      },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
           const entries = _ui.instance.entries as OTPEntry[];

@@ -16,15 +16,17 @@ class OTPEntry implements OTP {
 
   constructor(
       type: OTPType, issuer: string, secret: string, account: string,
-      index: number, counter: number) {
+      index: number, counter: number, hash?: string) {
     this.type = type;
     this.index = index;
     this.issuer = issuer;
     this.secret = secret;
     this.account = account;
-    this.hash = CryptoJS.MD5(secret).toString();
+    this.hash = hash && /^[0-9a-f]{32}$/.test(hash) ?
+        hash :
+        CryptoJS.MD5(secret).toString();
     this.counter = counter;
-    if (this.type !== OTPType.hotp) {
+    if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();
     }
   }
@@ -45,7 +47,7 @@ class OTPEntry implements OTP {
   }
 
   async next(encryption: Encryption) {
-    if (this.type !== OTPType.hotp) {
+    if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
     this.generate();
@@ -62,6 +64,9 @@ class OTPEntry implements OTP {
         this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
       } catch (error) {
         this.code = 'Invalid';
+        if (parent) {
+          parent.postMessage(`Invalid secret: [${this.secret}]`, '*');
+        }
       }
     }
   }
