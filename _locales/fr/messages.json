@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "La capture a échouée, veuillez recharger la page et réessayer.",
+        "message": "Échec de la capture, rechargez la page et essayez à nouveau.",
         "description": "Capture Failed"
     },
     "based_on_time": {
