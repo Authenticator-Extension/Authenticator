@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Le QR code n'a pas été reconnu.",
+        "message": "Le code QR n'a pas été reconnu.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Acquisition du QR code",
+        "message": "Acquisition du code QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nom du Compte",
+        "message": "Nom du compte",
         "description": "Account Name."
     },
     "issuer": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Succés.",
+        "message": "Succès.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Exporter \/ Importer",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,27 +84,27 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Securité",
+        "message": "Sécurité",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Phrase secrète Actuelle",
+        "message": "Phrase secrète actuelle",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nouvelle Phrase Secrète",
+        "message": "Nouvelle phrase secrète",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Phrase Secrète",
+        "message": "Phrase secrète",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirmation de la phrase Secrète",
+        "message": "Confirmation de la phrase secrète",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Etes-vous sûr de vouloir détruire ce secret ? Cette action ne peut pas être annulé.",
+        "message": "Etes-vous sûr de vouloir détruire ce secret ? Cette action ne peut pas être annulée.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Le Mot de Passe ne correspond pas.",
+        "message": "Le mot de passe ne correspond pas.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Commentaires",
         "description": "Feedback."
     },
     "translate": {
@@ -140,11 +140,11 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Code Source",
+        "message": "Code source",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Saisir le Mot de Passe pour Déchiffrer les Données du Compte.",
+        "message": "Saisissez le mot de passe pour déchiffrer les données du Compte.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "La Capture à échoué, veuillez recharger la page et essayer à nouveau.",
+        "message": "La capture a échouée, veuillez recharger la page et essayer à nouveau.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Retailler la page du popup",
+        "message": "Redimensionner la page du popup",
         "description": "Resize Popup Page"
     },
     "scale": {
@@ -184,11 +184,11 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Attention: les backup ne sont pas protégés par chiffrement. Vous voulez ajouté un compte à une autre application ? Survollez la partie supérieur droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
+        "message": "Attention: les backups ne sont pas protégés par chiffrement. Voulez-vous ajouter un compte à une autre application ? Survollez la partie supérieur droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Télécharger un Fichier de Sauvegarde",
+        "message": "Télécharger un fichier de sauvegarde",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -204,7 +204,7 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Sauvegarde Automatique dans Dropbox",
+        "message": "Sauvegarde Automatique vers Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
@@ -216,11 +216,11 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Obtenir le Code",
+        "message": "Obtenir le code",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Afficher Toutes les Entrées",
+        "message": "Afficher toutes les entrées",
         "description": "Show all entries."
     },
     "dropbox_risk": {
