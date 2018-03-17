@@ -58,7 +58,8 @@
         "activeTab",
         "<all_urls>",
         "clipboardWrite",
-        "storage"
+        "storage",
+        "identity"
     ],
     "optional_permissions": [
         "clipboardWrite",
