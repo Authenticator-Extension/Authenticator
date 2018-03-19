@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "コードを取得",
+        "message": "Sign in Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -234,5 +234,9 @@
     "local_passphrase_warning": {
         "message": "パスワードをローカル環境に保存しました。すぐにメニューのセキュリティから変更してください。",
         "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Logout Dropbox",
+        "description": "Dropbox logout."
     }
 }

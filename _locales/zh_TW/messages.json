@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "獲取授權碼",
+        "message": "Sign in Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -234,5 +234,9 @@
     "local_passphrase_warning": {
         "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
         "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Logout Dropbox",
+        "description": "Dropbox logout."
     }
 }

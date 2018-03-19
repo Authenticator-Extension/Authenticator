@@ -18,6 +18,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     cachedPassphrase = message.value;
   } else if (message.action === 'passphrase') {
     sendResponse(cachedPassphrase);
+  } else if (message.action === 'dropbox') {
+    getDropboxToken();
   }
 });
 
@@ -126,6 +128,46 @@ async function getTotp(text: string, passphrase: string) {
     }
   }
   return;
+}
+
+function getDropboxToken() {
+  chrome.identity.launchWebAuthFlow(
+      {
+        url:
+            'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=' +
+            encodeURIComponent(chrome.identity.getRedirectURL()),
+        interactive: true
+      },
+      (url) => {
+        if (!url) {
+          return;
+        }
+        const hashMatches = url.split('#');
+        if (hashMatches.length < 2) {
+          return;
+        }
+
+        const hash = hashMatches[1];
+
+        const resData = hash.split('&');
+        for (let i = 0; i < resData.length; i++) {
+          const kv = resData[i];
+          if (/^(.*?)=(.*?)$/.test(kv)) {
+            const kvMatches = kv.match(/^(.*?)=(.*?)$/);
+            if (!kvMatches) {
+              continue;
+            }
+            const key = kvMatches[1];
+            const value = kvMatches[2];
+            if (key === 'access_token') {
+              localStorage.dropboxToken = value;
+              chrome.runtime.sendMessage({action: 'dropboxtoken', value});
+              return;
+            }
+          }
+        }
+        return;
+      });
 }
 
 // Show issue page after first install

@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Получить код",
+        "message": "Sign in Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -234,5 +234,9 @@
     "local_passphrase_warning": {
         "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
         "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Logout Dropbox",
+        "description": "Dropbox logout."
     }
 }

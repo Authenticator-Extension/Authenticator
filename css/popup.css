@@ -351,12 +351,13 @@ body {
 #add_qr,
 #add_secret,
 #add_button,
+#dropbox_get_code,
+#dropbox_logout,
 #download_backup,
 #import_backup,
 #upload_backup,
 #security_save,
 #passphrase_ok,
-#dropbox_get_code,
 #message_close,
 #exportButton,
 #resize_save {
@@ -400,7 +401,6 @@ body {
 #exportButton,
 #security_save,
 #passphrase_ok,
-#dropbox_get_code,
 #resize_save {
     font-size: 12px;
     margin: 20px 100px;
@@ -652,6 +652,7 @@ body {
 #security_save:hover,
 #passphrase_ok:hover,
 #dropbox_get_code:hover,
+#dropbox_logout:hover,
 #export:hover,
 #resizeClose:hover,
 #resize_save:hover,

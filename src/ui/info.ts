@@ -6,49 +6,12 @@ async function info(_ui: UI) {
   const ui: UIConfig = {
     data: {info: '', dropboxToken: localStorage.dropboxToken || ''},
     methods: {
-      getDropboxToken: async () => {
-        return new Promise((resolve: () => void) => {
-          chrome.identity.launchWebAuthFlow(
-              {
-                url:
-                    'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=' +
-                    encodeURIComponent(chrome.identity.getRedirectURL()),
-                interactive: true
-              },
-              (url) => {
-                if (!url) {
-                  return;
-                }
-                const hashMatches = url.split('#');
-                if (hashMatches.length < 2) {
-                  return;
-                }
-
-                const hash = hashMatches[1];
-
-                const resData = hash.split('&');
-                for (let i = 0; i < resData.length; i++) {
-                  const kv = resData[i];
-                  console.log(kv, /^(.*?)=(.*?)$/.test(kv));
-                  if (/^(.*?)=(.*?)$/.test(kv)) {
-                    const kvMatches = kv.match(/^(.*?)=(.*?)$/);
-                    if (!kvMatches) {
-                      continue;
-                    }
-                    const key = kvMatches[1];
-                    const value = kvMatches[2];
-                    console.log(key, value);
-                    if (key === 'access_token') {
-                      localStorage.dropboxToken = value;
-                      _ui.instance.dropboxToken = value;
-                      setTimeout(_ui.instance.closeInfo, 500);
-                      break;
-                    }
-                  }
-                }
-                return resolve();
-              });
-        });
+      getDropboxToken: () => {
+        chrome.runtime.sendMessage({action: 'dropbox'});
+      },
+      logoutDropbox: async () => {
+        localStorage.removeItem('dropboxToken');
+        _ui.instance.openLink('https://www.dropbox.com/account/connected_apps');
       },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
