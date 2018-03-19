@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in Dropbox",
+        "message": "Sign in to Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -236,7 +236,7 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout Dropbox",
+        "message": "Logout of Dropbox",
         "description": "Dropbox logout."
     }
 }

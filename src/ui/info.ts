@@ -11,6 +11,7 @@ async function info(_ui: UI) {
       },
       logoutDropbox: async () => {
         localStorage.removeItem('dropboxToken');
+        _ui.instance.dropboxToken = '';
         _ui.instance.openLink('https://www.dropbox.com/account/connected_apps');
       },
       showInfo: (tab: string) => {
