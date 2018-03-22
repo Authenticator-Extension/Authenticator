@@ -12,11 +12,11 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": "đã thêm",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Mã QR không được công nhận.",
         "description": "QR Error."
     },
     "errorsecret": {
