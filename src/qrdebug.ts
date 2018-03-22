@@ -16,14 +16,18 @@ function getQrDebug(
     const qr = new Image();
     qr.src = dataUrl;
     qr.onload = () => {
+      const devicePixelRatio = qr.width / windowWidth;
       const captureCanvas = document.createElement('canvas');
-      captureCanvas.width = width;
-      captureCanvas.height = height;
+      captureCanvas.width = width * devicePixelRatio;
+      captureCanvas.height = height * devicePixelRatio;
       const ctx = captureCanvas.getContext('2d');
       if (!ctx) {
         return;
       }
-      ctx.drawImage(qr, left, top, width, height, 0, 0, width, height);
+      ctx.drawImage(
+          qr, left * devicePixelRatio, top * devicePixelRatio,
+          width * devicePixelRatio, height * devicePixelRatio, 0, 0,
+          width * devicePixelRatio, height * devicePixelRatio);
       const url = captureCanvas.toDataURL();
       const infoDom = document.getElementById('info');
       if (infoDom) {
@@ -38,7 +42,8 @@ function getQrDebug(
             `Screen Height: ${window.screen.height}<br>` +
             `Capture Width: ${qr.width}<br>` +
             `Capture Height: ${qr.height}<br>` +
-            `Device Pixel Ratio:${window.devicePixelRatio}<br>` +
+            `Device Pixel Ratio: ${devicePixelRatio} / ${
+                                window.devicePixelRatio}<br>` +
             `Tab ID: ${tab.id}<br>` +
             '<br>' +
             '<b>Captured Screenshot:</b>';
