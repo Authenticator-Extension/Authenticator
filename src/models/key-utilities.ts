@@ -133,6 +133,14 @@ class KeyUtilities {
 
     const time = this.leftpad(this.dec2hex(counter), 16, '0');
 
+    if (key.length % 2 === 1) {
+      if (key.substr(-1) === '0') {
+        key = key.substr(0, key.length - 1);
+      } else {
+        key += '0';
+      }
+    }
+
     // external library for SHA functionality
     const hmacObj = new jsSHA('SHA-1', 'HEX');
     hmacObj.setHMACKey(key, 'HEX');

@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "5.0.7",
+    "version": "5.0.8",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -51,7 +51,8 @@
     },
     "permissions": [
         "activeTab",
-        "storage"
+        "storage",
+        "identity"
     ],
     "optional_permissions": [
         "clipboardWrite",

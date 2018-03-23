@@ -23,7 +23,24 @@ class Encryption {
     try {
       const decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
                                   .toString(CryptoJS.enc.Utf8);
-      return decryptedSecret || 'Encrypted';
+
+      if (!decryptedSecret) {
+        return 'Encrypted';
+      }
+
+      if (decryptedSecret.length < 8) {
+        return 'Encrypted';
+      }
+
+      if (!/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
+          !/^[0-9a-f]+$/i.test(decryptedSecret) &&
+          !/^blz\-/.test(decryptedSecret) && !/^bliz\-/.test(decryptedSecret) &&
+          !/^stm\-/.test(decryptedSecret)) {
+        console.log(decryptedSecret);
+        return 'Encrypted';
+      }
+
+      return decryptedSecret;
     } catch (error) {
       return 'Encrypted';
     }

@@ -85,6 +85,15 @@ async function init() {
     return;
   }, 1000);
 
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message.action === 'dropboxtoken') {
+      authenticator.dropboxToken = message.value;
+      if (authenticator.info === 'dropbox') {
+        setTimeout(authenticator.closeInfo, 500);
+      }
+    }
+  });
+
   return;
 }
 

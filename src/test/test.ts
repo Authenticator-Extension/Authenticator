@@ -177,6 +177,21 @@ const cases: TestCase[] = [
         'type': 'hhex'
       }
     }
+  },
+  {
+    name: 'Amazon 2FA',
+    data: {
+      '0e00b601f60a4d7154d54ba94c429afb': {
+        'account': 'test',
+        'counter': 0,
+        'encrypted': false,
+        'hash': '0e00b601f60a4d7154d54ba94c429afb',
+        'index': 0,
+        'issuer': '',
+        'secret': 'QLGNXJ2KLSOACXOEKJ47X6VA6ZPGT5HE2GBO5NPXTLD7FJAKD4JQ',
+        'type': 'totp'
+      }
+    }
   }
 ];
 
