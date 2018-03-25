@@ -1,26 +1,26 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Ověření údajů",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Ověřovatel",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator generuje kódy 2 krok ověření v prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " byla přidána.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Neznámý kód QR.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Tajné chyba. Jen Base32 (A-Z, 2-7 a =) a HEX (0-9 a A-F) jsou podporovány. Vaše tajemství je však: ",
         "description": "Secret Error."
     },
     "add_qr": {
