@@ -44,7 +44,7 @@ class EntryStorage {
 
   /* tslint:disable-next-line:no-any */
   private static isOTPStorage(entry: any) {
-    if (!entry.hasOwnProperty('secret')) {
+    if (!entry || !entry.hasOwnProperty('secret')) {
       return false;
     }
 
