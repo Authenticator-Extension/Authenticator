@@ -98,7 +98,7 @@ class EntryStorage {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
                   const decryptedSecret =
-                      encryption.getDecryptedSecret(_data[hash].secret);
+                      encryption.getDecryptedSecret(_data[hash].secret, hash);
                   if (decryptedSecret !== _data[hash].secret &&
                       decryptedSecret !== 'Encrypted') {
                     _data[hash].secret = decryptedSecret;
@@ -300,7 +300,7 @@ class EntryStorage {
                     }
 
                     entryData.secret = entryData.encrypted ?
-                        encryption.getDecryptedSecret(entryData.secret) :
+                        encryption.getDecryptedSecret(entryData.secret, hash) :
                         entryData.secret;
 
                     // we need migrate secret in old format here

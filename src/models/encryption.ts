@@ -15,14 +15,14 @@ class Encryption {
     return CryptoJS.AES.encrypt(secret, this.password).toString();
   }
 
-  getDecryptedSecret(secret: string): string {
+  getDecryptedSecret(secret: string, hash: string): string {
     if (!this.password) {
       return secret;
     }
 
     try {
-      const decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
-                                  .toString(CryptoJS.enc.Utf8);
+      let decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
+                                .toString(CryptoJS.enc.Utf8);
 
       if (!decryptedSecret) {
         return 'Encrypted';
@@ -31,6 +31,12 @@ class Encryption {
       if (decryptedSecret.length < 8) {
         return 'Encrypted';
       }
+
+      if (hash === CryptoJS.MD5(decryptedSecret).toString()) {
+        return decryptedSecret;
+      }
+
+      decryptedSecret = decryptedSecret.replace(/ /g, '');
 
       if (!/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
           !/^[0-9a-f]+$/i.test(decryptedSecret) &&
