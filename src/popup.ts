@@ -14,17 +14,16 @@
 async function init() {
   const ui = new UI({el: '#authenticator'});
 
-  await className(ui);
-  await i18n(ui);
-  await menu(ui);
-  await info(ui);
-  await passphrase(ui);
-  await entry(ui);
-  await qr(ui);
-  await message(ui);
-  await addAccount(ui);
-
-  const authenticator = ui.generate();
+  const authenticator = await ui.load(className)
+                            .load(i18n)
+                            .load(menu)
+                            .load(info)
+                            .load(passphrase)
+                            .load(entry)
+                            .load(qr)
+                            .load(message)
+                            .load(addAccount)
+                            .render();
 
   if (authenticator.shouldShowPassphrase) {
     authenticator.showInfo('passphrase');

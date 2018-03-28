@@ -11,6 +11,7 @@ declare var vueDragula: any;
 
 class UI {
   private ui: UIConfig;
+  private modules: Array<(ui: UI) => void> = [];
   // Vue instance
   /* tslint:disable-next-line:no-any */
   instance: any;
@@ -35,7 +36,15 @@ class UI {
     }
   }
 
-  generate() {
+  load(module: (ui: UI) => void) {
+    this.modules.push(module);
+    return this;
+  }
+
+  async render() {
+    for (let i = 0; i < this.modules.length; i++) {
+      await this.modules[i](this);
+    }
     Vue.use(vueDragula);
     this.ui.ready = () => {
       Vue.vueDragula.eventBus.$on('drop', async () => {
