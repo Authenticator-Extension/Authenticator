@@ -179,10 +179,15 @@ class EntryStorage {
                   delete data[hash];
                 }
 
-                data[_hash].secret =
-                    encryption.getEncryptedSecret(data[_hash].secret);
-
-                _data[_hash] = data[_hash];
+                if (data[_hash]) {
+                  data[_hash].secret =
+                      encryption.getEncryptedSecret(data[_hash].secret);
+                  _data[_hash] = data[_hash];
+                } else {
+                  data[hash].secret =
+                      encryption.getEncryptedSecret(data[hash].secret);
+                  _data[hash] = data[hash];
+                }
               }
               _data = this.ensureUniqueIndex(_data);
               chrome.storage.sync.set(_data, resolve);
