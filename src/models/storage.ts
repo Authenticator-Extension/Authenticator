@@ -44,7 +44,7 @@ class EntryStorage {
 
   /* tslint:disable-next-line:no-any */
   private static isOTPStorage(entry: any) {
-    if (!entry.hasOwnProperty('secret')) {
+    if (!entry || !entry.hasOwnProperty('secret')) {
       return false;
     }
 
@@ -98,7 +98,7 @@ class EntryStorage {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
                   const decryptedSecret =
-                      encryption.getDecryptedSecret(_data[hash].secret);
+                      encryption.getDecryptedSecret(_data[hash].secret, hash);
                   if (decryptedSecret !== _data[hash].secret &&
                       decryptedSecret !== 'Encrypted') {
                     _data[hash].secret = decryptedSecret;
@@ -179,10 +179,15 @@ class EntryStorage {
                   delete data[hash];
                 }
 
-                data[_hash].secret =
-                    encryption.getEncryptedSecret(data[_hash].secret);
-
-                _data[_hash] = data[_hash];
+                if (data[_hash]) {
+                  data[_hash].secret =
+                      encryption.getEncryptedSecret(data[_hash].secret);
+                  _data[_hash] = data[_hash];
+                } else {
+                  data[hash].secret =
+                      encryption.getEncryptedSecret(data[hash].secret);
+                  _data[hash] = data[hash];
+                }
               }
               _data = this.ensureUniqueIndex(_data);
               chrome.storage.sync.set(_data, resolve);
@@ -300,7 +305,7 @@ class EntryStorage {
                     }
 
                     entryData.secret = entryData.encrypted ?
-                        encryption.getDecryptedSecret(entryData.secret) :
+                        encryption.getDecryptedSecret(entryData.secret, hash) :
                         entryData.secret;
 
                     // we need migrate secret in old format here

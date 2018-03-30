@@ -152,7 +152,7 @@ function showQrCode(msg: string) {
   const left = (screen.width / 2) - 200;
   const top = (screen.height / 2) - 100;
   const url =
-      chrome.extension.getURL('qr.html') + '?' + encodeURIComponent(msg);
+      chrome.extension.getURL('view/qr.html') + '?' + encodeURIComponent(msg);
   window.open(
       url, '_blank',
       'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, copyhistory=no, width=400, height=200, left=' +

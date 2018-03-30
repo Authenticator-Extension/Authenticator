@@ -8,7 +8,7 @@ before_script:
   - "npm install -g lintspaces-cli"
 script:
   - "gts check"
-  - "lintspaces -nt -d 'spaces' -i 'js-comments' src/* *.html manifest-*.json css/popup.css css/import.css"
+  - "lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
   - "npm run firefox"
   - "npm run chrome"
   - "addons-linter firefox"

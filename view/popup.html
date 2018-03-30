@@ -2,27 +2,28 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link href="css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
-    <link href="css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
-    <script src="js/vue.min.js"></script>
-    <script src="js/vue-dragula.js"></script>
-    <script src="js/md5.js"></script>
-    <script src="js/aes.js"></script>
-    <script src="js/sha.js"></script>
-    <script src="js/qrcode.js"></script>
-    <script src="build/models/encryption.js"></script>
-    <script src="build/models/interface.js"></script>
-    <script src="build/models/key-utilities.js"></script>
-    <script src="build/models/otp.js"></script>
-    <script src="build/models/storage.js"></script>
-    <script src="build/models/dropbox.js"></script>
+    <link href="../css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <link href="../css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-dragula.js"></script>
+    <script src="../js/md5.js"></script>
+    <script src="../js/aes.js"></script>
+    <script src="../js/sha.js"></script>
+    <script src="../js/qrcode.js"></script>
+    <script src="../build/models/encryption.js"></script>
+    <script src="../build/models/interface.js"></script>
+    <script src="../build/models/key-utilities.js"></script>
+    <script src="../build/models/otp.js"></script>
+    <script src="../build/models/storage.js"></script>
+    <script src="../build/models/dropbox.js"></script>
 </head>
 <body>
 <div id="authenticator" v-cloak>
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div id="infoAction" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
-        <div id="dropbox" v-show="dropboxToken !== '' && !class.edit"><i class="fa fa-dropbox"></i></div>
+        <div id="lock" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
+        <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="dropboxToken !== '' && !class.edit"><i class="fa fa-dropbox"></i></div>
         <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
@@ -93,7 +94,7 @@
                 <p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
-                <p><a target='_blank' href='/qrdebug.html'>QR Debugging</a></p>
+                <p><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
             </div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
@@ -134,7 +135,7 @@
             <!-- EXPORT -->
             <div v-show="info === 'export'">
                 <div id="export_info">{{ i18n.export_info }}</div>
-                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup">{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank">{{ i18n.download_backup }}</a>
                 <a v-else id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
@@ -194,16 +195,16 @@
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />
 </div>
-<script src="build/ui/add-account.js"></script>
-<script src="build/ui/class.js"></script>
-<script src="build/ui/entry.js"></script>
-<script src="build/ui/i18n.js"></script>
-<script src="build/ui/info.js"></script>
-<script src="build/ui/menu.js"></script>
-<script src="build/ui/message.js"></script>
-<script src="build/ui/passphrase.js"></script>
-<script src="build/ui/qr.js"></script>
-<script src="build/ui/ui.js"></script>
-<script src="build/popup.js"></script>
+<script src="../build/ui/add-account.js"></script>
+<script src="../build/ui/class.js"></script>
+<script src="../build/ui/entry.js"></script>
+<script src="../build/ui/i18n.js"></script>
+<script src="../build/ui/info.js"></script>
+<script src="../build/ui/menu.js"></script>
+<script src="../build/ui/message.js"></script>
+<script src="../build/ui/passphrase.js"></script>
+<script src="../build/ui/qr.js"></script>
+<script src="../build/ui/ui.js"></script>
+<script src="../build/popup.js"></script>
 </body>
 </html>

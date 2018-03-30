@@ -4,24 +4,11 @@
 
 > Authenticator generates 2-Step Verification codes in your browser.
 
-You can install Authenticator from the [Chrome Web Store](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai) or from [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/auth-helper/).
+## Available for Chrome and Firefox
+
+[<img src="https://raw.githubusercontent.com/wiki/Authenticator-Extension/Authenticator/readme-images/chrome-web-store.png" title="Chrome Web Store" width="170" height="48" />](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai) [<img src="https://raw.githubusercontent.com/wiki/Authenticator-Extension/Authenticator/readme-images/firefox-add-ons.png" title="Firefox Add-ons" width="170" height="48" />](https://addons.mozilla.org/en-US/firefox/addon/auth-helper?src=external-github)
 
 ## Build Setup
-
-Compile for Chrome:
-
-```bash
-npm install
-npm run chrome
-```
-Compile for Firefox:
-
-```bash
-npm install
-npm run firefox
-```
-
-Compile for development:
 
 ``` bash
 # install typescript
@@ -34,6 +21,8 @@ npm install
 gts check
 # try to auto fix style issue
 gts fix
-# compile
-npm run compile
+# compile for Chrome
+npm run chrome
+# compile for Firefox
+npm run firefox
 ```

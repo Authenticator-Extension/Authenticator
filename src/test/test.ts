@@ -192,6 +192,21 @@ const cases: TestCase[] = [
         'type': 'totp'
       }
     }
+  },
+  {
+    name: 'Secret contains spaces',
+    data: {
+      '1b0c21ad1ec44264f665708ef82dae84': {
+        'account': 'test',
+        'counter': 0,
+        'encrypted': false,
+        'hash': '1b0c21ad1ec44264f665708ef82dae84',
+        'index': 0,
+        'issuer': '',
+        'secret': 'p5s7 k2in z3mj oqfg',
+        'type': 'totp'
+      }
+    }
   }
 ];
 

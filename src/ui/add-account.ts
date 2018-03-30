@@ -22,6 +22,16 @@ async function addAccount(_ui: UI) {
     },
     methods: {
       addNewAccount: async () => {
+        _ui.instance.newAccount.secret =
+            _ui.instance.newAccount.secret.replace(/ /g, '');
+
+        if (!/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
+            !/^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret)) {
+          _ui.instance.alert(
+              _ui.instance.i18n.errorsecret + _ui.instance.newAccount.secret);
+          return;
+        }
+
         let type: OTPType;
         if (!/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
             /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret) &&

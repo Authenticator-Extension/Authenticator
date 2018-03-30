@@ -20,6 +20,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse(cachedPassphrase);
   } else if (message.action === 'dropbox') {
     getDropboxToken();
+  } else if (message.action === 'lock') {
+    cachedPassphrase = '';
   }
 });
 

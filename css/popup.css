@@ -452,9 +452,20 @@ body {
     display: none;
 }
 
+#lock {
+    position: absolute;
+    left: 45px;
+    bottom: 0;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+}
+
 #dropbox {
     position: absolute;
-    left: 50px;
+    left: 68px;
     bottom: 0;
     height: 38px;
     line-height: 38px;
@@ -647,6 +658,7 @@ body {
 #import_backup:hover,
 #editAction:hover,
 #infoAction:hover,
+#lock:hover,
 #scan:hover,
 #codes #add:hover,
 #infoClose:hover,
