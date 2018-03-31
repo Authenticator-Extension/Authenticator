@@ -140,7 +140,7 @@ function getDropboxToken() {
   chrome.identity.launchWebAuthFlow(
       {
         url:
-            'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=013qun2m82h9jim&redirect_uri=' +
+            'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=mmx38seexw3tvps&redirect_uri=' +
             encodeURIComponent(chrome.identity.getRedirectURL()),
         interactive: true
       },
