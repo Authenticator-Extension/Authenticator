@@ -124,6 +124,7 @@
                 <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
                 <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
                 <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
+                <div id="security_remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
             </div>
             <!-- PASSPHRASE -->
             <div id="passphrase" v-show="info === 'passphrase'">

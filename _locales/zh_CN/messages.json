@@ -238,5 +238,9 @@
     "dropbox_logout": {
         "message": "注销Dropbox",
         "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "移除",
+        "description": "Remove password."
     }
 }
