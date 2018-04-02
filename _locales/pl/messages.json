@@ -238,5 +238,9 @@
     "dropbox_logout": {
         "message": "Wyloguj się z Dropbox'a",
         "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Remove",
+        "description": "Remove password."
     }
 }
