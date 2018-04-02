@@ -23,6 +23,9 @@ async function passphrase(_ui: UI) {
         return;
       },
       applyPassphrase: async () => {
+        if (!_ui.instance.passphrase) {
+          return;
+        }
         _ui.instance.encryption.updateEncryptionPassword(
             _ui.instance.passphrase);
         await _ui.instance.updateEntries();
