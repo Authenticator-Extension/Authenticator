@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Sie können kein neues Konto hinzufügen oder Daten exportieren, solange nicht alle Konten entschlüsselt sind. Bitte geben Sie das richtige Passwort ein, bevor Sie fortfahren.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Zeitgeber mit Google synchronisieren",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Aufnahme fehlgeschlagen, bitte aktualisieren Sie die Seite und versuchen Sie es erneut.",
         "description": "Capture Failed"
     },
     "based_on_time": {
