@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Schlüssel-Error. Nur Base32(A-Z, 2-7 und =)- und HEX(0-9 und A-F)-Schlüssel sind unterstützt. Ihr Schlüssel ist: ",
+        "message": "Schlüssel-Fehler. Nur Base32(A-Z, 2-7 und =)- und HEX(0-9 und A-F)-Schlüssel sind unterstützt. Ihr Schlüssel ist: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warnung: Alle Sicherungen sind unverschlüsselt! Wollen Sie einen Konto zu einer anderen App hinzufügen? Fahren Sie mit dem Mauszeiger über den oberen, rechten Teil des Kontos und drücken Sie die versteckte Schaltfläche.",
+        "message": "Warnung: Alle Sicherungen sind unverschlüsselt! Wollen Sie ein Konto zu einer anderen App hinzufügen? Fahren Sie mit dem Mauszeiger über den oberen, rechten Teil des Kontos und drücken Sie die versteckte Schaltfläche.",
         "description": "Export menu info text"
     },
     "download_backup": {
