@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -128,7 +128,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copiado",
+        "message": "Copied",
         "description": "Copied."
     },
     "feedback": {
