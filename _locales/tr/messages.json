@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Gizli Anahtar Hatası. Sadece 32'lik (\"A-Z\", \"2-7\" ve \"=\" ) ve 16'lık (HEX)(\"0-9\" ve A-F) desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bu gizli anahtarı silmek istiyor musunuz? Bu işlem geri alınamaz.",
+        "message": "Bu gizli anahtarı silmek mi istiyorsunuz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Gizli Anahtarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
+        "message": "Gizli Anahtarlarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -168,7 +168,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Zaman bazlı",
+        "message": "Zamana dayalı",
         "description": "Time Based"
     },
     "based_on_counter": {
