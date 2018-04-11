@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Tamam",
         "description": "OK."
     },
     "yes": {
@@ -172,15 +172,15 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Sayaca Dayalı",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "Açılır Pencereyi Yeniden Boyutlandır",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Ölçek",
         "description": "Scale"
     },
     "export_info": {
@@ -192,55 +192,55 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Yedekten içeri aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Dosyadan içeri aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Metin dosyasından içeri aktar",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Dropbox için otomatik yedekleme",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropbox kodu",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropbox jetonu",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Dropbox'a giriş yapın",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Tüm girdileri göster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Dropbox'tan çıkış yapın",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Sil",
         "description": "Remove password."
     }
 }
