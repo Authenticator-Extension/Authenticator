@@ -4,11 +4,11 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Kimlik Doğrulayıcı",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Gizli Anahtar Hatası. Sadece 32'lik (\"A-Z\", \"2-7\" ve \"=\" ) ve 16'lık (HEX)(\"0-9\" ve A-F) desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,11 +52,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Hesap Adı",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Yayınlayan Kuruluş",
         "description": "Issuer."
     },
     "secret": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Bu gizli anahtarı silmek istiyor musunuz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Gizli Anahtarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Şifreleriniz uyuşmuyor.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -160,11 +160,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Yakalama başarısız oldu, lütfen sayfayı yeniden yükleyin ve tekrar deneyin.",
         "description": "Capture Failed"
     },
     "based_on_time": {
