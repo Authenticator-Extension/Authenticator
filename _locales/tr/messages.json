@@ -1,0 +1,246 @@
+{
+    "extName": {
+        "message": "Kimlik Doğrulayıcı",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Kimlik Doğrulayıcı",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " eklendi.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "QR kodu bulunamadı.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "QR kodunu tara",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Manuel giriş",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Kapat",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Tamam",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Evet",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Hayır",
+        "description": "No."
+    },
+    "account": {
+        "message": "Hesap",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Hesap Adı",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Yayınlayan Kuruluş",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Şifre",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Başarılı.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Hata.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Hakkında",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "İçe\/Dışa aktar",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Ayarlar",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Güvenlik",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Mevcut Şifre",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Yeni Şifre",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Şifre",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Şifreyi doğrula",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Bu gizli anahtarı silmek mi istiyorsunuz? Bu işlem geri alınamaz.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Gizli Anahtarlarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Güncelle",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Şifreleriniz uyuşmuyor.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Şifrelendi",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Kopyalandı",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Geribildirim",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Çeviri",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Kaynak Kodu",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Saati google ile senkronize et",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Şifreyi hatırla",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Dikkat! Yerel saatiniz farklı, devam etmek için lütfen düzeltin.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Yakalama başarısız oldu, lütfen sayfayı yeniden yükleyin ve tekrar deneyin.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Zamana dayalı",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Sayaca Dayalı",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Açılır Pencereyi Yeniden Boyutlandır",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Ölçek",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Uyarı: Hiçbir yedek şifrelenmemiş. Başka bir uygulama için bir hesap mı eklemek istiyorsunuz? Herhangi bir hesabın sağ üst kısmına gelin ve gizle düğmesine basın.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Yedekleme Dosyasını İndir",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Yedekten içeri aktar",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Dosyadan içeri aktar",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Metin dosyasından içeri aktar",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Dropbox için otomatik yedekleme",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Dropbox kodu",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Dropbox jetonu",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Dropbox'a giriş yapın",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Tüm girdileri göster",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
+        "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Dropbox'tan çıkış yapın",
+        "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Sil",
+        "description": "Remove password."
+    }
+}
