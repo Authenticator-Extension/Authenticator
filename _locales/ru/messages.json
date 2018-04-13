@@ -236,7 +236,7 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Logout Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
