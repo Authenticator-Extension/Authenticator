@@ -156,71 +156,71 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Varning! Din lokala klocka är för långt ifrån, snälla fixa den innan du fortsätter.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Har du en säkerhetskopia för dina hemligheter? Vänta inte tills det är för sent!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Det gick inte att infånga, ladda om sidan och försök igen.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Tidsbaserade",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Räknarebaserade",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "Ändra storlek på popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Varning: alla säkerhetskopieringar är okrypterade. Vill du lägga till ett konto till en annan app? Håll över den högra högra delen av något konto och tryck på den dolda knappen.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Ladda ner säkerhetskopieringsfilen",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importera säkerhetskopia",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importera säkerhetskopieringsfilen",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importera okrypterad säkerhetskopia",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Automatisk säkerhetskopiering till Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropbox-kod",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Dropbox-token",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Logga in på Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Visa alla poster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
