@@ -94,7 +94,7 @@ async function getTotp(text: string, passphrase: string) {
         if (parameter[0].toLowerCase() === 'secret') {
           secret = parameter[1];
         } else if (parameter[0].toLowerCase() === 'issuer') {
-          issuer = parameter[1];
+          issuer = decodeURIComponent(parameter[1]);
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
           counter = (isNaN(counter) || counter < 0) ? 0 : counter;
