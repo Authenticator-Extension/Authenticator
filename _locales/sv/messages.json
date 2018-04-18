@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator genererar 2-stegs verifieringskoder i din webbläsare.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " har lagts till.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Utgivare",
         "description": "Issuer."
     },
     "secret": {
@@ -64,19 +64,19 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Lyckades.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Misslyckades.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Om",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Exportera \/ Importera",
         "description": "Export and Import."
     },
     "settings": {
@@ -108,23 +108,23 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Detta lösenord kommer att användas för att kryptera dina hemligheter. Ingen kan hjälpa dig om du glömmer lösenordet.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Uppdatera",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Du kan inte lägga till ett nytt konto eller exportera data tills alla konton dekrypteras. Vänligen ange rätt lösenord innan du fortsätter.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Lösenordet matchar inte.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Krypterad",
         "description": "Encrypted."
     },
     "copied": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Ange lösenord för att dekryptera kontodata.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
