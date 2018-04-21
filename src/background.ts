@@ -81,7 +81,11 @@ async function getTotp(text: string, passphrase: string) {
       let secret = '';
       let issuer = '';
 
-      label = decodeURIComponent(label);
+      try {
+        label = decodeURIComponent(label);
+      } catch (error) {
+        console.error(error);
+      }
       if (label.indexOf(':') !== -1) {
         issuer = label.split(':')[0];
         account = label.split(':')[1];
@@ -94,7 +98,11 @@ async function getTotp(text: string, passphrase: string) {
         if (parameter[0].toLowerCase() === 'secret') {
           secret = parameter[1];
         } else if (parameter[0].toLowerCase() === 'issuer') {
-          issuer = parameter[1];
+          try {
+            issuer = decodeURIComponent(parameter[1]);
+          } catch {
+            issuer = parameter[1];
+          }
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
           counter = (isNaN(counter) || counter < 0) ? 0 : counter;
