@@ -23,6 +23,7 @@ if (!document.getElementById('__ga_grayLayout__')) {
     }
   });
 }
+
 sessionStorage.captureBoxPositionLeft = 0;
 sessionStorage.captureBoxPositionTop = 0;
 
