@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,23 +16,23 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Kode QR tidak diketahui.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Kesalahan. Hanya karakter Base32 (A-Z, 2-7, =) dan HEX (0-9, A-F) yang didukung. Namun, kode rahasia yang anda masukkan ialah: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Pindai Kode QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Isi secara Manual",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Tutup",
         "description": "Close."
     },
     "ok": {
@@ -40,71 +40,71 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ya",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Tidak",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Akun",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Nama Akun",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Penerbit",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Rahasia",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Sukses.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Gagal.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Tentang",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Ekspor \/ Impor",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Setelan",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Keamanan",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Kata sandi saat ini",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Kata sandi baru",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Kata sandi",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Konfirmasi kata sandi",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
