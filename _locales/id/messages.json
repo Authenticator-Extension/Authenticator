@@ -1,0 +1,246 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " has been added.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Kode QR tidak diketahui.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Kesalahan. Hanya karakter Base32 (A-Z, 2-7, =) dan HEX (0-9, A-F) yang didukung. Namun, kode rahasia yang anda masukkan ialah: ",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Pindai Kode QR",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Isi secara Manual",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Tutup",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Ok",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Ya",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Tidak",
+        "description": "No."
+    },
+    "account": {
+        "message": "Akun",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Nama Akun",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Penerbit",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Rahasia",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Sukses.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Gagal.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Tentang",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Ekspor \/ Impor",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Setelan",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Keamanan",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Kata sandi saat ini",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Kata sandi baru",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Kata sandi",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Konfirmasi kata sandi",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Perbarui",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Kata sandi salah.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Terenkripsi",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Tersalin",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Umpan Balik",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Terjemahkan",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Kode sumber",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Masukkan password untuk mendeskripsi data akun.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Sinkronisasi riwayat dengan Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Ingat kata sandi",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Berdasarkan Waktu",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Berdasarkan Penghitung",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Atur ulang halaman Popup",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Skala",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Unduh Berkas Cadangan",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Impor Cadangan",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Impor Berkas Cadangan",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Impor Text Cadangan",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Cadangkan otomatis ke Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Kode Dropbox",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Token Dropbox",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Masuk ke Dropbox",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Tampilkan semua entri",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Peringatan: Cadangan yang disimpan di Dropbox tidak dienkripsi. Perhatikan resikonya sebelum digunakan.",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera.",
+        "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Keluar dari Dropbox",
+        "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Hapus",
+        "description": "Remove password."
+    }
+}
