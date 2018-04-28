@@ -108,43 +108,43 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Perbarui",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Kata sandi salah.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Terenkripsi",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Tersalin",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Umpan Balik",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Terjemahkan",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Kode sumber",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Masukkan password untuk mendeskripsi data akun.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -152,71 +152,71 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Ingat kata sandi",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Berdasarkan Waktu",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Berdasarkan Penghitung",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "Atur ulang halaman Popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Unduh Berkas Cadangan",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Impor Cadangan",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Impor Berkas Cadangan",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Impor Text Cadangan",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Cadangkan otomatis ke Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Kode Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Token Dropbox",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Masuk ke Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
