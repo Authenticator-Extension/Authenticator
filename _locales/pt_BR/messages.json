@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Portuguese",
+        "message": "Autenticador",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Ler QR Code",
+        "message": "Scanear QR Code",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Nome da Conta",
         "description": "Account Name."
     },
     "issuer": {
@@ -204,7 +204,7 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Backup Automático para o Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
