@@ -60,11 +60,11 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Segreto",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Successo.",
         "description": "Update Success."
     },
     "updateFailure": {
