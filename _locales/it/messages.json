@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Autenticazione",
+        "message": "Autenticatore",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticazione",
+        "message": "Autenticatore",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -232,15 +232,15 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "La password è memorizzata localmente, cambiala immediatamente nel menu sicurezza.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Logout da Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Rimuovi",
         "description": "Remove password."
     }
 }
