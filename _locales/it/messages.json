@@ -1,0 +1,246 @@
+{
+    "extName": {
+        "message": "Autenticatore",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Autenticatore",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator genera codici di verifica 2-Step nel tuo browser.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": "è stato aggiunto",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Codice QR non riconosciuto.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Errore di segreto. Solo Base32 (A-Z, 2-7 e =) e HEX (0-9 e A-F) sono supportati. Tuttavia, il tuo segreto è: ",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Scansiona il codice QR",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Inserire manualmente",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Chiudere",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Ok",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Sì",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "No",
+        "description": "No."
+    },
+    "account": {
+        "message": "Account",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Nome account",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Emittente",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Segreto",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Successo.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Fallito.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Informazioni",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Esporta \/ Importa",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Impostazioni",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Sicurezza",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Password corrente",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Nuova password",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Password",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Conferma password",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Sei sicuro di che voler eliminare questo segreto? Questa azione non può essere annullata.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Questa password verrà utilizzata per crittografare i tuoi segreti. Se si dimentica la password nessuno può aiutarti.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Aggiorna",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Non è possibile aggiungere un nuovo account o esportare i dati fino a quando tutti gli account vengono decrittografati. Si prega di inserire la password corretta prima di continuare.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "La password non corrisponde.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Crittografato",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Copiato",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Feedback",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Traduci",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Codice Sorgente",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Inserisci la password per decrittografare i dati dell'account.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Sincronizzazione dell'orologio con Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Ricorda la Password",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Attenzione! Il vostro orologio locale è troppo lontano, si prega di risolvere prima di continuare.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Hai una copia di backup per i tuoi segreti? Non aspettare che sia troppo tardi!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Acquisizione non riuscita, si prega di ricaricare la pagina e riprovare.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Basato sul tempo",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Contatore di base",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Ridimensionare la pagina Popup",
+        "description": "Resize Popup Page"
+    },
+    "scale": {
+        "message": "Scala",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Attenzione: tutti i backup sono non crittografati. Vuoi aggiungere un account a un'altra app? Passa il mouse sopra la parte superiore destra di qualsiasi account e premere il pulsante nascosto.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Scarica il file di backup",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Importa Backup",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Importa il file di Backup",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Importa un backup testuale",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Backup automatico su Dropbox",
+        "description": "Auto backup to Dropbox."
+    },
+    "dropbox_code": {
+        "message": "Codice di Dropbox",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Token di Dropbox",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Accedere a Dropbox",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Visualizza tutte le voci",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Avviso: i backup salvati in Dropbox sono non crittografati. Utilizzare a proprio rischio.",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "È necessario fornire la password corretta per importare il backup.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "La password è memorizzata localmente, cambiala immediatamente nel menu sicurezza.",
+        "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Logout da Dropbox",
+        "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Rimuovi",
+        "description": "Remove password."
+    }
+}
