@@ -239,6 +239,37 @@ async function entry(_ui: UI) {
       updateCode: async () => {
         return await updateCode(_ui.instance);
       },
+      decryptBackupData: (backupData, passphrase) => {
+        const decryptedbackupData: {[hash: string]: OTPStorage} = {};
+        for (const hash of Object.keys(backupData)) {
+          if (typeof backupData[hash] !== 'object') {
+            continue;
+          }
+          if (!backupData[hash].secret) {
+            continue;
+          }
+          if (backupData[hash].encrypted && !passphrase) {
+            continue;
+          }
+          if (backupData[hash].encrypted) {
+            try {
+              backupData[hash].secret =
+                  CryptoJS.AES.decrypt(backupData[hash].secret, passphrase)
+                      .toString(CryptoJS.enc.Utf8);
+              backupData[hash].encrypted = false;
+            } catch (error) {
+              continue;
+            }
+          }
+          // backupData[hash].secret may be empty after decrypt with wrong
+          // passphrase
+          if (!backupData[hash].secret) {
+            continue;
+          }
+          decryptedbackupData[hash] = backupData[hash];
+        }
+        return backupData;
+      },
       importBackupCode: async () => {
         try {
           const exportData: {[hash: string]: OTPStorage} =
@@ -247,36 +278,11 @@ async function entry(_ui: UI) {
               _ui.instance.importEncrypted && _ui.instance.importPassphrase ?
               _ui.instance.importPassphrase :
               null;
-          const decryptedBackup: {[hash: string]: OTPStorage} = {};
-          for (const hash of Object.keys(exportData)) {
-            if (typeof exportData[hash] !== 'object') {
-              continue;
-            }
-            if (!exportData[hash].secret) {
-              continue;
-            }
-            if (exportData[hash].encrypted && !passphrase) {
-              continue;
-            }
-            if (exportData[hash].encrypted) {
-              try {
-                exportData[hash].secret =
-                    CryptoJS.AES.decrypt(exportData[hash].secret, passphrase)
-                        .toString(CryptoJS.enc.Utf8);
-                exportData[hash].encrypted = false;
-              } catch (error) {
-                continue;
-              }
-            }
-            // exportData[hash].secret may be empty after decrypt with wrong
-            // passphrase
-            if (!exportData[hash].secret) {
-              continue;
-            }
-            decryptedBackup[hash] = exportData[hash];
-          }
-          if (Object.keys(decryptedBackup).length) {
-            await EntryStorage.import(_ui.instance.encryption, decryptedBackup);
+          const decryptedbackupData =
+              _ui.instance.decryptBackupData(exportData, passphrase);
+          if (Object.keys(decryptedbackupData).length) {
+            await EntryStorage.import(
+                _ui.instance.encryption, decryptedbackupData);
             await _ui.instance.updateEntries();
             alert(_ui.instance.i18n.updateSuccess);
             window.close();
@@ -327,6 +333,18 @@ async function entry(_ui: UI) {
           const reader = new FileReader();
           reader.onload = async () => {
             const importData = JSON.parse(reader.result);
+            for (const hash in importData) {
+              if (importData[hash].encrypted) {
+                try {
+                  const oldPassphrase =
+                      window.prompt(_ui.instance.i18n.passphrase_info);
+                  _ui.instance.decryptBackupData(importData, oldPassphrase);
+                  break;
+                } catch {
+                  break;
+                }
+              }
+            }
             await EntryStorage.import(_ui.instance.encryption, importData);
             await _ui.instance.updateEntries();
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
