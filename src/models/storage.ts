@@ -120,6 +120,27 @@ class EntryStorage {
         });
   }
 
+  static async getEncExport(encryption: Encryption) {
+    return new Promise(
+        (resolve: (value: {[hash: string]: OTPStorage}) => void,
+         reject: (reason: Error) => void) => {
+          try {
+            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+              for (const hash of Object.keys(_data)) {
+                if (!this.isValidEntry(_data, hash)) {
+                  delete _data[hash];
+                  continue;
+                }
+              }
+              return resolve(_data);
+            });
+            return;
+          } catch (error) {
+            return reject(error);
+          }
+        });
+  }
+
   static async import(
       encryption: Encryption, data: {[hash: string]: OTPStorage}) {
     return new Promise(

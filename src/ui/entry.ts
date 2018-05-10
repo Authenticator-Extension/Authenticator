@@ -201,6 +201,8 @@ async function entry(_ui: UI) {
       cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
+  const exportEncData =
+      shouldShowPassphrase ? {} : await EntryStorage.getEncExport(encryption);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
 
   for (let i = 0; i < entries.length; i++) {
@@ -211,6 +213,7 @@ async function entry(_ui: UI) {
   }
 
   const exportFile = getBackupFile(exportData);
+  const exportEncryptedFile = getBackupFile(exportEncData);
   const siteName = await getSiteName();
   const shouldFilter = hasMatchedEntry(siteName, entries);
 
@@ -221,7 +224,9 @@ async function entry(_ui: UI) {
       OTPType,
       shouldShowPassphrase,
       exportData: JSON.stringify(exportData, null, 2),
+      exportEncData: JSON.stringify(exportEncData, null, 2),
       exportFile,
+      exportEncryptedFile,
       sector: '',
       notification: '',
       notificationTimeout: 0,
@@ -318,9 +323,12 @@ async function entry(_ui: UI) {
       updateEntries: async () => {
         const exportData =
             await EntryStorage.getExport(_ui.instance.encryption);
+        const exportEncData =
+            await EntryStorage.getEncExport(_ui.instance.encryption);
         _ui.instance.exportData = JSON.stringify(exportData, null, 2);
         _ui.instance.entries = await getEntries(_ui.instance.encryption);
         _ui.instance.exportFile = getBackupFile(exportData);
+        _ui.instance.exportEncryptedFile = getBackupFile(exportEncData);
         await _ui.instance.updateCode();
         return;
       },
