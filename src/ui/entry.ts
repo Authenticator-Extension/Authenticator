@@ -227,6 +227,7 @@ async function entry(_ui: UI) {
       exportEncData: JSON.stringify(exportEncData, null, 2),
       exportFile,
       exportEncryptedFile,
+      getFilePassphrase: false,
       sector: '',
       notification: '',
       notificationTimeout: 0,
@@ -332,6 +333,21 @@ async function entry(_ui: UI) {
         await _ui.instance.updateCode();
         return;
       },
+      getOldPassphrase: async () => {
+        _ui.instance.getFilePassphrase = true;
+        while (true) {
+          if (_ui.instance.readFilePassphrase) {
+            if (_ui.instance.importFilePassphrase) {
+              _ui.instance.readFilePassphrase = false;
+              break;
+            } else {
+              _ui.instance.readFilePassphrase = false;
+            }
+          }
+          await new Promise(resolve => setTimeout(resolve, 250));
+        }
+        return _ui.instance.importFilePassphrase;
+      },
       importFile: (event: Event, closeWindow: boolean) => {
         const target = event.target as HTMLInputElement;
         if (!target || !target.files) {
@@ -344,8 +360,7 @@ async function entry(_ui: UI) {
             for (const hash in importData) {
               if (importData[hash].encrypted) {
                 try {
-                  const oldPassphrase =
-                      window.prompt(_ui.instance.i18n.passphrase_info);
+                  const oldPassphrase = await _ui.instance.getOldPassphrase();
                   _ui.instance.decryptBackupData(importData, oldPassphrase);
                   break;
                 } catch {
