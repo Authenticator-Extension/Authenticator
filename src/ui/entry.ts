@@ -201,8 +201,9 @@ async function entry(_ui: UI) {
       cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
   const exportData =
       shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
-  const exportEncData =
-      shouldShowPassphrase ? {} : await EntryStorage.getEncExport(encryption);
+  const exportEncData = shouldShowPassphrase ?
+      {} :
+      await EntryStorage.getExport(encryption, true);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
 
   for (let i = 0; i < entries.length; i++) {
@@ -325,7 +326,7 @@ async function entry(_ui: UI) {
         const exportData =
             await EntryStorage.getExport(_ui.instance.encryption);
         const exportEncData =
-            await EntryStorage.getEncExport(_ui.instance.encryption);
+            await EntryStorage.getExport(_ui.instance.encryption, true);
         _ui.instance.exportData = JSON.stringify(exportData, null, 2);
         _ui.instance.entries = await getEntries(_ui.instance.encryption);
         _ui.instance.exportFile = getBackupFile(exportData);
