@@ -24,5 +24,4 @@ jobs:
       # release tagging
       provider: script
       script: bash ci/tag.sh
-      on:
-        branch: release
+      if: branch = release
