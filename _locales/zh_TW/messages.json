@@ -240,7 +240,7 @@
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "移除",
         "description": "Remove password."
     }
 }
