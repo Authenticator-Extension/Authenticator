@@ -2,19 +2,16 @@ language: node_js
 node_js:
   - "node"
 stages:
-  - initialize
   - test
   - deploy
 jobs:
   include:
-    - stage: initialize
-      script: "npm install -g typescript gts addons-linter lintspaces-cli"
     - stage: test
       script: "gts check"
     - stage: test
-      script: "lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
+      script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
     - stage: test
-      script: "npm run firefox && addons-linter firefox"
+      script: "npm i -g addons-linter && npm run firefox && addons-linter firefox"
     - stage: test
       script: "npm run chrome"
     - stage: deploy
