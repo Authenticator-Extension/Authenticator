@@ -5,13 +5,10 @@ stages:
   - initialize
   - test
   - deploy
-before_script:
-  - "npm install -g typescript"
-  - "npm install -g gts"
-  - "npm install -g addons-linter"
-  - "npm install -g lintspaces-cli"
 jobs:
   include:
+    - stage: initialize
+      script: "npm install -g typescript gts addons-linter lintspaces-cli"
     - stage: test
       script: "gts check"
     - stage: test
@@ -22,6 +19,5 @@ jobs:
       script: "npm run chrome"
     - stage: deploy
       # release tagging
-      provider: script
       script: bash ci/tag.sh
       if: branch = release
