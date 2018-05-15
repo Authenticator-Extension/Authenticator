@@ -20,6 +20,6 @@ deploy:
     branch: release
   # new i18n strings
  - provider: script
-   script: bash cu/i18n.sh
+   script: bash ci/i18n.sh
    on:
      branch: i18n-ci

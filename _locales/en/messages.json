@@ -242,5 +242,9 @@
     "remove": {
         "message": "Remove",
         "description": "Remove password."
+    },
+    "test": {
+      "message": "test",
+      "description": "test key"
     }
 }
