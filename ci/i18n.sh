@@ -32,8 +32,3 @@ if [[ `git diff _locales` ]]; then
 else
   printf "${GREEN}No new translation strings detected.${NC}"
 fi
-
-# Debugging since I'm curious about a few things
-echo $TRAVIS_JOB_NUMBER
-echo $TRAVIS_BUILD_NUMBER
-firefox --version
