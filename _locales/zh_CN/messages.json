@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "警告：保存至Dropbox的备份均未备份，您需自担风险。",
+        "message": "警告：保存至Dropbox的备份均未加密，您需自担风险。",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
