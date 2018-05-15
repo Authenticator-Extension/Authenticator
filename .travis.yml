@@ -1,25 +1,24 @@
 language: node_js
 node_js:
   - "node"
-before_script:
-  - "npm install -g typescript"
-  - "npm install -g gts"
-  - "npm install -g addons-linter"
-  - "npm install -g lintspaces-cli"
-script:
-  - "gts check"
-  - "lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
-  - "npm run firefox"
-  - "npm run chrome"
-  - "addons-linter firefox"
-deploy:
-  # release tagging
- - provider: script
-   script: bash ci/tag.sh
-   on:
-    branch: release
-  # new i18n strings
- - provider: script
-   script: bash ci/i18n.sh
-   on:
-     branch: i18n-ci
+stages:
+  - test
+  - deploy
+jobs:
+  include:
+    - stage: test
+      script: "gts check"
+    - stage: test
+      script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
+    - stage: test
+      script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
+    - stage: test
+      script: "npm run chrome"
+    - stage: deploy
+      # release tagging
+      script: bash ci/tag.sh
+      if: branch = release
+    - stage: deploy
+      # new i18n strings
+      script: bash ci/i18n.sh
+      if: branch = dev
