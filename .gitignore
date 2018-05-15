@@ -3,3 +3,4 @@ build
 chrome
 firefox
 .vscode
+ci/authenticator-build-key.enc

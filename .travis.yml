@@ -21,5 +21,6 @@ deploy:
   # new i18n strings
  - provider: script
    script: bash ci/i18n.sh
+   deploy.skip_cleanup: true
    on:
      branch: i18n-ci
