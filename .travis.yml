@@ -22,4 +22,4 @@ deploy:
  - provider: script
    script: bash cu/i18n.sh
    on:
-     branch: dev
+     branch: i18n-ci
