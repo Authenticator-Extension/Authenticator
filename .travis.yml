@@ -11,7 +11,7 @@ jobs:
     - stage: test
       script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
     - stage: test
-      script: "npm i -g web-ext && npm run firefox && cd firefox && web-ext lint firefox"
+      script: "npm i -g web-ext && npm run firefox && cd firefox && web-ext lint"
     - stage: test
       script: "npm run chrome"
     - stage: deploy
