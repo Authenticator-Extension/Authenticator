@@ -22,3 +22,4 @@ jobs:
       # new i18n strings
       script: bash ci/i18n.sh
       if: branch = dev
+      
