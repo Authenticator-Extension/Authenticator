@@ -4,3 +4,4 @@ chrome
 firefox
 .vscode
 .atom-build.yml
+ci/authenticator-build-key.enc
