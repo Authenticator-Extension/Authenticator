@@ -2,7 +2,7 @@
 # This script is used by travis to auto tag our releases
 
 # Configure git
-git config --global user.email "builds@travis-ci.com"
+git config --global user.email "deploy@travis-ci.org"
 git config --global user.name "Travis CI"
 git remote set-url origin git@github.com:Authenticator-Extension/Authenticator.git
 openssl aes-256-cbc -K $encrypted_2b3e3bd93233_key -iv $encrypted_2b3e3bd93233_iv -in $TRAVIS_BUILD_DIR/ci/authenticator-build-key.enc -out $TRAVIS_BUILD_DIR/ci/authenticator-build-key -d

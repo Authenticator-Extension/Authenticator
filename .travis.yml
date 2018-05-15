@@ -18,3 +18,8 @@ deploy:
    script: bash ci/tag.sh
    on:
     branch: release
+  # new i18n strings
+ - provider: script
+   script: bash cu/i18n.sh
+   on:
+     branch: dev
