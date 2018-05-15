@@ -275,7 +275,7 @@ async function entry(_ui: UI) {
           }
           decryptedbackupData[hash] = backupData[hash];
         }
-        return backupData;
+        return decryptedbackupData;
       },
       importBackupCode: async () => {
         try {
@@ -356,24 +356,33 @@ async function entry(_ui: UI) {
         }
         if (target.files[0]) {
           const reader = new FileReader();
+          let decryptedFileData: {};
           reader.onload = async () => {
             const importData = JSON.parse(reader.result);
             for (const hash in importData) {
               if (importData[hash].encrypted) {
                 try {
                   const oldPassphrase = await _ui.instance.getOldPassphrase();
-                  _ui.instance.decryptBackupData(importData, oldPassphrase);
+                  decryptedFileData =
+                      _ui.instance.decryptBackupData(importData, oldPassphrase);
                   break;
                 } catch {
                   break;
                 }
               }
             }
-            await EntryStorage.import(_ui.instance.encryption, importData);
-            await _ui.instance.updateEntries();
-            _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-            if (closeWindow) {
-              window.close();
+            if (Object.keys(decryptedFileData).length) {
+              await EntryStorage.import(
+                  _ui.instance.encryption, decryptedFileData);
+              await _ui.instance.updateEntries();
+              alert(_ui.instance.i18n.updateSuccess);
+              if (closeWindow) {
+                window.close();
+              }
+            } else {
+              alert(_ui.instance.i18n.updateFailure);
+              _ui.instance.getFilePassphrase = false;
+              _ui.instance.importFilePassphrase = '';
             }
           };
           reader.readAsText(target.files[0]);
