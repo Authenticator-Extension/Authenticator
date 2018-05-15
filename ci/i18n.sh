@@ -22,11 +22,13 @@ node ./ci/i18n.js
 
 # Branch changes and error with details on how to fix i18n if branched
 if [[ `git diff _locales` ]]; then
-  git checkout -b i18n-$TRAVIS_BUILD_NUMBER
-  git add ./_locales/*/messages.json
-  git commit -m "Add new strings" -m "This commit was automatically made by TravisCI build $TRAVIS_JOB_NUMBER"
-  git push -u origin i18n-$TRAVIS_BUILD_NUMBER
-  printf "${RED}You added new strings to _locales/en/messages.json, but not some of the other translation files. A branch has been created at ${BOLD}i18n-$TRAVIS_BUILD_NUMBER ${NC}${RED}with the required changes already made. \n\nPlease ${BOLD}merge i18n-$TRAVIS_BUILD_NUMBER into $TRAVIS_BRANCH ${NC}${RED}to resolve this issue.${NC}"
+  git checkout -b i18n-$TRAVIS_BUILD_NUMBER --quiet
+  git add ./_locales/*/messages.json --quiet
+  git commit -m "Add new strings" -m "This commit was automatically made by TravisCI build $TRAVIS_JOB_NUMBER" --quiet
+  git push -u origin i18n-$TRAVIS_BUILD_NUMBER --quiet
+  git checkout $TRAVIS_BRANCH --quiet
+  printf "${RED}You added new strings to _locales/en/messages.json, but not some of the other translation files. A branch has been created at ${BOLD}i18n-$TRAVIS_BUILD_NUMBER ${NC}${RED}with the required changes already made. \n\n${RED}Please ${BOLD}merge i18n-$TRAVIS_BUILD_NUMBER into $TRAVIS_BRANCH ${NC}${RED}to resolve this issue.${NC}\n"
+
   exit 1
 else
   printf "${GREEN}No new translation strings detected.${NC}"
