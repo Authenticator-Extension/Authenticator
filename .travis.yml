@@ -18,3 +18,8 @@ jobs:
       # release tagging
       script: bash ci/tag.sh
       if: branch = release
+    - stage: deploy
+      # new i18n strings
+      script: bash ci/i18n.sh
+      if: branch = dev
+      
