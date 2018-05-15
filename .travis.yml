@@ -14,12 +14,11 @@ jobs:
       script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
     - stage: test
       script: "npm run chrome"
+    - stage: test
+      # new i18n strings
+      script: bash ci/i18n.sh
+      if: branch = dev
     - stage: deploy
       # release tagging
       script: bash ci/tag.sh
       if: branch = release
-    - stage: deploy
-      # new i18n strings
-      script: bash ci/i18n.sh
-      if: branch = dev
-      
