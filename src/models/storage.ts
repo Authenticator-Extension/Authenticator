@@ -84,7 +84,7 @@ class EntryStorage {
         });
   }
 
-  static async getExport(encryption: Encryption) {
+  static async getExport(encryption: Encryption, encrypted?: boolean) {
     return new Promise(
         (resolve: (value: {[hash: string]: OTPStorage}) => void,
          reject: (reason: Error) => void) => {
@@ -95,20 +95,22 @@ class EntryStorage {
                   delete _data[hash];
                   continue;
                 }
-                // decrypt the data to export
-                if (_data[hash].encrypted) {
-                  const decryptedSecret =
-                      encryption.getDecryptedSecret(_data[hash].secret, hash);
-                  if (decryptedSecret !== _data[hash].secret &&
-                      decryptedSecret !== 'Encrypted') {
-                    _data[hash].secret = decryptedSecret;
-                    _data[hash].encrypted = false;
+                if (!encrypted) {
+                  // decrypt the data to export
+                  if (_data[hash].encrypted) {
+                    const decryptedSecret =
+                        encryption.getDecryptedSecret(_data[hash].secret, hash);
+                    if (decryptedSecret !== _data[hash].secret &&
+                        decryptedSecret !== 'Encrypted') {
+                      _data[hash].secret = decryptedSecret;
+                      _data[hash].encrypted = false;
+                    }
                   }
-                }
-                // we need correct hash
-                if (hash !== _data[hash].hash) {
-                  _data[_data[hash].hash] = _data[hash];
-                  delete _data[hash];
+                  // we need correct hash
+                  if (hash !== _data[hash].hash) {
+                    _data[_data[hash].hash] = _data[hash];
+                    delete _data[hash];
+                  }
                 }
               }
               return resolve(_data);
