@@ -13,8 +13,8 @@ git config --global user.name "Travis CI"
 git remote set-url origin git@github.com:Authenticator-Extension/Authenticator.git
 openssl aes-256-cbc -K $encrypted_2b3e3bd93233_key -iv $encrypted_2b3e3bd93233_iv -in $TRAVIS_BUILD_DIR/ci/authenticator-build-key.enc -out $TRAVIS_BUILD_DIR/ci/authenticator-build-key -d
 chmod 600 $TRAVIS_BUILD_DIR/ci/authenticator-build-key
-eval `ssh-agent -s`
-ssh-add $TRAVIS_BUILD_DIR/ci/authenticator-build-key
+eval `ssh-agent -s` &> /dev/null
+ssh-add $TRAVIS_BUILD_DIR/ci/authenticator-build-key &> /dev/null
 
 # Fix i18n issues
 cd $TRAVIS_BUILD_DIR
@@ -22,7 +22,7 @@ node ./ci/i18n.js
 
 # Branch changes and error with details on how to fix i18n if branched
 if [[ `git diff _locales` ]]; then
-  git checkout -b i18n-$TRAVIS_BUILD_NUMBER --quiet
+  git checkout -b i18n-$TRAVIS_BUILD_NUMBER &> /dev/null
   git add ./_locales/*/messages.json
   git commit -m "Add new strings" -m "This commit was automatically made by TravisCI build $TRAVIS_JOB_NUMBER" --quiet
   git push -u origin i18n-$TRAVIS_BUILD_NUMBER --quiet
