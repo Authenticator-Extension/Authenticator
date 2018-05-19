@@ -238,5 +238,13 @@
     "dropbox_logout": {
         "message": "Logout of Dropbox",
         "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Remove",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+      "message": "Download Password-Protected Backup",
+      "description": "Download Encrypted Backup"
     }
 }

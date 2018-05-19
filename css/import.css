@@ -100,7 +100,8 @@ button:hover,
     box-sizing: border-box;
 }
 
-.import_passphrase input {
+.import_passphrase input,
+.import_file_passphrase_input input {
     padding: 10px;
     margin-bottom: 20px;
     width: 250px;
@@ -113,4 +114,14 @@ button:hover,
     font-size: 18px;
     color: gray;
     text-align: center;
+}
+
+.import_file_passphrase {
+    display: grid;
+    justify-content: center;
+}
+
+.import_file_passphrase_input {
+    display: inline-grid;
+    grid-template-rows: min-content min-content;
 }

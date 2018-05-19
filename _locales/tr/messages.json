@@ -1,246 +1,246 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Kimlik Doğrulayıcı",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Kimlik Doğrulayıcı",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
+        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " ha sido añadido.",
+        "message": " eklendi.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código de QR no es reconocido.",
+        "message": "QR kodu bulunamadı.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error al secreto. Sólo Base32 (A-Z, 2-7 y =) y hexadecimal (0-9 y A-f) son compatibles. Sin embargo, su secreto es: ",
+        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear código QR",
+        "message": "QR kodunu tara",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada Manual",
+        "message": "Manuel giriş",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Cierra",
+        "message": "Kapat",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Tamam",
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Evet",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Hayır",
         "description": "No."
     },
     "account": {
-        "message": "Cuenta",
+        "message": "Hesap",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de Cuenta",
+        "message": "Hesap Adı",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emisor",
+        "message": "Yayınlayan Kuruluş",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secreto",
+        "message": "Şifre",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Éxito.",
+        "message": "Başarılı.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fracaso.",
+        "message": "Hata.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Acerca de",
+        "message": "Hakkında",
         "description": "About."
     },
     "export_import": {
-        "message": "Exportación / importación",
+        "message": "İçe/Dışa aktar",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Configuración -",
+        "message": "Ayarlar",
         "description": "Settings."
     },
     "security": {
-        "message": "Seguridad",
+        "message": "Güvenlik",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Contraseña actual",
+        "message": "Mevcut Şifre",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nueva contraseña",
+        "message": "Yeni Şifre",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Contraseña",
+        "message": "Şifre",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirme su contraseña",
+        "message": "Şifreyi doğrula",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar esta secreto? ¡Esto no se puede deshacer.",
+        "message": "Bu gizli anahtarı silmek mi istiyorsunuz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta contraseña se utilizará para cifrar tus secretos. Nadie le puede ayudar Si olvidas la contraseña.",
+        "message": "Gizli Anahtarlarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Actualizar",
+        "message": "Güncelle",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puede Agregar una nueva cuenta o exportar los datos hasta que todas las cuentas se descifran. Introduce la contraseña correcta antes de continuar.",
+        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Las contraseñas no coinciden.",
+        "message": "Şifreleriniz uyuşmuyor.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Cifrados",
+        "message": "Şifrelendi",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopyalandı",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Comentarios",
+        "message": "Geribildirim",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traducir",
+        "message": "Çeviri",
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Kaynak Kodu",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincroniza el reloj con Google",
+        "message": "Saati google ile senkronize et",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recuerda Contraseña",
+        "message": "Şifreyi hatırla",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "¡Precaución! Su reloj local está demasiado lejos, por favor arreglarlo antes de continuar.",
+        "message": "Dikkat! Yerel saatiniz farklı, devam etmek için lütfen düzeltin.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad de tus secretos? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Error en Captura, por favor recarga la página e inténtelo de nuevo.",
+        "message": "Yakalama başarısız oldu, lütfen sayfayı yeniden yükleyin ve tekrar deneyin.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Tiempo en función",
+        "message": "Zamana dayalı",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contador basado en",
+        "message": "Sayaca Dayalı",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Cambiar el tamaño de página",
+        "message": "Açılır Pencereyi Yeniden Boyutlandır",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Escala",
+        "message": "Ölçek",
         "description": "Scale"
     },
     "export_info": {
-        "message": "ADVERTENCIA: todos los backups son unencrypted. ¿Desea agregar una cuenta a otra aplicación? Pasa el cursor sobre la parte superior derecha de cualquier cuenta y presione el botón oculto.",
+        "message": "Uyarı: Hiçbir yedek şifrelenmemiş. Başka bir uygulama için bir hesap mı eklemek istiyorsunuz? Herhangi bir hesabın sağ üst kısmına gelin ve gizle düğmesine basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar archivo de respaldo",
+        "message": "Yedekleme Dosyasını İndir",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Copia de seguridad de importación",
+        "message": "Yedekten içeri aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar archivo de copia de seguridad",
+        "message": "Dosyadan içeri aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Copia de seguridad de importación",
+        "message": "Metin dosyasından içeri aktar",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Copia de seguridad automática a Dropbox",
+        "message": "Dropbox için otomatik yedekleme",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Código de Dropbox",
+        "message": "Dropbox kodu",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Token de Dropbox",
+        "message": "Dropbox jetonu",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Dropbox'a giriş yapın",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Mostrar todas las entradas",
+        "message": "Tüm girdileri göster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "ADVERTENCIA: backups guardados en Dropbox están sin cifrar. Usar bajo su propio riesgo.",
+        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para la importación de copias de seguridad.",
+        "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "La contraseña se almacena localmente, por favor cambiarlo en el menú de seguridad inmediatamente.",
+        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Dropbox'tan çıkış yapın",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Sil",
         "description": "Remove password."
     },
     "download_enc_backup": {

@@ -236,7 +236,15 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Logout Dropbox",
         "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Удалить",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+        "message": "Скачать защищенные паролем резервного копирования",
+        "description": "Download Encrypted Backup"
     }
 }

@@ -16,7 +16,16 @@ async function passphrase(_ui: UI) {
         chrome.runtime.sendMessage({action: 'lock'}, window.close);
         return;
       },
+      removePassphrase: async () => {
+        _ui.instance.newPassphrase.phrase = '';
+        _ui.instance.newPassphrase.confirm = '';
+        await _ui.instance.changePassphrase();
+        return;
+      },
       applyPassphrase: async () => {
+        if (!_ui.instance.passphrase) {
+          return;
+        }
         _ui.instance.encryption.updateEncryptionPassword(
             _ui.instance.passphrase);
         await _ui.instance.updateEntries();

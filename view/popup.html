@@ -124,6 +124,7 @@
                 <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
                 <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
                 <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
+                <div id="security_remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
             </div>
             <!-- PASSPHRASE -->
             <div id="passphrase" v-show="info === 'passphrase'">
@@ -134,9 +135,10 @@
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'">
-                <div id="export_info">{{ i18n.export_info }}</div>
+                <div id="export_info" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
                 <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank">{{ i18n.download_backup }}</a>
-                <a v-else id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" id="download_backup" target="_blank">{{ i18n.download_enc_backup }}</a>
+                <a id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">

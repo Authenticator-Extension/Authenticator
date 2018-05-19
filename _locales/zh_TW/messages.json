@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "加密成功！",
+        "message": "已加密",
         "description": "Encrypted."
     },
     "copied": {
@@ -238,5 +238,13 @@
     "dropbox_logout": {
         "message": "登出 Dropbox",
         "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "移除",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+        "message": "Download Password-Protected Backup",
+        "description": "Download Encrypted Backup"
     }
 }

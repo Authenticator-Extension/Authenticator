@@ -27,9 +27,21 @@
             <input type="radio" id="import_code_radio" value="import_code" v-model="importType">
             <label for="import_code_radio">{{ i18n.import_backup_code }}</label>
         </div>
-        <div class="import_file" v-show="importType === 'import_file'">
-            <label for="import_file">{{ i18n.import_backup_file }}</label>
-            <input id="import_file" type="file" v-on:change="importFile($event, true)" accept="application/json"></input>
+        <div v-show="importType === 'import_file'">
+            <div class="import_file" v-if="!getFilePassphrase">
+                <label for="import_file" style="">{{ i18n.import_backup_file }}</label>
+                <input id="import_file" type="file" v-on:change="importFile($event, true)" accept="application/json"></input>
+            </div>
+            <div class="import_file_passphrase" v-else>
+                <p class="error_password">{{ i18n.passphrase_info }}</p>
+                <div class="import_file_passphrase_input">
+                    <label style="text-align: left;">{{ i18n.phrase }}</label>
+                    <!-- trigger here -->
+                    <input type="password" v-on:keyup.enter="readFilePassphrase = true" v-model="importFilePassphrase">
+                </div>
+                <!-- trigger here -->
+                <button v-on:click="readFilePassphrase = true">{{ i18n.ok }}</button>
+            </div>
         </div>
         <div v-show="importType === 'import_code'">
             <div class="import_code">

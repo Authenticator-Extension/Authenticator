@@ -4,35 +4,35 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
+        "message": "Tạo mã xác thực 2 bước như Google Authenticator ngay trên trình duyệt của bạn.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " ha sido añadido.",
+        "message": " đã được thêm.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código de QR no es reconocido.",
+        "message": "Không nhận ra mã QR.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error al secreto. Sólo Base32 (A-Z, 2-7 y =) y hexadecimal (0-9 y A-f) son compatibles. Sin embargo, su secreto es: ",
+        "message": "Lỗi từ khóa. Chỉ chứa các ký tự Base32(A-Z, 2-7 và =) và các ký tự mã HEX(0-9 và A-F). Khóa bạn nhập là: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear código QR",
+        "message": "Quét mã QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada Manual",
+        "message": "Nhập thủ công",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Cierra",
+        "message": "Đóng",
         "description": "Close."
     },
     "ok": {
@@ -40,207 +40,207 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Đồng ý",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Không",
         "description": "No."
     },
     "account": {
-        "message": "Cuenta",
+        "message": "Tài khoản",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de Cuenta",
+        "message": "Tên tài khoản",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emisor",
+        "message": "Tên của ứng dụng yêu cầu xác thực",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secreto",
+        "message": "Từ khóa",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Éxito.",
+        "message": "Thành công.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fracaso.",
+        "message": "Thất bại.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Acerca de",
+        "message": "Về chúng tôi",
         "description": "About."
     },
     "export_import": {
-        "message": "Exportación / importación",
+        "message": "Xuất / Nhập",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Configuración -",
+        "message": "Cài đặt",
         "description": "Settings."
     },
     "security": {
-        "message": "Seguridad",
+        "message": "Bảo mật",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Contraseña actual",
+        "message": "Mật khẩu hiện tại",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nueva contraseña",
+        "message": "Mật khẩu mới",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Contraseña",
+        "message": "Mật khẩu",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirme su contraseña",
+        "message": "Xác nhận mật khẩu",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar esta secreto? ¡Esto no se puede deshacer.",
+        "message": "Bạn có chắc muốn xóa từ khóa này? Việc này không thể khôi phục lại được.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta contraseña se utilizará para cifrar tus secretos. Nadie le puede ayudar Si olvidas la contraseña.",
+        "message": "Mật khẩu này sẽ được dùng để mã hóa các từ khóa của bạn. Không ai có thể khôi phục lại được nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Actualizar",
+        "message": "Cập nhật",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puede Agregar una nueva cuenta o exportar los datos hasta que todas las cuentas se descifran. Introduce la contraseña correcta antes de continuar.",
+        "message": "Bạn không thể thêm tài khoản mới hoặc xuất dữ liệu đến khi tất cả các tài khoản được giải mã hết. Xin hãy nhập đúng mật khẩu để tiếp tục.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Las contraseñas no coinciden.",
+        "message": "Mật khẩu không khớp.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Cifrados",
+        "message": "Mã hóa",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Đã sao chép",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Comentarios",
+        "message": "Phản hồi",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traducir",
+        "message": "Dịch",
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Mã nguồn",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+        "message": "Nhập mật khẩu để giải mã dữ liệu của bạn.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincroniza el reloj con Google",
+        "message": "Đồng bộ đồng hồ với Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recuerda Contraseña",
+        "message": "Lưu mật khẩu",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "¡Precaución! Su reloj local está demasiado lejos, por favor arreglarlo antes de continuar.",
+        "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad de tus secretos? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "Bạn đã tạo bản sao lưu chưa? Đừng đợi đến khi quá muộn!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Error en Captura, por favor recarga la página e inténtelo de nuevo.",
+        "message": "Quét thật bại, xin hãy tải lại trang và thử lại.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Tiempo en función",
+        "message": "Theo thời gian",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contador basado en",
+        "message": "Theo bộ đếm",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Cambiar el tamaño de página",
+        "message": "Chỉnh kính thước của popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Escala",
+        "message": "Tỉ lệ",
         "description": "Scale"
     },
     "export_info": {
-        "message": "ADVERTENCIA: todos los backups son unencrypted. ¿Desea agregar una cuenta a otra aplicación? Pasa el cursor sobre la parte superior derecha de cualquier cuenta y presione el botón oculto.",
+        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar archivo de respaldo",
+        "message": "Tải file sao lưu",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Copia de seguridad de importación",
+        "message": "Nhập bản sao lưu",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar archivo de copia de seguridad",
+        "message": "Nhập bản sao lưu",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Copia de seguridad de importación",
+        "message": "Nhập mã sao lưu",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Copia de seguridad automática a Dropbox",
+        "message": "Tự động sao lưu vào Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Código de Dropbox",
+        "message": "Mã Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Token de Dropbox",
+        "message": "Dropbox Token",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Đăng nhập vào Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Mostrar todas las entradas",
+        "message": "Xem tất cả",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "ADVERTENCIA: backups guardados en Dropbox están sin cifrar. Usar bajo su propio riesgo.",
+        "message": "Cảnh báo: các bản sao lưu được lưu trên Dropbox đều chưa được mã hóa. Hãy cẩn thận.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para la importación de copias de seguridad.",
+        "message": "Bạn phải nhập mật khẩu đúng để có thể nhập sao lưu.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "La contraseña se almacena localmente, por favor cambiarlo en el menú de seguridad inmediatamente.",
+        "message": "Mật khẩu của bạn được lưu ngay trên trình duyệt, xin hãy đổi mật khẩu trong Menu > Bảo mật ngay.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Đăng xuất khỏi Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Xóa",
         "description": "Remove password."
     },
     "download_enc_backup": {

@@ -4,35 +4,35 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " ha sido añadido.",
+        "message": " has been added.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código de QR no es reconocido.",
+        "message": "Kode QR tidak diketahui.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error al secreto. Sólo Base32 (A-Z, 2-7 y =) y hexadecimal (0-9 y A-f) son compatibles. Sin embargo, su secreto es: ",
+        "message": "Kesalahan. Hanya karakter Base32 (A-Z, 2-7, =) dan HEX (0-9, A-F) yang didukung. Namun, kode rahasia yang anda masukkan ialah: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear código QR",
+        "message": "Pindai Kode QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada Manual",
+        "message": "Isi secara Manual",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Cierra",
+        "message": "Tutup",
         "description": "Close."
     },
     "ok": {
@@ -40,207 +40,207 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Ya",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Tidak",
         "description": "No."
     },
     "account": {
-        "message": "Cuenta",
+        "message": "Akun",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de Cuenta",
+        "message": "Nama Akun",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emisor",
+        "message": "Penerbit",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secreto",
+        "message": "Rahasia",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Éxito.",
+        "message": "Sukses.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fracaso.",
+        "message": "Gagal.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Acerca de",
+        "message": "Tentang",
         "description": "About."
     },
     "export_import": {
-        "message": "Exportación / importación",
+        "message": "Ekspor / Impor",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Configuración -",
+        "message": "Setelan",
         "description": "Settings."
     },
     "security": {
-        "message": "Seguridad",
+        "message": "Keamanan",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Contraseña actual",
+        "message": "Kata sandi saat ini",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nueva contraseña",
+        "message": "Kata sandi baru",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Contraseña",
+        "message": "Kata sandi",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirme su contraseña",
+        "message": "Konfirmasi kata sandi",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar esta secreto? ¡Esto no se puede deshacer.",
+        "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta contraseña se utilizará para cifrar tus secretos. Nadie le puede ayudar Si olvidas la contraseña.",
+        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Actualizar",
+        "message": "Perbarui",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puede Agregar una nueva cuenta o exportar los datos hasta que todas las cuentas se descifran. Introduce la contraseña correcta antes de continuar.",
+        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Las contraseñas no coinciden.",
+        "message": "Kata sandi salah.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Cifrados",
+        "message": "Terenkripsi",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Tersalin",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Comentarios",
+        "message": "Umpan Balik",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traducir",
+        "message": "Terjemahkan",
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Kode sumber",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+        "message": "Masukkan password untuk mendeskripsi data akun.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincroniza el reloj con Google",
+        "message": "Sinkronisasi riwayat dengan Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recuerda Contraseña",
+        "message": "Ingat kata sandi",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "¡Precaución! Su reloj local está demasiado lejos, por favor arreglarlo antes de continuar.",
+        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad de tus secretos? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Error en Captura, por favor recarga la página e inténtelo de nuevo.",
+        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Tiempo en función",
+        "message": "Berdasarkan Waktu",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contador basado en",
+        "message": "Berdasarkan Penghitung",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Cambiar el tamaño de página",
+        "message": "Atur ulang halaman Popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Escala",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "ADVERTENCIA: todos los backups son unencrypted. ¿Desea agregar una cuenta a otra aplicación? Pasa el cursor sobre la parte superior derecha de cualquier cuenta y presione el botón oculto.",
+        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar archivo de respaldo",
+        "message": "Unduh Berkas Cadangan",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Copia de seguridad de importación",
+        "message": "Impor Cadangan",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar archivo de copia de seguridad",
+        "message": "Impor Berkas Cadangan",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Copia de seguridad de importación",
+        "message": "Impor Text Cadangan",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Copia de seguridad automática a Dropbox",
+        "message": "Cadangkan otomatis ke Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Código de Dropbox",
+        "message": "Kode Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Token de Dropbox",
+        "message": "Token Dropbox",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Masuk ke Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Mostrar todas las entradas",
+        "message": "Tampilkan semua entri",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "ADVERTENCIA: backups guardados en Dropbox están sin cifrar. Usar bajo su propio riesgo.",
+        "message": "Peringatan: Cadangan yang disimpan di Dropbox tidak dienkripsi. Perhatikan resikonya sebelum digunakan.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para la importación de copias de seguridad.",
+        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "La contraseña se almacena localmente, por favor cambiarlo en el menú de seguridad inmediatamente.",
+        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Keluar dari Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Hapus",
         "description": "Remove password."
     },
     "download_enc_backup": {

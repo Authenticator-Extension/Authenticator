@@ -4,35 +4,35 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
+        "message": "Authenticator genererar 2-stegs verifieringskoder i din webbläsare.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " ha sido añadido.",
+        "message": " har lagts till.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código de QR no es reconocido.",
+        "message": "Okänd QR-kod.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error al secreto. Sólo Base32 (A-Z, 2-7 y =) y hexadecimal (0-9 y A-f) son compatibles. Sin embargo, su secreto es: ",
+        "message": "Fel på hemlig nyckel. Endast Base32(A-Z, 2-7 och =) och Hex(0-9 och A-F) stöds. Men din hemliga nyckel är: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear código QR",
+        "message": "Skanna QR-kod",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada Manual",
+        "message": "Manuell inmatning",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Cierra",
+        "message": "Stäng",
         "description": "Close."
     },
     "ok": {
@@ -40,207 +40,207 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nej",
         "description": "No."
     },
     "account": {
-        "message": "Cuenta",
+        "message": "Konto",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de Cuenta",
+        "message": "Kontonamn",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emisor",
+        "message": "Utgivare",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secreto",
+        "message": "Hemlig nyckel",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Éxito.",
+        "message": "Lyckades.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fracaso.",
+        "message": "Misslyckades.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Acerca de",
+        "message": "Om",
         "description": "About."
     },
     "export_import": {
-        "message": "Exportación / importación",
+        "message": "Exportera / Importera",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Configuración -",
+        "message": "Inställningar",
         "description": "Settings."
     },
     "security": {
-        "message": "Seguridad",
+        "message": "Säkerhet",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Contraseña actual",
+        "message": "Nuvarande lösenord",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nueva contraseña",
+        "message": "Nytt lösenord",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Contraseña",
+        "message": "Lösenord",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirme su contraseña",
+        "message": "Bekräfta lösenord",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar esta secreto? ¡Esto no se puede deshacer.",
+        "message": "Är du säker du vill radera denna hemliga nyckel? Denna åtgärd går inte att ångras.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta contraseña se utilizará para cifrar tus secretos. Nadie le puede ayudar Si olvidas la contraseña.",
+        "message": "Detta lösenord kommer att användas för att kryptera dina hemligheter. Ingen kan hjälpa dig om du glömmer lösenordet.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Actualizar",
+        "message": "Uppdatera",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puede Agregar una nueva cuenta o exportar los datos hasta que todas las cuentas se descifran. Introduce la contraseña correcta antes de continuar.",
+        "message": "Du kan inte lägga till ett nytt konto eller exportera data tills alla konton dekrypteras. Vänligen ange rätt lösenord innan du fortsätter.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Las contraseñas no coinciden.",
+        "message": "Lösenordet matchar inte.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Cifrados",
+        "message": "Krypterad",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopierad",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Comentarios",
+        "message": "Feedback",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traducir",
+        "message": "Översätt",
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Källkod",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+        "message": "Ange lösenord för att dekryptera kontodata.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincroniza el reloj con Google",
+        "message": "Synka Klockan med Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recuerda Contraseña",
+        "message": "Kom ihåg lösenord",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "¡Precaución! Su reloj local está demasiado lejos, por favor arreglarlo antes de continuar.",
+        "message": "Varning! Din lokala klocka är för långt ifrån, snälla fixa den innan du fortsätter.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad de tus secretos? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "Har du en säkerhetskopia för dina hemligheter? Vänta inte tills det är för sent!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Error en Captura, por favor recarga la página e inténtelo de nuevo.",
+        "message": "Det gick inte att infånga, ladda om sidan och försök igen.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Tiempo en función",
+        "message": "Tidsbaserade",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contador basado en",
+        "message": "Räknarebaserade",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Cambiar el tamaño de página",
+        "message": "Ändra storlek på popup",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Escala",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "ADVERTENCIA: todos los backups son unencrypted. ¿Desea agregar una cuenta a otra aplicación? Pasa el cursor sobre la parte superior derecha de cualquier cuenta y presione el botón oculto.",
+        "message": "Varning: alla säkerhetskopieringar är okrypterade. Vill du lägga till ett konto till en annan app? Håll över den högra högra delen av något konto och tryck på den dolda knappen.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar archivo de respaldo",
+        "message": "Ladda ner säkerhetskopieringsfilen",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Copia de seguridad de importación",
+        "message": "Importera säkerhetskopia",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar archivo de copia de seguridad",
+        "message": "Importera säkerhetskopieringsfilen",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Copia de seguridad de importación",
+        "message": "Importera okrypterad säkerhetskopia",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Copia de seguridad automática a Dropbox",
+        "message": "Automatisk säkerhetskopiering till Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Código de Dropbox",
+        "message": "Dropbox-kod",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Token de Dropbox",
+        "message": "Dropbox-token",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Logga in på Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Mostrar todas las entradas",
+        "message": "Visa alla poster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "ADVERTENCIA: backups guardados en Dropbox están sin cifrar. Usar bajo su propio riesgo.",
+        "message": "Varning: säkerhetskopior som sparas i Dropbox är okrypterade. Använd på egen risk.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para la importación de copias de seguridad.",
+        "message": "Du måste ange rätt lösenord för att importera säkerhetskopior.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "La contraseña se almacena localmente, por favor cambiarlo en el menú de seguridad inmediatamente.",
+        "message": "Ditt lösenord lagras lokalt, var vänlig ändra det på säkerhetsmenyn omedelbart.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Logga ut från Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Radera",
         "description": "Remove password."
     },
     "download_enc_backup": {

@@ -1,26 +1,28 @@
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  switch (message.action) {
-    case 'capture':
-      sendResponse('beginCapture');
-      showGrayLayout(message.passphrase);
-      break;
-    case 'errorsecret':
-      alert(chrome.i18n.getMessage('errorsecret') + message.secret);
-      break;
-    case 'errorqr':
-      alert(chrome.i18n.getMessage('errorqr'));
-      break;
-    case 'added':
-      alert(message.account + chrome.i18n.getMessage('added'));
-      break;
-    case 'text':
-      showQrCode(message.text);
-      break;
-    default:
-      // invalid command, ignore it
-      break;
-  }
-});
+if (!document.getElementById('__ga_grayLayout__')) {
+  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    switch (message.action) {
+      case 'capture':
+        sendResponse('beginCapture');
+        showGrayLayout(message.passphrase);
+        break;
+      case 'errorsecret':
+        alert(chrome.i18n.getMessage('errorsecret') + message.secret);
+        break;
+      case 'errorqr':
+        alert(chrome.i18n.getMessage('errorqr'));
+        break;
+      case 'added':
+        alert(message.account + chrome.i18n.getMessage('added'));
+        break;
+      case 'text':
+        showQrCode(message.text);
+        break;
+      default:
+        // invalid command, ignore it
+        break;
+    }
+  });
+}
 
 sessionStorage.captureBoxPositionLeft = 0;
 sessionStorage.captureBoxPositionTop = 0;
