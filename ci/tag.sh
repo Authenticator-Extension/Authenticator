@@ -13,5 +13,5 @@ ssh-add $TRAVIS_BUILD_DIR/ci/authenticator-build-key
 # Create and push tag
 export GIT_TAG=v$(grep -m 1 "\"version\"" $TRAVIS_BUILD_DIR/manifest-chrome.json | sed -r 's/^ *//;s/.*: *"//;s/",?//')
 git checkout $TRAVIS_BRANCH
-git tag $GIT_TAG -a -m "Automatic tag from TravisCI build $TRAVIS_BUILD_NUMBER"
+git tag $GIT_TAG -a -m "Automatic tag from TravisCI build $TRAVIS_JOB_NUMBER"
 git push origin $GIT_TAG
