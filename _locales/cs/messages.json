@@ -48,31 +48,31 @@
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Účet",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Název účtu",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Vydavatel",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Tajný klíč",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Úspěšně dokončeno.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Došlo k chybě.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "O aplikaci",
         "description": "About."
     },
     "export_import": {
@@ -80,19 +80,19 @@
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Nastavení",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Zabezpečení",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Aktuální heslo",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Nové heslo",
         "description": "New Passphrase."
     },
     "phrase": {
