@@ -96,119 +96,119 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Heslo",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Potvrzení hesla",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Opravdu chcete smazat tento tajný klíč? Tato akce je nevratná.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Toto heslo bude používat k šifrování váš tajný klíč. Pokud zapomenete heslo, nikdo vám nemůže pomoct.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Aktualizovat",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Nelze přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Hesla nesouhlasí.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Šifrováno",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Zkopírováno",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Zpětná vazba",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Přeložit",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Zdrojový kód",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Zadejte heslo pro dešifrování dat účtu.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Synchronizovat hodiny s Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Pamatovat si heslo",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Pozor! Váš místní čas se velmi liší, opravte jej prosím před pokračováním.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Máte zálohu vašich tajných klíčů? Nečekejte, až bude příliš pozdě!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Získávání dat selhalo, prosím načtěte stránku znovu a opakujte akci.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Na základě času",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Počítadlo založeno",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Resize Popup Page",
+        "message": "Změna velikosti stránky",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Zvětšení",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Upozornění: všechny zálohy nejsou rozšifrovány. Chcete přidat účet do jiné aplikace? Ukazatel myši nad pravý horní roh z libovolného účtu a kliknete na tlačítko skryté.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Stáhnout záložní soubor",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importovat zálohu",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importovat záložní soubor",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importovat textový soubor",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Automatická záloha na Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Dropbox kód",
         "description": "Dropbox code."
     },
     "dropbox_token": {
@@ -216,11 +216,11 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Přihlaste se k Dropboxu",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Ukaž všechny záznamy",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -236,15 +236,15 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Odhlášení ze služby Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Odstranit",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Stáhnout zálohy chráněné heslem",
         "description": "Download Encrypted Backup"
     }
 }
