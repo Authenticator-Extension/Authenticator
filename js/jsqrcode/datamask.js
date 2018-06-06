@@ -23,7 +23,7 @@
 */
 
 
-DataMask = {};
+var DataMask = {};
 
 DataMask.forReference = function(reference)
 {

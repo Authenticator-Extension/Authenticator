@@ -63,7 +63,7 @@ function GF256( primitive)
 			}
 			if (coefficient == 0)
 			{
-				return zero;
+				return this.zero;
 			}
 			var coefficients = new Array(degree + 1);
 			for(var i=0;i<coefficients.length;i++)coefficients[i]=0;

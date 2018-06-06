@@ -15,7 +15,7 @@
 */
 
 
-qrcode = {};
+var qrcode = {};
 qrcode.imagedata = null;
 qrcode.width = 0;
 qrcode.height = 0;
@@ -27,12 +27,129 @@ qrcode.sizeOfDataLengthInfo =  [  [ 10, 9, 8, 8 ],  [ 12, 11, 16, 10 ],  [ 14, 1
 
 qrcode.callback = null;
 
+qrcode.vidSuccess = function (stream) 
+{
+    qrcode.localstream = stream;
+    if(qrcode.webkit)
+        qrcode.video.src = window.webkitURL.createObjectURL(stream);
+    else
+    if(qrcode.moz)
+    {
+        qrcode.video.mozSrcObject = stream;
+        qrcode.video.play();
+    }
+    else
+        qrcode.video.src = stream;
+    
+    qrcode.gUM=true;
+    
+    qrcode.canvas_qr2 = document.createElement('canvas');
+    qrcode.canvas_qr2.id = "qr-canvas";
+    qrcode.qrcontext2 = qrcode.canvas_qr2.getContext('2d');
+    qrcode.canvas_qr2.width = qrcode.video.videoWidth;
+    qrcode.canvas_qr2.height = qrcode.video.videoHeight;
+    setTimeout(qrcode.captureToCanvas, 500);
+}
+        
+qrcode.vidError = function(error)
+{
+    qrcode.gUM=false;
+    return;
+}
+
+qrcode.captureToCanvas = function()
+{
+    if(qrcode.gUM)
+    {
+        try{
+            if(qrcode.video.videoWidth == 0)
+            {
+                setTimeout(qrcode.captureToCanvas, 500);
+                return;
+            }
+            else
+            {
+                qrcode.canvas_qr2.width = qrcode.video.videoWidth;
+                qrcode.canvas_qr2.height = qrcode.video.videoHeight;
+            }
+            qrcode.qrcontext2.drawImage(qrcode.video,0,0);
+            try{
+                qrcode.decode();
+            }
+            catch(e){       
+                console.log(e);
+                setTimeout(qrcode.captureToCanvas, 500);
+            };
+        }
+        catch(e){       
+                console.log(e);
+                setTimeout(qrcode.captureToCanvas, 500);
+        };
+    }
+}
+
+qrcode.setWebcam = function(videoId)
+{
+    var n=navigator;
+    qrcode.video=document.getElementById(videoId);
+
+    var options = true;
+    if(navigator.mediaDevices && navigator.mediaDevices.enumerateDevices)
+    {
+        try{
+            navigator.mediaDevices.enumerateDevices()
+            .then(function(devices) {
+              devices.forEach(function(device) {
+                console.log("deb1");
+                if (device.kind === 'videoinput') {
+                  if(device.label.toLowerCase().search("back") >-1)
+                    options=[{'sourceId': device.deviceId}] ;
+                }
+                console.log(device.kind + ": " + device.label +
+                            " id = " + device.deviceId);
+              });
+            })
+            
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+    }
+    else{
+        console.log("no navigator.mediaDevices.enumerateDevices" );
+    }
+    
+    if(n.getUserMedia)
+        n.getUserMedia({video: options, audio: false}, qrcode.vidSuccess, qrcode.vidError);
+    else
+    if(n.webkitGetUserMedia)
+    {
+        qrcode.webkit=true;
+        n.webkitGetUserMedia({video:options, audio: false}, qrcode.vidSuccess, qrcode.vidError);
+    }
+    else
+    if(n.mozGetUserMedia)
+    {
+        qrcode.moz=true;
+        n.mozGetUserMedia({video: options, audio: false}, qrcode.vidSuccess, qrcode.vidError);
+    }
+}
+
 qrcode.decode = function(src){
     
     if(arguments.length==0)
     {
-        var canvas_qr = document.getElementById("qr-canvas");
-        var context = canvas_qr.getContext('2d');
+        if(qrcode.canvas_qr2)
+        {
+            var canvas_qr = qrcode.canvas_qr2;
+            var context = qrcode.qrcontext2;
+        }	
+        else
+        {
+            var canvas_qr = document.getElementById("qr-canvas");
+            var context = canvas_qr.getContext('2d');
+        }
         qrcode.width = canvas_qr.width;
         qrcode.height = canvas_qr.height;
         qrcode.imagedata = context.getImageData(0, 0, qrcode.width, qrcode.height);
@@ -44,8 +161,17 @@ qrcode.decode = function(src){
     else
     {
         var image = new Image();
+        image.crossOrigin = "Anonymous";
         image.onload=function(){
             //var canvas_qr = document.getElementById("qr-canvas");
+            var canvas_out = document.getElementById("out-canvas");
+            if(canvas_out!=null)
+            {
+                var outctx = canvas_out.getContext('2d');
+                outctx.clearRect(0, 0, 320, 240);
+                outctx.drawImage(image, 0, 0, 320, 240);
+            }
+
             var canvas_qr = document.createElement('canvas');
             var context = canvas_qr.getContext('2d');
             var nheight = image.height;
@@ -83,6 +209,11 @@ qrcode.decode = function(src){
             }
             if(qrcode.callback!=null)
                 qrcode.callback(qrcode.result);
+        }
+        image.onerror = function ()
+        {
+            if(qrcode.callback!=null) 
+                qrcode.callback("Failed to load the image");
         }
         image.src = src;
     }
@@ -153,18 +284,21 @@ qrcode.process = function(ctx){
 
     var qRCodeMatrix = detector.detect();
     
-    /*for (var y = 0; y < qRCodeMatrix.bits.Height; y++)
-    {
-        for (var x = 0; x < qRCodeMatrix.bits.Width; x++)
-        {
-            var point = (x * 4*2) + (y*2 * qrcode.width * 4);
-            qrcode.imagedata.data[point] = qRCodeMatrix.bits.get_Renamed(x,y)?0:0;
-            qrcode.imagedata.data[point+1] = qRCodeMatrix.bits.get_Renamed(x,y)?0:0;
-            qrcode.imagedata.data[point+2] = qRCodeMatrix.bits.get_Renamed(x,y)?255:0;
-        }
-    }*/
     if(qrcode.debug)
+    {
+        for (var y = 0; y < qRCodeMatrix.bits.Height; y++)
+        {
+            for (var x = 0; x < qRCodeMatrix.bits.Width; x++)
+            {
+                var point = (x * 4*2) + (y*2 * qrcode.width * 4);
+                qrcode.imagedata.data[point] = qRCodeMatrix.bits.get_Renamed(x,y)?0:0;
+                qrcode.imagedata.data[point+1] = qRCodeMatrix.bits.get_Renamed(x,y)?0:0;
+                qrcode.imagedata.data[point+2] = qRCodeMatrix.bits.get_Renamed(x,y)?255:0;
+            }
+        }
         ctx.putImageData(qrcode.imagedata, 0, 0);
+    }
+    
     
     var reader = Decoder.decode(qRCodeMatrix.bits);
     var data = reader.DataByte;
@@ -177,7 +311,7 @@ qrcode.process = function(ctx){
     
     var end = new Date().getTime();
     var time = end - start;
-    //console.log(time);
+    console.log(time);
     
     return qrcode.decode_utf8(str);
     //alert("Time:" + time + " Code: "+str);
@@ -190,8 +324,8 @@ qrcode.getPixel = function(x,y){
     if (qrcode.height < y) {
         throw "point error";
     }
-    point = (x * 4) + (y * qrcode.width * 4);
-    p = (qrcode.imagedata.data[point]*33 + qrcode.imagedata.data[point + 1]*34 + qrcode.imagedata.data[point + 2]*33)/100;
+    var point = (x * 4) + (y * qrcode.width * 4);
+    var p = (qrcode.imagedata.data[point]*33 + qrcode.imagedata.data[point + 1]*34 + qrcode.imagedata.data[point + 2]*33)/100;
     return p;
 }
 
@@ -268,7 +402,11 @@ qrcode.grayScaleToBitmap=function(grayScale)
     var sqrtNumArea = middle.length;
     var areaWidth = Math.floor(qrcode.width / sqrtNumArea);
     var areaHeight = Math.floor(qrcode.height / sqrtNumArea);
-    var bitmap = new Array(qrcode.height*qrcode.width);
+
+    var buff = new ArrayBuffer(qrcode.width*qrcode.height);
+    var bitmap = new Uint8Array(buff);
+
+    //var bitmap = new Array(qrcode.height*qrcode.width);
     
     for (var ay = 0; ay < sqrtNumArea; ay++)
     {
@@ -286,8 +424,12 @@ qrcode.grayScaleToBitmap=function(grayScale)
     return bitmap;
 }
 
-qrcode.grayscale = function(){
-    var ret = new Array(qrcode.width*qrcode.height);
+qrcode.grayscale = function()
+{
+    var buff = new ArrayBuffer(qrcode.width*qrcode.height);
+    var ret = new Uint8Array(buff);
+    //var ret = new Array(qrcode.width*qrcode.height);
+    
     for (var y = 0; y < qrcode.height; y++)
     {
         for (var x = 0; x < qrcode.width; x++)
@@ -311,9 +453,3 @@ function URShift( number,  bits)
         return (number >> bits) + (2 << ~bits);
 }
 
-
-Array.prototype.remove = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
-};
