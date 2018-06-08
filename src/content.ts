@@ -17,6 +17,9 @@ if (!document.getElementById('__ga_grayLayout__')) {
       case 'text':
         showQrCode(message.text);
         break;
+      case 'pastecode':
+        pasteCode(message.code);
+        break;
       default:
         // invalid command, ignore it
         break;
@@ -159,4 +162,38 @@ function showQrCode(msg: string) {
       url, '_blank',
       'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, copyhistory=no, width=400, height=200, left=' +
           left + ',top=' + top);
+}
+
+function pasteCode(code: string) {
+  const _inputBoxes = document.getElementsByTagName('input');
+  const inputBoxes: HTMLInputElement[] = [];
+  for (let i = 0; i < _inputBoxes.length; i++) {
+    if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number') {
+      inputBoxes.push(_inputBoxes[i]);
+    }
+  }
+  if (!inputBoxes.length) {
+    return;
+  }
+  const identities = ['2fa', 'otp', 'authenticator', 'factor'];
+  for (const inputBox of inputBoxes) {
+    for (const identity of identities) {
+      if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
+          inputBox.id.toLowerCase().indexOf(identity) >= 0) {
+        inputBox.value = code;
+        return;
+      }
+    }
+  }
+
+  const activeInputBox = document.activeElement.tagName === 'INPUT' ?
+      document.activeElement :
+      null;
+  if (activeInputBox) {
+    (activeInputBox as HTMLInputElement).value = code;
+    return;
+  }
+  const firstInputBox = inputBoxes[0];
+  firstInputBox.value = code;
+  return;
 }
