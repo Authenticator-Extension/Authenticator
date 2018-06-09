@@ -262,5 +262,9 @@
     "edit": {
       "message": "Edit",
       "description": "Edit"
+    },
+    "manual_dropbox": {
+      "message": "Manual Sync",
+      "description": "Manual Dropbox sync"
     }
 }

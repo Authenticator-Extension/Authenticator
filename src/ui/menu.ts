@@ -1,5 +1,6 @@
 /* tslint:disable:no-reference */
 /// <reference path="../models/interface.ts" />
+/// <reference path="../models/dropbox.ts" />
 /// <reference path="./ui.ts" />
 
 function getVersion() {
@@ -125,6 +126,15 @@ async function menu(_ui: UI) {
             height: 480,
             width: 320
           });
+      },
+      dropboxUpload: async () => {
+        let dbox = new Dropbox
+        let response = await dbox.upload(_ui.instance.encryption)
+        if (response === true) {
+            _ui.instance.alert(_ui.instance.i18n.updateSuccess)
+          } else {
+            _ui.instance.alert(_ui.instance.i18n.updateFailure)
+          }
       }
     }
   };
