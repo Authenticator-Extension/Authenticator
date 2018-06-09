@@ -250,5 +250,17 @@
     "popout": {
       "message": "Popup mode",
       "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+      "message": "Lock",
+      "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+      "message": "Dropbox sync enabled",
+      "description": "Dropbox sync enabled"
+    },
+    "edit": {
+      "message": "Edit",
+      "description": "Edit"
     }
 }
