@@ -121,20 +121,20 @@ async function menu(_ui: UI) {
       },
       popOut: () => {
         chrome.windows.create({
-            url: chrome.extension.getURL('view/popup.html'),
-            type: "detached_panel",
-            height: 480,
-            width: 320
-          });
+          url: chrome.extension.getURL('view/popup.html'),
+          type: 'detached_panel',
+          height: 480,
+          width: 320
+        });
       },
       dropboxUpload: async () => {
-        let dbox = new Dropbox
-        let response = await dbox.upload(_ui.instance.encryption)
+        const dbox = new Dropbox();
+        const response = await dbox.upload(_ui.instance.encryption);
         if (response === true) {
-            _ui.instance.alert(_ui.instance.i18n.updateSuccess)
-          } else {
-            _ui.instance.alert(_ui.instance.i18n.updateFailure)
-          }
+          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+        } else {
+          _ui.instance.alert(_ui.instance.i18n.updateFailure);
+        }
       }
     }
   };
