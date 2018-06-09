@@ -144,8 +144,8 @@
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
                     <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
-                    <div id="dropbox_get_code" v-on:click="getDropboxToken()">{{ i18n.dropbox_authorization }}</div>
-                    <div id="dropbox_logout" v-on:click="logoutDropbox()">{{ i18n.dropbox_logout }}</div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="logoutDropbox()">{{ i18n.dropbox_logout }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getDropboxToken()">{{ i18n.dropbox_authorization }}</div>
                     <label for="token_input">{{ i18n.dropbox_token }}</label>
                     <textarea type="text" id="token_input" v-model="dropboxToken" disabled></textarea></textarea>
                 </div>
