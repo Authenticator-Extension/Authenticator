@@ -117,6 +117,14 @@ async function menu(_ui: UI) {
               return;
             });
         return;
+      },
+      popOut: () => {
+        chrome.windows.create({
+            url: chrome.extension.getURL('view/popup.html'),
+            type: "detached_panel",
+            height: 480,
+            width: 320
+          });
       }
     }
   };

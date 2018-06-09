@@ -153,7 +153,8 @@
             <!-- RESIZE -->
             <div v-show="info === 'resize'">
                 <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
-                <select id="resize_list" v-model="zoom">
+                <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
+                    <option value="125">125%</option>
                     <option value="100">100%</option>
                     <option value="90">90%</option>
                     <option value="80">80%</option>
@@ -165,7 +166,7 @@
                     <option value="25">25%</option>
                     <option value="20">20%</option>
                 </select>
-                <div id="resize_save" v-on:click="saveZoom()">{{ i18n.ok }}</div>
+                <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
         </div>
     </div>
