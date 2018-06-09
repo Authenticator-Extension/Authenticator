@@ -18,6 +18,7 @@ jobs:
       # new i18n strings
       script: bash ci/i18n.sh
       if: branch = dev
+      if: type != pull_request
     - stage: deploy
       # release tagging
       script: bash ci/tag.sh
