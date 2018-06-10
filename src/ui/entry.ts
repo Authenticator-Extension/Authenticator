@@ -1,9 +1,9 @@
 /* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 /// <reference path="../models/encryption.ts" />
 /// <reference path="../models/interface.ts" />
 /// <reference path="../models/storage.ts" />
 /// <reference path="./ui.ts" />
+/// <reference path="./add-account.ts" />
 
 async function getEntries(encryption: Encryption) {
   const optEntries: OTPEntry[] = await EntryStorage.get(encryption);
@@ -445,15 +445,16 @@ async function entry(_ui: UI) {
           return;
         }
 
-        await insertContentScript();
         chrome.permissions.request(
-            {permissions: ['clipboardWrite']}, (granted) => {
+            {permissions: ['clipboardWrite']}, async (granted) => {
               if (granted) {
                 const codeClipboard = document.getElementById(
                                           'codeClipboard') as HTMLInputElement;
                 if (!codeClipboard) {
                   return;
                 }
+
+                await insertContentScript();
 
                 chrome.tabs.query(
                     {active: true, lastFocusedWindow: true}, (tabs) => {
