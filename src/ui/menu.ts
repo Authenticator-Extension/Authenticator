@@ -120,9 +120,15 @@ async function menu(_ui: UI) {
         return;
       },
       popOut: () => {
+        let windowType;
+        if (navigator.userAgent.indexOf('Firefox') !== -1) {
+          windowType = 'detached_panel';
+        } else {
+          windowType = 'panel';
+        }
         chrome.windows.create({
           url: chrome.extension.getURL('view/popup.html'),
-          type: 'detached_panel',
+          type: windowType,
           height: 480,
           width: 320
         });

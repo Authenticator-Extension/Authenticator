@@ -25,6 +25,12 @@ async function init() {
                             .load(addAccount)
                             .render();
 
+  try {
+    document.title = ui.instance.i18n.extName;
+  } catch (e) {
+    console.error(e);
+  }
+
   if (authenticator.shouldShowPassphrase) {
     authenticator.showInfo('passphrase');
   }
