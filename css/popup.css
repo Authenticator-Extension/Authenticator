@@ -214,7 +214,8 @@ body {
     display: none;
 }
 
-#filter {
+#filter,
+#search {
     background: #fff4cc;
     padding: 0 10px;
     margin-left: 10px;
@@ -225,7 +226,15 @@ body {
     display: none;
 }
 
-#filter:hover {
+#searchInput {
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+#filter:hover,
+#search:hover {
     background: #fff1ba;
 }
 

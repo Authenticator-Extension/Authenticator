@@ -243,6 +243,18 @@ async function entry(_ui: UI) {
       isMatchedEntry: (entry: OTPEntry) => {
         return isMatchedEntry(siteName, entry);
       },
+      showSearch: (e, instance) => {
+        if (e.keyCode === 191) {
+          const searchDiv = document.getElementById('search');
+          const searchInput = document.getElementById('searchInput');
+          if (!searchDiv || !searchInput || instance.info !== '') {
+            return;
+          }
+          instance.filter = false;
+          searchDiv.style.display = 'block';
+          searchInput.focus();
+        }
+      },
       updateCode: async () => {
         return await updateCode(_ui.instance);
       },

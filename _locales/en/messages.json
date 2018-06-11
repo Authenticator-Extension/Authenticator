@@ -246,5 +246,9 @@
     "download_enc_backup": {
       "message": "Download Password-Protected Backup",
       "description": "Download Encrypted Backup"
+    },
+    "search": {
+      "message": "Search",
+      "description": "Search"
     }
 }
