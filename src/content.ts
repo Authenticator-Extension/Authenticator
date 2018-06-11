@@ -175,12 +175,14 @@ function pasteCode(code: string) {
   if (!inputBoxes.length) {
     return;
   }
-  const identities = ['2fa', 'otp', 'authenticator', 'factor'];
+  const identities = ['2fa', 'otp', 'authenticator', 'factor', 'code'];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
       if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
           inputBox.id.toLowerCase().indexOf(identity) >= 0) {
-        inputBox.value = code;
+        if (!inputBox.value) {
+          inputBox.value = code;
+        }
         return;
       }
     }
@@ -190,7 +192,10 @@ function pasteCode(code: string) {
       document.activeElement :
       null;
   if (activeInputBox) {
-    (activeInputBox as HTMLInputElement).value = code;
+    const inputBox = activeInputBox as HTMLInputElement;
+    if (!inputBox.value) {
+      inputBox.value = code;
+    }
     return;
   }
   const firstInputBox = inputBoxes[0];
