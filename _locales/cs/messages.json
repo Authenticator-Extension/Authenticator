@@ -1,38 +1,38 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Ověření údajů",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Ověřovatel",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Tạo mã xác thực 2 bước như Google Authenticator ngay trên trình duyệt của bạn.",
+        "message": "Authenticator generuje kódy 2 krok ověření v prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " đã được thêm.",
+        "message": " byla přidána.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Không nhận ra mã QR.",
+        "message": "Neznámý kód QR.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Lỗi từ khóa. Chỉ chứa các ký tự Base32(A-Z, 2-7 và =) và các ký tự mã HEX(0-9 và A-F). Khóa bạn nhập là: ",
+        "message": "Tajné chyba. Jen Base32 (A-Z, 2-7 a =) a HEX (0-9 a A-F) jsou podporovány. Vaše tajemství je však: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Quét mã QR",
+        "message": "Načíst QR kód",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Nhập thủ công",
+        "message": "Ruční zadání",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Đóng",
+        "message": "Zavřít",
         "description": "Close."
     },
     "ok": {
@@ -40,175 +40,175 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Đồng ý",
+        "message": "Ano",
         "description": "Yes."
     },
     "no": {
-        "message": "Không",
+        "message": "Ne",
         "description": "No."
     },
     "account": {
-        "message": "Tài khoản",
+        "message": "Účet",
         "description": "Account."
     },
     "accountName": {
-        "message": "Tên tài khoản",
+        "message": "Název účtu",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Tên của ứng dụng yêu cầu xác thực",
+        "message": "Vydavatel",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Từ khóa",
+        "message": "Tajný klíč",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Thành công.",
+        "message": "Úspěšně dokončeno.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Thất bại.",
+        "message": "Došlo k chybě.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Về chúng tôi",
+        "message": "O aplikaci",
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất \/ Nhập",
+        "message": "Export \/ Import",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Cài đặt",
+        "message": "Nastavení",
         "description": "Settings."
     },
     "security": {
-        "message": "Bảo mật",
+        "message": "Zabezpečení",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật khẩu hiện tại",
+        "message": "Aktuální heslo",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Mật khẩu mới",
+        "message": "Nové heslo",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Mật khẩu",
+        "message": "Heslo",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Xác nhận mật khẩu",
+        "message": "Potvrzení hesla",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bạn có chắc muốn xóa từ khóa này? Việc này không thể khôi phục lại được.",
+        "message": "Opravdu chcete smazat tento tajný klíč? Tato akce je nevratná.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Mật khẩu này sẽ được dùng để mã hóa các từ khóa của bạn. Không ai có thể khôi phục lại được nếu bạn quên mật khẩu.",
+        "message": "Toto heslo bude používat k šifrování váš tajný klíč. Pokud zapomenete heslo, nikdo vám nemůže pomoct.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Cập nhật",
+        "message": "Aktualizovat",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Bạn không thể thêm tài khoản mới hoặc xuất dữ liệu đến khi tất cả các tài khoản được giải mã hết. Xin hãy nhập đúng mật khẩu để tiếp tục.",
+        "message": "Nelze přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Mật khẩu không khớp.",
+        "message": "Hesla nesouhlasí.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Mã hóa",
+        "message": "Šifrováno",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Đã sao chép",
+        "message": "Zkopírováno",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Phản hồi",
+        "message": "Zpětná vazba",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Dịch",
+        "message": "Přeložit",
         "description": "Translate."
     },
     "source": {
-        "message": "Mã nguồn",
+        "message": "Zdrojový kód",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu của bạn.",
+        "message": "Zadejte heslo pro dešifrování dat účtu.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Đồng bộ đồng hồ với Google",
+        "message": "Synchronizovat hodiny s Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Lưu mật khẩu",
+        "message": "Pamatovat si heslo",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
+        "message": "Pozor! Váš místní čas se velmi liší, opravte jej prosím před pokračováním.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Bạn đã tạo bản sao lưu chưa? Đừng đợi đến khi quá muộn!",
+        "message": "Máte zálohu vašich tajných klíčů? Nečekejte, až bude příliš pozdě!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Quét thật bại, xin hãy tải lại trang và thử lại.",
+        "message": "Získávání dat selhalo, prosím načtěte stránku znovu a opakujte akci.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Theo thời gian",
+        "message": "Na základě času",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Theo bộ đếm",
+        "message": "Počítadlo založeno",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Chỉnh kính thước của popup",
+        "message": "Změna velikosti stránky",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Tỉ lệ",
+        "message": "Zvětšení",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
+        "message": "Upozornění: všechny zálohy nejsou rozšifrovány. Chcete přidat účet do jiné aplikace? Ukazatel myši nad pravý horní roh z libovolného účtu a kliknete na tlačítko skryté.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Tải file sao lưu",
+        "message": "Stáhnout záložní soubor",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập bản sao lưu",
+        "message": "Importovat zálohu",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Nhập bản sao lưu",
+        "message": "Importovat záložní soubor",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Nhập mã sao lưu",
+        "message": "Importovat textový soubor",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Tự động sao lưu vào Dropbox",
+        "message": "Automatická záloha na Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Mã Dropbox",
+        "message": "Dropbox kód",
         "description": "Dropbox code."
     },
     "dropbox_token": {
@@ -216,35 +216,35 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Đăng nhập vào Dropbox",
+        "message": "Přihlaste se k Dropboxu",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Xem tất cả",
+        "message": "Ukaž všechny záznamy",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Cảnh báo: các bản sao lưu được lưu trên Dropbox đều chưa được mã hóa. Hãy cẩn thận.",
+        "message": "Upozornění: zálohy uložené v Dropboxu jsou nezašifrované. Používáte na vlastní riziko.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "Bạn phải nhập mật khẩu đúng để có thể nhập sao lưu.",
+        "message": "Je nutné zadat správné heslo pro import zálohy.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Mật khẩu của bạn được lưu ngay trên trình duyệt, xin hãy đổi mật khẩu trong Menu > Bảo mật ngay.",
+        "message": "Vaše heslo je lokálně uloženo, prosím změňte to ihned v menu zabezpečení.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Đăng xuất khỏi Dropbox",
+        "message": "Odhlášení ze služby Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Xóa",
+        "message": "Odstranit",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Stáhnout zálohy chráněné heslem",
         "description": "Download Encrypted Backup"
     }
 }

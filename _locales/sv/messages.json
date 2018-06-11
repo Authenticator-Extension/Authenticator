@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportera / Importera",
+        "message": "Exportera \/ Importera",
         "description": "Export and Import."
     },
     "settings": {
@@ -244,7 +244,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Ladda ner lösenordsskyddad säkerhetskopiering",
         "description": "Download Encrypted Backup"
     }
 }
