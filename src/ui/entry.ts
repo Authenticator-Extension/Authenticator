@@ -217,7 +217,7 @@ async function entry(_ui: UI) {
   const exportEncryptedFile = getBackupFile(exportEncData);
   const siteName = await getSiteName();
   const shouldFilter = hasMatchedEntry(siteName, entries);
-  const shouldSearch = false;
+  const showSearch = false;
 
   const ui: UIConfig = {
     data: {
@@ -235,7 +235,7 @@ async function entry(_ui: UI) {
       notificationTimeout: 0,
       filter: true,
       shouldFilter,
-      shouldSearch,
+      showSearch,
       importType: 'import_file',
       importCode: '',
       importEncrypted: false,
@@ -245,27 +245,29 @@ async function entry(_ui: UI) {
       isMatchedEntry: (entry: OTPEntry) => {
         return isMatchedEntry(siteName, entry);
       },
-      showSearch: (e) => {
+      searchListener: (e) => {
         if (e.keyCode === 191) {
-          const searchDiv = document.getElementById('search');
-          const searchInput = document.getElementById('searchInput');
-          if (!searchDiv || !searchInput || _ui.instance.info !== '') {
+          if (_ui.instance.info !== '') {
             return;
           }
           _ui.instance.filter = false;
+          // It won't focus the texfield if vue unhides the div
+          //_ui.instance.showSearch = true;
+          const searchDiv = document.getElementById('search');
+          const searchInput = document.getElementById('searchInput');
+          if (!searchInput || !searchDiv) {
+            return;
+          }
           searchDiv.style.display = 'block';
           searchInput.focus();
-          if (!_ui.instance.shouldSearch) {
-            _ui.instance.shouldSearch = true;
-          }
         }
       },
       searchUpdate: () => {
         if (_ui.instance.filter) {
           _ui.instance.filter = false;
         }
-        if (!_ui.instance.shouldSearch) {
-          _ui.instance.shouldSearch = true;
+        if (!_ui.instance.showSearch) {
+          _ui.instance.showSearch = true;
         }
       },
       isSearchedEntry: (entry: OTPEntry) => {

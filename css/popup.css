@@ -239,7 +239,8 @@ body {
     background: #fff1ba;
 }
 
-#codes.filter #filter {
+#codes.filter #filter,
+#codes.search #search {
     display: block;
 }
 

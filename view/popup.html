@@ -27,7 +27,7 @@
         <div id="scan" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
         <div id="editAction" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
     </div>
-    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': shouldSearch}">
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <!-- TODO: Font and color of helper text wrong. Add hotkey reminder -->
         <div id="search"><input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text"></div>
