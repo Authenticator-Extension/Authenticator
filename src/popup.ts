@@ -25,6 +25,12 @@ async function init() {
                             .load(addAccount)
                             .render();
 
+  try {
+    document.title = ui.instance.i18n.extName;
+  } catch (e) {
+    console.error(e);
+  }
+
   if (authenticator.shouldShowPassphrase) {
     authenticator.showInfo('passphrase');
   }
@@ -87,6 +93,7 @@ async function init() {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'dropboxtoken') {
       authenticator.dropboxToken = message.value;
+      authenticator.dropboxUpload();
       if (authenticator.info === 'dropbox') {
         setTimeout(authenticator.closeInfo, 500);
       }

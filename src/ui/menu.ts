@@ -1,5 +1,6 @@
 /* tslint:disable:no-reference */
 /// <reference path="../models/interface.ts" />
+/// <reference path="../models/dropbox.ts" />
 /// <reference path="./ui.ts" />
 
 function getVersion() {
@@ -117,6 +118,34 @@ async function menu(_ui: UI) {
               return;
             });
         return;
+      },
+      popOut: () => {
+        let windowType;
+        if (navigator.userAgent.indexOf('Firefox') !== -1) {
+          windowType = 'detached_panel';
+        } else {
+          windowType = 'panel';
+        }
+        chrome.windows.create({
+          url: chrome.extension.getURL('view/popup.html?popup=true'),
+          type: windowType,
+          height: window.innerHeight,
+          width: window.innerWidth
+        });
+      },
+      isPopup: () => {
+        const params =
+            new URLSearchParams(document.location.search.substring(1));
+        return params.get('popup');
+      },
+      dropboxUpload: async () => {
+        const dbox = new Dropbox();
+        const response = await dbox.upload(_ui.instance.encryption);
+        if (response === true) {
+          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+        } else {
+          _ui.instance.alert(_ui.instance.i18n.updateFailure);
+        }
       }
     }
   };
