@@ -217,6 +217,7 @@ async function entry(_ui: UI) {
   const exportEncryptedFile = getBackupFile(exportEncData);
   const siteName = await getSiteName();
   const shouldFilter = hasMatchedEntry(siteName, entries);
+  const shouldSearch = false;
 
   const ui: UIConfig = {
     data: {
@@ -234,6 +235,7 @@ async function entry(_ui: UI) {
       notificationTimeout: 0,
       filter: true,
       shouldFilter,
+      shouldSearch,
       importType: 'import_file',
       importCode: '',
       importEncrypted: false,
@@ -243,16 +245,39 @@ async function entry(_ui: UI) {
       isMatchedEntry: (entry: OTPEntry) => {
         return isMatchedEntry(siteName, entry);
       },
-      showSearch: (e, instance) => {
+      showSearch: (e) => {
         if (e.keyCode === 191) {
           const searchDiv = document.getElementById('search');
           const searchInput = document.getElementById('searchInput');
-          if (!searchDiv || !searchInput || instance.info !== '') {
+          if (!searchDiv || !searchInput || _ui.instance.info !== '') {
             return;
           }
-          instance.filter = false;
+          _ui.instance.filter = false;
           searchDiv.style.display = 'block';
           searchInput.focus();
+          if (!_ui.instance.shouldSearch) {
+            _ui.instance.shouldSearch = true;
+          }
+        }
+      },
+      searchUpdate: () => {
+        if (_ui.instance.filter) {
+          _ui.instance.filter = false;
+        }
+        if (!_ui.instance.shouldSearch) {
+          _ui.instance.shouldSearch = true;
+        }
+      },
+      isSearchedEntry: (entry: OTPEntry) => {
+        if (_ui.instance.searchText === '') {
+          return true;
+        }
+
+        if (entry.issuer.toLowerCase().includes(
+                _ui.instance.searchText.toLowerCase())) {
+          return true;
+        } else {
+          return false;
         }
       },
       updateCode: async () => {

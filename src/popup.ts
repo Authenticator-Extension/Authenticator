@@ -85,7 +85,7 @@ async function init() {
   }, 1000);
 
   document.addEventListener('keyup', (e) => {
-    ui.instance.showSearch(e, ui.instance);
+    ui.instance.showSearch(e);
   }, false);
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {

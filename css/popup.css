@@ -210,7 +210,8 @@ body {
     transition: height 0.2s;
 }
 
-#codes.filter .entry[filtered] {
+#codes.filter .entry[filtered],
+#codes.search .entry[notSearched] {
     display: none;
 }
 
