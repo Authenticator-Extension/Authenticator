@@ -127,11 +127,15 @@ async function menu(_ui: UI) {
           windowType = 'panel';
         }
         chrome.windows.create({
-          url: chrome.extension.getURL('view/popup.html'),
+          url: chrome.extension.getURL('view/popup.html?popup=true'),
           type: windowType,
           height: window.innerHeight,
           width: window.innerWidth
         });
+      },
+      isPopup: () => {
+        let params = new URLSearchParams(document.location.search.substring(1));
+        return params.get('popup');
       },
       dropboxUpload: async () => {
         const dbox = new Dropbox();
