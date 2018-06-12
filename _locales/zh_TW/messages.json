@@ -246,5 +246,25 @@
     "download_enc_backup": {
         "message": "下載密碼保護備份",
         "description": "Download Encrypted Backup"
+    },
+    "popout": {
+        "message": "Popup mode",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Lock",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox sync enabled",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Edit",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Manual Sync",
+        "description": "Manual Dropbox sync"
     }
 }
