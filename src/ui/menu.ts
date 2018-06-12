@@ -134,7 +134,8 @@ async function menu(_ui: UI) {
         });
       },
       isPopup: () => {
-        let params = new URLSearchParams(document.location.search.substring(1));
+        const params =
+            new URLSearchParams(document.location.search.substring(1));
         return params.get('popup');
       },
       dropboxUpload: async () => {
