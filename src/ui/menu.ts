@@ -129,8 +129,8 @@ async function menu(_ui: UI) {
         chrome.windows.create({
           url: chrome.extension.getURL('view/popup.html'),
           type: windowType,
-          height: 480,
-          width: 320
+          height: window.innerHeight,
+          width: window.innerWidth
         });
       },
       dropboxUpload: async () => {
