@@ -30,7 +30,14 @@
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <!-- TODO: Font and color of helper text wrong. Add hotkey reminder -->
-        <div id="search"><input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text"></div>
+        <div id="search">
+          <input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
+          <div id="searchHint">
+            <div></div>
+            <div id="searchHintBorder">/</div>
+            <div></div>
+          </div>
+        </div>
         <div v-dragula="entries">
             <!-- ENTRIES -->
             <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">

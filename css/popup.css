@@ -227,6 +227,28 @@ body {
     display: none;
 }
 
+#search {
+    position: relative;
+}
+
+#searchHint {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-rows: 4.5px 15px 4.5px;
+    grid-template-columns: 15px;
+}
+
+#searchHintBorder {
+    color: #fff1ba;
+    background: #d2d2d2;
+    text-align: center;
+    border-radius: 1px;
+    line-height: 16px;
+}
+
 #searchInput {
     background: none;
     border: none;

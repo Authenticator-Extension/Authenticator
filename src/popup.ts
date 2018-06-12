@@ -88,8 +88,9 @@ async function init() {
     ui.instance.searchListener(e);
   }, false);
 
-  if (ui.instance.entries.length >= 10 && !(ui.instance.shouldFilter && ui.instance.filter)) {
-    ui.instance.showSearch = true
+  if (ui.instance.entries.length >= 10 &&
+      !(ui.instance.shouldFilter && ui.instance.filter)) {
+    ui.instance.showSearch = true;
   }
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
