@@ -244,27 +244,27 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Passwort-geschützte Sicherung herunterladen",
         "description": "Download Encrypted Backup"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Popup-Modus",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Sperren",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox-Synchronisation aktiviert",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Ändern",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuelle Synchronisation",
         "description": "Manual Dropbox sync"
     }
 }
