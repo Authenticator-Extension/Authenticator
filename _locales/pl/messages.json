@@ -244,7 +244,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Pobrania kopii zapasowej hasłem",
         "description": "Download Encrypted Backup"
     },
     "popout": {
