@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Ridimensionare la pagina Popup",
-        "description": "Resize Popup Page"
+        "message": "Popup Page",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Scala",
@@ -266,5 +266,9 @@
     "manual_dropbox": {
         "message": "Manual Sync",
         "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Use Autofill",
+        "description": "Use Autofill"
     }
 }
