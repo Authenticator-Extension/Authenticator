@@ -71,7 +71,7 @@ async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
-  let useAutofill = (localStorage.autofill === 'true') ? true : false || false;
+  let useAutofill = (localStorage.autofill === 'true');
 
   const ui: UIConfig = {
     data: {version, zoom, useAutofill},
