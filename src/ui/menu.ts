@@ -71,9 +71,10 @@ async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
+  let useAutofill = (localStorage.autofill === 'true');
 
   const ui: UIConfig = {
-    data: {version, zoom},
+    data: {version, zoom, useAutofill},
     methods: {
       openLink: (url: string) => {
         window.open(url, '_blank');
@@ -102,6 +103,12 @@ async function menu(_ui: UI) {
         } else {
           return false;
         }
+      },
+      saveAutofill: () => {
+        localStorage.autofill = _ui.instance.useAutofill;
+        useAutofill =
+            (localStorage.autofill === 'true') ? true : false || false;
+        return;
       },
       saveZoom: () => {
         localStorage.zoom = _ui.instance.zoom;

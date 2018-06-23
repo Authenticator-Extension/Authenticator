@@ -155,7 +155,7 @@
                     -->
                 </div>
             </div>
-            <!-- RESIZE -->
+            <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
                 <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
                 <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
@@ -171,6 +171,9 @@
                     <option value="25">25%</option>
                     <option value="20">20%</option>
                 </select>
+                <div></div>
+                <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
+                <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
                 <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
         </div>

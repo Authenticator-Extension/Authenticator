@@ -454,18 +454,20 @@ async function entry(_ui: UI) {
                   return;
                 }
 
-                await insertContentScript();
+                if (_ui.instance.useAutofill) {
+                  await insertContentScript();
 
-                chrome.tabs.query(
-                    {active: true, lastFocusedWindow: true}, (tabs) => {
-                      const tab = tabs[0];
-                      if (!tab || !tab.id) {
-                        return;
-                      }
+                  chrome.tabs.query(
+                      {active: true, lastFocusedWindow: true}, (tabs) => {
+                        const tab = tabs[0];
+                        if (!tab || !tab.id) {
+                          return;
+                        }
 
-                      chrome.tabs.sendMessage(
-                          tab.id, {action: 'pastecode', code: entry.code});
-                    });
+                        chrome.tabs.sendMessage(
+                            tab.id, {action: 'pastecode', code: entry.code});
+                      });
+                }
 
                 codeClipboard.value = entry.code;
                 codeClipboard.focus();

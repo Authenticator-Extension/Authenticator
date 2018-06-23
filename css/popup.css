@@ -374,6 +374,10 @@ body {
     cursor: pointer;
 }
 
+#popout {
+  margin-top: 20px;
+}
+
 .buttons {
     text-align: center;
 }
@@ -796,6 +800,7 @@ body {
 }
 
 #resize_list_label,
+#use_autofill_label,
 #resize_list {
     margin: 20px;
     font-size: 16px;
