@@ -31,7 +31,7 @@
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <div id="search">
           <input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
-          <div id="searchHint" v-if="searchText === ''">
+          <div id="searchHint" v-if="typeof searchText !== 'string'">
             <div></div>
             <div id="searchHintBorder">/</div>
             <div></div>
