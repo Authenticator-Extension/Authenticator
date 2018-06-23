@@ -266,5 +266,9 @@
     "manual_dropbox": {
         "message": "Manual Sync",
         "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Use Autofill",
+        "description": "Use Autofill"
     }
 }
