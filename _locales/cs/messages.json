@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Ověření údajů",
+        "message": "Ověření",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -268,7 +268,7 @@
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Použití automatického vyplňování",
         "description": "Use Autofill"
     }
 }
