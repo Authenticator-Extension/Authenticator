@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Popup obrázek",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -248,23 +248,23 @@
         "description": "Download Encrypted Backup"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Popup mód",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Zámek",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox synchronizace je zapnuta",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Upravit",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuální synchronizace",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
