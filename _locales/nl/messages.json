@@ -160,27 +160,27 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Heeft u een backup van uw geheimen? Wacht niet tot het te laat is!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Vastleggen is mislukt, herlaad de pagina en probeer het opnieuw.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Tijdgebonden",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Teller gebonden",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Popup-pagina",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Schaal",
         "description": "Scale"
     },
     "export_info": {
@@ -188,15 +188,15 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Backup downloaden",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Backup importeren",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Backup importeren",
         "description": "Import backup file."
     },
     "import_backup_code": {
