@@ -247,6 +247,10 @@
         "message": "Stáhnout zálohy chráněné heslem",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
     "popout": {
         "message": "Popup mód",
         "description": "Make window turn into persistent popup"
