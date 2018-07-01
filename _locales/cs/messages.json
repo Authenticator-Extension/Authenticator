@@ -1,38 +1,38 @@
 {
     "extName": {
-        "message": "Autenticatore",
+        "message": "Ověření údajů",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticatore",
+        "message": "Ověřovatel",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator genera codici di verifica 2-Step nel tuo browser.",
+        "message": "Authenticator generuje kódy 2 krok ověření v prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
-        "message": "è stato aggiunto",
+        "message": " byla přidána.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Codice QR non riconosciuto.",
+        "message": "Neznámý kód QR.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Errore di segreto. Solo Base32 (A-Z, 2-7 e =) e HEX (0-9 e A-F) sono supportati. Tuttavia, il tuo segreto è: ",
+        "message": "Tajné chyba. Jen Base32 (A-Z, 2-7 a =) a HEX (0-9 a A-F) jsou podporovány. Vaše tajemství je však: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scansiona il codice QR",
+        "message": "Načíst QR kód",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Inserire manualmente",
+        "message": "Ruční zadání",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Chiudere",
+        "message": "Zavřít",
         "description": "Close."
     },
     "ok": {
@@ -40,211 +40,211 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Sì",
+        "message": "Ano",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Ne",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Účet",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nome account",
+        "message": "Název účtu",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emittente",
+        "message": "Vydavatel",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Segreto",
+        "message": "Tajný klíč",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Successo.",
+        "message": "Úspěšně dokončeno.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fallito.",
+        "message": "Došlo k chybě.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Informazioni",
+        "message": "O aplikaci",
         "description": "About."
     },
     "export_import": {
-        "message": "Esporta / Importa",
+        "message": "Export / Import",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Impostazioni",
+        "message": "Nastavení",
         "description": "Settings."
     },
     "security": {
-        "message": "Sicurezza",
+        "message": "Zabezpečení",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Password corrente",
+        "message": "Aktuální heslo",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nuova password",
+        "message": "Nové heslo",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Heslo",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Conferma password",
+        "message": "Potvrzení hesla",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Sei sicuro di che voler eliminare questo segreto? Questa azione non può essere annullata.",
+        "message": "Opravdu chcete smazat tento tajný klíč? Tato akce je nevratná.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Questa password verrà utilizzata per crittografare i tuoi segreti. Se si dimentica la password nessuno può aiutarti.",
+        "message": "Toto heslo bude používat k šifrování váš tajný klíč. Pokud zapomenete heslo, nikdo vám nemůže pomoct.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Aggiorna",
+        "message": "Aktualizovat",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Non è possibile aggiungere un nuovo account o esportare i dati fino a quando tutti gli account vengono decrittografati. Si prega di inserire la password corretta prima di continuare.",
+        "message": "Nelze přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "La password non corrisponde.",
+        "message": "Hesla nesouhlasí.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Crittografato",
+        "message": "Šifrováno",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copiato",
+        "message": "Zkopírováno",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Zpětná vazba",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traduci",
+        "message": "Přeložit",
         "description": "Translate."
     },
     "source": {
-        "message": "Codice Sorgente",
+        "message": "Zdrojový kód",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Inserisci la password per decrittografare i dati dell'account.",
+        "message": "Zadejte heslo pro dešifrování dat účtu.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincronizzazione dell'orologio con Google",
+        "message": "Synchronizovat hodiny s Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Ricorda la Password",
+        "message": "Pamatovat si heslo",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Attenzione! Il vostro orologio locale è troppo lontano, si prega di risolvere prima di continuare.",
+        "message": "Pozor! Váš místní čas se velmi liší, opravte jej prosím před pokračováním.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Hai una copia di backup per i tuoi segreti? Non aspettare che sia troppo tardi!",
+        "message": "Máte zálohu vašich tajných klíčů? Nečekejte, až bude příliš pozdě!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Acquisizione non riuscita, si prega di ricaricare la pagina e riprovare.",
+        "message": "Získávání dat selhalo, prosím načtěte stránku znovu a opakujte akci.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Basato sul tempo",
+        "message": "Na základě času",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contatore di base",
+        "message": "Počítadlo založeno",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Ridimensionare la pagina Popup",
+        "message": "Změna velikosti stránky",
         "description": "Resize Popup Page"
     },
     "scale": {
-        "message": "Scala",
+        "message": "Zvětšení",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Attenzione: tutti i backup sono non crittografati. Vuoi aggiungere un account a un'altra app? Passa il mouse sopra la parte superiore destra di qualsiasi account e premere il pulsante nascosto.",
+        "message": "Upozornění: všechny zálohy nejsou rozšifrovány. Chcete přidat účet do jiné aplikace? Ukazatel myši nad pravý horní roh z libovolného účtu a kliknete na tlačítko skryté.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Scarica il file di backup",
+        "message": "Stáhnout záložní soubor",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importa Backup",
+        "message": "Importovat zálohu",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importa il file di Backup",
+        "message": "Importovat záložní soubor",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importa un backup testuale",
+        "message": "Importovat textový soubor",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Backup automatico su Dropbox",
+        "message": "Automatická záloha na Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Codice di Dropbox",
+        "message": "Dropbox kód",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Token di Dropbox",
+        "message": "Dropbox Token",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Accedere a Dropbox",
+        "message": "Přihlaste se k Dropboxu",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Visualizza tutte le voci",
+        "message": "Ukaž všechny záznamy",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Avviso: i backup salvati in Dropbox sono non crittografati. Utilizzare a proprio rischio.",
+        "message": "Upozornění: zálohy uložené v Dropboxu jsou nezašifrované. Používáte na vlastní riziko.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "È necessario fornire la password corretta per importare il backup.",
+        "message": "Je nutné zadat správné heslo pro import zálohy.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "La password è memorizzata localmente, cambiala immediatamente nel menu sicurezza.",
+        "message": "Vaše heslo je lokálně uloženo, prosím změňte to ihned v menu zabezpečení.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout da Dropbox",
+        "message": "Odhlášení ze služby Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Rimuovi",
+        "message": "Odstranit",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Stáhnout zálohy chráněné heslem",
         "description": "Download Encrypted Backup"
     },
     "popout": {

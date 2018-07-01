@@ -395,7 +395,7 @@ body {
 #security_remove,
 #message_close,
 #exportButton,
-#resize_save {
+#popout {
     margin: 10px;
     padding: 20px;
     border: #CCC 1px solid;
@@ -408,8 +408,8 @@ body {
     cursor: pointer;
 }
 
-#dropbox_logout {
-    margin-bottom: 30px;
+#popout {
+  margin-top: 20px;
 }
 
 .buttons {
@@ -440,8 +440,7 @@ body {
 #exportButton,
 #security_save,
 #passphrase_ok,
-#security_remove,
-#resize_save {
+#security_remove {
     font-size: 12px;
     margin: 20px 100px;
     padding: 10px;
@@ -701,14 +700,13 @@ body {
 #addAccountClose:hover,
 #securityClose:hover,
 #passphraseClose:hover,
+#popout:hover,
 #security_save:hover,
 #passphrase_ok:hover,
 #security_remove:hover,
 #dropbox_get_code:hover,
 #dropbox_logout:hover,
 #export:hover,
-#resizeClose:hover,
-#resize_save:hover,
 #confirm_cancel:hover,
 #confirm_ok:hover,
 #menu .menuList p:hover:after,
@@ -836,6 +834,7 @@ body {
 }
 
 #resize_list_label,
+#use_autofill_label,
 #resize_list {
     margin: 20px;
     font-size: 16px;
