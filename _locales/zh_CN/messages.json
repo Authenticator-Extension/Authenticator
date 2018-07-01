@@ -270,5 +270,9 @@
     "use_autofill": {
         "message": "启用自动填充",
         "description": "Use Autofill"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
     }
 }

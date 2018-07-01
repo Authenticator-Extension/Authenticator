@@ -270,5 +270,9 @@
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
     }
 }
