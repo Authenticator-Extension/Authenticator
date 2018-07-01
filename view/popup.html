@@ -29,11 +29,19 @@
             <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
         </div>
     </div>
-    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter}">
+    <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
+        <div id="search">
+          <input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
+          <div id="searchHint" v-if="typeof searchText !== 'string'">
+            <div></div>
+            <div id="searchHintBorder">/</div>
+            <div></div>
+          </div>
+        </div>
         <div v-dragula="entries">
             <!-- ENTRIES -->
-            <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)">
+            <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
                 <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
                 <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-bind:style="{background: sector}"></div>
                 <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>

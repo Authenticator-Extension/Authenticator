@@ -90,6 +90,15 @@ async function init() {
     return;
   }, 1000);
 
+  document.addEventListener('keyup', (e) => {
+    ui.instance.searchListener(e);
+  }, false);
+
+  if (ui.instance.entries.length >= 10 &&
+      !(ui.instance.shouldFilter && ui.instance.filter)) {
+    ui.instance.showSearch = true;
+  }
+
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'dropboxtoken') {
       authenticator.dropboxToken = message.value;
