@@ -247,6 +247,10 @@
         "message": "Passwort-geschützte Sicherung herunterladen",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
     "popout": {
         "message": "Popup-Modus",
         "description": "Make window turn into persistent popup"
