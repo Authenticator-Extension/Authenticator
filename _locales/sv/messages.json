@@ -247,6 +247,10 @@
         "message": "Ladda ner lösenordsskyddad säkerhetskopiering",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
     "popout": {
         "message": "Popup mode",
         "description": "Make window turn into persistent popup"
