@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Всплывающее окно",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -248,11 +248,11 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Поиск",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Всплывающее изображение",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -272,7 +272,7 @@
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Использование функции автозаполнения",
         "description": "Use Autofill"
     }
 }
