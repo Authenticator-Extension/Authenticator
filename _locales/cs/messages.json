@@ -248,7 +248,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Hledat",
         "description": "Search"
     },
     "popout": {
