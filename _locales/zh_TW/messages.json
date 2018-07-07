@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "匯出 / 匯入",
+        "message": "匯出 \/ 匯入",
         "description": "Export and Import."
     },
     "settings": {
@@ -168,16 +168,16 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "驗證碼",
+        "message": "基於時間",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "一次性驗證碼",
+        "message": "基於計數器",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "調整彈出視窗大小",
-        "description": "Resize Popup Page"
+        "message": "彈出頁面",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "比例",
@@ -247,32 +247,32 @@
         "message": "下載密碼保護備份",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "搜尋",
+        "description": "Search"
+    },
     "popout": {
-        "message": "Popup mode",
+        "message": "彈出模式",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "鎖定",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox同步已啟用",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "編輯",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "手動同步",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "啟用自動填充",
         "description": "Use Autofill"
-    },
-    "search": {
-        "message": "Search",
-        "description": "Search"
     }
 }

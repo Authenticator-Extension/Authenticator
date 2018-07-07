@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Ověření údajů",
+        "message": "Ověření",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export / Import",
+        "message": "Export \/ Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Změna velikosti stránky",
-        "description": "Resize Popup Page"
+        "message": "Popup obrázek",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Zvětšení",
@@ -247,32 +247,32 @@
         "message": "Stáhnout zálohy chráněné heslem",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "Hledat",
+        "description": "Search"
+    },
     "popout": {
-        "message": "Popup mode",
+        "message": "Popup mód",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Zámek",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox synchronizace je zapnuta",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Upravit",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuální synchronizace",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Použití automatického vyplňování",
         "description": "Use Autofill"
-    },
-    "search": {
-        "message": "Search",
-        "description": "Search"
     }
 }

@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Eksport / Import",
+        "message": "Eksport \/ Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Zmiana rozmiaru okienka Popup",
-        "description": "Resize Popup Page"
+        "message": "Popup Page",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Skala",
@@ -244,8 +244,12 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Pobrania kopii zapasowej hasłem",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
     },
     "popout": {
         "message": "Popup mode",
@@ -270,9 +274,5 @@
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
-    },
-    "search": {
-        "message": "Search",
-        "description": "Search"
     }
 }

@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "エクスポート/インポート",
+        "message": "エクスポート\/インポート",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "ポップアップのサイズを変更",
-        "description": "Resize Popup Page"
+        "message": "Popup Page",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "大きさ",
@@ -247,6 +247,10 @@
         "message": "Download Password-Protected Backup",
         "description": "Download Encrypted Backup"
     },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
     "popout": {
         "message": "Popup mode",
         "description": "Make window turn into persistent popup"
@@ -270,9 +274,5 @@
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
-    },
-    "search": {
-        "message": "Search",
-        "description": "Search"
     }
 }
