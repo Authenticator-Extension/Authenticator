@@ -168,11 +168,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "驗證碼",
+        "message": "基於時間",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "一次性驗證碼",
+        "message": "基於計數器",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -248,7 +248,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "搜尋",
         "description": "Search"
     },
     "popout": {
@@ -260,19 +260,19 @@
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox同步已啟用",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "編輯",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "手動同步",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "啟用自動填充",
         "description": "Use Autofill"
     }
 }
