@@ -246,5 +246,33 @@
     "download_enc_backup": {
         "message": "下载加密备份",
         "description": "Download Encrypted Backup"
+    },
+    "popout": {
+        "message": "独立窗口模式",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "锁定",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox同步已启用",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "编辑",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "手动同步",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "启用自动填充",
+        "description": "Use Autofill"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
     }
 }

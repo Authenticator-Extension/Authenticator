@@ -168,16 +168,16 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "驗證碼",
+        "message": "基於時間",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "一次性驗證碼",
+        "message": "基於計數器",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "調整彈出視窗大小",
-        "description": "Resize Popup Page"
+        "message": "彈出頁面",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "比例",
@@ -244,7 +244,35 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "下載密碼保護備份",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "搜尋",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "彈出模式",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "鎖定",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox同步已啟用",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "編輯",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "手動同步",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "啟用自動填充",
+        "description": "Use Autofill"
     }
 }

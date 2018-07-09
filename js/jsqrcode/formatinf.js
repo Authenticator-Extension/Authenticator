@@ -43,7 +43,7 @@ function FormatInformation(formatInfo)
 	});
 	this.GetHashCode=function()
 	{
-		return (this.errorCorrectionLevel.ordinal() << 3) |  dataMask;
+		return (this.errorCorrectionLevel.ordinal() << 3) |  this.dataMask;
 	}
 	this.Equals=function( o)
 	{

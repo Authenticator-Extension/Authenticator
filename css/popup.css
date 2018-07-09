@@ -210,11 +210,13 @@ body {
     transition: height 0.2s;
 }
 
-#codes.filter .entry[filtered] {
+#codes.filter .entry[filtered],
+#codes.search .entry[notSearched] {
     display: none;
 }
 
-#filter {
+#filter,
+#search {
     background: #fff4cc;
     padding: 0 10px;
     margin-left: 10px;
@@ -225,11 +227,51 @@ body {
     display: none;
 }
 
+#search {
+    position: relative;
+    background: #fff;
+    border: #CCC 1px solid;
+    border-top: none;
+}
+
+#searchHint {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-rows: 4.5px 15px 4.5px;
+    grid-template-columns: 15px;
+}
+
+#searchHintBorder {
+    color: #FFF;
+    background: #b1b1b3;
+    text-align: center;
+    border-radius: 1.5px;
+    line-height: 16px;
+    font-weight: bolder;
+}
+
+#searchInput {
+    font-family: arial, 'Microsoft YaHei';
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    color: #2a2a2e;
+}
+
 #filter:hover {
     background: #fff1ba;
 }
 
-#codes.filter #filter {
+#search:hover {
+    background: #f9f9fa;
+}
+
+#codes.filter #filter,
+#codes.search #search {
     display: block;
 }
 
@@ -361,7 +403,7 @@ body {
 #security_remove,
 #message_close,
 #exportButton,
-#resize_save {
+#popout {
     margin: 10px;
     padding: 20px;
     border: #CCC 1px solid;
@@ -374,8 +416,8 @@ body {
     cursor: pointer;
 }
 
-#dropbox_logout {
-    margin-bottom: 30px;
+#popout {
+  margin-top: 20px;
 }
 
 .buttons {
@@ -406,8 +448,7 @@ body {
 #exportButton,
 #security_save,
 #passphrase_ok,
-#security_remove,
-#resize_save {
+#security_remove {
     font-size: 12px;
     margin: 20px 100px;
     padding: 10px;
@@ -667,14 +708,13 @@ body {
 #addAccountClose:hover,
 #securityClose:hover,
 #passphraseClose:hover,
+#popout:hover,
 #security_save:hover,
 #passphrase_ok:hover,
 #security_remove:hover,
 #dropbox_get_code:hover,
 #dropbox_logout:hover,
 #export:hover,
-#resizeClose:hover,
-#resize_save:hover,
 #confirm_cancel:hover,
 #confirm_ok:hover,
 #menu .menuList p:hover:after,
@@ -802,6 +842,7 @@ body {
 }
 
 #resize_list_label,
+#use_autofill_label,
 #resize_list {
     margin: 20px;
     font-size: 16px;

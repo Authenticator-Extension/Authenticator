@@ -1,9 +1,9 @@
 /* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
 /// <reference path="../models/encryption.ts" />
 /// <reference path="../models/interface.ts" />
 /// <reference path="../models/storage.ts" />
 /// <reference path="./ui.ts" />
+/// <reference path="./add-account.ts" />
 
 async function getEntries(encryption: Encryption) {
   const optEntries: OTPEntry[] = await EntryStorage.get(encryption);
@@ -217,6 +217,7 @@ async function entry(_ui: UI) {
   const exportEncryptedFile = getBackupFile(exportEncData);
   const siteName = await getSiteName();
   const shouldFilter = hasMatchedEntry(siteName, entries);
+  const showSearch = false;
 
   const ui: UIConfig = {
     data: {
@@ -234,58 +235,99 @@ async function entry(_ui: UI) {
       notificationTimeout: 0,
       filter: true,
       shouldFilter,
+      showSearch,
       importType: 'import_file',
       importCode: '',
       importEncrypted: false,
-      importPassphrase: ''
+      importPassphrase: '',
+      importFilePassphrase: ''
     },
     methods: {
       isMatchedEntry: (entry: OTPEntry) => {
         return isMatchedEntry(siteName, entry);
       },
+      searchListener: (e) => {
+        if (e.keyCode === 191) {
+          if (_ui.instance.info !== '') {
+            return;
+          }
+          _ui.instance.filter = false;
+          // It won't focus the texfield if vue unhides the div
+          //_ui.instance.showSearch = true;
+          const searchDiv = document.getElementById('search');
+          const searchInput = document.getElementById('searchInput');
+          if (!searchInput || !searchDiv) {
+            return;
+          }
+          searchDiv.style.display = 'block';
+          searchInput.focus();
+        }
+      },
+      searchUpdate: () => {
+        if (_ui.instance.filter) {
+          _ui.instance.filter = false;
+        }
+        if (!_ui.instance.showSearch) {
+          _ui.instance.showSearch = true;
+        }
+      },
+      isSearchedEntry: (entry: OTPEntry) => {
+        if (_ui.instance.searchText === '') {
+          return true;
+        }
+
+        if (entry.issuer.toLowerCase().includes(
+                _ui.instance.searchText.toLowerCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      },
       updateCode: async () => {
         return await updateCode(_ui.instance);
       },
-      decryptBackupData: (backupData, passphrase) => {
-        const decryptedbackupData: {[hash: string]: OTPStorage} = {};
-        for (const hash of Object.keys(backupData)) {
-          if (typeof backupData[hash] !== 'object') {
-            continue;
-          }
-          if (!backupData[hash].secret) {
-            continue;
-          }
-          if (backupData[hash].encrypted && !passphrase) {
-            continue;
-          }
-          if (backupData[hash].encrypted) {
-            try {
-              backupData[hash].secret =
-                  CryptoJS.AES.decrypt(backupData[hash].secret, passphrase)
-                      .toString(CryptoJS.enc.Utf8);
-              backupData[hash].encrypted = false;
-            } catch (error) {
-              continue;
+      decryptBackupData:
+          (backupData: {[hash: string]: OTPStorage},
+           passphrase: string|null) => {
+            const decryptedbackupData: {[hash: string]: OTPStorage} = {};
+            for (const hash of Object.keys(backupData)) {
+              if (typeof backupData[hash] !== 'object') {
+                continue;
+              }
+              if (!backupData[hash].secret) {
+                continue;
+              }
+              if (backupData[hash].encrypted && !passphrase) {
+                continue;
+              }
+              if (backupData[hash].encrypted && passphrase) {
+                try {
+                  backupData[hash].secret =
+                      CryptoJS.AES.decrypt(backupData[hash].secret, passphrase)
+                          .toString(CryptoJS.enc.Utf8);
+                  backupData[hash].encrypted = false;
+                } catch (error) {
+                  continue;
+                }
+              }
+              // backupData[hash].secret may be empty after decrypt with wrong
+              // passphrase
+              if (!backupData[hash].secret) {
+                continue;
+              }
+              decryptedbackupData[hash] = backupData[hash];
             }
-          }
-          // backupData[hash].secret may be empty after decrypt with wrong
-          // passphrase
-          if (!backupData[hash].secret) {
-            continue;
-          }
-          decryptedbackupData[hash] = backupData[hash];
-        }
-        return decryptedbackupData;
-      },
+            return decryptedbackupData;
+          },
       importBackupCode: async () => {
         try {
           const exportData: {[hash: string]: OTPStorage} =
               JSON.parse(_ui.instance.importCode);
-          const passphrase =
+          const passphrase: string|null =
               _ui.instance.importEncrypted && _ui.instance.importPassphrase ?
               _ui.instance.importPassphrase :
               null;
-          const decryptedbackupData =
+          const decryptedbackupData: {[hash: string]: OTPStorage} =
               _ui.instance.decryptBackupData(exportData, passphrase);
           if (Object.keys(decryptedbackupData).length) {
             await EntryStorage.import(
@@ -347,7 +389,7 @@ async function entry(_ui: UI) {
           }
           await new Promise(resolve => setTimeout(resolve, 250));
         }
-        return _ui.instance.importFilePassphrase;
+        return _ui.instance.importFilePassphrase as string;
       },
       importFile: (event: Event, closeWindow: boolean) => {
         const target = event.target as HTMLInputElement;
@@ -356,13 +398,17 @@ async function entry(_ui: UI) {
         }
         if (target.files[0]) {
           const reader = new FileReader();
-          let decryptedFileData: {};
+          let decryptedFileData: {[hash: string]: OTPStorage} = {};
           reader.onload = async () => {
-            const importData = JSON.parse(reader.result);
+            const importData: {[hash: string]: OTPStorage} =
+                JSON.parse(reader.result);
+            let encrypted = false;
             for (const hash in importData) {
               if (importData[hash].encrypted) {
+                encrypted = true;
                 try {
-                  const oldPassphrase = await _ui.instance.getOldPassphrase();
+                  const oldPassphrase: string|null =
+                      await _ui.instance.getOldPassphrase();
                   decryptedFileData =
                       _ui.instance.decryptBackupData(importData, oldPassphrase);
                   break;
@@ -370,6 +416,9 @@ async function entry(_ui: UI) {
                   break;
                 }
               }
+            }
+            if (!encrypted) {
+              decryptedFileData = importData;
             }
             if (Object.keys(decryptedFileData).length) {
               await EntryStorage.import(
@@ -424,7 +473,7 @@ async function entry(_ui: UI) {
         }, 3000);
         return;
       },
-      copyCode: (entry: OTPEntry) => {
+      copyCode: async (entry: OTPEntry) => {
         if (_ui.instance.class.edit || entry.code === 'Invalid' ||
             entry.code.startsWith('&bull;')) {
           return;
@@ -436,13 +485,29 @@ async function entry(_ui: UI) {
         }
 
         chrome.permissions.request(
-            {permissions: ['clipboardWrite']}, (granted) => {
+            {permissions: ['clipboardWrite']}, async (granted) => {
               if (granted) {
                 const codeClipboard = document.getElementById(
                                           'codeClipboard') as HTMLInputElement;
                 if (!codeClipboard) {
                   return;
                 }
+
+                if (_ui.instance.useAutofill) {
+                  await insertContentScript();
+
+                  chrome.tabs.query(
+                      {active: true, lastFocusedWindow: true}, (tabs) => {
+                        const tab = tabs[0];
+                        if (!tab || !tab.id) {
+                          return;
+                        }
+
+                        chrome.tabs.sendMessage(
+                            tab.id, {action: 'pastecode', code: entry.code});
+                      });
+                }
+
                 codeClipboard.value = entry.code;
                 codeClipboard.focus();
                 codeClipboard.select();

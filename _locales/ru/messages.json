@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Изменение размера всплывающего окна",
-        "description": "Resize Popup Page"
+        "message": "Всплывающее окно",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Масштаб",
@@ -246,5 +246,33 @@
     "download_enc_backup": {
         "message": "Скачать защищенные паролем резервного копирования",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Поиск",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Всплывающее изображение",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Заблокировать",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox Синхронизация включена",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Редактировать",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Ручная синхронизация",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Использование функции автозаполнения",
+        "description": "Use Autofill"
     }
 }

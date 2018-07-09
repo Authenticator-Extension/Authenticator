@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "İçe/Dışa aktar",
+        "message": "İçe\/Dışa aktar",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Açılır Pencereyi Yeniden Boyutlandır",
-        "description": "Resize Popup Page"
+        "message": "Popup Page",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Ölçek",
@@ -244,7 +244,35 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Download parola korumalı yedekleme",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Popup mode",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Lock",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox sync enabled",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Edit",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Manual Sync",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Use Autofill",
+        "description": "Use Autofill"
     }
 }

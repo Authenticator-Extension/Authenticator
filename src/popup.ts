@@ -25,6 +25,12 @@ async function init() {
                             .load(addAccount)
                             .render();
 
+  try {
+    document.title = ui.instance.i18n.extName;
+  } catch (e) {
+    console.error(e);
+  }
+
   if (authenticator.shouldShowPassphrase) {
     authenticator.showInfo('passphrase');
   }
@@ -84,9 +90,19 @@ async function init() {
     return;
   }, 1000);
 
+  document.addEventListener('keyup', (e) => {
+    ui.instance.searchListener(e);
+  }, false);
+
+  if (ui.instance.entries.length >= 10 &&
+      !(ui.instance.shouldFilter && ui.instance.filter)) {
+    ui.instance.showSearch = true;
+  }
+
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'dropboxtoken') {
       authenticator.dropboxToken = message.value;
+      authenticator.dropboxUpload();
       if (authenticator.info === 'dropbox') {
         setTimeout(authenticator.closeInfo, 500);
       }

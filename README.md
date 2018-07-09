@@ -8,6 +8,8 @@
 
 [<img src="https://raw.githubusercontent.com/wiki/Authenticator-Extension/Authenticator/readme-images/chrome-web-store.png" title="Chrome Web Store" width="170" height="48" />](https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai) [<img src="https://raw.githubusercontent.com/wiki/Authenticator-Extension/Authenticator/readme-images/firefox-add-ons.png" title="Firefox Add-ons" width="170" height="48" />](https://addons.mozilla.org/en-US/firefox/addon/auth-helper?src=external-github)
 
+Authenticator is one of the [featured extensions on Firefox Add-ons this month](https://blog.mozilla.org/addons/2018/07/02/julys-featured-extensions-2/)! 
+
 ## Build Setup
 
 ``` bash

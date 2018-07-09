@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exporter / Importer",
+        "message": "Exporter \/ Importer",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Redimensionner le pop-up",
-        "description": "Resize Popup Page"
+        "message": "Page de popup",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Mise à l'échelle",
@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Se connecter à Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -236,15 +236,43 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Se déconnecter de Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Supprimer",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Télécharger le backup de mot de passe protégé",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Rechercher",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Mode popup",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Vérouiller",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Synchronisation avec Dropbox activée",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Modifier",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Synchronisation manuelle",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Utiliser Autofill",
+        "description": "Use Autofill"
     }
 }

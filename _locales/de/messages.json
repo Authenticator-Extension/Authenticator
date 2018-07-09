@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportieren / Importieren",
+        "message": "Exportieren \/ Importieren",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Ändern der Pop-Up Größe",
-        "description": "Resize Popup Page"
+        "message": "Popup Page",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "Skalierung",
@@ -244,7 +244,35 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Passwort-geschützte Sicherung herunterladen",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Search",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Popup-Modus",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Sperren",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Dropbox-Synchronisation aktiviert",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Ändern",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Manuelle Synchronisation",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Use Autofill",
+        "description": "Use Autofill"
     }
 }

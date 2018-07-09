@@ -33,8 +33,8 @@ qrcode.orderBestPatterns=function(patterns)
 			
 			function distance( pattern1,  pattern2)
 			{
-				xDiff = pattern1.X - pattern2.X;
-				yDiff = pattern1.Y - pattern2.Y;
+				var xDiff = pattern1.X - pattern2.X;
+				var yDiff = pattern1.Y - pattern2.Y;
 				return  Math.sqrt( (xDiff * xDiff + yDiff * yDiff));
 			}
 			
@@ -391,7 +391,7 @@ function FinderPatternFinder()
 			if (startSize < 3)
 			{
 				// Couldn't find enough finder patterns
-				throw "Couldn't find enough finder patterns";
+				throw "Couldn't find enough finder patterns (found " + startSize + ")"
 			}
 			
 			// Filter outlier possibilities whose module size is too different
@@ -421,15 +421,17 @@ function FinderPatternFinder()
 					});
 
 				var stdDev = Math.sqrt(square / startSize - average * average);
-				var limit = Math.max(0.1 * average, stdDev);
-				for (var i = 0; i < this.possibleCenters.length && this.possibleCenters.length > 3; i++)
+				var limit = Math.max(0.2 * average, stdDev);
+				//for (var i = 0; i < this.possibleCenters.length && this.possibleCenters.length > 3; i++)
+				for (var i = this.possibleCenters.length - 1; i >= 0 ; i--)
 				{
 					var pattern =  this.possibleCenters[i];
 					//if (Math.abs(pattern.EstimatedModuleSize - average) > 0.2 * average)
                     if (Math.abs(pattern.EstimatedModuleSize - average) > limit)
 					{
-						this.possibleCenters.remove(i);
-						i--;
+						//this.possibleCenters.remove(i);
+						this.possibleCenters.splice(i,1);
+						//i--;
 					}
 				}
 			}
@@ -635,7 +637,7 @@ function FinderPatternFinder()
 					if (this.hasSkipped)
 					{
 						// Found a third one
-						done = haveMultiplyConfirmedCenters();
+						done = this.haveMultiplyConfirmedCenters();
 					}
 				}
 			}
