@@ -21,4 +21,4 @@ jobs:
     - stage: deploy
       # release tagging
       script: bash ci/tag.sh
-      if: branch = release
+      if: branch = release AND type != pull_request
