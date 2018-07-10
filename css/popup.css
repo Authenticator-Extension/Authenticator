@@ -563,6 +563,28 @@ body {
     bottom: 10px;
 }
 
+@keyframes timer {
+    to {
+        stroke-dashoffset: -25.12;
+    }
+}
+
+.sector svg {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+}
+
+.sector circle {
+    fill: none;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: gray;
+    stroke-width: 8px;
+    stroke-dasharray: 25.12;
+    animation: 30s linear infinite timer;
+}
+
 #codes.edit .sector,
 #codes.edit .counter {
     display: none;
