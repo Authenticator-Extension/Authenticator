@@ -212,7 +212,12 @@ body {
 
 #codes.filter .entry[filtered],
 #codes.search .entry[notSearched] {
-    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+    overflow: hidden;
 }
 
 #filter,
