@@ -14,10 +14,15 @@ async function getEntries(encryption: Encryption) {
 async function updateCode(app: any) {
   let second = new Date().getSeconds();
   if (localStorage.offset) {
+    // prevent second from negative
     second += Number(localStorage.offset) + 30;
   }
   second = second % 30;
-  app.sector = getSector(second);
+  if (!app.sectorStart) {
+    app.sectorStart = true;
+    app.sectorOffset = -second;
+  }
+
   if (second > 25) {
     app.class.timeout = true;
   } else {
@@ -32,25 +37,6 @@ async function updateCode(app: any) {
       }
     }
   }
-}
-
-function getSector(second: number) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 40;
-  canvas.height = 40;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) {
-    return;
-  }
-  ctx.fillStyle = '#888';
-  ctx.beginPath();
-  ctx.moveTo(20, 20);
-  ctx.arc(
-      20, 20, 16, second / 30 * Math.PI * 2 - Math.PI / 2, Math.PI * 3 / 2,
-      false);
-  ctx.fill();
-  const url = canvas.toDataURL();
-  return `url(${url}) center / 20px 20px`;
 }
 
 function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
@@ -231,6 +217,8 @@ async function entry(_ui: UI) {
       exportEncryptedFile,
       getFilePassphrase: false,
       sector: '',
+      sectorStart: false,
+      sectorOffset: 0,
       notification: '',
       notificationTimeout: 0,
       filter: true,

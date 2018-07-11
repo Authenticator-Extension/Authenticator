@@ -212,7 +212,13 @@ body {
 
 #codes.filter .entry[filtered],
 #codes.search .entry[notSearched] {
-    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+    overflow: hidden;
+    position: absolute;
 }
 
 #filter,
@@ -561,6 +567,28 @@ body {
     position: absolute;
     right: 10px;
     bottom: 10px;
+}
+
+@keyframes timer {
+    to {
+        stroke-dashoffset: -25.12;
+    }
+}
+
+.sector svg {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+}
+
+.sector circle {
+    fill: none;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: gray;
+    stroke-width: 8px;
+    stroke-dasharray: 25.12;
+    animation: 30s linear infinite timer;
 }
 
 #codes.edit .sector,
