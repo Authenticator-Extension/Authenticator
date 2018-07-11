@@ -218,6 +218,7 @@ body {
     opacity: 0;
     border: none;
     overflow: hidden;
+    position: absolute;
 }
 
 #filter,
