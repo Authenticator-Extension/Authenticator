@@ -1,18 +1,18 @@
 {
     "extName": {
-        "message": "Ověření",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Ověřovatel",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generuje kódy 2 krok ověření v prohlížeči.",
+        "message": "Authenticator generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " byla přidána.",
+        "message": " byl přidán.",
         "description": "Added Account."
     },
     "errorqr": {
