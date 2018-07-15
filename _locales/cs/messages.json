@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Chyba tajemství. Podporovány jsou pouze Base32(A-Z, 2-7 a =) a HEX(0-9 a A-F). Vaše tajemství je však: ",
+        "message": "Chyba tajného klíče. Podporovány jsou pouze Base32(A-Z, 2-7 a =) a HEX(0-9 a A-F). Nicméně, Váš tajný klíč je: ",
         "description": "Secret Error."
     },
     "add_qr": {
