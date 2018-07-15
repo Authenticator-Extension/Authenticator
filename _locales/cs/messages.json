@@ -200,11 +200,11 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importovat textový soubor",
+        "message": "Importovat textovou zálohu",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Automatická záloha na Dropbox",
+        "message": "Automatické zálohování na Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
