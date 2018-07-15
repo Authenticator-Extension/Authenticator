@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Toto heslo bude používat k šifrování váš tajný klíč. Pokud zapomenete heslo, nikdo vám nemůže pomoct.",
+        "message": "Toto heslo se bude používat k zašifrování vašich tajných klíčů. Pokud zapomenete heslo, nikdo vám nemůže pomoci.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Nelze přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte správné heslo.",
+        "message": "Nemůžete přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte prosím správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Hesla nesouhlasí.",
+        "message": "Heslo se neshoduje.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -152,11 +152,11 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Pamatovat si heslo",
+        "message": "Zapamatovat si heslo",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Pozor! Váš místní čas se velmi liší, opravte jej prosím před pokračováním.",
+        "message": "Pozor! Váš místní čas se velmi liší, před pokračováním jej prosím opravte.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -172,15 +172,15 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Počítadlo založeno",
+        "message": "Založeno na počítadle",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup obrázek",
+        "message": "Vyskakovací stránka",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Zvětšení",
+        "message": "Měřítko",
         "description": "Scale"
     },
     "export_info": {
