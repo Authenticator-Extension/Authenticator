@@ -16,15 +16,15 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Neznámý kód QR.",
+        "message": "QR kód nebyl rozpoznán.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Tajné chyba. Jen Base32 (A-Z, 2-7 a =) a HEX (0-9 a A-F) jsou podporovány. Vaše tajemství je však: ",
+        "message": "Chyba tajemství. Podporovány jsou pouze Base32(A-Z, 2-7 a =) a HEX(0-9 a A-F). Vaše tajemství je však: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Načíst QR kód",
+        "message": "Naskenovat QR kód",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Úspěšně dokončeno.",
+        "message": "Úspěch.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Exportovat \/ Importovat",
         "description": "Export and Import."
     },
     "settings": {
@@ -88,7 +88,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Aktuální heslo",
+        "message": "Stávající heslo",
         "description": "Current Passphrase."
     },
     "new_phrase": {
