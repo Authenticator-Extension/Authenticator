@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Upozornění: všechny zálohy nejsou rozšifrovány. Chcete přidat účet do jiné aplikace? Ukazatel myši nad pravý horní roh z libovolného účtu a kliknete na tlačítko skryté.",
+        "message": "Upozornění: všechny zálohy jsou nešifrované. Chcete přidat účet do jiné aplikace? Najeďte myší na pravý horní roh libovolného účtu a klikněte na skryté tlačítko.",
         "description": "Export menu info text"
     },
     "download_backup": {
