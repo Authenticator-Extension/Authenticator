@@ -265,6 +265,8 @@ async function entry(_ui: UI) {
         }
 
         if (entry.issuer.toLowerCase().includes(
+                _ui.instance.searchText.toLowerCase()) ||
+            entry.account.toLowerCase().includes(
                 _ui.instance.searchText.toLowerCase())) {
           return true;
         } else {
