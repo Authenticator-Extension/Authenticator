@@ -116,15 +116,15 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Bạn không thể thêm tài khoản mới hoặc xuất dữ liệu đến khi tất cả các tài khoản được giải mã hết. Xin hãy nhập đúng mật khẩu để tiếp tục.",
+        "message": "Bạn không thể thêm tài khoản mới hoặc trích xuất dữ liệu cho đến khi tất cả các tài khoản được giải mã. Vui lòng nhập đúng mật khẩu để tiếp tục.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Mật khẩu không khớp.",
+        "message": "Mật khẩu không trùng nhau.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Mã hóa",
+        "message": "Đã mã hóa",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Phản hồi",
+        "message": "Góp ý",
         "description": "Feedback."
     },
     "translate": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Trang Popup",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -244,35 +244,35 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Tải về Bản sao lưu",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Tìm kiếm",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Chế độ Popup",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Khóa",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Đã kích hoạt tự động đồng bộ với Dropbox",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Điều chỉnh",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Đồng bộ thủ công",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Chế độ Điền tự động",
         "description": "Use Autofill"
     }
 }
