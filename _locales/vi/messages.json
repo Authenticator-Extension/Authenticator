@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Lỗi từ khóa. Chỉ chứa các ký tự Base32(A-Z, 2-7 và =) và các ký tự mã HEX(0-9 và A-F). Khóa bạn nhập là: ",
+        "message": "Chuỗi khóa bị lỗi. Chỉ có các ký tự Base32 (A-Z, 2-7 và =) và HEX (0-9 và A-F) được hỗ trợ. Chuỗi khóa bạn đã nhập là: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Từ khóa",
+        "message": "Chuỗi khóa",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất \/ Nhập",
+        "message": "Xuất \/ Nhập dữ liệu",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Bảo mật",
+        "message": "Đặt mật khẩu bảo vệ",
         "description": "Security."
     },
     "current_phrase": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bạn có chắc muốn xóa từ khóa này? Việc này không thể khôi phục lại được.",
+        "message": "Bạn có chắc sẽ xóa chuỗi khóa này? Sau khi xóa sẽ không thể khôi phục lại được.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Mật khẩu này sẽ được dùng để mã hóa các từ khóa của bạn. Không ai có thể khôi phục lại được nếu bạn quên mật khẩu.",
+        "message": "Mật khẩu này sẽ được dùng để mã hóa toàn bộ dữ liệu của bạn. Không ai có thể giúp bạn khôi phục lại mật khẩu này nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
     },
     "update": {
