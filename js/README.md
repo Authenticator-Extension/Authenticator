@@ -1,6 +1,6 @@
 ## Minified Sources
 
-File | Sourcre | Source Code
+File | Source | Source Code
 -----|---------|------------
 [aes.js](aes.js) | CryptoJS v3.1.2 | [Source](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/CryptoJS%20v3.1.2.zip)
 [md5.js](md5.js) | CryptoJS v3.1.2 | [Source](https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/crypto-js/CryptoJS%20v3.1.2.zip)
