@@ -12,11 +12,12 @@ class OTPEntry implements OTP {
   account: string;
   hash: string;
   counter: number;
+  period: number;
   code = '&bull;&bull;&bull;&bull;&bull;&bull;';
 
   constructor(
       type: OTPType, issuer: string, secret: string, account: string,
-      index: number, counter: number, hash?: string) {
+      index: number, counter: number, period?: number, hash?: string) {
     this.type = type;
     this.index = index;
     this.issuer = issuer;
@@ -26,6 +27,11 @@ class OTPEntry implements OTP {
         hash :
         CryptoJS.MD5(secret).toString();
     this.counter = counter;
+    if (this.type === OTPType.totp && period) {
+      this.period = period;
+    } else {
+      this.period = 30;
+    }
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();
     }
@@ -61,7 +67,8 @@ class OTPEntry implements OTP {
       this.code = 'Encrypted';
     } else {
       try {
-        this.code = KeyUtilities.generate(this.type, this.secret, this.counter);
+        this.code = KeyUtilities.generate(
+            this.type, this.secret, this.counter, this.period);
       } catch (error) {
         this.code = 'Invalid';
         if (parent) {

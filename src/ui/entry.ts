@@ -15,9 +15,11 @@ async function updateCode(app: any) {
   let second = new Date().getSeconds();
   if (localStorage.offset) {
     // prevent second from negative
-    second += Number(localStorage.offset) + 30;
+    second += Number(localStorage.offset) + 60;
   }
-  second = second % 30;
+
+  second = second % 60;
+  app.second = second;
 
   // only when sector is not started (timer is not initialized),
   // passphrase box should not be shown (no passphrase set) or
@@ -30,18 +32,24 @@ async function updateCode(app: any) {
     app.sectorOffset = -second;
   }
 
-  if (second > 25) {
-    app.class.timeout = true;
-  } else {
-    app.class.timeout = false;
-  }
-  if (second < 1) {
-    const entries = app.entries as OTP[];
-    for (let i = 0; i < entries.length; i++) {
-      if (entries[i].type !== OTPType.hotp &&
-          entries[i].type !== OTPType.hhex) {
-        entries[i].generate();
-      }
+  // if (second > 25) {
+  //   app.class.timeout = true;
+  // } else {
+  //   app.class.timeout = false;
+  // }
+  // if (second < 1) {
+  //   const entries = app.entries as OTP[];
+  //   for (let i = 0; i < entries.length; i++) {
+  //     if (entries[i].type !== OTPType.hotp &&
+  //         entries[i].type !== OTPType.hhex) {
+  //       entries[i].generate();
+  //     }
+  //   }
+  // }
+  const entries = app.entries as OTP[];
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].type !== OTPType.hotp && entries[i].type !== OTPType.hhex) {
+      entries[i].generate();
     }
   }
 }
@@ -226,6 +234,7 @@ async function entry(_ui: UI) {
       sector: '',
       sectorStart: false,
       sectorOffset: 0,
+      second: 0,
       notification: '',
       notificationTimeout: 0,
       filter: true,

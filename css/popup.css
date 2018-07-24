@@ -338,7 +338,7 @@ body {
     display: block;
 }
 
-#codes.timeout .code:not(.hotp) {
+#codes:not(.edit) .code.timeout:not(.hotp) {
     animation: twinkling 1s infinite ease-in-out;
 }
 
@@ -588,12 +588,16 @@ body {
     stroke: gray;
     stroke-width: 8px;
     stroke-dasharray: 25.12;
-    animation: 30s linear infinite timer;
+    animation-name: timer;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 #codes.edit .sector,
 #codes.edit .counter {
-    display: none;
+    position: absolute;
+    left: -1000px;
+    opacity: 0;
 }
 
 #menu {

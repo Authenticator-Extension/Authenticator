@@ -19,6 +19,7 @@ interface OTP {
   hash: string;
   counter: number;
   code: string;
+  period: number;
   create(encryption: Encryption): Promise<void>;
   update(encryption: Encryption): Promise<void>;
   next(encryption: Encryption): Promise<void>;
@@ -35,6 +36,7 @@ interface OTPStorage {
   secret: string;
   type: string;
   counter: number;
+  period?: number;
 }
 
 /* tslint:disable-next-line:interface-name */
