@@ -67,11 +67,17 @@ class UI {
         return;
       });
     };
+
     this.instance = new Vue(this.ui);
-    this.instance.updateCode();
-    setInterval(async () => {
-      await this.instance.updateCode();
-    }, 1000);
+
+    // wait for all modules loaded
+    setTimeout(() => {
+      this.instance.updateCode();
+      setInterval(async () => {
+        await this.instance.updateCode();
+      }, 500);
+    }, 0);
+
     return this.instance;
   }
 }

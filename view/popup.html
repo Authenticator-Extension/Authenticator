@@ -43,7 +43,7 @@
             <!-- ENTRIES -->
             <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
                 <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
-                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex">
+                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-show="sectorStart">
                     <svg viewBox="0 0 16 16">
                         <circle cx="8" cy="8" r="4" v-bind:style="{animationDelay: sectorOffset + 's'}"/>
                     </svg>

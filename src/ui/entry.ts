@@ -18,9 +18,14 @@ async function updateCode(app: any) {
     second += Number(localStorage.offset) + 30;
   }
   second = second % 30;
+
+  // only when sector is not started (timer is not initialized),
+  // passphrase box should not be shown (no passphrase set) or
+  // there are entiries shown and passphrase box isn't shown (the user has
+  // already provided password)
   if (!app.sectorStart &&
-      (!app.shouldShowPassphrase || app.entries.length > 0)) {
-    console.log('updated');
+      (!app.shouldShowPassphrase ||
+       app.entries.length > 0 && app.info !== 'passphrase')) {
     app.sectorStart = true;
     app.sectorOffset = -second;
   }
