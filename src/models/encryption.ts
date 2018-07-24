@@ -42,7 +42,6 @@ class Encryption {
           !/^[0-9a-f]+$/i.test(decryptedSecret) &&
           !/^blz\-/.test(decryptedSecret) && !/^bliz\-/.test(decryptedSecret) &&
           !/^stm\-/.test(decryptedSecret)) {
-        console.log(decryptedSecret);
         return 'Encrypted';
       }
 

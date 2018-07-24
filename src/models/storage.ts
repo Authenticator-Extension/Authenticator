@@ -143,6 +143,11 @@ class EntryStorage {
                 data[hash].issuer = data[hash].issuer || '';
                 data[hash].type = data[hash].type || OTPType[OTPType.totp];
                 data[hash].counter = data[hash].counter || 0;
+                const period = data[hash].period;
+                if (data[hash].type !== OTPType[OTPType.totp] ||
+                    period && (isNaN(period) || period <= 0)) {
+                  delete data[hash].period;
+                }
 
                 if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
                   const secretMatches =
@@ -306,6 +311,12 @@ class EntryStorage {
                         needMigrate = true;
                     }
 
+                    let period = 30;
+                    if (entryData.type === OTPType[OTPType.totp] &&
+                        entryData.period && entryData.period > 0) {
+                      period = entryData.period;
+                    }
+
                     entryData.secret = entryData.encrypted ?
                         encryption.getDecryptedSecret(entryData.secret, hash) :
                         entryData.secret;
@@ -354,7 +365,7 @@ class EntryStorage {
                     const entry = new OTPEntry(
                         type, entryData.issuer, entryData.secret,
                         entryData.account, entryData.index, entryData.counter,
-                        entryData.hash);
+                        period, entryData.hash);
                     data.push(entry);
 
                     // <del>we need correct the hash</del>

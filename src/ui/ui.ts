@@ -75,7 +75,7 @@ class UI {
       this.instance.updateCode();
       setInterval(async () => {
         await this.instance.updateCode();
-      }, 500);
+      }, 1000);
     }, 0);
 
     return this.instance;
