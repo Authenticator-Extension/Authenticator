@@ -18,7 +18,9 @@ async function updateCode(app: any) {
     second += Number(localStorage.offset) + 30;
   }
   second = second % 30;
-  if (!app.sectorStart) {
+  if (!app.sectorStart &&
+      (!app.shouldShowPassphrase || app.entries.length > 0)) {
+    console.log('updated');
     app.sectorStart = true;
     app.sectorOffset = -second;
   }
