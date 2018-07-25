@@ -1,30 +1,30 @@
 {
     "extName": {
-        "message": "Ověření",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Ověřovatel",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generuje kódy 2 krok ověření v prohlížeči.",
+        "message": "Authenticator generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " byla přidána.",
+        "message": " byl přidán.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Neznámý kód QR.",
+        "message": "QR kód nebyl rozpoznán.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Tajné chyba. Jen Base32 (A-Z, 2-7 a =) a HEX (0-9 a A-F) jsou podporovány. Vaše tajemství je však: ",
+        "message": "Chyba tajného klíče. Podporovány jsou pouze Base32(A-Z, 2-7 a =) a HEX(0-9 a A-F). Nicméně, Váš tajný klíč je: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Načíst QR kód",
+        "message": "Naskenovat QR kód",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Úspěšně dokončeno.",
+        "message": "Úspěch.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Exportovat \/ Importovat",
         "description": "Export and Import."
     },
     "settings": {
@@ -88,7 +88,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Aktuální heslo",
+        "message": "Stávající heslo",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Toto heslo bude používat k šifrování váš tajný klíč. Pokud zapomenete heslo, nikdo vám nemůže pomoct.",
+        "message": "Toto heslo se bude používat k zašifrování vašich tajných klíčů. Pokud zapomenete heslo, nikdo vám nemůže pomoci.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Nelze přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte správné heslo.",
+        "message": "Nemůžete přidat nový účet nebo exportovat data, pokud jsou všechny účty dešifrovány. Před dalším pokračováním zadejte prosím správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Hesla nesouhlasí.",
+        "message": "Heslo se neshoduje.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -152,11 +152,11 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Pamatovat si heslo",
+        "message": "Zapamatovat si heslo",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Pozor! Váš místní čas se velmi liší, opravte jej prosím před pokračováním.",
+        "message": "Pozor! Váš místní čas se velmi liší, před pokračováním jej prosím opravte.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -172,19 +172,19 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Počítadlo založeno",
+        "message": "Založeno na počítadle",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup obrázek",
+        "message": "Vyskakovací stránka",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Zvětšení",
+        "message": "Měřítko",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Upozornění: všechny zálohy nejsou rozšifrovány. Chcete přidat účet do jiné aplikace? Ukazatel myši nad pravý horní roh z libovolného účtu a kliknete na tlačítko skryté.",
+        "message": "Upozornění: všechny zálohy jsou nešifrované. Chcete přidat účet do jiné aplikace? Najeďte myší na pravý horní roh libovolného účtu a klikněte na skryté tlačítko.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -200,11 +200,11 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importovat textový soubor",
+        "message": "Importovat textovou zálohu",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Automatická záloha na Dropbox",
+        "message": "Automatické zálohování na Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
