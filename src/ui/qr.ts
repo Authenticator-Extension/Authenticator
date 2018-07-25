@@ -19,6 +19,9 @@ async function getQrUrl(entry: OTPEntry) {
             (entry.issuer ? ('&issuer=' + entry.issuer.split('::')[0]) : '') +
             ((entry.type === OTPType.hotp || entry.type === OTPType.hhex) ?
                  ('&counter=' + entry.counter) :
+                 '') +
+            (entry.type === OTPType.totp && entry.period ?
+                 ('&period=' + entry.period) :
                  '');
         /* tslint:disable-next-line:no-unused-expression */
         new QRCode(
