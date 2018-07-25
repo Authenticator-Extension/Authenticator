@@ -152,14 +152,9 @@ async function menu(_ui: UI) {
         if (window.innerHeight !== correctHeight ||
             window.innerWidth !== correctWidth) {
           chrome.windows.getCurrent((currentWindow) => {
-            // window update to correct size
-            const adjustedHeight =
-                window.innerHeight + (correctHeight - window.innerHeight);
-            const adjustedWidth =
-                window.innerWidth + (correctWidth - window.innerWidth);
             chrome.windows.update(
                 currentWindow.id,
-                {height: adjustedHeight, width: adjustedWidth});
+                {height: correctHeight, width: correctWidth});
           });
         }
       },
