@@ -109,6 +109,10 @@ async function init() {
     }
   });
 
+  if (ui.instance.isPopup()) {
+    ui.instance.fixPopupSize();
+  }
+
   return;
 }
 

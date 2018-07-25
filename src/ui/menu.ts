@@ -145,6 +145,24 @@ async function menu(_ui: UI) {
             new URLSearchParams(document.location.search.substring(1));
         return params.get('popup');
       },
+      fixPopupSize: () => {
+        const zoom = Number(localStorage.zoom) / 100 || 1;
+        const correctHeight = 480 * zoom;
+        const correctWidth = 320 * zoom;
+        if (window.innerHeight !== correctHeight ||
+            window.innerWidth !== correctWidth) {
+          chrome.windows.getCurrent((currentWindow) => {
+            // window update to correct size
+            const adjustedHeight =
+                window.innerHeight + (correctHeight - window.innerHeight);
+            const adjustedWidth =
+                window.innerWidth + (correctWidth - window.innerWidth);
+            chrome.windows.update(
+                currentWindow.id,
+                {height: adjustedHeight, width: adjustedWidth});
+          });
+        }
+      },
       dropboxUpload: async () => {
         const dbox = new Dropbox();
         const response = await dbox.upload(_ui.instance.encryption);
