@@ -145,6 +145,18 @@ async function menu(_ui: UI) {
             new URLSearchParams(document.location.search.substring(1));
         return params.get('popup');
       },
+      fixPopupSize: () => {
+        const zoom = Number(localStorage.zoom) / 100 || 1;
+        const correctHeight = 480 * zoom;
+        const correctWidth = 320 * zoom;
+        if (window.innerHeight !== correctHeight ||
+            window.innerWidth !== correctWidth) {
+          chrome.windows.getCurrent((currentWindow) => {
+            chrome.windows.update(
+                currentWindow.id, {height: correctHeight, width: correctWidth});
+          });
+        }
+      },
       dropboxUpload: async () => {
         const dbox = new Dropbox();
         const response = await dbox.upload(_ui.instance.encryption);
