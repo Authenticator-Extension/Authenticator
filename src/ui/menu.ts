@@ -153,8 +153,7 @@ async function menu(_ui: UI) {
             window.innerWidth !== correctWidth) {
           chrome.windows.getCurrent((currentWindow) => {
             chrome.windows.update(
-                currentWindow.id,
-                {height: correctHeight, width: correctWidth});
+                currentWindow.id, {height: correctHeight, width: correctWidth});
           });
         }
       },
