@@ -52,7 +52,8 @@
     "permissions": [
         "activeTab",
         "storage",
-        "identity"
+        "identity",
+        "file://*/*"
     ],
     "optional_permissions": [
         "clipboardWrite",
