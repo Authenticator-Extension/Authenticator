@@ -53,9 +53,6 @@
         "<all_urls>",
         "storage"
     ],
-    "optional_permissions": [
-        "clipboardWrite"
-    ],
     "short_name": "__MSG_extShortName__",
     "version": "5.1.0",
     "web_accessible_resources": [
