@@ -81,7 +81,7 @@ async function menu(_ui: UI) {
         return;
       },
       createWindow: (url: string) => {
-        chrome.windows.create({type: "normal", url: url});
+        chrome.windows.create({type: 'normal', url});
         return;
       },
       showMenu: () => {
@@ -116,7 +116,8 @@ async function menu(_ui: UI) {
         }
       },
       showEdgeBugWarning: () => {
-        _ui.instance.alert("Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.");
+        _ui.instance.alert(
+            'Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.');
       },
       saveAutofill: () => {
         localStorage.autofill = _ui.instance.useAutofill;
