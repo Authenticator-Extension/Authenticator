@@ -56,12 +56,12 @@ function openHelp() {
   let url =
       'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
 
-  if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
-  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
+  if (navigator.userAgent.indexOf('Firefox') !== -1) {
     url =
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+  } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
   window.open(url, '_blank');
@@ -116,20 +116,27 @@ async function menu(_ui: UI) {
         return;
       },
       syncClock: async () => {
-        chrome.permissions.request(
-            {origins: ['https://www.google.com/']}, async (granted) => {
-              if (granted) {
-                const message = await syncTimeWithGoogle();
-                _ui.instance.alert(_ui.instance.i18n[message]);
-              }
-              return;
-            });
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
+          const message = await syncTimeWithGoogle();
+          _ui.instance.alert(_ui.instance.i18n[message]);
+        } else {
+          chrome.permissions.request(
+              {origins: ['https://www.google.com/']}, async (granted) => {
+                if (granted) {
+                  const message = await syncTimeWithGoogle();
+                  _ui.instance.alert(_ui.instance.i18n[message]);
+                }
+                return;
+              });
+        }
         return;
       },
       popOut: () => {
         let windowType;
         if (navigator.userAgent.indexOf('Firefox') !== -1) {
           windowType = 'detached_panel';
+        } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+          windowType = 'popup';
         } else {
           windowType = 'panel';
         }

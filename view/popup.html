@@ -77,7 +77,7 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')" v-show="navigator.userAgent.indexOf('Edge') === -1"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
                 <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>

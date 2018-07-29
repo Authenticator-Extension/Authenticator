@@ -2,6 +2,7 @@ node_modules
 build
 chrome
 firefox
+edge
 .vscode
 .atom-build.yml
 ci/authenticator-build-key.enc
