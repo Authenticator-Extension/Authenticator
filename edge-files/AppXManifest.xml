@@ -24,7 +24,21 @@
 
   <Resources>
     <Resource Language="en-us"/>
-  </Resources>
+    <Resource Language="cs"/>
+    <Resource Language="de"/>
+    <Resource Language="es"/>
+    <Resource Language="fr"/>
+    <Resource Language="id"/>
+    <Resource Language="it"/>
+    <Resource Language="ja"/>
+    <Resource Language="pl"/>
+    <Resource Language="ru"/>
+    <Resource Language="sv"/>
+    <Resource Language="tr"/>
+    <Resource Language="vi"/>
+    <Resource Language="zh-cn"/>
+    <Resource Language="zh-tw"/>
+</Resources>
 
   <Applications>
     <Application Id="App">
