@@ -1,5 +1,5 @@
 /* tslint:disable:no-reference */
-/// <reference path="../js/jsqrcode/index.d.ts" />
+/// <reference path="../js/jsQR.d.ts" />
 /// <reference path="./models/encryption.ts" />
 /// <reference path="./models/interface.ts" />
 /// <reference path="./models/storage.ts" />
@@ -47,11 +47,18 @@ function getQr(
           qr, left * devicePixelRatio, top * devicePixelRatio,
           width * devicePixelRatio, height * devicePixelRatio, 0, 0,
           width * devicePixelRatio, height * devicePixelRatio);
-      const url = captureCanvas.toDataURL();
-      qrcode.callback = (text) => {
-        getTotp(text, passphrase);
-      };
-      qrcode.decode(url);
+      const data =
+          ctx.getImageData(0, 0, captureCanvas.width, captureCanvas.height);
+      const url = jsQR(data.data, data.width, data.height);
+      if (!url || !url.data) {
+        const id = contentTab.id;
+        if (!id) {
+          return;
+        }
+        chrome.tabs.sendMessage(id, {action: 'errorqr'});
+        return;
+      }
+      getTotp(url.data, passphrase);
     };
   });
 }
