@@ -50,8 +50,12 @@ function getQr(
       const data =
           ctx.getImageData(0, 0, captureCanvas.width, captureCanvas.height);
       const url = jsQR(data.data, data.width, data.height);
-      console.log(url);
       if (!url || !url.data) {
+        const id = contentTab.id;
+        if (!id) {
+          return;
+        }
+        chrome.tabs.sendMessage(id, {action: 'errorqr'});
         return;
       }
       getTotp(url.data, passphrase);
