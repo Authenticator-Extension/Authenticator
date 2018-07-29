@@ -77,7 +77,7 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')" v-show="!isEdge()"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
                 <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
@@ -113,7 +113,9 @@
                 <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
-                <p><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
+                <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
+                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
+                <p v-else><a v-on:click="createWindow('view/qrdebug.html')">QR Debugging</a></p>
             </div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
@@ -155,9 +157,12 @@
             <!-- EXPORT -->
             <div v-show="info === 'export'">
                 <div id="export_info" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
-                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank">{{ i18n.download_backup }}</a>
+                <a id="download_backup" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank" v-else>{{ i18n.download_backup }}</a>
                 <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" id="download_backup" target="_blank">{{ i18n.download_enc_backup }}</a>
-                <a id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                <a id="import_backup" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
+                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
+                <a id="import_backup" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">

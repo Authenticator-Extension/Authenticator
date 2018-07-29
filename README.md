@@ -13,18 +13,14 @@ Authenticator is one of the [featured extensions on Firefox Add-ons this month](
 ## Build Setup
 
 ``` bash
-# install typescript
-npm install -g typescript
-#install gts
-npm install -g gts
-# install dependencies
+# install typescript and gts
+npm install -g typescript gts
+# install development dependencies
 npm install
-# check typescript style
-gts check
-# try to auto fix style issue
+# fix code style issues
 gts fix
-# compile for Chrome
-npm run chrome
-# compile for Firefox
-npm run firefox
+# compile
+npm run [chrome, firefox, edge]
 ```
+
+Note that Windows users should download [Cygwin](http://cygwin.com/) to build. Building for Edge requires the [Windows App Certification Kit](https://developer.microsoft.com/en-us/windows/develop/app-certification-kit)

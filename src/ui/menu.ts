@@ -56,12 +56,12 @@ function openHelp() {
   let url =
       'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
 
-  if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
-  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
+  if (navigator.userAgent.indexOf('Firefox') !== -1) {
     url =
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+  } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
   window.open(url, '_blank');
@@ -78,6 +78,10 @@ async function menu(_ui: UI) {
     methods: {
       openLink: (url: string) => {
         window.open(url, '_blank');
+        return;
+      },
+      createWindow: (url: string) => {
+        chrome.windows.create({type: 'normal', url});
         return;
       },
       showMenu: () => {
@@ -104,6 +108,17 @@ async function menu(_ui: UI) {
           return false;
         }
       },
+      isEdge: () => {
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      showEdgeBugWarning: () => {
+        _ui.instance.alert(
+            'Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.');
+      },
       saveAutofill: () => {
         localStorage.autofill = _ui.instance.useAutofill;
         useAutofill =
@@ -116,20 +131,27 @@ async function menu(_ui: UI) {
         return;
       },
       syncClock: async () => {
-        chrome.permissions.request(
-            {origins: ['https://www.google.com/']}, async (granted) => {
-              if (granted) {
-                const message = await syncTimeWithGoogle();
-                _ui.instance.alert(_ui.instance.i18n[message]);
-              }
-              return;
-            });
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
+          const message = await syncTimeWithGoogle();
+          _ui.instance.alert(_ui.instance.i18n[message]);
+        } else {
+          chrome.permissions.request(
+              {origins: ['https://www.google.com/']}, async (granted) => {
+                if (granted) {
+                  const message = await syncTimeWithGoogle();
+                  _ui.instance.alert(_ui.instance.i18n[message]);
+                }
+                return;
+              });
+        }
         return;
       },
       popOut: () => {
         let windowType;
         if (navigator.userAgent.indexOf('Firefox') !== -1) {
           windowType = 'detached_panel';
+        } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+          windowType = 'popup';
         } else {
           windowType = 'panel';
         }

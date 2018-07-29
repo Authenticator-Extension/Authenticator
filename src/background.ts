@@ -208,6 +208,9 @@ chrome.runtime.onInstalled.addListener((details) => {
   } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
     url =
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+  } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
   if (url) {

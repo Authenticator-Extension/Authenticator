@@ -490,47 +490,87 @@ async function entry(_ui: UI) {
           return;
         }
 
-        chrome.permissions.request(
-            {permissions: ['clipboardWrite']}, async (granted) => {
-              if (granted) {
-                const codeClipboard = document.getElementById(
-                                          'codeClipboard') as HTMLInputElement;
-                if (!codeClipboard) {
-                  return;
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
+          const codeClipboard =
+              document.getElementById('codeClipboard') as HTMLInputElement;
+          if (!codeClipboard) {
+            return;
+          }
+
+          if (_ui.instance.useAutofill) {
+            await insertContentScript();
+
+            chrome.tabs.query(
+                {active: true, lastFocusedWindow: true}, (tabs) => {
+                  const tab = tabs[0];
+                  if (!tab || !tab.id) {
+                    return;
+                  }
+
+                  chrome.tabs.sendMessage(
+                      tab.id, {action: 'pastecode', code: entry.code});
+                });
+          }
+
+          codeClipboard.value = entry.code;
+          codeClipboard.focus();
+          codeClipboard.select();
+          document.execCommand('Copy');
+          _ui.instance.notification = _ui.instance.i18n.copied;
+          clearTimeout(_ui.instance.notificationTimeout);
+          _ui.instance.class.notificationFadein = true;
+          _ui.instance.class.notificationFadeout = false;
+          _ui.instance.notificationTimeout = setTimeout(() => {
+            _ui.instance.class.notificationFadein = false;
+            _ui.instance.class.notificationFadeout = true;
+            setTimeout(() => {
+              _ui.instance.class.notificationFadeout = false;
+            }, 200);
+          }, 1000);
+        } else {
+          chrome.permissions.request(
+              {permissions: ['clipboardWrite']}, async (granted) => {
+                if (granted) {
+                  const codeClipboard =
+                      document.getElementById('codeClipboard') as
+                      HTMLInputElement;
+                  if (!codeClipboard) {
+                    return;
+                  }
+
+                  if (_ui.instance.useAutofill) {
+                    await insertContentScript();
+
+                    chrome.tabs.query(
+                        {active: true, lastFocusedWindow: true}, (tabs) => {
+                          const tab = tabs[0];
+                          if (!tab || !tab.id) {
+                            return;
+                          }
+
+                          chrome.tabs.sendMessage(
+                              tab.id, {action: 'pastecode', code: entry.code});
+                        });
+                  }
+
+                  codeClipboard.value = entry.code;
+                  codeClipboard.focus();
+                  codeClipboard.select();
+                  document.execCommand('Copy');
+                  _ui.instance.notification = _ui.instance.i18n.copied;
+                  clearTimeout(_ui.instance.notificationTimeout);
+                  _ui.instance.class.notificationFadein = true;
+                  _ui.instance.class.notificationFadeout = false;
+                  _ui.instance.notificationTimeout = setTimeout(() => {
+                    _ui.instance.class.notificationFadein = false;
+                    _ui.instance.class.notificationFadeout = true;
+                    setTimeout(() => {
+                      _ui.instance.class.notificationFadeout = false;
+                    }, 200);
+                  }, 1000);
                 }
-
-                if (_ui.instance.useAutofill) {
-                  await insertContentScript();
-
-                  chrome.tabs.query(
-                      {active: true, lastFocusedWindow: true}, (tabs) => {
-                        const tab = tabs[0];
-                        if (!tab || !tab.id) {
-                          return;
-                        }
-
-                        chrome.tabs.sendMessage(
-                            tab.id, {action: 'pastecode', code: entry.code});
-                      });
-                }
-
-                codeClipboard.value = entry.code;
-                codeClipboard.focus();
-                codeClipboard.select();
-                document.execCommand('Copy');
-                _ui.instance.notification = _ui.instance.i18n.copied;
-                clearTimeout(_ui.instance.notificationTimeout);
-                _ui.instance.class.notificationFadein = true;
-                _ui.instance.class.notificationFadeout = false;
-                _ui.instance.notificationTimeout = setTimeout(() => {
-                  _ui.instance.class.notificationFadein = false;
-                  _ui.instance.class.notificationFadeout = true;
-                  setTimeout(() => {
-                    _ui.instance.class.notificationFadeout = false;
-                  }, 200);
-                }, 1000);
-              }
-            });
+              });
+        }
         return;
       },
     }
