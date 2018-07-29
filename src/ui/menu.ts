@@ -115,6 +115,9 @@ async function menu(_ui: UI) {
           return false;
         }
       },
+      showEdgeBugWarning: () => {
+        _ui.instance.alert("Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.");
+      },
       saveAutofill: () => {
         localStorage.autofill = _ui.instance.useAutofill;
         useAutofill =

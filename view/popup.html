@@ -157,7 +157,8 @@
             <!-- EXPORT -->
             <div v-show="info === 'export'">
                 <div id="export_info" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
-                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank">{{ i18n.download_backup }}</a>
+                <a id="download_backup" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank" v-else>{{ i18n.download_backup }}</a>
                 <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" id="download_backup" target="_blank">{{ i18n.download_enc_backup }}</a>
                 <a id="import_backup" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
