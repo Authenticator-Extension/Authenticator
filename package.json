@@ -10,7 +10,7 @@
     "copyFirefox": "cp -r src build css images js _locales LICENSE view firefox",
     "copyEdge": "cp -r src build css images js _locales LICENSE view edge-files edge/Extension && mv edge/Extension/edge-files/AppXManifest.xml edge && mv edge/Extension/edge-files/icon*.png edge/Assets",
     "packageEdge": "cmd /C \"\"C:\\Program Files (x86)\\Windows Kits\\10\\App Certification Kit\\makeappx.exe\" pack /h SHA256 /d edge /p edge/Authenticator.appx\"",
-    "installEdge": "npm run edge && powershell -Command \"Add-AppxPackage -Path edge\\AppxManifest.xml -Register\"",
+    "installEdge": "rm -rf edge && npm run edge && powershell -Command \"Add-AppxPackage -Path edge\\AppxManifest.xml -Register\"",
     "compile": "gts clean && tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",

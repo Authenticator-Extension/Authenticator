@@ -80,6 +80,10 @@ async function menu(_ui: UI) {
         window.open(url, '_blank');
         return;
       },
+      createWindow: (url: string) => {
+        chrome.windows.create({type: "normal", url: url});
+        return;
+      },
       showMenu: () => {
         _ui.instance.class.slidein = true;
         _ui.instance.class.slideout = false;
@@ -99,6 +103,13 @@ async function menu(_ui: UI) {
       },
       isChrome: () => {
         if (navigator.userAgent.indexOf('Chrome') !== -1) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      isEdge: () => {
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
           return true;
         } else {
           return false;

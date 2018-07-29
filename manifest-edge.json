@@ -49,7 +49,6 @@
     },
     "manifest_version": 2,
     "name": "__MSG_extName__",
-    "offline_enabled": true,
     "permissions": [
         "<all_urls>",
         "storage"
