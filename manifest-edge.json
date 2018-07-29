@@ -54,7 +54,7 @@
         "storage"
     ],
     "short_name": "__MSG_extShortName__",
-    "version": "5.1.0",
+    "version": "5.1.1",
     "web_accessible_resources": [
         "view/qr.html",
         "images/scan.gif"
