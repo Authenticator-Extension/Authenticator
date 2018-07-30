@@ -14,43 +14,44 @@ async function getEntries(encryption: Encryption) {
 async function updateCode(app: any) {
   let second = new Date().getSeconds();
   if (localStorage.offset) {
-    second += Number(localStorage.offset) + 30;
+    // prevent second from negative
+    second += Number(localStorage.offset) + 60;
   }
-  second = second % 30;
-  app.sector = getSector(second);
-  if (second > 25) {
-    app.class.timeout = true;
-  } else {
-    app.class.timeout = false;
+
+  second = second % 60;
+  app.second = second;
+
+  // only when sector is not started (timer is not initialized),
+  // passphrase box should not be shown (no passphrase set) or
+  // there are entiries shown and passphrase box isn't shown (the user has
+  // already provided password)
+  if (!app.sectorStart &&
+      (!app.shouldShowPassphrase ||
+       app.entries.length > 0 && app.info !== 'passphrase')) {
+    app.sectorStart = true;
+    app.sectorOffset = -second;
   }
-  if (second < 1) {
-    const entries = app.entries as OTP[];
-    for (let i = 0; i < entries.length; i++) {
-      if (entries[i].type !== OTPType.hotp &&
-          entries[i].type !== OTPType.hhex) {
-        entries[i].generate();
-      }
+
+  // if (second > 25) {
+  //   app.class.timeout = true;
+  // } else {
+  //   app.class.timeout = false;
+  // }
+  // if (second < 1) {
+  //   const entries = app.entries as OTP[];
+  //   for (let i = 0; i < entries.length; i++) {
+  //     if (entries[i].type !== OTPType.hotp &&
+  //         entries[i].type !== OTPType.hhex) {
+  //       entries[i].generate();
+  //     }
+  //   }
+  // }
+  const entries = app.entries as OTP[];
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].type !== OTPType.hotp && entries[i].type !== OTPType.hhex) {
+      entries[i].generate();
     }
   }
-}
-
-function getSector(second: number) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 40;
-  canvas.height = 40;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) {
-    return;
-  }
-  ctx.fillStyle = '#888';
-  ctx.beginPath();
-  ctx.moveTo(20, 20);
-  ctx.arc(
-      20, 20, 16, second / 30 * Math.PI * 2 - Math.PI / 2, Math.PI * 3 / 2,
-      false);
-  ctx.fill();
-  const url = canvas.toDataURL();
-  return `url(${url}) center / 20px 20px`;
 }
 
 function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
@@ -231,6 +232,9 @@ async function entry(_ui: UI) {
       exportEncryptedFile,
       getFilePassphrase: false,
       sector: '',
+      sectorStart: false,
+      sectorOffset: 0,
+      second: 0,
       notification: '',
       notificationTimeout: 0,
       filter: true,
@@ -277,6 +281,8 @@ async function entry(_ui: UI) {
         }
 
         if (entry.issuer.toLowerCase().includes(
+                _ui.instance.searchText.toLowerCase()) ||
+            entry.account.toLowerCase().includes(
                 _ui.instance.searchText.toLowerCase())) {
           return true;
         } else {
@@ -484,47 +490,87 @@ async function entry(_ui: UI) {
           return;
         }
 
-        chrome.permissions.request(
-            {permissions: ['clipboardWrite']}, async (granted) => {
-              if (granted) {
-                const codeClipboard = document.getElementById(
-                                          'codeClipboard') as HTMLInputElement;
-                if (!codeClipboard) {
-                  return;
+        if (navigator.userAgent.indexOf('Edge') !== -1) {
+          const codeClipboard =
+              document.getElementById('codeClipboard') as HTMLInputElement;
+          if (!codeClipboard) {
+            return;
+          }
+
+          if (_ui.instance.useAutofill) {
+            await insertContentScript();
+
+            chrome.tabs.query(
+                {active: true, lastFocusedWindow: true}, (tabs) => {
+                  const tab = tabs[0];
+                  if (!tab || !tab.id) {
+                    return;
+                  }
+
+                  chrome.tabs.sendMessage(
+                      tab.id, {action: 'pastecode', code: entry.code});
+                });
+          }
+
+          codeClipboard.value = entry.code;
+          codeClipboard.focus();
+          codeClipboard.select();
+          document.execCommand('Copy');
+          _ui.instance.notification = _ui.instance.i18n.copied;
+          clearTimeout(_ui.instance.notificationTimeout);
+          _ui.instance.class.notificationFadein = true;
+          _ui.instance.class.notificationFadeout = false;
+          _ui.instance.notificationTimeout = setTimeout(() => {
+            _ui.instance.class.notificationFadein = false;
+            _ui.instance.class.notificationFadeout = true;
+            setTimeout(() => {
+              _ui.instance.class.notificationFadeout = false;
+            }, 200);
+          }, 1000);
+        } else {
+          chrome.permissions.request(
+              {permissions: ['clipboardWrite']}, async (granted) => {
+                if (granted) {
+                  const codeClipboard =
+                      document.getElementById('codeClipboard') as
+                      HTMLInputElement;
+                  if (!codeClipboard) {
+                    return;
+                  }
+
+                  if (_ui.instance.useAutofill) {
+                    await insertContentScript();
+
+                    chrome.tabs.query(
+                        {active: true, lastFocusedWindow: true}, (tabs) => {
+                          const tab = tabs[0];
+                          if (!tab || !tab.id) {
+                            return;
+                          }
+
+                          chrome.tabs.sendMessage(
+                              tab.id, {action: 'pastecode', code: entry.code});
+                        });
+                  }
+
+                  codeClipboard.value = entry.code;
+                  codeClipboard.focus();
+                  codeClipboard.select();
+                  document.execCommand('Copy');
+                  _ui.instance.notification = _ui.instance.i18n.copied;
+                  clearTimeout(_ui.instance.notificationTimeout);
+                  _ui.instance.class.notificationFadein = true;
+                  _ui.instance.class.notificationFadeout = false;
+                  _ui.instance.notificationTimeout = setTimeout(() => {
+                    _ui.instance.class.notificationFadein = false;
+                    _ui.instance.class.notificationFadeout = true;
+                    setTimeout(() => {
+                      _ui.instance.class.notificationFadeout = false;
+                    }, 200);
+                  }, 1000);
                 }
-
-                if (_ui.instance.useAutofill) {
-                  await insertContentScript();
-
-                  chrome.tabs.query(
-                      {active: true, lastFocusedWindow: true}, (tabs) => {
-                        const tab = tabs[0];
-                        if (!tab || !tab.id) {
-                          return;
-                        }
-
-                        chrome.tabs.sendMessage(
-                            tab.id, {action: 'pastecode', code: entry.code});
-                      });
-                }
-
-                codeClipboard.value = entry.code;
-                codeClipboard.focus();
-                codeClipboard.select();
-                document.execCommand('Copy');
-                _ui.instance.notification = _ui.instance.i18n.copied;
-                clearTimeout(_ui.instance.notificationTimeout);
-                _ui.instance.class.notificationFadein = true;
-                _ui.instance.class.notificationFadeout = false;
-                _ui.instance.notificationTimeout = setTimeout(() => {
-                  _ui.instance.class.notificationFadein = false;
-                  _ui.instance.class.notificationFadeout = true;
-                  setTimeout(() => {
-                    _ui.instance.class.notificationFadeout = false;
-                  }, 200);
-                }, 1000);
-              }
-            });
+              });
+        }
         return;
       },
     }

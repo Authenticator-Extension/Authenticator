@@ -212,7 +212,13 @@ body {
 
 #codes.filter .entry[filtered],
 #codes.search .entry[notSearched] {
-    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+    overflow: hidden;
+    position: absolute;
 }
 
 #filter,
@@ -332,7 +338,7 @@ body {
     display: block;
 }
 
-#codes.timeout .code:not(.hotp) {
+#codes:not(.edit) .code.timeout:not(.hotp) {
     animation: twinkling 1s infinite ease-in-out;
 }
 
@@ -563,9 +569,35 @@ body {
     bottom: 10px;
 }
 
+@keyframes timer {
+    to {
+        stroke-dashoffset: -25.12;
+    }
+}
+
+.sector svg {
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+}
+
+.sector circle {
+    fill: none;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: gray;
+    stroke-width: 8px;
+    stroke-dasharray: 25.12;
+    animation-name: timer;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
 #codes.edit .sector,
 #codes.edit .counter {
-    display: none;
+    position: absolute;
+    left: -1000px;
+    opacity: 0;
 }
 
 #menu {

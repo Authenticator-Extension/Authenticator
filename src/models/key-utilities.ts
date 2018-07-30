@@ -92,7 +92,8 @@ class KeyUtilities {
     return output;
   }
 
-  static generate(type: OTPType, secret: string, counter: number) {
+  static generate(
+      type: OTPType, secret: string, counter: number, period: number) {
     secret = secret.replace(/\s/g, '');
     let len = 6;
     let b26 = false;
@@ -128,7 +129,7 @@ class KeyUtilities {
       if (localStorage.offset) {
         epoch = epoch + Number(localStorage.offset);
       }
-      counter = Math.floor(epoch / 30);
+      counter = Math.floor(epoch / period);
     }
 
     const time = this.leftpad(this.dec2hex(counter), 16, '0');

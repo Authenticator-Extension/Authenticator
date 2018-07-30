@@ -109,14 +109,22 @@ async function init() {
     }
   });
 
+  if (ui.instance.isPopup()) {
+    ui.instance.fixPopupSize();
+  }
+
   return;
 }
 
-chrome.permissions.contains(
-    {origins: ['https://www.google.com/']}, (hasPermission) => {
-      if (hasPermission) {
-        syncTimeWithGoogle();
-      }
-    });
+if (navigator.userAgent.indexOf('Edge') !== -1) {
+  syncTimeWithGoogle();
+} else {
+  chrome.permissions.contains(
+      {origins: ['https://www.google.com/']}, (hasPermission) => {
+        if (hasPermission) {
+          syncTimeWithGoogle();
+        }
+      });
+}
 
 init();

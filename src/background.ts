@@ -80,6 +80,7 @@ async function getTotp(text: string, passphrase: string) {
       let account = '';
       let secret = '';
       let issuer = '';
+      let period: number|undefined = undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -106,6 +107,12 @@ async function getTotp(text: string, passphrase: string) {
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
           counter = (isNaN(counter) || counter < 0) ? 0 : counter;
+        } else if (parameter[0].toLowerCase() === 'period') {
+          period = Number(parameter[1]);
+          period = (isNaN(period) || period < 0 || period > 60 ||
+                    60 % period !== 0) ?
+              undefined :
+              period;
         }
       });
 
@@ -136,6 +143,9 @@ async function getTotp(text: string, passphrase: string) {
           index: 0,
           counter: 0
         };
+        if (period) {
+          entryData[hash].period = period;
+        }
         await EntryStorage.import(encryption, entryData);
         chrome.tabs.sendMessage(id, {action: 'added', account});
       }
@@ -198,6 +208,9 @@ chrome.runtime.onInstalled.addListener((details) => {
   } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
     url =
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+  } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+    url =
+        'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
   if (url) {

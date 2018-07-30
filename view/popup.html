@@ -32,7 +32,7 @@
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <div id="search">
-          <input id="searchInput" v-on:change="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
+          <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
           <div id="searchHint" v-if="typeof searchText !== 'string'">
             <div></div>
             <div id="searchHintBorder">/</div>
@@ -43,13 +43,17 @@
             <!-- ENTRIES -->
             <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
                 <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
-                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-bind:style="{background: sector}"></div>
+                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-show="sectorStart">
+                    <svg viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
+                    </svg>
+                </div>
                 <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
                     <input class="issuerEditBox" placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
-                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code)}" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
                 <div class="account">{{ entry.account }}</div>
                 <div class="accountEdit">
                     <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
@@ -73,7 +77,7 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')" v-show="!isEdge()"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
                 <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
@@ -93,18 +97,25 @@
         <div id="infoContent">
             <!-- ABOUT -->
             <div v-show="info === 'about'">
-                <p><strong>Authenticator</strong> for Google&trade; Authenticator,<br/>&copy; 2018 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p>
-                <p>Google&trade; is Google's trademark, Google Authenticator is Google’s trade name, those rights of ownership belong with Google Inc.</p>
-                <p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a> Copyright jsqrcode authors. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a> Copyright its author. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a> Copyright jsSHA authors. Licensed under the BSD License.</p>
-                <p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a> Copyright qrcode.js author. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright crypto-js author. Licensed under the BSD License.</p>
-                <p><a target='_blank' href='https://www.google.com/fonts/specimen/Droid+Sans+Mono'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
+                <p><strong>Authenticator</strong> &copy; 2018 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p>
+                <p>Google is a trademark of Google LLC.</p>
+                <p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright Jeff Mott. Licensed under the BSD License.</p>
+                <p><a target='_blank' href='http://www.droidfonts.com/'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p>
+                <p><a target='_blank' href='https://github.com/jprichardson/node-fs-extra'>fs-extra</a> Copyright JP Richardson. Licensed under the MIT License.</p>
+                <p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a> Copyright Lazar Laszlo. Licensed under the Apache License.</p>
+                <p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a> Copyright Brian Turek. Licensed under the BSD License.</p>
+                <p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a> Copyright Shim Sangmin. Licensed under the MIT License.</p>
+                <p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a> Copyright Russ Sayers. Licensed under the MIT License.</p>
+                <p><a target='_blank' href='https://github.com/google/ts-style'>ts-style</a> Copyright Google Inc. Licensed under the Apache License.</p>
+                <p><a target='_blank' href='https://github.com/Microsoft/TypeScript'>TypeScript</a> Copyright Microsoft Corporation. Licensed under the Apache License.</p>
+                <p><a target='_blank' href='https://github.com/vuejs/vue'>vue.js</a> Copyright Evan You. Licensed under the MIT License.</p>
+                <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
+                <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
-                <p><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
+                <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
+                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
+                <p v-else><a v-on:click="createWindow('view/qrdebug.html')">QR Debugging</a></p>
             </div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
@@ -146,9 +157,12 @@
             <!-- EXPORT -->
             <div v-show="info === 'export'">
                 <div id="export_info" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
-                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank">{{ i18n.download_backup }}</a>
+                <a id="download_backup" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank" v-else>{{ i18n.download_backup }}</a>
                 <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" id="download_backup" target="_blank">{{ i18n.download_enc_backup }}</a>
-                <a id="import_backup" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
+                <a id="import_backup" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
+                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
+                <a id="import_backup" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
