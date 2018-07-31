@@ -19,5 +19,5 @@ jobs:
       script: bash scripts/i18n.sh
     - stage: deploy
       # release tagging
-      script: bash ci/tag.sh
+      script: bash scripts/tag.sh
       if: branch = release AND type != pull_request
