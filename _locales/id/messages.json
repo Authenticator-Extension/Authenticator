@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " telah ditambahkan.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Halaman popup",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -244,27 +244,27 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Download cadangan dilindungi sandi",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Cari",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Mode popup",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Kunci",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox sync diaktifkan",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Ubah",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -272,7 +272,7 @@
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "IsiOtomatis",
         "description": "Use Autofill"
     }
 }
