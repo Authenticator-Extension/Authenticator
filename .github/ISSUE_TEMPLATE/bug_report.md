@@ -11,5 +11,5 @@ about: Report a bug in Authenticator
 
 
 **Platform:** <This is required>
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+ - Browser: [Chrome, Firefox, Edge]
+ - Browser Version: 
