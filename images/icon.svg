@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+  <!ENTITY ns_svg "http://www.w3.org/2000/svg">
+  <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
+]>
+<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="600" height="600" viewBox="0 0 600 600"
+  overflow="visible" enable-background="new 0 0 600 600" xml:space="preserve">
+<path fill="#FFFFFF" stroke="#000000" stroke-width="5" d="M585.883,515.883c0,38.5-31.5,70-70,70H84.118c-38.5,0-70-31.5-70-70
+  V84.117c0-38.5,31.5-70,70-70h431.765c38.5,0,70,31.5,70,70V515.883z"/>
+<path d="M88.941,89.031v188.235h188.235V89.031H88.941z M241.882,241.972H124.235V124.325h117.646V241.972z"/>
+<rect x="157.176" y="157.266" width="51.765" height="51.765"/>
+<rect x="325.235" y="108.617" width="51.765" height="149.412"/>
+<rect x="418.177" y="207.44" width="51.765" height="51.765"/>
+<rect x="88.94" y="323.264" width="51.765" height="51.765"/>
+<rect x="221.293" y="323.264" width="51.765" height="51.765"/>
+<rect x="169.506" y="375.061" width="51.766" height="51.765"/>
+<rect x="247.116" y="459.205" width="51.766" height="51.765"/>
+<polygon points="120.705,479.205 120.705,416.852 88.94,416.852 88.94,510.97 183.059,510.97 183.059,479.205"/>
+<polygon points="416.941,89.03 416.941,120.795 479.295,120.795 479.295,183.148 511.06,183.148 511.06,89.03"/>
+<path d="M416.354,321.382c-52.305,0-94.706,42.401-94.706,94.706s42.401,94.706,94.706,94.706s94.706-42.401,94.706-94.706 h-94.706V321.382z"/>
+</svg>
