@@ -52,11 +52,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Numele contului",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Emitent",
         "description": "Issuer."
     },
     "secret": {
@@ -64,15 +64,15 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Succes.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Eşec.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Despre",
         "description": "About."
     },
     "export_import": {
@@ -80,31 +80,31 @@
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Setări",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Securitate",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Parola curentă",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Parolă Nouă",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Parolă",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Confirmați parola",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Sunteţi sigur că doriţi să ştergeţi acest secret? Nu se poate recupera după această acţiune.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
