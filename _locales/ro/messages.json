@@ -192,11 +192,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importă copia de rezervă",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importă fisierul de rezervă",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -204,23 +204,23 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Auto Backup pe Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Codul de Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Token-ul de Dropbox",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Conecteaza-te la Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Arată toate intrările",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -236,43 +236,43 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Paraseste Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Șterge",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Descarca Backup protejat prin parolă",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Căutare",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Mod pop-up",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Închide",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Sincronizare Dropbox activata",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Editează",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Sincronizare manuală",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Foloseste Completarea automată",
         "description": "Use Autofill"
     }
 }
