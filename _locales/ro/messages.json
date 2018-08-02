@@ -8,31 +8,31 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Autentificatorul genereaza codurile de verificare pentru al doilea pas in browser-ul dumneavoastra.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " a fost adăugat.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Cod QR nerecunoscut.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Eroare secretă. Doar Base32 (A-Z, 2-7 şi =) şi HEX (0-9 si A-F) sunt acceptate. Cu toate acestea, secretul tău este: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Scanează codul QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Întroducere manuală",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Închide",
         "description": "Close."
     },
     "ok": {
@@ -40,15 +40,15 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Da",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nu",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Cont",
         "description": "Account."
     },
     "accountName": {
