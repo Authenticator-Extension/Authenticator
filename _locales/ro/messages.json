@@ -156,31 +156,31 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Atentie! Ceasul local nu este sincronizat cu ceasul global. Va rugam sa remediati problema înainte de a continua.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Ai o copie de rezervă pentru secretele tale? Nu aştepta până când este prea târziu!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Captură eșuată, vă rugăm să reîncărcați pagina și încercați din nou.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Bazat pe Timp",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Bazat pe Contor",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Pagina pop-up",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Scală",
         "description": "Scale"
     },
     "export_info": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Descarcă copia de rezervă",
         "description": "Download backup file."
     },
     "import_backup": {
