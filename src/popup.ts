@@ -114,7 +114,7 @@ async function init() {
   }
 
   if (ui.instance.isEdge()) {
-    localStorage.storageLocation = 'local'
+    localStorage.storageLocation = 'local';
   }
 
   return;
