@@ -69,7 +69,7 @@ class EntryStorage {
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
-          chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+          chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
             for (const hash of Object.keys(_data)) {
               if (!this.isValidEntry(_data, hash)) {
                 continue;
@@ -89,7 +89,7 @@ class EntryStorage {
         (resolve: (value: {[hash: string]: OTPStorage}) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
                 if (!this.isValidEntry(_data, hash)) {
                   delete _data[hash];
@@ -127,7 +127,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(data)) {
                 // never trust data import from user
                 // we do not support encrypted data import any longer
@@ -197,7 +197,7 @@ class EntryStorage {
                 }
               }
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              chrome.storage.local.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -210,7 +210,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry has already existed.');
               }
@@ -218,7 +218,7 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              chrome.storage.local.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -231,7 +231,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               if (!_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry is not existing.');
               }
@@ -239,7 +239,7 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              chrome.storage.local.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -252,14 +252,14 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               entries.forEach(entry => {
                 const storageItem =
                     this.getOTPStorageFromEntry(encryption, entry);
                 _data[entry.hash] = storageItem;
               });
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              chrome.storage.local.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -273,7 +273,7 @@ class EntryStorage {
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get(
+            chrome.storage.local.get(
                 async (_data: {[hash: string]: OTPStorage}) => {
                   const data: OTPEntry[] = [];
                   for (const hash of Object.keys(_data)) {
@@ -420,7 +420,7 @@ class EntryStorage {
   static async remove(hash: string) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
-          return chrome.storage.sync.remove(hash, resolve);
+          return chrome.storage.local.remove(hash, resolve);
         });
   }
 
@@ -428,13 +428,13 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            chrome.storage.local.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 delete _data[entry.hash];
               }
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.remove(entry.hash, () => {
-                chrome.storage.sync.set(_data, resolve);
+              chrome.storage.local.remove(entry.hash, () => {
+                chrome.storage.local.set(_data, resolve);
               });
               return;
             });

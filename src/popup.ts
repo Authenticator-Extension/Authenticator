@@ -113,6 +113,10 @@ async function init() {
     ui.instance.fixPopupSize();
   }
 
+  if (ui.instance.isEdge()) {
+    localStorage.storageLocation = 'local'
+  }
+
   return;
 }
 

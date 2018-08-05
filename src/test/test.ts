@@ -246,7 +246,7 @@ function testFinished() {
 async function clear() {
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
     try {
-      chrome.storage.sync.clear(resolve);
+      chrome.storage.local.clear(resolve);
     } catch (error) {
       reject(error);
     }
@@ -258,7 +258,7 @@ async function get<T>() {
       (resolve: (items: {[key: string]: T}) => void,
        reject: (reason: Error) => void) => {
         try {
-          chrome.storage.sync.get(resolve);
+          chrome.storage.local.get(resolve);
         } catch (error) {
           reject(error);
         }
@@ -269,7 +269,7 @@ async function set(items: {[key: string]: {}}) {
   /* tslint:disable-next-line:no-any */
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
     try {
-      chrome.storage.sync.set(items, resolve);
+      chrome.storage.local.set(items, resolve);
     } catch (error) {
       reject(error);
     }
