@@ -1,21 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
-  <!ENTITY ns_svg "http://www.w3.org/2000/svg">
-  <!ENTITY ns_xlink "http://www.w3.org/1999/xlink">
-]>
-<svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="600" height="600" viewBox="0 0 600 600"
-  overflow="visible" enable-background="new 0 0 600 600" xml:space="preserve">
-<path fill="#FFFFFF" stroke="#000000" stroke-width="5" d="M585.883,515.883c0,38.5-31.5,70-70,70H84.118c-38.5,0-70-31.5-70-70
-  V84.117c0-38.5,31.5-70,70-70h431.765c38.5,0,70,31.5,70,70V515.883z"/>
-<path d="M88.941,89.031v188.235h188.235V89.031H88.941z M241.882,241.972H124.235V124.325h117.646V241.972z"/>
-<rect x="157.176" y="157.266" width="51.765" height="51.765"/>
-<rect x="325.235" y="108.617" width="51.765" height="149.412"/>
-<rect x="418.177" y="207.44" width="51.765" height="51.765"/>
-<rect x="88.94" y="323.264" width="51.765" height="51.765"/>
-<rect x="221.293" y="323.264" width="51.765" height="51.765"/>
-<rect x="169.506" y="375.061" width="51.766" height="51.765"/>
-<rect x="247.116" y="459.205" width="51.766" height="51.765"/>
-<polygon points="120.705,479.205 120.705,416.852 88.94,416.852 88.94,510.97 183.059,510.97 183.059,479.205"/>
-<polygon points="416.941,89.03 416.941,120.795 479.295,120.795 479.295,183.148 511.06,183.148 511.06,89.03"/>
-<path d="M416.354,321.382c-52.305,0-94.706,42.401-94.706,94.706s42.401,94.706,94.706,94.706s94.706-42.401,94.706-94.706 h-94.706V321.382z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" enable-background="new 0 0 600 600" overflow="visible" version="1.1" viewBox="0 0 600 600" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="linearGradient" x1="300" x2="300" y1="586.5" y2="13.238" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#f9f9f9" offset="0"/>
+            <stop stop-color="#fff" offset="1"/>
+        </linearGradient>
+    </defs>
+    <path d="m585 515.22c0 38.381-31.403 69.784-69.784 69.784h-430.43c-38.381 0-69.784-31.403-69.784-69.784v-430.44c0-38.381 31.403-69.784 69.784-69.784h430.43c38.381 0 69.784 31.403 69.784 69.784z" fill="url(#linearGradient)" stroke="#ccc" stroke-width="10"/>
+    <g fill="#2d2d2d">
+        <path d="m88.941 73.321v188.24h188.24v-188.24h-188.24zm152.94 152.94h-117.65v-117.65h117.65v117.65z"/>
+        <rect x="157.18" y="141.56" width="51.765" height="51.765"/>
+        <rect x="325.24" y="92.907" width="51.765" height="149.41"/>
+        <rect x="418.18" y="191.73" width="51.765" height="51.765"/>
+        <rect x="88.94" y="307.55" width="51.765" height="51.765"/>
+        <rect x="221.29" y="307.55" width="51.765" height="51.765"/>
+        <rect x="169.51" y="359.35" width="51.766" height="51.765"/>
+        <rect x="247.12" y="443.5" width="51.766" height="51.765"/>
+        <polygon points="120.7 463.5 120.7 401.14 88.94 401.14 88.94 495.26 183.06 495.26 183.06 463.5"/>
+        <polygon points="416.94 73.32 416.94 105.08 479.3 105.08 479.3 167.44 511.06 167.44 511.06 73.32"/>
+        <path d="m416.35 305.67c-52.305 0-94.706 42.401-94.706 94.706s42.401 94.706 94.706 94.706 94.706-42.401 94.706-94.706h-94.706v-94.706z"/>
+    </g>
+    <path d="m14.998 484.72v30.492c0 38.381 31.404 69.785 69.785 69.785h430.43c38.381 0 69.785-31.404 69.785-69.785v-30.492c-0.24969 36.499-31.546 66.289-69.775 66.289h-430.45c-38.229 0-69.529-29.79-69.775-66.289z" fill="#ccc"/>
 </svg>
