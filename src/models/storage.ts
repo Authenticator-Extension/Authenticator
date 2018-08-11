@@ -17,9 +17,9 @@ class BrowserStorage {
               sync = Object.keys(s).length;
               // If storage location can't be found try to auto-detect storage
               // location
-              if (local > sync) {
+              if (local > sync && sync === 0) {
                 localStorage.storageLocation = 'local';
-              } else if (local < sync) {
+              } else if (local < sync && local === 0) {
                 localStorage.storageLocation = 'sync';
               } else {
                 // No or duplicate user data, use defualt
