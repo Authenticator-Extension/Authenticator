@@ -8,21 +8,21 @@ class BrowserStorage {
     if (localStorage.storageLocation !== 'sync' &&
         localStorage.storageLocation !== 'local') {
       return new Promise((resolve, reject) => {
-        let sync: number;
-        let local: number;
-        chrome.storage.local.get((l) => {
-          local = Object.keys(l).length;
+        let amountSync: number;
+        let amountLocal: number;
+        chrome.storage.local.get((local) => {
+          amountLocal = Object.keys(local).length;
           try {
-            chrome.storage.sync.get((s) => {
-              sync = Object.keys(s).length;
+            chrome.storage.sync.get((sync) => {
+              amountSync = Object.keys(sync).length;
               // If storage location can't be found try to auto-detect storage
               // location
-              if (local > sync && sync === 0) {
+              if (amountLocal > amountSync && amountSync === 0) {
                 localStorage.storageLocation = 'local';
-              } else if (local < sync && local === 0) {
+              } else if (amountLocal < amountSync && amountLocal === 0) {
                 localStorage.storageLocation = 'sync';
               } else {
-                // No or duplicate user data, use defualt
+                // Use default
                 if (navigator.userAgent.indexOf('Edge') !== -1) {
                   localStorage.storageLocation = 'local';
                 } else {
@@ -30,15 +30,18 @@ class BrowserStorage {
                 }
               }
               resolve(localStorage.storageLocation);
+              return;
             });
           } catch (error) {
             reject(error);
+            return;
           }
         });
       });
     } else {
       return new Promise((resolve) => {
         resolve(localStorage.storageLocation);
+        return;
       });
     }
   }
