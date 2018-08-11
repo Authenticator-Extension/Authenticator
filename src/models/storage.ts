@@ -5,7 +5,8 @@
 
 class BrowserStorage {
   private static getStorageLocation() {
-    if (localStorage.storageLocation !== 'sync' && localStorage.storageLocation !== 'local') {
+    if (localStorage.storageLocation !== 'sync' &&
+        localStorage.storageLocation !== 'local') {
       return new Promise((resolve, reject) => {
         let sync: number;
         let local: number;
@@ -14,7 +15,8 @@ class BrowserStorage {
           try {
             chrome.storage.sync.get((s) => {
               sync = Object.keys(s).length;
-              // If storage location can't be found try to auto-detect storage location
+              // If storage location can't be found try to auto-detect storage
+              // location
               if (local > sync) {
                 localStorage.storageLocation = 'local';
               } else if (local < sync) {
@@ -28,16 +30,16 @@ class BrowserStorage {
                 }
               }
               resolve(localStorage.storageLocation);
-            })
+            });
           } catch (error) {
             reject(error);
           }
-        })
-      })
+        });
+      });
     } else {
       return new Promise((resolve) => {
         resolve(localStorage.storageLocation);
-      })
+      });
     }
   }
 
@@ -48,30 +50,27 @@ class BrowserStorage {
       chrome.storage.local.get(callback);
     } else if (storageLocation === 'sync') {
       chrome.storage.sync.get(callback);
-    } 
+    }
     return;
   }
 
-  static async set(data: object, callback?: (() => void) | undefined) {
+  static async set(data: object, callback?: (() => void)|undefined) {
     const storageLocation = await this.getStorageLocation();
     if (storageLocation === 'local') {
       chrome.storage.local.set(data, callback);
     } else if (storageLocation === 'sync') {
       chrome.storage.sync.set(data, callback);
-    } else {
-      console.log("No storage location set")
     }
     return;
   }
 
-  static async remove(data: string | string[], callback?: (() => void) | undefined) {
+  static async remove(
+      data: string|string[], callback?: (() => void)|undefined) {
     const storageLocation = await this.getStorageLocation();
     if (storageLocation === 'local') {
       chrome.storage.local.remove(data, callback);
     } else if (storageLocation === 'sync') {
       chrome.storage.sync.remove(data, callback);
-    } else {
-      console.log("No storage location set")
     }
     return;
   }
