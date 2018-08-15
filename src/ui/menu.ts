@@ -174,10 +174,14 @@ async function menu(_ui: UI) {
         const correctWidth = 320 * zoom;
         if (window.innerHeight !== correctHeight ||
             window.innerWidth !== correctWidth) {
-          chrome.windows.getCurrent((currentWindow) => {
-            chrome.windows.update(
-                currentWindow.id, {height: correctHeight, width: correctWidth});
-          });
+          // window update to correct size
+          const adjustedHeight =
+              correctHeight + (window.outerHeight - window.innerHeight);
+          const adjustedWidth =
+              correctWidth + (window.outerWidth - window.innerWidth);
+          chrome.windows.update(
+              chrome.windows.WINDOW_ID_CURRENT,
+              {height: adjustedHeight, width: adjustedWidth});
         }
       },
       dropboxUpload: async () => {
