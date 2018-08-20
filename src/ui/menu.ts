@@ -75,7 +75,7 @@ async function menu(_ui: UI) {
   let useAutofill = (localStorage.autofill === 'true');
 
   const ui: UIConfig = {
-    data: {version, zoom, useAutofill},
+    data: {version, zoom, useAutofill, currentStorageLocation: localStorage.storageLocation},
     methods: {
       openLink: (url: string) => {
         window.open(url, '_blank');

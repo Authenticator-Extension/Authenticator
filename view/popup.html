@@ -77,7 +77,7 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')" v-show="!isEdge()"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.storage_menu" id="menuStorage" v-on:click="showInfo('storage')" v-show="!isEdge()"><i class="fa fa-database"></i>{{ i18n.storage_menu }}</p>
                 <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
@@ -176,6 +176,20 @@
                       <textarea type="text" id="token_input" v-model="dropboxToken" disabled></textarea></textarea>
                     -->
                 </div>
+            </div>
+            <!-- STORAGE & SYNC SETTINGS -->
+            <div v-show="info === 'storage'">
+                <!-- Storage Settings -->
+                <div id="storage_location_info">{{ i18n.storage_location_info }}</div>
+                <label for="storage_location" id="storage_location_label">{{ i18n.storage_location }}</label>
+                <select id="storage_location" v-model="currentStorageLocation" v-on:change="">
+                    <option value="sync">sync</option>
+                    <option value="local">local</option>
+                </select>
+                <!-- 3rd Party Backup Services -->
+                <div id="storage_sync_info">{{ i18n.storage_sync_info }}</div>
+                <p></p>
+                <div id="dropbox_menu" v-on:click="showInfo('dropbox')">{{ i18n.dropbox_backup }}</div>
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
