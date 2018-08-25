@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Eksport \/ Import",
+        "message": "Eksport / Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -274,5 +274,21 @@
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
+    },
+    "storage_menu": {
+        "message": "Storage & Backup",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "Automatically backup your data to 3rd party storgae services.",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "Storage Location",
+        "description": "Storage location"
     }
 }
