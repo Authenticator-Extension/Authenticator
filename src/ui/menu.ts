@@ -11,7 +11,8 @@ async function syncTimeWithGoogle() {
   return new Promise(
       (resolve: (value: string) => void, reject: (reason: Error) => void) => {
         try {
-          const xhr = new XMLHttpRequest();
+          // @ts-ignore
+          const xhr = new XMLHttpRequest({'mozAnon': true});
           xhr.open('HEAD', 'https://www.google.com/generate_204');
           const xhrAbort = setTimeout(() => {
             xhr.abort();
@@ -173,10 +174,14 @@ async function menu(_ui: UI) {
         const correctWidth = 320 * zoom;
         if (window.innerHeight !== correctHeight ||
             window.innerWidth !== correctWidth) {
-          chrome.windows.getCurrent((currentWindow) => {
-            chrome.windows.update(
-                currentWindow.id, {height: correctHeight, width: correctWidth});
-          });
+          // window update to correct size
+          const adjustedHeight =
+              correctHeight + (window.outerHeight - window.innerHeight);
+          const adjustedWidth =
+              correctWidth + (window.outerWidth - window.innerWidth);
+          chrome.windows.update(
+              chrome.windows.WINDOW_ID_CURRENT,
+              {height: adjustedHeight, width: adjustedWidth});
         }
       },
       dropboxUpload: async () => {

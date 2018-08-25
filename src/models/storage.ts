@@ -3,6 +3,82 @@
 /// <reference path="./interface.ts" />
 /// <reference path="./otp.ts" />
 
+class BrowserStorage {
+  private static getStorageLocation() {
+    if (localStorage.storageLocation !== 'sync' &&
+        localStorage.storageLocation !== 'local') {
+      return new Promise((resolve, reject) => {
+        let amountSync: number;
+        let amountLocal: number;
+        chrome.storage.local.get((local) => {
+          amountLocal = Object.keys(local).length;
+          try {
+            chrome.storage.sync.get((sync) => {
+              amountSync = Object.keys(sync).length;
+              // If storage location can't be found try to auto-detect storage
+              // location
+              if (amountLocal > amountSync && amountSync === 0) {
+                localStorage.storageLocation = 'local';
+              } else if (amountLocal < amountSync && amountLocal === 0) {
+                localStorage.storageLocation = 'sync';
+              } else {
+                // Use default
+                if (navigator.userAgent.indexOf('Edge') !== -1) {
+                  localStorage.storageLocation = 'local';
+                } else {
+                  localStorage.storageLocation = 'sync';
+                }
+              }
+              resolve(localStorage.storageLocation);
+              return;
+            });
+          } catch (error) {
+            reject(error);
+            return;
+          }
+        });
+      });
+    } else {
+      return new Promise((resolve) => {
+        resolve(localStorage.storageLocation);
+        return;
+      });
+    }
+  }
+
+  /* tslint:disable-next-line:no-any */
+  static async get(callback: (items: {[key: string]: any;}) => void) {
+    const storageLocation = await this.getStorageLocation();
+    if (storageLocation === 'local') {
+      chrome.storage.local.get(callback);
+    } else if (storageLocation === 'sync') {
+      chrome.storage.sync.get(callback);
+    }
+    return;
+  }
+
+  static async set(data: object, callback?: (() => void)|undefined) {
+    const storageLocation = await this.getStorageLocation();
+    if (storageLocation === 'local') {
+      chrome.storage.local.set(data, callback);
+    } else if (storageLocation === 'sync') {
+      chrome.storage.sync.set(data, callback);
+    }
+    return;
+  }
+
+  static async remove(
+      data: string|string[], callback?: (() => void)|undefined) {
+    const storageLocation = await this.getStorageLocation();
+    if (storageLocation === 'local') {
+      chrome.storage.local.remove(data, callback);
+    } else if (storageLocation === 'sync') {
+      chrome.storage.sync.remove(data, callback);
+    }
+    return;
+  }
+}
+
 class EntryStorage {
   private static getOTPStorageFromEntry(
       encryption: Encryption, entry: OTPEntry): OTPStorage {
@@ -69,7 +145,7 @@ class EntryStorage {
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
-          chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+          BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
             for (const hash of Object.keys(_data)) {
               if (!this.isValidEntry(_data, hash)) {
                 continue;
@@ -89,7 +165,7 @@ class EntryStorage {
         (resolve: (value: {[hash: string]: OTPStorage}) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(_data)) {
                 if (!this.isValidEntry(_data, hash)) {
                   delete _data[hash];
@@ -127,7 +203,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               for (const hash of Object.keys(data)) {
                 // never trust data import from user
                 // we do not support encrypted data import any longer
@@ -197,7 +273,7 @@ class EntryStorage {
                 }
               }
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              BrowserStorage.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -210,7 +286,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry has already existed.');
               }
@@ -218,7 +294,7 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              BrowserStorage.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -231,7 +307,7 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               if (!_data.hasOwnProperty(entry.hash)) {
                 throw new Error('The specific entry is not existing.');
               }
@@ -239,7 +315,7 @@ class EntryStorage {
                   this.getOTPStorageFromEntry(encryption, entry);
               _data[entry.hash] = storageItem;
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              BrowserStorage.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -252,14 +328,14 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               entries.forEach(entry => {
                 const storageItem =
                     this.getOTPStorageFromEntry(encryption, entry);
                 _data[entry.hash] = storageItem;
               });
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.set(_data, resolve);
+              BrowserStorage.set(_data, resolve);
             });
             return;
           } catch (error) {
@@ -273,143 +349,138 @@ class EntryStorage {
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get(
-                async (_data: {[hash: string]: OTPStorage}) => {
-                  const data: OTPEntry[] = [];
-                  for (const hash of Object.keys(_data)) {
-                    if (!this.isValidEntry(_data, hash)) {
-                      continue;
-                    }
-                    const entryData = _data[hash];
-                    let needMigrate = false;
+            BrowserStorage.get(async (_data: {[hash: string]: OTPStorage}) => {
+              const data: OTPEntry[] = [];
+              for (const hash of Object.keys(_data)) {
+                if (!this.isValidEntry(_data, hash)) {
+                  continue;
+                }
+                const entryData = _data[hash];
+                let needMigrate = false;
 
-                    if (!entryData.hash) {
-                      entryData.hash = hash;
-                      needMigrate = true;
-                    }
+                if (!entryData.hash) {
+                  entryData.hash = hash;
+                  needMigrate = true;
+                }
 
-                    if (!entryData.type) {
-                      entryData.type = OTPType[OTPType.totp];
-                      needMigrate = true;
-                    }
+                if (!entryData.type) {
+                  entryData.type = OTPType[OTPType.totp];
+                  needMigrate = true;
+                }
 
-                    let type: OTPType;
-                    switch (entryData.type) {
-                      case 'totp':
-                      case 'hotp':
-                      case 'battle':
-                      case 'steam':
-                      case 'hex':
-                      case 'hhex':
-                        type = OTPType[entryData.type];
-                        break;
-                      default:
-                        // we need correct the type here
-                        // and save it
-                        type = OTPType.totp;
-                        entryData.type = OTPType[OTPType.totp];
-                        needMigrate = true;
-                    }
+                let type: OTPType;
+                switch (entryData.type) {
+                  case 'totp':
+                  case 'hotp':
+                  case 'battle':
+                  case 'steam':
+                  case 'hex':
+                  case 'hhex':
+                    type = OTPType[entryData.type];
+                    break;
+                  default:
+                    // we need correct the type here
+                    // and save it
+                    type = OTPType.totp;
+                    entryData.type = OTPType[OTPType.totp];
+                    needMigrate = true;
+                }
 
-                    let period = 30;
-                    if (entryData.type === OTPType[OTPType.totp] &&
-                        entryData.period && entryData.period > 0) {
-                      period = entryData.period;
-                    }
+                let period = 30;
+                if (entryData.type === OTPType[OTPType.totp] &&
+                    entryData.period && entryData.period > 0) {
+                  period = entryData.period;
+                }
 
-                    entryData.secret = entryData.encrypted ?
-                        encryption.getDecryptedSecret(entryData.secret, hash) :
-                        entryData.secret;
+                entryData.secret = entryData.encrypted ?
+                    encryption.getDecryptedSecret(entryData.secret, hash) :
+                    entryData.secret;
 
-                    // we need migrate secret in old format here
-                    if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
-                      const secretMatches =
-                          entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
-                      if (secretMatches && secretMatches.length >= 3) {
-                        entryData.secret = secretMatches[2];
-                        entryData.type = OTPType[OTPType.battle];
-                        entryData.hash =
-                            CryptoJS.MD5(entryData.secret).toString();
-                        await this.remove(hash);
-                        needMigrate = true;
-                      }
-                    }
-
-                    if (/^stm\-/.test(entryData.secret)) {
-                      const secretMatches =
-                          entryData.secret.match(/^stm\-(.*)/);
-                      if (secretMatches && secretMatches.length >= 2) {
-                        entryData.secret = secretMatches[1];
-                        entryData.type = OTPType[OTPType.steam];
-                        entryData.hash =
-                            CryptoJS.MD5(entryData.secret).toString();
-                        await this.remove(hash);
-                        needMigrate = true;
-                      }
-                    }
-
-                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
-                        /^[0-9a-f]+$/i.test(entryData.secret) &&
-                        entryData.type === OTPType[OTPType.totp]) {
-                      entryData.type = OTPType[OTPType.hex];
-                      needMigrate = true;
-                    }
-
-                    if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
-                        /^[0-9a-f]+$/i.test(entryData.secret) &&
-                        entryData.type === OTPType[OTPType.hotp]) {
-                      entryData.type = OTPType[OTPType.hhex];
-                      needMigrate = true;
-                    }
-
-                    const entry = new OTPEntry(
-                        type, entryData.issuer, entryData.secret,
-                        entryData.account, entryData.index, entryData.counter,
-                        period, entryData.hash);
-                    data.push(entry);
-
-                    // <del>we need correct the hash</del>
-
-                    // Do not correct hash, wrong password
-                    // may not only 'Encrypted', but also
-                    // other wrong secret. We cannot know
-                    // if the hash doesn't match the correct
-                    // secret
-
-                    // Only correct invalid hash here
-
-                    if (entry.secret !== 'Encrypted' &&
-                        !/^[0-9a-f]{32}$/.test(hash)) {
-                      const _hash = CryptoJS.MD5(entryData.secret).toString();
-                      if (hash !== _hash) {
-                        await this.remove(hash);
-                        entryData.hash = _hash;
-                        needMigrate = true;
-                      }
-                    }
-
-                    if (needMigrate) {
-                      const _entry: {[hash: string]: OTPStorage} = {};
-                      _entry[entryData.hash] = entryData;
-                      _entry[entryData.hash].encrypted = false;
-                      this.import(encryption, _entry);
-                    }
+                // we need migrate secret in old format here
+                if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
+                  const secretMatches =
+                      entryData.secret.match(/^(blz\-|bliz\-)(.*)/);
+                  if (secretMatches && secretMatches.length >= 3) {
+                    entryData.secret = secretMatches[2];
+                    entryData.type = OTPType[OTPType.battle];
+                    entryData.hash = CryptoJS.MD5(entryData.secret).toString();
+                    await this.remove(hash);
+                    needMigrate = true;
                   }
+                }
 
-                  data.sort((a, b) => {
-                    return a.index - b.index;
-                  });
-
-                  for (let i = 0; i < data.length; i++) {
-                    if (data[i].index !== i) {
-                      const exportData = await this.getExport(encryption);
-                      await this.import(encryption, exportData);
-                      break;
-                    }
+                if (/^stm\-/.test(entryData.secret)) {
+                  const secretMatches = entryData.secret.match(/^stm\-(.*)/);
+                  if (secretMatches && secretMatches.length >= 2) {
+                    entryData.secret = secretMatches[1];
+                    entryData.type = OTPType[OTPType.steam];
+                    entryData.hash = CryptoJS.MD5(entryData.secret).toString();
+                    await this.remove(hash);
+                    needMigrate = true;
                   }
+                }
 
-                  return resolve(data);
-                });
+                if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                    /^[0-9a-f]+$/i.test(entryData.secret) &&
+                    entryData.type === OTPType[OTPType.totp]) {
+                  entryData.type = OTPType[OTPType.hex];
+                  needMigrate = true;
+                }
+
+                if (!/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+                    /^[0-9a-f]+$/i.test(entryData.secret) &&
+                    entryData.type === OTPType[OTPType.hotp]) {
+                  entryData.type = OTPType[OTPType.hhex];
+                  needMigrate = true;
+                }
+
+                const entry = new OTPEntry(
+                    type, entryData.issuer, entryData.secret, entryData.account,
+                    entryData.index, entryData.counter, period, entryData.hash);
+                data.push(entry);
+
+                // <del>we need correct the hash</del>
+
+                // Do not correct hash, wrong password
+                // may not only 'Encrypted', but also
+                // other wrong secret. We cannot know
+                // if the hash doesn't match the correct
+                // secret
+
+                // Only correct invalid hash here
+
+                if (entry.secret !== 'Encrypted' &&
+                    !/^[0-9a-f]{32}$/.test(hash)) {
+                  const _hash = CryptoJS.MD5(entryData.secret).toString();
+                  if (hash !== _hash) {
+                    await this.remove(hash);
+                    entryData.hash = _hash;
+                    needMigrate = true;
+                  }
+                }
+
+                if (needMigrate) {
+                  const _entry: {[hash: string]: OTPStorage} = {};
+                  _entry[entryData.hash] = entryData;
+                  _entry[entryData.hash].encrypted = false;
+                  this.import(encryption, _entry);
+                }
+              }
+
+              data.sort((a, b) => {
+                return a.index - b.index;
+              });
+
+              for (let i = 0; i < data.length; i++) {
+                if (data[i].index !== i) {
+                  const exportData = await this.getExport(encryption);
+                  await this.import(encryption, exportData);
+                  break;
+                }
+              }
+
+              return resolve(data);
+            });
             return;
           } catch (error) {
             return reject(error);
@@ -420,7 +491,7 @@ class EntryStorage {
   static async remove(hash: string) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
-          return chrome.storage.sync.remove(hash, resolve);
+          return BrowserStorage.remove(hash, resolve);
         });
   }
 
@@ -428,13 +499,13 @@ class EntryStorage {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
-            chrome.storage.sync.get((_data: {[hash: string]: OTPStorage}) => {
+            BrowserStorage.get((_data: {[hash: string]: OTPStorage}) => {
               if (_data.hasOwnProperty(entry.hash)) {
                 delete _data[entry.hash];
               }
               _data = this.ensureUniqueIndex(_data);
-              chrome.storage.sync.remove(entry.hash, () => {
-                chrome.storage.sync.set(_data, resolve);
+              BrowserStorage.remove(entry.hash, () => {
+                BrowserStorage.set(_data, resolve);
               });
               return;
             });
