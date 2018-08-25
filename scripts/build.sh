@@ -7,6 +7,7 @@
 #   'chrome', 'firefox', and 'edge'
 
 PLATFORM=$1
+set -e
 
 if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]]; then
   echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', and 'edge'"
@@ -17,7 +18,12 @@ echo "Removing old build files..."
 rm -rf build
 rm -rf $PLATFORM
 echo "Checking code style..."
-gts check
+if gts check ; then
+  echo
+else
+  echo "Fixing code style..."
+  gts fix
+fi
 echo "Compiling..."
 npm run compile
 mkdir $PLATFORM

@@ -182,7 +182,7 @@
                 <!-- Storage Settings -->
                 <div id="storage_location_info">{{ i18n.storage_location_info }}</div>
                 <label for="storage_location" id="storage_location_label">{{ i18n.storage_location }}</label>
-                <select id="storage_location" v-model="currentStorageLocation" v-on:change="">
+                <select id="storage_location" v-model="newStorageLocation" v-on:change="migrateStorage()">
                     <option value="sync">sync</option>
                     <option value="local">local</option>
                 </select>
