@@ -108,171 +108,171 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για να κρυπτογραφήσετε τα μυστικά σας. Κανείς δεν μπορεί να σας βοηθήσει εάν ξεχάσετε τον κωδικό πρόσβασης.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Ενημέρωση",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Το Συνθηματικό δεν ταιριάζει",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Κρυπτογραφημένο",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Αντιγράφηκε",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Αξιολόγηση",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Μετάφραση",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Πηγαίος Κώδικας",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Εισάγετε κωδικό πρόσβασης για να αποκρυπτογραφήσει τα δεδομένα του λογαριασμού.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Συγχρονισμός ρολογιού με την Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Απομνημόνευση κωδικού πρόσβασης",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "ΠΡΟΣΟΧΗ! Τοπικό ρολόι σας είναι πάρα πολύ μακριά, παρακαλώ διορθώστε το πριν να συνεχίσετε.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Έχετε ένα αντίγραφο ασφαλείας για τα μυστικά σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Η καταγραφή απέτυχε, επαναλάβετε τη φόρτωση της σελίδας και προσπαθήστε ξανά.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Βάσει χρόνου",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Με μετρητή",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Αναδυόμενο σελίδα",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Κλίμακα",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Προειδοποίηση: όλα τα αντίγραφα ασφαλείας είναι κρυπτογραφημένη. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Καταδείξτε επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και πάτα το κουμπί κρυφό.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Λήψη αντιγράφου ασφαλείας",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Εισαγωγή αντιγράφου ασφαλείας",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Εισαγωγή αντιγράφου ασφαλείας",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Εισαγωγή αντιγράφων κειμένου",
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Auto Backup to Dropbox",
+        "message": "Αυτόματη δημιουργία αντιγράφων ασφαλείας στο Dropbox",
         "description": "Auto backup to Dropbox."
     },
     "dropbox_code": {
-        "message": "Dropbox Code",
+        "message": "Κωδικός Dropbox",
         "description": "Dropbox code."
     },
     "dropbox_token": {
-        "message": "Dropbox Token",
+        "message": "Διακριτικό Dropbox",
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Εισέλθετε στο Dropbox",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Δείτε όλες τις καταχωρήσεις",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
+        "message": "ΠΡΟΣΟΧΗ: τα αντίγραφα ασφαλείας αποθηκεύονται στο Dropbox είναι κρυπτογραφημένη. Χρησιμοποιήστε το με δική σας ευθύνη.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Πρέπει να παρέχετε το σωστό κωδικό πρόσβασης για να εισαγάγετε τα αντίγραφα ασφαλείας.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Τον κωδικό πρόσβασής σας είναι αποθηκευμένη τοπικά, παρακαλούμε αμέσως να το αλλάξετε από το μενού ασφάλεια.",
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Αποσύνδεση του Dropbox",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Αφαίρεση",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Λήψη αντιγράφων ασφαλείας που προστατεύεται με κωδικό πρόσβασης",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Αναζήτηση",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Αναδυόμενο παράθυρο λειτουργίας",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Κλείδωμα",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Συγχρονισμός Dropbox ενεργοποιημένη",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Επεξεργασία",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Χειροκίνητος συγχρονισμός",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Χρήση της αυτόματης συμπλήρωσης",
         "description": "Use Autofill"
     }
 }
