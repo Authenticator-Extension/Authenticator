@@ -8,103 +8,103 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Ο Επαληθευτής δημιουργεί κωδικούς επαλήθευσης σε 2 βήματα στο πρόγραμμα περιήγησης.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": "έχει προστεθεί.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Μη αναγνωρισμένος κώδικας QR.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Μυστικό σφάλμα. Υποστηρίζονται μόνο τα Base32 (A-Z, 2-7 και =) και HEX (0-9 και A-F). Ωστόσο, το μυστικό σας είναι:",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Σάρωση QR κωδικού",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Χειροκίνητη εισαγωγή",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Κλείσιμο",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Εντάξει",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ναι",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Όχι",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Λογαριασμός",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Όνομα Λογαριασμού",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Εκδότης",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Μυστικό",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Επιτυχία",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Αποτυχία",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Σχετικά",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Εξαγωγή\/εισαγωγή",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Ρυθμίσεις",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Ασφάλεια",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Τρέχον Κωδικός",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Νέος κωδικός πρόσβασης",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Κωδικός πρόσβασης",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Επιβεβαίωση Κωδικού Πρόσβασης",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αρχείο; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
