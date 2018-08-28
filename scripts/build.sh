@@ -19,7 +19,7 @@ rm -rf build
 rm -rf $PLATFORM
 echo "Checking code style..."
 if gts check ; then
-  echo
+  true
 else
   echo "Fixing code style..."
   gts fix
