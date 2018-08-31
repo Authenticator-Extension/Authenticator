@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Backup automatico su Dropbox",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Codice di Dropbox",
@@ -274,5 +274,21 @@
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
+    },
+    "storage_menu": {
+        "message": "Storage & Backup",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "Automatically backup your data to 3rd party storgae services.",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "Storage Location",
+        "description": "Storage location"
     }
 }
