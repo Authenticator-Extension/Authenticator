@@ -109,7 +109,7 @@ async function init() {
     }
   });
 
-  if (ui.instance.isPopup()) {
+  if (ui.instance.isPopup() && !ui.instance.isEdge()) {
     ui.instance.fixPopupSize();
   }
 

@@ -38,6 +38,11 @@ async function info(_ui: UI) {
                 return;
               });
           return;
+        } else if (tab === 'storage') {
+          if (_ui.instance.newStorageLocation !== 'sync' &&
+              _ui.instance.newStorageLocation !== 'local') {
+            _ui.instance.newStorageLocation = localStorage.storageLocation;
+          }
         }
 
         _ui.instance.class.fadein = true;

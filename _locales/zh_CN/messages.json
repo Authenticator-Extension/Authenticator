@@ -272,7 +272,23 @@
         "description": "Use Autofill"
     },
     "search": {
-        "message": "Search",
+        "message": "搜索",
         "description": "Search"
+    },
+    "storage_menu": {
+        "message": "存储及备份",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "选择数据存储位置。local为仅在本地存储，sync为云端同步存储。",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "自动备份您的数据至第三方服务。",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "存储位置",
+        "description": "Storage location"
     }
 }
