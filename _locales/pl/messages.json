@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Licznik oparty",
+        "message": "Oparte na liczniku",
         "description": "Counter Based"
     },
     "resize_popup_page": {
