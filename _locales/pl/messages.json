@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Wyskakująca strona",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -248,47 +248,47 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Szukaj",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Tryb wyskakujący",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Zablokuj",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Synchronizacja Dropbox włączona",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Edytuj",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Ręczna synchronizacja",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Użyj autowypełniania",
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Przechowywanie i kopie zapasowe",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Wybierz miejsce przechowywania danych. Używanie \"local\" zapisuje twoje dane na twoim komputerze. Korzystanie z opcji \"sync\" pozwala przeglądarce synchronizować dane z chmurą, jeśli jesteś zalogowany na koncie synchronizacji.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "Automatycznie twórz kopie zapasowe danych w usługach przechowywania innych firm.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Miejsce przechowywania",
         "description": "Storage location"
     }
 }
