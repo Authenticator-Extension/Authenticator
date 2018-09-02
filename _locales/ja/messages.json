@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "ポップアップ表示",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Dropbox にログイン",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -236,19 +236,19 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Dropbox をログアウト",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "削除",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "パスワードで保護されたバックアップをダウンロード",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "検索",
         "description": "Search"
     },
     "popout": {
