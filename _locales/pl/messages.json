@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Zaloguj się do Dropbox'a",
+        "message": "Zaloguj się do Dropboksa",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Ostrzeżenie: kopie zapasowe zapisane w Dropbox'ie są nieszyfrowane. Używasz na własne ryzyko.",
+        "message": "Ostrzeżenie: kopie zapasowe zapisane w Dropboksie są nieszyfrowane. Używasz na własne ryzyko.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
@@ -236,7 +236,7 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Wyloguj się z Dropbox'a",
+        "message": "Wyloguj się z Dropboksa",
         "description": "Dropbox logout."
     },
     "remove": {
@@ -244,7 +244,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Pobrania kopii zapasowej hasłem",
+        "message": "Pobierz kopię zapasową chronioną hasłem",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -260,7 +260,7 @@
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Synchronizacja Dropbox włączona",
+        "message": "Synchronizacja z Dropboksem włączona",
         "description": "Dropbox sync enabled"
     },
     "edit": {
