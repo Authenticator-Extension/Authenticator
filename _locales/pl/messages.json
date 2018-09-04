@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Eksport / Import",
+        "message": "Eksport \/ Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -172,11 +172,11 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Licznik oparty",
+        "message": "Oparte na liczniku",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Wyskakująca strona",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Automatyczna kopia zapasowa na Dropbox'ie",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Kod Dropbox",
@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Zaloguj się do Dropbox'a",
+        "message": "Zaloguj się do Dropboksa",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -224,7 +224,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Ostrzeżenie: kopie zapasowe zapisane w Dropbox'ie są nieszyfrowane. Używasz na własne ryzyko.",
+        "message": "Ostrzeżenie: kopie zapasowe zapisane w Dropboksie są nieszyfrowane. Używasz na własne ryzyko.",
         "description": "Dropbox backup risk warning."
     },
     "import_error_password": {
@@ -236,7 +236,7 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Wyloguj się z Dropbox'a",
+        "message": "Wyloguj się z Dropboksa",
         "description": "Dropbox logout."
     },
     "remove": {
@@ -244,51 +244,51 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Pobrania kopii zapasowej hasłem",
+        "message": "Pobierz kopię zapasową chronioną hasłem",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Szukaj",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Tryb wyskakujący",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Zablokuj",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Synchronizacja z Dropboksem włączona",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Edytuj",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Ręczna synchronizacja",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Użyj autowypełniania",
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Przechowywanie i kopie zapasowe",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Wybierz miejsce przechowywania danych. Używanie \"local\" zapisuje twoje dane na twoim komputerze. Korzystanie z opcji \"sync\" pozwala przeglądarce synchronizować dane z chmurą, jeśli jesteś zalogowany na koncie synchronizacji.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "Automatycznie twórz kopie zapasowe danych w usługach przechowywania innych firm.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Miejsce przechowywania",
         "description": "Storage location"
     }
 }

@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportieren / Importieren",
+        "message": "Exportieren \/ Importieren",
         "description": "Export and Import."
     },
     "settings": {
@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Automatische Sicherung in Dropbox",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Dropbox-Code",

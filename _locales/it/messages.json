@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Esporta / Importa",
+        "message": "Esporta \/ Importa",
         "description": "Export and Import."
     },
     "settings": {
@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Backup automatico su Dropbox",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Codice di Dropbox",
@@ -244,7 +244,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Scarica Backup protetti da Password",
         "description": "Download Encrypted Backup"
     },
     "search": {

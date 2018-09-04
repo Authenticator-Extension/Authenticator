@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Автосохранение резервной копии в Dropbox",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Dropbox код",

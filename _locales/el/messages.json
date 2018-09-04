@@ -1,0 +1,294 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Ο Επαληθευτής δημιουργεί κωδικούς επαλήθευσης σε 2 βήματα στο πρόγραμμα περιήγησης.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": "έχει προστεθεί.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Μη αναγνωρισμένος κώδικας QR.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Μυστικό σφάλμα. Υποστηρίζονται μόνο τα Base32 (A-Z, 2-7 και =) και HEX (0-9 και A-F). Ωστόσο, το μυστικό σας είναι:",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Σάρωση QR κωδικού",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Χειροκίνητη εισαγωγή",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Κλείσιμο",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Εντάξει",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Ναι",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Όχι",
+        "description": "No."
+    },
+    "account": {
+        "message": "Λογαριασμός",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Όνομα Λογαριασμού",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Εκδότης",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Μυστικό",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Επιτυχία",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Αποτυχία",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Σχετικά",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Εξαγωγή\/εισαγωγή",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Ρυθμίσεις",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Ασφάλεια",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Τρέχον Κωδικός",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Νέος κωδικός πρόσβασης",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Κωδικός πρόσβασης",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Επιβεβαίωση Κωδικού Πρόσβασης",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το αρχείο; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για να κρυπτογραφήσετε τα μυστικά σας. Κανείς δεν μπορεί να σας βοηθήσει εάν ξεχάσετε τον κωδικό πρόσβασης.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Ενημέρωση",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Το Συνθηματικό δεν ταιριάζει",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Κρυπτογραφημένο",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Αντιγράφηκε",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Αξιολόγηση",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Μετάφραση",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Πηγαίος Κώδικας",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Εισάγετε κωδικό πρόσβασης για να αποκρυπτογραφήσει τα δεδομένα του λογαριασμού.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Συγχρονισμός ρολογιού με την Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Απομνημόνευση κωδικού πρόσβασης",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "ΠΡΟΣΟΧΗ! Τοπικό ρολόι σας είναι πάρα πολύ μακριά, παρακαλώ διορθώστε το πριν να συνεχίσετε.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Έχετε ένα αντίγραφο ασφαλείας για τα μυστικά σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Η καταγραφή απέτυχε, επαναλάβετε τη φόρτωση της σελίδας και προσπαθήστε ξανά.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Βάσει χρόνου",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Με μετρητή",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Αναδυόμενο σελίδα",
+        "description": "Popup Page Settings"
+    },
+    "scale": {
+        "message": "Κλίμακα",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Προειδοποίηση: όλα τα αντίγραφα ασφαλείας είναι κρυπτογραφημένη. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Καταδείξτε επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και πάτα το κουμπί κρυφό.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Λήψη αντιγράφου ασφαλείας",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Εισαγωγή αντιγράφου ασφαλείας",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Εισαγωγή αντιγράφου ασφαλείας",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Εισαγωγή αντιγράφων κειμένου",
+        "description": "Import backup code."
+    },
+    "dropbox_backup": {
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
+    },
+    "dropbox_code": {
+        "message": "Κωδικός Dropbox",
+        "description": "Dropbox code."
+    },
+    "dropbox_token": {
+        "message": "Διακριτικό Dropbox",
+        "description": "Dropbox token."
+    },
+    "dropbox_authorization": {
+        "message": "Εισέλθετε στο Dropbox",
+        "description": "Dropbox authorization."
+    },
+    "show_all_entries": {
+        "message": "Δείτε όλες τις καταχωρήσεις",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "ΠΡΟΣΟΧΗ: τα αντίγραφα ασφαλείας αποθηκεύονται στο Dropbox είναι κρυπτογραφημένη. Χρησιμοποιήστε το με δική σας ευθύνη.",
+        "description": "Dropbox backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Πρέπει να παρέχετε το σωστό κωδικό πρόσβασης για να εισαγάγετε τα αντίγραφα ασφαλείας.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Τον κωδικό πρόσβασής σας είναι αποθηκευμένη τοπικά, παρακαλούμε αμέσως να το αλλάξετε από το μενού ασφάλεια.",
+        "description": "localStorage password warning."
+    },
+    "dropbox_logout": {
+        "message": "Αποσύνδεση του Dropbox",
+        "description": "Dropbox logout."
+    },
+    "remove": {
+        "message": "Αφαίρεση",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+        "message": "Λήψη αντιγράφων ασφαλείας που προστατεύεται με κωδικό πρόσβασης",
+        "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Αναζήτηση",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Αναδυόμενο παράθυρο λειτουργίας",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Κλείδωμα",
+        "description": "Lock accounts"
+    },
+    "dropbox_tooltip": {
+        "message": "Συγχρονισμός Dropbox ενεργοποιημένη",
+        "description": "Dropbox sync enabled"
+    },
+    "edit": {
+        "message": "Επεξεργασία",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Χειροκίνητος συγχρονισμός",
+        "description": "Manual Dropbox sync"
+    },
+    "use_autofill": {
+        "message": "Χρήση της αυτόματης συμπλήρωσης",
+        "description": "Use Autofill"
+    },
+    "storage_menu": {
+        "message": "Αποθήκευση & δημιουργία αντιγράφων ασφαλείας",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "Επιλέξτε όπου είναι αποθηκευμένα τα δεδομένα σας. Χρησιμοποιώντας «τοπικό» αποθηκεύει τα δεδομένα σας στον υπολογιστή σας. Χρησιμοποιώντας «συγχρονισμού» σας επιτρέπει να συγχρονίσετε τα δεδομένα σας στο cloud, αν είστε συνδεδεμένοι σε ένα λογαριασμό συγχρονισμού το πρόγραμμα περιήγησής σας.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "Δημιουργήστε αυτόματα αντίγραφα ασφαλείας των δεδομένων σας σε υπηρεσίες αποθήκευσης τρίτων.",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "Θέση αποθήκευσης",
+        "description": "Storage location"
+    }
+}

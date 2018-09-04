@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "エクスポート/インポート",
+        "message": "エクスポート\/インポート",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "ポップアップ表示",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -204,8 +204,8 @@
         "description": "Import backup code."
     },
     "dropbox_backup": {
-        "message": "Dropbox へ自動バックアップ",
-        "description": "Auto backup to Dropbox."
+        "message": "Dropbox",
+        "description": "Auto backup to Dropbox menu"
     },
     "dropbox_code": {
         "message": "Dropboxのコード",
@@ -216,7 +216,7 @@
         "description": "Dropbox token."
     },
     "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
+        "message": "Dropbox にログイン",
         "description": "Dropbox authorization."
     },
     "show_all_entries": {
@@ -236,59 +236,59 @@
         "description": "localStorage password warning."
     },
     "dropbox_logout": {
-        "message": "Logout of Dropbox",
+        "message": "Dropbox をログアウト",
         "description": "Dropbox logout."
     },
     "remove": {
-        "message": "Remove",
+        "message": "削除",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "パスワードで保護されたバックアップをダウンロード",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "検索",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "ポップアップ表示",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "ロック",
         "description": "Lock accounts"
     },
     "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
+        "message": "Dropbox との同期が有効",
         "description": "Dropbox sync enabled"
     },
     "edit": {
-        "message": "Edit",
+        "message": "編集",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "手動で同期",
         "description": "Manual Dropbox sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "自動入力を使用する",
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "ストレージとバックアップ",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "データの保存場所を選択します。 「ローカル」はPCにデータを保存します。「同期」は、そのアカウントにログインいればブラウザーを通じてクラウドとデータを同期することができます。",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "サードパーティのストレージサービスへ自動的にデータをバックアップします。",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "ストレージの場所",
         "description": "Storage location"
     }
 }
