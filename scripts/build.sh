@@ -30,9 +30,10 @@ mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension
   mkdir $PLATFORM/Assets
-  cp -r build css images js _locales LICENSE view edge-files $PLATFORM/Extension
+  cp -r build css js _locales LICENSE view edge-files $PLATFORM/Extension
   mv $PLATFORM/Extension/edge-files/AppXManifest.xml $PLATFORM
-  mv $PLATFORM/Extension/edge-files/icon*.png $PLATFORM/Assets
+  mv $PLATFORM/Extension/edge-files/images $PLATFORM/Extension
+  mv $PLATFORM/Extension/edge-files/Assets/icon*.png $PLATFORM/Assets
   cp manifest-$PLATFORM.json $PLATFORM/Extension/manifest.json
 else
   cp -r build css images js _locales LICENSE view $PLATFORM

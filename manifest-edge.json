@@ -33,8 +33,10 @@
     },
     "browser_action": {
         "default_icon": {
-            "19": "images/icon19.png",
-            "38": "images/icon38.png"
+            "20": "images/icon20.png",
+            "25": "images/icon25.png",
+            "30": "images/icon30.png",
+            "40": "images/icon40.png"
         },
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
@@ -43,9 +45,9 @@
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
-        "16": "images/icon16.png",
         "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "128": "images/icon128.png",
+        "176": "images/icon176.png"
     },
     "manifest_version": 2,
     "name": "__MSG_extName__",
