@@ -276,19 +276,19 @@
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Speicher & Sicherung",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Wählen Sie, wo ihre Daten gespeichert werden sollen. Mit \"local\" werden ihre Daten auf ihrem PC gespeichert. Mit \"sync\" synchonisiert ihr Browser ihre Daten mit der Cloud, sofern Sie sich mit einem Sync-Account angemeldet haben.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "Automatische Sicherung auf Drittanbieter-Speicher.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Speicherort",
         "description": "Storage location"
     }
 }
