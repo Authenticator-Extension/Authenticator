@@ -856,7 +856,6 @@ body {
     padding: 5px;
 }
 
-#dropbox_box label,
 #secret_box label,
 #security label,
 #passphrase label,
@@ -881,6 +880,8 @@ body {
 
 #resize_list_label,
 #storage_location_label,
+#dropbox_encryption_label,
+#dropbox_encryption,
 #use_autofill_label,
 #resize_list,
 #storage_location {

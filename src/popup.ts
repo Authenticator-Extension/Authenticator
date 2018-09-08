@@ -9,7 +9,7 @@
 /// <reference path="./ui/add-account.ts" />
 /// <reference path="./ui/class.ts" />
 /// <reference path="./ui/ui.ts" />
-/// <reference path="./models/dropbox.ts" />
+/// <reference path="./models/backup.ts" />
 
 async function init() {
   const ui = new UI({el: '#authenticator'});
