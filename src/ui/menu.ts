@@ -199,6 +199,15 @@ async function menu(_ui: UI) {
           _ui.instance.alert(_ui.instance.i18n.updateFailure);
         }
       },
+      driveUpload: async () => {
+        const drive = new Drive();
+        const response = await drive.upload(_ui.instance.encryption);
+        if (response === true) {
+          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+        } else {
+          _ui.instance.alert(_ui.instance.i18n.updateFailure);
+        }
+      },
       dropboxUpdateEncryption: () => {
         localStorage.dropboxEncrypted = _ui.instance.dropboxEncrypted;
         return;

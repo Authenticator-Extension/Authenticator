@@ -106,6 +106,12 @@ async function init() {
       if (authenticator.info === 'dropbox') {
         setTimeout(authenticator.closeInfo, 500);
       }
+    } else if (message.action === 'drivetoken') {
+      authenticator.driveToken = message.value;
+      authenticator.driveUpload();
+      if (authenticator.info === 'drive') {
+        setTimeout(authenticator.closeInfo, 500);
+      }
     }
   });
 

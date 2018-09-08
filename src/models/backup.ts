@@ -64,3 +64,72 @@ class Dropbox {
         });
   }
 }
+
+class Drive {
+  async getToken() {
+    return localStorage.driveToken || '';
+  }
+
+  async upload(encryption: Encryption) {
+    if (localStorage.driveEncrypted === undefined) {
+      localStorage.driveEncrypted = 'true';
+    }
+    const exportData = await EntryStorage.getExport(
+        encryption, (localStorage.driveEncrypted === 'true') ? true : false);
+    const backup = JSON.stringify(exportData, null, 2);
+
+    const token = await this.getToken();
+    return new Promise(
+        (resolve: (value: boolean) => void,
+         reject: (reason: Error) => void) => {
+          if (!token) {
+            resolve(false);
+          }
+          try {
+            const xhr = new XMLHttpRequest();
+            const now =
+                (new Date()).toISOString().slice(0, 10).replace(/-/g, '');
+            xhr.open(
+                'POST',
+                'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.setRequestHeader(
+                'Content-type', 'multipart/related; boundary=segment_marker');
+            xhr.onreadystatechange = () => {
+              if (xhr.readyState === 4) {
+                if (xhr.status === 401) {
+                  localStorage.removeItem('driveToken');
+                  resolve(false);
+                }
+                try {
+                  const res = JSON.parse(xhr.responseText);
+                  if (!res.error) {
+                    resolve(true);
+                  } else {
+                    console.error(res.error.message);
+                    resolve(false);
+                  }
+                } catch (error) {
+                  reject(error);
+                }
+              }
+              return;
+            };
+            const requestDataPrototype = [
+              '--segment_marker',
+              'Content-Type: application/json; charset=UTF-8', '',
+              JSON.stringify({name: `${now}.json`, mimeType: 'application/json'}), '', '--segment_marker',
+              'Content-Type: application/octet-stream', '', backup,
+              '--segment_marker--'
+            ];
+            let requestData = '';
+            requestDataPrototype.forEach((line) => {
+              requestData = requestData + line + '\n';
+            });
+            xhr.send(requestData);
+          } catch (error) {
+            return reject(error);
+          }
+        });
+  }
+}

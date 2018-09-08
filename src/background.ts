@@ -20,6 +20,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     sendResponse(cachedPassphrase);
   } else if (message.action === 'dropbox') {
     getDropboxToken();
+  } else if (message.action === 'drive') {
+    getDriveToken();
   } else if (message.action === 'lock') {
     cachedPassphrase = '';
   }
@@ -186,6 +188,48 @@ function getDropboxToken() {
             if (key === 'access_token') {
               localStorage.dropboxToken = value;
               chrome.runtime.sendMessage({action: 'dropboxtoken', value});
+              return;
+            }
+          }
+        }
+        return;
+      });
+}
+
+function getDriveToken() {
+  chrome.identity.launchWebAuthFlow(
+      {
+        url:
+            'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&scope=https%3A//www.googleapis.com/auth/drive&prompt=consent&redirect_uri=' +
+            // encodeURIComponent(chrome.identity.getRedirectURL()),
+            // encodeURIComponent('https://chrome.authenticatortest.tk'),
+            encodeURIComponent('https://firefox.authenticatortest.tk'),
+        interactive: true
+      },
+      (url) => {
+        if (!url) {
+          return;
+        }
+        const hashMatches = url.split('#');
+        if (hashMatches.length < 2) {
+          return;
+        }
+
+        const hash = hashMatches[1];
+
+        const resData = hash.split('&');
+        for (let i = 0; i < resData.length; i++) {
+          const kv = resData[i];
+          if (/^(.*?)=(.*?)$/.test(kv)) {
+            const kvMatches = kv.match(/^(.*?)=(.*?)$/);
+            if (!kvMatches) {
+              continue;
+            }
+            const key = kvMatches[1];
+            const value = kvMatches[2];
+            if (key === 'access_token') {
+              localStorage.driveToken = value;
+              chrome.runtime.sendMessage({action: 'drivetoken', value});
               return;
             }
           }
