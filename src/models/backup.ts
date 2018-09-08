@@ -118,9 +118,10 @@ class Drive {
             const requestDataPrototype = [
               '--segment_marker',
               'Content-Type: application/json; charset=UTF-8', '',
-              JSON.stringify({name: `${now}.json`, mimeType: 'application/json'}), '', '--segment_marker',
-              'Content-Type: application/octet-stream', '', backup,
-              '--segment_marker--'
+              JSON.stringify(
+                  {name: `${now}.json`}),
+              '', '--segment_marker', 'Content-Type: application/octet-stream',
+              '', backup, '--segment_marker--'
             ];
             let requestData = '';
             requestDataPrototype.forEach((line) => {
