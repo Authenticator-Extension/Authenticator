@@ -80,7 +80,8 @@ async function menu(_ui: UI) {
       zoom,
       useAutofill,
       newStorageLocation: localStorage.storageLocation,
-      dropboxEncrypted: localStorage.dropboxEncrypted
+      dropboxEncrypted: localStorage.dropboxEncrypted,
+      driveEncrypted: localStorage.driveEncrypted
     },
     methods: {
       openLink: (url: string) => {
@@ -211,6 +212,9 @@ async function menu(_ui: UI) {
       dropboxUpdateEncryption: () => {
         localStorage.dropboxEncrypted = _ui.instance.dropboxEncrypted;
         return;
+      },
+      driveUpdateEncryption: () => {
+        localStorage.driveEncrypted = _ui.instance.driveEncrypted;
       },
       migrateStorage: async () => {
         // sync => local

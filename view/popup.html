@@ -167,7 +167,7 @@
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
-                    <div id="dropbox_risk" v-if="dropboxEncrypted !== 'true'">{{ i18n.dropbox_risk }}</div>
+                    <div id="dropbox_risk" v-if="dropboxEncrypted !== 'true' && dropboxToken">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && dropboxToken">
                         <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
                         <select id="dropbox_encryption" v-model="dropboxEncrypted" v-on:change="dropboxUpdateEncryption()">
@@ -175,13 +175,25 @@
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="logoutDropbox()">{{ i18n.dropbox_logout }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getDropboxToken()">{{ i18n.dropbox_authorization }}</div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="logoutDropbox()">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getDropboxToken()">{{ i18n.sign_in }}</div>
                     <div id="dropbox_logout" v-if="dropboxToken" v-on:click="dropboxUpload()">{{ i18n.manual_dropbox }}</div>
-                    <!--
-                      <label for="token_input">{{ i18n.dropbox_token }}</label>
-                      <textarea type="text" id="token_input" v-model="dropboxToken" disabled></textarea></textarea>
-                    -->
+                </div>
+            </div>
+            <!-- DRIVE -->
+            <div v-show="info === 'drive'">
+                <div id="dropbox_box">
+                    <div id="dropbox_risk" v-if="driveEncrypted !== 'true' && driveToken">{{ i18n.dropbox_risk }}</div>
+                    <div v-if="encryption.getEncryptionStatus() && driveToken">
+                        <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
+                        <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="driveUpdateEncryption()">
+                            <option value="true">{{ i18n.yes }}</option>
+                            <option value="false">{{ i18n.no }}</option>
+                        </select>
+                    </div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="logoutDrive()">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getDriveToken()">{{ i18n.sign_in }}</div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="driveUpload()">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
             <!-- STORAGE & SYNC SETTINGS -->
@@ -196,7 +208,8 @@
                 <!-- 3rd Party Backup Services -->
                 <div id="storage_sync_info">{{ i18n.storage_sync_info }}</div>
                 <p></p>
-                <div id="dropbox_menu" v-on:click="showInfo('dropbox')">{{ i18n.dropbox_backup }}</div>
+                <div id="dropbox_menu" v-on:click="showInfo('drive')">Google Drive</div>
+                <div id="dropbox_menu" v-on:click="showInfo('dropbox')">Dropbox</div>
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">

@@ -21,6 +21,11 @@ async function info(_ui: UI) {
       getDriveToken: () => {
         chrome.runtime.sendMessage({action: 'drive'});
       },
+      logoutDrive: async () => {
+        localStorage.removeItem('driveToken');
+        _ui.instance.driveToken = '';
+        _ui.instance.openLink('https://myaccount.google.com/permissions');
+      },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
           const entries = _ui.instance.entries as OTPEntry[];
@@ -37,6 +42,18 @@ async function info(_ui: UI) {
         } else if (tab === 'dropbox') {
           chrome.permissions.request(
               {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
+                if (granted) {
+                  _ui.instance.class.fadein = true;
+                  _ui.instance.class.fadeout = false;
+                  _ui.instance.info = tab;
+                }
+                return;
+              });
+          return;
+        } else if (tab === 'drive') {
+          chrome.permissions.request(
+              {origins: ['https://www.googleapis.com/upload/drive/v3/files']},
+              async (granted) => {
                 if (granted) {
                   _ui.instance.class.fadein = true;
                   _ui.instance.class.fadeout = false;

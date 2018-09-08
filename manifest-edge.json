@@ -41,7 +41,7 @@
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
     },
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'",
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/; default-src 'none'",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {

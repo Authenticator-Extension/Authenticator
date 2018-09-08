@@ -82,6 +82,25 @@ async function init() {
               authenticator.alert(authenticator.i18n.remind_backup);
               localStorage.lastRemindingBackupTime = clientTime;
             });
+      } else if (authenticator.driveToken) {
+        chrome.permissions.contains(
+            {origins: ['https://www.googleapis.com/upload/drive/v3/files']},
+            async (hasPermission) => {
+              if (hasPermission) {
+                try {
+                  const drive = new Drive();
+                  const res = await drive.upload(authenticator.encryption);
+                  if (res) {
+                    localStorage.lastRemindingBackupTime = clientTime;
+                    return;
+                  }
+                } catch (error) {
+                  // ignore
+                }
+              }
+              authenticator.alert(authenticator.i18n.remind_backup);
+              localStorage.lastRemindingBackupTime = clientTime;
+            });
       } else {
         authenticator.alert(authenticator.i18n.remind_backup);
         localStorage.lastRemindingBackupTime = clientTime;

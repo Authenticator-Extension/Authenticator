@@ -203,25 +203,13 @@
         "message": "Import Text Backup",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Dropbox",
-        "description": "Auto backup to Dropbox menu"
-    },
-    "dropbox_token": {
-        "message": "Dropbox Token",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Sign in to Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Show all entries",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups saved in Dropbox are unencrypted. Use at your own risk.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "You must provide correct password to import backups.",
@@ -230,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Your password is stored locally, please change it in the security menu immediately.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Logout of Dropbox",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Remove",
@@ -265,7 +249,7 @@
     },
     "manual_dropbox": {
       "message": "Manual Sync",
-      "description": "Manual Dropbox sync"
+      "description": "Manual sync"
     },
     "use_autofill": {
       "message": "Use Autofill",
@@ -286,5 +270,13 @@
     "storage_location": {
       "message": "Storage Location",
       "description": "Storage location"
+    },
+    "sign_in": {
+        "message": "Sign in",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "log_out": {
+        "message": "Sign out",
+        "description": "Sign out of 3rd party storage services"
     }
 }
