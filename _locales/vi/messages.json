@@ -276,7 +276,7 @@
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "バー",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
