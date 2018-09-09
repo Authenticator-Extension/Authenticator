@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Gịp Thanh Sang",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -276,7 +276,7 @@
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "ストレージとバックアップ",
+        "message": "ガイ・タン・サン",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
