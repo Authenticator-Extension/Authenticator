@@ -1,6 +1,6 @@
 /* tslint:disable:no-reference */
 /// <reference path="../models/interface.ts" />
-/// <reference path="../models/dropbox.ts" />
+/// <reference path="../models/backup.ts" />
 /// <reference path="./ui.ts" />
 
 function getVersion() {
@@ -79,7 +79,8 @@ async function menu(_ui: UI) {
       version,
       zoom,
       useAutofill,
-      newStorageLocation: localStorage.storageLocation
+      newStorageLocation: localStorage.storageLocation,
+      dropboxEncrypted: localStorage.dropboxEncrypted
     },
     methods: {
       openLink: (url: string) => {
@@ -197,6 +198,10 @@ async function menu(_ui: UI) {
         } else {
           _ui.instance.alert(_ui.instance.i18n.updateFailure);
         }
+      },
+      dropboxUpdateEncryption: () => {
+        localStorage.dropboxEncrypted = _ui.instance.dropboxEncrypted;
+        return;
       },
       migrateStorage: async () => {
         // sync => local
