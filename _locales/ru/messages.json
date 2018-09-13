@@ -207,10 +207,6 @@
         "message": "Dropbox",
         "description": "Auto backup to Dropbox menu"
     },
-    "dropbox_code": {
-        "message": "Dropbox код",
-        "description": "Dropbox code."
-    },
     "dropbox_token": {
         "message": "Dropbox маркер",
         "description": "Dropbox token."
