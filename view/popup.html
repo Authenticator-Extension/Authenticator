@@ -175,8 +175,8 @@
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="logoutDropbox()">{{ i18n.log_out }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getDropboxToken()">{{ i18n.sign_in }}</div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
                     <div id="dropbox_logout" v-if="dropboxToken" v-on:click="dropboxUpload()">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
@@ -191,8 +191,8 @@
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
-                    <div id="dropbox_logout" v-if="driveToken" v-on:click="logoutDrive()">{{ i18n.log_out }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getDriveToken()">{{ i18n.sign_in }}</div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupLogout('drive')">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('drive')">{{ i18n.sign_in }}</div>
                     <div id="dropbox_logout" v-if="driveToken" v-on:click="driveUpload()">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>

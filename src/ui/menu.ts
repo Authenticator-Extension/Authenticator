@@ -81,7 +81,9 @@ async function menu(_ui: UI) {
       useAutofill,
       newStorageLocation: localStorage.storageLocation,
       dropboxEncrypted: localStorage.dropboxEncrypted,
-      driveEncrypted: localStorage.driveEncrypted
+      driveEncrypted: localStorage.driveEncrypted,
+      dropboxToken: localStorage.dropboxToken || '',
+      driveToken: localStorage.driveToken || ''
     },
     methods: {
       openLink: (url: string) => {
@@ -215,6 +217,18 @@ async function menu(_ui: UI) {
       },
       driveUpdateEncryption: () => {
         localStorage.driveEncrypted = _ui.instance.driveEncrypted;
+      },
+      backupLogout: async (service: string) => {
+        localStorage.removeItem(service + 'Token');
+        if (service === 'dropbox') {
+          _ui.instance.dropboxToken = '';
+        } else if (service === 'drive') {
+          _ui.instance.driveToken = '';
+        }
+        setTimeout(_ui.instance.closeInfo, 500);
+      },
+      getBackupToken: (service: string) => {
+        chrome.runtime.sendMessage({action: service});
       },
       migrateStorage: async () => {
         // sync => local

@@ -4,28 +4,8 @@
 
 async function info(_ui: UI) {
   const ui: UIConfig = {
-    data: {
-      info: '',
-      dropboxToken: localStorage.dropboxToken || '',
-      driveToken: localStorage.driveToken || ''
-    },
+    data: {info: ''},
     methods: {
-      getDropboxToken: () => {
-        chrome.runtime.sendMessage({action: 'dropbox'});
-      },
-      logoutDropbox: async () => {
-        localStorage.removeItem('dropboxToken');
-        _ui.instance.dropboxToken = '';
-        _ui.instance.openLink('https://www.dropbox.com/account/connected_apps');
-      },
-      getDriveToken: () => {
-        chrome.runtime.sendMessage({action: 'drive'});
-      },
-      logoutDrive: async () => {
-        localStorage.removeItem('driveToken');
-        _ui.instance.driveToken = '';
-        _ui.instance.openLink('https://myaccount.google.com/permissions');
-      },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
           const entries = _ui.instance.entries as OTPEntry[];
