@@ -27,8 +27,8 @@ if (!document.getElementById('__ga_grayLayout__')) {
   });
 }
 
-sessionStorage.captureBoxPositionLeft = 0;
-sessionStorage.captureBoxPositionTop = 0;
+sessionStorage.setItem('captureBoxPositionLeft', '0');
+sessionStorage.setItem('captureBoxPositionTop', '0');
 
 function showGrayLayout(passphrase: string) {
   let grayLayout = document.getElementById('__ga_grayLayout__');
@@ -67,8 +67,8 @@ function grayLayoutDown(event: MouseEvent) {
     return;
   }
 
-  sessionStorage.captureBoxPositionLeft = event.clientX;
-  sessionStorage.captureBoxPositionTop = event.clientY;
+  sessionStorage.setItem('captureBoxPositionLeft', event.clientX.toString());
+  sessionStorage.setItem('captureBoxPositionTop', event.clientY.toString());
   captureBox.style.left = event.clientX + 'px';
   captureBox.style.top = event.clientY + 'px';
   captureBox.style.width = '1px';
@@ -87,14 +87,20 @@ function grayLayoutMove(event: MouseEvent) {
     return;
   }
 
-  const captureBoxLeft =
-      Math.min(sessionStorage.captureBoxPositionLeft, event.clientX);
-  const captureBoxTop =
-      Math.min(sessionStorage.captureBoxPositionTop, event.clientY);
+  const captureBoxLeft = Math.min(
+      Number(sessionStorage.getItem('captureBoxPositionLeft')), event.clientX);
+  const captureBoxTop = Math.min(
+      Number(sessionStorage.getItem('captureBoxPositionTop')), event.clientY);
   const captureBoxWidth =
-      Math.abs(sessionStorage.captureBoxPositionLeft - event.clientX) - 1;
+      Math.abs(
+          Number(sessionStorage.getItem('captureBoxPositionLeft')) -
+          event.clientX) -
+      1;
   const captureBoxHeight =
-      Math.abs(sessionStorage.captureBoxPositionTop - event.clientY) - 1;
+      Math.abs(
+          Number(sessionStorage.getItem('captureBoxPositionTop')) -
+          event.clientY) -
+      1;
   captureBox.style.left = captureBoxLeft + 'px';
   captureBox.style.top = captureBoxTop + 'px';
   captureBox.style.width = captureBoxWidth + 'px';
@@ -120,13 +126,25 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
   }
 
   const captureBoxLeft =
-      Math.min(sessionStorage.captureBoxPositionLeft, event.clientX) + 1;
+      Math.min(
+          Number(sessionStorage.getItem('captureBoxPositionLeft')),
+          event.clientX) +
+      1;
   const captureBoxTop =
-      Math.min(sessionStorage.captureBoxPositionTop, event.clientY) + 1;
+      Math.min(
+          Number(sessionStorage.getItem('captureBoxPositionTop')),
+          event.clientY) +
+      1;
   const captureBoxWidth =
-      Math.abs(sessionStorage.captureBoxPositionLeft - event.clientX) - 1;
+      Math.abs(
+          Number(sessionStorage.getItem('captureBoxPositionLeft')) -
+          event.clientX) -
+      1;
   const captureBoxHeight =
-      Math.abs(sessionStorage.captureBoxPositionTop - event.clientY) - 1;
+      Math.abs(
+          Number(sessionStorage.getItem('captureBoxPositionTop')) -
+          event.clientY) -
+      1;
 
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
@@ -168,7 +186,8 @@ function pasteCode(code: string) {
   const _inputBoxes = document.getElementsByTagName('input');
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
-    if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number') {
+    if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number' ||
+        _inputBoxes[i].type === 'tel') {
       inputBoxes.push(_inputBoxes[i]);
     }
   }
