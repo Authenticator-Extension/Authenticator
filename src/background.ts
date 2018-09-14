@@ -163,7 +163,7 @@ function getBackupToken(service: string) {
   } else if (service === 'drive') {
     authUrl =
         'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=' +
-        encodeURIComponent('https://authenticatortest.tk');
+        encodeURIComponent('https://authenticator.cc/oauth');
   }
   chrome.identity.launchWebAuthFlow(
       {url: authUrl, interactive: true}, (url) => {

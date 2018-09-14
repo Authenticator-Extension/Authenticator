@@ -14,7 +14,7 @@ class Dropbox {
       localStorage.dropboxEncrypted = 'true';
     }
     const exportData = await EntryStorage.getExport(
-        encryption, (localStorage.dropboxEncrypted === 'true') ? true : false);
+        encryption, (localStorage.dropboxEncrypted === 'true'));
     const backup = JSON.stringify(exportData, null, 2);
 
     const url = 'https://content.dropboxapi.com/2/files/upload';
@@ -161,7 +161,7 @@ class Drive {
       localStorage.driveEncrypted = 'true';
     }
     const exportData = await EntryStorage.getExport(
-        encryption, (localStorage.driveEncrypted === 'true') ? true : false);
+        encryption, (localStorage.driveEncrypted === 'true'));
     const backup = JSON.stringify(exportData, null, 2);
 
     const token = await this.getToken();

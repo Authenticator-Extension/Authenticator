@@ -296,7 +296,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Sign out",
+        "message": "Logout",
         "description": "Sign out of 3rd party storage services"
     }
 }
