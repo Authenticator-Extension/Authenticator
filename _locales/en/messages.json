@@ -239,10 +239,6 @@
       "message": "Lock",
       "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-      "message": "Dropbox sync enabled",
-      "description": "Dropbox sync enabled"
-    },
     "edit": {
       "message": "Edit",
       "description": "Edit"

@@ -24,7 +24,7 @@
         <div v-show="!isPopup()">
             <div id="infoAction" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
             <div id="lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
-            <div id="dropbox" title="{{ i18n.dropbox_tooltip }}" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="dropboxToken !== '' && !class.edit"><i class="fa fa-dropbox"></i></div>
+            <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><i class="fa fa-refresh"></i></div>
             <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
             <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
         </div>
