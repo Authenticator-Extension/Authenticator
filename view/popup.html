@@ -183,7 +183,7 @@
             <!-- DRIVE -->
             <div v-show="info === 'drive'">
                 <div id="dropbox_box">
-                    <div id="dropbox_risk" v-if="driveEncrypted !== 'true' && driveToken">{{ i18n.dropbox_risk }}</div>
+                    <div id="dropbox_risk" v-if="driveEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && driveToken">
                         <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
                         <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="backupUpdateEncryption('drive')">

@@ -70,9 +70,6 @@ class Drive {
     return localStorage.driveToken || '';
   }
 
-  // Make sure to check if trashed! GET
-  // https://www.googleapis.com/drive/v3/files/[FOLDER ID]?fields=trashed
-  // returns error.message if deleted
   private async getFolder() {
     const token = await this.getToken();
     if (localStorage.driveFolder) {
@@ -129,7 +126,6 @@ class Drive {
             xhr.setRequestHeader('Accept', 'application/json');
             xhr.setRequestHeader('Content-Type', 'application/json');
             xhr.onreadystatechange = () => {
-              console.log(xhr);
               if (xhr.readyState === 4) {
                 if (xhr.status === 401) {
                   localStorage.removeItem('driveToken');
@@ -170,13 +166,10 @@ class Drive {
 
     const token = await this.getToken();
     const folderId = await this.getFolder();
-    if (!folderId) {
-      return false;
-    }
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
-          if (!token) {
+          if (!token || !folderId) {
             resolve(false);
           }
           try {

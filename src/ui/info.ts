@@ -31,6 +31,11 @@ async function info(_ui: UI) {
               });
           return;
         } else if (tab === 'drive') {
+          if (localStorage.driveEncrypted !== 'true' &&
+              localStorage.driveEncrypted !== 'false') {
+            localStorage.driveEncrypted = 'true';
+            _ui.instance.driveEncrypted = localStorage.driveEncrypted;
+          }
           chrome.permissions.request(
               {
                 origins: [
