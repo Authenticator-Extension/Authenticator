@@ -32,7 +32,12 @@ async function info(_ui: UI) {
           return;
         } else if (tab === 'drive') {
           chrome.permissions.request(
-              {origins: ['https://www.googleapis.com/upload/drive/v3/files']},
+              {
+                origins: [
+                  'https://www.googleapis.com/upload/drive/v3/files',
+                  'https://www.googleapis.com/drive/v3/files'
+                ]
+              },
               async (granted) => {
                 if (granted) {
                   _ui.instance.class.fadein = true;

@@ -66,11 +66,12 @@
         "clipboardWrite",
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
-        "https://www.googleapis.com/upload/drive/v3/files"
+        "https://www.googleapis.com/upload/drive/v3/files",
+        "https://www.googleapis.com/drive/v3/files"
     ],
     "web_accessible_resources": [
         "view/qr.html",
         "images/scan.gif"
     ],
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/upload/drive/v3/files; default-src 'none'"
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/upload/drive/v3/files https://www.googleapis.com/drive/v3/files/ ; default-src 'none'"
 }

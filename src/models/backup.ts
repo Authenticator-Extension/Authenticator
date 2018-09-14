@@ -4,7 +4,7 @@
 /// <reference path="./storage.ts" />
 
 class Dropbox {
-  async getToken() {
+  private async getToken() {
     return localStorage.dropboxToken || '';
   }
 
@@ -66,8 +66,98 @@ class Dropbox {
 }
 
 class Drive {
-  async getToken() {
+  private async getToken() {
     return localStorage.driveToken || '';
+  }
+
+  // Make sure to check if trashed! GET
+  // https://www.googleapis.com/drive/v3/files/[FOLDER ID]?fields=trashed
+  // returns error.message if deleted
+  private async getFolder() {
+    const token = await this.getToken();
+    if (localStorage.driveFolder) {
+      await new Promise(
+          (resolve: (value: boolean) => void,
+           reject: (reason: Error) => void) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open(
+                'GET',
+                'https://www.googleapis.com/drive/v3/files/' +
+                    localStorage.driveFolder + '?fields=trashed');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.onreadystatechange = () => {
+              if (xhr.readyState === 4) {
+                if (xhr.status === 401) {
+                  localStorage.removeItem('driveToken');
+                  resolve(false);
+                }
+                try {
+                  const res = JSON.parse(xhr.responseText);
+                  if (res.error) {
+                    if (res.error.code === 404) {
+                      localStorage.driveFolder = '';
+                      resolve(true);
+                    }
+                  } else if (res.trashed) {
+                    localStorage.driveFolder = '';
+                    resolve(true);
+                  } else if (res.error) {
+                    console.error(res.error.message);
+                    resolve(false);
+                  } else {
+                    resolve(true);
+                  }
+                } catch (error) {
+                  console.error(error);
+                  reject(error);
+                }
+              }
+              return;
+            };
+            xhr.send();
+          });
+    }
+    if (!localStorage.driveFolder) {
+      await new Promise(
+          (resolve: (value: boolean) => void,
+           reject: (reason: Error) => void) => {
+            // create folder
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://www.googleapis.com/drive/v3/files/');
+            xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.onreadystatechange = () => {
+              console.log(xhr);
+              if (xhr.readyState === 4) {
+                if (xhr.status === 401) {
+                  localStorage.removeItem('driveToken');
+                  resolve(false);
+                }
+                try {
+                  const res = JSON.parse(xhr.responseText);
+                  if (!res.error) {
+                    localStorage.driveFolder = res.id;
+                    resolve(true);
+                  } else {
+                    console.error(res.error.message);
+                    resolve(false);
+                  }
+                } catch (error) {
+                  console.error(error);
+                  reject(error);
+                }
+              }
+              return;
+            };
+            xhr.send(JSON.stringify({
+              'name': 'Authenticator Backups',
+              'mimeType': 'application/vnd.google-apps.folder'
+            }));
+          });
+    }
+    return localStorage.driveFolder;
   }
 
   async upload(encryption: Encryption) {
@@ -79,6 +169,10 @@ class Drive {
     const backup = JSON.stringify(exportData, null, 2);
 
     const token = await this.getToken();
+    const folderId = await this.getFolder();
+    if (!folderId) {
+      return false;
+    }
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
@@ -118,9 +212,10 @@ class Drive {
             const requestDataPrototype = [
               '--segment_marker',
               'Content-Type: application/json; charset=UTF-8', '',
-              JSON.stringify({name: `${now}.json`}), '', '--segment_marker',
-              'Content-Type: application/octet-stream', '', backup,
-              '--segment_marker--'
+              JSON.stringify(
+                  {name: `${now}.json`, parents: [localStorage.driveFolder]}),
+              '', '--segment_marker', 'Content-Type: application/octet-stream',
+              '', backup, '--segment_marker--'
             ];
             let requestData = '';
             requestDataPrototype.forEach((line) => {
