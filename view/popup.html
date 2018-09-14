@@ -170,14 +170,14 @@
                     <div id="dropbox_risk" v-if="dropboxEncrypted !== 'true' && dropboxToken">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && dropboxToken">
                         <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
-                        <select id="dropbox_encryption" v-model="dropboxEncrypted" v-on:change="dropboxUpdateEncryption()">
+                        <select id="dropbox_encryption" v-model="dropboxEncrypted" v-on:change="backupUpdateEncryption('dropbox')">
                             <option value="true">{{ i18n.yes }}</option>
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
                     <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
                     <div id="dropbox_get_code" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="dropboxUpload()">{{ i18n.manual_dropbox }}</div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupUpload('dropbox')">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
             <!-- DRIVE -->
@@ -186,14 +186,14 @@
                     <div id="dropbox_risk" v-if="driveEncrypted !== 'true' && driveToken">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && driveToken">
                         <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
-                        <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="driveUpdateEncryption()">
+                        <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="backupUpdateEncryption('drive')">
                             <option value="true">{{ i18n.yes }}</option>
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
                     <div id="dropbox_logout" v-if="driveToken" v-on:click="backupLogout('drive')">{{ i18n.log_out }}</div>
                     <div id="dropbox_get_code" v-else v-on:click="getBackupToken('drive')">{{ i18n.sign_in }}</div>
-                    <div id="dropbox_logout" v-if="driveToken" v-on:click="driveUpload()">{{ i18n.manual_dropbox }}</div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupUpload('drive')">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
             <!-- STORAGE & SYNC SETTINGS -->
@@ -262,6 +262,7 @@
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />
 </div>
+<script src="../build/ui/backup.js"></script>
 <script src="../build/ui/add-account.js"></script>
 <script src="../build/ui/class.js"></script>
 <script src="../build/ui/entry.js"></script>

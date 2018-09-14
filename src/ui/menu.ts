@@ -79,11 +79,7 @@ async function menu(_ui: UI) {
       version,
       zoom,
       useAutofill,
-      newStorageLocation: localStorage.storageLocation,
-      dropboxEncrypted: localStorage.dropboxEncrypted,
-      driveEncrypted: localStorage.driveEncrypted,
-      dropboxToken: localStorage.dropboxToken || '',
-      driveToken: localStorage.driveToken || ''
+      newStorageLocation: localStorage.storageLocation
     },
     methods: {
       openLink: (url: string) => {
@@ -192,43 +188,6 @@ async function menu(_ui: UI) {
               chrome.windows.WINDOW_ID_CURRENT,
               {height: adjustedHeight, width: adjustedWidth});
         }
-      },
-      dropboxUpload: async () => {
-        const dbox = new Dropbox();
-        const response = await dbox.upload(_ui.instance.encryption);
-        if (response === true) {
-          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-        } else {
-          _ui.instance.alert(_ui.instance.i18n.updateFailure);
-        }
-      },
-      driveUpload: async () => {
-        const drive = new Drive();
-        const response = await drive.upload(_ui.instance.encryption);
-        if (response === true) {
-          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-        } else {
-          _ui.instance.alert(_ui.instance.i18n.updateFailure);
-        }
-      },
-      dropboxUpdateEncryption: () => {
-        localStorage.dropboxEncrypted = _ui.instance.dropboxEncrypted;
-        return;
-      },
-      driveUpdateEncryption: () => {
-        localStorage.driveEncrypted = _ui.instance.driveEncrypted;
-      },
-      backupLogout: async (service: string) => {
-        localStorage.removeItem(service + 'Token');
-        if (service === 'dropbox') {
-          _ui.instance.dropboxToken = '';
-        } else if (service === 'drive') {
-          _ui.instance.driveToken = '';
-        }
-        setTimeout(_ui.instance.closeInfo, 500);
-      },
-      getBackupToken: (service: string) => {
-        chrome.runtime.sendMessage({action: service});
       },
       migrateStorage: async () => {
         // sync => local

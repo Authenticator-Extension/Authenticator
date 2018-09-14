@@ -7,6 +7,7 @@
 /// <reference path="./ui/qr.ts" />
 /// <reference path="./ui/message.ts" />
 /// <reference path="./ui/add-account.ts" />
+/// <reference path="./ui/backup.ts" />
 /// <reference path="./ui/class.ts" />
 /// <reference path="./ui/ui.ts" />
 /// <reference path="./models/backup.ts" />
@@ -23,6 +24,7 @@ async function init() {
                             .load(qr)
                             .load(message)
                             .load(addAccount)
+                            .load(backup)
                             .render();
 
   try {
@@ -60,7 +62,7 @@ async function init() {
     } else if (
         clientTime - localStorage.lastRemindingBackupTime >= 30 ||
         clientTime - localStorage.lastRemindingBackupTime < 0) {
-      // backup to Dropbox
+      // backup to cloud
       if (authenticator.dropboxToken) {
         chrome.permissions.contains(
             {origins: ['https://*.dropboxapi.com/*']},
@@ -119,16 +121,16 @@ async function init() {
   }
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'dropboxtoken') {
-      authenticator.dropboxToken = message.value;
-      authenticator.dropboxUpload();
-      if (authenticator.info === 'dropbox') {
-        setTimeout(authenticator.closeInfo, 500);
+    if (['dropboxtoken', 'drivetoken'].indexOf(message.action) > -1) {
+      if (message.action === 'dropboxtoken') {
+        authenticator.dropboxToken = message.value;
+      } else if (message.account === 'drivetoken') {
+        authenticator.driveToken = message.value;
       }
-    } else if (message.action === 'drivetoken') {
-      authenticator.driveToken = message.value;
-      authenticator.driveUpload();
-      if (authenticator.info === 'drive') {
+      authenticator.backupUpload(
+          String(message.action)
+              .substring(0, String(message.action).indexOf('token')));
+      if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
         setTimeout(authenticator.closeInfo, 500);
       }
     }
