@@ -198,7 +198,8 @@ function getBackupToken(service: string) {
         } else if (key === 'code') {
           if (service === 'drive') {
             const xhr = new XMLHttpRequest();
-            // Need to trade code we got from launchWebAuthFlow for a token & refresh token
+            // Need to trade code we got from launchWebAuthFlow for a token &
+            // refresh token
             await new Promise(
                 (resolve: (value: boolean) => void,
                  reject: (reason: Error) => void) => {

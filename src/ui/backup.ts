@@ -38,12 +38,39 @@ async function backup(_ui: UI) {
         }
       },
       backupLogout: async (service: string) => {
-        localStorage.removeItem(service + 'Token');
         if (service === 'dropbox') {
           _ui.instance.dropboxToken = '';
+          await new Promise((resolve: (value: boolean) => void) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://api.dropboxapi.com/2/auth/token/revoke');
+            xhr.setRequestHeader(
+                'Authorization', 'Bearer ' + localStorage.dropboxToken);
+            xhr.onreadystatechange = () => {
+              if (xhr.readyState === 4) {
+                resolve(true);
+                return;
+              }
+            };
+            xhr.send();
+          });
         } else if (service === 'drive') {
           _ui.instance.driveToken = '';
+          await new Promise((resolve: (value: boolean) => void) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open(
+                'POST',
+                'https://accounts.google.com/o/oauth2/revoke?token=' +
+                    localStorage.driveRefreshToken);
+            xhr.onreadystatechange = () => {
+              if (xhr.readyState === 4) {
+                resolve(true);
+                return;
+              }
+            };
+            xhr.send();
+          });
         }
+        localStorage.removeItem(service + 'Token');
         setTimeout(_ui.instance.closeInfo, 500);
       },
       getBackupToken: (service: string) => {

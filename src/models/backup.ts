@@ -81,6 +81,7 @@ class Drive {
                     const res = JSON.parse(xhr.responseText);
                     if (res.error) {
                       if (res.error.code === 401) {
+                        localStorage.driveToken = '';
                         resolve(true);
                       }
                     } else {
