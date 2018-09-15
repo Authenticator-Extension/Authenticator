@@ -67,7 +67,73 @@ class Dropbox {
 
 class Drive {
   private async getToken() {
-    return localStorage.driveToken || '';
+    if (!localStorage.driveToken ||
+        await new Promise(
+            (resolve: (value: boolean) => void,
+             reject: (reason: Error) => void) => {
+              const xhr = new XMLHttpRequest();
+              xhr.open('GET', 'https://www.googleapis.com/drive/v3/files');
+              xhr.setRequestHeader(
+                  'Authorization', 'Bearer ' + localStorage.driveToken);
+              xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                  try {
+                    const res = JSON.parse(xhr.responseText);
+                    if (res.error) {
+                      if (res.error.code === 401) {
+                        resolve(true);
+                      }
+                    } else {
+                      resolve(false);
+                    }
+                  } catch (error) {
+                    console.error(error);
+                    reject(error);
+                  }
+                }
+                return;
+              };
+              xhr.send();
+            })) {
+      await this.refreshToken();
+    }
+    return localStorage.driveToken;
+  }
+
+  async refreshToken() {
+    return new Promise(
+        (resolve: (value: boolean) => void,
+         reject: (reason: Error) => void) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open(
+              'POST',
+              'https://www.googleapis.com/oauth2/v4/token?client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&client_secret=0AQA9EDq-WHkPLX4mfcIZ4ws&refresh_token=' +
+                  localStorage.driveRefreshToken + '&grant_type=refresh_token');
+          xhr.setRequestHeader('Accept', 'application/json');
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 401) {
+                localStorage.removeItem('driveRefreshToken');
+                resolve(false);
+              }
+              try {
+                const res = JSON.parse(xhr.responseText);
+                if (res.error) {
+                  console.error(res.error_description);
+                  resolve(false);
+                } else {
+                  localStorage.driveToken = res.access_token;
+                  resolve(true);
+                }
+              } catch (error) {
+                console.error(error);
+                reject(error);
+              }
+            }
+            return;
+          };
+          xhr.send();
+        });
   }
 
   private async getFolder() {

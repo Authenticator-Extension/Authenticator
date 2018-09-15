@@ -37,13 +37,7 @@ async function info(_ui: UI) {
             _ui.instance.driveEncrypted = localStorage.driveEncrypted;
           }
           chrome.permissions.request(
-              {
-                origins: [
-                  'https://www.googleapis.com/upload/drive/v3/files',
-                  'https://www.googleapis.com/drive/v3/files'
-                ]
-              },
-              async (granted) => {
+              {origins: ['https://www.googleapis.com/*']}, async (granted) => {
                 if (granted) {
                   _ui.instance.class.fadein = true;
                   _ui.instance.class.fadeout = false;

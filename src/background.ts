@@ -162,45 +162,82 @@ function getBackupToken(service: string) {
         encodeURIComponent(chrome.identity.getRedirectURL());
   } else if (service === 'drive') {
     authUrl =
-        'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=' +
+        'https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=' +
         encodeURIComponent('https://authenticator.cc/oauth');
   }
-  chrome.identity.launchWebAuthFlow(
-      {url: authUrl, interactive: true}, (url) => {
-        if (!url) {
-          return;
-        }
-        const hashMatches = url.split('#');
-        if (hashMatches.length < 2) {
-          return;
-        }
+  chrome.identity.launchWebAuthFlow({url: authUrl, interactive: true}, async (url) => {
+    if (!url) {
+      return;
+    }
+    let hashMatches = url.split('#');
+    if (service === 'drive') {
+      hashMatches = url.slice(0, -1).split('?');
+    }
+    if (hashMatches.length < 2) {
+      return;
+    }
 
-        const hash = hashMatches[1];
+    const hash = hashMatches[1];
 
-        const resData = hash.split('&');
-        for (let i = 0; i < resData.length; i++) {
-          const kv = resData[i];
-          if (/^(.*?)=(.*?)$/.test(kv)) {
-            const kvMatches = kv.match(/^(.*?)=(.*?)$/);
-            if (!kvMatches) {
-              continue;
-            }
-            const key = kvMatches[1];
-            const value = kvMatches[2];
-            if (key === 'access_token') {
-              if (service === 'dropbox') {
-                localStorage.dropboxToken = value;
-                chrome.runtime.sendMessage({action: 'dropboxtoken', value});
-                return;
-              } else if (service === 'drive') {
-                localStorage.driveToken = value;
-                chrome.runtime.sendMessage({action: 'drivetoken', value});
-              }
-            }
+    const resData = hash.split('&');
+    for (let i = 0; i < resData.length; i++) {
+      const kv = resData[i];
+      if (/^(.*?)=(.*?)$/.test(kv)) {
+        const kvMatches = kv.match(/^(.*?)=(.*?)$/);
+        if (!kvMatches) {
+          continue;
+        }
+        const key = kvMatches[1];
+        const value = kvMatches[2];
+        if (key === 'access_token') {
+          if (service === 'dropbox') {
+            localStorage.dropboxToken = value;
+            chrome.runtime.sendMessage({action: 'dropboxtoken', value});
+            return;
+          }
+        } else if (key === 'code') {
+          if (service === 'drive') {
+            const xhr = new XMLHttpRequest();
+            // Need to trade code we got from launchWebAuthFlow for a token & refresh token
+            await new Promise(
+                (resolve: (value: boolean) => void,
+                 reject: (reason: Error) => void) => {
+                  xhr.open(
+                      'POST',
+                      'https://www.googleapis.com/oauth2/v4/token?client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&client_secret=0AQA9EDq-WHkPLX4mfcIZ4ws&code=' +
+                          value +
+                          '&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code');
+                  xhr.setRequestHeader('Accept', 'application/json');
+                  xhr.setRequestHeader(
+                      'Content-Type', 'application/x-www-form-urlencoded');
+                  xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4) {
+                      try {
+                        const res = JSON.parse(xhr.responseText);
+                        if (res.error) {
+                          console.error(res.error_description);
+                          resolve(false);
+                        } else {
+                          localStorage.driveToken = res.access_token;
+                          localStorage.driveRefreshToken = res.refresh_token;
+                          resolve(true);
+                        }
+                      } catch (error) {
+                        console.error(error);
+                        reject(error);
+                      }
+                    }
+                    return;
+                  };
+                  xhr.send();
+                });
+            chrome.runtime.sendMessage({action: 'drivetoken', value});
           }
         }
-        return;
-      });
+      }
+    }
+    return;
+  });
 }
 
 // Show issue page after first install

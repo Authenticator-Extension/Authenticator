@@ -86,12 +86,7 @@ async function init() {
             });
       } else if (authenticator.driveToken) {
         chrome.permissions.contains(
-            {
-              origins: [
-                'https://www.googleapis.com/upload/drive/v3/files',
-                'https://www.googleapis.com/drive/v3/files'
-              ]
-            },
+            {origins: ['https://www.googleapis.com/*']},
             async (hasPermission) => {
               if (hasPermission) {
                 try {
