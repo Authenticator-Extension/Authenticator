@@ -37,7 +37,13 @@ async function info(_ui: UI) {
             _ui.instance.driveEncrypted = localStorage.driveEncrypted;
           }
           chrome.permissions.request(
-            { origins: ['https://www.googleapis.com/*', 'https://accounts.google.com/o/oauth2/revoke']}, async (granted) => {
+              {
+                origins: [
+                  'https://www.googleapis.com/*',
+                  'https://accounts.google.com/o/oauth2/revoke'
+                ]
+              },
+              async (granted) => {
                 if (granted) {
                   _ui.instance.class.fadein = true;
                   _ui.instance.class.fadeout = false;

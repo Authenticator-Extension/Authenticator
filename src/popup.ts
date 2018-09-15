@@ -86,7 +86,12 @@ async function init() {
             });
       } else if (authenticator.driveToken) {
         chrome.permissions.contains(
-          { origins: ['https://www.googleapis.com/*', 'https://accounts.google.com/o/oauth2/revoke']},
+            {
+              origins: [
+                'https://www.googleapis.com/*',
+                'https://accounts.google.com/o/oauth2/revoke'
+              ]
+            },
             async (hasPermission) => {
               if (hasPermission) {
                 try {
