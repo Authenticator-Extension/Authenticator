@@ -6,7 +6,7 @@
 function getCredentials() {
   return {
     drive: {
-      client_id: '',  // Google client ID
+      client_id: '',     // Google client ID
       client_secret: ''  // Google client secret
     },
     dropbox: {
