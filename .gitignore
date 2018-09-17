@@ -7,3 +7,4 @@ edge
 .atom-build.yml
 scripts/authenticator-build-key.enc
 cert.pfx
+src/models/credentials.ts

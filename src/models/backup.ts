@@ -2,6 +2,7 @@
 /// <reference path="../models/encryption.ts" />
 /// <reference path="../models/interface.ts" />
 /// <reference path="./storage.ts" />
+/// <reference path="./credentials.ts" />
 
 class Dropbox {
   private async getToken() {
@@ -108,8 +109,11 @@ class Drive {
           const xhr = new XMLHttpRequest();
           xhr.open(
               'POST',
-              'https://www.googleapis.com/oauth2/v4/token?client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&client_secret=0AQA9EDq-WHkPLX4mfcIZ4ws&refresh_token=' +
-                  localStorage.driveRefreshToken + '&grant_type=refresh_token');
+              'https://www.googleapis.com/oauth2/v4/token?client_id=' +
+                  getCredentials().drive.client_id +
+                  '&client_secret=' + getCredentials().drive.client_secret +
+                  '&refresh_token=' + localStorage.driveRefreshToken +
+                  '&grant_type=refresh_token');
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {

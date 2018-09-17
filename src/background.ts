@@ -3,6 +3,7 @@
 /// <reference path="./models/encryption.ts" />
 /// <reference path="./models/interface.ts" />
 /// <reference path="./models/storage.ts" />
+/// <reference path="./models/credentials.ts" />
 
 let cachedPassphrase = '';
 
@@ -158,11 +159,14 @@ function getBackupToken(service: string) {
   let authUrl = '';
   if (service === 'dropbox') {
     authUrl =
-        'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=mmx38seexw3tvps&redirect_uri=' +
-        encodeURIComponent(chrome.identity.getRedirectURL());
+        'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=' +
+        getCredentials().dropbox.client_id +
+        '&redirect_uri=' + encodeURIComponent(chrome.identity.getRedirectURL());
   } else if (service === 'drive') {
     authUrl =
-        'https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=' +
+        'https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=' +
+        getCredentials().drive.client_id +
+        '&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=' +
         encodeURIComponent('https://authenticator.cc/oauth');
   }
   chrome.identity.launchWebAuthFlow({url: authUrl, interactive: true}, async (url) => {
@@ -205,8 +209,10 @@ function getBackupToken(service: string) {
                  reject: (reason: Error) => void) => {
                   xhr.open(
                       'POST',
-                      'https://www.googleapis.com/oauth2/v4/token?client_id=292457304165-ria4acohb2i875o1kmda5a31vkan7rj7.apps.googleusercontent.com&client_secret=0AQA9EDq-WHkPLX4mfcIZ4ws&code=' +
-                          value +
+                      'https://www.googleapis.com/oauth2/v4/token?client_id=' +
+                          getCredentials().drive.client_id + '&client_secret=' +
+                          getCredentials().drive.client_secret +
+                          '&code=' + value +
                           '&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code');
                   xhr.setRequestHeader('Accept', 'application/json');
                   xhr.setRequestHeader(

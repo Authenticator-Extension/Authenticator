@@ -52,6 +52,7 @@
             "build/models/interface.js",
             "build/models/otp.js",
             "build/models/storage.js",
+            "build/models/credentials.js",
             "build/background.js"
         ]
     },
