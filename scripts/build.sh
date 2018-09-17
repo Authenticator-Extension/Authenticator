@@ -7,6 +7,8 @@
 #   'chrome', 'firefox', and 'edge'
 
 PLATFORM=$1
+FILE=$(cat ./src/models/credentials.ts | tr -d '\n')
+REGEX="^.*'.+'.*'.+'.*'.+'.*$"
 set -e
 
 if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]]; then
@@ -24,6 +26,11 @@ else
   echo "Fixing code style..."
   gts fix
 fi
+
+if ! [[ $FILE =~ $REGEX ]] ; then
+  echo -e "\e[7m\033[33mWarning: Missing info in credentials.ts\033[0m"
+fi
+
 echo "Compiling..."
 npm run compile
 mkdir $PLATFORM
