@@ -79,8 +79,7 @@ async function menu(_ui: UI) {
       version,
       zoom,
       useAutofill,
-      newStorageLocation: localStorage.storageLocation,
-      dropboxEncrypted: localStorage.dropboxEncrypted
+      newStorageLocation: localStorage.storageLocation
     },
     methods: {
       openLink: (url: string) => {
@@ -189,19 +188,6 @@ async function menu(_ui: UI) {
               chrome.windows.WINDOW_ID_CURRENT,
               {height: adjustedHeight, width: adjustedWidth});
         }
-      },
-      dropboxUpload: async () => {
-        const dbox = new Dropbox();
-        const response = await dbox.upload(_ui.instance.encryption);
-        if (response === true) {
-          _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-        } else {
-          _ui.instance.alert(_ui.instance.i18n.updateFailure);
-        }
-      },
-      dropboxUpdateEncryption: () => {
-        localStorage.dropboxEncrypted = _ui.instance.dropboxEncrypted;
-        return;
       },
       migrateStorage: async () => {
         // sync => local

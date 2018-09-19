@@ -17,6 +17,7 @@ jobs:
     - stage: test
       # new i18n strings
       script: bash scripts/i18n.sh
+      if: branch = dev AND type != pull_request
     - stage: deploy
       # release tagging
       script: bash scripts/tag.sh
