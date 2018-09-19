@@ -20,6 +20,12 @@ async function info(_ui: UI) {
             }
           }
         } else if (tab === 'dropbox') {
+          if (localStorage.dropboxEncrypted !== 'true' &&
+              localStorage.dropboxEncrypted !== 'false') {
+            localStorage.dropboxEncrypted = 'true';
+            _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
+          }
+
           chrome.permissions.request(
               {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
                 if (granted) {
