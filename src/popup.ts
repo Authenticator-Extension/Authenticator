@@ -7,6 +7,7 @@
 /// <reference path="./ui/qr.ts" />
 /// <reference path="./ui/message.ts" />
 /// <reference path="./ui/add-account.ts" />
+/// <reference path="./ui/backup.ts" />
 /// <reference path="./ui/class.ts" />
 /// <reference path="./ui/ui.ts" />
 /// <reference path="./models/backup.ts" />
@@ -23,6 +24,7 @@ async function init() {
                             .load(qr)
                             .load(message)
                             .load(addAccount)
+                            .load(backup)
                             .render();
 
   try {
@@ -60,7 +62,7 @@ async function init() {
     } else if (
         clientTime - localStorage.lastRemindingBackupTime >= 30 ||
         clientTime - localStorage.lastRemindingBackupTime < 0) {
-      // backup to Dropbox
+      // backup to cloud
       if (authenticator.dropboxToken) {
         chrome.permissions.contains(
             {origins: ['https://*.dropboxapi.com/*']},
@@ -72,6 +74,30 @@ async function init() {
                   if (res) {
                     // we have uploaded backup to Dropbox
                     // no need to remind
+                    localStorage.lastRemindingBackupTime = clientTime;
+                    return;
+                  }
+                } catch (error) {
+                  // ignore
+                }
+              }
+              authenticator.alert(authenticator.i18n.remind_backup);
+              localStorage.lastRemindingBackupTime = clientTime;
+            });
+      } else if (authenticator.driveToken) {
+        chrome.permissions.contains(
+            {
+              origins: [
+                'https://www.googleapis.com/*',
+                'https://accounts.google.com/o/oauth2/revoke'
+              ]
+            },
+            async (hasPermission) => {
+              if (hasPermission) {
+                try {
+                  const drive = new Drive();
+                  const res = await drive.upload(authenticator.encryption);
+                  if (res) {
                     localStorage.lastRemindingBackupTime = clientTime;
                     return;
                   }
@@ -100,10 +126,16 @@ async function init() {
   }
 
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'dropboxtoken') {
-      authenticator.dropboxToken = message.value;
-      authenticator.dropboxUpload();
-      if (authenticator.info === 'dropbox') {
+    if (['dropboxtoken', 'drivetoken'].indexOf(message.action) > -1) {
+      if (message.action === 'dropboxtoken') {
+        authenticator.dropboxToken = message.value;
+      } else if (message.account === 'drivetoken') {
+        authenticator.driveToken = message.value;
+      }
+      authenticator.backupUpload(
+          String(message.action)
+              .substring(0, String(message.action).indexOf('token')));
+      if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
         setTimeout(authenticator.closeInfo, 500);
       }
     }

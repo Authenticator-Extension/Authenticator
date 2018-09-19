@@ -52,6 +52,7 @@
             "build/models/interface.js",
             "build/models/otp.js",
             "build/models/storage.js",
+            "build/models/credentials.js",
             "build/background.js"
         ]
     },
@@ -65,11 +66,13 @@
     "optional_permissions": [
         "clipboardWrite",
         "https://www.google.com/",
-        "https://*.dropboxapi.com/*"
+        "https://*.dropboxapi.com/*",
+        "https://www.googleapis.com/*",
+        "https://accounts.google.com/o/oauth2/revoke"
     ],
     "web_accessible_resources": [
         "view/qr.html",
         "images/scan.gif"
     ],
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'"
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke ; default-src 'none'"
 }
