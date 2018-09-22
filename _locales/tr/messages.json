@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "İçe/Dışa aktar",
+        "message": "İçe\/Dışa aktar",
         "description": "Export and Import."
     },
     "settings": {
@@ -203,29 +203,13 @@
         "message": "Metin dosyasından içeri aktar",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Dropbox için otomatik yedekleme",
-        "description": "Auto backup to Dropbox."
-    },
-    "dropbox_code": {
-        "message": "Dropbox kodu",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Dropbox jetonu",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Dropbox'a giriş yapın",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Tüm girdileri göster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
@@ -234,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Dropbox'tan çıkış yapın",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Sil",
@@ -259,17 +239,13 @@
         "message": "Lock",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Dropbox sync enabled",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "Edit",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "Manual Sync",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "Use Autofill",

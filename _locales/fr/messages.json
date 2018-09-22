@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exporter / Importer",
+        "message": "Exporter \/ Importer",
         "description": "Export and Import."
     },
     "settings": {
@@ -203,29 +203,13 @@
         "message": "Importer sauvegarde en texte",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Sauvegarde automatique vers Dropbox",
-        "description": "Auto backup to Dropbox."
-    },
-    "dropbox_code": {
-        "message": "Code Dropbox",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Jeton Dropbox",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Se connecter à Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Afficher Toutes les Entrées",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Attention: les sauvegardes Dropbox ne sont pas protégées par chiffrement. Utilisez les à vos risques et périls.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
@@ -234,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Votre mot de passe est stocké localement, veuillez le changer immédiatement par l'intermédiaire du menu sécurité.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Se déconnecter de Dropbox",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Supprimer",
@@ -259,17 +239,13 @@
         "message": "Vérouiller",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Synchronisation avec Dropbox activée",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "Modifier",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "Synchronisation manuelle",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "Utiliser Autofill",

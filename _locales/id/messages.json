@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Ekspor / Impor",
+        "message": "Ekspor \/ Impor",
         "description": "Export and Import."
     },
     "settings": {
@@ -203,29 +203,13 @@
         "message": "Impor Text Cadangan",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Cadangkan otomatis ke Dropbox",
-        "description": "Auto backup to Dropbox."
-    },
-    "dropbox_code": {
-        "message": "Kode Dropbox",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Token Dropbox",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Masuk ke Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Tampilkan semua entri",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Peringatan: Cadangan yang disimpan di Dropbox tidak dienkripsi. Perhatikan resikonya sebelum digunakan.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.",
@@ -234,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Keluar dari Dropbox",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Hapus",
@@ -259,17 +239,13 @@
         "message": "Kunci",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Dropbox sync diaktifkan",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "Ubah",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "Manual Sync",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "IsiOtomatis",

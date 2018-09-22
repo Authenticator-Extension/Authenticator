@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Εξαγωγή/εισαγωγή",
+        "message": "Εξαγωγή\/εισαγωγή",
         "description": "Export and Import."
     },
     "settings": {
@@ -203,29 +203,13 @@
         "message": "Εισαγωγή αντιγράφων κειμένου",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Dropbox",
-        "description": "Auto backup to Dropbox menu"
-    },
-    "dropbox_code": {
-        "message": "Κωδικός Dropbox",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Διακριτικό Dropbox",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Εισέλθετε στο Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Δείτε όλες τις καταχωρήσεις",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "ΠΡΟΣΟΧΗ: τα αντίγραφα ασφαλείας αποθηκεύονται στο Dropbox είναι κρυπτογραφημένη. Χρησιμοποιήστε το με δική σας ευθύνη.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "Πρέπει να παρέχετε το σωστό κωδικό πρόσβασης για να εισαγάγετε τα αντίγραφα ασφαλείας.",
@@ -234,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Τον κωδικό πρόσβασής σας είναι αποθηκευμένη τοπικά, παρακαλούμε αμέσως να το αλλάξετε από το μενού ασφάλεια.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Αποσύνδεση του Dropbox",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Αφαίρεση",
@@ -259,17 +239,13 @@
         "message": "Κλείδωμα",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Συγχρονισμός Dropbox ενεργοποιημένη",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "Επεξεργασία",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "Χειροκίνητος συγχρονισμός",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "Χρήση της αυτόματης συμπλήρωσης",

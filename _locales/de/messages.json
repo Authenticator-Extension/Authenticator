@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportieren / Importieren",
+        "message": "Exportieren \/ Importieren",
         "description": "Export and Import."
     },
     "settings": {
@@ -203,29 +203,13 @@
         "message": "Text-Sicherungsdatei importieren",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "Dropbox",
-        "description": "Auto backup to Dropbox menu"
-    },
-    "dropbox_code": {
-        "message": "Dropbox-Code",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Dropbox-Token",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "Einloggen in Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "Alle Einträge anzeigen",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Vorsicht: Sicherungen, die in Dropbox gespeichert werden, sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
-        "description": "Dropbox backup risk warning."
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "Sie müssen das richtige Passwort angeben um Sicherungsdateien zu importieren.",
@@ -234,10 +218,6 @@
     "local_passphrase_warning": {
         "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es sofort im Sicherheitsmenü.",
         "description": "localStorage password warning."
-    },
-    "dropbox_logout": {
-        "message": "Aus Dropbox ausloggen",
-        "description": "Dropbox logout."
     },
     "remove": {
         "message": "Löschen",
@@ -259,36 +239,32 @@
         "message": "Sperren",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Dropbox-Synchronisation aktiviert",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "Ändern",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "Manuelle Synchronisation",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "Use Autofill",
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Speicher & Sicherung",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Wählen Sie, wo ihre Daten gespeichert werden sollen. Mit \"local\" werden ihre Daten auf ihrem PC gespeichert. Mit \"sync\" synchonisiert ihr Browser ihre Daten mit der Cloud, sofern Sie sich mit einem Sync-Account angemeldet haben.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "Automatische Sicherung auf Drittanbieter-Speicher.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Speicherort",
         "description": "Storage location"
     },
     "sign_in": {
