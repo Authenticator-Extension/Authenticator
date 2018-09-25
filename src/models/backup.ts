@@ -103,42 +103,56 @@ class Drive {
   }
 
   async refreshToken() {
-    return new Promise(
-        (resolve: (value: boolean) => void,
-         reject: (reason: Error) => void) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open(
-              'POST',
-              'https://www.googleapis.com/oauth2/v4/token?client_id=' +
-                  getCredentials().drive.client_id +
-                  '&client_secret=' + getCredentials().drive.client_secret +
-                  '&refresh_token=' + localStorage.driveRefreshToken +
-                  '&grant_type=refresh_token');
-          xhr.setRequestHeader('Accept', 'application/json');
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                localStorage.removeItem('driveRefreshToken');
-                resolve(false);
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (res.error) {
-                  console.error(res.error_description);
+    if (navigator.userAgent.indexOf('Chrome') !== -1) {
+      return new Promise((resolve: (value: boolean) => void) => {
+        return chrome.identity.getAuthToken(
+            {
+              'interactive': false,
+              'scopes': ['https://www.googleapis.com/auth/drive.file']
+            },
+            (token) => {
+              localStorage.driveToken = token;
+              resolve(Boolean(token));
+            });
+      });
+    } else {
+      return new Promise(
+          (resolve: (value: boolean) => void,
+           reject: (reason: Error) => void) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open(
+                'POST',
+                'https://www.googleapis.com/oauth2/v4/token?client_id=' +
+                    getCredentials().drive.client_id +
+                    '&client_secret=' + getCredentials().drive.client_secret +
+                    '&refresh_token=' + localStorage.driveRefreshToken +
+                    '&grant_type=refresh_token');
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.onreadystatechange = () => {
+              if (xhr.readyState === 4) {
+                if (xhr.status === 401) {
+                  localStorage.removeItem('driveRefreshToken');
                   resolve(false);
-                } else {
-                  localStorage.driveToken = res.access_token;
-                  resolve(true);
                 }
-              } catch (error) {
-                console.error(error);
-                reject(error);
+                try {
+                  const res = JSON.parse(xhr.responseText);
+                  if (res.error) {
+                    console.error(res.error_description);
+                    resolve(false);
+                  } else {
+                    localStorage.driveToken = res.access_token;
+                    resolve(true);
+                  }
+                } catch (error) {
+                  console.error(error);
+                  reject(error);
+                }
               }
-            }
-            return;
-          };
-          xhr.send();
-        });
+              return;
+            };
+            xhr.send();
+          });
+    }
   }
 
   private async getFolder() {
