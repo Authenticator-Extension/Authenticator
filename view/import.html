@@ -29,7 +29,7 @@
         </div>
         <div v-show="importType === 'import_file'">
             <div class="import_file" v-if="!getFilePassphrase">
-                <label for="import_file" style="">{{ i18n.import_backup_file }}</label>
+                <label for="import_file">{{ i18n.import_backup_file }}</label>
                 <input id="import_file" type="file" v-on:change="importFile($event, true)" accept="application/json"></input>
             </div>
             <div class="import_file_passphrase" v-else>
