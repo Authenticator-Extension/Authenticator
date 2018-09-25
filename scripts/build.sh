@@ -32,7 +32,7 @@ if ! [[ $CREDS =~ $CREDREGEX ]] ; then
   echo -e "\e[7m\033[33mWarning: Missing info in credentials.ts\033[0m"
 fi
 
-if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git"* ]] ; then
+if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git"* || $REMOTE = *"git@github.com:Authenticator-Extension/Authenticator.git"* ]] ; then
   echo
   echo -e "\e[7m\033[33mNotice\033[0m"
   echo

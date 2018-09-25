@@ -7,18 +7,22 @@ stages:
 jobs:
   include:
     - stage: test
+      name: "TS style check"
       script: "gts check"
     - stage: test
+      name: "lintspaces"
       script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
     - stage: test
+      name: "Build Firefox and run addons-linter"
       script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
     - stage: test
+      name: "Build Chrome"
       script: "npm run chrome"
     - stage: test
-      # new i18n strings
+      name: "Process new i18n strings"
       script: bash scripts/i18n.sh
       if: branch = dev AND type != pull_request
     - stage: deploy
-      # release tagging
+      name: "Release tagging"
       script: bash scripts/tag.sh
       if: branch = release AND type != pull_request
