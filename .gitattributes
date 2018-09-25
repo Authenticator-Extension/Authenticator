@@ -1,3 +1,5 @@
 *.js linguist-vendored
 css/font-awesome.css linguist-vendored
 js/jsqrcode/index.d.ts linguist-vendored
+_locales/*.json linguist-generated=true
+_locales/en/messages.json linguist-generated=false
