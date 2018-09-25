@@ -4,16 +4,8 @@
 
 async function info(_ui: UI) {
   const ui: UIConfig = {
-    data: {info: '', dropboxToken: localStorage.dropboxToken || ''},
+    data: {info: ''},
     methods: {
-      getDropboxToken: () => {
-        chrome.runtime.sendMessage({action: 'dropbox'});
-      },
-      logoutDropbox: async () => {
-        localStorage.removeItem('dropboxToken');
-        _ui.instance.dropboxToken = '';
-        _ui.instance.openLink('https://www.dropbox.com/account/connected_apps');
-      },
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
           const entries = _ui.instance.entries as OTPEntry[];
@@ -28,6 +20,12 @@ async function info(_ui: UI) {
             }
           }
         } else if (tab === 'dropbox') {
+          if (localStorage.dropboxEncrypted !== 'true' &&
+              localStorage.dropboxEncrypted !== 'false') {
+            localStorage.dropboxEncrypted = 'true';
+            _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
+          }
+
           chrome.permissions.request(
               {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
                 if (granted) {
@@ -38,6 +36,33 @@ async function info(_ui: UI) {
                 return;
               });
           return;
+        } else if (tab === 'drive') {
+          if (localStorage.driveEncrypted !== 'true' &&
+              localStorage.driveEncrypted !== 'false') {
+            localStorage.driveEncrypted = 'true';
+            _ui.instance.driveEncrypted = localStorage.driveEncrypted;
+          }
+          chrome.permissions.request(
+              {
+                origins: [
+                  'https://www.googleapis.com/*',
+                  'https://accounts.google.com/o/oauth2/revoke'
+                ]
+              },
+              async (granted) => {
+                if (granted) {
+                  _ui.instance.class.fadein = true;
+                  _ui.instance.class.fadeout = false;
+                  _ui.instance.info = tab;
+                }
+                return;
+              });
+          return;
+        } else if (tab === 'storage') {
+          if (_ui.instance.newStorageLocation !== 'sync' &&
+              _ui.instance.newStorageLocation !== 'local') {
+            _ui.instance.newStorageLocation = localStorage.storageLocation;
+          }
         }
 
         _ui.instance.class.fadein = true;

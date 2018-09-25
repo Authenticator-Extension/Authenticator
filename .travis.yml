@@ -16,9 +16,9 @@ jobs:
       script: "npm run chrome"
     - stage: test
       # new i18n strings
-      script: bash ci/i18n.sh
+      script: bash scripts/i18n.sh
       if: branch = dev AND type != pull_request
     - stage: deploy
       # release tagging
-      script: bash ci/tag.sh
+      script: bash scripts/tag.sh
       if: branch = release AND type != pull_request

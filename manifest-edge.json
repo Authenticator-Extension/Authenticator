@@ -33,19 +33,21 @@
     },
     "browser_action": {
         "default_icon": {
-            "19": "images/icon19.png",
-            "38": "images/icon38.png"
+            "20": "images/icon20.png",
+            "25": "images/icon25.png",
+            "30": "images/icon30.png",
+            "40": "images/icon40.png"
         },
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
     },
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'",
+    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/; default-src 'none'",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
-        "16": "images/icon16.png",
         "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "128": "images/icon128.png",
+        "176": "images/icon176.png"
     },
     "manifest_version": 2,
     "name": "__MSG_extName__",
@@ -54,7 +56,7 @@
         "storage"
     ],
     "short_name": "__MSG_extShortName__",
-    "version": "5.1.1",
+    "version": "5.2.0",
     "web_accessible_resources": [
         "view/qr.html",
         "images/scan.gif"

@@ -15,7 +15,8 @@
     <script src="../build/models/key-utilities.js"></script>
     <script src="../build/models/otp.js"></script>
     <script src="../build/models/storage.js"></script>
-    <script src="../build/models/dropbox.js"></script>
+    <script src="../build/models/backup.js"></script>
+    <script src="../build/models/credentials.js"></script>
 </head>
 <body>
 <div id="authenticator" v-cloak>
@@ -24,7 +25,7 @@
         <div v-show="!isPopup()">
             <div id="infoAction" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
             <div id="lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
-            <div id="dropbox" title="{{ i18n.dropbox_tooltip }}" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="dropboxToken !== '' && !class.edit"><i class="fa fa-dropbox"></i></div>
+            <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><i class="fa fa-refresh"></i></div>
             <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
             <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
         </div>
@@ -77,7 +78,7 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.dropbox_backup" id="menuDropbox" v-on:click="showInfo('dropbox')" v-show="!isEdge()"><i class="fa fa-dropbox"></i>{{ i18n.dropbox_backup }}</p>
+                <p v-bind:title="i18n.storage_menu" id="menuStorage" v-on:click="showInfo('storage')" v-show="!isEdge()"><i class="fa fa-database"></i>{{ i18n.storage_menu }}</p>
                 <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
@@ -98,7 +99,7 @@
             <!-- ABOUT -->
             <div v-show="info === 'about'">
                 <p><strong>Authenticator</strong> &copy; 2018 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p>
-                <p>Google is a trademark of Google LLC.</p>
+                <p>Google and Google Drive are trademarks of Google LLC.</p>
                 <p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright Jeff Mott. Licensed under the BSD License.</p>
                 <p><a target='_blank' href='http://www.droidfonts.com/'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p>
@@ -167,15 +168,49 @@
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
                 <div id="dropbox_box">
-                    <div id="dropbox_risk">{{ i18n.dropbox_risk }}</div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="logoutDropbox()">{{ i18n.dropbox_logout }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getDropboxToken()">{{ i18n.dropbox_authorization }}</div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="dropboxUpload()">{{ i18n.manual_dropbox }}</div>
-                    <!--
-                      <label for="token_input">{{ i18n.dropbox_token }}</label>
-                      <textarea type="text" id="token_input" v-model="dropboxToken" disabled></textarea></textarea>
-                    -->
+                    <div id="dropbox_risk" v-if="dropboxEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
+                    <div v-if="encryption.getEncryptionStatus() && dropboxToken">
+                        <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
+                        <select id="dropbox_encryption" v-model="dropboxEncrypted" v-on:change="backupUpdateEncryption('dropbox')">
+                            <option value="true">{{ i18n.yes }}</option>
+                            <option value="false">{{ i18n.no }}</option>
+                        </select>
+                    </div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
+                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupUpload('dropbox')">{{ i18n.manual_dropbox }}</div>
                 </div>
+            </div>
+            <!-- DRIVE -->
+            <div v-show="info === 'drive'">
+                <div id="dropbox_box">
+                    <div id="dropbox_risk" v-if="driveEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
+                    <div v-if="encryption.getEncryptionStatus() && driveToken">
+                        <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
+                        <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="backupUpdateEncryption('drive')">
+                            <option value="true">{{ i18n.yes }}</option>
+                            <option value="false">{{ i18n.no }}</option>
+                        </select>
+                    </div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupLogout('drive')">{{ i18n.log_out }}</div>
+                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('drive')">{{ i18n.sign_in }}</div>
+                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupUpload('drive')">{{ i18n.manual_dropbox }}</div>
+                </div>
+            </div>
+            <!-- STORAGE & SYNC SETTINGS -->
+            <div v-show="info === 'storage'">
+                <!-- Storage Settings -->
+                <div id="storage_location_info">{{ i18n.storage_location_info }}</div>
+                <label for="storage_location" id="storage_location_label">{{ i18n.storage_location }}</label>
+                <select id="storage_location" v-model="newStorageLocation" v-on:change="migrateStorage()">
+                    <option value="sync">sync</option>
+                    <option value="local">local</option>
+                </select>
+                <!-- 3rd Party Backup Services -->
+                <div id="storage_sync_info">{{ i18n.storage_sync_info }}</div>
+                <p></p>
+                <div id="dropbox_menu" v-on:click="showInfo('drive')">Google Drive</div>
+                <div id="dropbox_menu" v-on:click="showInfo('dropbox')">Dropbox</div>
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
@@ -228,6 +263,7 @@
     <!-- CLIPBOARD -->
     <input type="text" id="codeClipboard" />
 </div>
+<script src="../build/ui/backup.js"></script>
 <script src="../build/ui/add-account.js"></script>
 <script src="../build/ui/class.js"></script>
 <script src="../build/ui/entry.js"></script>

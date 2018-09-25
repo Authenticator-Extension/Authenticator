@@ -401,6 +401,7 @@ body {
 #add_button,
 #dropbox_get_code,
 #dropbox_logout,
+#dropbox_menu,
 #download_backup,
 #import_backup,
 #upload_backup,
@@ -746,6 +747,7 @@ body {
 #security_remove:hover,
 #dropbox_get_code:hover,
 #dropbox_logout:hover,
+#dropbox_menu:hover,
 #export:hover,
 #confirm_cancel:hover,
 #confirm_ok:hover,
@@ -854,12 +856,13 @@ body {
     padding: 5px;
 }
 
-#dropbox_box label,
 #secret_box label,
 #security label,
 #passphrase label,
 #security_warning,
 #dropbox_risk,
+#storage_location_info,
+#storage_sync_info,
 #export_info,
 #passphrase_info {
     display: block;
@@ -869,15 +872,25 @@ body {
 #security_warning,
 #export_info,
 #dropbox_risk,
+#storage_location_info,
+#storage_sync_info,
 #passphrase_info {
     color: gray;
 }
 
 #resize_list_label,
+#storage_location_label,
+#dropbox_encryption_label,
+#dropbox_encryption,
 #use_autofill_label,
-#resize_list {
+#resize_list,
+#storage_location {
     margin: 20px;
     font-size: 16px;
+}
+
+#storage_location {
+  margin: 20px 20px 20px 0;
 }
 
 #message,

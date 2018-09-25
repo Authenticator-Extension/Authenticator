@@ -5,4 +5,5 @@ firefox
 edge
 .vscode
 .atom-build.yml
-ci/authenticator-build-key.enc
+scripts/authenticator-build-key.enc
+cert.pfx
