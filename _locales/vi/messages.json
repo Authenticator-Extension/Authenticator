@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Lí & Backup",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
