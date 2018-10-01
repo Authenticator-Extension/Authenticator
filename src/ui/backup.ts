@@ -60,7 +60,7 @@ async function backup(_ui: UI) {
             xhr.open(
                 'POST',
                 'https://accounts.google.com/o/oauth2/revoke?token=' +
-                    localStorage.driveRefreshToken);
+                    localStorage.driveToken);
             xhr.onreadystatechange = () => {
               if (xhr.readyState === 4) {
                 resolve(true);
