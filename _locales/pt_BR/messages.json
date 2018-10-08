@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Dê sua opinião",
         "description": "Feedback."
     },
     "translate": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Digite a senha para descriptografar os dados da conta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -160,11 +160,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Você tem um backup dos seus segredos? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "A captura falhou, por favor recarregue a página e tente novamente.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Página de pop-up",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,47 +184,47 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Aviso: todos os backups estão descriptografados. Deseja adicionar uma conta a outro aplicativo? Passe o mouse sobre a parte superior direita de qualquer conta e aperte o botão oculto.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Baixar o arquivo de cópia de segurança",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importar cópia de segurança",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importar arquivo de cópia de segurança",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importar cópia de segurança em texto",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Mostrar todas as entradas",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Aviso: os backups estão descriptografados. Use a seu próprio risco.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Você deve fornecer a senha correta para importar os backups.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Sua senha é armazenada localmente, por favor altere-a no menu de segurança imediatamente.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Remover",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Baixar cópia de segurança protegido por senha",
         "description": "Download Encrypted Backup"
     },
     "search": {
