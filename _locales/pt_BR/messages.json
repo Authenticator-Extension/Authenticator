@@ -228,7 +228,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Busca",
         "description": "Search"
     },
     "popout": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Bloquear",
         "description": "Lock accounts"
     },
     "edit": {
