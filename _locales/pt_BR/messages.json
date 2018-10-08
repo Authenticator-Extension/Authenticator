@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador gera códigos de verificação 2-passo no seu navegador.",
+        "message": "Autenticador gera códigos de verificação em 2 passos no seu navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Feito",
+        "message": "OK",
         "description": "OK."
     },
     "yes": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Baixar o arquivo de cópia de segurança",
+        "message": "Baixar o arquivo de backup",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importar cópia de segurança em texto",
+        "message": "Importar backup em texto",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Baixar cópia de segurança protegido por senha",
+        "message": "Baixar backup protegido por senha",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Armazenamento e cópia de segurança",
+        "message": "Armazenamento e Backup",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
