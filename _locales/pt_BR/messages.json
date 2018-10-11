@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta senha será usada para criptografar os seus segredos. Ninguém pode te ajudar caso você esqueça a Senha de Segurança.",
+        "message": "Esta senha será usada para criptografar os seus segredos. Ninguém pode te ajudar caso você esqueça a senha.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -152,15 +152,15 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Relembrar Senha",
+        "message": "Lembrar Senha",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Cuidado! Seu relógio local está há muito tempo parado, por favor ajuste-o antes de continuar.",
+        "message": "Cuidado! Seu relógio local está parado há muito tempo, por favor ajuste-o antes de continuar.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Você tem um backup dos seus segredos? Não espere até que seja tarde demais!",
+        "message": "Você tem uma cópia de segurança dos seus segredos? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
