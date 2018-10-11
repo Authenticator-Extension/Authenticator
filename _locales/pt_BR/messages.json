@@ -168,11 +168,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Tempo Baseado",
+        "message": "Baseado no Tempo",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contador Baseado",
+        "message": "Baseado no Contador",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Aviso: todos os backups estão descriptografados. Deseja adicionar uma conta a outro aplicativo? Passe o mouse sobre a parte superior direita de qualquer conta e aperte o botão oculto.",
+        "message": "Aviso: todos as cópias de segurança estão descriptografadas. Deseja adicionar uma conta a outro aplicativo? Passe o mouse sobre a parte superior direita de qualquer conta e aperte o botão oculto.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -208,11 +208,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Aviso: os backups estão descriptografados. Use a seu próprio risco.",
+        "message": "Aviso: as cóppias de segurança estão descriptografadas. Use a seu próprio risco.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Você deve fornecer a senha correta para importar os backups.",
+        "message": "Você deve fornecer a senha correta para importar as cópias de segurança.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
