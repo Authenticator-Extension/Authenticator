@@ -256,11 +256,11 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Escolha onde seus dados são armazenados. Usar 'local' armazena seus dados no seu PC. Usando 'sincronizar' permite seu navegador sincronizar seus dados na nuvem, caso você esteja conectado com uma conta de sincronização.",
+        "message": "Escolha onde seus dados são armazenados. Usar 'local' armazena seus dados no seu PC. Usando 'sincronizar' permite seu navegador sincronizar seus dados na nuvem, caso você esteja conectado a uma conta de sincronização.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automaticamente backup de seus dados de 3 serviços de expedição de terceiros.",
+        "message": "Automaticamente salvar uma cópia de segurança dos seus dados para serviços de armazenamento de terceiros.",
         "description": "3rd party backup info"
     },
     "storage_location": {
