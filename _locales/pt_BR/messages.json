@@ -16,15 +16,15 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Impossível reconhecer o QR Code.",
+        "message": "Código QR não reconhecido.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Erro Secreto. Somente Base32(A-Z, 2-7 and =) e HEX(0-9 and A-F) são suportados. Contudo, seu código secreto é: ",
+        "message": "Erro secreto. Somente Base32(A-Z, 2-7 e =) e HEX(0-9 e A-F) são suportados. Contudo, seu código secreto é: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scanear QR Code",
+        "message": "Escanear código QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -88,11 +88,11 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Palavra Chave Atual",
+        "message": "Senha Atual",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nova Palavra Chave",
+        "message": "Nova Senha",
         "description": "New Passphrase."
     },
     "phrase": {
