@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador gera códigos de verificação em 2 passos no seu navegador.",
+        "message": "O Autenticador gera códigos de verificação em 2 passos no seu navegador.",
         "description": "Extension Description."
     },
     "added": {
