@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Você tem uma cópia de segurança dos seus segredos? Não espere até que seja tarde demais!",
+        "message": "Você tem um backup dos seus segredos? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -260,7 +260,7 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Automaticamente fazer backup dos seus dados para serviços de armazenamento de terceiros.",
         "description": "3rd party backup info"
     },
     "storage_location": {
