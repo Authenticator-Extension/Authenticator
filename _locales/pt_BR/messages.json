@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Aviso: todos as cópias de segurança estão descriptografadas. Deseja adicionar uma conta a outro aplicativo? Passe o mouse sobre a parte superior direita de qualquer conta e aperte o botão oculto.",
+        "message": "Aviso: todos os backups estão descriptografados. Deseja adicionar uma conta a outro aplicativo? Passe o mouse sobre a parte superior direita de qualquer conta e aperte o botão oculto.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,11 +192,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importar cópia de segurança",
+        "message": "Importar Backup",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar arquivo de cópia de segurança",
+        "message": "Importar arquivo de Backup",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -208,11 +208,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Aviso: as cóppias de segurança estão descriptografadas. Use a seu próprio risco.",
+        "message": "Aviso: os backups estão descriptografados. Use a seu próprio risco.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Você deve fornecer a senha correta para importar as cópias de segurança.",
+        "message": "Você deve fornecer a senha correta para importar os backups.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
