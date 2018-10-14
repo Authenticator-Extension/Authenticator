@@ -65,9 +65,9 @@ async function backup(_ui: UI) {
               if (xhr.readyState === 4) {
                 if (navigator.userAgent.indexOf('Chrome') !== -1) {
                   chrome.identity.removeCachedAuthToken(
-                    {token: localStorage.driveToken}, () => {
-                      resolve(true);
-                    });
+                      {token: localStorage.driveToken}, () => {
+                        resolve(true);
+                      });
                 } else {
                   resolve(true);
                 }
