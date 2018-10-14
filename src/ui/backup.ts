@@ -47,10 +47,7 @@ async function backup(_ui: UI) {
                 'Authorization', 'Bearer ' + localStorage.dropboxToken);
             xhr.onreadystatechange = () => {
               if (xhr.readyState === 4) {
-                chrome.identity.removeCachedAuthToken(
-                    {token: localStorage.dropboxToken}, () => {
-                      resolve(true);
-                    });
+                resolve(true);
                 return;
               }
             };
@@ -66,10 +63,14 @@ async function backup(_ui: UI) {
                     localStorage.driveToken);
             xhr.onreadystatechange = () => {
               if (xhr.readyState === 4) {
-                chrome.identity.removeCachedAuthToken(
+                if (navigator.userAgent.indexOf('Chrome') !== -1) {
+                  chrome.identity.removeCachedAuthToken(
                     {token: localStorage.driveToken}, () => {
                       resolve(true);
                     });
+                } else {
+                  resolve(true);
+                }
                 return;
               }
             };
