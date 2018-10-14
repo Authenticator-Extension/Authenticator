@@ -162,9 +162,9 @@ function getBackupToken(service: string) {
           'interactive': true,
           'scopes': ['https://www.googleapis.com/auth/drive.file']
         },
-        (token) => {
-          localStorage.driveToken = token;
-          chrome.runtime.sendMessage({action: 'drivetoken', token});
+        (value) => {
+          localStorage.driveToken = value;
+          chrome.runtime.sendMessage({action: 'drivetoken', value});
           return true;
         });
   } else {
