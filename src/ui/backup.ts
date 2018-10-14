@@ -18,9 +18,8 @@ async function backup(_ui: UI) {
           if (response === true) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
           } else if (localStorage.dropboxRevoked === 'true') {
-            _ui.instance.alert(
-                String(_ui.instance.i18n.token_revoked)
-                    .replace(/\${service}/, 'Dropbox'));
+            _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
+                                   .replace(/\${service}/, 'Dropbox'));
             localStorage.removeItem('dropboxRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
