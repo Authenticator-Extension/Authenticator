@@ -131,7 +131,6 @@ async function init() {
         authenticator.dropboxToken = message.value;
       } else if (message.action === 'drivetoken') {
         authenticator.driveToken = message.value;
-        console.log(message);
       }
       authenticator.backupUpload(
           String(message.action)
