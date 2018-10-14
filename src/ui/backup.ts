@@ -17,6 +17,11 @@ async function backup(_ui: UI) {
           const response = await dbox.upload(_ui.instance.encryption);
           if (response === true) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+          } else if (localStorage.dropboxRevoked === 'true') {
+            _ui.instance.alert(
+                String(_ui.instance.i18n.token_revoked)
+                    .replace(/\${service}/, 'Dropbox'));
+            localStorage.removeItem('dropboxRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
           }
@@ -25,6 +30,10 @@ async function backup(_ui: UI) {
           const response = await drive.upload(_ui.instance.encryption);
           if (response === true) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+          } else if (localStorage.driveRevoked === 'true') {
+            _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
+                                   .replace(/\${service}/, 'Google Drive'));
+            localStorage.removeItem('driveRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
           }

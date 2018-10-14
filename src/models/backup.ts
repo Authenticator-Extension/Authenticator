@@ -43,6 +43,7 @@ class Dropbox {
               if (xhr.readyState === 4) {
                 if (xhr.status === 401) {
                   localStorage.removeItem('dropboxToken');
+                  localStorage.dropboxRevoked = true;
                   resolve(false);
                 }
                 try {
@@ -112,6 +113,9 @@ class Drive {
             },
             (token) => {
               localStorage.driveToken = token;
+              if (!Boolean(token)) {
+                localStorage.driveRevoked = true;
+              }
               resolve(Boolean(token));
             });
       });
@@ -132,11 +136,16 @@ class Drive {
               if (xhr.readyState === 4) {
                 if (xhr.status === 401) {
                   localStorage.removeItem('driveRefreshToken');
+                  localStorage.driveRevoked = true;
                   resolve(false);
                 }
                 try {
                   const res = JSON.parse(xhr.responseText);
                   if (res.error) {
+                    if (res.error === 'invalid_grant') {
+                      localStorage.removeItem('driveRefreshToken');
+                      localStorage.driveRevoked = true;
+                    }
                     console.error(res.error_description);
                     resolve(false);
                   } else {
@@ -157,6 +166,11 @@ class Drive {
 
   private async getFolder() {
     const token = await this.getToken();
+    if (!token) {
+      return new Promise((resolve: (value: false) => void) => {
+        resolve(false);
+      });
+    }
     if (localStorage.driveFolder) {
       await new Promise(
           (resolve: (value: boolean) => void,
@@ -250,6 +264,11 @@ class Drive {
     const backup = JSON.stringify(exportData, null, 2);
 
     const token = await this.getToken();
+    if (!token) {
+      return new Promise((resolve: (value: false) => void) => {
+        resolve(false);
+      });
+    }
     const folderId = await this.getFolder();
     return new Promise(
         (resolve: (value: boolean) => void,
