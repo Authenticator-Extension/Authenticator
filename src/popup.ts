@@ -76,6 +76,10 @@ async function init() {
                     // no need to remind
                     localStorage.lastRemindingBackupTime = clientTime;
                     return;
+                  } else if (localStorage.dropboxRevoked === 'true') {
+                    authenticator.alert(String(authenticator.i18n.token_revoked)
+                                            .replace(/\${service}/, 'Dropbox'));
+                    localStorage.removeItem('dropboxRevoked');
                   }
                 } catch (error) {
                   // ignore
@@ -100,6 +104,11 @@ async function init() {
                   if (res) {
                     localStorage.lastRemindingBackupTime = clientTime;
                     return;
+                  } else if (localStorage.driveRevoked === 'true') {
+                    authenticator.alert(
+                        String(authenticator.i18n.token_revoked)
+                            .replace(/\${service}/, 'Google Drive'));
+                    localStorage.removeItem('driveRevoked');
                   }
                 } catch (error) {
                   // ignore
