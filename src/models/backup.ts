@@ -167,7 +167,7 @@ class Drive {
   private async getFolder() {
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: false) => void) => {
+      return new Promise((resolve: (value: boolean) => void) => {
         resolve(false);
       });
     }
@@ -265,7 +265,7 @@ class Drive {
 
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: false) => void) => {
+      return new Promise((resolve: (value: boolean) => void) => {
         resolve(false);
       });
     }
