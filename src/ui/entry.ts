@@ -459,6 +459,9 @@ async function entry(_ui: UI) {
       },
       editEntry: () => {
         _ui.instance.class.edit = !_ui.instance.class.edit;
+        if (!_ui.instance.class.edit) {
+          _ui.instance.updateEntries();
+        }
         const codes = document.getElementById('codes');
         if (codes) {
           // wait vue apply changes to dom
