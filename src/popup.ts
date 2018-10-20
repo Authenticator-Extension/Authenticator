@@ -63,64 +63,7 @@ async function init() {
         clientTime - localStorage.lastRemindingBackupTime >= 30 ||
         clientTime - localStorage.lastRemindingBackupTime < 0) {
       // backup to cloud
-      if (authenticator.dropboxToken) {
-        chrome.permissions.contains(
-            {origins: ['https://*.dropboxapi.com/*']},
-            async (hasPermission) => {
-              if (hasPermission) {
-                try {
-                  const dropbox = new Dropbox();
-                  const res = await dropbox.upload(authenticator.encryption);
-                  if (res) {
-                    // we have uploaded backup to Dropbox
-                    // no need to remind
-                    localStorage.lastRemindingBackupTime = clientTime;
-                    return;
-                  } else if (localStorage.dropboxRevoked === 'true') {
-                    authenticator.alert(String(authenticator.i18n.token_revoked)
-                                            .replace(/\${service}/, 'Dropbox'));
-                    localStorage.removeItem('dropboxRevoked');
-                  }
-                } catch (error) {
-                  // ignore
-                }
-              }
-              authenticator.alert(authenticator.i18n.remind_backup);
-              localStorage.lastRemindingBackupTime = clientTime;
-            });
-      } else if (authenticator.driveToken) {
-        chrome.permissions.contains(
-            {
-              origins: [
-                'https://www.googleapis.com/*',
-                'https://accounts.google.com/o/oauth2/revoke'
-              ]
-            },
-            async (hasPermission) => {
-              if (hasPermission) {
-                try {
-                  const drive = new Drive();
-                  const res = await drive.upload(authenticator.encryption);
-                  if (res) {
-                    localStorage.lastRemindingBackupTime = clientTime;
-                    return;
-                  } else if (localStorage.driveRevoked === 'true') {
-                    authenticator.alert(
-                        String(authenticator.i18n.token_revoked)
-                            .replace(/\${service}/, 'Google Drive'));
-                    localStorage.removeItem('driveRevoked');
-                  }
-                } catch (error) {
-                  // ignore
-                }
-              }
-              authenticator.alert(authenticator.i18n.remind_backup);
-              localStorage.lastRemindingBackupTime = clientTime;
-            });
-      } else {
-        authenticator.alert(authenticator.i18n.remind_backup);
-        localStorage.lastRemindingBackupTime = clientTime;
-      }
+      authenticator.runScheduledBackup(clientTime);
     }
     return;
   }, 1000);
