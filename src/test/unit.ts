@@ -16,10 +16,10 @@ describe('BrowserStorage', () => {
   describe('local', () => {
     before(() => {
       localStorage.storageLocation = 'local';
-    })
-    it('Set some data', async () => {
-      await BrowserStorage.set({ test: 'data' });
-      chrome.storage.local.set.should.have.been.calledWith({ test: 'data' });
     });
-  })
+    it('Set some data', async () => {
+      await BrowserStorage.set({test: 'data'});
+      chrome.storage.local.set.should.have.been.calledWith({test: 'data'});
+    });
+  });
 });
