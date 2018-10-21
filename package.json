@@ -43,6 +43,7 @@
     "karma-mocha": "^1.3.0",
     "karma-mocha-reporter": "^2.2.5",
     "karma-sinon-chai": "^2.0.2",
+    "karma-sinon-chrome": "github:arantius/karma-sinon-chrome",
     "karma-typescript-preprocessor": "^0.4.0",
     "mocha": "^5.2.0",
     "sinon": "^7.0.0",
