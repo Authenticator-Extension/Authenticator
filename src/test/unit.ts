@@ -6,17 +6,20 @@ afterEach(() => {
   sinon.restore();
 });
 
-describe('smoke test', () => {
+describe('test test', () => {
   it('checks equality', () => {
-    // @ts-ignore
-    expect(true).to.be.true;
+    true.should.be.true;
   });
 });
 
-describe('BrowserStorage test local', () => {
-  it('Tries to set some data', async () => {
-    localStorage.storageLocation = 'local';
-    await BrowserStorage.set({test: 'data'});
-    chrome.storage.local.set.should.have.been.calledWith({test: 'data'});
-  });
+describe('BrowserStorage', () => {
+  describe('local', () => {
+    before(() => {
+      localStorage.storageLocation = 'local';
+    })
+    it('Set some data', async () => {
+      await BrowserStorage.set({ test: 'data' });
+      chrome.storage.local.set.should.have.been.calledWith({ test: 'data' });
+    });
+  })
 });
