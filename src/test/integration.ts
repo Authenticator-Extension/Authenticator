@@ -227,7 +227,7 @@ function testStart() {
   }
   testCaseIndex = 0;
   testRes = [];
-  test();
+  runTest();
 }
 
 function testFinished() {
@@ -276,7 +276,7 @@ async function set(items: {[key: string]: {}}) {
   });
 }
 
-async function test() {
+async function runTest() {
   if (testCaseIndex === cases.length * 2) {
     testFinished();
     return;
@@ -297,20 +297,17 @@ async function test() {
 
     document.getElementsByTagName('iframe')[0].src = 'popup.html';
     document.getElementsByTagName('iframe')[0].onload = () => {
-      document.getElementsByTagName('iframe')[0].contentWindow.addEventListener(
-          'unhandledrejection', event => {
-            const rejectionEvent = event as PromiseRejectionEvent;
-            testRes[testCaseIndex] = {
-              pass: false,
-              error: rejectionEvent.reason
-            };
-          });
-
-      document.getElementsByTagName('iframe')[0].contentWindow.onerror =
-          error => {
-            error = error.toString();
-            testRes[testCaseIndex] = {pass: false, error};
-          };
+      const frame = document.getElementsByTagName('iframe')[0];
+      if (frame.contentWindow) {
+        frame.contentWindow.addEventListener('unhandledrejection', event => {
+          const rejectionEvent = event as PromiseRejectionEvent;
+          testRes[testCaseIndex] = {pass: false, error: rejectionEvent.reason};
+        });
+        frame.onerror = event => {
+          const error = event.message;
+          testRes[testCaseIndex] = {pass: false, error};
+        };
+      }
     };
   }
 
@@ -354,7 +351,7 @@ async function test() {
       document.getElementsByTagName('iframe')[0].src = 'about:blank';
     }
 
-    await test();
+    await runTest();
   }, 1000);
 }
 
