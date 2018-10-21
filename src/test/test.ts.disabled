@@ -308,6 +308,7 @@ async function test() {
 
       document.getElementsByTagName('iframe')[0].contentWindow.onerror =
           error => {
+            error = error.toString();
             testRes[testCaseIndex] = {pass: false, error};
           };
     };
