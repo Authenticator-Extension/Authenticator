@@ -8,15 +8,15 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "인증자는 귀하의 브라우저에서 2 단계 인증 코드를 생성합니다.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " 추가 되었습니다.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "인식할 수 없는 QR 코드입니다.",
         "description": "QR Error."
     },
     "errorsecret": {
