@@ -260,7 +260,7 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "サードパーティのストレージサービスへ自動的にデータをバックアップします。",
         "description": "3rd party backup info"
     },
     "storage_location": {
