@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "エクスポート/インポート",
+        "message": "エクスポート\/インポート",
         "description": "Export and Import."
     },
     "settings": {

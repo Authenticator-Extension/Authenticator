@@ -4,35 +4,35 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authentificateur",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator génère, dans votre navigateur, des codes d'authentification (TOTP) en deux étapes.",
+        "message": "Verificator genereert 2-Step verificatie codes in uw browser.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " à été ajouté.",
+        "message": " is toegevoegd.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Le code QR n'a pas été reconnu.",
+        "message": "Niet-herkende QR-code.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Erreur sur la clef secrète. Seul les caractères Base32(A-Z, 2-7 et =) et HEX(0-9 et A-F) sont supportés. Néanmoins, votre clef secrète est: ",
+        "message": "Geheim fout. Alleen Base32 (A-Z, 2-7 en =) en HEX (0-9 en A-F) wordt ondersteund. Echter, uw geheim is: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Acquisition du code QR",
+        "message": "QR Code scannen",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Saisie manuelle",
+        "message": "Handmatige invoer",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Fermer",
+        "message": "Sluiten",
         "description": "Close."
     },
     "ok": {
@@ -40,243 +40,243 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Oui",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
-        "message": "Non",
+        "message": "Nee",
         "description": "No."
     },
     "account": {
-        "message": "Compte",
+        "message": "Account",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nom du compte",
+        "message": "Account Naam",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emetteur",
+        "message": "Uitgever",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Geheim",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Succès.",
+        "message": "Geslaagd.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Echec.",
+        "message": "Fout.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "A Propos",
+        "message": "Over",
         "description": "About."
     },
     "export_import": {
-        "message": "Exporter \/ Importer",
+        "message": "Exporteren \/ Importeren",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Paramètres",
+        "message": "Instellingen",
         "description": "Settings."
     },
     "security": {
-        "message": "Sécurité",
+        "message": "Beveiliging",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mot de passe actuel",
+        "message": "Huidig ​​wachtwoord",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nouveau mot de passe",
+        "message": "Nieuw wachtwoord",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Phrase Secrète",
+        "message": "Wachtwoord",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirmer le Mot de Passe",
+        "message": "Bevestig wachtwoord",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Êtes-vous sûr de vouloir supprimer ce code ? Cette action ne pourra pas être annulée.",
+        "message": "Weet je zeker dat je dit geheim wilt verwijderen? Dit kan niet ongedaan worden gemaakt.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Ce mot de passe sera utilisé pour chiffrer vos clefs secrètes. Personne ne sera en mesure de vous aider à les retrouver, si vous les perdez.",
+        "message": "Dit wachtwoord worden gebruikt voor het coderen van uw geheimen. Niemand kan u helpen als u het wachtwoord vergeet.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Mise à Jour",
+        "message": "Bijwerken",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Vous ne pouvez pas ajouter de nouveaux comptes ou exporter les données avant que le déchiffrement de tous les comptes ne soit terminé. Veuillez saisir le mot de passe avant de pouvoir continuer.",
+        "message": "Je kan niet een nieuw account toevoegen of exporteer data tot alle accounts gedecrpyt zijn. Voer A. U. B. het correcte wachtwoord in voordat u verder gaat.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Le mot de passe ne correspond pas.",
+        "message": "Wachtwoord komt niet overeen.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Chiffré",
+        "message": "Versleuteld",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copié",
+        "message": "Gekopieerd",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Commentaires",
+        "message": "Commentaar",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Traduire",
+        "message": "Vertalen",
         "description": "Translate."
     },
     "source": {
-        "message": "Code source",
+        "message": "Broncode",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Saisissez le mot de passe pour déchiffrer les données du compte.",
+        "message": "Voer het wachtwoord in om de accountgegevens te decoderen.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Synchroniser l'horloge avec Google",
+        "message": "Sync Klok met Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Mémoriser le Mot de Passe",
+        "message": "Wachtwoord onthouden",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Attention ! Un décalage trop important existe avec votre horloge locale, réglez ce problème avant de continuer.",
+        "message": "Let op! De klok van uw lokale computer is te ver voor\/achter, gelieve het te herstellen voordat u doorgaat.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Avez-vous sauvegardé vos clefs secrètes ? N'attendez pas qu'il soit trop tard !",
+        "message": "Heeft u een backup van uw geheimen? Wacht niet tot het te laat is!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Échec de la capture, rechargez la page et essayez à nouveau.",
+        "message": "Vastleggen is mislukt, herlaad de pagina en probeer het opnieuw.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Basé sur le temps",
+        "message": "Tijdgebonden",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Basé sur un compteur",
+        "message": "Teller gebonden",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Page de popup",
+        "message": "Popup-pagina",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Mise à l'échelle",
+        "message": "Schaal",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Attention: les sauvegardes ne sont pas protégées par chiffrement. Voulez-vous ajouter un compte à une autre application ? Survollez la partie supérieure à droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
+        "message": "Waarschuwing: alle back-ups zijn ongecodeerd. Wilt u een account toevoegen aan een andere app? Beweeg over de juiste bovenkant van elke account en druk op de knop verborgen.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Télécharger un fichier de sauvegarde",
+        "message": "Backup downloaden",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importer une sauvegarde",
+        "message": "Backup importeren",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importer un fichier de sauvegarde",
+        "message": "Backup importeren",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importer sauvegarde en texte",
+        "message": "Importeer Text Backup",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Afficher Toutes les Entrées",
+        "message": "Laat alle reacties zien",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Waarschuwing: back-ups zijn ongecodeerd. Gebruik op uw eigen risico.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
+        "message": "U moet juiste wachtwoord opgeven om back-ups te importeren.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Votre mot de passe est stocké localement, veuillez le changer immédiatement par l'intermédiaire du menu sécurité.",
+        "message": "Uw wachtwoord is lokaal opgeslagen, wijzig deze dan in het menu beveiliging onmiddellijk.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Supprimer",
+        "message": "Verwijderen",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Télécharger le backup de mot de passe protégé",
+        "message": "Downloaden van wachtwoord-beveiligde back-up",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Rechercher",
+        "message": "Zoek",
         "description": "Search"
     },
     "popout": {
-        "message": "Mode popup",
+        "message": "Popup-modus",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Vérouiller",
+        "message": "Vergrendelen",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Modifier",
+        "message": "Bewerken",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Synchronisation manuelle",
+        "message": "Handmatige synchronisatie",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Utiliser Autofill",
+        "message": "Gebruik Autofill",
         "description": "Use Autofill"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Opslag & back-up",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Kies waar uw gegevens worden opgeslagen. Met behulp van de 'lokale', worden de gegevens opgeslagen op uw PC. Met behulp van 'sync' laat uw browser sync uw gegevens naar de wolk als u bent aangemeld bij een account synchroniseren.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Automatisch een back-up van uw gegevens aan 3de partij opslagservices.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Opslaglocatie",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "Aanmelden",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "Afmelden",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your ${service} account, please sign in again.",
+        "message": "Er was een probleem verbinding met uw account ${service}, log opnieuw in.",
         "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
     }
 }

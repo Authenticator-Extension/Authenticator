@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Εξαγωγή/εισαγωγή",
+        "message": "Εξαγωγή\/εισαγωγή",
         "description": "Export and Import."
     },
     "settings": {
