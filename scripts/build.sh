@@ -44,7 +44,7 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
 fi
 
 echo "Compiling..."
-tsc -p .
+./node_modules/typescript/bin/tsc -p .
 mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension

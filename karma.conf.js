@@ -15,8 +15,28 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      './src/models/storage.ts',
-      './src/test/unit.ts'
+      './src/**',
+      "js/jsqrcode/grid.js",
+      "js/jsqrcode/version.js",
+      "js/jsqrcode/detector.js",
+      "js/jsqrcode/formatinf.js",
+      "js/jsqrcode/errorlevel.js",
+      "js/jsqrcode/bitmat.js",
+      "js/jsqrcode/datablock.js",
+      "js/jsqrcode/bmparser.js",
+      "js/jsqrcode/datamask.js",
+      "js/jsqrcode/rsdecoder.js",
+      "js/jsqrcode/gf256poly.js",
+      "js/jsqrcode/gf256.js",
+      "js/jsqrcode/decoder.js",
+      "js/jsqrcode/qrcode.js",
+      "js/jsqrcode/findpat.js",
+      "js/jsqrcode/alignpat.js",
+      "js/jsqrcode/databr.js",
+      "js/md5.js",
+      "js/aes.js",
+      "js/sha.js",
+      "js/qrcode.js"
     ],
 
 
