@@ -29,6 +29,9 @@ async function passphrase(_ui: UI) {
         _ui.instance.encryption.updateEncryptionPassword(
             _ui.instance.passphrase);
         await _ui.instance.updateEntries();
+        const siteName = await getSiteName();
+        _ui.instance.shouldFilter =
+            hasMatchedEntry(siteName, _ui.instance.entries);
         _ui.instance.closeInfo();
         cachePassword(_ui.instance.passphrase);
         return;

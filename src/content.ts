@@ -207,7 +207,8 @@ function pasteCode(code: string) {
     }
   }
 
-  const activeInputBox = document.activeElement.tagName === 'INPUT' ?
+  const activeInputBox =
+      document.activeElement && document.activeElement.tagName === 'INPUT' ?
       document.activeElement :
       null;
   if (activeInputBox) {
@@ -221,3 +222,18 @@ function pasteCode(code: string) {
   firstInputBox.value = code;
   return;
 }
+
+window.onkeydown = (event) => {
+  if (event.keyCode === 27) {
+    event.preventDefault();
+    const grayLayout = document.getElementById('__ga_grayLayout__');
+    const captureBox = document.getElementById('__ga_captureBox__');
+
+    if (grayLayout) {
+      grayLayout.style.display = 'none';
+    }
+    if (captureBox) {
+      captureBox.style.display = 'none';
+    }
+  }
+};

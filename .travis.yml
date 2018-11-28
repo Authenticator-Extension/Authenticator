@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "node"
+cache: npm
 stages:
   - test
   - deploy
@@ -12,9 +13,11 @@ jobs:
     - stage: test
       name: "lintspaces"
       script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
+      env: CACHE_NAME=LINTSPACES
     - stage: test
       name: "Build Firefox and run addons-linter"
       script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
+      env: CACHE_NAME=FIREFOXLINTER
     - stage: test
       name: "Build Chrome"
       script: "npm run chrome"
