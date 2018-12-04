@@ -83,7 +83,9 @@ class Drive {
                     const res = JSON.parse(xhr.responseText);
                     if (res.error) {
                       if (res.error.code === 401) {
-                        localStorage.driveToken = '';
+                        if (navigator.userAgent.indexOf('Chrome') === -1) {
+                          localStorage.driveToken = '';
+                        }
                         resolve(true);
                       }
                     } else {
@@ -106,18 +108,37 @@ class Drive {
   async refreshToken() {
     if (navigator.userAgent.indexOf('Chrome') !== -1) {
       return new Promise((resolve: (value: boolean) => void) => {
-        return chrome.identity.getAuthToken(
-            {
-              'interactive': false,
-              'scopes': ['https://www.googleapis.com/auth/drive.file']
-            },
-            (token) => {
-              localStorage.driveToken = token;
-              if (!Boolean(token)) {
-                localStorage.driveRevoked = true;
-              }
-              resolve(Boolean(token));
-            });
+        if (localStorage.driveToken) {
+          chrome.identity.removeCachedAuthToken(
+              {'token': localStorage.driveToken}, () => {
+                localStorage.driveToken = '';
+                return chrome.identity.getAuthToken(
+                    {
+                      'interactive': false,
+                      'scopes': ['https://www.googleapis.com/auth/drive.file']
+                    },
+                    (token) => {
+                      localStorage.driveToken = token;
+                      if (!Boolean(token)) {
+                        localStorage.driveRevoked = true;
+                      }
+                      resolve(Boolean(token));
+                    });
+              });
+        } else {
+          return chrome.identity.getAuthToken(
+              {
+                'interactive': false,
+                'scopes': ['https://www.googleapis.com/auth/drive.file']
+              },
+              (token) => {
+                localStorage.driveToken = token;
+                if (!Boolean(token)) {
+                  localStorage.driveRevoked = true;
+                }
+                resolve(Boolean(token));
+              });
+        }
       });
     } else {
       return new Promise(

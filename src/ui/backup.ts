@@ -19,7 +19,7 @@ async function backup(_ui: UI) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
           } else if (localStorage.dropboxRevoked === 'true') {
             _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
-                                   .replace(/\${service}/, 'Dropbox'));
+                                   .replace(/\$?{?service}/, 'Dropbox'));
             localStorage.removeItem('dropboxRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
@@ -31,7 +31,7 @@ async function backup(_ui: UI) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
           } else if (localStorage.driveRevoked === 'true') {
             _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
-                                   .replace(/\${service}/, 'Google Drive'));
+                                   .replace(/\$?{?service}/, 'Google Drive'));
             localStorage.removeItem('driveRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
@@ -108,7 +108,7 @@ async function backup(_ui: UI) {
                     } else if (localStorage.dropboxRevoked === 'true') {
                       _ui.instance.alert(
                           String(_ui.instance.i18n.token_revoked)
-                              .replace(/\${service}/, 'Dropbox'));
+                              .replace(/\$?{?service}/, 'Dropbox'));
                       localStorage.removeItem('dropboxRevoked');
                     }
                   } catch (error) {
@@ -138,7 +138,7 @@ async function backup(_ui: UI) {
                     } else if (localStorage.driveRevoked === 'true') {
                       _ui.instance.alert(
                           String(_ui.instance.i18n.token_revoked)
-                              .replace(/\${service}/, 'Google Drive'));
+                              .replace(/\$?{?service}/, 'Google Drive'));
                       localStorage.removeItem('driveRevoked');
                     }
                   } catch (error) {
