@@ -26,7 +26,7 @@
             <div id="infoAction" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
             <div id="lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
             <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><i class="fa fa-refresh"></i></div>
-            <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
+            <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"></div>
             <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
         </div>
     </div>
@@ -113,6 +113,7 @@
                 <p><a target='_blank' href='https://github.com/vuejs/vue'>vue.js</a> Copyright Evan You. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
+                <p><a target='_blank'  href='https://www.onlinewebfonts.com/icon/205714'>scan.svg</a> made from <a target='_blank' href='https://www.onlinewebfonts.com/icon'>Icon Fonts</a> is licensed by CC BY 3.0</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
                 <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->

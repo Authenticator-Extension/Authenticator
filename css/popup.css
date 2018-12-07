@@ -539,10 +539,23 @@ body {
     right: 50px;
     bottom: 0;
     height: 38px;
+    width: 16px;
     line-height: 41px;
     font-size: 16px;
-    color: gray;
     cursor: pointer;
+    background: gray;
+    -webkit-mask-image: url(/images/scan.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 14px 14px;
+    mask-image: url(/images/scan.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 14px 14px;
+}
+
+#scan:hover {
+    background: black;
 }
 
 .counter {
@@ -735,7 +748,6 @@ body {
 #editAction:hover,
 #infoAction:hover,
 #lock:hover,
-#scan:hover,
 #codes #add:hover,
 #infoClose:hover,
 #addAccountClose:hover,
@@ -801,7 +813,7 @@ body {
     left: 0;
     position: absolute;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     background-repeat: no-repeat;
     background-position: center;
 }
