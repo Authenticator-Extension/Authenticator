@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Масштаб",
         "description": "Scale"
     },
     "export_info": {
@@ -228,19 +228,19 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Пошук",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Спливаючий режим",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Заблокувати",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Редагувати",
         "description": "Edit"
     },
     "manual_dropbox": {
