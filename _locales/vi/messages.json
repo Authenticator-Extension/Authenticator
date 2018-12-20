@@ -276,7 +276,13 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Có một vấn đề kết nối với tài khoản ${service} , xin vui lòng đăng nhập lại.",
-        "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
+        "message": "Có một vấn đề kết nối với tài khoản $SERVICE$ , xin vui lòng đăng nhập lại.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
     }
 }

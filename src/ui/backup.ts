@@ -18,8 +18,8 @@ async function backup(_ui: UI) {
           if (response === true) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
           } else if (localStorage.dropboxRevoked === 'true') {
-            _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
-                                   .replace(/\$?{?service}/, 'Dropbox'));
+            _ui.instance.alert(
+                chrome.i18n.getMessage('token_revoked', ['Dropbox']));
             localStorage.removeItem('dropboxRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
@@ -30,8 +30,7 @@ async function backup(_ui: UI) {
           if (response === true) {
             _ui.instance.alert(_ui.instance.i18n.updateSuccess);
           } else if (localStorage.driveRevoked === 'true') {
-            _ui.instance.alert(String(_ui.instance.i18n.token_revoked)
-                                   .replace(/\$?{?service}/, 'Google Drive'));
+            _ui.instance.alert(chrome.i18n.getMessage('token_revoked', ['Google Drive']));
             localStorage.removeItem('driveRevoked');
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
@@ -107,8 +106,7 @@ async function backup(_ui: UI) {
                       return;
                     } else if (localStorage.dropboxRevoked === 'true') {
                       _ui.instance.alert(
-                          String(_ui.instance.i18n.token_revoked)
-                              .replace(/\$?{?service}/, 'Dropbox'));
+                        chrome.i18n.getMessage('token_revoked', ['Dropbox']));
                       localStorage.removeItem('dropboxRevoked');
                     }
                   } catch (error) {
@@ -137,8 +135,7 @@ async function backup(_ui: UI) {
                       return;
                     } else if (localStorage.driveRevoked === 'true') {
                       _ui.instance.alert(
-                          String(_ui.instance.i18n.token_revoked)
-                              .replace(/\$?{?service}/, 'Google Drive'));
+                        chrome.i18n.getMessage('token_revoked', ['Google Drive']));
                       localStorage.removeItem('driveRevoked');
                     }
                   } catch (error) {
