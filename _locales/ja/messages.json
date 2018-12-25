@@ -251,6 +251,10 @@
         "message": "自動入力を使用する",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+      "message": "Use High Contrast",
+      "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "ストレージとバックアップ",
         "description": "Storage and sync menu title"

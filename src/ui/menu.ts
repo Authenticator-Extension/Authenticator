@@ -73,12 +73,14 @@ async function menu(_ui: UI) {
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
   let useAutofill = (localStorage.autofill === 'true');
+  let useHighContrast = (localStorage.highContrast === 'true');
 
   const ui: UIConfig = {
     data: {
       version,
       zoom,
       useAutofill,
+      useHighContrast,
       newStorageLocation: localStorage.storageLocation
     },
     methods: {
@@ -129,6 +131,12 @@ async function menu(_ui: UI) {
         localStorage.autofill = _ui.instance.useAutofill;
         useAutofill =
             (localStorage.autofill === 'true') ? true : false || false;
+        return;
+      },
+      saveHighContrast: () => {
+        localStorage.highContrast = _ui.instance.useHighContrast;
+        useHighContrast =
+            (localStorage.highContrast === 'true') ? true : false || false;
         return;
       },
       saveZoom: () => {

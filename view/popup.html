@@ -19,7 +19,7 @@
     <script src="../build/models/credentials.js"></script>
 </head>
 <body>
-<div id="authenticator" v-cloak>
+<div id="authenticator" v-cloak v-bind:accessibility="useHighContrast">
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div v-show="!isPopup()">
@@ -215,23 +215,30 @@
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
-                <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
-                <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
-                    <option value="125">125%</option>
-                    <option value="100">100%</option>
-                    <option value="90">90%</option>
-                    <option value="80">80%</option>
-                    <option value="67">67%</option>
-                    <option value="57">57%</option>
-                    <option value="50">50%</option>
-                    <option value="40">40%</option>
-                    <option value="33">33%</option>
-                    <option value="25">25%</option>
-                    <option value="20">20%</option>
-                </select>
-                <div></div>
-                <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
-                <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                <div>
+                    <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
+                    <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
+                        <option value="125">125%</option>
+                        <option value="100">100%</option>
+                        <option value="90">90%</option>
+                        <option value="80">80%</option>
+                        <option value="67">67%</option>
+                        <option value="57">57%</option>
+                        <option value="50">50%</option>
+                        <option value="40">40%</option>
+                        <option value="33">33%</option>
+                        <option value="25">25%</option>
+                        <option value="20">20%</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
+                    <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                </div>
+                <div>
+                    <label for="use_high_contrast" id="use_high_contrast_label">{{ i18n.use_high_contrast }}</label>
+                    <input id="use_high_contrast" type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
+                </div>
                 <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
         </div>

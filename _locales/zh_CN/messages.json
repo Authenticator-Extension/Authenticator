@@ -101,7 +101,7 @@
     },
     "confirm_phrase": {
         "message": "确认密码",
-        "description": "Confirmm Passphrase."
+        "description": "Confirm Passphrase."
     },
     "confirm_delete": {
         "message": "您确定要删除此密钥吗？此操作无法撤销。",
@@ -176,8 +176,8 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "调整弹出页面尺寸",
-        "description": "Resize Popup Page"
+        "message": "弹出页面设置",
+        "description": "Popup Page Settings"
     },
     "scale": {
         "message": "比例",
@@ -203,29 +203,13 @@
         "message": "导入备份文本",
         "description": "Import backup code."
     },
-    "dropbox_backup": {
-        "message": "自动备份至Dropbox",
-        "description": "Auto backup to Dropbox."
-    },
-    "dropbox_code": {
-        "message": "Dropbox授权码",
-        "description": "Dropbox code."
-    },
-    "dropbox_token": {
-        "message": "Dropbox Token",
-        "description": "Dropbox token."
-    },
-    "dropbox_authorization": {
-        "message": "登录Dropbox",
-        "description": "Dropbox authorization."
-    },
     "show_all_entries": {
         "message": "显示全部条目",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "警告：保存至Dropbox的备份均未加密，您需自担风险。",
-        "description": "Dropbox backup risk warning."
+        "message": "警告：备份未加密，您需自担风险。",
+        "description": "Backup risk warning."
     },
     "import_error_password": {
         "message": "您必须提供正确的密码才能导入备份。",
@@ -235,10 +219,6 @@
         "message": "您的密码保存在了本地，请立即通过安全菜单更改密码。",
         "description": "localStorage password warning."
     },
-    "dropbox_logout": {
-        "message": "注销Dropbox",
-        "description": "Dropbox logout."
-    },
     "remove": {
         "message": "移除",
         "description": "Remove password."
@@ -246,6 +226,10 @@
     "download_enc_backup": {
         "message": "下载加密备份",
         "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "搜索",
+        "description": "Search"
     },
     "popout": {
         "message": "独立窗口模式",
@@ -255,25 +239,21 @@
         "message": "锁定",
         "description": "Lock accounts"
     },
-    "dropbox_tooltip": {
-        "message": "Dropbox同步已启用",
-        "description": "Dropbox sync enabled"
-    },
     "edit": {
         "message": "编辑",
         "description": "Edit"
     },
     "manual_dropbox": {
         "message": "手动同步",
-        "description": "Manual Dropbox sync"
+        "description": "Manual sync"
     },
     "use_autofill": {
         "message": "启用自动填充",
         "description": "Use Autofill"
     },
-    "search": {
-        "message": "搜索",
-        "description": "Search"
+    "use_high_contrast": {
+      "message": "使用高对比度",
+      "description": "Use High Contrast"
     },
     "storage_menu": {
         "message": "存储及备份",

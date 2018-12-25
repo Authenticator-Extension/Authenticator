@@ -103,7 +103,7 @@
         "message": "Confirm Password",
         "description": "Confirm Passphrase."
     },
-    "confirm_delete" : {
+    "confirm_delete": {
         "message": "Are you sure you want to delete this secret? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
@@ -250,6 +250,10 @@
     "use_autofill": {
       "message": "Use Autofill",
       "description": "Use Autofill"
+    },
+    "use_high_contrast": {
+      "message": "Use High Contrast",
+      "description": "Use High Contrast"
     },
     "storage_menu": {
       "message": "Storage & Backup",
