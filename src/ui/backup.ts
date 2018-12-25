@@ -21,6 +21,7 @@ async function backup(_ui: UI) {
             _ui.instance.alert(
                 chrome.i18n.getMessage('token_revoked', ['Dropbox']));
             localStorage.removeItem('dropboxRevoked');
+            _ui.instance.dropboxToken = '';
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
           }
@@ -33,6 +34,7 @@ async function backup(_ui: UI) {
             _ui.instance.alert(
                 chrome.i18n.getMessage('token_revoked', ['Google Drive']));
             localStorage.removeItem('driveRevoked');
+            _ui.instance.driveToken = '';
           } else {
             _ui.instance.alert(_ui.instance.i18n.updateFailure);
           }
