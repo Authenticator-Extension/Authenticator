@@ -251,6 +251,10 @@
         "message": "Foloseste Completarea automată",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Use High Contrast",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Storage & Backup",
         "description": "Storage and sync menu title"
