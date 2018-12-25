@@ -251,6 +251,10 @@
         "message": "Χρήση της αυτόματης συμπλήρωσης",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Use High Contrast",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Αποθήκευση & δημιουργία αντιγράφων ασφαλείας",
         "description": "Storage and sync menu title"
