@@ -251,6 +251,10 @@
         "message": "Gebruik Autofill",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Use High Contrast",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Opslag & back-up",
         "description": "Storage and sync menu title"
