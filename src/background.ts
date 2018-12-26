@@ -23,6 +23,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     getBackupToken(message.action);
   } else if (message.action === 'lock') {
     cachedPassphrase = '';
+  } else if (message.action === 'tts') {
+    if (chrome.tts && message.code) {
+      chrome.tts.speak(message.code.split('').join(' '));
+    }
   }
 });
 

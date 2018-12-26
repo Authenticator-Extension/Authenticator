@@ -60,6 +60,7 @@
         "activeTab",
         "storage",
         "identity",
+        "tts",
         "file://*/*"
     ],
     "optional_permissions": [

@@ -407,7 +407,7 @@ async function entry(_ui: UI) {
           let decryptedFileData: {[hash: string]: OTPStorage} = {};
           reader.onload = async () => {
             const importData: {[hash: string]: OTPStorage} =
-                JSON.parse(reader.result);
+                reader.result ? JSON.parse(reader.result as string) : {};
             let encrypted = false;
             for (const hash in importData) {
               if (importData[hash].encrypted) {
@@ -482,7 +482,7 @@ async function entry(_ui: UI) {
         }, 3000);
         return;
       },
-      copyCode: async (entry: OTPEntry) => {
+      copyCodeAndTTS: async (entry: OTPEntry) => {
         if (_ui.instance.class.edit || entry.code === 'Invalid' ||
             entry.code.startsWith('&bull;')) {
           return;
@@ -530,6 +530,10 @@ async function entry(_ui: UI) {
               _ui.instance.class.notificationFadeout = false;
             }, 200);
           }, 1000);
+
+          if (_ui.instance.enableTTS) {
+            chrome.runtime.sendMessage({action: 'tts', code: entry.code});
+          }
         } else {
           chrome.permissions.request(
               {permissions: ['clipboardWrite']}, async (granted) => {
@@ -571,6 +575,11 @@ async function entry(_ui: UI) {
                       _ui.instance.class.notificationFadeout = false;
                     }, 200);
                   }, 1000);
+
+                  if (_ui.instance.enableTTS) {
+                    chrome.runtime.sendMessage(
+                        {action: 'tts', code: entry.code});
+                  }
                 }
               });
         }

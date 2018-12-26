@@ -72,8 +72,9 @@ async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
-  let useAutofill = (localStorage.autofill === 'true');
-  let useHighContrast = (localStorage.highContrast === 'true');
+  const useAutofill = (localStorage.autofill === 'true');
+  const useHighContrast = (localStorage.highContrast === 'true');
+  const enableTTS = (localStorage.enableTTS === 'true');
 
   const ui: UIConfig = {
     data: {
@@ -81,6 +82,7 @@ async function menu(_ui: UI) {
       zoom,
       useAutofill,
       useHighContrast,
+      enableTTS,
       newStorageLocation: localStorage.storageLocation
     },
     methods: {
@@ -129,15 +131,12 @@ async function menu(_ui: UI) {
       },
       saveAutofill: () => {
         localStorage.autofill = _ui.instance.useAutofill;
-        useAutofill =
-            (localStorage.autofill === 'true') ? true : false || false;
-        return;
       },
       saveHighContrast: () => {
         localStorage.highContrast = _ui.instance.useHighContrast;
-        useHighContrast =
-            (localStorage.highContrast === 'true') ? true : false || false;
-        return;
+      },
+      setTTSEnable: async () => {
+        localStorage.enableTTS = _ui.instance.enableTTS;
       },
       saveZoom: () => {
         localStorage.zoom = _ui.instance.zoom;

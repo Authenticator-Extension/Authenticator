@@ -54,7 +54,7 @@
                 <div class="issuerEdit">
                     <input class="issuerEditBox" placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
-                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCodeAndTTS(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
                 <div class="account">{{ entry.account }}</div>
                 <div class="accountEdit">
                     <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
@@ -238,6 +238,10 @@
                 <div>
                     <label for="use_high_contrast" id="use_high_contrast_label">{{ i18n.use_high_contrast }}</label>
                     <input id="use_high_contrast" type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
+                </div>
+                <div v-if="isChrome()">
+                    <label for="enable_tts" id="enable_tts_label">Enable TTS</label>
+                    <input id="enable_tts" type="checkbox" v-model="enableTTS" v-on:change="setTTSEnable()">
                 </div>
                 <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
