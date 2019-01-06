@@ -84,6 +84,7 @@ class Drive {
                     if (res.error) {
                       if (res.error.code === 401) {
                         if (navigator.userAgent.indexOf('Chrome') !== -1) {
+                          // Clear invalid token from chrome://identity-internals/
                           await chrome.identity.removeCachedAuthToken(
                               {'token': localStorage.driveToken});
                         }
