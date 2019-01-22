@@ -1185,9 +1185,9 @@ body {
     background-color: black;
 }
 
-[accessibility] #dropbox_box input, 
-[accessibility] #secret_box input, 
-[accessibility] #security input, 
+[accessibility] #dropbox_box input,
+[accessibility] #secret_box input,
+[accessibility] #security input,
 [accessibility] #passphrase input {
     border-color: white;
     background-color: black;
