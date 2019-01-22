@@ -136,27 +136,27 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Dịch",
+        "message": "Dịch thuật",
         "description": "Translate."
     },
     "source": {
-        "message": "Mã nguồn",
+        "message": "Mã Nguồn",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu của bạn.",
+        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Đồng bộ đồng hồ với Google",
+        "message": "Đồng hồ đồng bộ với Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Lưu mật khẩu",
+        "message": "Nhớ mật khẩu",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
+        "message": "Cẩn thận! Đồng hồ địa phương của bạn là quá xa, xin vui lòng sửa chữa nó trước khi tiếp tục.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -164,11 +164,11 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Quét thật bại, xin hãy tải lại trang và thử lại.",
+        "message": "Thất bại trong việc bắt giữ, xin vui lòng tải lại trang web và thử lại.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Theo thời gian",
+        "message": "Dựa trên thời gian",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -252,8 +252,8 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-      "message": "Use High Contrast",
-      "description": "Use High Contrast"
+        "message": "Sử dụng chế độ tương phản cao",
+        "description": "Use High Contrast"
     },
     "storage_menu": {
         "message": "Lí & Backup",
@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Có một vấn đề kết nối với tài khoản ${service} , xin vui lòng đăng nhập lại.",
+        "message": "Có một vấn đề kết nối với tài khoản ${service}, xin vui lòng đăng nhập lại.",
         "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
     }
 }
