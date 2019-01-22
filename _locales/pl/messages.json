@@ -251,6 +251,10 @@
         "message": "Użyj autowypełniania",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Użyj dużego kontrastu",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Przechowywanie i kopie zapasowe",
         "description": "Storage and sync menu title"

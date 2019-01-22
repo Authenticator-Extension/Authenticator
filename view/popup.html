@@ -19,14 +19,14 @@
     <script src="../build/models/credentials.js"></script>
 </head>
 <body>
-<div id="authenticator" v-cloak>
+<div id="authenticator" v-cloak v-bind:accessibility="useHighContrast">
     <div id="header">
         <span>{{ i18n.extName }}</span>
         <div v-show="!isPopup()">
             <div id="infoAction" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
             <div id="lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
             <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><i class="fa fa-refresh"></i></div>
-            <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><i class="fa fa-qrcode"></i></div>
+            <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"></div>
             <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
         </div>
     </div>
@@ -113,6 +113,7 @@
                 <p><a target='_blank' href='https://github.com/vuejs/vue'>vue.js</a> Copyright Evan You. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
+                <p><a target='_blank'  href='https://www.onlinewebfonts.com/icon/205714'>scan.svg</a> made from <a target='_blank' href='https://www.onlinewebfonts.com/icon'>Icon Fonts</a> is licensed by CC BY 3.0</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
                 <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
@@ -214,23 +215,30 @@
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
-                <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
-                <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
-                    <option value="125">125%</option>
-                    <option value="100">100%</option>
-                    <option value="90">90%</option>
-                    <option value="80">80%</option>
-                    <option value="67">67%</option>
-                    <option value="57">57%</option>
-                    <option value="50">50%</option>
-                    <option value="40">40%</option>
-                    <option value="33">33%</option>
-                    <option value="25">25%</option>
-                    <option value="20">20%</option>
-                </select>
-                <div></div>
-                <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
-                <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                <div>
+                    <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
+                    <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
+                        <option value="125">125%</option>
+                        <option value="100">100%</option>
+                        <option value="90">90%</option>
+                        <option value="80">80%</option>
+                        <option value="67">67%</option>
+                        <option value="57">57%</option>
+                        <option value="50">50%</option>
+                        <option value="40">40%</option>
+                        <option value="33">33%</option>
+                        <option value="25">25%</option>
+                        <option value="20">20%</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
+                    <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                </div>
+                <div>
+                    <label for="use_high_contrast" id="use_high_contrast_label">{{ i18n.use_high_contrast }}</label>
+                    <input id="use_high_contrast" type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
+                </div>
                 <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
         </div>

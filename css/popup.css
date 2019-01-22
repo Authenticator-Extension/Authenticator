@@ -15,6 +15,15 @@
     }
 }
 
+@keyframes accessibility-twinkling {
+    50%{
+        color:yellow;
+    }
+    51%{
+        color:black;
+    }
+}
+
 @keyframes fadeshow{
     0%{
         opacity:0;
@@ -539,10 +548,23 @@ body {
     right: 50px;
     bottom: 0;
     height: 38px;
+    width: 16px;
     line-height: 41px;
     font-size: 16px;
-    color: gray;
     cursor: pointer;
+    background: gray;
+    -webkit-mask-image: url(/images/scan.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: 14px 14px;
+    mask-image: url(/images/scan.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 14px 14px;
+}
+
+#scan:hover {
+    background: black;
 }
 
 .counter {
@@ -735,7 +757,6 @@ body {
 #editAction:hover,
 #infoAction:hover,
 #lock:hover,
-#scan:hover,
 #codes #add:hover,
 #infoClose:hover,
 #addAccountClose:hover,
@@ -801,7 +822,7 @@ body {
     left: 0;
     position: absolute;
     z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -883,6 +904,7 @@ body {
 #dropbox_encryption_label,
 #dropbox_encryption,
 #use_autofill_label,
+#use_high_contrast_label,
 #resize_list,
 #storage_location {
     margin: 20px;
@@ -987,4 +1009,212 @@ body {
     resize: none;
     padding: 5px;
     border: 1px solid #ccc;
+}
+
+[accessibility] a {
+    color: yellow;
+}
+
+[accessibility] #header,
+[accessibility] #menuHead {
+    background-color: black;
+    border-bottom-color: white;
+    color: white;
+}
+
+[accessibility] #dropbox {
+    color: lime;
+}
+
+[accessibility] #editAction,
+[accessibility] #infoAction,
+[accessibility] #lock {
+    color: yellow;
+}
+
+[accessibility] #scan {
+    background-color: yellow;
+}
+
+[accessibility] #codes {
+    background-color: black;
+}
+
+[accessibility] #search {
+    border-color: white;
+    background-color: black;
+}
+
+[accessibility] #searchHintBorder {
+    background-color: white;
+    color: black;
+}
+
+[accessibility] #searchInput,
+[accessibility] #searchInput::placeholder {
+    color: white;
+    background-color: black;
+}
+
+[accessibility] .entry {
+    border-color: white;
+    background-color: black;
+}
+
+[accessibility] .issuer,
+[accessibility] .account {
+    color: white;
+}
+
+[accessibility] .showqr {
+    color: yellow;
+}
+
+[accessibility] .code {
+    color: yellow;
+}
+
+[accessibility] .sector circle {
+    stroke: white;
+}
+
+[accessibility] ::-webkit-scrollbar {
+    width: 10px;
+    background: black;
+}
+
+[accessibility] ::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+[accessibility] #codes:not(.edit) .code.timeout:not(.hotp) {
+    animation: accessibility-twinkling 1s infinite ease-in-out;
+}
+
+[accessibility] #codes .deleteAction {
+    color: yellow;
+}
+
+[accessibility] .accountEdit input,
+[accessibility] .issuerEdit input {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+}
+
+[accessibility] #codes.edit .code {
+    color: white!important;
+}
+
+[accessibility] .movehandle {
+    color: yellow!important;
+}
+
+[accessibility] #add,
+[accessibility] #add_qr,
+[accessibility] #add_secret,
+[accessibility] #add_button,
+[accessibility] #dropbox_get_code,
+[accessibility] #dropbox_logout,
+[accessibility] #dropbox_menu,
+[accessibility] #download_backup,
+[accessibility] #import_backup,
+[accessibility] #upload_backup,
+[accessibility] #security_save,
+[accessibility] #passphrase_ok,
+[accessibility] #security_remove,
+[accessibility] #message_close,
+[accessibility] #exportButton,
+[accessibility] #popout {
+    color: white!important;
+    background-color: black;
+    border-color: white;
+}
+
+[accessibility] #menuHead {
+    background-color: black;
+}
+
+[accessibility] #menuClose {
+    color: yellow;
+}
+
+[accessibility] #menuBody {
+    background-color: black;
+}
+
+[accessibility] #menu .menuList {
+    border-color: white;
+    background-color: black;
+}
+
+[accessibility] #menu .menuList p {
+    background-color: black;
+    color: white;
+}
+
+[accessibility] #version {
+    color: white;
+}
+
+[accessibility] #info {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    box-shadow: none;
+}
+
+[accessibility] #infoClose {
+    color: white;
+}
+
+[accessibility] #security_warning,
+[accessibility] #export_info,
+[accessibility] #dropbox_risk,
+[accessibility] #storage_location_info,
+[accessibility] #storage_sync_info,
+[accessibility] #passphrase_info {
+  color: white;
+}
+
+[accessibility] select {
+    border-color: white;
+    color: white;
+    background-color: black;
+}
+
+[accessibility] #dropbox_box input, 
+[accessibility] #secret_box input, 
+[accessibility] #security input, 
+[accessibility] #passphrase input {
+    border-color: white;
+    background-color: black;
+    color: white;
+}
+
+[accessibility] #message,
+[accessibility] #confirm {
+    border-color: white;
+    box-shadow: none;
+    background-color: black;
+    color: white;
+}
+
+[accessibility] #notification {
+    background-color: black;
+    border: 1px solid white;
+}
+
+[accessibility] #menu .menuList p:hover {
+    background-color: cyan;
+    color: black;
+}
+
+[accessibility] #confirm_ok,
+[accessibility] #confirm_cancel {
+    border-color: white;
+    background-color: black;
+    color: white;
 }
