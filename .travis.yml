@@ -16,7 +16,7 @@ jobs:
       env: CACHE_NAME=LINTSPACES
     - stage: test
       name: "Build Firefox and run addons-linter"
-      script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
+      script: "npm install --only=production addons-linter && npm run firefox && addons-linter --disable-linter-rules 'PERMISSION_FIREFOX_ANDROID_UNSUPPORTED_BY_MIN_VERSION, KEY_FIREFOX_ANDROID_UNSUPPORTED_BY_MIN_VERSION, ANDROID_INCOMPATIBLE_API, UNSAFE_VAR_ASSIGNMENT' firefox"
       env: CACHE_NAME=FIREFOXLINTER
     - stage: test
       name: "Build Chrome"
