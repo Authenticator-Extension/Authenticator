@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "El Autenticador genera códigos de verificación de 2 pasos en su navegador.",
+        "message": "Autenticador genera vereficación de dos pasos para tu navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,27 +16,27 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código QR no reconocido.",
+        "message": "Código de QR no es reconocido.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error en el texto secreto. Sólo se admiten caracteres Base32 (A-Z, 2-7 y =) y HEX (0-9 y A-F). Sin embargo, tu secreto es: ",
+        "message": "Error al secreto. Sólo Base32 (A-Z, 2-7 y =) y hexadecimal (0-9 y A-f) son compatibles. Sin embargo, su secreto es: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear el código QR",
+        "message": "Escanear código QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada o ingreso Manual",
+        "message": "Entrada Manual",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Cerrar",
+        "message": "Cierra",
         "description": "Close."
     },
     "ok": {
-        "message": "Aceptar",
+        "message": "Ok",
         "description": "OK."
     },
     "yes": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Ha fallado.",
+        "message": "Fracaso.",
         "description": "Update Failure."
     },
     "about": {
@@ -76,11 +76,11 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportar\/Importar",
+        "message": "Exportación \/ importación",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Preferencias",
+        "message": "Configuración -",
         "description": "Settings."
     },
     "security": {
@@ -100,11 +100,11 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirma Contraseña",
+        "message": "Confirme su contraseña",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar este secreto? Esta acción no se puede deshacer.",
+        "message": "¿Está seguro que desea eliminar esta secreto? ¡Esto no se puede deshacer.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -116,23 +116,23 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Usted no puede agregar una nueva cuenta o exportar datos hasta que todas las cuentas hayan sido descifradas. Por favor, introduzca la contraseña correcta antes de continuar.",
+        "message": "No puede Agregar una nueva cuenta o exportar los datos hasta que todas las cuentas se descifran. Introduce la contraseña correcta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "La contraseña no coincide.",
+        "message": "Las contraseñas no coinciden.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encriptado",
+        "message": "Cifrados",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copiado",
+        "message": "Copied",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Su opinión",
+        "message": "Comentarios",
         "description": "Feedback."
     },
     "translate": {
@@ -140,7 +140,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Código Fuente",
+        "message": "Código fuente",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -148,15 +148,15 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincronizar el reloj con Google",
+        "message": "Sincroniza el reloj con Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recordar Contraseña",
+        "message": "Recuerda Contraseña",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Precaución! Su reloj local está demasiado atrasado, por favor arréglelo antes de continuar.",
+        "message": "¡Precaución! Su reloj local está demasiado lejos, por favor arreglarlo antes de continuar.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -164,15 +164,15 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "La captura falló, por favor recargue la página e inténtelo de nuevo.",
+        "message": "Error en Captura, por favor recarga la página e inténtelo de nuevo.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "En función del tiempo",
+        "message": "Tiempo en función",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Basado en un contador",
+        "message": "Contador basado en",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -184,23 +184,23 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Advertencia: todas las copias de seguridad estas sin cifrar. ¿Quieres añadir una cuenta a otra aplicación? Pasa el ratón por encima de la parte superior derecha de cualquier cuenta y pulse el botón oculto.",
+        "message": "ADVERTENCIA: todos los backups son unencrypted. ¿Desea agregar una cuenta a otra aplicación? Pasa el cursor sobre la parte superior derecha de cualquier cuenta y presione el botón oculto.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar una copia de seguridad del archivo",
+        "message": "Descargar archivo de respaldo",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importar copia de seguridad",
+        "message": "Copia de seguridad de importación",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar la copia de seguridad",
+        "message": "Importar archivo de copia de seguridad",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importar el Texto de la Copia de Seguridad",
+        "message": "Copia de seguridad de importación",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -212,15 +212,15 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para importar las copias de seguridad.",
+        "message": "Debe proporcionar la contraseña correcta para la importación de copias de seguridad.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Su contraseña se almacena localmente, por favor cámbiela en el menú de seguridad inmediatamente.",
+        "message": "La contraseña se almacena localmente, por favor cambiarlo en el menú de seguridad inmediatamente.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Eliminar",
+        "message": "Remove",
         "description": "Remove password."
     },
     "download_enc_backup": {
