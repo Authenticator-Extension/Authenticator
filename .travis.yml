@@ -12,7 +12,7 @@ jobs:
       script: "gts check"
     - stage: test
       name: "lintspaces"
-      script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/* view/* manifest-*.json css/popup.css css/import.css"
+      script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/*/* src/*.ts view/* manifest-*.json css/popup.css css/import.css"
       env: CACHE_NAME=LINTSPACES
     - stage: test
       name: "Build Firefox and run addons-linter"

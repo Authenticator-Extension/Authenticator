@@ -77,12 +77,18 @@ class Drive {
               xhr.open('GET', 'https://www.googleapis.com/drive/v3/files');
               xhr.setRequestHeader(
                   'Authorization', 'Bearer ' + localStorage.driveToken);
-              xhr.onreadystatechange = () => {
+              xhr.onreadystatechange = async () => {
                 if (xhr.readyState === 4) {
                   try {
                     const res = JSON.parse(xhr.responseText);
                     if (res.error) {
                       if (res.error.code === 401) {
+                        if (navigator.userAgent.indexOf('Chrome') !== -1) {
+                          // Clear invalid token from
+                          // chrome://identity-internals/
+                          await chrome.identity.removeCachedAuthToken(
+                              {'token': localStorage.driveToken});
+                        }
                         localStorage.driveToken = '';
                         resolve(true);
                       }
