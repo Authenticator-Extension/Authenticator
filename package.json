@@ -33,6 +33,7 @@
     "@types/jssha": "0.0.29",
     "fs-extra": "^5.0.0",
     "gts": "^0.8.0",
+    "sass": "^1.16.1",
     "typescript": "^2.6.1"
   },
   "dependencies": {}

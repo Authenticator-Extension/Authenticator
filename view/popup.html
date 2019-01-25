@@ -20,14 +20,14 @@
 </head>
 <body>
 <div id="authenticator" v-cloak v-bind:accessibility="useHighContrast">
-    <div id="header">
+    <div class="header">
         <span>{{ i18n.extName }}</span>
         <div v-show="!isPopup()">
-            <div id="infoAction" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><i class="fa fa-cog"></i></div>
-            <div id="lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><i class="fa fa-lock"></i></div>
-            <div id="dropbox" v-bind:style="{left: encryption.getEncryptionStatus() ? '68px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><i class="fa fa-refresh"></i></div>
-            <div id="scan" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"></div>
-            <div id="editAction" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><i v-bind:class="{'fa': true, 'fa-pencil': !class.edit, 'fa-check': class.edit}"></i></div>
+            <div class="icon" id="i-menu" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><svg><use xlink:href="../css/solid.svg#cog"></use></svg></div>
+            <div class="icon" id="i-lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><svg><use xlink:href="../css/solid.svg#lock"></use></svg></div>
+            <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><svg><use xlink:href="../css/solid.svg#sync-alt"></use></svg></div>
+            <div class="icon" id="i-qr" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><svg><use xlink:href="../css/solid.svg#qrcode"></use></svg></div>
+            <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#pencil-alt"></use></svg></div>
         </div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
@@ -63,12 +63,12 @@
                 <div class="movehandle"><i class="fa fa-bars"></i></div>
             </div>
         </div>
-        <div id="add" v-on:click="showInfo('account')"><i class="fa fa-plus"></i></div>
+        <div class="icon" id="add" v-on:click="showInfo('account')"><svg><use xlink:href="../css/solid.svg#plus"></use></svg></div>
     </div>
 
     <!-- MENU -->
     <div id="menu" v-bind:class="{'slidein': class.slidein, 'slideout': class.slideout}">
-        <div id="menuHead">
+        <div class="header">
             <span id="menuName">{{ i18n.settings }}</span>
             <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
         </div>
