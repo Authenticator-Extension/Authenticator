@@ -27,7 +27,8 @@
             <div class="icon" id="i-lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><svg><use xlink:href="../css/solid.svg#lock"></use></svg></div>
             <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><svg><use xlink:href="../css/solid.svg#sync-alt"></use></svg></div>
             <div class="icon" id="i-qr" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><svg><use xlink:href="../css/solid.svg#qrcode"></use></svg></div>
-            <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-bind:edit="class.edit" v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#pencil-alt"></use></svg></div>
+            <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-if="!class.edit" v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#pencil-alt"></use></svg></div>
+            <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-else v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#check"></use></svg></div>
         </div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
@@ -74,7 +75,7 @@
         </div>
         <div id="menuBody">
             <div class="menuList">
-                <p v-bind:title="i18n.about" class="icon" v-on:click="showInfo('about')"><span><svg><use xlink:href="../css/solid.svg#info"></use></svg></span>{{ i18n.about }}</p>
+                <p v-bind:title="i18n.about" v-on:click="showInfo('about')"><span><svg><use xlink:href="../css/solid.svg#info"></use></svg></span>{{ i18n.about }}</p>
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" v-on:click="showInfo('export')"><span><svg><use xlink:href="../css/solid.svg#exchange-alt"></use></svg></span>{{ i18n.export_import }}</p>
@@ -99,11 +100,11 @@
             <!-- ABOUT -->
             <div v-show="info === 'about'">
                 <p><strong>Authenticator</strong> &copy; 2018 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p>
-                <p>Google and Google Drive are trademarks of Google LLC.</p>
                 <p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright Jeff Mott. Licensed under the BSD License.</p>
                 <p><a target='_blank' href='http://www.droidfonts.com/'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://fontawesome.io'>Font Awesome</a> Copyright Dave Gandy. Licensed under the SIL OFL License 1.1.</p>
                 <p><a target='_blank' href='https://github.com/jprichardson/node-fs-extra'>fs-extra</a> Copyright JP Richardson. Licensed under the MIT License.</p>
+                <p>Google and Google Drive are trademarks of Google LLC.</p>
                 <p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a> Copyright Lazar Laszlo. Licensed under the Apache License.</p>
                 <p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a> Copyright Brian Turek. Licensed under the BSD License.</p>
                 <p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a> Copyright Shim Sangmin. Licensed under the MIT License.</p>
@@ -113,7 +114,6 @@
                 <p><a target='_blank' href='https://github.com/vuejs/vue'>vue.js</a> Copyright Evan You. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
-                <p><a target='_blank'  href='https://www.onlinewebfonts.com/icon/205714'>scan.svg</a> made from <a target='_blank' href='https://www.onlinewebfonts.com/icon'>Icon Fonts</a> is licensed by CC BY 3.0</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
                 <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
@@ -126,98 +126,98 @@
                     <div class="button" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
                 <div id="secret_box" v-show="newAccount.show">
-                    <label for="account_input" id="account_label">{{ i18n.accountName }}</label>
-                    <input type="text" id="account_input" v-model="newAccount.account">
-                    <label for="secret_input" id="secret_label">{{ i18n.secret }}</label>
-                    <input type="text" id="secret_input" v-model="newAccount.secret">
+                    <label>{{ i18n.accountName }}</label>
+                    <input type="text" class="input" v-model="newAccount.account">
+                    <label>{{ i18n.secret }}</label>
+                    <input type="text" class="input" v-model="newAccount.secret">
                     <select v-model="newAccount.type">
                         <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
                         <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
                         <option v-bind:value="OTPType.battle">Battle.net</option>
                         <option v-bind:value="OTPType.steam">Steam</option>
                     </select>
-                    <div id="add_button" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
+                    <div class="button-small" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
                 </div>
             </div>
             <!-- SECURITY -->
             <div id="security" v-show="info === 'security'">
-                <div id="security_warning">{{ i18n.security_warning }}</div>
-                <label for="security_new_phrase" id="security_new_phrase_label">{{ i18n.phrase }}</label>
-                <input id="security_new_phrase" type="password" v-model="newPassphrase.phrase">
-                <label for="security_confirm_phrase" id="security_confirm_phrase_label">{{ i18n.confirm_phrase }}</label>
-                <input id="security_confirm_phrase" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
-                <div id="security_save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
-                <div id="security_remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
+                <div class="text warning">{{ i18n.security_warning }}</div>
+                <label>{{ i18n.phrase }}</label>
+                <input class="input" type="password" v-model="newPassphrase.phrase">
+                <label>{{ i18n.confirm_phrase }}</label>
+                <input class="input" type="password" v-model="newPassphrase.confirm" v-on:keyup.enter="changePassphrase()">
+                <div id="security-save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
+                <div id="security-remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
             </div>
             <!-- PASSPHRASE -->
             <div id="passphrase" v-show="info === 'passphrase'">
-                <div id="passphrase_info">{{ i18n.passphrase_info }}</div>
-                <label for="phrase" id="passphrase_phrase_label"></label>
-                <input id="phrase" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()" autofocus>
-                <div id="passphrase_ok" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
+                <div class="text">{{ i18n.passphrase_info }}</div>
+                <label></label>
+                <input class="input" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()" autofocus>
+                <div class="button-small" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
             </div>
             <!-- EXPORT -->
             <div v-show="info === 'export'">
-                <div id="export_info" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
-                <a id="download_backup" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
-                <a download="authenticator.json" v-bind:href="exportFile" id="download_backup" target="_blank" v-else>{{ i18n.download_backup }}</a>
-                <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" id="download_backup" target="_blank">{{ i18n.download_enc_backup }}</a>
-                <a id="import_backup" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
+                <div class="text warning" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
+                <a class="button" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportFile" class="button" target="_blank" v-else>{{ i18n.download_backup }}</a>
+                <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" class="button" target="_blank">{{ i18n.download_enc_backup }}</a>
+                <a class="button" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
-                <a id="import_backup" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>
+                <a class="button" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
-                <div id="dropbox_box">
-                    <div id="dropbox_risk" v-if="dropboxEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
+                <div>
+                    <div class="text warning" v-if="dropboxEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && dropboxToken">
-                        <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
-                        <select id="dropbox_encryption" v-model="dropboxEncrypted" v-on:change="backupUpdateEncryption('dropbox')">
+                        <label class="combo-label">{{ i18n.encrypted }}</label>
+                        <select v-model="dropboxEncrypted" v-on:change="backupUpdateEncryption('dropbox')">
                             <option value="true">{{ i18n.yes }}</option>
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
-                    <div id="dropbox_logout" v-if="dropboxToken" v-on:click="backupUpload('dropbox')">{{ i18n.manual_dropbox }}</div>
+                    <div class="button" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
+                    <div class="button" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
+                    <div class="button" v-if="dropboxToken" v-on:click="backupUpload('dropbox')">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
             <!-- DRIVE -->
             <div v-show="info === 'drive'">
-                <div id="dropbox_box">
-                    <div id="dropbox_risk" v-if="driveEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
+                <div>
+                    <div class="text warning" v-if="driveEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
                     <div v-if="encryption.getEncryptionStatus() && driveToken">
-                        <label for="dropbox_encryption" id="dropbox_encryption_label">{{ i18n.encrypted }}</label>
-                        <select id="dropbox_encryption" v-model="driveEncrypted" v-on:change="backupUpdateEncryption('drive')">
+                        <label class="combo-label">{{ i18n.encrypted }}</label>
+                        <select v-model="driveEncrypted" v-on:change="backupUpdateEncryption('drive')">
                             <option value="true">{{ i18n.yes }}</option>
                             <option value="false">{{ i18n.no }}</option>
                         </select>
                     </div>
-                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupLogout('drive')">{{ i18n.log_out }}</div>
-                    <div id="dropbox_get_code" v-else v-on:click="getBackupToken('drive')">{{ i18n.sign_in }}</div>
-                    <div id="dropbox_logout" v-if="driveToken" v-on:click="backupUpload('drive')">{{ i18n.manual_dropbox }}</div>
+                    <div class="button" v-if="driveToken" v-on:click="backupLogout('drive')">{{ i18n.log_out }}</div>
+                    <div class="button" v-else v-on:click="getBackupToken('drive')">{{ i18n.sign_in }}</div>
+                    <div class="button" v-if="driveToken" v-on:click="backupUpload('drive')">{{ i18n.manual_dropbox }}</div>
                 </div>
             </div>
             <!-- STORAGE & SYNC SETTINGS -->
             <div v-show="info === 'storage'">
                 <!-- Storage Settings -->
-                <div id="storage_location_info">{{ i18n.storage_location_info }}</div>
-                <label for="storage_location" id="storage_location_label">{{ i18n.storage_location }}</label>
-                <select id="storage_location" v-model="newStorageLocation" v-on:change="migrateStorage()">
+                <div class="text">{{ i18n.storage_location_info }}</div>
+                <label class="combo-label">{{ i18n.storage_location }}</label>
+                <select v-model="newStorageLocation" v-on:change="migrateStorage()">
                     <option value="sync">sync</option>
                     <option value="local">local</option>
                 </select>
                 <!-- 3rd Party Backup Services -->
-                <div id="storage_sync_info">{{ i18n.storage_sync_info }}</div>
+                <div class="text">{{ i18n.storage_sync_info }}</div>
                 <p></p>
-                <div id="dropbox_menu" v-on:click="showInfo('drive')">Google Drive</div>
-                <div id="dropbox_menu" v-on:click="showInfo('dropbox')">Dropbox</div>
+                <div class="button" v-on:click="showInfo('drive')">Google Drive</div>
+                <div class="button" v-on:click="showInfo('dropbox')">Dropbox</div>
             </div>
             <!-- POPUP PAGE SETTINGS -->
             <div v-show="info === 'resize'">
                 <div>
-                    <label for="resize_list" id="resize_list_label">{{ i18n.scale }}</label>
-                    <select id="resize_list" v-model="zoom" v-on:change="saveZoom()">
+                    <label class="combo-label">{{ i18n.scale }}</label>
+                    <select v-model="zoom" v-on:change="saveZoom()">
                         <option value="125">125%</option>
                         <option value="100">100%</option>
                         <option value="90">90%</option>
@@ -232,30 +232,30 @@
                     </select>
                 </div>
                 <div>
-                    <label for="use_autofill" id="use_autofill_label">{{ i18n.use_autofill }}</label>
-                    <input id="use_autofill" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                    <label class="combo-label">{{ i18n.use_autofill }}</label>
+                    <input type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
                 </div>
                 <div>
-                    <label for="use_high_contrast" id="use_high_contrast_label">{{ i18n.use_high_contrast }}</label>
-                    <input id="use_high_contrast" type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
+                    <label class="combo-label">{{ i18n.use_high_contrast }}</label>
+                    <input type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
                 </div>
-                <div id="popout" v-on:click="popOut()">{{ i18n.popout }}</div>
+                <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
         </div>
     </div>
 
     <!-- MESSAGE -->
-    <div id="message" v-show="message.length && messageIdle">
-        <div id="message_content">{{ message.length ? message[0] : '' }}</div>
-        <div id="message_close" v-on:click="closeAlert()">{{ i18n.ok }}</div>
+    <div class="message-box" v-show="message.length && messageIdle">
+        <div>{{ message.length ? message[0] : '' }}</div>
+        <div class="button-small" v-on:click="closeAlert()">{{ i18n.ok }}</div>
     </div>
 
     <!-- CONFRIM -->
-    <div id="confirm" v-show="confirmMessage !== ''">
-        <div id="confirm_content">{{ confirmMessage }}</div>
+    <div class="message-box" v-show="confirmMessage !== ''">
+        <div>{{ confirmMessage }}</div>
         <div class="buttons">
-            <div id="confirm_ok" v-on:click="confirmOK()">{{ i18n.yes }}</div>
-            <div id="confirm_cancel" v-on:click="confirmCancel()">{{ i18n.no }}</div>
+            <div class="button-small" v-on:click="confirmOK()">{{ i18n.yes }}</div>
+            <div class="button-small" v-on:click="confirmCancel()">{{ i18n.no }}</div>
         </div>
     </div>
 

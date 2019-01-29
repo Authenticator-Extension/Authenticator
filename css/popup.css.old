@@ -104,12 +104,6 @@
     align-items: center;
 }
 
-#version {
-    text-align: center;
-    color: gray;
-    margin: 10px;
-}
-
 #menuClose:hover,
 #exportButton:hover,
 #message_close:hover,
@@ -140,67 +134,12 @@
     color: black;
 }
 
-#security_save,
-#security_remove {
-    display: inline-block;
-    width: 80px;
-}
-
-#security_save {
-    margin-left: 40px;
-    margin-right: 0;
-}
-
-#security_remove {
-    margin-left: 30px;
-    margin-right: 0;
-}
-
-#infoContent,
-#addAccountContent,
-#exportContent {
-    height: 420px;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
 #exportData {
     height: 320px;
     width: 100%;
     word-break: break-all;
     resize: none;
     outline: none;
-}
-
-#infoContent p {
-    font-size: 12px;
-    margin-bottom: 20px;
-}
-
-#qr {
-    width: 100%;
-    height: 100%;
-    top: -1000px;
-    left: 0;
-    position: absolute;
-    z-index: 10;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#qr canvas {
-    display: none;
-}
-
-#qr.qrfadein {
-    top: 0;
-    animation: qrfadein 0.2s 1 ease-out;
-}
-
-#qr.qrfadeout {
-    top: 0;
-    animation: qrfadeout 0.2s 1 ease-in;
 }
 
 #dropbox_box input,
@@ -275,20 +214,6 @@
 
 #storage_location {
   margin: 20px 20px 20px 0;
-}
-
-#message,
-#confirm {
-    position: absolute;
-    width: 300px;
-    padding: 10px;
-    border: gray 1px solid;
-    border-radius: 2px;
-    background: white;
-    left: 10px;
-    top: 150px;
-    box-shadow: 1px 1px 3px gray;
-    z-index: 1000;
 }
 
 #download_backup,

@@ -6,6 +6,7 @@
 $black: black;
 $black-transparent: rgba(0,0,0,0.5);
 $white: white;
+$white-transparent: rgba(255, 255, 255, 0.5);
 
 $grey-1: grey;
 $grey-2: #CCC;
@@ -26,19 +27,6 @@ $grey-search: #b1b1b3;
 $blue-menu: #F4FCFF;
 
 // Shared
-%button {
-    margin: 10px;
-    padding: 20px;
-    border: $grey-2 1px solid;
-    background: $white;
-    border-radius: 2px;
-    position: relative;
-    text-align: center;
-    font-size: 16px;
-    color: $grey-1;
-    cursor: pointer;
-}
-
 @mixin hover-black {
     &:hover {
         svg {
@@ -58,10 +46,37 @@ $blue-menu: #F4FCFF;
 
 // Classes
 .button {
-    @extend %button;
+    margin: 10px;
+    padding: 20px;
+    border: $grey-2 1px solid;
+    background: $white;
+    border-radius: 2px;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    color: $grey-1;
+    cursor: pointer;
+
     &:hover {
         color: $black;
     }
+}
+
+.button-small {
+    @extend .button;
+    font-size: 12px;
+    margin: 20px 100px;
+    padding: 10px;
+}
+
+.input {
+    display: block;
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+    width: 260px;
+    border: $grey-2 1px solid;
+    background: $white;
+    outline: none;
 }
 
 .icon {

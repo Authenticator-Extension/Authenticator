@@ -70,6 +70,12 @@ body {
     bottom: 0;
     cursor: default;
     fill: $grey-2;
+
+    &:hover {
+        svg {
+            fill: inherit;
+        }
+    }
 }
 
 #i-qr {
@@ -385,7 +391,7 @@ body {
 }
 
 #add {
-    @extend %button;
+    @extend .button;
     @include hover-black;
     margin-right: 0;
     line-height: 56px;
@@ -417,6 +423,70 @@ body {
     }
 }
 
+.message-box {
+    position: absolute;
+    width: 300px;
+    padding: 10px;
+    border: $grey-1 1px solid;
+    border-radius: 2px;
+    background: $white;
+    left: 10px;
+    top: 150px;
+    box-shadow: 1px 1px 3px $grey-1;
+    z-index: 1000;
+
+    .button-small {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.buttons {
+    text-align: center;
+
+    .button-small {
+        display: inline-block;
+        margin: 10px;
+        padding: 5px 20px;
+    }
+}
+
+#qr {
+    width: 320px;
+    height: 480px;
+    top: -1000px;
+    left: 0;
+    position: absolute;
+    z-index: 10;
+    background-color: $white-transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    canvas {
+        display: none;
+    }
+
+    &.qrfadein {
+        top: 0;
+        animation: fadeshow 0.2s 1 ease-out;
+    }
+
+    &.qrfadeout {
+        top: 0;
+        animation: fadehide 0.2s 1 ease-in;
+    }
+}
+
+#overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 900;
+}
+
+// Info
 #info {
     position: absolute;
     height: 460px;
@@ -429,6 +499,16 @@ body {
     box-shadow: 1px 1px 3px $grey-1;
     z-index: 100;
 
+    #infoContent {
+        height: 420px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        p {
+            margin-bottom: 20px;
+        }
+    }
+
     #infoClose {
         @include hover-black;
         @include icon-special(14px, $grey-1);
@@ -436,6 +516,59 @@ body {
         width: 20px;
         cursor: pointer;
     }
+
+    label {
+        display: block;
+        margin: 10px 0 0 10px;
+    }
+
+    .combo-label {
+        display: inline-block;
+        margin: 20px;
+        font-size: 16px;
+    }
+
+    select {
+        margin: 20px;
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .button {
+        display: block;
+    }
+
+    .text {
+        display: block;
+        margin: 10px 0 0 10px;
+    }
+
+    .warning {
+        color: $red-1;
+    }
+    
+    // Security
+    @mixin security-button($margin-left) {
+        @extend .button-small;
+        font-size: 12px;
+        margin: 20px 100px;
+        padding: 10px;
+        display: inline-block;
+        width: 80px;
+        margin-left: $margin-left;
+        margin-right: 0;
+    }
+
+    #security-save {
+        @include security-button(40px);
+    }
+
+    #security-remove {
+        @include security-button(30px);
+    }     
 
     &.fadein {
         top: 10px;
