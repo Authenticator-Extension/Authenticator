@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+[v-cloak] { 
+    display: none;
+}
+
 html {
     width: 320px;
     height: 480px;
@@ -23,8 +27,17 @@ body {
     height: 480px;
 }
 
-[v-cloak] { 
-    display: none;
+svg {
+    pointer-events: none;
+}
+
+.icon {
+    fill: $grey-1;
+    vertical-align: middle;
+    svg {
+        height: 16px;
+        width: 16px;
+    }
 }
 
 #codeClipboard {
@@ -183,12 +196,12 @@ body {
             cursor: default;
         }
         
-        .account, .issuer, .showqr,
+        .issuer, .showqr,
         .showqr.hidden {
             display: none;
         }
         
-        .accountEdit, .issuerEdit,
+        .issuerEdit,
         .movehandle, #add {
             display: block;
         }
@@ -250,14 +263,6 @@ body {
         overflow: hidden;
     }
 
-    .account {
-        font-size: 12px;
-        color: $grey-1;
-        width: 80%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-
     .code {
         font-size: 36px;
         color: $blue-1;
@@ -314,7 +319,6 @@ body {
         }
     }
 
-    .accountEdit,
     .issuerEdit {
         display: none;
 

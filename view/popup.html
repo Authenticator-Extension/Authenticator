@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <link href="../css/font-awesome.css" type="text/css" rel="stylesheet" charset="utf-8">
     <link href="../css/popup.css" type="text/css" rel="stylesheet" charset="utf-8">
     <script src="../js/vue.min.js"></script>
     <script src="../js/vue-dragula.js"></script>
@@ -34,7 +33,7 @@
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div class="under-header" id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
         <div class="under-header" id="search">
-          <input v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
+          <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
           <div id="searchHint" v-if="typeof searchText !== 'string'">
             <div></div>
             <div id="searchHintBorder">/</div>
@@ -53,12 +52,12 @@
                 <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><svg><use xlink:href="../css/solid.svg#redo-alt"></use></svg></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
-                    <input class="issuerEditBox" placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
+                    <input placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
                 <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="class.edit ? showBulls(entry.code) : entry.code"></div>
-                <div class="account">{{ entry.account }}</div>
-                <div class="accountEdit">
-                    <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
+                <div class="issuer">{{ entry.account }}</div>
+                <div class="issuerEdit">
+                    <input placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
                 </div>
                 <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><svg><use xlink:href="../css/solid.svg#qrcode"></use></svg></div>
                 <div class="movehandle"><svg><use xlink:href="../css/solid.svg#bars"></use></svg></div>
@@ -125,7 +124,7 @@
                     <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
                     <div class="button" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
-                <div id="secret_box" v-show="newAccount.show">
+                <div v-show="newAccount.show">
                     <label>{{ i18n.accountName }}</label>
                     <input type="text" class="input" v-model="newAccount.account">
                     <label>{{ i18n.secret }}</label>
@@ -140,7 +139,7 @@
                 </div>
             </div>
             <!-- SECURITY -->
-            <div id="security" v-show="info === 'security'">
+            <div v-show="info === 'security'">
                 <div class="text warning">{{ i18n.security_warning }}</div>
                 <label>{{ i18n.phrase }}</label>
                 <input class="input" type="password" v-model="newPassphrase.phrase">
@@ -150,7 +149,7 @@
                 <div id="security-remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
             </div>
             <!-- PASSPHRASE -->
-            <div id="passphrase" v-show="info === 'passphrase'">
+            <div v-show="info === 'passphrase'">
                 <div class="text">{{ i18n.passphrase_info }}</div>
                 <label></label>
                 <input class="input" type="password" v-model="passphrase" v-on:keyup.enter="applyPassphrase()" autofocus>
