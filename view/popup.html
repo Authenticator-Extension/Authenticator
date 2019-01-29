@@ -49,7 +49,7 @@
                         <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
                     </svg>
                 </div>
-                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><i class="fa fa-repeat"></i></div>
+                <div v-bind:class="{'counter': true, 'disabled': class.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><svg><use xlink:href="../css/solid.svg#redo-alt"></use></svg></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
                     <input class="issuerEditBox" placeholder="{{ i18n.issuer }}" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
@@ -70,23 +70,23 @@
     <div id="menu" v-bind:class="{'slidein': class.slidein, 'slideout': class.slideout}">
         <div class="header">
             <span id="menuName">{{ i18n.settings }}</span>
-            <div id="menuClose" v-on:click="closeMenu()"><i class="fa fa-arrow-left"></i></div>
+            <div class="icon" id="i-close" v-on:click="closeMenu()"><svg><use xlink:href="../css/solid.svg#arrow-left"></use></svg></div>
         </div>
         <div id="menuBody">
             <div class="menuList">
-                <p v-bind:title="i18n.about" id="menuAbout" v-on:click="showInfo('about')"><i class="fa fa-info-circle"></i>{{ i18n.about }}</p>
+                <p v-bind:title="i18n.about" class="icon" v-on:click="showInfo('about')"><span><svg><use xlink:href="../css/solid.svg#info"></use></svg></span>{{ i18n.about }}</p>
             </div>
             <div class="menuList">
-                <p v-bind:title="i18n.export_import" id="menuExImport" v-on:click="showInfo('export')"><i class="fa fa-exchange"></i>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.storage_menu" id="menuStorage" v-on:click="showInfo('storage')" v-show="!isEdge()"><i class="fa fa-database"></i>{{ i18n.storage_menu }}</p>
-                <p v-bind:title="i18n.security" id="menuSecurity" v-on:click="showInfo('security')"><i class="fa fa-lock"></i>{{ i18n.security }}</p>
-                <p v-bind:title="i18n.sync_clock" id="menuSyncTime" v-on:click="syncClock()"><i class="fa fa-refresh"></i>{{ i18n.sync_clock }}</p>
-                <p v-bind:title="i18n.resize_popup_page" id="menuResize" v-on:click="showInfo('resize')"><i class="fa fa-expand"></i>{{ i18n.resize_popup_page }}</p>
+                <p v-bind:title="i18n.export_import" v-on:click="showInfo('export')"><span><svg><use xlink:href="../css/solid.svg#exchange-alt"></use></svg></span>{{ i18n.export_import }}</p>
+                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('storage')" v-show="!isEdge()"><span><svg><use xlink:href="../css/solid.svg#database"></use></svg></span>{{ i18n.storage_menu }}</p>
+                <p v-bind:title="i18n.security" v-on:click="showInfo('security')"><span><svg><use xlink:href="../css/solid.svg#lock"></use></svg></span>{{ i18n.security }}</p>
+                <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()"><span><svg><use xlink:href="../css/solid.svg#sync-alt"></use></svg></span>{{ i18n.sync_clock }}</p>
+                <p v-bind:title="i18n.resize_popup_page" v-on:click="showInfo('resize')"><span><svg><use xlink:href="../css/solid.svg#wrench"></use></svg></span>{{ i18n.resize_popup_page }}</p>
             </div>
                 <div class="menuList">
-                <p v-bind:title="i18n.feedback" v-on:click="openHelp"><i class="fa fa-comments-o"></i>{{ i18n.feedback }}</p>
-                <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><i class="fa fa-globe"></i>{{ i18n.translate }}</p>
-                <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><i class="fa fa-code"></i>{{ i18n.source }}</p>
+                <p v-bind:title="i18n.feedback" v-on:click="openHelp"><span><svg><use xlink:href="../css/solid.svg#comments"></use></svg></span>{{ i18n.feedback }}</p>
+                <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><span><svg><use xlink:href="../css/solid.svg#globe-americas"></use></svg></span>{{ i18n.translate }}</p>
+                <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><span><svg><use xlink:href="../css/solid.svg#code"></use></svg></span>{{ i18n.source }}</p>
             </div>
             <div id="version">Version {{ version }}</div>
         </div>

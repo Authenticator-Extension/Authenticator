@@ -40,6 +40,7 @@ body {
     text-align: center;
     font-size: 16px;
     border-bottom: $grey-2 1px solid;
+    background: $white;
 
     .icon {
         @include hover-black;
@@ -80,6 +81,12 @@ body {
 #i-edit {
     position: absolute;
     right: 20px;
+    bottom: 0;
+}
+
+#i-close {
+    position: absolute;
+    left: 20px;
     bottom: 0;
 }
 
@@ -283,18 +290,21 @@ body {
     }
 
     .counter {
-        color: $grey-1;
-        font-size: 18px;
+        @include icon-special(18px, $grey-1);
         text-align: center;
         cursor: pointer;
 
         .disabled {
-            color: $grey-2;
+            svg {
+                fill: $grey-2;
+            }
             cursor: default;
         }
 
         &:not(.disabled):hover {
-            color: $black;
+            svg {
+                fill: $black;
+            }
         }
     }
 
@@ -440,9 +450,79 @@ body {
 
 // Menu
 #menu {
+    width: 320px;
+    height: 480px;
     position: absolute;
     left: -1000px;
     top: 0;
+
+    &.slidein {
+        left: 0;
+        animation: slidein 0.2s 1 ease-out;
+        opacity: 1;
+    }
+
+    &.slideout {
+        left: -55px;
+        animation: slideout 0.2s 1 ease-in;
+        opacity: 0;
+    }
+
+    #menuBody {
+        overflow-y: auto;
+        height: 442px;
+        width: inherit;
+        background: $grey-3;
+        position: absolute;
+    }
+
+    .menuList {
+        margin: 10px;
+        border: $grey-2 1px solid;
+        border-radius: 2px;
+        background: $white;
+
+        p {
+            position: relative;
+            border-bottom: $grey-2 1px solid;
+            padding: 10px;
+            font-size: 16px;
+            color: $grey-1;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 30px auto;
+            
+            span {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    fill: $grey-1;
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+
+            &:hover {
+                background: $blue-menu;
+                color: $black;
+
+                svg {
+                    fill: $black;
+                }
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+#version {
+    text-align: center;
+    color: $grey-1;
+    margin: 10px;
 }
 
 // Animations
