@@ -1,12 +1,3 @@
-@keyframes twinkling{
-    0%{
-        color:#DD4B39;
-    }
-    100%{
-        color:#EEA59C;
-    }
-}
-
 @keyframes accessibility-twinkling {
     50%{
         color:yellow;
@@ -16,67 +7,7 @@
     }
 }
 
-@keyframes fadeshow{
-    0%{
-        opacity:0;
-    }
-    100%{
-        opacity:1;
-    }
-}
 
-@keyframes fadehide{
-    0%{
-        opacity:1;
-    }
-    100%{
-        opacity:0;
-    }
-}
-
-@keyframes fadein{
-    0%{
-        opacity:0;
-        top:110px;
-    }
-    100%{
-        opacity:1;
-        top:10px;
-    }
-}
-
-@keyframes fadeout{
-    0%{
-        opacity:1;
-        top:10px;
-    }
-    100%{
-        opacity:0;
-        top:110px;
-    }
-}
-
-@keyframes slidein{
-    0%{
-        opacity:0;
-        left:-55px;
-    }
-    100%{
-        opacity:1;
-        left:0;
-    }
-}
-
-@keyframes slideout{
-    0%{
-        opacity:1;
-        left:0;
-    }
-    100%{
-        opacity:0;
-        left:-55px;
-    }
-}
 
 @keyframes qrfadein{
     0%{
@@ -97,217 +28,6 @@
 }
 
 
-
-
-[v-cloak] { display: none }
-
-
-
-#notification {
-    position: absolute;
-    left: 60px;
-    top: -1000px;
-    width: 200px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    background: rgba(0,0,0,0.5);
-    color: #FFF;
-    font-size: 20px;
-    border-radius: 2px;
-}
-
-#notification.fadein {
-    top: 190px;
-    animation: fadeshow 0.2s 1 ease-out;
-}
-
-#notification.fadeout {
-    top: 190px;
-    animation: fadehide 0.2s 1 ease-in;
-}
-
-
-
-
-
-.entry[unencrypted="true"] .warning {
-    position: absolute;
-    height: 0;
-    line-height: 12px;
-    font-size: 12px;
-    padding: 0 10px;
-    margin: 0 4px;
-    width: 250px;
-    bottom: 4px;
-    left: 0;
-    background: #EC6959;
-    color: #FFF;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 2px;
-    transition: height 0.2s;
-}
-
-#codes.filter .entry[filtered],
-#codes.search .entry[notSearched] {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    border: none;
-    overflow: hidden;
-    position: absolute;
-}
-
-#filter,
-#search {
-    background: #fff4cc;
-    padding: 0 10px;
-    margin-left: 10px;
-    font-size: 12px;
-    height: 24px;
-    line-height: 24px;
-    cursor: pointer;
-    display: none;
-}
-
-#search {
-    position: relative;
-    background: #fff;
-    border: #CCC 1px solid;
-    border-top: none;
-}
-
-#searchHint {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding-right: 10px;
-    display: grid;
-    grid-template-rows: 4.5px 15px 4.5px;
-    grid-template-columns: 15px;
-}
-
-#searchHintBorder {
-    color: #FFF;
-    background: #b1b1b3;
-    text-align: center;
-    border-radius: 1.5px;
-    line-height: 16px;
-    font-weight: bolder;
-}
-
-#searchInput {
-    font-family: arial, 'Microsoft YaHei';
-    background: none;
-    border: none;
-    width: 100%;
-    height: 100%;
-    color: #2a2a2e;
-}
-
-#filter:hover {
-    background: #fff1ba;
-}
-
-#search:hover {
-    background: #f9f9fa;
-}
-
-#codes.filter #filter,
-#codes.search #search {
-    display: block;
-}
-
-#codes:not(.edit) .entry[unencrypted="true"]:hover .warning {
-    height: 24px;
-}
-
-.entry[dropOver="true"] {
-    border: gray 1px dashed;
-}
-
-.issuer {
-    font-size: 12px;
-    color: black;
-    width: 80%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.code {
-    font-size: 36px;
-    color: #08C;
-    width: 80%;
-    user-select: text;
-    font-family: 'Droid Sans Mono';
-    cursor: pointer;
-}
-
-.accountEdit,
-.issuerEdit {
-    display: none;
-}
-
-.accountEdit input,
-.issuerEdit input {
-    border: none;
-    height: 14px;
-    width: 70%;
-    font-size: 12px;
-    font-family: arial, 'Microsoft YaHei';
-    outline: none;
-    background: #eee;
-}
-
-#codes:not(.edit) .code.timeout:not(.hotp) {
-    animation: twinkling 1s infinite ease-in-out;
-}
-
-.hotp {
-    color: #555;
-    cursor: default;
-}
-
-.hotp:not(.no-copy) {
-    color: #08C;
-    cursor: pointer;
-}
-
-.movehandle {
-    height: 98px;
-    line-height: 98px;
-    right: 10px;
-    top: 0;
-    position: absolute;
-    font-size: 24px;
-    color: #CCC;
-    cursor: move;
-    display: none;
-}
-
-.showqr {
-    right: 10px;
-    top: 10px;
-    position: absolute;
-    font-size: 20px;
-    color: #CCC;
-    cursor: pointer;
-    opacity: 0;
-}
-
-.entry:hover .showqr {
-    opacity: 1;
-}
-
-.account {
-    font-size: 12px;
-    color: gray;
-    width: 80%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
 
 #add,
 #add_qr,
@@ -372,71 +92,8 @@
     cursor: pointer;
 }
 
-#codes .deleteAction {
-    font-size: 20px;
-    color: #DD4B39;
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    z-index: 10;
-    display: none;
-}
-
 #infoAction.hidden {
     display: none;
-}
-
-#scan:hover {
-    background: black;
-}
-
-.counter {
-    color: #888;
-    font-size: 18px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.counter:not(.disabled):hover {
-    color: #000;
-}
-
-.counter.disabled {
-    color: #CCC;
-    cursor: default;
-}
-
-.sector,
-.counter {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-}
-
-@keyframes timer {
-    to {
-        stroke-dashoffset: -25.12;
-    }
-}
-
-.sector svg {
-    width: 16px;
-    height: 16px;
-    margin: 2px;
-}
-
-.sector circle {
-    fill: none;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-    stroke: gray;
-    stroke-width: 8px;
-    stroke-dasharray: 25.12;
-    animation-name: timer;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
 }
 
 #menuBody {
@@ -511,36 +168,6 @@
     margin: 10px;
 }
 
-#info {
-    position: absolute;
-    height: 460px;
-    width: 300px;
-    padding: 10px;
-    border: gray;
-    background: white;
-    left: 10px;
-    top: -1000px;
-    box-shadow: 1px 1px 3px gray;
-    z-index: 100;
-}
-
-#info.fadein {
-    top: 10px;
-    animation: fadein 0.2s 1 ease-out;
-}
-
-#info.fadeout {
-    top: 110px;
-    animation: fadeout 0.2s 1 ease-in;
-}
-
-#infoClose {
-    height: 20px;
-    width: 20px;
-    font-size: 14px;
-    color: gray;
-    cursor: pointer;
-}
 
 #menuClose {
     position: absolute;
@@ -566,7 +193,6 @@
 #infoAction:hover,
 #lock:hover,
 #codes #add:hover,
-#infoClose:hover,
 #addAccountClose:hover,
 #securityClose:hover,
 #passphraseClose:hover,
@@ -580,9 +206,7 @@
 #export:hover,
 #confirm_cancel:hover,
 #confirm_ok:hover,
-#menu .menuList p:hover:after,
-.entry:hover .movehandle,
-.showqr:hover {
+#menu .menuList p:hover:after{
     color: black;
 }
 
@@ -756,9 +380,7 @@
     display: none;
 }
 
-.no-copy {
-    cursor: default;
-}
+
 
 #dropbox_box .dropbox_code_input {
     width: 260px;

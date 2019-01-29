@@ -31,9 +31,9 @@
         </div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
-        <div id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
-        <div id="search">
-          <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
+        <div class="under-header" id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
+        <div class="under-header" id="search">
+          <input v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
           <div id="searchHint" v-if="typeof searchText !== 'string'">
             <div></div>
             <div id="searchHintBorder">/</div>
@@ -43,7 +43,7 @@
         <div v-dragula="entries">
             <!-- ENTRIES -->
             <div class="entry" v-for="entry in entries" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
-                <div class="deleteAction" v-on:click="removeEntry(entry)"><i class="fa fa-minus-circle"></i></div>
+                <div class="deleteAction" v-on:click="removeEntry(entry)"><svg><use xlink:href="../css/solid.svg#minus-circle"></use></svg></div>
                 <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-show="sectorStart">
                     <svg viewBox="0 0 16 16">
                         <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
@@ -59,8 +59,8 @@
                 <div class="accountEdit">
                     <input class="accountEditBox" placeholder="{{ i18n.accountName }}" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
                 </div>
-                <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><i class="fa fa-qrcode"></i></div>
-                <div class="movehandle"><i class="fa fa-bars"></i></div>
+                <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><svg><use xlink:href="../css/solid.svg#qrcode"></use></svg></div>
+                <div class="movehandle"><svg><use xlink:href="../css/solid.svg#bars"></use></svg></div>
             </div>
         </div>
         <div class="icon" id="add" v-on:click="showInfo('account')"><svg><use xlink:href="../css/solid.svg#plus"></use></svg></div>
@@ -94,7 +94,7 @@
 
     <!-- INFO -->
     <div id="info" v-bind:class="{'fadein': class.fadein, 'fadeout': class.fadeout}">
-        <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><i class="fa fa-times-circle"></i></div>
+        <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><svg><use xlink:href="../css/solid.svg#times-circle"></use></svg></div>
         <div id="infoContent">
             <!-- ABOUT -->
             <div v-show="info === 'about'">
@@ -122,8 +122,8 @@
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
                 <div v-show="!newAccount.show">
-                    <div id="add_qr" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
-                    <div id="add_secret" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
+                    <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
+                    <div class="button" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
                 <div id="secret_box" v-show="newAccount.show">
                     <label for="account_input" id="account_label">{{ i18n.accountName }}</label>

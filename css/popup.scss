@@ -1,6 +1,6 @@
 @import 'ui';
 
-//  === Structure ===
+// Structure
 
 * {
     margin: 0;
@@ -11,11 +11,25 @@
 html {
     width: 320px;
     height: 480px;
-    //overflow: hidden;
+    overflow: hidden;
     font-family: arial, 'Microsoft YaHei';
     cursor: default;
     user-select: none;
     transform-origin: top left;
+}
+
+body {
+    width: 320px;
+    height: 480px;
+}
+
+[v-cloak] { 
+    display: none;
+}
+
+#codeClipboard {
+    position: absolute;
+    top: -1000px;
 }
 
 // Header
@@ -28,14 +42,11 @@ html {
     border-bottom: $grey-2 1px solid;
 
     .icon {
+        @include hover-black;
         cursor: pointer;
 
         svg {
-            vertical-align: middle;
-        }
-
-        &:hover {
-            fill: black;
+            vertical-align: sub;
         }
     }
 }
@@ -72,6 +83,64 @@ html {
     bottom: 0;
 }
 
+// Search & Filter
+.under-header {
+    padding: 0 10px;
+    margin-left: 10px;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+#filter {
+    background: $yellow-2;
+
+    &:hover {
+        background: $yellow-1;
+    }
+}
+
+#search {
+    position: relative;
+    background: $white;
+    border: $grey-2 1px solid;
+    border-top: none;
+
+    &:hover {
+        background: $white-search;
+    }
+
+    input {
+        font-family: arial, 'Microsoft YaHei';
+        background: none;
+        border: none;
+        width: 100%;
+        height: 100%;
+        color: $black-search;
+    }
+
+    #searchHint {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding-right: 10px;
+        display: grid;
+        grid-template-rows: 4.5px 15px 4.5px;
+        grid-template-columns: 15px;
+    }
+    
+    #searchHintBorder {
+        color: $white;
+        background: $grey-search;
+        text-align: center;
+        border-radius: 1.5px;
+        line-height: 16px;
+        font-weight: bolder;
+    }
+}
+
 // Codes
 #codes {
     height: 442px;
@@ -79,6 +148,15 @@ html {
     overflow-y: hidden;
     background: $grey-3;
     padding-right:10px;
+
+    .deleteAction {
+        @include icon-special(20px, $red-1);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        z-index: 10;
+        display: none;
+    }
     
     &:hover {
         padding-right: 0;
@@ -113,12 +191,33 @@ html {
             opacity: 0;
         }
     }
-}
 
-#menu {
-    position: absolute;
-    left: -1000px;
-    top: 0;
+    &.filter .entry[filtered],
+    &.search .entry[notSearched] {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        border: none;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    &.filter #filter,
+    &.search #search {
+        display: block;
+    }
+
+    &:not(.edit) {
+        // Is this used?
+        .entry[unencrypted="true"]:hover .warning {
+            height: 24px;
+        }
+
+        .code.timeout:not(.hotp) {
+            animation: twinkling 1s infinite ease-in-out;
+        }
+    }
 }
 
 .entry {
@@ -126,21 +225,304 @@ html {
     margin-right: 0;
     padding: 10px;
     border: $grey-2 1px solid;
-    background: white;
+    background: $white;
     border-radius: 2px;
     position: relative;
+
+    .issuer {
+        font-size: 12px;
+        color: $black;
+        width: 80%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .account {
+        font-size: 12px;
+        color: $grey-1;
+        width: 80%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .code {
+        font-size: 36px;
+        color: $blue-1;
+        width: 80%;
+        user-select: text;
+        font-family: 'Droid Sans Mono';
+        cursor: pointer;
+    }
+
+    .sector, .counter {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+    }
+    
+    .sector {
+        svg {
+            width: 16px;
+            height: 16px;
+            margin: 2px;
+        }
+
+        circle {
+            fill: none;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            stroke: $grey-1;
+            stroke-width: 8px;
+            stroke-dasharray: 25.12;
+            animation-name: timer;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    }
+
+    .counter {
+        color: $grey-1;
+        font-size: 18px;
+        text-align: center;
+        cursor: pointer;
+
+        .disabled {
+            color: $grey-2;
+            cursor: default;
+        }
+
+        &:not(.disabled):hover {
+            color: $black;
+        }
+    }
+
+    .accountEdit,
+    .issuerEdit {
+        display: none;
+
+        input {
+            border: none;
+            height: 14px;
+            width: 70%;
+            font-size: 12px;
+            outline: none;
+            background: $grey-3;
+        }
+    }
+
+    .movehandle {
+        @include icon-special(24px, $grey-2);
+        height: 98px;
+        line-height: 98px;
+        right: 10px;
+        top: 0;
+        position: absolute;
+        cursor: move;
+        display: none;
+    }
+
+    .showqr {
+        @include icon-special(20px, $grey-2);
+        @include hover-black;
+        right: 10px;
+        top: 10px;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+    }
+
+    &:hover {
+        .showqr {
+            opacity: 1;
+        }
+
+        .movehandle {
+            svg {
+                fill: $black;
+            }
+        }
+    }
+
+    // Is this used?
+    &[dropOver="true"] {
+        border: $grey-1 1px dashed;
+    }
+
+    // Is this used?
+    &[unencrypted="true"] .warning {
+        position: absolute;
+        height: 0;
+        line-height: 12px;
+        font-size: 12px;
+        padding: 0 10px;
+        margin: 0 4px;
+        width: 250px;
+        bottom: 4px;
+        left: 0;
+        background: #EC6959;
+        color: $white;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 2px;
+        transition: height 0.2s;
+    }
+}
+
+.no-copy {
+    cursor: default;
 }
 
 #add {
     @extend %button;
+    @include hover-black;
     margin-right: 0;
     line-height: 56px;
     display: none;
+}
 
-    &:hover {
-        fill: black;
+// Modals
+#notification {
+    position: absolute;
+    left: 60px;
+    top: -1000px;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background: $black-transparent;
+    color: $white;
+    font-size: 20px;
+    border-radius: 2px;
+
+    &.fadein {
+        top: 190px;
+        animation: fadeshow 0.2s 1 ease-out;
+    }
+
+    &.fadeout {
+        top: 190px;
+        animation: fadehide 0.2s 1 ease-in;
     }
 }
+
+#info {
+    position: absolute;
+    height: 460px;
+    width: 300px;
+    padding: 10px;
+    border: $grey-1;
+    background: $white;
+    left: 10px;
+    top: -1000px;
+    box-shadow: 1px 1px 3px $grey-1;
+    z-index: 100;
+
+    #infoClose {
+        @include hover-black;
+        @include icon-special(14px, $grey-1);
+        height: 20px;
+        width: 20px;
+        cursor: pointer;
+    }
+
+    &.fadein {
+        top: 10px;
+        animation: fadein 0.2s 1 ease-out;
+    }
+
+    &.fadeout {
+        top: 110px;
+        animation: fadeout 0.2s 1 ease-in;
+    }
+}
+
+// Menu
+#menu {
+    position: absolute;
+    left: -1000px;
+    top: 0;
+}
+
+// Animations
+@keyframes timer {
+    to {
+        stroke-dashoffset: -25.12;
+    }
+}
+
+@keyframes twinkling{
+    0%{
+        color: $red-1;
+    }
+    100%{
+        color: $red-2;
+    }
+}
+
+@keyframes fadeshow{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes fadehide{
+    0%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+    }
+}
+
+@keyframes fadein{
+    0%{
+        opacity:0;
+        top:110px;
+    }
+    100%{
+        opacity:1;
+        top:10px;
+    }
+}
+
+@keyframes fadeout{
+    0%{
+        opacity:1;
+        top:10px;
+    }
+    100%{
+        opacity:0;
+        top:110px;
+    }
+}
+
+@keyframes slidein{
+    0%{
+        opacity:0;
+        left:-55px;
+    }
+    100%{
+        opacity:1;
+        left:0;
+    }
+}
+
+@keyframes slideout{
+    0%{
+        opacity:1;
+        left:0;
+    }
+    100%{
+        opacity:0;
+        left:-55px;
+    }
+}
+
 // Misc
 @font-face {
     font-family: 'Droid Sans Mono';
@@ -160,24 +542,5 @@ html {
     border: 2px solid $grey-3;
     border-radius: 5px;
 }
-
-a {
-    color: $blue-1;
-}
-
-.icon {
-    fill: $grey-1;
-    svg {
-        height: 16px;
-        width: 16px;
-    }
-}
-
-#codeClipboard {
-    position: absolute;
-    top: -1000px;
-}
-
-// Animations
 
 // Accessibility

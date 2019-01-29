@@ -3,21 +3,74 @@
 // Colors
 // go from darkest to lightest
 
+$black: black;
+$black-transparent: rgba(0,0,0,0.5);
+$white: white;
+
 $grey-1: grey;
 $grey-2: #CCC;
 $grey-3: #EEE;
 
 $blue-1: #08C;
 
+$yellow-1: #fff1ba;
+$yellow-2: #fff4cc;
+
+$red-1: #DD4B39;
+$red-2: #EEA59C;
+
+$black-search: #2a2a2e;
+$white-search: #f9f9fa;
+$grey-search: #b1b1b3;
+
+// Shared
 %button {
     margin: 10px;
     padding: 20px;
     border: $grey-2 1px solid;
-    background: white;
+    background: $white;
     border-radius: 2px;
     position: relative;
     text-align: center;
     font-size: 16px;
     color: $grey-1;
     cursor: pointer;
+}
+
+@mixin hover-black {
+    &:hover {
+        svg {
+            fill: $black;
+        }
+    }
+}
+
+@mixin icon-special($size, $color) {
+    svg {
+        vertical-align: middle;
+        fill: $color;
+        height: $size;
+        width: $size;
+    }
+}
+
+// Classes
+.button {
+    @extend %button;
+    &:hover {
+        color: $black;
+    }
+}
+
+.icon {
+    fill: $grey-1;
+    vertical-align: middle;
+    svg {
+        height: 16px;
+        width: 16px;
+    }
+}
+
+a {
+    color: $blue-1;
 }
