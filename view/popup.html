@@ -18,7 +18,7 @@
     <script src="../build/models/credentials.js"></script>
 </head>
 <body>
-<div id="authenticator" v-cloak v-bind:accessibility="useHighContrast">
+<div id="authenticator" v-cloak v-bind:class="{ 'theme-normal': !useHighContrast, 'theme-accessibility': useHighContrast }">
     <div class="header">
         <span>{{ i18n.extName }}</span>
         <div v-show="!isPopup()">

@@ -32,7 +32,9 @@ svg {
 }
 
 .icon {
-    fill: $grey-1;
+    @include themify($themes) {
+        fill: themed('grey-1');
+    }
     vertical-align: middle;
     svg {
         height: 16px;
@@ -52,8 +54,11 @@ svg {
     position: relative;
     text-align: center;
     font-size: 16px;
-    border-bottom: $grey-2 1px solid;
-    background: $white;
+    @include themify($themes) {
+        color: themed('black-1');
+        background: themed('white-1');
+        border-bottom: themed('grey-2') 1px solid;
+    }
 
     .icon {
         @include hover-black;
@@ -82,7 +87,9 @@ svg {
     left: 70px;
     bottom: 0;
     cursor: default;
-    fill: $grey-2;
+    @include themify($themes) {
+        fill: themed('grey-2');
+    }
 
     &:hover {
         svg {
@@ -121,21 +128,29 @@ svg {
 }
 
 #filter {
-    background: $yellow-2;
+    @include themify($themes) {
+        background: themed('yellow-2');
+    }
 
     &:hover {
-        background: $yellow-1;
+        @include themify($themes) {
+            background: themed('yellow-1');
+        }
     }
 }
 
 #search {
     position: relative;
-    background: $white;
-    border: $grey-2 1px solid;
     border-top: none;
+    @include themify($themes) {
+        background: themed('white-1');
+        border: themed('grey-2') 1px solid;
+    }
 
     &:hover {
-        background: $white-search;
+        @include themify($themes) {
+            background: themed('white-search');
+        }
     }
 
     input {
@@ -144,12 +159,14 @@ svg {
         border: none;
         width: 100%;
         height: 100%;
-        color: $black-search;
+        @include themify($themes) {
+            color: themed('black-search');
+        }
     }
-
+        
     #searchHint {
         position: absolute;
-        top: 0px;
+        top: -1px;
         right: 0px;
         padding-right: 10px;
         display: grid;
@@ -158,8 +175,10 @@ svg {
     }
     
     #searchHintBorder {
-        color: $white;
-        background: $grey-search;
+        @include themify($themes) {
+            color: themed('white-1');
+            background: themed('grey-search');
+        }
         text-align: center;
         border-radius: 1.5px;
         line-height: 16px;
@@ -172,11 +191,15 @@ svg {
     height: 442px;
     overflow-x: hidden;
     overflow-y: hidden;
-    background: $grey-3;
+    @include themify($themes) {
+        background: themed('grey-background');
+    }
     padding-right:10px;
 
     .deleteAction {
-        @include icon-special(20px, $red-1);
+        @include themify($themes) {
+            @include icon-special(20px, themed('red-1'));
+        }
         position: absolute;
         top: -10px;
         left: -10px;
@@ -191,7 +214,9 @@ svg {
     
     &.edit {
         .code {
-            color: $grey-2!important;
+            @include themify($themes) {
+                color: themed('grey-2')!important;
+            }
             user-select: none;
             cursor: default;
         }
@@ -250,14 +275,18 @@ svg {
     margin: 10px;
     margin-right: 0;
     padding: 10px;
-    border: $grey-2 1px solid;
-    background: $white;
+    @include themify($themes) {
+        border: themed('grey-2') 1px solid;
+        background: themed('white-1');
+    }
     border-radius: 2px;
     position: relative;
 
     .issuer {
         font-size: 12px;
-        color: $black;
+        @include themify($themes) {
+            color: themed('black-1');
+        }
         width: 80%;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -265,7 +294,9 @@ svg {
 
     .code {
         font-size: 36px;
-        color: $blue-1;
+        @include themify($themes) {
+            color: themed('blue-1');
+        }
         width: 80%;
         user-select: text;
         font-family: 'Droid Sans Mono';
@@ -291,7 +322,9 @@ svg {
             fill: none;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
-            stroke: $grey-1;
+            @include themify($themes) {
+                stroke: themed('grey-1');
+            }
             stroke-width: 8px;
             stroke-dasharray: 25.12;
             animation-name: timer;
@@ -301,20 +334,26 @@ svg {
     }
 
     .counter {
-        @include icon-special(18px, $grey-1);
+        @include themify($themes) {
+            @include icon-special(18px, themed('grey-1'));
+        }
         text-align: center;
         cursor: pointer;
 
         .disabled {
             svg {
-                fill: $grey-2;
+                @include themify($themes) {
+                    fill: themed('grey-2');
+                }
             }
             cursor: default;
         }
 
         &:not(.disabled):hover {
             svg {
-                fill: $black;
+                @include themify($themes) {
+                    fill: themed('black-1');
+                }
             }
         }
     }
@@ -328,12 +367,17 @@ svg {
             width: 70%;
             font-size: 12px;
             outline: none;
-            background: $grey-3;
+            @include themify($themes) {
+                background: themed('grey-3');
+            }
+            
         }
     }
 
     .movehandle {
-        @include icon-special(24px, $grey-2);
+        @include themify($themes) {
+            @include icon-special(24px, themed('grey-2'));
+        }
         height: 98px;
         line-height: 98px;
         right: 10px;
@@ -344,7 +388,9 @@ svg {
     }
 
     .showqr {
-        @include icon-special(20px, $grey-2);
+        @include themify($themes) {
+            @include icon-special(20px, themed('grey-2'));
+        }
         @include hover-black;
         right: 10px;
         top: 10px;
@@ -360,11 +406,13 @@ svg {
 
         .movehandle {
             svg {
-                fill: $black;
+                @include themify($themes) {
+                    fill: themed('black-1');
+                }
             }
         }
     }
-
+    /*
     // Is this used?
     &[dropOver="true"] {
         border: $grey-1 1px dashed;
@@ -388,6 +436,7 @@ svg {
         border-radius: 2px;
         transition: height 0.2s;
     }
+    */
 }
 
 .no-copy {
@@ -411,8 +460,10 @@ svg {
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: $black-transparent;
-    color: $white;
+    @include themify($themes) {
+        background: themed('black-transparent');
+        color: themed('white-1');
+    }
     font-size: 20px;
     border-radius: 2px;
 
@@ -431,12 +482,15 @@ svg {
     position: absolute;
     width: 300px;
     padding: 10px;
-    border: $grey-1 1px solid;
+    @include themify($themes) {
+        color: themed('black-1');
+        border: themed('grey-1') 1px solid;
+        background: themed('white-1');
+        box-shadow: 1px 1px 3px themed('grey-1');
+    }
     border-radius: 2px;
-    background: $white;
     left: 10px;
     top: 150px;
-    box-shadow: 1px 1px 3px $grey-1;
     z-index: 1000;
 
     .button-small {
@@ -462,7 +516,9 @@ svg {
     left: 0;
     position: absolute;
     z-index: 10;
-    background-color: $white-transparent;
+    @include themify($themes) {
+        background-color: themed('white-transparent');
+    }
     background-repeat: no-repeat;
     background-position: center;
 
@@ -496,11 +552,14 @@ svg {
     height: 460px;
     width: 300px;
     padding: 10px;
-    border: $grey-1;
-    background: $white;
+    @include themify($themes) {
+        color: themed('black-1');
+        border: themed('grey-1');
+        background: themed('white-1');
+        box-shadow: 1px 1px 3px themed('grey-1');
+    }
     left: 10px;
     top: -1000px;
-    box-shadow: 1px 1px 3px $grey-1;
     z-index: 100;
 
     #infoContent {
@@ -515,7 +574,9 @@ svg {
 
     #infoClose {
         @include hover-black;
-        @include icon-special(14px, $grey-1);
+        @include themify($themes) {
+            @include icon-special(14px, themed('grey-1'));
+        }
         height: 20px;
         width: 20px;
         cursor: pointer;
@@ -551,7 +612,9 @@ svg {
     }
 
     .warning {
-        color: $red-1;
+        @include themify($themes) {
+            color: themed('red-1');
+        }
     }
     
     // Security
@@ -609,43 +672,55 @@ svg {
         overflow-y: auto;
         height: 442px;
         width: inherit;
-        background: $grey-3;
         position: absolute;
+        @include themify($themes) {
+            background: themed('grey-background');
+        }
     }
 
     .menuList {
         margin: 10px;
-        border: $grey-2 1px solid;
         border-radius: 2px;
-        background: $white;
-
+        @include themify($themes) {
+            border: themed('grey-2') 1px solid;
+            background: themed('white-1');
+        }
+        
         p {
             position: relative;
-            border-bottom: $grey-2 1px solid;
             padding: 10px;
             font-size: 16px;
-            color: $grey-1;
             cursor: pointer;
             display: grid;
             grid-template-columns: 30px auto;
+            @include themify($themes) {
+                border-bottom: themed('grey-2') 1px solid;
+                color: themed('grey-1');
+            }
             
             span {
                 display: flex;
                 align-items: center;
 
                 svg {
-                    fill: $grey-1;
+                    @include themify($themes) {
+                        fill: themed('grey-1');
+                    }
                     height: 16px;
                     width: 16px;
                 }
             }
 
             &:hover {
-                background: $blue-menu;
-                color: $black;
+                @include themify($themes) {
+                    background: themed('blue-menu');
+                    color: themed('black-1');
+                }
 
                 svg {
-                    fill: $black;
+                    @include themify($themes) {
+                        fill: themed('black-1');
+                    }
                 }
             }
 
@@ -658,8 +733,10 @@ svg {
 
 #version {
     text-align: center;
-    color: $grey-1;
     margin: 10px;
+    @include themify($themes) {
+        color: themed('grey-1');
+    }
 }
 
 // Animations
@@ -671,10 +748,10 @@ svg {
 
 @keyframes twinkling{
     0%{
-        color: $red-1;
+        color: #EEA59C;
     }
     100%{
-        color: $red-2;
+        color: #DD4B39;
     }
 }
 
@@ -751,13 +828,83 @@ svg {
 
 ::-webkit-scrollbar {
     width: 10px;
-    background: $grey-3;
+    @include themify($themes) {
+        background: themed('grey-3');
+    }
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $grey-1;
-    border: 2px solid $grey-3;
+    @include themify($themes) {
+        background-color: themed('grey-1');
+        border: 2px solid themed('grey-3');
+    }
     border-radius: 5px;
 }
 
-// Accessibility
+// Accessibility overrides
+.theme-accessibility {
+    select {
+        border-color: white;
+        color: white;
+        background-color: black;
+    }
+    .entry {
+        .issuerEdit {
+            input {
+                color: white;
+                background: black;
+                border: white 1px solid;
+            }
+        }
+
+        .showqr {
+            svg {
+                fill: yellow;
+            }
+
+            &:hover {
+                svg {
+                    fill: yellow;
+                }
+            }
+        }
+    }
+
+    #menu {
+        .menuList {
+            p:hover {
+                color: black;
+
+                svg {
+                    fill: black;
+                }
+            }
+        }
+    }
+
+    .header {
+        .icon {
+            svg {
+                fill: yellow;
+            }
+    
+            &#i-sync {
+                svg {
+                    fill: white;
+                }
+
+                &:hover {
+                    svg {
+                        fill: white;
+                    }
+                }
+            }
+
+            &:hover {
+                svg {
+                    fill: yellow;
+                }
+            }
+        }
+    }
+}
