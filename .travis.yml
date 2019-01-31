@@ -32,6 +32,7 @@ jobs:
     script: bash scripts/tag.sh
     if: branch = release AND type != pull_request
   - stage: deploy
+    name: Publish release build
     script: bash scripts/release.sh
     deploy:
       provider: releases
