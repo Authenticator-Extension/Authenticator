@@ -34,6 +34,7 @@ jobs:
   - stage: deploy
     name: Publish release build
     script: bash scripts/release.sh
+    if: tag IS present
     deploy:
       provider: releases
       skip_cleanup: true
