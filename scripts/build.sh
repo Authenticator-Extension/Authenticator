@@ -45,6 +45,7 @@ fi
 
 echo "Compiling..."
 ./node_modules/typescript/bin/tsc -p .
+./node_modules/sass/sass.js sass:css
 mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension

@@ -1,0 +1,143 @@
+// Re-usable ui components
+
+// Colors
+// go from darkest to lightest
+
+$themes: (
+    normal: (
+        black-1: black,
+        black-transparent: rgba(0,0,0,0.5),
+        white-1: white,
+        white-transparent: rgba(255, 255, 255, 0.5),
+        
+        grey-1: grey,
+        grey-2: #CCC,
+        grey-3: #EEE,
+        grey-background: #EEE,
+        
+        blue-1: #08C,
+        
+        yellow-1: #fff1ba,
+        yellow-2: #fff4cc,
+        
+        red-1: #DD4B39,
+        red-2: #EEA59C,
+        
+        black-search: #2a2a2e,
+        white-search: #f9f9fa,
+        grey-search: #b1b1b3,
+        
+        blue-menu: #F4FCFF,
+    ),
+    accessibility: (
+        black-1: white,
+        black-transparent: rgba(255, 255, 255, 0.5),
+        white-1: black,
+        white-transparent: rgba(0,0,0,0.5),
+    
+        grey-1: white,
+        grey-2: white,
+        grey-3: white,
+        grey-background: black,
+    
+        blue-1: yellow,
+    
+        yellow-1: yellow,
+        yellow-2: yellow,
+    
+        red-1: red,
+        red-2: red,
+    
+        black-search: white,
+        white-search: black,
+        grey-search: white,
+    
+        blue-menu: cyan,
+    ),
+);
+
+@mixin themify($themes: $themes) {
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+// Shared
+@mixin hover-black {
+    &:hover {
+        svg {
+            @include themify($themes) {
+                fill: themed('black-1');
+            }
+        }
+    }
+}
+
+@mixin icon-special($size, $color) {
+    svg {
+        vertical-align: middle;
+        fill: $color;
+        height: $size;
+        width: $size;
+    }
+}
+
+// Classes
+.button {
+    margin: 10px;
+    padding: 20px;
+    border-radius: 2px;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    @include themify($themes) {
+        background: themed('white-1');
+        border: themed('grey-2') 1px solid;
+        color: themed('grey-1');
+    }
+    cursor: pointer;
+
+    &:hover {
+        @include themify($themes) {
+            color: themed('black-1');
+        }
+    }
+}
+
+.button-small {
+    @extend .button;
+    font-size: 12px;
+    margin: 20px 100px;
+    padding: 10px;
+}
+
+.input {
+    display: block;
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+    width: 260px;
+    @include themify($themes) {
+        color: themed('black-1');
+        border: themed('grey-2') 1px solid;
+        background: themed('white-1');
+    }
+    outline: none;
+}
+
+a {
+    @include themify($themes) {
+        color: themed('blue-1');
+    }
+}
