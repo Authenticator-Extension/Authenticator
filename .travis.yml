@@ -1,31 +1,47 @@
 language: node_js
 node_js:
-  - "node"
+- node
 cache: npm
 stages:
-  - test
-  - deploy
+- test
+- deploy
 jobs:
   include:
-    - stage: test
-      name: "TS style check"
-      script: "gts check"
-    - stage: test
-      name: "lintspaces"
-      script: "npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments' src/*/* src/*.ts view/* manifest-*.json css/popup.css css/import.css"
-      env: CACHE_NAME=LINTSPACES
-    - stage: test
-      name: "Build Firefox and run addons-linter"
-      script: "npm install --only=production addons-linter && npm run firefox && addons-linter firefox"
-      env: CACHE_NAME=FIREFOXLINTER
-    - stage: test
-      name: "Build Chrome"
-      script: "npm run chrome"
-    - stage: test
-      name: "Process new i18n strings"
-      script: bash scripts/i18n.sh
-      if: branch = dev AND type != pull_request
-    - stage: deploy
-      name: "Release tagging"
-      script: bash scripts/tag.sh
-      if: branch = release AND type != pull_request
+  - stage: test
+    name: TS style check
+    script: gts check
+  - stage: test
+    name: lintspaces
+    script: npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments'
+      src/*/* src/*.ts view/* manifest-*.json css/popup.css css/import.css
+    env: CACHE_NAME=LINTSPACES
+  - stage: test
+    name: Build Firefox and run addons-linter
+    script: npm install --only=production addons-linter && npm run firefox && addons-linter
+      firefox
+    env: CACHE_NAME=FIREFOXLINTER
+  - stage: test
+    name: Build Chrome
+    script: npm run chrome
+  - stage: test
+    name: Process new i18n strings
+    script: bash scripts/i18n.sh
+    if: branch = dev AND type != pull_request
+  - stage: deploy
+    name: Release tagging
+    script: bash scripts/tag.sh
+    if: branch = release AND type != pull_request
+  - stage: deploy
+    name: Publish release build
+    script: bash scripts/release.sh
+    if: tag IS present
+    deploy:
+      provider: releases
+      skip_cleanup: true
+      api_key:
+        secure: mvIpTlRjVo40nxsZGrJAiiLutRZ06EIXpklJxEOHE1jhJAs/tjpaJ9std8nroxvu9pxbYBSnk4VBKXS+EMecO8y2Z5goiSS8LjF7UQs5ei0bT04+YKd0EOCvlhpcb8CxPdScAsrRQ//IFHit8WF1Pv5lmLNT/ixCYwu0gTXQkxQ2vrdeFxSrMv4DvvWXiNegwLeEmB0mEUTF+acZ2RT6F2+3m/90bXm5sDr4SnxS/7uHvYwHDhETtYbtwtStqlqJcwwCyXXcXKi4ZnZ7+sbgE0rcOA3F4pHmNNYBf/7XgSIlChbIAyvAA6uxO/UeG0fJ/L8F7b00y/ioq0AjgggmASOSvC2XCTdkJ20j8BATRS/VI+sF81Na4gfK2vIwXP5sQUJwV6HYp/z3RZfWT8nkxIj8K/VBZKMyFI+106i/jI8Y0V+2ZiVSwKG6UuGvd5PSZSO8lglLrCjW4CBtXUH2XnHu3X3+QfNPdwbUfe+I9hMHBYix5zcWSlT4r4JGTtuOXYmnuruH1Gm8fC82RuQsIiiw1oDTnLAIuSXc68CttttHb2M868EKNb0LNoH0QIAilhoXePvoaO68WPDFxshQXy1CRylIHmH6AaU1Im59WtY57dudQZQ2F2hMOD7990atvKL0x7M34LdeaHfFcjmjiWRLbW7bRmuPHpxJ3KIAq4k=
+      file: release.tar.gz
+      on:
+        repo: Authenticator-Extension/Authenticator
+        tags: true
+
