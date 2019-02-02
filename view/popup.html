@@ -233,11 +233,11 @@
                 </div>
                 <div>
                     <label class="combo-label">{{ i18n.use_autofill }}</label>
-                    <input type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
+                    <input class="checkbox" type="checkbox" v-model="useAutofill" v-on:change="saveAutofill()">
                 </div>
                 <div>
                     <label class="combo-label">{{ i18n.use_high_contrast }}</label>
-                    <input type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
+                    <input class="checkbox" type="checkbox" v-model="useHighContrast" v-on:change="saveHighContrast()">
                 </div>
                 <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
             </div>
