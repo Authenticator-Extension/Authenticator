@@ -5,13 +5,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
     getQrDebug(
         sender.tab, message.info.left, message.info.top, message.info.width,
-        message.info.height, message.info.windowWidth, message.info.passphrase);
+        message.info.height, message.info.windowWidth);
   }
 });
 
 function getQrDebug(
     tab: chrome.tabs.Tab, left: number, top: number, width: number,
-    height: number, windowWidth: number, passphrase: string) {
+    height: number, windowWidth: number) {
   chrome.tabs.captureVisibleTab(tab.windowId, {format: 'png'}, (dataUrl) => {
     const qr = new Image();
     qr.src = dataUrl;

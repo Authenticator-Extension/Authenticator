@@ -87,15 +87,13 @@ async function addAccount(_ui: UI) {
           if (!tab || !tab.id) {
             return;
           }
-          chrome.tabs.sendMessage(
-              tab.id, {action: 'capture', passphrase: _ui.instance.passphrase},
-              (result) => {
-                if (result !== 'beginCapture') {
-                  _ui.instance.alert(_ui.instance.i18n.capture_failed);
-                } else {
-                  window.close();
-                }
-              });
+          chrome.tabs.sendMessage(tab.id, {action: 'capture'}, (result) => {
+            if (result !== 'beginCapture') {
+              _ui.instance.alert(_ui.instance.i18n.capture_failed);
+            } else {
+              window.close();
+            }
+          });
         });
         return;
       },
