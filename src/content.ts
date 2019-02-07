@@ -219,7 +219,9 @@ function pasteCode(code: string) {
     return;
   }
   const firstInputBox = inputBoxes[0];
-  firstInputBox.value = code;
+  if (!firstInputBox.value) {
+    firstInputBox.value = code;
+  }
   return;
 }
 
