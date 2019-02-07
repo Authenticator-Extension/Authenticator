@@ -187,7 +187,7 @@ function pasteCode(code: string) {
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
     if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number' ||
-        _inputBoxes[i].type === 'tel') {
+        _inputBoxes[i].type === 'tel' || _inputBoxes[i].type === 'password') {
       inputBoxes.push(_inputBoxes[i]);
     }
   }
