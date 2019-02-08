@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Удостоверител",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Удостоверител",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Потребителско име",
         "description": "Account Name."
     },
     "issuer": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your secrets. No one can help you if you forget the password.",
+        "message": "Тази парола ще се използва за кодиране. Никой не може да ви помогне, ако си забравите паролата.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Не можете да добавите нов акаунт или да експортирате данни, докато акаунта не се декриптира. Въведете правилната парола.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -156,7 +156,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Внимание! Вашият часовник не е верен, моля го оправя преди да продължите.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -200,11 +200,11 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Импорт на Текстов архив",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Покажи всички записи",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Заключване",
         "description": "Lock accounts"
     },
     "edit": {
@@ -256,7 +256,7 @@
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Съхранение & Архивиране",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Място за съхранение",
         "description": "Storage location"
     },
     "sign_in": {
