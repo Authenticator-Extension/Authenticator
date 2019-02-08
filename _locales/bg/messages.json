@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "Удостоверителя генерира 2-фактурна защита, за вашият браузър.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Грешка. Само Base32 (A-Z, 2-7 и =) и HEX (0-9 и A-F) се поддържат. Обаче your таен е: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -168,11 +168,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Време на базата",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Брояч на базата",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Изтегляне на защитени с парола архиви",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Висок контраст",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Имаше проблем свързване с вашия $SERVICE$ акаунт, моля влезте отново.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
