@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Сканирайте QR кода",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -32,23 +32,23 @@
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Затвори",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Добре",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Да",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Не",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Профил",
         "description": "Account."
     },
     "accountName": {
@@ -60,39 +60,39 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Секретен",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Успешно.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Неуспешно.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "За Нас",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Експорт \/ Импорт",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Настройки",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Сигурност",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Сегашна парола",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Нова парола",
         "description": "New Passphrase."
     },
     "phrase": {
