@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Имате ли резервно копие? Не чакайте, докато не стане твърде късно!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -208,15 +208,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Предупреждение: архивни файлове са декриптирани. Използвайте на свой собствен риск.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Трябва да въведете правилна парола, за да импортните архива.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Паролата ви се съхранява локално, моля променете го от менюто за сигурност незабавно.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -260,11 +260,11 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Изберете мястото, където се съхраняват вашите данни. Използване на \"местен\" съхранява данните на вашия компютър. Използване на \"синхронизиране\" позволява на браузъра да синхронизира вашите данни в облак, ако сте си влезли в акаунта.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Автоматично архивиране на вашите данни на външна памет.",
         "description": "3rd party backup info"
     },
     "storage_location": {
