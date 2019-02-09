@@ -194,7 +194,7 @@ function pasteCode(code: string) {
   if (!inputBoxes.length) {
     return;
   }
-  const identities = ['2fa', 'otp', 'authenticator', 'factor', 'code'];
+  const identities = ['2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode'];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
       if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
