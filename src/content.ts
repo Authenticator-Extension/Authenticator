@@ -194,7 +194,9 @@ function pasteCode(code: string) {
   if (!inputBoxes.length) {
     return;
   }
-  const identities = ['2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode'];
+  const identities = [
+    '2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode'
+  ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
       if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
@@ -218,9 +220,12 @@ function pasteCode(code: string) {
     }
     return;
   }
-  const firstInputBox = inputBoxes[0];
-  if (!firstInputBox.value) {
-    firstInputBox.value = code;
+
+  for (const inputBox of inputBoxes) {
+    if (!inputBox.value) {
+      inputBox.value = code;
+      return;
+    }
   }
   return;
 }
