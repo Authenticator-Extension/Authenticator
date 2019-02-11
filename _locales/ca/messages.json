@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autenticació",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autenticació",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -104,7 +104,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this secret? This action cannot be undone.",
+        "message": "Estàs segur que vols eliminar aquest fitxer? Aquesta acció no es pot desfer.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -188,19 +188,19 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Descarregar el fitxer de còpia de seguretat",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Còpia de seguretat d'importació",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Còpia de seguretat d'importació",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importa còpia de seguretat en text pla",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -220,7 +220,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Elimina",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Contrast alt",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Localització de l'emmagatzematge",
         "description": "Storage location"
     },
     "sign_in": {
