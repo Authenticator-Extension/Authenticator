@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Ismeretlen QR-kód.",
         "description": "QR Error."
     },
     "errorsecret": {
