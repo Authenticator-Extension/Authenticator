@@ -3,7 +3,7 @@ if (!document.getElementById('__ga_grayLayout__')) {
     switch (message.action) {
       case 'capture':
         sendResponse('beginCapture');
-        showGrayLayout(message.passphrase);
+        showGrayLayout();
         break;
       case 'errorsecret':
         alert(chrome.i18n.getMessage('errorsecret') + message.secret);
@@ -30,7 +30,7 @@ if (!document.getElementById('__ga_grayLayout__')) {
 sessionStorage.setItem('captureBoxPositionLeft', '0');
 sessionStorage.setItem('captureBoxPositionTop', '0');
 
-function showGrayLayout(passphrase: string) {
+function showGrayLayout() {
   let grayLayout = document.getElementById('__ga_grayLayout__');
   if (!grayLayout) {
     grayLayout = document.createElement('div');
@@ -47,7 +47,7 @@ function showGrayLayout(passphrase: string) {
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
     grayLayout.onmouseup = (event) => {
-      grayLayoutUp(event, passphrase);
+      grayLayoutUp(event);
     };
     grayLayout.oncontextmenu = (event) => {
       event.preventDefault();
@@ -108,7 +108,7 @@ function grayLayoutMove(event: MouseEvent) {
   return;
 }
 
-function grayLayoutUp(event: MouseEvent, passphrase: string) {
+function grayLayoutUp(event: MouseEvent) {
   const grayLayout = document.getElementById('__ga_grayLayout__');
   const captureBox = document.getElementById('__ga_captureBox__');
   if (!captureBox || !grayLayout) {
@@ -149,25 +149,16 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
-        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight,
-        passphrase);
+        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight);
   }, 200);
   return false;
 }
 
 function sendPosition(
-    left: number, top: number, width: number, height: number,
-    passphrase: string) {
+    left: number, top: number, width: number, height: number) {
   chrome.runtime.sendMessage({
     action: 'position',
-    info: {
-      left,
-      top,
-      width,
-      height,
-      windowWidth: window.innerWidth,
-      passphrase
-    }
+    info: {left, top, width, height, windowWidth: window.innerWidth}
   });
 }
 
