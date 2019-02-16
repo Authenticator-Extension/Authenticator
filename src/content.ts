@@ -222,7 +222,7 @@ function pasteCode(code: string) {
   }
 
   for (const inputBox of inputBoxes) {
-    if (!inputBox.value) {
+    if (!inputBox.value && inputBox.type !== 'password') {
       inputBox.value = code;
       return;
     }
