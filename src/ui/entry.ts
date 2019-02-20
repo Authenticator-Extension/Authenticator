@@ -68,7 +68,7 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
     const label = otpStorage.issuer ?
-        (otpStorage.issuer + ':' + otpStorage.account) :
+        (otpStorage.issuer.split('::')[0] + ':' + otpStorage.account) :
         otpStorage.account;
     let type = '';
     if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
