@@ -25,7 +25,7 @@
             <div class="icon" id="i-menu" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><svg><use xlink:href="../css/solid.svg#cog"></use></svg></div>
             <div class="icon" id="i-lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><svg><use xlink:href="../css/solid.svg#lock"></use></svg></div>
             <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><svg><use xlink:href="../css/solid.svg#sync-alt"></use></svg></div>
-            <div class="icon" id="i-qr" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><svg><use xlink:href="../css/solid.svg#qrcode"></use></svg></div>
+            <div class="icon" id="i-qr" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><svg><use xlink:href="../images/scan.svg#scan"></use></svg></div>
             <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-if="!class.edit" v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#pencil-alt"></use></svg></div>
             <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-else v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#check"></use></svg></div>
         </div>
