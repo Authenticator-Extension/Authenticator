@@ -67,27 +67,27 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
-    let otpAuthLine = 'otpauth://';
+    const label = otpStorage.issuer ?
+        (otpStorage.issuer + ':' + otpStorage.account) :
+        otpStorage.account;
+    let type = '';
     if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
-      otpAuthLine += 'totp/';
+      type = 'totp';
     } else if (otpStorage.type === 'hotp' || otpStorage.type === 'hhex') {
-      otpAuthLine += 'hotp/';
+      type = 'hotp';
     } else {
       continue;
     }
 
-    otpAuthLine += encodeURIComponent(otpStorage.issuer || ' ') + ':' +
-        encodeURIComponent(otpStorage.account || ' ') + '?';
-    otpAuthLine += 'secret=' + otpStorage.secret;
-    otpAuthLine += '&issuer=' + encodeURIComponent(otpStorage.issuer || ' ');
+    const otpAuthLine = 'otpauth://' + type + '/' + label +
+        '?secret=' + otpStorage.secret +
+        (otpStorage.issuer ? ('&issuer=' + otpStorage.issuer.split('::')[0]) :
+                             '') +
+        (type === 'hotp' ? ('&counter=' + otpStorage.counter) : '') +
+        (type === 'totp' && otpStorage.period ?
+             ('&period=' + otpStorage.period) :
+             '');
 
-    if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
-      otpAuthLine += '&period=' + (otpStorage.period || 30);
-    }
-
-    if (otpStorage.type === 'hotp' || otpStorage.type === 'hhex') {
-      otpAuthLine += '&counter=' + otpStorage.counter;
-    }
     otpAuthLines.push(otpAuthLine);
   }
 
@@ -228,7 +228,7 @@ async function getCachedPassphrase() {
       });
 }
 
-function getExportDataFromOTPAuthPerLine(importCode: string) {
+function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split('\n');
   const exportData: {[hash: string]: OTPStorage} = {};
   for (let item of lines) {
@@ -459,7 +459,7 @@ async function entry(_ui: UI) {
 
         } catch (error) {
           // Maybe one-otpauth-per line text
-          exportData = getExportDataFromOTPAuthPerLine(_ui.instance.importCode);
+          exportData = getEntryDataFromOTPAuthPerLine(_ui.instance.importCode);
         }
 
         try {
@@ -542,8 +542,14 @@ async function entry(_ui: UI) {
           const reader = new FileReader();
           let decryptedFileData: {[hash: string]: OTPStorage} = {};
           reader.onload = async () => {
-            const importData: {[hash: string]: OTPStorage} =
-                JSON.parse(reader.result as string);
+            let importData: {[hash: string]: OTPStorage} = {};
+            try {
+              importData = JSON.parse(reader.result as string);
+            } catch (e) {
+              importData =
+                  getEntryDataFromOTPAuthPerLine(reader.result as string);
+            }
+
             let encrypted = false;
             for (const hash in importData) {
               if (importData[hash].encrypted) {
