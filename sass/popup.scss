@@ -141,10 +141,10 @@ svg {
 
 #search {
     position: relative;
-    border-top: none;
     @include themify($themes) {
         background: themed('white-1');
         border: themed('grey-2') 1px solid;
+        border-top: none;
     }
 
     &:hover {
