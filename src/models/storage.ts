@@ -92,6 +92,9 @@ class EntryStorage {
       secret: encryption.getEncryptedSecret(entry.secret),
       encrypted: encryption.getEncryptionStatus()
     };
+    if (entry.period && entry.period !== 30) {
+      storageItem.period = entry.period;
+    }
     return storageItem;
   }
 
