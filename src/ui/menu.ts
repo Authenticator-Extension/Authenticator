@@ -109,6 +109,13 @@ async function menu(_ui: UI) {
         openHelp();
         return;
       },
+      clearFilter: () => {
+        _ui.instance.filter = false;
+        if (_ui.instance.entries.length >= 10) {
+          _ui.instance.showSearch = true;
+        }
+        return;
+      },
       isChrome: () => {
         if (navigator.userAgent.indexOf('Chrome') !== -1) {
           return true;

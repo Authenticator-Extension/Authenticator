@@ -31,7 +31,7 @@
         </div>
     </div>
     <div id="codes" v-bind:class="{'timeout': class.timeout && !class.edit, 'edit': class.edit, 'filter': shouldFilter && filter, 'search': showSearch}">
-        <div class="under-header" id="filter" v-on:click="filter = false">{{ i18n.show_all_entries }}</div>
+        <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <div class="under-header" id="search">
           <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" placeholder="{{ i18n.search }}" type="text">
           <div id="searchHint" v-if="typeof searchText !== 'string'">
