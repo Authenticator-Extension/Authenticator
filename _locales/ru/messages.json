@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Возникла проблема подключения к вашей учётной записи, пожалуйста войдите снова.$SERVICE$.$SERVICE$$SERVICE$.$SERVICE$",
+        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
