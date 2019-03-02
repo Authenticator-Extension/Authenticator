@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Uyarı: yedeklemeler şifrelenmemiş. Kullanım kendi sorumluluğunuzdadır.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
