@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "비밀번호가 일치하지 않습니다.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -128,7 +128,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "복사됨",
         "description": "Copied."
     },
     "feedback": {
@@ -140,7 +140,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "소스 코드",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -168,7 +168,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "시간 기반",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "팝업 페이지",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -192,11 +192,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "백업 가져오기",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "백업 가져오기",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -204,7 +204,7 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "모든 항목 표시",
         "description": "Show all entries."
     },
     "dropbox_risk": {
