@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
+        "message": "Parolalarınız için bir yedeğiniz var mı? Çok geç olana kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Kitle",
+        "message": "Kilitle",
         "description": "Lock accounts"
     },
     "edit": {
