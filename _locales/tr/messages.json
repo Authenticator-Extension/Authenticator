@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Saati google ile senkronize et",
+        "message": "Saati Google ile senkronize et",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -244,7 +244,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuel Senkronizasyon",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -252,11 +252,11 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Yüksek Kontrast Kullan",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Depolama & Yedekleme",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Depolama konumu",
         "description": "Storage location"
     },
     "sign_in": {
