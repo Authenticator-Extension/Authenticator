@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: Hiçbir yedek şifrelenmemiş. Başka bir uygulama için bir hesap mı eklemek istiyorsunuz? Herhangi bir hesabın sağ üst kısmına gelin ve gizle düğmesine basın.",
+        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz?Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Açılır pencere modu",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
