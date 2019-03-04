@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Autenticació",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticació",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -32,7 +32,7 @@
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Tanca",
+        "message": "Tancar",
         "description": "Close."
     },
     "ok": {
@@ -48,11 +48,11 @@
         "description": "No."
     },
     "account": {
-        "message": "Compte d'usuari",
+        "message": "Compte",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nom de compte",
+        "message": "Nom del compte",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,11 +60,11 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Clau secreta",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Èxit.",
+        "message": "Fet.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exporta\/Importa",
+        "message": "Exportar\/Importar",
         "description": "Export and Import."
     },
     "settings": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No podeu afegir un nou compte o exportar les dades fins que tots els comptes siguin desencriptats. Cal introduir la contrasenya correcta abans de continuar.",
+        "message": "No podeu afegir un nou compte o exportar dades fins que tots els comptes siguin desencriptats. Cal introduir la contrasenya correcta abans de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -140,19 +140,19 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Català",
+        "message": "Codi font",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduir contrasenya per desencriptar les dades.",
+        "message": "Introduïu la contrasenya per desencriptar les dades.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincronitza l'historial amb Google",
+        "message": "Sincronitzar el rellotge amb Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recorda la contrasenya",
+        "message": "Recordar la contrasenya",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Panell desplegable",
+        "message": "Panell emergent",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -192,23 +192,23 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Còpia de seguretat d'importació",
+        "message": "Importar una còpia de seguretat",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Còpia de seguretat d'importació",
+        "message": "Importar un fitxer de còpia de seguretat",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importa còpia de seguretat en text pla",
+        "message": "Importar còpia de seguretat com a text pla",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Mostra totes les entrades",
+        "message": "Mostrar totes les entrades",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Atenció: les còpies de seguretat estan desencriptades. Heu de considerar que hi molt de risc, però la decisió és vostra.",
+        "message": "Atenció: les còpies de seguretat estan desencriptades. Heu de considerar que hi ha molt de risc, però la decisió és vostra.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -220,7 +220,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Elimina",
+        "message": "Eliminar",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Panell desplegable",
+        "message": "Panell emergent",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -244,7 +244,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Sync manual",
+        "message": "Sincronització manual",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -260,7 +260,7 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Trieu on s'emmagatzemen les vostres dades. Amb 'local' s'emmagatzema les dades al seu PC. Utilitzant 'sync' es permet al navegador sincronitzar les vostres dades al núvol si heu iniciat la sessió en un compte de sincronització.",
+        "message": "Trieu on s'emmagatzemen les vostres dades. Amb 'local' s'emmagatzemen al vostre PC. Utilitzant 'sync' es permet al navegador sincronitzar les vostres dades al núvol si heu iniciat la sessió en un compte de sincronització.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Localització de l'emmagatzematge",
+        "message": "Ubicació de l'emmagatzematge",
         "description": "Storage location"
     },
     "sign_in": {
