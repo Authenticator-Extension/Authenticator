@@ -156,19 +156,19 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Precaución! Su reloj local está demasiado atrasado, por favor arréglelo antes de continuar.",
+        "message": "¡Peligro! Tu reloj local está demasiado desfasado, corrígelo antes de continuar.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad de tus secretos? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "¿Tienes una copia de seguridad de tus claves secretas? ¡No esperes hasta que sea demasiado tarde!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "La captura falló, por favor recargue la página e inténtelo de nuevo.",
+        "message": "La captura falló. Es necesario recargar la página e intentarlo de nuevo.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "En función del tiempo",
+        "message": "Basado en tiempo",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Página Desplegable",
+        "message": "Página emergente",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,19 +184,19 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Advertencia: todas las copias de seguridad estas sin cifrar. ¿Quieres añadir una cuenta a otra aplicación? Pasa el ratón por encima de la parte superior derecha de cualquier cuenta y pulse el botón oculto.",
+        "message": "Advertencia: todas las copias de seguridad están sin encriptar. ¿Quieres añadir una cuenta para otra aplicación? Pasa el ratón por encima de la esquina superior-derecha de cualquier cuenta y pulsa el botón oculto.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descargar una copia de seguridad del archivo",
+        "message": "Descargar una copia de seguridad",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importar copia de seguridad",
+        "message": "Importar una copia de seguridad",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar la copia de seguridad",
+        "message": "Importar un archivo con la copia de seguridad",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -208,15 +208,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Advertencia: las copias de seguridad no están cifradas. El uso es bajo su propio riesgo.",
+        "message": "Advertencia: las copias de seguridad no están encriptadas. Lo cuál no se recomienda, pero es bajo tu propio riesgo.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Debe proporcionar la contraseña correcta para importar las copias de seguridad.",
+        "message": "Debes indicar una contraseña correcta para poder importar una copia de seguridad.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Su contraseña se almacena localmente, por favor cámbiela en el menú de seguridad inmediatamente.",
+        "message": "Tu contraseña se almacena localmente. Cámbiala en el menú de seguridad inmediatamente.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Modo desplegable",
+        "message": "Modo ventana emergente",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -256,19 +256,19 @@
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Almacenamiento y Backup",
+        "message": "Almacenamiento y copias de seguridad",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Elija dónde se almacenan sus datos. Usando `local' almacena sus datos en su PC. Usando 'sync' permite a su navegador sincronizar sus datos con la nube si ha iniciado sesión en una cuenta de sincronización.",
+        "message": "Elige dónde se almacenan tus datos. Usando `local' se almacenan en tu PC. Usando 'sync' permite a tu navegador sincronizar tus datos con la nube si ha iniciado sesión en una cuenta de sincronización.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Realice copias de seguridad automáticas de sus datos en servicios de almacenamiento de terceros.",
+        "message": "Realizar copias de seguridad automáticas de tus datos en servicios de almacenamiento de terceros.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Ubicación del Almacenamiento",
+        "message": "Ubicación del almacenamiento",
         "description": "Storage location"
     },
     "sign_in": {
