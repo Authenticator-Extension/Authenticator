@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Xác thực",
+        "message": "Nhận thực",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " đã được thêm.",
+        "message": " đã được thêm vào.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -40,7 +40,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Đồng ý",
+        "message": "Có",
         "description": "Yes."
     },
     "no": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Tên Tài Khoản: uripham10389@gmail.com",
+        "message": "Tên tài khoản",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,23 +60,23 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Mã Bí Mật",
+        "message": "Bí mật",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Thành công.",
+        "message": "Sự thành công.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Lỗi.",
+        "message": "Sự thất bại.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Thông tin",
+        "message": "Về",
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất \/ Nhập dữ liệu",
+        "message": "Xuất khẩu \/ nhập khẩu",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,11 +84,11 @@
         "description": "Settings."
     },
     "security": {
-        "message": "An toàn",
+        "message": "An ninh",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật Khẩu Hiện Tại",
+        "message": "Mật khẩu hiện thời",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -100,7 +100,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Xác Nhận Mật Khẩu",
+        "message": "Xác nhận mật khẩu",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -124,15 +124,15 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Đã được mã hoá",
+        "message": "Mã hóa",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Đã sao chép",
+        "message": "Sao chép",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Phản hồi",
+        "message": "Thông tin phản hồi",
         "description": "Feedback."
     },
     "translate": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Bạn đã tạo bản sao lưu chưa? Đừng đợi đến khi quá muộn!",
+        "message": "Bạn có một bản sao lưu cho các bí mật của bạn? Đừng chờ đợi cho đến khi quá muộn!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -176,27 +176,27 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Trang Popup",
+        "message": "Popup trang",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Tỷ lệ",
+        "message": "Quy mô",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
+        "message": "Cảnh báo: tất cả các bản sao lưu được mã hóa. Bạn muốn thêm một tài khoản cho một ứng dụng? Di chuột qua phần trên cùng bên phải của bất kỳ tài khoản và nhấn nút ẩn.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Tải file sao lưu",
+        "message": "Tải về tập tin sao lưu",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập bản sao lưu",
+        "message": "Nhập khẩu dự phòng",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Nhập bản sao lưu",
+        "message": "Nhập khẩu các tập tin sao lưu",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Cảnh báo: các bản sao lưu được lưu trên Dropbox đều chưa được mã hóa. Hãy cẩn thận.",
+        "message": "Chú ý: bản sao lưu được mã hóa. Sử dụng tại rủi ro của riêng bạn.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -216,7 +216,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Mật khẩu của bạn được lưu ngay trên trình duyệt, xin hãy đổi mật khẩu trong Menu > Bảo mật ngay.",
+        "message": "Mật khẩu của bạn được lưu trữ tại địa phương, xin vui lòng thay đổi nó trong trình đơn bảo mật ngay lập tức.",
         "description": "localStorage password warning."
     },
     "remove": {
