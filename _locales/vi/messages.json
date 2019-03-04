@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Nhập thủ công",
+        "message": "Mục hướng dẫn sử dụng",
         "description": "Manual Entry."
     },
     "close": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Tên tài khoản",
+        "message": "Tên Tài Khoản: uripham10389@gmail.com",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Chuỗi khóa",
+        "message": "Mã Bí Mật",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -68,11 +68,11 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Thất bại.",
+        "message": "Hư hỏng.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Về chúng tôi",
+        "message": "Thông tin",
         "description": "About."
     },
     "export_import": {
@@ -88,7 +88,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật khẩu hiện tại",
+        "message": "NguyenPham1989",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -100,15 +100,15 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Xác nhận mật khẩu",
+        "message": "Xác Nhận Mật Khẩu",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bạn có chắc sẽ xóa chuỗi khóa này? Sau khi xóa sẽ không thể khôi phục lại được.",
+        "message": "Bạn có chắc chắn muốn xóa tệp sao lưu này? Hành động này không thể được hoàn tác.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Mật khẩu này sẽ được dùng để mã hóa toàn bộ dữ liệu của bạn. Không ai có thể giúp bạn khôi phục lại mật khẩu này nếu bạn quên mật khẩu.",
+        "message": "Mật khẩu này sẽ được sử dụng để mã hóa bí mật của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Bạn không thể thêm tài khoản mới hoặc trích xuất dữ liệu cho đến khi tất cả các tài khoản được giải mã. Vui lòng nhập đúng mật khẩu để tiếp tục.",
+        "message": "Bạn không thể thêm một tài khoản mới hoặc xuất dữ liệu cho đến khi tất cả tài khoản được giải mã. Vui lòng nhập đúng mật khẩu trước khi tiếp tục.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản.",
+        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản. NguyenPham1989",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Theo bộ đếm",
+        "message": "Khoan xoáy rộng",
         "description": "Counter Based"
     },
     "resize_popup_page": {
