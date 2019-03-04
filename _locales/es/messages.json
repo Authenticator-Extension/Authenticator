@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Ha habido un problema al conectarse a su cuenta $SERVICE$, por favor, vuelva a iniciar sesión.",
+        "message": "Ha habido un problema al conectarse a tu cuenta $SERVICE$. Inténtalo de nuevo.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
