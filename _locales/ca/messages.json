@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Atenció: totes les còpies de seguretat estan desencriptades. Voleu afegir un compte per a una altra aplicació? Passeu el ratolí per la cantonada superior-dreta de qualsevol compte i premeu el botó ocult.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -208,15 +208,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Atenció: les còpies de seguretat estan desencriptades. Heu de considerar que hi molt de risc, però la decisió és vostra.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Heu de proporcionar la contrasenya correcta per poder importar còpies de seguretat.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "La contrasenya està emmagatzemada localment, canvieu-la al menú de seguretat immediatament.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Baixar còpia de seguretat protegida amb contrasenya",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -244,11 +244,11 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Sync manual",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Utilitzar l'auto-emplenament",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -256,7 +256,7 @@
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Emmagatzematge i còpies de seguretat",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
