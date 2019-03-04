@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "El Autenticador genera códigos de verificación de 2 pasos en su navegador.",
+        "message": "Autenticador genera códigos de verificación de 2 pasos en su navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,15 +20,15 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error en el texto secreto. Sólo se admiten caracteres Base32 (A-Z, 2-7 y =) y HEX (0-9 y A-F). Sin embargo, tu secreto es: ",
+        "message": "Error en la clave secreta. Sólo se admiten codificaciones Base32 (A-Z, 2-7 y =) y HEX (0-9 y A-F). Sin embargo, tu clave secreta es: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Escanear el código QR",
+        "message": "Escanear un código QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Entrada o ingreso Manual",
+        "message": "Introducción manual",
         "description": "Manual Entry."
     },
     "close": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de Cuenta",
+        "message": "Nombre de la cuenta",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secreto",
+        "message": "Clave secreta",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -100,15 +100,15 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirma Contraseña",
+        "message": "Confirma la contraseña",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "¿Está seguro que desea eliminar este secreto? Esta acción no se puede deshacer.",
+        "message": "¿Está seguro que desea eliminar esta clave secreta? Esta acción no se puede deshacer.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta contraseña se utilizará para cifrar tus secretos. Nadie le puede ayudar Si olvidas la contraseña.",
+        "message": "Esta contraseña se utilizará para cifrar tus claves secretas. Nadie te puede ayudar si olvidas la contraseña.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Usted no puede agregar una nueva cuenta o exportar datos hasta que todas las cuentas hayan sido descifradas. Por favor, introduzca la contraseña correcta antes de continuar.",
+        "message": "No puedes agregar una nueva cuenta o exportar tus datos hasta que todas las cuentas hayan sido desencriptadas. Por favor, introduzce la contraseña correcta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -140,11 +140,11 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Código Fuente",
+        "message": "Código fuente",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+        "message": "Introduze la contraseña para desencriptar los datos de la cuenta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -152,7 +152,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Recordar Contraseña",
+        "message": "Recordar la contraseña",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Utilizar contraste alto",
         "description": "Use High Contrast"
     },
     "storage_menu": {
