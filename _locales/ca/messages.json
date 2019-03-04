@@ -272,15 +272,15 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Entra",
+        "message": "Entrar",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Desconnectar",
+        "message": "Sortir",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Hi ha hagut un problema connectant amb el vostre compte de $SERVICE$. Proveu una altra vegada.",
+        "message": "Hi ha hagut un problema connectant amb el vostre compte a $SERVICE$. Proveu una altra vegada.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
