@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Nhận thực",
+        "message": "Xác thực",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " đã được thêm vào.",
+        "message": " đã được thêm.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Chuỗi khóa bị lỗi. Chỉ có các ký tự Base32 (A-Z, 2-7 và =) và HEX (0-9 và A-F) được hỗ trợ. Chuỗi khóa bạn đã nhập là: ",
+        "message": "Bí mật lỗi. Chỉ Base32 (A-Z, 2-7 và =) và HEX hỗ trợ (0-9 và A-F). Tuy nhiên, bí mật của bạn là: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -40,7 +40,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Có",
+        "message": "Yes",
         "description": "Yes."
     },
     "no": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Mã hóa",
+        "message": "Đã được mã hoá",
         "description": "Encrypted."
     },
     "copied": {
@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Khoan xoáy rộng",
+        "message": "Theo bộ đếm",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -220,7 +220,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Loại bỏ",
+        "message": "Gỡ bỏ Lịch chia sẻ",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -228,7 +228,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Tìm kiếm",
+        "message": "&nbsp; Tìm kiếm&nbsp;",
         "description": "Search"
     },
     "popout": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "#{UICategory. action. SetLocked}",
+        "message": "Khóa",
         "description": "Lock accounts"
     },
     "edit": {
@@ -244,7 +244,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Đồng bộ bằng tay",
+        "message": "Hướng dẫn sử dụng đồng bộ",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Nơi lưu trữ",
+        "message": "Vị trí lưu trữ",
         "description": "Storage location"
     },
     "sign_in": {
