@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Khoan xoáy rộng",
+        "message": "Theo bộ đếm",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -180,11 +180,11 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Tỉ lệ",
+        "message": "Quy mô",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
+        "message": "Cảnh báo: tất cả các bản sao lưu được mã hóa. Bạn muốn thêm một tài khoản cho một ứng dụng? Di chuột qua phần trên cùng bên phải của bất kỳ tài khoản và nhấn nút ẩn.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,7 +192,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập bản sao lưu",
+        "message": "Nhập dự phòng",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -200,11 +200,11 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Nhập mã sao lưu",
+        "message": "Nhập văn bản sao lưu",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Xem tất cả",
+        "message": "Hiển thị tất cả các mục",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Khóa",
+        "message": "#{UICategory. action. SetLocked}",
         "description": "Lock accounts"
     },
     "edit": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Sử dụng chế độ tương phản cao",
+        "message": "Tương phản cao",
         "description": "Use High Contrast"
     },
     "storage_menu": {
