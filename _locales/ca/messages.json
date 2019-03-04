@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "No podeu afegir un nou compte o exportar les dades fins que tots els comptes siguin desencriptats. Cal introduir la contrasenya correcta abans de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Introduir contrasenya per desencriptar les dades.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -156,15 +156,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Compte! El rellotge local està massa desajustat. Cal corregir això abans de continuar.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your secrets? Don't wait until it's too late!",
+        "message": "Ja teniu una còpia de seguretat de les vostres claus secretes? No espereu fins que sigui massa tard!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Ha fallat la captura. Cal recarregar la plana i provar-ho un altre cop.",
         "description": "Capture Failed"
     },
     "based_on_time": {
