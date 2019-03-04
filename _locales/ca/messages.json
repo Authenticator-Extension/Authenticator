@@ -260,11 +260,11 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Trieu on s'emmagatzemen les vostres dades. Amb 'local' s'emmagatzema les dades al seu PC. Utilitzant 'sync' es permet al navegador sincronitzar les vostres dades al núvol si heu iniciat la sessió en un compte de sincronització.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Fer automàticament una còpia de seguretat de les vostres dades a un servei d'emmagatzematge de tercers.",
         "description": "3rd party backup info"
     },
     "storage_location": {
