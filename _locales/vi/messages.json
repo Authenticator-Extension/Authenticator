@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Hư hỏng.",
+        "message": "Lỗi.",
         "description": "Update Failure."
     },
     "about": {
@@ -84,11 +84,11 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Đặt mật khẩu bảo vệ",
+        "message": "An toàn",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "NguyenPham1989",
+        "message": "Mật Khẩu Hiện Tại",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -120,11 +120,11 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Mật khẩu không trùng nhau.",
+        "message": "Mật khẩu không khớp.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Đã mã hóa",
+        "message": "Đã được mã hoá",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Góp ý",
+        "message": "Phản hồi",
         "description": "Feedback."
     },
     "translate": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản. NguyenPham1989",
+        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Theo bộ đếm",
+        "message": "Khoan xoáy rộng",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -180,11 +180,11 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Quy mô",
+        "message": "Tỷ lệ",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu được mã hóa. Bạn muốn thêm một tài khoản cho một ứng dụng? Di chuột qua phần trên cùng bên phải của bất kỳ tài khoản và nhấn nút ẩn.",
+        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,7 +192,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập dự phòng",
+        "message": "Nhập bản sao lưu",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -220,11 +220,11 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Xóa",
+        "message": "Loại bỏ",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Tải về Bản sao lưu",
+        "message": "Tải về bản sao lưu mật khẩu bảo vệ",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -240,15 +240,15 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Điều chỉnh",
+        "message": "Chỉnh sửa",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Đồng bộ thủ công",
+        "message": "Đồng bộ bằng tay",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Chế độ Điền tự động",
+        "message": "Sử dụng tự động điền",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
