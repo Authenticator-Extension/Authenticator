@@ -64,7 +64,7 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
 }
 
 function removeUnsafeData(data: string) {
-  return encodeURIComponent(data.replace(/:/g, ''));
+  return encodeURIComponent(data.split('::')[0].replace(/:/g, ''));
 }
 
 function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
