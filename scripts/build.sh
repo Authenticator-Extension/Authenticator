@@ -58,6 +58,9 @@ if [[ $PLATFORM = "edge" ]]; then
 else
   cp -r build css images js _locales LICENSE view $PLATFORM
   cp manifest-$PLATFORM.json $PLATFORM/manifest.json
+  if [[ $PLATFORM = "chrome" ]]; then
+    cp schema-chrome.json $PLATFORM/schema.json
+  fi
 fi
 
 echo -e "\033[0;32mDone!\033[0m"

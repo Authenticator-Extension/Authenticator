@@ -265,9 +265,13 @@ function getBackupToken(service: string) {
 }
 
 // Show issue page after first install
-chrome.runtime.onInstalled.addListener((details) => {
+chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason !== 'install') {
     return;
+  } else if (await ManagedStorage.isPolicyActive()) {
+    if (await ManagedStorage.get('disableInstallHelp')) {
+      return;
+    }
   }
 
   let url: string|null = null;

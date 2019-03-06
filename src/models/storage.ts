@@ -518,3 +518,25 @@ class EntryStorage {
         });
   }
 }
+
+class ManagedStorage {
+  static isPolicyActive() {
+    return new Promise((resolve: (result: boolean) => void) => {
+      chrome.storage.managed.get((data) => {
+        if (data.policyActive) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
+  }
+
+  static get(key: string) {
+    return new Promise((resolve: (result: boolean|string) => void) => {
+      chrome.storage.managed.get((data) => {
+        resolve(data[key]);
+      });
+    });
+  }
+}
