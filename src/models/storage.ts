@@ -144,7 +144,7 @@ class EntryStorage {
     }
   }
 
-  static async hasEncryptedEntry() {
+  static hasEncryptedEntry() {
     return new Promise(
         (resolve: (value: boolean) => void,
          reject: (reason: Error) => void) => {
@@ -163,7 +163,7 @@ class EntryStorage {
         });
   }
 
-  static async getExport(encryption: Encryption, encrypted?: boolean) {
+  static getExport(encryption: Encryption, encrypted?: boolean) {
     return new Promise(
         (resolve: (value: {[hash: string]: OTPStorage}) => void,
          reject: (reason: Error) => void) => {
@@ -201,8 +201,7 @@ class EntryStorage {
         });
   }
 
-  static async import(
-      encryption: Encryption, data: {[hash: string]: OTPStorage}) {
+  static import(encryption: Encryption, data: {[hash: string]: OTPStorage}) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -285,7 +284,7 @@ class EntryStorage {
         });
   }
 
-  static async add(encryption: Encryption, entry: OTPEntry) {
+  static add(encryption: Encryption, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -306,7 +305,7 @@ class EntryStorage {
         });
   }
 
-  static async update(encryption: Encryption, entry: OTPEntry) {
+  static update(encryption: Encryption, entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -327,7 +326,7 @@ class EntryStorage {
         });
   }
 
-  static async set(encryption: Encryption, entries: OTPEntry[]) {
+  static set(encryption: Encryption, entries: OTPEntry[]) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
@@ -347,7 +346,7 @@ class EntryStorage {
         });
   }
 
-  static async get(encryption: Encryption) {
+  static get(encryption: Encryption) {
     return new Promise(
         (resolve: (value: OTPEntry[]) => void,
          reject: (reason: Error) => void) => {
@@ -491,14 +490,14 @@ class EntryStorage {
         });
   }
 
-  static async remove(hash: string) {
+  static remove(hash: string) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           return BrowserStorage.remove(hash, resolve);
         });
   }
 
-  static async delete(entry: OTPEntry) {
+  static delete(entry: OTPEntry) {
     return new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
