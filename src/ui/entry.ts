@@ -63,12 +63,18 @@ function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
+function removeUnsafeData(data: string) {
+  return encodeURIComponent(data.replace(/:/g, ''));
+}
+
 function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
+    otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
+    otpStorage.account = removeUnsafeData(otpStorage.account);
     const label = otpStorage.issuer ?
-        (otpStorage.issuer.split('::')[0] + ':' + otpStorage.account) :
+        (otpStorage.issuer + ':' + otpStorage.account) :
         otpStorage.account;
     let type = '';
     if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
@@ -81,8 +87,7 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
 
     const otpAuthLine = 'otpauth://' + type + '/' + label +
         '?secret=' + otpStorage.secret +
-        (otpStorage.issuer ? ('&issuer=' + otpStorage.issuer.split('::')[0]) :
-                             '') +
+        (otpStorage.issuer ? ('&issuer=' + otpStorage.issuer) : '') +
         (type === 'hotp' ? ('&counter=' + otpStorage.counter) : '') +
         (type === 'totp' && otpStorage.period ?
              ('&period=' + otpStorage.period) :
@@ -242,7 +247,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
     uri = uri.substr(5);
     let label = uri.split('?')[0];
     const parameterPart = uri.split('?')[1];
-    if (!label || !parameterPart) {
+    if (!parameterPart) {
       continue;
     } else {
       let account = '';
@@ -316,7 +321,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
       }
     }
   }
-
   return exportData;
 }
 
