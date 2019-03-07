@@ -288,9 +288,5 @@
                 "example": "Google Drive"
             }
         }
-    },
-    "download_otp_backup": {
-        "message": "Download OTP URL Backup",
-        "description": "Download OTP URL backup file."
     }
 }
