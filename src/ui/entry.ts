@@ -343,6 +343,19 @@ async function entry(_ui: UI) {
     }
   }
 
+  async function hasUnsupportedAccounts() {
+    const entries = await EntryStorage.getExport(new Encryption(''));
+    for (const entry of Object.keys(entries)) {
+      if (entries[entry].type === 'battle' || entries[entry].type === 'steam') {
+        console.log(entries[entry]);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const unsupportedAccounts = await hasUnsupportedAccounts();
+
   const exportFile = getBackupFile(exportData);
   const exportEncryptedFile = getBackupFile(exportEncData);
   const exportOneLineOtpAuthFile = getOneLineOtpBackupFile(exportData);
@@ -375,7 +388,8 @@ async function entry(_ui: UI) {
       importCode: '',
       importEncrypted: false,
       importPassphrase: '',
-      importFilePassphrase: ''
+      importFilePassphrase: '',
+      unsupportedAccounts
     },
     methods: {
       isMatchedEntry: (entry: OTPEntry) => {

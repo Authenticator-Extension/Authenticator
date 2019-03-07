@@ -289,8 +289,8 @@
             }
         }
     },
-    "download_otp_backup": {
-        "message": "Download OTP URL Backup",
-        "description": "Download OTP URL backup file."
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
     }
 }
