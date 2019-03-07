@@ -69,7 +69,7 @@ async function openHelp() {
   if (typeof feedbackURL === 'string' && feedbackURL) {
     url = feedbackURL;
   }
-  
+
   chrome.tabs.create({url});
 }
 
