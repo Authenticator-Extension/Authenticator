@@ -4,8 +4,18 @@
 /// <reference path="./otp.ts" />
 
 class BrowserStorage {
-  private static getStorageLocation() {
-    if (localStorage.storageLocation !== 'sync' &&
+  private static async getStorageLocation() {
+    const managedLocation = await ManagedStorage.get('storageArea');
+    if (managedLocation === 'sync' || managedLocation === 'local') {
+      return new Promise((resolve) => {
+        if (localStorage.storageLocation !== managedLocation) {
+          localStorage.storageLocation = managedLocation;
+        }
+        resolve(managedLocation);
+        return;
+      });
+    } else if (
+        localStorage.storageLocation !== 'sync' &&
         localStorage.storageLocation !== 'local') {
       return new Promise((resolve, reject) => {
         let amountSync: number;
@@ -520,22 +530,18 @@ class EntryStorage {
 }
 
 class ManagedStorage {
-  static isPolicyActive() {
-    return new Promise((resolve: (result: boolean) => void) => {
-      chrome.storage.managed.get((data) => {
-        if (data.policyActive) {
-          resolve(true);
-        } else {
-          resolve(false);
-        }
-      });
-    });
-  }
-
   static get(key: string) {
     return new Promise((resolve: (result: boolean|string) => void) => {
       chrome.storage.managed.get((data) => {
-        resolve(data[key]);
+        if (chrome.runtime.lastError) {
+          resolve(false);
+        }
+        if (data) {
+          if (data[key]) {
+            resolve(data[key]);
+          }
+        }
+        resolve(false);
       });
     });
   }

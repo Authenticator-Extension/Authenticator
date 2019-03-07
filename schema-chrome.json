@@ -2,21 +2,15 @@
   "type": "object",
 
   "properties": {
-    "policyActive": {
-      "title": "Activate policy",
-      "description": "If set to true then policy options will be used. If false or undefined all policy options will be ignored.",
-      "type": "boolean"
-    },
-
     "disableInstallHelp": {
       "title": "Disable opening help page on install",
       "description": "If set to true then help page will not be opened on install.",
       "type": "boolean"
     },
 
-    "disableSync": {
-        "title": "Disable 3rd party sync",
-        "description": "If set to true then 3rd party backup options will be hidden.",
+    "disableBackup": {
+        "title": "Disable 3rd party backup",
+        "description": "If set to true then 3rd party backup options will be hidden. If 3rd party backup is already configured for a user this will not stop it.",
         "type": "boolean"
     },
 

@@ -53,7 +53,7 @@ function resize(zoom: number) {
   }
 }
 
-function openHelp() {
+async function openHelp() {
   let url =
       'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
 
@@ -65,8 +65,24 @@ function openHelp() {
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
-  window.open(url, '_blank');
+  const feedbackURL = await ManagedStorage.get('feedbackURL');
+  if (typeof feedbackURL === 'string' && feedbackURL) {
+    url = feedbackURL;
+  }
+  
+  chrome.tabs.create({url});
 }
+
+let backupDisabled: boolean|string;
+let storageArea: boolean|string;
+
+ManagedStorage.get('disableBackup').then((value) => {
+  backupDisabled = value;
+});
+
+ManagedStorage.get('storageArea').then((value) => {
+  storageArea = value;
+});
 
 async function menu(_ui: UI) {
   const version = getVersion();
@@ -81,7 +97,9 @@ async function menu(_ui: UI) {
       zoom,
       useAutofill,
       useHighContrast,
-      newStorageLocation: localStorage.storageLocation
+      newStorageLocation: localStorage.storageLocation,
+      backupDisabled,
+      storageArea
     },
     methods: {
       openLink: (url: string) => {
