@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "666657\n624964",
+        "message": "Scan QR Code",
         "description": "Scan QR Code."
     },
     "add_secret": {
