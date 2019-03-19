@@ -288,5 +288,9 @@
                 "example": "Google Drive"
             }
         }
+    },
+    "download_otp_backup": {
+        "message": "下载OTP URL备份",
+        "description": "Download OTP URL backup file."
     }
 }
