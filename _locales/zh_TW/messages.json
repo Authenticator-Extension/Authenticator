@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您確定要刪除此金鑰嗎？此操作無法復原。",
+        "message": "Are you sure you want to delete this account? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
+        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -288,5 +288,17 @@
                 "example": "Google Drive"
             }
         }
+    },
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "You can import backups from some other applications.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Learn more",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
