@@ -18,6 +18,9 @@
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
     },
+    "storage": {
+        "managed_schema": "schema.json"
+    },
     "oauth2": {
         "client_id": "292457304165-u8ve4j79gag5o231n5u2pdtdrbfdo1hh.apps.googleusercontent.com",
         "scopes": [
