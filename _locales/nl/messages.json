@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exporteren \/ Importeren",
+        "message": "Exporteren / Importeren",
         "description": "Export and Import."
     },
     "settings": {
@@ -156,7 +156,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Let op! De klok van uw lokale computer is te ver voor\/achter, gelieve het te herstellen voordat u doorgaat.",
+        "message": "Let op! De klok van uw lokale computer is te ver voor/achter, gelieve het te herstellen voordat u doorgaat.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -252,8 +252,8 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-      "message": "Use High Contrast",
-      "description": "Use High Contrast"
+        "message": "Use High Contrast",
+        "description": "Use High Contrast"
     },
     "storage_menu": {
         "message": "Opslag & back-up",
@@ -288,5 +288,17 @@
                 "example": "Google Drive"
             }
         }
+    },
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "You can import backups from some other applications.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Learn more",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

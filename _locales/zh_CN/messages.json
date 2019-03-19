@@ -252,8 +252,8 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-      "message": "使用高对比度",
-      "description": "Use High Contrast"
+        "message": "使用高对比度",
+        "description": "Use High Contrast"
     },
     "storage_menu": {
         "message": "存储及备份",
@@ -292,5 +292,17 @@
     "download_otp_backup": {
         "message": "下载OTP URL备份",
         "description": "Download OTP URL backup file."
+    },
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "You can import backups from some other applications.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Learn more",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
