@@ -20,15 +20,15 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Kesalahan. Hanya karakter Base32 (A-Z, 2-7, =) dan HEX (0-9, A-F) yang didukung. Namun, kode rahasia yang anda masukkan ialah: ",
+        "message": "Rahasia kesalahan. Hanya Base32 (A-Z, 2-7 dan =) dan HEX (0-9 dan A-F) yang didukung. Namun, rahasia Anda adalah: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Pindai Kode QR",
+        "message": "Pindai kode QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Isi secara Manual",
+        "message": "Entri manual",
         "description": "Manual Entry."
     },
     "close": {
