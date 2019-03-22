@@ -12,19 +12,14 @@
     display: none;
 }
 
-html {
+body {
     width: 320px;
     height: 480px;
+    transform-origin: left top;
     overflow: hidden;
     font-family: arial, 'Microsoft YaHei';
     cursor: default;
     user-select: none;
-    transform-origin: top left;
-}
-
-body {
-    width: 320px;
-    height: 480px;
 }
 
 svg {
