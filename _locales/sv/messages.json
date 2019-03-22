@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportera / Importera",
+        "message": "Exportera \/ Importera",
         "description": "Export and Import."
     },
     "settings": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Är du säker du vill radera denna hemliga nyckel? Denna åtgärd går inte att ångras.",
+        "message": "Are you sure you want to delete this account? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Detta lösenord kommer att användas för att kryptera dina hemligheter. Ingen kan hjälpa dig om du glömmer lösenordet.",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Har du en säkerhetskopia för dina hemligheter? Vänta inte tills det är för sent!",
+        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {

@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Вы правда хотите удалить этот секрет? Это действие безвозвратное.",
+        "message": "Вы уверены, что хотите удалить эту учетную запись? Это действие нельзя отменить.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Этот пароль будет использоваться для вашего секрета. Ни кто вам не поможет если вы его забудете.",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Не ждите если у вас есть копия ваших секретов или иначе будет поздно!",
+        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Использовать высокую контрастность",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Существует проблема подключения к вашей учетной записи $SERVICE$ , пожалуйста войдите в систему снова.",
+        "message": "Возникла проблема подключения к вашей учётной записи, пожалуйста войдите снова.$SERVICE$.$SERVICE$$SERVICE$$SERVICE$$SERVICE$.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -298,7 +298,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Подробнее",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
