@@ -8,7 +8,7 @@
     "applications": {
         "gecko": {
             "id": "authenticator@mymindstorm",
-            "strict_min_version": "55.0"
+            "strict_min_version": "57.0"
         }
     },
     "icons": {
