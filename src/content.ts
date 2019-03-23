@@ -3,7 +3,7 @@ if (!document.getElementById('__ga_grayLayout__')) {
     switch (message.action) {
       case 'capture':
         sendResponse('beginCapture');
-        showGrayLayout(message.passphrase);
+        showGrayLayout();
         break;
       case 'errorsecret':
         alert(chrome.i18n.getMessage('errorsecret') + message.secret);
@@ -30,7 +30,7 @@ if (!document.getElementById('__ga_grayLayout__')) {
 sessionStorage.setItem('captureBoxPositionLeft', '0');
 sessionStorage.setItem('captureBoxPositionTop', '0');
 
-function showGrayLayout(passphrase: string) {
+function showGrayLayout() {
   let grayLayout = document.getElementById('__ga_grayLayout__');
   if (!grayLayout) {
     grayLayout = document.createElement('div');
@@ -47,7 +47,7 @@ function showGrayLayout(passphrase: string) {
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
     grayLayout.onmouseup = (event) => {
-      grayLayoutUp(event, passphrase);
+      grayLayoutUp(event);
     };
     grayLayout.oncontextmenu = (event) => {
       event.preventDefault();
@@ -108,7 +108,7 @@ function grayLayoutMove(event: MouseEvent) {
   return;
 }
 
-function grayLayoutUp(event: MouseEvent, passphrase: string) {
+function grayLayoutUp(event: MouseEvent) {
   const grayLayout = document.getElementById('__ga_grayLayout__');
   const captureBox = document.getElementById('__ga_captureBox__');
   if (!captureBox || !grayLayout) {
@@ -149,25 +149,16 @@ function grayLayoutUp(event: MouseEvent, passphrase: string) {
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
-        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight,
-        passphrase);
+        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight);
   }, 200);
   return false;
 }
 
 function sendPosition(
-    left: number, top: number, width: number, height: number,
-    passphrase: string) {
+    left: number, top: number, width: number, height: number) {
   chrome.runtime.sendMessage({
     action: 'position',
-    info: {
-      left,
-      top,
-      width,
-      height,
-      windowWidth: window.innerWidth,
-      passphrase
-    }
+    info: {left, top, width, height, windowWidth: window.innerWidth}
   });
 }
 
@@ -187,20 +178,23 @@ function pasteCode(code: string) {
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
     if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number' ||
-        _inputBoxes[i].type === 'tel') {
+        _inputBoxes[i].type === 'tel' || _inputBoxes[i].type === 'password') {
       inputBoxes.push(_inputBoxes[i]);
     }
   }
   if (!inputBoxes.length) {
     return;
   }
-  const identities = ['2fa', 'otp', 'authenticator', 'factor', 'code'];
+  const identities = [
+    '2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode'
+  ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
       if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
           inputBox.id.toLowerCase().indexOf(identity) >= 0) {
         if (!inputBox.value) {
           inputBox.value = code;
+          fireInputEvents(inputBox);
         }
         return;
       }
@@ -215,11 +209,29 @@ function pasteCode(code: string) {
     const inputBox = activeInputBox as HTMLInputElement;
     if (!inputBox.value) {
       inputBox.value = code;
+      fireInputEvents(inputBox);
     }
     return;
   }
-  const firstInputBox = inputBoxes[0];
-  firstInputBox.value = code;
+
+  for (const inputBox of inputBoxes) {
+    if (!inputBox.value && inputBox.type !== 'password') {
+      inputBox.value = code;
+      fireInputEvents(inputBox);
+      return;
+    }
+  }
+  return;
+}
+
+function fireInputEvents(inputBox: HTMLInputElement) {
+  const events = [
+    new KeyboardEvent('keydown'), new KeyboardEvent('keyup'),
+    new KeyboardEvent('keypress')
+  ];
+  for (const event of events) {
+    inputBox.dispatchEvent(event);
+  }
   return;
 }
 

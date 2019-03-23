@@ -7,3 +7,5 @@ edge
 .atom-build.yml
 scripts/authenticator-build-key.enc
 cert.pfx
+css/popup.css
+css/popup.css.map

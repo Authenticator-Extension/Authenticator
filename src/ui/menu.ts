@@ -53,7 +53,7 @@ function resize(zoom: number) {
   }
 }
 
-function openHelp() {
+async function openHelp() {
   let url =
       'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
 
@@ -65,21 +65,41 @@ function openHelp() {
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
-  window.open(url, '_blank');
+  const feedbackURL = await ManagedStorage.get('feedbackURL');
+  if (typeof feedbackURL === 'string' && feedbackURL) {
+    url = feedbackURL;
+  }
+
+  chrome.tabs.create({url});
 }
+
+let backupDisabled: boolean|string;
+let storageArea: boolean|string;
+
+ManagedStorage.get('disableBackup').then((value) => {
+  backupDisabled = value;
+});
+
+ManagedStorage.get('storageArea').then((value) => {
+  storageArea = value;
+});
 
 async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);
   let useAutofill = (localStorage.autofill === 'true');
+  let useHighContrast = (localStorage.highContrast === 'true');
 
   const ui: UIConfig = {
     data: {
       version,
       zoom,
       useAutofill,
-      newStorageLocation: localStorage.storageLocation
+      useHighContrast,
+      newStorageLocation: localStorage.storageLocation,
+      backupDisabled,
+      storageArea
     },
     methods: {
       openLink: (url: string) => {
@@ -107,6 +127,13 @@ async function menu(_ui: UI) {
         openHelp();
         return;
       },
+      clearFilter: () => {
+        _ui.instance.filter = false;
+        if (_ui.instance.entries.length >= 10) {
+          _ui.instance.showSearch = true;
+        }
+        return;
+      },
       isChrome: () => {
         if (navigator.userAgent.indexOf('Chrome') !== -1) {
           return true;
@@ -129,6 +156,12 @@ async function menu(_ui: UI) {
         localStorage.autofill = _ui.instance.useAutofill;
         useAutofill =
             (localStorage.autofill === 'true') ? true : false || false;
+        return;
+      },
+      saveHighContrast: () => {
+        localStorage.highContrast = _ui.instance.useHighContrast;
+        useHighContrast =
+            (localStorage.highContrast === 'true') ? true : false || false;
         return;
       },
       saveZoom: () => {

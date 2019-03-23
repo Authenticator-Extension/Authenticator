@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Xác thực",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " đã được thêm.",
+        "message": " đã được thêm vào.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Chuỗi khóa bị lỗi. Chỉ có các ký tự Base32 (A-Z, 2-7 và =) và HEX (0-9 và A-F) được hỗ trợ. Chuỗi khóa bạn đã nhập là: ",
+        "message": "Bí mật lỗi. Chỉ Base32 (A-Z, 2-7 và =) và HEX hỗ trợ (0-9 và A-F). Tuy nhiên, bí mật của bạn là: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Nhập thủ công",
+        "message": "Mục hướng dẫn sử dụng",
         "description": "Manual Entry."
     },
     "close": {
@@ -40,7 +40,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Đồng ý",
+        "message": "Yes",
         "description": "Yes."
     },
     "no": {
@@ -60,23 +60,23 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Chuỗi khóa",
+        "message": "Bí mật",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Thành công.",
+        "message": "Sự thành công.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Thất bại.",
+        "message": "Sự thất bại.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Về chúng tôi",
+        "message": "Về",
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất \/ Nhập dữ liệu",
+        "message": "Xuất khẩu \/ nhập khẩu",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,11 +84,11 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Đặt mật khẩu bảo vệ",
+        "message": "An ninh",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật khẩu hiện tại",
+        "message": "Mật khẩu hiện thời",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -116,59 +116,59 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Bạn không thể thêm tài khoản mới hoặc trích xuất dữ liệu cho đến khi tất cả các tài khoản được giải mã. Vui lòng nhập đúng mật khẩu để tiếp tục.",
+        "message": "Bạn không thể thêm một tài khoản mới hoặc xuất dữ liệu cho đến khi tất cả tài khoản được giải mã. Vui lòng nhập đúng mật khẩu trước khi tiếp tục.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Mật khẩu không trùng nhau.",
+        "message": "Mật khẩu không khớp.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Đã mã hóa",
+        "message": "Đã được mã hoá",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Đã sao chép",
+        "message": "Sao chép",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Góp ý",
+        "message": "Thông tin phản hồi",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Dịch",
+        "message": "Dịch thuật",
         "description": "Translate."
     },
     "source": {
-        "message": "Mã nguồn",
+        "message": "Mã Nguồn",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu của bạn.",
+        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Đồng bộ đồng hồ với Google",
+        "message": "Đồng hồ đồng bộ với Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Lưu mật khẩu",
+        "message": "Nhớ mật khẩu",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
+        "message": "Cẩn thận! Đồng hồ địa phương của bạn là quá xa, xin vui lòng sửa chữa nó trước khi tiếp tục.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Bạn đã tạo bản sao lưu chưa? Đừng đợi đến khi quá muộn!",
+        "message": "Bạn có một bản sao lưu cho tài khoản của bạn? Đừng chờ đợi cho đến khi quá muộn!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Quét thật bại, xin hãy tải lại trang và thử lại.",
+        "message": "Thất bại trong việc bắt giữ, xin vui lòng tải lại trang web và thử lại.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Theo thời gian",
+        "message": "Dựa trên thời gian",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -176,39 +176,39 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Trang Popup",
+        "message": "Popup trang",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Tỉ lệ",
+        "message": "Quy mô",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Nếu bạn muốn thêm tài khoản khác hãy di chuột lên góc phải trên của một tài khoản bất kỳ và click vào nút.",
+        "message": "Cảnh báo: tất cả các bản sao lưu được mã hóa. Bạn muốn thêm một tài khoản cho một ứng dụng? Di chuột qua phần trên cùng bên phải của bất kỳ tài khoản và nhấn nút ẩn.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Tải file sao lưu",
+        "message": "Tải về tập tin sao lưu",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập bản sao lưu",
+        "message": "Nhập khẩu dự phòng",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Nhập bản sao lưu",
+        "message": "Nhập khẩu các tập tin sao lưu",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Nhập mã sao lưu",
+        "message": "Nhập văn bản sao lưu",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Xem tất cả",
+        "message": "Hiển thị tất cả các mục",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Cảnh báo: các bản sao lưu được lưu trên Dropbox đều chưa được mã hóa. Hãy cẩn thận.",
+        "message": "Chú ý: bản sao lưu được mã hóa. Sử dụng tại rủi ro của riêng bạn.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -216,19 +216,19 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Mật khẩu của bạn được lưu ngay trên trình duyệt, xin hãy đổi mật khẩu trong Menu > Bảo mật ngay.",
+        "message": "Mật khẩu của bạn được lưu trữ tại địa phương, xin vui lòng thay đổi nó trong trình đơn bảo mật ngay lập tức.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Xóa",
+        "message": "Gỡ bỏ Lịch chia sẻ",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Tải về Bản sao lưu",
+        "message": "Tải về bản sao lưu mật khẩu bảo vệ",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Tìm kiếm",
+        "message": "&nbsp; Tìm kiếm&nbsp;",
         "description": "Search"
     },
     "popout": {
@@ -240,16 +240,20 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Điều chỉnh",
+        "message": "Chỉnh sửa",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Đồng bộ thủ công",
+        "message": "Hướng dẫn sử dụng đồng bộ",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Chế độ Điền tự động",
+        "message": "Sử dụng tự động điền",
         "description": "Use Autofill"
+    },
+    "use_high_contrast": {
+        "message": "Tương phản cao",
+        "description": "Use High Contrast"
     },
     "storage_menu": {
         "message": "Lí & Backup",
@@ -264,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Nơi lưu trữ",
+        "message": "Vị trí lưu trữ",
         "description": "Storage location"
     },
     "sign_in": {
@@ -276,7 +280,25 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Có một vấn đề kết nối với tài khoản ${service} , xin vui lòng đăng nhập lại.",
-        "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
+        "message": "Có một vấn đề kết nối với tài khoản $SERVICE$, xin vui lòng đăng nhập lại.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "You can import backups from some other applications.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Learn more",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

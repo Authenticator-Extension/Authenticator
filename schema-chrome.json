@@ -1,0 +1,29 @@
+{
+  "type": "object",
+
+  "properties": {
+    "disableInstallHelp": {
+      "title": "Disable opening help page on install",
+      "description": "If set to true then help page will not be opened on install.",
+      "type": "boolean"
+    },
+
+    "disableBackup": {
+        "title": "Disable 3rd party backup",
+        "description": "If set to true then 3rd party backup options will be hidden. If 3rd party backup is already configured for a user this will not stop it.",
+        "type": "boolean"
+    },
+
+    "storageArea": {
+        "title": "Storage area",
+        "description": "Set to 'sync' or 'local'. If set will force user to use specified storage area. This setting will not check if a user is currently using another storage space and may hide data.",
+        "type": "string"
+    },
+
+    "feedbackURL": {
+      "title": "Feedback URL",
+      "description": "Change the URL the feedback button opens.",
+      "type": "string"
+    }
+  }
+}

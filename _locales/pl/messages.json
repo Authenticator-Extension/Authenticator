@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Czy na pewno chcesz usunąć sekretny kod? Nie można cofnąć tej akcji.",
+        "message": "Czy na pewno chcesz usunąć to konto? Nie można cofnąć tej akcji.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "To hasło będzie służyć szyfrowaniu twojego sekretnego kodu. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
+        "message": "To hasło będzie służyć szyfrowaniu twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Czy masz kopie zapasową sekretnych kodów? Nie czekaj, aż będzie za późno!",
+        "message": "Czy masz kopię zapasową twoich kont? Nie czekaj, aż będzie za późno!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -251,6 +251,10 @@
         "message": "Użyj autowypełniania",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Użyj dużego kontrastu",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Przechowywanie i kopie zapasowe",
         "description": "Storage and sync menu title"
@@ -276,7 +280,25 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Wystąpił problem z połączeniem z twoim kontem ${service}, zaloguj się ponownie.",
-        "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
+        "message": "Wystąpił problem z połączeniem z twoim kontem $SERVICE$, zaloguj się ponownie.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "Masz jedno lub więcej kont Steam lub Blizzard. Nieszyfrowane kopie zapasowe nie będą korzystać ze standardowego formatu kopii zapasowej.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "Możesz importować kopie zapasowe z innych aplikacji.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Dowiedz się więcej",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

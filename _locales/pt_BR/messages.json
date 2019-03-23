@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Tem certeza que deseja excluir este segredo? Esta ação não pode ser desfeita.",
+        "message": "Tem certeza que deseja excluir esta conta? Esta ação não pode ser desfeita.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Esta senha será usada para criptografar os seus segredos. Ninguém pode te ajudar caso você esqueça a senha.",
+        "message": "Essa senha será usada para criptografar as suas contas. Ninguém poderá te ajudar se você esquecer a senha.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Você tem um backup dos seus segredos? Não espere até que seja tarde demais!",
+        "message": "Você tem um backup de suas contas? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -251,6 +251,10 @@
         "message": "Usar o preenchimento automático",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "Usar alto contraste",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
         "message": "Armazenamento e Backup",
         "description": "Storage and sync menu title"
@@ -276,7 +280,25 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Houve um problema na conexão com sua conta do ${service}, por favor tente novamente.",
-        "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
+        "message": "Houve um problema na conexão com sua conta do $SERVICE$, por favor tente novamente.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "Você tem uma ou mais contas Steam ou Blizzard. Os backups não criptografados não usarão o formato padronizado de backup.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "Você pode importar os backups de alguns outros aplicativos.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Saiba mais",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

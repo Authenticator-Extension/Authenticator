@@ -36,7 +36,7 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
   echo
   echo -e "\e[7m\033[33mNotice\033[0m"
   echo
-  echo -e "Thanks for forking Authenticator! If you plan on redistributing your own version of Authenticator please generate your own API keys and put them in ./src/models/credentials.ts"
+  echo -e "Thanks for forking Authenticator! If you plan on redistributing your own version of Authenticator please generate your own API keys and put them in ./src/models/credentials.ts and ./manifest-chrome.json"
   echo "Clear this warning by commenting it out in ./scripts/build.sh"
   echo
   read -rsp $'Press any key to continue...\n' -n1 key
@@ -45,6 +45,7 @@ fi
 
 echo "Compiling..."
 ./node_modules/typescript/bin/tsc -p .
+./node_modules/sass/sass.js sass:css
 mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension
@@ -57,6 +58,9 @@ if [[ $PLATFORM = "edge" ]]; then
 else
   cp -r build css images js _locales LICENSE view $PLATFORM
   cp manifest-$PLATFORM.json $PLATFORM/manifest.json
+  if [[ $PLATFORM = "chrome" ]]; then
+    cp schema-chrome.json $PLATFORM/schema.json
+  fi
 fi
 
 echo -e "\033[0;32mDone!\033[0m"

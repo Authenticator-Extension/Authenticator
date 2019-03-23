@@ -24,6 +24,8 @@
 
   <Resources>
     <Resource Language="en-us"/>
+    <Resource Language="bg"/>
+    <Resource Language="ca"/>
     <Resource Language="cs"/>
     <Resource Language="de"/>
     <Resource Language="es"/>

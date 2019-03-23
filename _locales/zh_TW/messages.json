@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "匯出 / 匯入",
+        "message": "匯出 \/ 匯入",
         "description": "Export and Import."
     },
     "settings": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您確定要刪除此金鑰嗎？此操作無法復原。",
+        "message": "Are you sure you want to delete this account? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
+        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -168,11 +168,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "基於時間",
+        "message": "驗證碼",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "基於計數器",
+        "message": "一次性驗證碼",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "比例",
+        "message": "縮放",
         "description": "Scale"
     },
     "export_info": {
@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "警告：備份檔案未加密，需自行承擔風險。",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -251,8 +251,12 @@
         "message": "啟用自動填充",
         "description": "Use Autofill"
     },
+    "use_high_contrast": {
+        "message": "高對比",
+        "description": "Use High Contrast"
+    },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "存儲及備份",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -260,23 +264,41 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storgae services.",
+        "message": "Automatically backup your data to 3rd party storage services.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "儲存位置",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "登錄",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "登出",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your ${service} account, please sign in again.",
-        "description": "Error authenticating to backup service. ${service} will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')"
+        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "You can import backups from some other applications.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Learn more",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

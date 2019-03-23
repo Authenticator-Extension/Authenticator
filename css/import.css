@@ -125,3 +125,12 @@ button:hover,
     display: inline-grid;
     grid-template-rows: min-content min-content;
 }
+
+#import_info {
+    margin: 10px 20px 20px 20px;
+}
+
+a {
+    color: #08C;
+    text-decoration: none;
+}
