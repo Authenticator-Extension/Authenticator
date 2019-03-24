@@ -104,7 +104,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Bu hesabı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -260,7 +260,7 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Verilerinizin nerede saklanacağını seçin.''local' kullanmak verilerinizi bilgisayarınızda saklar.'sync' özelliğini kullanmak bir senkronizasyon hesabına giriş yaptıysanız tarayıcınızın verilerinizi buluta senkronize etmesini sağlar.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
