@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "QR kodu bulunamadı.",
+        "message": "Tanınmayan QR kodu.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -290,7 +290,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var.Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
