@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Şifreleriniz uyuşmuyor.",
+        "message": "Şifre uyuşmuyor.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Açılan sayfa",
+        "message": "Açılır sayfa",
         "description": "Popup Page Settings"
     },
     "scale": {
