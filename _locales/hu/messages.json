@@ -160,51 +160,51 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Készített már biztonsági mentést a fiókjaihoz? Ne várjon még túl késő lesz!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Idő alapú",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Számláló alapú",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Felugró ablak",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Méretezés",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Figyelem: a mentések nem titkosítottak. Hozzá szeretne adni egy fiókot egy másik apphoz? Tartsa az egeret bármely fiók jobb felső sarkánál, majd nyomja meg a titkos gombot.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Biztonsági mentés letöltése",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Biztonsági mentés importálása",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Biztonsági mentés importálása",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Szöveges biztonsági mentés importálása",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Minden bejegyzés mutatása",
         "description": "Show all entries."
     },
     "dropbox_risk": {
