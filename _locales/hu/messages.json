@@ -208,79 +208,79 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Figyelem: a biztonsági másolatok nem titkosítottak. Csak saját felelősségére használhatja.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Meg kell adnia a helyes jelszót a mentések importálásához.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Az ön jelszava helyben van tárolva, kérem módosítsa a biztonsági menüben sürgősen.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Eltávolít",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Jelszóval védett biztonsági másolat letöltése",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Keresés",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Felugró mód",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Zárolás",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Szerkeszt",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuális szinkronizálás",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Automatikus kitöltés használata",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Nagy kontraszt használata",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Tárolás és biztonsági mentés",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Válassza ki hol tárolódjanak az adatai. A \"helyi\" tárolás a számítógépén tárolja az adatokat. A \"szinkronizálás\" engedélyezi a böngészőt hogy a felhőben tárolja az adatokat, ha bejelentkezett egy fiókkal.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Tárolás helye",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "Bejelentkezés",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "Kijelentkezés",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Probléma adódott az ön $SERVICE$ fiókjához kapcsolódáskor, kérjük jelentkezzen be újra.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -290,15 +290,15 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Egy vagy több Steam vagy Blizzard fiókokkal rendelkezik. A titkosítatlan biztonsági mentések nem fogják használni a szabványos biztonsági mentési formátumot.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Imprtálhat biztonsági mentéseket pár másik alkalmazásból.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "További információ",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
