@@ -1,18 +1,18 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Hitelesítő",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Hitelesítő",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates 2-Step Verification codes in your browser.",
+        "message": "A Hitelesítő 2 lépcsős ellenőrző kódokat generál a böngészőben.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " hozzáadva.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,43 +20,43 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret Error. Only Base32(A-Z, 2-7 and =) and HEX(0-9 and A-F) are supported. However, your secret is: ",
+        "message": "Titok hiba. Csak Base32 (A-z-ig, 2-7 és =) és a HEX (0-9 és A-F) támogatottak. Azonban az ön titka: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "QR kód beolvasása",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Kézi bevitel",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Bezár",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Rendben",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Igen",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nem",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Fiók",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Fiók név",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Kibocsátó",
         "description": "Issuer."
     },
     "secret": {
