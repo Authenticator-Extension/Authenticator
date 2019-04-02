@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Przechwytywania nie powiodło się, proszę odśwież stronę i spróbuj ponownie.",
+        "message": "Przechwytywanie nie powiodło się, proszę odświeżyć stronę i spróbować ponownie.",
         "description": "Capture Failed"
     },
     "based_on_time": {
