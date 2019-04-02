@@ -1,286 +1,286 @@
 {
     "extName": {
-        "message": "Kimlik Doğrulayıcı",
+        "message": "Hitelesítő",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Kimlik Doğrulayıcı",
+        "message": "Hitelesítő",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
+        "message": "A Hitelesítő 2 lépcsős ellenőrző kódokat generál a böngészőben.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " eklendi.",
+        "message": " hozzáadva.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Tanınmayan QR kodu.",
+        "message": "Ismeretlen QR-kód.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "message": "Titok hiba. Csak Base32 (A-z-ig, 2-7 és =) és a HEX (0-9 és A-F) támogatottak. Azonban az ön titka: ",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "QR kodunu tara",
+        "message": "QR kód beolvasása",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manuel giriş",
+        "message": "Kézi bevitel",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Kapat",
+        "message": "Bezár",
         "description": "Close."
     },
     "ok": {
-        "message": "Tamam",
+        "message": "Rendben",
         "description": "OK."
     },
     "yes": {
-        "message": "Evet",
+        "message": "Igen",
         "description": "Yes."
     },
     "no": {
-        "message": "Hayır",
+        "message": "Nem",
         "description": "No."
     },
     "account": {
-        "message": "Hesap",
+        "message": "Fiók",
         "description": "Account."
     },
     "accountName": {
-        "message": "Hesap Adı",
+        "message": "Fiók név",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Yayınlayan Kuruluş",
+        "message": "Kibocsátó",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Şifre",
+        "message": "Titok",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Başarılı.",
+        "message": "Sikerült.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Hata.",
+        "message": "Sikertelen.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Hakkında",
+        "message": "Rólunk",
         "description": "About."
     },
     "export_import": {
-        "message": "İçe\/Dışa aktar",
+        "message": "Exportálás \/ Importálás",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Ayarlar",
+        "message": "Beállítások",
         "description": "Settings."
     },
     "security": {
-        "message": "Güvenlik",
+        "message": "Biztonság",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mevcut Şifre",
+        "message": "Jelenlegi jelszó",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Yeni Şifre",
+        "message": "Új jelszó",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Şifre",
+        "message": "Jelszó",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Şifreyi doğrula",
+        "message": "Jelszó megerősítése",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bu hesabı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
+        "message": "Biztosan törli ezt a fiókot? Ez a művelet nem vonható vissza.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
+        "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Güncelle",
+        "message": "Frissítés",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
+        "message": "Nem adhat hozzá új fiókot vagy exportálhat adatot míg az összes fiók titkosítva van. Kérjük, írja be a helyes jelszót a folytatáshoz.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Şifre uyuşmuyor.",
+        "message": "A jelszók nem egyeznek.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Şifrelendi",
+        "message": "Titkosított",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Kopyalandı",
+        "message": "Másolva",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Geribildirim",
+        "message": "Visszajelzés",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Çeviri",
+        "message": "Fordítás",
         "description": "Translate."
     },
     "source": {
-        "message": "Kaynak Kodu",
+        "message": "Forráskód",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
+        "message": "Írja be a jelszót az adatok visszafejtéséhez.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Saati Google ile senkronize et",
+        "message": "Előzmények szinkronizálása Google-val",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Şifreyi hatırla",
+        "message": "Jelszó megjegyzése",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Dikkat! Yerel saatiniz farklı, devam etmek için lütfen düzeltin.",
+        "message": "Vigyázat! A helyi óra túl pontatlan, javítsa a folytatás előtt.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Készített már biztonsági mentést a fiókjaihoz? Ne várjon még túl késő lesz!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Yakalama başarısız oldu, lütfen sayfayı yeniden yükleyin ve tekrar deneyin.",
+        "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Zamana dayalı",
+        "message": "Idő alapú",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Sayaca Dayalı",
+        "message": "Számláló alapú",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Açılır sayfa",
+        "message": "Felugró ablak",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Ölçek",
+        "message": "Méretezés",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz?Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
+        "message": "Figyelem: a mentések nem titkosítottak. Hozzá szeretne adni egy fiókot egy másik apphoz? Tartsa az egeret bármely fiók jobb felső sarkánál, majd nyomja meg a titkos gombot.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Yedekleme Dosyasını İndir",
+        "message": "Biztonsági mentés letöltése",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedekten içeri aktar",
+        "message": "Biztonsági mentés importálása",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Dosyadan içeri aktar",
+        "message": "Biztonsági mentés importálása",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Metin dosyasından içeri aktar",
+        "message": "Szöveges biztonsági mentés importálása",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Tüm girdileri göster",
+        "message": "Minden bejegyzés mutatása",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Uyarı: yedeklemeler şifrelenmemiş. Kullanım kendi sorumluluğunuzdadır.",
+        "message": "Figyelem: a biztonsági másolatok nem titkosítottak. Csak saját felelősségére használhatja.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
+        "message": "Meg kell adnia a helyes jelszót a mentések importálásához.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
+        "message": "Az ön jelszava helyben van tárolva, kérem módosítsa a biztonsági menüben sürgősen.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Sil",
+        "message": "Eltávolít",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download parola korumalı yedekleme",
+        "message": "Jelszóval védett biztonsági másolat letöltése",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Arama",
+        "message": "Keresés",
         "description": "Search"
     },
     "popout": {
-        "message": "Açılır pencere modu",
+        "message": "Felugró mód",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Kilitle",
+        "message": "Zárolás",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Düzenle",
+        "message": "Szerkeszt",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manuel Senkronizasyon",
+        "message": "Manuális szinkronizálás",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Otomatik Doldur özelliği kullanın",
+        "message": "Automatikus kitöltés használata",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Yüksek Kontrast Kullan",
+        "message": "Nagy kontraszt használata",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Depolama & Yedekleme",
+        "message": "Tárolás és biztonsági mentés",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Verilerinizin nerede saklanacağını seçin.''local' kullanmak verilerinizi bilgisayarınızda saklar.'sync' özelliğini kullanmak bir senkronizasyon hesabına giriş yaptıysanız tarayıcınızın verilerinizi buluta senkronize etmesini sağlar.",
+        "message": "Válassza ki hol tárolódjanak az adatai. A \"helyi\" tárolás a számítógépén tárolja az adatokat. A \"szinkronizálás\" engedélyezi a böngészőt hogy a felhőben tárolja az adatokat, ha bejelentkezett egy fiókkal.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Verilerinizi otomatik olarak 3. taraf depolama hizmetlerine yedekleyin.",
+        "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Depolama konumu",
+        "message": "Tárolás helye",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Giriş Yap",
+        "message": "Bejelentkezés",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Çıkış",
+        "message": "Kijelentkezés",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "$SERVICE$ hesabınıza bağlanırken bir sorun oluştu, lütfen tekrar oturum açın.",
+        "message": "Probléma adódott az ön $SERVICE$ fiókjához kapcsolódáskor, kérjük jelentkezzen be újra.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -290,15 +290,15 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var.Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
+        "message": "Egy vagy több Steam vagy Blizzard fiókokkal rendelkezik. A titkosítatlan biztonsági mentések nem fogják használni a szabványos biztonsági mentési formátumot.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Yedeklemeleri diğer bazı uygulamalardan içe aktarabilirsiniz.",
+        "message": "Imprtálhat biztonsági mentéseket pár másik alkalmazásból.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Daha fazla öğrenin",
+        "message": "További információ",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }

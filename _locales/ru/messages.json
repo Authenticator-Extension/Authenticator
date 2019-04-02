@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -290,11 +290,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "нету",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Резервные копии можно импортировать из других приложений.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {

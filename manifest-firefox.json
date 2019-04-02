@@ -2,13 +2,13 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "5.3.0",
+    "version": "5.3.1",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "applications": {
         "gecko": {
             "id": "authenticator@mymindstorm",
-            "strict_min_version": "55.0"
+            "strict_min_version": "57.0"
         }
     },
     "icons": {
