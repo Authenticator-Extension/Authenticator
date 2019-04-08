@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator génère, dans votre navigateur, des codes d'authentification (TOTP) en deux étapes.",
+        "message": "Authenticator generates two-factor authentication codes in your browser.",
         "description": "Extension Description."
     },
     "added": {
