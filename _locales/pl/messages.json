@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generuje w przeglądarce kody dwustopniowego uwierzytelniania.",
+        "message": "Authenticator generuje w przeglądarce kody uwierzytelniania dwuskładnikowego.",
         "description": "Extension Description."
     },
     "added": {
