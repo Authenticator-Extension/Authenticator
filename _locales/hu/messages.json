@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "A Hitelesítő 2 lépcsős ellenőrző kódokat generál a böngészőben.",
         "description": "Extension Description."
     },
     "added": {
