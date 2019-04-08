@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autentificatorul genereaza codurile de verificare pentru al doilea pas in browser-ul dumneavoastra.",
+        "message": "Authenticator generates two-factor authentication codes in your browser.",
         "description": "Extension Description."
     },
     "added": {
