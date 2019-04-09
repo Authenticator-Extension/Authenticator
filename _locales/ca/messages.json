@@ -184,19 +184,19 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Atenció: totes les còpies de seguretat estan desencriptades. Voleu afegir un compte per a una altra aplicació? Passeu el ratolí per la cantonada superior-dreta de qualsevol compte i premeu el botó ocult.",
+        "message": "Atenció: les còpies de seguretat no estan xifrades. Voleu afegir un compte per a una altra aplicació? Passeu el ratolí per la cantonada superior dreta de qualsevol compte i premeu el botó ocult.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descarregar el fitxer de còpia de seguretat",
+        "message": "Descarrega còpia de seguretat",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importar una còpia de seguretat",
+        "message": "Importa còpia de seguretat",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importa un fitxer de còpia de seguretat",
+        "message": "Importa fitxer de còpia de seguretat",
         "description": "Import backup file."
     },
     "import_backup_code": {
