@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "アカウントのバックアップを保存していますか？ 忘れる前に今すぐ！",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -290,7 +290,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "使用できないアカウントが含まれています。暗号化されていないバックアップでは、標準のバックアップ形式を使用できません。",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
