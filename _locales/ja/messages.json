@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
         "description": "Extension Description."
     },
     "added": {
@@ -298,7 +298,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "詳細",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
