@@ -5,7 +5,7 @@ about: Report a bug in Authenticator
 ---
 
 <Do not use this to ask about lost codes or accounts>
-<More info here: https://github.com/Authenticator-Extension/Authenticator/wiki/Lost-Codes>
+<More info here: https://authenticator.cc/docs/en/lost-codes>
 
 **Describe the bug:** <Describe the issue with Authenticator> 
 

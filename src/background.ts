@@ -276,13 +276,10 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 
   if (navigator.userAgent.indexOf('Chrome') !== -1) {
     url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Chrome-Issues';
-  } else if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Firefox-Issues';
+        'https://authenticator.cc/docs/en/chrome-issues';
   } else if (navigator.userAgent.indexOf('Edge') !== -1) {
     url =
-        'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
+        'https://authenticator.cc/docs/en/edge-issues';
   }
 
   if (url) {
