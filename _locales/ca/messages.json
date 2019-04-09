@@ -224,11 +224,11 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Baixar còpia de seguretat protegida amb contrasenya",
+        "message": "Descarrega còpia de seguretat protegida per contrasenya",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Cercar",
+        "message": "Cerca",
         "description": "Search"
     },
     "popout": {
@@ -236,11 +236,11 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Bloquejar",
+        "message": "Bloqueja",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Editar",
+        "message": "Edita",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -248,7 +248,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Utilitzar l'auto-emplenament",
+        "message": "Utilitza l'emplenament automàtic",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
