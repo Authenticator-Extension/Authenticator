@@ -4,11 +4,11 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Авторизация",
+        "message": "Аутентификатор",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Аутентификатор генерирует коды двухфакторной аутентификации в вашем браузере.",
         "description": "Extension Description."
     },
     "added": {
