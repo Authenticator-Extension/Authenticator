@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator genera codis d'autenticació en dos passos al vostre navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -196,19 +196,19 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importar un fitxer de còpia de seguretat",
+        "message": "Importa un fitxer de còpia de seguretat",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importar còpia de seguretat com a text pla",
+        "message": "Importa còpia de seguretat com a text pla",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Mostrar totes les entrades",
+        "message": "Mostra totes les entrades",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Atenció: les còpies de seguretat estan desencriptades. Heu de considerar que hi ha molt de risc, però la decisió és vostra.",
+        "message": "Atenció: tingueu en consideració que les còpies de seguretat no estan xifrades.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -220,7 +220,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Eliminar",
+        "message": "Elimina",
         "description": "Remove password."
     },
     "download_enc_backup": {
