@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
         "description": "Extension Description."
     },
     "added": {
