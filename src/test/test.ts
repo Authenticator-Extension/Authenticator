@@ -300,19 +300,14 @@ async function test() {
       if (!iframe.contentWindow) {
         return;
       }
-      iframe.contentWindow.addEventListener(
-          'unhandledrejection', event => {
-            const rejectionEvent = event as PromiseRejectionEvent;
-            testRes[testCaseIndex] = {
-              pass: false,
-              error: rejectionEvent.reason
-            };
-          });
+      iframe.contentWindow.addEventListener('unhandledrejection', event => {
+        const rejectionEvent = event as PromiseRejectionEvent;
+        testRes[testCaseIndex] = {pass: false, error: rejectionEvent.reason};
+      });
 
-      iframe.contentWindow.onerror =
-          error => {
-            testRes[testCaseIndex] = {pass: false, error};
-          };
+      iframe.contentWindow.onerror = error => {
+        testRes[testCaseIndex] = {pass: false, error};
+      };
     };
   }
 
@@ -351,8 +346,7 @@ async function test() {
     showTestResult();
     testCaseIndex++;
 
-    if (document.getElementsByTagName('iframe') &&
-        iframe) {
+    if (document.getElementsByTagName('iframe') && iframe) {
       iframe.src = 'about:blank';
     }
 
