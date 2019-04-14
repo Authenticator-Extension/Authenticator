@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Nhận thực tạo ra mã số xác thực 2 yếu tố trong trình duyệt của bạn.",
         "description": "Extension Description."
     },
     "added": {
