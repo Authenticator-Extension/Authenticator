@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Cảnh báo: tất cả các bản sao lưu được mã hóa. Bạn muốn thêm một tài khoản cho một ứng dụng? Di chuột qua phần trên cùng bên phải của bất kỳ tài khoản và nhấn nút ẩn.",
+        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
         "description": "Export menu info text"
     },
     "download_backup": {
