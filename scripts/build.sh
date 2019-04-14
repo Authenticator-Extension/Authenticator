@@ -18,7 +18,7 @@ if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM !
 fi
 
 echo "Removing old build files..."
-rm -rf build
+rm -rf build dist
 rm -rf $PLATFORM
 echo "Checking code style..."
 if gts check 1> /dev/null ; then
@@ -50,13 +50,13 @@ mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension
   mkdir $PLATFORM/Assets
-  cp -r build css js _locales LICENSE view edge-files $PLATFORM/Extension
+  cp -r dist css js _locales LICENSE view edge-files $PLATFORM/Extension
   mv $PLATFORM/Extension/edge-files/AppXManifest.xml $PLATFORM
   mv $PLATFORM/Extension/edge-files/images $PLATFORM/Extension
   mv $PLATFORM/Extension/edge-files/Assets/icon*.png $PLATFORM/Assets
   cp manifest-$PLATFORM.json $PLATFORM/Extension/manifest.json
 else
-  cp -r build css images js _locales LICENSE view $PLATFORM
+  cp -r dist css images js _locales LICENSE view $PLATFORM
   cp manifest-$PLATFORM.json $PLATFORM/manifest.json
   if [[ $PLATFORM = "chrome" ]]; then
     cp schema-chrome.json $PLATFORM/schema.json
