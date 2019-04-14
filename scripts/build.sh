@@ -44,19 +44,19 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
 fi
 
 echo "Compiling..."
-./node_modules/typescript/bin/tsc -p .
+webpack
 ./node_modules/sass/sass.js sass:css
 mkdir $PLATFORM
 if [[ $PLATFORM = "edge" ]]; then
   mkdir $PLATFORM/Extension
   mkdir $PLATFORM/Assets
-  cp -r dist css js _locales LICENSE view edge-files $PLATFORM/Extension
+  cp -r dist css _locales LICENSE view edge-files $PLATFORM/Extension
   mv $PLATFORM/Extension/edge-files/AppXManifest.xml $PLATFORM
   mv $PLATFORM/Extension/edge-files/images $PLATFORM/Extension
   mv $PLATFORM/Extension/edge-files/Assets/icon*.png $PLATFORM/Assets
   cp manifest-$PLATFORM.json $PLATFORM/Extension/manifest.json
 else
-  cp -r dist css images js _locales LICENSE view $PLATFORM
+  cp -r dist css images _locales LICENSE view $PLATFORM
   cp manifest-$PLATFORM.json $PLATFORM/manifest.json
   if [[ $PLATFORM = "chrome" ]]; then
     cp schema-chrome.json $PLATFORM/schema.json

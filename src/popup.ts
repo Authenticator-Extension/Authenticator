@@ -1,16 +1,14 @@
-/* tslint:disable:no-reference */
-/// <reference path="./ui/i18n.ts" />
-/// <reference path="./ui/menu.ts" />
-/// <reference path="./ui/info.ts" />
-/// <reference path="./ui/passphrase.ts" />
-/// <reference path="./ui/entry.ts" />
-/// <reference path="./ui/qr.ts" />
-/// <reference path="./ui/message.ts" />
-/// <reference path="./ui/add-account.ts" />
-/// <reference path="./ui/backup.ts" />
-/// <reference path="./ui/class.ts" />
-/// <reference path="./ui/ui.ts" />
-/// <reference path="./models/backup.ts" />
+import {addAccount} from './ui/add-account';
+import {backup} from './ui/backup';
+import {className} from './ui/class';
+import {entry} from './ui/entry';
+import {i18n} from './ui/i18n';
+import {info} from './ui/info';
+import {menu, syncTimeWithGoogle} from './ui/menu';
+import {message} from './ui/message';
+import {passphrase} from './ui/passphrase';
+import {qr} from './ui/qr';
+import {UI} from './ui/ui';
 
 async function init() {
   const ui = new UI({el: '#authenticator'});

@@ -1,9 +1,10 @@
-/* tslint:disable:no-reference */
-/// <reference path="../js/jsqrcode/index.d.ts" />
-/// <reference path="./models/encryption.ts" />
-/// <reference path="./models/interface.ts" />
-/// <reference path="./models/storage.ts" />
-/// <reference path="./models/credentials.ts" />
+import * as CryptoJS from 'crypto-js';
+import {QRCode} from 'qrcode-reader';
+
+import {getCredentials} from './models/credentials';
+import {Encryption} from './models/encryption';
+import {OTPStorage} from './models/interface';
+import {EntryStorage, ManagedStorage} from './models/storage';
 
 let cachedPassphrase = '';
 
@@ -49,10 +50,10 @@ function getQr(
           width * devicePixelRatio, height * devicePixelRatio, 0, 0,
           width * devicePixelRatio, height * devicePixelRatio);
       const url = captureCanvas.toDataURL();
-      qrcode.callback = (text) => {
+      QRCode.callback = (text: string) => {
         getTotp(text);
       };
-      qrcode.decode(url);
+      QRCode.decode(url);
     };
   });
 }

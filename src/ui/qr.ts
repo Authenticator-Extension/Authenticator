@@ -1,9 +1,10 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {OTPType, UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
+
+import {UI} from './ui';
 
 /* tslint:disable-next-line:no-any */
-declare var QRCode: any;
+export declare var QRCode: any;
 
 async function getQrUrl(entry: OTPEntry) {
   return new Promise(
@@ -38,7 +39,7 @@ async function getQrUrl(entry: OTPEntry) {
       });
 }
 
-async function qr(_ui: UI) {
+export async function qr(_ui: UI) {
   const ui: UIConfig = {
     data: {qr: ''},
     methods: {

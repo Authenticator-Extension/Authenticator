@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     background: './src/background.ts',
     content: './src/content.ts',
-    popup: ['./src/popup.ts'],
+    popup: './src/popup.ts',
     qrdebug: './src/qrdebug.ts'
   },
   module: {
@@ -15,11 +15,15 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.html$/,
+        loader: 'vue-template-loader'
       }
     ]
   },
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ]
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
   output: {
     filename: "[name].js",

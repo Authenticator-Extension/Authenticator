@@ -1,9 +1,10 @@
-/* tslint:disable:no-reference */
-/// <reference path="./encryption.ts" />
-/// <reference path="./interface.ts" />
-/// <reference path="./otp.ts" />
+import * as CryptoJS from 'crypto-js';
 
-class BrowserStorage {
+import {Encryption} from './encryption';
+import {OTPStorage, OTPType} from './interface';
+import {OTPEntry} from './otp';
+
+export class BrowserStorage {
   private static async getStorageLocation() {
     const managedLocation = await ManagedStorage.get('storageArea');
     if (managedLocation === 'sync' || managedLocation === 'local') {
@@ -89,7 +90,7 @@ class BrowserStorage {
   }
 }
 
-class EntryStorage {
+export class EntryStorage {
   private static getOTPStorageFromEntry(
       encryption: Encryption, entry: OTPEntry): OTPStorage {
     const storageItem: OTPStorage = {
@@ -529,7 +530,7 @@ class EntryStorage {
   }
 }
 
-class ManagedStorage {
+export class ManagedStorage {
   static get(key: string) {
     return new Promise((resolve: (result: boolean|string) => void) => {
       chrome.storage.managed.get((data) => {

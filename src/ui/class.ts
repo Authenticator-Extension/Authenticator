@@ -1,8 +1,8 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {UIConfig} from '../models/interface';
 
-async function className(_ui: UI) {
+import {UI} from './ui';
+
+export async function className(_ui: UI) {
   const ui: UIConfig = {
     data: {
       class: {

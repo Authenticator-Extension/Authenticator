@@ -1,8 +1,9 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
 
-async function info(_ui: UI) {
+import {UI} from './ui';
+
+export async function info(_ui: UI) {
   const ui: UIConfig = {
     data: {info: ''},
     methods: {

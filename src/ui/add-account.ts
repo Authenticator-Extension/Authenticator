@@ -1,8 +1,9 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {OTPType, UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
 
-async function insertContentScript() {
+import {UI} from './ui';
+
+export async function insertContentScript() {
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
     try {
       return chrome.tabs.executeScript({file: '/build/content.js'}, () => {
@@ -14,7 +15,7 @@ async function insertContentScript() {
   });
 }
 
-async function addAccount(_ui: UI) {
+export async function addAccount(_ui: UI) {
   const ui: UIConfig = {
     data: {
       newAccount: {show: false, account: '', secret: '', type: OTPType.totp},

@@ -1,7 +1,6 @@
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
+import * as CryptoJS from 'crypto-js';
 
-class Encryption {
+export class Encryption {
   private password: string;
 
   constructor(password: string) {

@@ -1,10 +1,11 @@
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
-/// <reference path="./encryption.ts" />
-/// <reference path="./interface.ts" />
-/// <reference path="./key-utilities.ts" />
+import * as CryptoJS from 'crypto-js';
 
-class OTPEntry implements OTP {
+import {Encryption} from './encryption';
+import {OTP, OTPType} from './interface';
+import {KeyUtilities} from './key-utilities';
+import {EntryStorage} from './storage';
+
+export class OTPEntry implements OTP {
   type: OTPType;
   index: number;
   issuer: string;

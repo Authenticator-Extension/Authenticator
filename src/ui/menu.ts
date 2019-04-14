@@ -1,13 +1,13 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="../models/backup.ts" />
-/// <reference path="./ui.ts" />
+import {UIConfig} from '../models/interface';
+import {ManagedStorage} from '../models/storage';
+
+import {UI} from './ui';
 
 function getVersion() {
   return chrome.runtime.getManifest().version;
 }
 
-async function syncTimeWithGoogle() {
+export async function syncTimeWithGoogle() {
   return new Promise(
       (resolve: (value: string) => void, reject: (reason: Error) => void) => {
         try {
@@ -84,7 +84,7 @@ ManagedStorage.get('storageArea').then((value) => {
   storageArea = value;
 });
 
-async function menu(_ui: UI) {
+export async function menu(_ui: UI) {
   const version = getVersion();
   const zoom = Number(localStorage.zoom) || 100;
   resize(zoom);

@@ -1,12 +1,12 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {UIConfig} from '../models/interface';
+
+import {UI} from './ui';
 
 function isCustomEvent(event: Event): event is CustomEvent {
   return 'detail' in event;
 }
 
-async function message(_ui: UI) {
+export async function message(_ui: UI) {
   const ui: UIConfig = {
     data: {message: [], messageIdle: true, confirmMessage: ''},
     methods: {

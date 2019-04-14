@@ -1,9 +1,12 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/encryption.ts" />
-/// <reference path="../models/interface.ts" />
-/// <reference path="../models/storage.ts" />
-/// <reference path="./ui.ts" />
-/// <reference path="./add-account.ts" />
+import * as CryptoJS from 'crypto-js';
+
+import {Encryption} from '../models/encryption';
+import {OTP, OTPStorage, OTPType, UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
+import {EntryStorage} from '../models/storage';
+
+import {insertContentScript} from './add-account';
+import {UI} from './ui';
 
 async function getEntries(encryption: Encryption) {
   const otpEntries: OTPEntry[] = await EntryStorage.get(encryption);
@@ -101,7 +104,7 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
-async function getSiteName() {
+export async function getSiteName() {
   return new Promise(
       (resolve: (value: Array<string|null>) => void,
        reject: (reason: Error) => void) => {
@@ -163,7 +166,8 @@ async function getSiteName() {
       });
 }
 
-function hasMatchedEntry(siteName: Array<string|null>, entries: OTPEntry[]) {
+export function hasMatchedEntry(
+    siteName: Array<string|null>, entries: OTPEntry[]) {
   if (siteName.length < 2) {
     return false;
   }
@@ -324,7 +328,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
   return exportData;
 }
 
-async function entry(_ui: UI) {
+export async function entry(_ui: UI) {
   const cachedPassphrase = await getCachedPassphrase();
   const encryption: Encryption = new Encryption(cachedPassphrase);
   let shouldShowPassphrase =

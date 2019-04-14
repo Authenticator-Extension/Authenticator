@@ -1,4 +1,6 @@
-// Type definitions for jsqrcode 1.0
+// This has been modified for qrcode-reader NPM module
+
+// Type definitions for non-npm package jsqrcode 1.0
 // Project: https://github.com/LazarSoft/jsqrcode
 // Definitions by: Ricardo Azzi Silva <https://github.com/lordazzi>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -470,31 +472,33 @@ declare class Version {
 	getECBlocksForLevel(ecLevel: ErrorCorrectionLevel): ECBlocks;
 }
 
-declare const qrcode: {
-	imagedata: ImageData,
-	width: number,
-	height: number,
-	qrCodeSymbol: any,
-	debug: boolean,
-	maxImgSize: number,
-	readonly sizeOfDataLengthInfo: [[10, 9, 8, 8], [12, 11, 16, 10], [14, 13, 16, 12]],
-
-	// tslint:disable-next-line:prefer-method-signature
-	callback: (result: string) => void,
-
-	orderBestPatterns(patterns: AlignmentPattern[]): void,
-
-	vidError(error?: any): void,
-	captureToCanvas(): void,
-	setWebcam(videoId: string): void,
-	decode(src?: string): void,
-	isUrl(s: string): boolean,
-	decode_url(s: string): string,
-	decode_utf8(s: string): string,
-	process(ctx: CanvasRenderingContext2D): string,
-	getPixel(x: number, y: number): number,
-	binarize(th: number): boolean[],
-	getMiddleBrightnessPerArea(image: number[]): number[][],
-	grayScaleToBitmap(grayScale: number[]): Uint8Array,
-	grayscale(): Uint8Array
-};
+declare module "qrcode-reader" {
+    export const QRCode: {
+        imagedata: ImageData,
+        width: number,
+        height: number,
+        qrCodeSymbol: any,
+        debug: boolean,
+        maxImgSize: number,
+        readonly sizeOfDataLengthInfo: [[10, 9, 8, 8], [12, 11, 16, 10], [14, 13, 16, 12]],
+    
+        // tslint:disable-next-line:prefer-method-signature
+        callback: (result: string) => void,
+    
+        orderBestPatterns(patterns: AlignmentPattern[]): void,
+    
+        vidError(error?: any): void,
+        captureToCanvas(): void,
+        setWebcam(videoId: string): void,
+        decode(src?: string): void,
+        isUrl(s: string): boolean,
+        decode_url(s: string): string,
+        decode_utf8(s: string): string,
+        process(ctx: CanvasRenderingContext2D): string,
+        getPixel(x: number, y: number): number,
+        binarize(th: number): boolean[],
+        getMiddleBrightnessPerArea(image: number[]): number[][],
+        grayScaleToBitmap(grayScale: number[]): Uint8Array,
+        grayscale(): Uint8Array
+    };
+}

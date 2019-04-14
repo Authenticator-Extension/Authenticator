@@ -1,15 +1,10 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
+import Vue from 'vue';
+// @ts-ignore
+import {Vue2Dragula} from 'vue2-dragula';
+import {UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
 
-// need to find a better way to handle Vue types without modules
-// we use vue 1.0 here to solve csp issues
-/* tslint:disable-next-line:no-any */
-declare var Vue: any;
-
-/* tslint:disable-next-line:no-any */
-declare var vueDragula: any;
-
-class UI {
+export class UI {
   private ui: UIConfig;
   private modules: Array<(ui: UI) => void> = [];
   // Vue instance
@@ -45,8 +40,9 @@ class UI {
     for (let i = 0; i < this.modules.length; i++) {
       await this.modules[i](this);
     }
-    Vue.use(vueDragula);
+    Vue.use(Vue2Dragula);
     this.ui.ready = () => {
+      // @ts-ignore
       Vue.vueDragula.eventBus.$on('drop', async () => {
         // wait for this.instance.entries sync from dom
         setTimeout(async () => {

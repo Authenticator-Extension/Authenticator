@@ -1,8 +1,9 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {Drive, Dropbox} from '../models/backup';
+import {UIConfig} from '../models/interface';
 
-async function backup(_ui: UI) {
+import {UI} from './ui';
+
+export async function backup(_ui: UI) {
   const ui: UIConfig = {
     data: {
       dropboxEncrypted: localStorage.dropboxEncrypted,
