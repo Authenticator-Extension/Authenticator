@@ -211,7 +211,7 @@ const cases: TestCase[] = [
 ];
 
 let testCaseIndex = 0;
-let testRes: Array<{pass: boolean, error: string}> = [];
+let testRes: Array<{pass: boolean, error: string | Event}> = [];
 let testResData: string[] = [];
 
 function testStart() {
@@ -291,13 +291,16 @@ async function test() {
     await set(cases[Math.floor(testCaseIndex / 2)].data);
   }
 
-  if (document.getElementsByTagName('iframe') &&
-      document.getElementsByTagName('iframe')[0]) {
+  const iframe = document.getElementsByTagName('iframe')[0];
+  if (iframe) {
     testRes[testCaseIndex] = {pass: true, error: ''};
 
-    document.getElementsByTagName('iframe')[0].src = 'popup.html';
-    document.getElementsByTagName('iframe')[0].onload = () => {
-      document.getElementsByTagName('iframe')[0].contentWindow.addEventListener(
+    iframe.src = 'popup.html';
+    iframe.onload = () => {
+      if (!iframe.contentWindow) {
+        return;
+      }
+      iframe.contentWindow.addEventListener(
           'unhandledrejection', event => {
             const rejectionEvent = event as PromiseRejectionEvent;
             testRes[testCaseIndex] = {
@@ -306,7 +309,7 @@ async function test() {
             };
           });
 
-      document.getElementsByTagName('iframe')[0].contentWindow.onerror =
+      iframe.contentWindow.onerror =
           error => {
             testRes[testCaseIndex] = {pass: false, error};
           };
@@ -349,8 +352,8 @@ async function test() {
     testCaseIndex++;
 
     if (document.getElementsByTagName('iframe') &&
-        document.getElementsByTagName('iframe')[0]) {
-      document.getElementsByTagName('iframe')[0].src = 'about:blank';
+        iframe) {
+      iframe.src = 'about:blank';
     }
 
     await test();

@@ -31,10 +31,10 @@
     "@types/chrome": "^0.0.59",
     "@types/crypto-js": "^3.1.38",
     "@types/jssha": "0.0.29",
-    "fs-extra": "^5.0.0",
     "gts": "^0.8.0",
     "sass": "^1.16.1",
-    "typescript": "^2.6.1"
+    "ts-loader": "^5.3.3",
+    "typescript": "^2.9.2"
   },
   "dependencies": {}
 }
