@@ -1,3 +1,6 @@
+// @ts-ignore
+import Authenticator from '../view/authenticator';
+
 import {addAccount} from './ui/add-account';
 import {backup} from './ui/backup';
 import {className} from './ui/class';
@@ -11,7 +14,7 @@ import {qr} from './ui/qr';
 import {UI} from './ui/ui';
 
 async function init() {
-  const ui = new UI({el: '#authenticator'});
+  const ui = new UI({el: '#authenticator', render: h => h(Authenticator)});
 
   const authenticator = await ui.load(className)
                             .load(i18n)

@@ -111,15 +111,15 @@ export async function menu(_ui: UI) {
         return;
       },
       showMenu: () => {
-        _ui.instance.class.slidein = true;
-        _ui.instance.class.slideout = false;
+        _ui.instance.currentClass.slidein = true;
+        _ui.instance.currentClass.slideout = false;
         return;
       },
       closeMenu: () => {
-        _ui.instance.class.slidein = false;
-        _ui.instance.class.slideout = true;
+        _ui.instance.currentClass.slidein = false;
+        _ui.instance.currentClass.slideout = true;
         setTimeout(() => {
-          _ui.instance.class.slideout = false;
+          _ui.instance.currentClass.slideout = false;
         }, 200);
         return;
       },

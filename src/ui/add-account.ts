@@ -57,7 +57,7 @@ export async function addAccount(_ui: UI) {
         _ui.instance.secret = '';
         _ui.instance.newAccount.show = false;
         _ui.instance.closeInfo();
-        _ui.instance.class.edit = false;
+        _ui.instance.currentClass.edit = false;
 
         const codes = document.getElementById('codes');
         if (codes) {

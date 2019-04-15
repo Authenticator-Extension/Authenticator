@@ -50,15 +50,15 @@ export async function qr(_ui: UI) {
       showQr: async (entry: OTPEntry) => {
         const qrUrl = await getQrUrl(entry);
         _ui.instance.qr = `url(${qrUrl})`;
-        _ui.instance.class.qrfadein = true;
-        _ui.instance.class.qrfadeout = false;
+        _ui.instance.currentClass.qrfadein = true;
+        _ui.instance.currentClass.qrfadeout = false;
         return;
       },
       hideQr: () => {
-        _ui.instance.class.qrfadein = false;
-        _ui.instance.class.qrfadeout = true;
+        _ui.instance.currentClass.qrfadein = false;
+        _ui.instance.currentClass.qrfadeout = true;
         setTimeout(() => {
-          _ui.instance.class.qrfadeout = false;
+          _ui.instance.currentClass.qrfadeout = false;
         }, 200);
         return;
       }

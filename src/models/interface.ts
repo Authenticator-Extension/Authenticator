@@ -55,4 +55,7 @@ export interface UIConfig {
   };
   /* tslint:disable-next-line:no-any */
   ready?: (...arg: any[]) => any;
+  /* tslint:disable-next-line:no-any */
+  render?: (h: any) => any;
+  /* tslint:disable-next-line:no-any */
 }

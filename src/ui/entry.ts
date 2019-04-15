@@ -622,35 +622,36 @@ export async function entry(_ui: UI) {
         return;
       },
       editEntry: () => {
-        _ui.instance.class.edit = !_ui.instance.class.edit;
+        _ui.instance.currentClass.edit = !_ui.instance.currentClass.edit;
         if (_ui.instance.filter) {
           _ui.instance.filter = false;
         }
-        if (!_ui.instance.class.edit) {
+        if (!_ui.instance.currentClass.edit) {
           _ui.instance.updateEntries();
         }
         const codes = document.getElementById('codes');
         if (codes) {
           // wait vue apply changes to dom
           setTimeout(() => {
-            codes.scrollTop = _ui.instance.class.edit ? codes.scrollHeight : 0;
+            codes.scrollTop =
+                _ui.instance.currentClass.edit ? codes.scrollHeight : 0;
           }, 0);
         }
         return;
       },
       nextCode: async (entry: OTPEntry) => {
-        if (_ui.instance.class.Diabled) {
+        if (_ui.instance.currentClass.Diabled) {
           return;
         }
-        _ui.instance.class.hotpDiabled = true;
+        _ui.instance.currentClass.hotpDiabled = true;
         await entry.next(_ui.instance.encryption);
         setTimeout(() => {
-          _ui.instance.class.hotpDiabled = false;
+          _ui.instance.currentClass.hotpDiabled = false;
         }, 3000);
         return;
       },
       copyCode: async (entry: OTPEntry) => {
-        if (_ui.instance.class.edit || entry.code === 'Invalid' ||
+        if (_ui.instance.currentClass.edit || entry.code === 'Invalid' ||
             entry.code.startsWith('&bull;')) {
           return;
         }
@@ -688,13 +689,13 @@ export async function entry(_ui: UI) {
           document.execCommand('Copy');
           _ui.instance.notification = _ui.instance.i18n.copied;
           clearTimeout(_ui.instance.notificationTimeout);
-          _ui.instance.class.notificationFadein = true;
-          _ui.instance.class.notificationFadeout = false;
+          _ui.instance.currentClass.notificationFadein = true;
+          _ui.instance.currentClass.notificationFadeout = false;
           _ui.instance.notificationTimeout = setTimeout(() => {
-            _ui.instance.class.notificationFadein = false;
-            _ui.instance.class.notificationFadeout = true;
+            _ui.instance.currentClass.notificationFadein = false;
+            _ui.instance.currentClass.notificationFadeout = true;
             setTimeout(() => {
-              _ui.instance.class.notificationFadeout = false;
+              _ui.instance.currentClass.notificationFadeout = false;
             }, 200);
           }, 1000);
         } else {
@@ -729,13 +730,13 @@ export async function entry(_ui: UI) {
                   document.execCommand('Copy');
                   _ui.instance.notification = _ui.instance.i18n.copied;
                   clearTimeout(_ui.instance.notificationTimeout);
-                  _ui.instance.class.notificationFadein = true;
-                  _ui.instance.class.notificationFadeout = false;
+                  _ui.instance.currentClass.notificationFadein = true;
+                  _ui.instance.currentClass.notificationFadeout = false;
                   _ui.instance.notificationTimeout = setTimeout(() => {
-                    _ui.instance.class.notificationFadein = false;
-                    _ui.instance.class.notificationFadeout = true;
+                    _ui.instance.currentClass.notificationFadein = false;
+                    _ui.instance.currentClass.notificationFadeout = true;
                     setTimeout(() => {
-                      _ui.instance.class.notificationFadeout = false;
+                      _ui.instance.currentClass.notificationFadeout = false;
                     }, 200);
                   }, 1000);
                 }

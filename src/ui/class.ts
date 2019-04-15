@@ -5,7 +5,7 @@ import {UI} from './ui';
 export async function className(_ui: UI) {
   const ui: UIConfig = {
     data: {
-      class: {
+      currentClass: {
         timeout: false,
         edit: false,
         slidein: false,

@@ -30,8 +30,8 @@ export async function info(_ui: UI) {
           chrome.permissions.request(
               {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
                 if (granted) {
-                  _ui.instance.class.fadein = true;
-                  _ui.instance.class.fadeout = false;
+                  _ui.instance.currentClass.fadein = true;
+                  _ui.instance.currentClass.fadeout = false;
                   _ui.instance.info = tab;
                 }
                 return;
@@ -52,8 +52,8 @@ export async function info(_ui: UI) {
               },
               async (granted) => {
                 if (granted) {
-                  _ui.instance.class.fadein = true;
-                  _ui.instance.class.fadeout = false;
+                  _ui.instance.currentClass.fadein = true;
+                  _ui.instance.currentClass.fadeout = false;
                   _ui.instance.info = tab;
                 }
                 return;
@@ -66,16 +66,16 @@ export async function info(_ui: UI) {
           }
         }
 
-        _ui.instance.class.fadein = true;
-        _ui.instance.class.fadeout = false;
+        _ui.instance.currentClass.fadein = true;
+        _ui.instance.currentClass.fadeout = false;
         _ui.instance.info = tab;
         return;
       },
       closeInfo: () => {
-        _ui.instance.class.fadein = false;
-        _ui.instance.class.fadeout = true;
+        _ui.instance.currentClass.fadein = false;
+        _ui.instance.currentClass.fadeout = true;
         setTimeout(() => {
-          _ui.instance.class.fadeout = false;
+          _ui.instance.currentClass.fadeout = false;
           _ui.instance.info = '';
           _ui.instance.newAccount.show = false;
         }, 200);

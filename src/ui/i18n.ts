@@ -36,3 +36,7 @@ export async function i18n(_ui: UI) {
 
   _ui.update(ui);
 }
+
+export async function ri18n() {
+  return await loadI18nMessages();
+}

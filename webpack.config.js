@@ -1,4 +1,5 @@
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   mode: 'development',
@@ -17,16 +18,22 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.html$/,
-        loader: 'vue-template-loader'
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   resolve: {
-    extensions: [ '.tsx', '.ts', '.js' ],
+    extensions: ['.vue', '.tsx', '.ts', '.js'],
   },
   output: {
-    filename: "[name].js",
     path: path.resolve(__dirname, 'dist')
   }
 };
