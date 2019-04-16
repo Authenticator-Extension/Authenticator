@@ -393,7 +393,8 @@ export async function entry(_ui: UI) {
       importEncrypted: false,
       importPassphrase: '',
       importFilePassphrase: '',
-      unsupportedAccounts
+      unsupportedAccounts,
+      searchText: ''
     },
     methods: {
       isMatchedEntry: (entry: OTPEntry) => {
