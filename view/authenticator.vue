@@ -255,11 +255,4 @@
     <input type="text" id="codeClipboard" />
 </div>
 </template>
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({
-  name: 'Authenticator'
-})
-</script>
 

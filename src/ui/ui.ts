@@ -1,8 +1,13 @@
 import Vue from 'vue';
 // @ts-ignore
 import {Vue2Dragula} from 'vue2-dragula';
+
+// @ts-ignore
+import Authenticator from '../../view/authenticator';
 import {UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
+
+const app = Vue.extend(Authenticator);
 
 export class UI {
   private ui: UIConfig;
@@ -64,7 +69,7 @@ export class UI {
       });
     };
 
-    this.instance = new Vue(this.ui);
+    this.instance = new app(this.ui);
 
     // wait for all modules loaded
     setTimeout(() => {
