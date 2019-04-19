@@ -15,7 +15,7 @@
     font-family: arial, 'Microsoft YaHei';
 }
 
-#authenticator {
+#import {
     width: 600px;
     position: relative;
     margin: 0 auto;

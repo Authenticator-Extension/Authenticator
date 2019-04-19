@@ -9,9 +9,11 @@ import {message} from './ui/message';
 import {passphrase} from './ui/passphrase';
 import {qr} from './ui/qr';
 import {UI} from './ui/ui';
+// @ts-ignore
+import Authenticator from './view/popup';
 
 async function init() {
-  const ui = new UI({el: '#authenticator'});
+  const ui = new UI(Authenticator, {el: '#authenticator'});
 
   const authenticator = await ui.load(className)
                             .load(i18n)
