@@ -15,6 +15,10 @@
     font-family: arial, 'Microsoft YaHei';
 }
 
+p {
+    font-size: 16px;
+}
+
 #authenticator {
     width: 600px;
     position: relative;
