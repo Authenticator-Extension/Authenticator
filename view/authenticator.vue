@@ -15,7 +15,7 @@
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <div class="under-header" id="search">
           <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" v-bind:placeholder="i18n.search" type="text">
-          <div id="searchHint" v-if="typeof searchText !== 'string'">
+          <div id="searchHint" v-if="searchText === ''">
             <div></div>
             <div id="searchHintBorder">/</div>
             <div></div>

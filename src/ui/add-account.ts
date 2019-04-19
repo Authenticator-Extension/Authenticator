@@ -6,7 +6,7 @@ import {UI} from './ui';
 export async function insertContentScript() {
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
     try {
-      return chrome.tabs.executeScript({file: '/build/content.js'}, () => {
+      return chrome.tabs.executeScript({file: '/dist/content.js'}, () => {
         chrome.tabs.insertCSS({file: '/css/content.css'}, resolve);
       });
     } catch (error) {

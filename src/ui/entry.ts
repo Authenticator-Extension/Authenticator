@@ -426,6 +426,10 @@ export async function entry(_ui: UI) {
         }
       },
       isSearchedEntry: (entry: OTPEntry) => {
+        // This gets called before _ui.instance exists sometimes
+        if (!_ui.instance) {
+          return true;
+        }
         if (_ui.instance.searchText === '') {
           return true;
         }
