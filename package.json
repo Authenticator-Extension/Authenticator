@@ -34,7 +34,6 @@
     "css-loader": "^2.1.1",
     "gts": "^0.8.0",
     "sass": "^1.16.1",
-    "svg-inline-loader": "^0.8.0",
     "ts-loader": "^5.3.3",
     "typescript": "^2.9.2",
     "vue-loader": "^15.7.0",
