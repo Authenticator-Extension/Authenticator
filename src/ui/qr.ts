@@ -1,10 +1,9 @@
+import * as QRGen from 'qrcode-generator';
+
 import {OTPType, UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
 
 import {UI} from './ui';
-
-/* tslint:disable-next-line:no-any */
-export declare var QRCode: any;
 
 async function getQrUrl(entry: OTPEntry) {
   return new Promise(
@@ -24,17 +23,10 @@ async function getQrUrl(entry: OTPEntry) {
             (entry.type === OTPType.totp && entry.period ?
                  ('&period=' + entry.period) :
                  '');
-        /* tslint:disable-next-line:no-unused-expression */
-        new QRCode(
-            'qr', {
-              text: otpauth,
-              width: 128,
-              height: 128,
-              colorDark: '#000000',
-              colorLight: '#ffffff',
-              correctLevel: QRCode.CorrectLevel.L
-            },
-            resolve);
+        const qr = QRGen(0, 'L');
+        qr.addData(otpauth);
+        qr.make();
+        resolve(qr.createDataURL(5));
         return;
       });
 }

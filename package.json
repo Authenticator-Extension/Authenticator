@@ -44,6 +44,7 @@
   "dependencies": {
     "crypto-js": "^3.1.9-1",
     "jssha": "^2.3.1",
+    "qrcode-generator": "^1.4.3",
     "qrcode-reader": "^1.0.4",
     "vue": "^2.6.10",
     "vue2-dragula": "^2.5.4"
