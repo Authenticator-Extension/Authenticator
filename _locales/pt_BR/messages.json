@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Página de pop-up",
+        "message": "Preferences",
         "description": "Popup Page Settings"
     },
     "scale": {
