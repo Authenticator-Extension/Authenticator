@@ -54,7 +54,9 @@ export interface UIConfig {
     [name: string]: (...arg: any[]) => any
   };
   /* tslint:disable-next-line:no-any */
-  ready?: (...arg: any[]) => any;
+  mounted?: (...arg: any[]) => any;
+  /* tslint:disable-next-line:no-any */
+  beforeCreate?: (...arg: any[]) => any;
   /* tslint:disable-next-line:no-any */
   render?: (h: any) => any;
   /* tslint:disable-next-line:no-any */

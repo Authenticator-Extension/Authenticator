@@ -45,7 +45,7 @@ export class UI {
       await this.modules[i](this);
     }
     Vue.use(Vue2Dragula);
-    this.ui.ready = () => {
+    this.ui.mounted = () => {
       // @ts-ignore
       Vue.$dragula.$service.eventBus.$on('drop', async () => {
         // wait for this.instance.entries sync from dom
