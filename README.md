@@ -9,12 +9,10 @@
 ## Build Setup
 
 ``` bash
-# install typescript and gts
-npm install -g typescript gts
+# install gts globally
+npm install -g gts
 # install development dependencies
 npm install
-# fix code style issues
-gts fix
 # compile
 npm run [chrome, firefox, edge]
 ```
