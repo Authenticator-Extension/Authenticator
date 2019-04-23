@@ -54,15 +54,12 @@ function resize(zoom: number) {
 }
 
 async function openHelp() {
-  let url =
-      'https://authenticator.cc/docs/en/chrome-issues';
+  let url = 'https://authenticator.cc/docs/en/chrome-issues';
 
   if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    url =
-        'https://authenticator.cc/docs/en/firefox-issues';
+    url = 'https://authenticator.cc/docs/en/firefox-issues';
   } else if (navigator.userAgent.indexOf('Edge') !== -1) {
-    url =
-        'https://authenticator.cc/docs/en/edge-issues';
+    url = 'https://authenticator.cc/docs/en/edge-issues';
   }
 
   const feedbackURL = await ManagedStorage.get('feedbackURL');

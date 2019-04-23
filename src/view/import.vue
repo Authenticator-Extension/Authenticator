@@ -9,7 +9,7 @@
             </div>
             <div>
                 <p id="import_info">{{ i18n.otp_backup_inform }} <a
-                        href="https://github.com/Authenticator-Extension/Authenticator/wiki/Standard-OTP-Backup-Format"
+                        href="https://authenticator.cc/docs/en/otp-backup"
                         target="_blank"> {{ i18n.otp_backup_learn }}</a></p>
             </div>
             <div v-show="importType === 'import_file'">

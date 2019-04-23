@@ -62,8 +62,14 @@ function getQr(
       }) => {
         if (error) {
           console.error(error);
+          const id = contentTab.id;
+          if (!id) {
+            return;
+          }
+          chrome.tabs.sendMessage(id, {action: 'errorqr'});
+        } else {
+          getTotp(text.result);
         }
-        getTotp(text.result);
       };
       qrReader.decode(url);
     };
@@ -288,11 +294,9 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   let url: string|null = null;
 
   if (navigator.userAgent.indexOf('Chrome') !== -1) {
-    url =
-        'https://authenticator.cc/docs/en/chrome-issues';
+    url = 'https://authenticator.cc/docs/en/chrome-issues';
   } else if (navigator.userAgent.indexOf('Edge') !== -1) {
-    url =
-        'https://authenticator.cc/docs/en/edge-issues';
+    url = 'https://authenticator.cc/docs/en/edge-issues';
   }
 
   if (url) {

@@ -43,7 +43,7 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
     echo
 fi
 
-echo "Compiling..."+
+echo "Compiling..."
 if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 else
