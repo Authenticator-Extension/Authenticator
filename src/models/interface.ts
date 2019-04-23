@@ -1,7 +1,6 @@
-/* tslint:disable:no-reference */
-/// <reference path="./encryption.ts" />
+import {Encryption} from './encryption';
 
-enum OTPType {
+export enum OTPType {
   totp = 1,
   hotp,
   battle,
@@ -10,7 +9,7 @@ enum OTPType {
   hhex
 }
 
-interface OTP {
+export interface OTP {
   type: OTPType;
   index: number;
   issuer: string;
@@ -27,7 +26,7 @@ interface OTP {
   generate(): void;
 }
 
-interface OTPStorage {
+export interface OTPStorage {
   account: string;
   encrypted: boolean;
   hash: string;
@@ -40,11 +39,11 @@ interface OTPStorage {
 }
 
 /* tslint:disable-next-line:interface-name */
-interface I18nMessage {
+export interface I18nMessage {
   [key: string]: {message: string, description: string};
 }
 
-interface UIConfig {
+export interface UIConfig {
   el?: string;
   data?: {
     /* tslint:disable-next-line:no-any */
@@ -55,5 +54,10 @@ interface UIConfig {
     [name: string]: (...arg: any[]) => any
   };
   /* tslint:disable-next-line:no-any */
-  ready?: (...arg: any[]) => any;
+  mounted?: (...arg: any[]) => any;
+  /* tslint:disable-next-line:no-any */
+  beforeCreate?: (...arg: any[]) => any;
+  /* tslint:disable-next-line:no-any */
+  render?: (h: any) => any;
+  /* tslint:disable-next-line:no-any */
 }

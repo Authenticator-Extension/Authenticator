@@ -1,14 +1,14 @@
+import * as jsSHA from 'jssha';
+
+import {OTPType} from './interface';
+
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
 // http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/jssha/index.d.ts" />
-/// <reference path="./interface.ts" />
-
-class KeyUtilities {
+export class KeyUtilities {
   private static dec2hex(s: number): string {
     return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
   }

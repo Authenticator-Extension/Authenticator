@@ -1,8 +1,8 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {I18nMessage, UIConfig} from '../models/interface';
 
-async function loadI18nMessages() {
+import {UI} from './ui';
+
+export async function loadI18nMessages() {
   return new Promise(
       (resolve: (value: {[key: string]: string}) => void,
        reject: (reason: Error) => void) => {
@@ -29,10 +29,14 @@ async function loadI18nMessages() {
       });
 }
 
-async function i18n(_ui: UI) {
+export async function i18n(_ui: UI) {
   const i18n = await loadI18nMessages();
 
   const ui: UIConfig = {data: {i18n}};
 
   _ui.update(ui);
+}
+
+export async function ri18n() {
+  return await loadI18nMessages();
 }

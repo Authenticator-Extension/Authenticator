@@ -1,13 +1,14 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import {UIConfig} from '../models/interface';
+
+import {getSiteName, hasMatchedEntry} from './entry';
+import {UI} from './ui';
 
 function cachePassword(password: string) {
   document.cookie = 'passphrase=' + password;
   chrome.runtime.sendMessage({action: 'cachePassphrase', value: password});
 }
 
-async function passphrase(_ui: UI) {
+export async function passphrase(_ui: UI) {
   const ui: UIConfig = {
     data: {passphrase: ''},
     methods: {

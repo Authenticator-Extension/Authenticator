@@ -1,23 +1,22 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
+import Vue, {Component} from 'vue';
+// @ts-ignore
+import {Vue2Dragula} from 'vue2-dragula';
+import {UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
 
-// need to find a better way to handle Vue types without modules
-// we use vue 1.0 here to solve csp issues
-/* tslint:disable-next-line:no-any */
-declare var Vue: any;
-
-/* tslint:disable-next-line:no-any */
-declare var vueDragula: any;
-
-class UI {
+export class UI {
   private ui: UIConfig;
   private modules: Array<(ui: UI) => void> = [];
+  /* tslint:disable-next-line:no-any */
+  private componenet: any;
   // Vue instance
   /* tslint:disable-next-line:no-any */
   instance: any;
 
-  constructor(ui: UIConfig) {
+  /* tslint:disable-next-line:no-any */
+  constructor(componenet: any, ui: UIConfig) {
     this.ui = ui;
+    this.componenet = Vue.extend(componenet);
   }
 
   update(ui: UIConfig) {
@@ -45,9 +44,10 @@ class UI {
     for (let i = 0; i < this.modules.length; i++) {
       await this.modules[i](this);
     }
-    Vue.use(vueDragula);
-    this.ui.ready = () => {
-      Vue.vueDragula.eventBus.$on('drop', async () => {
+    Vue.use(Vue2Dragula);
+    this.ui.mounted = () => {
+      // @ts-ignore
+      Vue.$dragula.$service.eventBus.$on('drop', async () => {
         // wait for this.instance.entries sync from dom
         setTimeout(async () => {
           let needUpdate = false;
@@ -68,7 +68,7 @@ class UI {
       });
     };
 
-    this.instance = new Vue(this.ui);
+    this.instance = new this.componenet(this.ui);
 
     // wait for all modules loaded
     setTimeout(() => {

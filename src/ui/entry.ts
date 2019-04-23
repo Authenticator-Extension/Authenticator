@@ -1,9 +1,12 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/encryption.ts" />
-/// <reference path="../models/interface.ts" />
-/// <reference path="../models/storage.ts" />
-/// <reference path="./ui.ts" />
-/// <reference path="./add-account.ts" />
+import * as CryptoJS from 'crypto-js';
+
+import {Encryption} from '../models/encryption';
+import {OTP, OTPStorage, OTPType, UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
+import {EntryStorage} from '../models/storage';
+
+import {insertContentScript} from './add-account';
+import {UI} from './ui';
 
 async function getEntries(encryption: Encryption) {
   const otpEntries: OTPEntry[] = await EntryStorage.get(encryption);
@@ -101,7 +104,7 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
-async function getSiteName() {
+export async function getSiteName() {
   return new Promise(
       (resolve: (value: Array<string|null>) => void,
        reject: (reason: Error) => void) => {
@@ -163,7 +166,8 @@ async function getSiteName() {
       });
 }
 
-function hasMatchedEntry(siteName: Array<string|null>, entries: OTPEntry[]) {
+export function hasMatchedEntry(
+    siteName: Array<string|null>, entries: OTPEntry[]) {
   if (siteName.length < 2) {
     return false;
   }
@@ -324,7 +328,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
   return exportData;
 }
 
-async function entry(_ui: UI) {
+export async function entry(_ui: UI) {
   const cachedPassphrase = await getCachedPassphrase();
   const encryption: Encryption = new Encryption(cachedPassphrase);
   let shouldShowPassphrase =
@@ -389,7 +393,8 @@ async function entry(_ui: UI) {
       importEncrypted: false,
       importPassphrase: '',
       importFilePassphrase: '',
-      unsupportedAccounts
+      unsupportedAccounts,
+      searchText: ''
     },
     methods: {
       isMatchedEntry: (entry: OTPEntry) => {
@@ -421,6 +426,10 @@ async function entry(_ui: UI) {
         }
       },
       isSearchedEntry: (entry: OTPEntry) => {
+        // This gets called before _ui.instance exists sometimes
+        if (!_ui.instance) {
+          return true;
+        }
         if (_ui.instance.searchText === '') {
           return true;
         }
@@ -618,35 +627,36 @@ async function entry(_ui: UI) {
         return;
       },
       editEntry: () => {
-        _ui.instance.class.edit = !_ui.instance.class.edit;
+        _ui.instance.currentClass.edit = !_ui.instance.currentClass.edit;
         if (_ui.instance.filter) {
           _ui.instance.filter = false;
         }
-        if (!_ui.instance.class.edit) {
+        if (!_ui.instance.currentClass.edit) {
           _ui.instance.updateEntries();
         }
         const codes = document.getElementById('codes');
         if (codes) {
           // wait vue apply changes to dom
           setTimeout(() => {
-            codes.scrollTop = _ui.instance.class.edit ? codes.scrollHeight : 0;
+            codes.scrollTop =
+                _ui.instance.currentClass.edit ? codes.scrollHeight : 0;
           }, 0);
         }
         return;
       },
       nextCode: async (entry: OTPEntry) => {
-        if (_ui.instance.class.Diabled) {
+        if (_ui.instance.currentClass.Diabled) {
           return;
         }
-        _ui.instance.class.hotpDiabled = true;
+        _ui.instance.currentClass.hotpDiabled = true;
         await entry.next(_ui.instance.encryption);
         setTimeout(() => {
-          _ui.instance.class.hotpDiabled = false;
+          _ui.instance.currentClass.hotpDiabled = false;
         }, 3000);
         return;
       },
       copyCode: async (entry: OTPEntry) => {
-        if (_ui.instance.class.edit || entry.code === 'Invalid' ||
+        if (_ui.instance.currentClass.edit || entry.code === 'Invalid' ||
             entry.code.startsWith('&bull;')) {
           return;
         }
@@ -684,13 +694,13 @@ async function entry(_ui: UI) {
           document.execCommand('Copy');
           _ui.instance.notification = _ui.instance.i18n.copied;
           clearTimeout(_ui.instance.notificationTimeout);
-          _ui.instance.class.notificationFadein = true;
-          _ui.instance.class.notificationFadeout = false;
+          _ui.instance.currentClass.notificationFadein = true;
+          _ui.instance.currentClass.notificationFadeout = false;
           _ui.instance.notificationTimeout = setTimeout(() => {
-            _ui.instance.class.notificationFadein = false;
-            _ui.instance.class.notificationFadeout = true;
+            _ui.instance.currentClass.notificationFadein = false;
+            _ui.instance.currentClass.notificationFadeout = true;
             setTimeout(() => {
-              _ui.instance.class.notificationFadeout = false;
+              _ui.instance.currentClass.notificationFadeout = false;
             }, 200);
           }, 1000);
         } else {
@@ -725,13 +735,13 @@ async function entry(_ui: UI) {
                   document.execCommand('Copy');
                   _ui.instance.notification = _ui.instance.i18n.copied;
                   clearTimeout(_ui.instance.notificationTimeout);
-                  _ui.instance.class.notificationFadein = true;
-                  _ui.instance.class.notificationFadeout = false;
+                  _ui.instance.currentClass.notificationFadein = true;
+                  _ui.instance.currentClass.notificationFadeout = false;
                   _ui.instance.notificationTimeout = setTimeout(() => {
-                    _ui.instance.class.notificationFadein = false;
-                    _ui.instance.class.notificationFadeout = true;
+                    _ui.instance.currentClass.notificationFadein = false;
+                    _ui.instance.currentClass.notificationFadeout = true;
                     setTimeout(() => {
-                      _ui.instance.class.notificationFadeout = false;
+                      _ui.instance.currentClass.notificationFadeout = false;
                     }, 200);
                   }, 1000);
                 }

@@ -1,10 +1,8 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/encryption.ts" />
-/// <reference path="../models/interface.ts" />
-/// <reference path="./storage.ts" />
-/// <reference path="./credentials.ts" />
+import {getCredentials} from './credentials';
+import {Encryption} from './encryption';
+import {EntryStorage} from './storage';
 
-class Dropbox {
+export class Dropbox {
   private async getToken() {
     return localStorage.dropboxToken || '';
   }
@@ -67,7 +65,7 @@ class Dropbox {
   }
 }
 
-class Drive {
+export class Drive {
   private async getToken() {
     if (!localStorage.driveToken ||
         await new Promise(

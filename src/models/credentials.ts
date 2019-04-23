@@ -1,4 +1,4 @@
-function getCredentials() {
+export function getCredentials() {
   return {
     drive: {
       client_id: '',     // Google client ID

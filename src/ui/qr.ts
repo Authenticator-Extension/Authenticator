@@ -1,9 +1,9 @@
-/* tslint:disable:no-reference */
-/// <reference path="../models/interface.ts" />
-/// <reference path="./ui.ts" />
+import * as QRGen from 'qrcode-generator';
 
-/* tslint:disable-next-line:no-any */
-declare var QRCode: any;
+import {OTPType, UIConfig} from '../models/interface';
+import {OTPEntry} from '../models/otp';
+
+import {UI} from './ui';
 
 async function getQrUrl(entry: OTPEntry) {
   return new Promise(
@@ -23,22 +23,15 @@ async function getQrUrl(entry: OTPEntry) {
             (entry.type === OTPType.totp && entry.period ?
                  ('&period=' + entry.period) :
                  '');
-        /* tslint:disable-next-line:no-unused-expression */
-        new QRCode(
-            'qr', {
-              text: otpauth,
-              width: 128,
-              height: 128,
-              colorDark: '#000000',
-              colorLight: '#ffffff',
-              correctLevel: QRCode.CorrectLevel.L
-            },
-            resolve);
+        const qr = QRGen(0, 'L');
+        qr.addData(otpauth);
+        qr.make();
+        resolve(qr.createDataURL(5));
         return;
       });
 }
 
-async function qr(_ui: UI) {
+export async function qr(_ui: UI) {
   const ui: UIConfig = {
     data: {qr: ''},
     methods: {
@@ -49,15 +42,15 @@ async function qr(_ui: UI) {
       showQr: async (entry: OTPEntry) => {
         const qrUrl = await getQrUrl(entry);
         _ui.instance.qr = `url(${qrUrl})`;
-        _ui.instance.class.qrfadein = true;
-        _ui.instance.class.qrfadeout = false;
+        _ui.instance.currentClass.qrfadein = true;
+        _ui.instance.currentClass.qrfadeout = false;
         return;
       },
       hideQr: () => {
-        _ui.instance.class.qrfadein = false;
-        _ui.instance.class.qrfadeout = true;
+        _ui.instance.currentClass.qrfadein = false;
+        _ui.instance.currentClass.qrfadeout = true;
         setTimeout(() => {
-          _ui.instance.class.qrfadeout = false;
+          _ui.instance.currentClass.qrfadeout = false;
         }, 200);
         return;
       }

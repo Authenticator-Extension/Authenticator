@@ -1,12 +1,13 @@
-/* tslint:disable:no-reference */
-/// <reference path="../js/jsqrcode/index.d.ts" />
-/// <reference path="./models/encryption.ts" />
-/// <reference path="./models/interface.ts" />
-/// <reference path="./models/storage.ts" />
-/// <reference path="./models/credentials.ts" />
+import * as CryptoJS from 'crypto-js';
+// @ts-ignore
+import QRCode from 'qrcode-reader';
+
+import {getCredentials} from './models/credentials';
+import {Encryption} from './models/encryption';
+import {OTPStorage} from './models/interface';
+import {EntryStorage, ManagedStorage} from './models/storage';
 
 let cachedPassphrase = '';
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'position') {
     if (!sender.tab) {
@@ -49,17 +50,29 @@ function getQr(
           width * devicePixelRatio, height * devicePixelRatio, 0, 0,
           width * devicePixelRatio, height * devicePixelRatio);
       const url = captureCanvas.toDataURL();
-      qrcode.callback = (text) => {
-        getTotp(text);
+      const qrReader = new QRCode();
+      qrReader.callback = (error: string, text: {
+        result: string,
+        points: Array<{
+          x: number,
+          y: number,
+          count: number,
+          estimatedModuleSize: number
+        }>
+      }) => {
+        if (error) {
+          console.error(error);
+        }
+        getTotp(text.result);
       };
-      qrcode.decode(url);
+      qrReader.decode(url);
     };
   });
 }
 
 async function getTotp(text: string) {
   const id = contentTab.id;
-  if (!id) {
+  if (!id || !text) {
     return;
   }
 

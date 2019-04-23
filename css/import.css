@@ -19,7 +19,7 @@ p {
     font-size: 16px;
 }
 
-#authenticator {
+#import {
     width: 600px;
     position: relative;
     margin: 0 auto;
