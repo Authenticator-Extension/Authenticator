@@ -81,7 +81,7 @@ export class Drive {
                     const res = JSON.parse(xhr.responseText);
                     if (res.error) {
                       if (res.error.code === 401) {
-                        if (navigator.userAgent.indexOf('Chrome') !== -1) {
+                        if (navigator.userAgent.indexOf('Chrome') !== -1 && navigator.userAgent.indexOf('OPR') === -1) {
                           // Clear invalid token from
                           // chrome://identity-internals/
                           await chrome.identity.removeCachedAuthToken(
@@ -108,7 +108,7 @@ export class Drive {
   }
 
   async refreshToken() {
-    if (navigator.userAgent.indexOf('Chrome') !== -1) {
+    if (navigator.userAgent.indexOf('Chrome') !== -1 && navigator.userAgent.indexOf('OPR') === -1) {
       return new Promise((resolve: (value: boolean) => void) => {
         return chrome.identity.getAuthToken(
             {
