@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "El autenticador genera códigos de autenticación de dos factores en su navegador.",
+        "message": "Authenticator genera códigos de autenticación de dos factores en su navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Introducción manual",
+        "message": "Entrada manual",
         "description": "Manual Entry."
     },
     "close": {
@@ -40,7 +40,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Sí",
         "description": "Yes."
     },
     "no": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Ha fallado.",
+        "message": "Falla.",
         "description": "Update Failure."
     },
     "about": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportar\/Importar",
+        "message": "Exportar \/ Importar",
         "description": "Export and Import."
     },
     "settings": {
@@ -100,7 +100,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirma la contraseña",
+        "message": "Confirmar contraseña",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puedes agregar una nueva cuenta o exportar tus datos hasta que todas las cuentas hayan sido desencriptadas. Por favor, introduzce la contraseña correcta antes de continuar.",
+        "message": "Usted no puede agregar una nueva cuenta o exportar datos hasta que todas las cuentas hayan sido descifradas. Por favor, introduzca la contraseña correcta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encriptado",
+        "message": "Cifrado",
         "description": "Encrypted."
     },
     "copied": {
@@ -140,11 +140,11 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Código Fuente",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduze la contraseña para desencriptar los datos de la cuenta.",
+        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
