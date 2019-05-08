@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Xác thực",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " đã được thêm vào.",
+        "message": " wurde hinzugefügt.",
         "description": "Added Account."
     },
     "errorqr": {
