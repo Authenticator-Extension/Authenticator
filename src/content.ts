@@ -227,7 +227,8 @@ function pasteCode(code: string) {
 function fireInputEvents(inputBox: HTMLInputElement) {
   const events = [
     new KeyboardEvent('keydown'), new KeyboardEvent('keyup'),
-    new KeyboardEvent('keypress')
+    new KeyboardEvent('keypress'), new Event('input', {'bubbles': true}),
+    new Event('change', {'bubbles': true})
   ];
   for (const event of events) {
     inputBox.dispatchEvent(event);
