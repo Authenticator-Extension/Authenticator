@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Данные зашифрованы",
         "description": "Encrypted."
     },
     "copied": {
