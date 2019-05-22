@@ -216,7 +216,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
+        "message": "Ваши данные хоронятся в открытом виде, для защиты установите пароль в настройках безопасности.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -248,7 +248,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Использование функции автозаполнения",
+        "message": "Использовать автозаполнение",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
