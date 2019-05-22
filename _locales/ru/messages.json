@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
+        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не сможет помочь вам, если вы забудете его.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить новую учетную запись или вывести данные, пока не будет выполнен вход во все учётные записи. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
+        "message": "Вы не можете добавить новую учетную запись или экспортировать данные, пока все учетные записи не будут расшифрованы. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Пороли не совпадают.",
+        "message": "Пароль не совпадает.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Введите пароль для доступа к данным учётной записи.",
+        "message": "Введите пароль для расшифровки данных учетной записи.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -156,7 +156,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Внимание! Ваши местные часы слишком далеко, пожалуйста, исправить перед продолжением.",
+        "message": "Внимание! Ваши местные время не совпадает, пожалуйста синхронизируйте время перед тем как продолжить.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -164,7 +164,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Фокусировка не удалась, перезагрузите страницу и повторите попытку.",
+        "message": "Захват не выполнен, перезагрузите страницу и повторите попытку.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -294,11 +294,11 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Резервные копии можно импортировать из других приложений.",
+        "message": "Вы можете импортировать резервные копии из других приложений.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Подробнее",
+        "message": "Узнать больше",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
