@@ -168,11 +168,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Время",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Счетчик",
         "description": "Counter Based"
     },
     "resize_popup_page": {
