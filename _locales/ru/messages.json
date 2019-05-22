@@ -232,11 +232,11 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Всплывающее изображение",
+        "message": "Показать в отдельном окне",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Заблокировать",
+        "message": "Защищено паролем",
         "description": "Lock accounts"
     },
     "edit": {
