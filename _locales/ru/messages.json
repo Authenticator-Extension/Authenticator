@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Настройки Безопасности",
+        "message": "Безопасность",
         "description": "Security."
     },
     "current_phrase": {
