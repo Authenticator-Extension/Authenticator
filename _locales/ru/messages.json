@@ -156,11 +156,11 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Внимание! Ваши местные время не совпадает, пожалуйста синхронизируйте время перед тем как продолжить.",
+        "message": "Внимание! Ваши данные местного времени не совпадают, пожалуйста синхронизируйте время перед тем как продолжить.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
+        "message": "У вас есть резервная копия для ваших учетных записей? Создайте резервную копию, пока не поздно!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Скачать защищенные паролем резервного копирования",
+        "message": "Сохранить защищенную паролем резервную копию",
         "description": "Download Encrypted Backup"
     },
     "search": {
