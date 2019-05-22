@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Ручной ввод",
+        "message": "Ввод вручную",
         "description": "Manual Entry."
     },
     "close": {
@@ -48,7 +48,7 @@
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Учетная запись",
         "description": "Account."
     },
     "accountName": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Секрет",
+        "message": "Секретный ключ",
         "description": "Secret."
     },
     "updateSuccess": {
