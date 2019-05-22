@@ -12,11 +12,11 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлено.",
+        "message": " добавлен.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Нераспознанный QR-код.",
         "description": "QR Error."
     },
     "errorsecret": {
