@@ -290,7 +290,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "нету",
+        "message": "У вас есть один или несколько аккаунтов Steam или Blizzard. Незашифрованные резервные копии не будут использовать стандартный формат резервного копирования.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
