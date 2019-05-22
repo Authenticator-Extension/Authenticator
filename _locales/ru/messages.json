@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Ввод вручную",
+        "message": "Ручной ввод",
         "description": "Manual Entry."
     },
     "close": {
