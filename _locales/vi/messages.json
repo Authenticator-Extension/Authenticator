@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất khẩu \/ nhập khẩu",
+        "message": "Xuất \/ Nhập dữ liệu",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,11 +84,11 @@
         "description": "Settings."
     },
     "security": {
-        "message": "An ninh",
+        "message": "Bảo mật",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật khẩu hiện thời",
+        "message": "Mật Khẩu Hiện Tại",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -128,7 +128,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Sao chép",
+        "message": "Đã sao chép",
         "description": "Copied."
     },
     "feedback": {
