@@ -18,8 +18,8 @@
 
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Desktop"
-      MinVersion="10.0.14393.0"
-      MaxVersionTested="10.0.14800.0" />
+      MinVersion="10.0.18204.0"
+      MaxVersionTested="10.0.18800.0" />
   </Dependencies>
 
   <Resources>
