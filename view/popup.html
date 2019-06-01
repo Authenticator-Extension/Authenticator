@@ -25,7 +25,6 @@
             <div class="icon" id="i-menu" title="{{ i18n.settings }}" v-on:click="showMenu()" v-show="!class.edit"><svg><use xlink:href="../css/solid.svg#cog"></use></svg></div>
             <div class="icon" id="i-lock" title="{{ i18n.lock }}" v-on:click="lock()" v-show="!class.edit && encryption.getEncryptionStatus()"><svg><use xlink:href="../css/solid.svg#lock"></use></svg></div>
             <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !class.edit"><svg><use xlink:href="../css/solid.svg#sync-alt"></use></svg></div>
-            <div class="icon" id="i-qr" title="{{ i18n.add_qr }}" v-show="!class.edit" v-on:click="beginCapture()"><svg><use xlink:href="../images/scan.svg#scan"></use></svg></div>
             <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-if="!class.edit" v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#pencil-alt"></use></svg></div>
             <div class="icon" id="i-edit" title="{{ i18n.edit }}" v-else v-on:click="editEntry()"><svg><use xlink:href="../css/solid.svg#check"></use></svg></div>
         </div>
@@ -122,7 +121,6 @@
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
                 <div v-show="!newAccount.show">
-                    <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
                     <div class="button" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
                 </div>
                 <div v-show="newAccount.show">
@@ -161,9 +159,6 @@
                 <div class="text warning" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
                 <div class="text warning" v-if="unsupportedAccounts">{{ i18n.otp_unsupported_warn }}</div>
                 <a class="button" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
-                <a download="authenticator.txt" v-bind:href="exportOneLineOtpAuthFile" v-if="!unsupportedAccounts" class="button" target="_blank">{{ i18n.download_backup }}</a>
-                <a download="authenticator.json" v-bind:href="exportFile" class="button" target="_blank" v-else>{{ i18n.download_backup }}</a>
-                <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" class="button" target="_blank">{{ i18n.download_enc_backup }}</a>
                 <a class="button" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
                 <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
                 <a class="button" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>

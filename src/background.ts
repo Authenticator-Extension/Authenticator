@@ -268,8 +268,6 @@ function getBackupToken(service: string) {
 chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason !== 'install') {
     return;
-  } else if (await ManagedStorage.get('disableInstallHelp')) {
-    return;
   }
 
   let url: string|null = null;

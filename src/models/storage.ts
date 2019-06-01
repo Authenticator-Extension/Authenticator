@@ -5,7 +5,8 @@
 
 class BrowserStorage {
   private static async getStorageLocation() {
-    const managedLocation = await ManagedStorage.get('storageArea');
+    const managedLocation = 'false';
+    //@ts-ignore
     if (managedLocation === 'sync' || managedLocation === 'local') {
       return new Promise((resolve) => {
         if (localStorage.storageLocation !== managedLocation) {

@@ -65,7 +65,7 @@ async function openHelp() {
         'https://github.com/Authenticator-Extension/Authenticator/wiki/Edge-Issues';
   }
 
-  const feedbackURL = await ManagedStorage.get('feedbackURL');
+  const feedbackURL = null;
   if (typeof feedbackURL === 'string' && feedbackURL) {
     url = feedbackURL;
   }
@@ -75,14 +75,7 @@ async function openHelp() {
 
 let backupDisabled: boolean|string;
 let storageArea: boolean|string;
-
-ManagedStorage.get('disableBackup').then((value) => {
-  backupDisabled = value;
-});
-
-ManagedStorage.get('storageArea').then((value) => {
-  storageArea = value;
-});
+backupDisabled = true;
 
 async function menu(_ui: UI) {
   const version = getVersion();
