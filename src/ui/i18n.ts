@@ -1,4 +1,3 @@
-import {I18nMessage, UIConfig} from '../models/interface';
 
 import {UI} from './ui';
 
@@ -38,5 +37,5 @@ export async function i18n(_ui: UI) {
 }
 
 export async function ri18n() {
-  return await loadI18nMessages();
+  return loadI18nMessages();
 }

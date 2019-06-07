@@ -1,7 +1,6 @@
 import * as CryptoJS from 'crypto-js';
 
 import {Encryption} from '../models/encryption';
-import {OTP, OTPStorage, OTPType, UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
 import {EntryStorage} from '../models/storage';
 
@@ -49,7 +48,7 @@ async function updateCode(app: any) {
   //     }
   //   }
   // }
-  const entries = app.entries as OTP[];
+  const entries = app.entries as IOTPEntry[];
   for (let i = 0; i < entries.length; i++) {
     if (entries[i].type !== OTPType.hotp && entries[i].type !== OTPType.hhex) {
       entries[i].generate();
@@ -317,7 +316,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0
+          counter: 0,
         };
         if (period) {
           exportData[hash].period = period;
@@ -394,7 +393,7 @@ export async function entry(_ui: UI) {
       importPassphrase: '',
       importFilePassphrase: '',
       unsupportedAccounts,
-      searchText: ''
+      searchText: '',
     },
     methods: {
       isMatchedEntry: (entry: OTPEntry) => {
@@ -444,7 +443,7 @@ export async function entry(_ui: UI) {
         }
       },
       updateCode: async () => {
-        return await updateCode(_ui.instance);
+        return updateCode(_ui.instance);
       },
       decryptBackupData:
           (backupData: {[hash: string]: OTPStorage},
@@ -749,7 +748,7 @@ export async function entry(_ui: UI) {
         }
         return;
       },
-    }
+    },
   };
 
   _ui.update(ui);

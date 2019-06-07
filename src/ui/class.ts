@@ -1,4 +1,3 @@
-import {UIConfig} from '../models/interface';
 
 import {UI} from './ui';
 
@@ -16,9 +15,9 @@ export async function className(_ui: UI) {
         qrfadeout: false,
         notificationFadein: false,
         notificationFadeout: false,
-        hotpDiabled: false
-      }
-    }
+        hotpDiabled: false,
+      },
+    },
   };
 
   _ui.update(ui);

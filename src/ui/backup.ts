@@ -1,6 +1,4 @@
 import {Drive, Dropbox} from '../models/backup';
-import {UIConfig} from '../models/interface';
-
 import {UI} from './ui';
 
 export async function backup(_ui: UI) {
@@ -9,7 +7,7 @@ export async function backup(_ui: UI) {
       dropboxEncrypted: localStorage.dropboxEncrypted,
       driveEncrypted: localStorage.driveEncrypted,
       dropboxToken: localStorage.dropboxToken || '',
-      driveToken: localStorage.driveToken || ''
+      driveToken: localStorage.driveToken || '',
     },
     methods: {
       backupUpload: async (service: string) => {
@@ -126,8 +124,8 @@ export async function backup(_ui: UI) {
               {
                 origins: [
                   'https://www.googleapis.com/*',
-                  'https://accounts.google.com/o/oauth2/revoke'
-                ]
+                  'https://accounts.google.com/o/oauth2/revoke',
+                ],
               },
               async (hasPermission) => {
                 if (hasPermission) {
@@ -154,8 +152,8 @@ export async function backup(_ui: UI) {
           _ui.instance.alert(_ui.instance.i18n.remind_backup);
           localStorage.lastRemindingBackupTime = clientTime;
         }
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

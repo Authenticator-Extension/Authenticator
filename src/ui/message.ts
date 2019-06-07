@@ -1,4 +1,4 @@
-import {UIConfig} from '../models/interface';
+
 
 import {UI} from './ui';
 
@@ -44,8 +44,8 @@ export async function message(_ui: UI) {
         const confirmEvent = new CustomEvent('confirm', {detail: false});
         window.dispatchEvent(confirmEvent);
         return;
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

@@ -4,7 +4,6 @@ import QRCode from 'qrcode-reader';
 
 import {getCredentials} from './models/credentials';
 import {Encryption} from './models/encryption';
-import {OTPStorage} from './models/interface';
 import {EntryStorage, ManagedStorage} from './models/storage';
 
 let cachedPassphrase = '';
@@ -161,7 +160,7 @@ async function getTotp(text: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0
+          counter: 0,
         };
         if (period) {
           entryData[hash].period = period;
@@ -179,7 +178,7 @@ function getBackupToken(service: string) {
     chrome.identity.getAuthToken(
         {
           'interactive': true,
-          'scopes': ['https://www.googleapis.com/auth/drive.file']
+          'scopes': ['https://www.googleapis.com/auth/drive.file'],
         },
         (value) => {
           localStorage.driveToken = value;

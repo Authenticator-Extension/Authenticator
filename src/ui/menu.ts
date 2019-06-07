@@ -1,4 +1,4 @@
-import {UIConfig} from '../models/interface';
+
 import {ManagedStorage} from '../models/storage';
 
 import {UI} from './ui';
@@ -96,7 +96,7 @@ export async function menu(_ui: UI) {
       useHighContrast,
       newStorageLocation: localStorage.storageLocation,
       backupDisabled,
-      storageArea
+      storageArea,
     },
     methods: {
       openLink: (url: string) => {
@@ -195,7 +195,7 @@ export async function menu(_ui: UI) {
           url: chrome.extension.getURL('view/popup.html?popup=true'),
           type: windowType,
           height: window.innerHeight,
-          width: window.innerWidth
+          width: window.innerWidth,
         });
       },
       isPopup: () => {
@@ -278,8 +278,8 @@ export async function menu(_ui: UI) {
         } else {
           return;
         }
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

@@ -1,5 +1,3 @@
-import {UIConfig} from '../models/interface';
-
 import {getSiteName, hasMatchedEntry} from './entry';
 import {UI} from './ui';
 
@@ -50,8 +48,8 @@ export async function passphrase(_ui: UI) {
         // remove cached passphrase in old version
         localStorage.removeItem('encodedPhrase');
         return;
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

@@ -1,7 +1,5 @@
 import * as jsSHA from 'jssha';
 
-import {OTPType} from './interface';
-
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
 // http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/

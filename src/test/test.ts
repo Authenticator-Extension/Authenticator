@@ -12,7 +12,7 @@ interface TestCase {
 const cases: TestCase[] = [
   {
     name: 'Missing fields',
-    data: {'7733be61632fa6af88d31218e6c4afb2': {'secret': 'abcd2345'}}
+    data: {'7733be61632fa6af88d31218e6c4afb2': {'secret': 'abcd2345'}},
   },
   {
     name: 'Bad hash in key',
@@ -25,9 +25,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Bad hash',
@@ -40,9 +40,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Bad type for HEX',
@@ -55,9 +55,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'abcd1234',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Unicode in issuer',
@@ -70,9 +70,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '✓ à la mode',
         'secret': 'abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Battle migrate',
@@ -85,9 +85,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'blz-abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Steam migrate',
@@ -100,13 +100,13 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'stm-abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Missing field with HEX secret',
-    data: {'e19d5cd5af0378da05f63f891c7467af': {'secret': 'abcd1234'}}
+    data: {'e19d5cd5af0378da05f63f891c7467af': {'secret': 'abcd1234'}},
   },
   {
     name: 'Mess index',
@@ -119,7 +119,7 @@ const cases: TestCase[] = [
         'index': 6,
         'issuer': '',
         'secret': 'abcd2345',
-        'type': 'totp'
+        'type': 'totp',
       },
       '770f51f23603ddae810e446630c2f673': {
         'account': 'test',
@@ -129,9 +129,9 @@ const cases: TestCase[] = [
         'index': 6,
         'issuer': '',
         'secret': 'abcd2346',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Base32 with padding',
@@ -144,9 +144,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'DKCE3SQPHJRJQGBGI322QA7Z5E======',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Incorrect but valid hash',
@@ -159,9 +159,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'abcd2345',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'HOTP with HEX secret',
@@ -174,9 +174,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': '2c52e8fcfac34091da63ef7b118f1cc50b925a42',
-        'type': 'hhex'
-      }
-    }
+        'type': 'hhex',
+      },
+    },
   },
   {
     name: 'Amazon 2FA',
@@ -189,9 +189,9 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'QLGNXJ2KLSOACXOEKJ47X6VA6ZPGT5HE2GBO5NPXTLD7FJAKD4JQ',
-        'type': 'totp'
-      }
-    }
+        'type': 'totp',
+      },
+    },
   },
   {
     name: 'Secret contains spaces',
@@ -204,10 +204,10 @@ const cases: TestCase[] = [
         'index': 0,
         'issuer': '',
         'secret': 'p5s7 k2in z3mj oqfg',
-        'type': 'totp'
-      }
-    }
-  }
+        'type': 'totp',
+      },
+    },
+  },
 ];
 
 let testCaseIndex = 0;
@@ -328,13 +328,13 @@ async function test() {
           const item = data[hash];
           const keys = [
             'issuer', 'account', 'secret', 'hash', 'index', 'type', 'counter',
-            'encrypted'
+            'encrypted',
           ];
           for (const key of keys) {
             if (item[key] === undefined) {
               testRes[testCaseIndex] = {
                 pass: false,
-                error: `Missing key<${key}>: ${JSON.stringify(item)}`
+                error: `Missing key<${key}>: ${JSON.stringify(item)}`,
               };
               break;
             }

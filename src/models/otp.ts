@@ -1,11 +1,10 @@
 import * as CryptoJS from 'crypto-js';
 
 import {Encryption} from './encryption';
-import {OTP, OTPType} from './interface';
 import {KeyUtilities} from './key-utilities';
 import {EntryStorage} from './storage';
 
-export class OTPEntry implements OTP {
+export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
   issuer: string;

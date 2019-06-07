@@ -1,4 +1,3 @@
-import {UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
 
 import {UI} from './ui';
@@ -47,8 +46,8 @@ export async function info(_ui: UI) {
               {
                 origins: [
                   'https://www.googleapis.com/*',
-                  'https://accounts.google.com/o/oauth2/revoke'
-                ]
+                  'https://accounts.google.com/o/oauth2/revoke',
+                ],
               },
               async (granted) => {
                 if (granted) {
@@ -80,8 +79,8 @@ export async function info(_ui: UI) {
           _ui.instance.newAccount.show = false;
         }, 200);
         return;
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

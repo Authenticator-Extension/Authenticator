@@ -158,7 +158,7 @@ function sendPosition(
     left: number, top: number, width: number, height: number) {
   chrome.runtime.sendMessage({
     action: 'position',
-    info: {left, top, width, height, windowWidth: window.innerWidth}
+    info: {left, top, width, height, windowWidth: window.innerWidth},
   });
 }
 
@@ -186,7 +186,7 @@ function pasteCode(code: string) {
     return;
   }
   const identities = [
-    '2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode'
+    '2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode',
   ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
@@ -228,7 +228,7 @@ function fireInputEvents(inputBox: HTMLInputElement) {
   const events = [
     new KeyboardEvent('keydown'), new KeyboardEvent('keyup'),
     new KeyboardEvent('keypress'), new Event('input', {'bubbles': true}),
-    new Event('change', {'bubbles': true})
+    new Event('change', {'bubbles': true}),
   ];
   for (const event of events) {
     inputBox.dispatchEvent(event);

@@ -1,6 +1,4 @@
 import * as QRGen from 'qrcode-generator';
-
-import {OTPType, UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
 
 import {UI} from './ui';
@@ -53,8 +51,8 @@ export async function qr(_ui: UI) {
           _ui.instance.currentClass.qrfadeout = false;
         }, 200);
         return;
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

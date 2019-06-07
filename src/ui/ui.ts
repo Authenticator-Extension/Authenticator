@@ -1,7 +1,6 @@
 import Vue, {Component} from 'vue';
 // @ts-ignore
 import {Vue2Dragula} from 'vue2-dragula';
-import {UIConfig} from '../models/interface';
 import {OTPEntry} from '../models/otp';
 
 export class UI {

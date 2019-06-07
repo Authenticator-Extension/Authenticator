@@ -1,7 +1,5 @@
-import {OTPType, UIConfig} from '../models/interface';
-import {OTPEntry} from '../models/otp';
-
 import {UI} from './ui';
+import { OTPEntry } from '../models/otp';
 
 export async function insertContentScript() {
   return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
@@ -19,7 +17,7 @@ export async function addAccount(_ui: UI) {
   const ui: UIConfig = {
     data: {
       newAccount: {show: false, account: '', secret: '', type: OTPType.totp},
-      newPassphrase: {phrase: '', confirm: ''}
+      newPassphrase: {phrase: '', confirm: ''},
     },
     methods: {
       addNewAccount: async () => {
@@ -112,8 +110,8 @@ export async function addAccount(_ui: UI) {
         }
 
         _ui.instance.newAccount.show = true;
-      }
-    }
+      },
+    },
   };
 
   _ui.update(ui);

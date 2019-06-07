@@ -1,6 +1,6 @@
 import * as CryptoJS from 'crypto-js';
 
-export class Encryption {
+export class Encryption implements IEncryption {
   private password: string;
 
   constructor(password: string) {

@@ -1,7 +1,6 @@
 import * as CryptoJS from 'crypto-js';
 
 import {Encryption} from './encryption';
-import {OTPStorage, OTPType} from './interface';
 import {OTPEntry} from './otp';
 
 export class BrowserStorage {
@@ -101,7 +100,7 @@ export class EntryStorage {
       type: OTPType[entry.type],
       counter: entry.counter,
       secret: encryption.getEncryptedSecret(entry.secret),
-      encrypted: encryption.getEncryptionStatus()
+      encrypted: encryption.getEncryptionStatus(),
     };
     if (entry.period && entry.period !== 30) {
       storageItem.period = entry.period;

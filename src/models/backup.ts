@@ -31,7 +31,7 @@ export class Dropbox {
             const apiArg = {
               path: `/${now}.json`,
               mode: 'add',
-              autorename: true
+              autorename: true,
             };
             xhr.open('POST', url);
             xhr.setRequestHeader('Authorization', 'Bearer ' + token);
@@ -115,7 +115,7 @@ export class Drive {
         return chrome.identity.getAuthToken(
             {
               'interactive': false,
-              'scopes': ['https://www.googleapis.com/auth/drive.file']
+              'scopes': ['https://www.googleapis.com/auth/drive.file'],
             },
             (token) => {
               localStorage.driveToken = token;
@@ -254,7 +254,7 @@ export class Drive {
             };
             xhr.send(JSON.stringify({
               'name': 'Authenticator Backups',
-              'mimeType': 'application/vnd.google-apps.folder'
+              'mimeType': 'application/vnd.google-apps.folder',
             }));
           });
     }
@@ -318,7 +318,7 @@ export class Drive {
               JSON.stringify(
                   {name: `${now}.json`, parents: [localStorage.driveFolder]}),
               '', '--segment_marker', 'Content-Type: application/octet-stream',
-              '', backup, '--segment_marker--'
+              '', backup, '--segment_marker--',
             ];
             let requestData = '';
             requestDataPrototype.forEach((line) => {
