@@ -2,14 +2,16 @@
   "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "lib": ["es6", "dom"],
-    "target": "es6",
+    "target": "es5",
     "strict": true,
+    "module": "es2015",
     "rootDir": "src",
+    "moduleResolution": "node",
     "outDir": "build"
   },
   "include": [
     "src/*.ts",
-    "src/**/*.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
