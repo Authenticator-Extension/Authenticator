@@ -28,15 +28,3 @@ export async function loadI18nMessages() {
     }
   );
 }
-
-export async function i18n(_ui: UI) {
-  const i18n = await loadI18nMessages();
-
-  const ui: UIConfig = { data: { i18n } };
-
-  _ui.update(ui);
-}
-
-export async function ri18n() {
-  return loadI18nMessages();
-}

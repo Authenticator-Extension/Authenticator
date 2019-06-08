@@ -1,7 +1,6 @@
 /* tslint:disable:ban-ts-ignore */
 import Vue, { Component } from 'vue';
 // @ts-ignore
-import { Vue2Dragula } from 'vue2-dragula';
 import { OTPEntry } from '../models/otp';
 
 export class UI {
@@ -44,7 +43,7 @@ export class UI {
     for (let i = 0; i < this.modules.length; i++) {
       await this.modules[i](this);
     }
-    Vue.use(Vue2Dragula);
+
     this.ui.mounted = () => {
       // @ts-ignore
       Vue.$dragula.$service.eventBus.$on('drop', async () => {

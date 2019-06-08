@@ -255,3 +255,20 @@
     <input type="text" id="codeClipboard" />
 </div>
 </template>
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  computed: {
+    useHighContrast: function() {
+        return this.$store.state.useHighContrast;
+    }
+  },
+  methods: {
+    isPopup() {
+      const params = new URLSearchParams(document.location.search.substring(1));
+      return params.get('popup');
+    }
+  }
+});
+</script>

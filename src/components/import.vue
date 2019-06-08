@@ -16,7 +16,7 @@
                 <div class="import_file" v-if="!getFilePassphrase">
                     <label for="import_file">{{ i18n.import_backup_file }}</label>
                     <input id="import_file" type="file" v-on:change="importFile($event, true)"
-                        accept="application/json, text/plain"></input>
+                        accept="application/json, text/plain" />
                 </div>
                 <div class="import_file_passphrase" v-else>
                     <p class="error_password">{{ i18n.passphrase_info }}</p>
@@ -48,3 +48,7 @@
         <div v-if="shouldShowPassphrase" class="error_password">{{ i18n.import_error_password }}</div>
     </div>
 </template>
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({});
+</script>

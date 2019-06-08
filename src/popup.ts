@@ -1,31 +1,32 @@
-import {addAccount} from './ui/add-account';
-import {backup} from './ui/backup';
-import {className} from './ui/class';
-import {entry} from './ui/entry';
-import {i18n} from './ui/i18n';
-import {info} from './ui/info';
-import {menu, syncTimeWithGoogle} from './ui/menu';
-import {message} from './ui/message';
-import {passphrase} from './ui/passphrase';
-import {qr} from './ui/qr';
-import {UI} from './ui/ui';
-// @ts-ignore
-import Authenticator from './view/popup';
+/*
+import { addAccount } from './ui/add-account';
+import { backup } from './ui/backup';
+import { className } from './ui/class';
+import { entry } from './ui/entry';
+import { i18n } from './ui/i18n';
+import { info } from './ui/info';
+import { menu, syncTimeWithGoogle } from './ui/menu';
+import { message } from './ui/message';
+import { passphrase } from './ui/passphrase';
+import { qr } from './ui/qr';
+import { UI } from './ui/ui';
+import Authenticator from './view/popup.vue';
 
 async function init() {
-  const ui = new UI(Authenticator, {el: '#authenticator'});
+  const ui = new UI(Authenticator, { el: '#authenticator' });
 
-  const authenticator = await ui.load(className)
-                            .load(i18n)
-                            .load(menu)
-                            .load(info)
-                            .load(passphrase)
-                            .load(entry)
-                            .load(qr)
-                            .load(message)
-                            .load(addAccount)
-                            .load(backup)
-                            .render();
+  const authenticator = await ui
+    .load(className)
+    .load(i18n)
+    .load(menu)
+    .load(info)
+    .load(passphrase)
+    .load(entry)
+    .load(qr)
+    .load(message)
+    .load(addAccount)
+    .load(backup)
+    .render();
 
   try {
     document.title = ui.instance.i18n.extName;
@@ -60,20 +61,27 @@ async function init() {
     if (!localStorage.lastRemindingBackupTime) {
       localStorage.lastRemindingBackupTime = clientTime;
     } else if (
-        clientTime - localStorage.lastRemindingBackupTime >= 30 ||
-        clientTime - localStorage.lastRemindingBackupTime < 0) {
+      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
+      clientTime - localStorage.lastRemindingBackupTime < 0
+    ) {
       // backup to cloud
       authenticator.runScheduledBackup(clientTime);
     }
     return;
   }, 1000);
 
-  document.addEventListener('keyup', (e) => {
-    ui.instance.searchListener(e);
-  }, false);
+  document.addEventListener(
+    'keyup',
+    e => {
+      ui.instance.searchListener(e);
+    },
+    false
+  );
 
-  if (ui.instance.entries.length >= 10 &&
-      !(ui.instance.shouldFilter && ui.instance.filter)) {
+  if (
+    ui.instance.entries.length >= 10 &&
+    !(ui.instance.shouldFilter && ui.instance.filter)
+  ) {
     ui.instance.showSearch = true;
   }
 
@@ -85,8 +93,11 @@ async function init() {
         authenticator.driveToken = message.value;
       }
       authenticator.backupUpload(
-          String(message.action)
-              .substring(0, String(message.action).indexOf('token')));
+        String(message.action).substring(
+          0,
+          String(message.action).indexOf('token')
+        )
+      );
       if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
         setTimeout(authenticator.closeInfo, 500);
       }
@@ -104,11 +115,60 @@ if (navigator.userAgent.indexOf('Edge') !== -1) {
   syncTimeWithGoogle();
 } else {
   chrome.permissions.contains(
-      {origins: ['https://www.google.com/']}, (hasPermission) => {
-        if (hasPermission) {
-          syncTimeWithGoogle();
-        }
-      });
+    { origins: ['https://www.google.com/'] },
+    hasPermission => {
+      if (hasPermission) {
+        syncTimeWithGoogle();
+      }
+    }
+  );
+}
+
+init();
+*/
+
+// Vue
+import Vue from 'vue';
+import Vuex from 'vuex';
+import { Vue2Dragula } from 'vue2-dragula';
+
+// Components
+import Popup from './components/popup.vue';
+
+// Other
+import { loadI18nMessages } from './ui/i18n';
+
+async function init() {
+  // Add globals
+  Vue.prototype.i18n = await loadI18nMessages();
+
+  // Load modules
+  Vue.use(Vuex);
+  Vue.use(Vue2Dragula);
+
+  // State store
+  const store = new Vuex.Store({
+    state: {
+      useHighContrast:
+        typeof localStorage.useHighContrast === undefined
+          ? false
+          : localStorage.useHighContrast,
+    },
+    mutations: {
+      toggleHighContrast(state) {
+        state.useHighContrast = !state.useHighContrast;
+      },
+    },
+  });
+
+  // Render
+  const instance = new Vue({
+    render: h => h(Popup),
+    store,
+    mounted: () => {
+      // Dragula stuff here
+    },
+  }).$mount('#authenticator');
 }
 
 init();

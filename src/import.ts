@@ -1,19 +1,15 @@
-import {entry} from './ui/entry';
-import {i18n} from './ui/i18n';
-import {UI} from './ui/ui';
-// @ts-ignore
-import ImportView from './view/import';
+import { entry } from './ui/entry';
+import Vue from 'vue';
+import ImportView from './components/import.vue';
 
 async function init() {
-  const ui = new UI(ImportView, {el: '#import'});
+  new Vue({ render: h => h(ImportView) }).$mount('#import');
 
-  const vm = await ui.load(i18n).load(entry).render();
-
-  try {
-    document.title = ui.instance.i18n.extName;
-  } catch (e) {
-    console.error(e);
-  }
+  // try {
+  //   document.title = ui..i18n.extName;
+  // } catch (e) {
+  //   console.error(e);
+  // }
 }
 
 init();
