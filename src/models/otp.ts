@@ -1,8 +1,8 @@
 import * as CryptoJS from 'crypto-js';
 
-import {Encryption} from './encryption';
-import {KeyUtilities} from './key-utilities';
-import {EntryStorage} from './storage';
+import { Encryption } from './encryption';
+import { KeyUtilities } from './key-utilities';
+import { EntryStorage } from './storage';
 
 export class OTPEntry implements IOTPEntry {
   type: OTPType;
@@ -16,16 +16,24 @@ export class OTPEntry implements IOTPEntry {
   code = '&bull;&bull;&bull;&bull;&bull;&bull;';
 
   constructor(
-      type: OTPType, issuer: string, secret: string, account: string,
-      index: number, counter: number, period?: number, hash?: string) {
+    type: OTPType,
+    issuer: string,
+    secret: string,
+    account: string,
+    index: number,
+    counter: number,
+    period?: number,
+    hash?: string
+  ) {
     this.type = type;
     this.index = index;
     this.issuer = issuer;
     this.secret = secret;
     this.account = account;
-    this.hash = hash && /^[0-9a-f]{32}$/.test(hash) ?
-        hash :
-        CryptoJS.MD5(secret).toString();
+    this.hash =
+      hash && /^[0-9a-f]{32}$/.test(hash)
+        ? hash
+        : CryptoJS.MD5(secret).toString();
     this.counter = counter;
     if (this.type === OTPType.totp && period) {
       this.period = period;
@@ -68,7 +76,11 @@ export class OTPEntry implements IOTPEntry {
     } else {
       try {
         this.code = KeyUtilities.generate(
-            this.type, this.secret, this.counter, this.period);
+          this.type,
+          this.secret,
+          this.counter,
+          this.period
+        );
       } catch (error) {
         this.code = 'Invalid';
         if (parent) {

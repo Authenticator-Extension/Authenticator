@@ -38,18 +38,20 @@ function showGrayLayout() {
     document.body.appendChild(grayLayout);
     const scan = document.createElement('div');
     scan.className = 'scan';
-    scan.style.background = 'url(' +
-        chrome.extension.getURL('images/scan.gif') + ') no-repeat center';
+    scan.style.background =
+      'url(' +
+      chrome.extension.getURL('images/scan.gif') +
+      ') no-repeat center';
     grayLayout.appendChild(scan);
     const captureBox = document.createElement('div');
     captureBox.id = '__ga_captureBox__';
     grayLayout.appendChild(captureBox);
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
-    grayLayout.onmouseup = (event) => {
+    grayLayout.onmouseup = event => {
       grayLayoutUp(event);
     };
-    grayLayout.oncontextmenu = (event) => {
+    grayLayout.oncontextmenu = event => {
       event.preventDefault();
       return;
     };
@@ -88,19 +90,21 @@ function grayLayoutMove(event: MouseEvent) {
   }
 
   const captureBoxLeft = Math.min(
-      Number(sessionStorage.getItem('captureBoxPositionLeft')), event.clientX);
+    Number(sessionStorage.getItem('captureBoxPositionLeft')),
+    event.clientX
+  );
   const captureBoxTop = Math.min(
-      Number(sessionStorage.getItem('captureBoxPositionTop')), event.clientY);
+    Number(sessionStorage.getItem('captureBoxPositionTop')),
+    event.clientY
+  );
   const captureBoxWidth =
-      Math.abs(
-          Number(sessionStorage.getItem('captureBoxPositionLeft')) -
-          event.clientX) -
-      1;
+    Math.abs(
+      Number(sessionStorage.getItem('captureBoxPositionLeft')) - event.clientX
+    ) - 1;
   const captureBoxHeight =
-      Math.abs(
-          Number(sessionStorage.getItem('captureBoxPositionTop')) -
-          event.clientY) -
-      1;
+    Math.abs(
+      Number(sessionStorage.getItem('captureBoxPositionTop')) - event.clientY
+    ) - 1;
   captureBox.style.left = captureBoxLeft + 'px';
   captureBox.style.top = captureBoxTop + 'px';
   captureBox.style.width = captureBoxWidth + 'px';
@@ -126,59 +130,73 @@ function grayLayoutUp(event: MouseEvent) {
   }
 
   const captureBoxLeft =
-      Math.min(
-          Number(sessionStorage.getItem('captureBoxPositionLeft')),
-          event.clientX) +
-      1;
+    Math.min(
+      Number(sessionStorage.getItem('captureBoxPositionLeft')),
+      event.clientX
+    ) + 1;
   const captureBoxTop =
-      Math.min(
-          Number(sessionStorage.getItem('captureBoxPositionTop')),
-          event.clientY) +
-      1;
+    Math.min(
+      Number(sessionStorage.getItem('captureBoxPositionTop')),
+      event.clientY
+    ) + 1;
   const captureBoxWidth =
-      Math.abs(
-          Number(sessionStorage.getItem('captureBoxPositionLeft')) -
-          event.clientX) -
-      1;
+    Math.abs(
+      Number(sessionStorage.getItem('captureBoxPositionLeft')) - event.clientX
+    ) - 1;
   const captureBoxHeight =
-      Math.abs(
-          Number(sessionStorage.getItem('captureBoxPositionTop')) -
-          event.clientY) -
-      1;
+    Math.abs(
+      Number(sessionStorage.getItem('captureBoxPositionTop')) - event.clientY
+    ) - 1;
 
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
     sendPosition(
-        captureBoxLeft, captureBoxTop, captureBoxWidth, captureBoxHeight);
+      captureBoxLeft,
+      captureBoxTop,
+      captureBoxWidth,
+      captureBoxHeight
+    );
   }, 200);
   return false;
 }
 
 function sendPosition(
-    left: number, top: number, width: number, height: number) {
+  left: number,
+  top: number,
+  width: number,
+  height: number
+) {
   chrome.runtime.sendMessage({
     action: 'position',
-    info: {left, top, width, height, windowWidth: window.innerWidth},
+    info: { left, top, width, height, windowWidth: window.innerWidth },
   });
 }
 
 function showQrCode(msg: string) {
-  const left = (screen.width / 2) - 200;
-  const top = (screen.height / 2) - 100;
+  const left = screen.width / 2 - 200;
+  const top = screen.height / 2 - 100;
   const url =
-      chrome.extension.getURL('view/qr.html') + '?' + encodeURIComponent(msg);
+    chrome.extension.getURL('view/qr.html') + '?' + encodeURIComponent(msg);
   window.open(
-      url, '_blank',
-      'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, copyhistory=no, width=400, height=200, left=' +
-          left + ',top=' + top);
+    url,
+    '_blank',
+    'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, copyhistory=no, width=400, height=200, left=' +
+      left +
+      ',top=' +
+      top
+  );
 }
 
 function pasteCode(code: string) {
   const _inputBoxes = document.getElementsByTagName('input');
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
-    if (_inputBoxes[i].type === 'text' || _inputBoxes[i].type === 'number' ||
-        _inputBoxes[i].type === 'tel' || _inputBoxes[i].type === 'password') {
+    if (
+      _inputBoxes[i].type === 'text' ||
+      _inputBoxes[i].type === 'number' ||
+      _inputBoxes[i].type === 'tel' ||
+      _inputBoxes[i].type === 'password'
+    ) {
       inputBoxes.push(_inputBoxes[i]);
     }
   }
@@ -186,12 +204,20 @@ function pasteCode(code: string) {
     return;
   }
   const identities = [
-    '2fa', 'otp', 'authenticator', 'factor', 'code', 'totp', 'twoFactorCode',
+    '2fa',
+    'otp',
+    'authenticator',
+    'factor',
+    'code',
+    'totp',
+    'twoFactorCode',
   ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
-      if (inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
-          inputBox.id.toLowerCase().indexOf(identity) >= 0) {
+      if (
+        inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
+        inputBox.id.toLowerCase().indexOf(identity) >= 0
+      ) {
         if (!inputBox.value) {
           inputBox.value = code;
           fireInputEvents(inputBox);
@@ -202,9 +228,9 @@ function pasteCode(code: string) {
   }
 
   const activeInputBox =
-      document.activeElement && document.activeElement.tagName === 'INPUT' ?
-      document.activeElement :
-      null;
+    document.activeElement && document.activeElement.tagName === 'INPUT'
+      ? document.activeElement
+      : null;
   if (activeInputBox) {
     const inputBox = activeInputBox as HTMLInputElement;
     if (!inputBox.value) {
@@ -226,9 +252,11 @@ function pasteCode(code: string) {
 
 function fireInputEvents(inputBox: HTMLInputElement) {
   const events = [
-    new KeyboardEvent('keydown'), new KeyboardEvent('keyup'),
-    new KeyboardEvent('keypress'), new Event('input', {'bubbles': true}),
-    new Event('change', {'bubbles': true}),
+    new KeyboardEvent('keydown'),
+    new KeyboardEvent('keyup'),
+    new KeyboardEvent('keypress'),
+    new Event('input', { bubbles: true }),
+    new Event('change', { bubbles: true }),
   ];
   for (const event of events) {
     inputBox.dispatchEvent(event);
@@ -236,8 +264,8 @@ function fireInputEvents(inputBox: HTMLInputElement) {
   return;
 }
 
-window.onkeydown = (event) => {
-  if (event.keyCode === 27) {
+window.onkeydown = event => {
+  if (event.key === 'Escape') {
     event.preventDefault();
     const grayLayout = document.getElementById('__ga_grayLayout__');
     const captureBox = document.getElementById('__ga_captureBox__');

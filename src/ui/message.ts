@@ -1,6 +1,4 @@
-
-
-import {UI} from './ui';
+import { UI } from './ui';
 
 function isCustomEvent(event: Event): event is CustomEvent {
   return 'detail' in event;
@@ -8,7 +6,7 @@ function isCustomEvent(event: Event): event is CustomEvent {
 
 export async function message(_ui: UI) {
   const ui: UIConfig = {
-    data: {message: [], messageIdle: true, confirmMessage: ''},
+    data: { message: [], messageIdle: true, confirmMessage: '' },
     methods: {
       alert: (message: string) => {
         _ui.instance.message.unshift(message);
@@ -22,26 +20,29 @@ export async function message(_ui: UI) {
       },
       confirm: async (message: string) => {
         return new Promise(
-            (resolve: (value: boolean) => void,
-             reject: (reason: Error) => void) => {
-              _ui.instance.confirmMessage = message;
-              window.addEventListener('confirm', (event) => {
-                _ui.instance.confirmMessage = '';
-                if (!isCustomEvent(event)) {
-                  return resolve(false);
-                }
-                return resolve(event.detail);
-              });
-              return;
+          (
+            resolve: (value: boolean) => void,
+            reject: (reason: Error) => void
+          ) => {
+            _ui.instance.confirmMessage = message;
+            window.addEventListener('confirm', event => {
+              _ui.instance.confirmMessage = '';
+              if (!isCustomEvent(event)) {
+                return resolve(false);
+              }
+              return resolve(event.detail);
             });
+            return;
+          }
+        );
       },
       confirmOK: () => {
-        const confirmEvent = new CustomEvent('confirm', {detail: true});
+        const confirmEvent = new CustomEvent('confirm', { detail: true });
         window.dispatchEvent(confirmEvent);
         return;
       },
       confirmCancel: () => {
-        const confirmEvent = new CustomEvent('confirm', {detail: false});
+        const confirmEvent = new CustomEvent('confirm', { detail: false });
         window.dispatchEvent(confirmEvent);
         return;
       },

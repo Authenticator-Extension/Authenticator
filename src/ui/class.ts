@@ -1,5 +1,4 @@
-
-import {UI} from './ui';
+import { UI } from './ui';
 
 export async function className(_ui: UI) {
   const ui: UIConfig = {

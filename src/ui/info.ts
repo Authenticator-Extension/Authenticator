@@ -1,10 +1,10 @@
-import {OTPEntry} from '../models/otp';
+import { OTPEntry } from '../models/otp';
 
-import {UI} from './ui';
+import { UI } from './ui';
 
 export async function info(_ui: UI) {
   const ui: UIConfig = {
-    data: {info: ''},
+    data: { info: '' },
     methods: {
       showInfo: (tab: string) => {
         if (tab === 'export' || tab === 'security') {
@@ -20,47 +20,56 @@ export async function info(_ui: UI) {
             }
           }
         } else if (tab === 'dropbox') {
-          if (localStorage.dropboxEncrypted !== 'true' &&
-              localStorage.dropboxEncrypted !== 'false') {
+          if (
+            localStorage.dropboxEncrypted !== 'true' &&
+            localStorage.dropboxEncrypted !== 'false'
+          ) {
             localStorage.dropboxEncrypted = 'true';
             _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
           }
 
           chrome.permissions.request(
-              {origins: ['https://*.dropboxapi.com/*']}, async (granted) => {
-                if (granted) {
-                  _ui.instance.currentClass.fadein = true;
-                  _ui.instance.currentClass.fadeout = false;
-                  _ui.instance.info = tab;
-                }
-                return;
-              });
+            { origins: ['https://*.dropboxapi.com/*'] },
+            async granted => {
+              if (granted) {
+                _ui.instance.currentClass.fadein = true;
+                _ui.instance.currentClass.fadeout = false;
+                _ui.instance.info = tab;
+              }
+              return;
+            }
+          );
           return;
         } else if (tab === 'drive') {
-          if (localStorage.driveEncrypted !== 'true' &&
-              localStorage.driveEncrypted !== 'false') {
+          if (
+            localStorage.driveEncrypted !== 'true' &&
+            localStorage.driveEncrypted !== 'false'
+          ) {
             localStorage.driveEncrypted = 'true';
             _ui.instance.driveEncrypted = localStorage.driveEncrypted;
           }
           chrome.permissions.request(
-              {
-                origins: [
-                  'https://www.googleapis.com/*',
-                  'https://accounts.google.com/o/oauth2/revoke',
-                ],
-              },
-              async (granted) => {
-                if (granted) {
-                  _ui.instance.currentClass.fadein = true;
-                  _ui.instance.currentClass.fadeout = false;
-                  _ui.instance.info = tab;
-                }
-                return;
-              });
+            {
+              origins: [
+                'https://www.googleapis.com/*',
+                'https://accounts.google.com/o/oauth2/revoke',
+              ],
+            },
+            async granted => {
+              if (granted) {
+                _ui.instance.currentClass.fadein = true;
+                _ui.instance.currentClass.fadeout = false;
+                _ui.instance.info = tab;
+              }
+              return;
+            }
+          );
           return;
         } else if (tab === 'storage') {
-          if (_ui.instance.newStorageLocation !== 'sync' &&
-              _ui.instance.newStorageLocation !== 'local') {
+          if (
+            _ui.instance.newStorageLocation !== 'sync' &&
+            _ui.instance.newStorageLocation !== 'local'
+          ) {
             _ui.instance.newStorageLocation = localStorage.storageLocation;
           }
         }

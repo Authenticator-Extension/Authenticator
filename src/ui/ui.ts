@@ -1,7 +1,8 @@
-import Vue, {Component} from 'vue';
+/* tslint:disable:ban-ts-ignore */
+import Vue, { Component } from 'vue';
 // @ts-ignore
-import {Vue2Dragula} from 'vue2-dragula';
-import {OTPEntry} from '../models/otp';
+import { Vue2Dragula } from 'vue2-dragula';
+import { OTPEntry } from '../models/otp';
 
 export class UI {
   private ui: UIConfig;

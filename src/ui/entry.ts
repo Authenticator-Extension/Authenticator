@@ -1,11 +1,11 @@
 import * as CryptoJS from 'crypto-js';
 
-import {Encryption} from '../models/encryption';
-import {OTPEntry} from '../models/otp';
-import {EntryStorage} from '../models/storage';
+import { Encryption } from '../models/encryption';
+import { OTPEntry } from '../models/otp';
+import { EntryStorage } from '../models/storage';
 
-import {insertContentScript} from './add-account';
-import {UI} from './ui';
+import { insertContentScript } from './add-account';
+import { UI } from './ui';
 
 async function getEntries(encryption: Encryption) {
   const otpEntries: OTPEntry[] = await EntryStorage.get(encryption);
@@ -27,9 +27,11 @@ async function updateCode(app: any) {
   // passphrase box should not be shown (no passphrase set) or
   // there are entiries shown and passphrase box isn't shown (the user has
   // already provided password)
-  if (!app.sectorStart &&
-      (!app.shouldShowPassphrase ||
-       app.entries.length > 0 && app.info !== 'passphrase')) {
+  if (
+    !app.sectorStart &&
+    (!app.shouldShowPassphrase ||
+      (app.entries.length > 0 && app.info !== 'passphrase'))
+  ) {
     app.sectorStart = true;
     app.sectorOffset = -second;
   }
@@ -56,12 +58,13 @@ async function updateCode(app: any) {
   }
 }
 
-function getBackupFile(entryData: {[hash: string]: OTPStorage}) {
+function getBackupFile(entryData: { [hash: string]: OTPStorage }) {
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, '\r\n');
-  const base64Data =
-      CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(json));
+  const base64Data = CryptoJS.enc.Base64.stringify(
+    CryptoJS.enc.Utf8.parse(json)
+  );
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
@@ -69,15 +72,15 @@ function removeUnsafeData(data: string) {
   return encodeURIComponent(data.split('::')[0].replace(/:/g, ''));
 }
 
-function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
+function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
     otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
     otpStorage.account = removeUnsafeData(otpStorage.account);
-    const label = otpStorage.issuer ?
-        (otpStorage.issuer + ':' + otpStorage.account) :
-        otpStorage.account;
+    const label = otpStorage.issuer
+      ? otpStorage.issuer + ':' + otpStorage.account
+      : otpStorage.account;
     let type = '';
     if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
       type = 'totp';
@@ -87,86 +90,101 @@ function getOneLineOtpBackupFile(entryData: {[hash: string]: OTPStorage}) {
       continue;
     }
 
-    const otpAuthLine = 'otpauth://' + type + '/' + label +
-        '?secret=' + otpStorage.secret +
-        (otpStorage.issuer ? ('&issuer=' + otpStorage.issuer) : '') +
-        (type === 'hotp' ? ('&counter=' + otpStorage.counter) : '') +
-        (type === 'totp' && otpStorage.period ?
-             ('&period=' + otpStorage.period) :
-             '');
+    const otpAuthLine =
+      'otpauth://' +
+      type +
+      '/' +
+      label +
+      '?secret=' +
+      otpStorage.secret +
+      (otpStorage.issuer ? '&issuer=' + otpStorage.issuer : '') +
+      (type === 'hotp' ? '&counter=' + otpStorage.counter : '') +
+      (type === 'totp' && otpStorage.period
+        ? '&period=' + otpStorage.period
+        : '');
 
     otpAuthLines.push(otpAuthLine);
   }
 
   const base64Data = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(otpAuthLines.join('\r\n')));
+    CryptoJS.enc.Utf8.parse(otpAuthLines.join('\r\n'))
+  );
   return `data:application/octet-stream;base64,${base64Data}`;
 }
 
 export async function getSiteName() {
   return new Promise(
-      (resolve: (value: Array<string|null>) => void,
-       reject: (reason: Error) => void) => {
-        chrome.tabs.query({active: true, lastFocusedWindow: true}, (tabs) => {
-          const tab = tabs[0];
-          if (!tab) {
-            return resolve([null, null]);
-          }
+    (
+      resolve: (value: Array<string | null>) => void,
+      reject: (reason: Error) => void
+    ) => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+        const tab = tabs[0];
+        if (!tab) {
+          return resolve([null, null]);
+        }
 
-          const title = tab.title ?
-              tab.title.replace(/[^a-z0-9]/ig, '').toLowerCase() :
-              null;
+        const title = tab.title
+          ? tab.title.replace(/[^a-z0-9]/gi, '').toLowerCase()
+          : null;
 
-          if (!tab.url) {
-            return resolve([title, null]);
-          }
+        if (!tab.url) {
+          return resolve([title, null]);
+        }
 
-          const urlParser = document.createElement('a');
-          urlParser.href = tab.url;
-          const hostname = urlParser.hostname.toLowerCase();
+        const urlParser = document.createElement('a');
+        urlParser.href = tab.url;
+        const hostname = urlParser.hostname.toLowerCase();
 
-          // try to parse name from hostname
-          // i.e. hostname is www.example.com
-          // name should be example
-          let nameFromDomain = '';
+        // try to parse name from hostname
+        // i.e. hostname is www.example.com
+        // name should be example
+        let nameFromDomain = '';
 
-          // ip address
-          if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
-            nameFromDomain = hostname;
-          }
+        // ip address
+        if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
+          nameFromDomain = hostname;
+        }
 
-          // local network
-          if (hostname.indexOf('.') === -1) {
-            nameFromDomain = hostname;
-          }
+        // local network
+        if (hostname.indexOf('.') === -1) {
+          nameFromDomain = hostname;
+        }
 
-          const hostLevelUnits = hostname.split('.');
+        const hostLevelUnits = hostname.split('.');
 
-          if (hostLevelUnits.length === 2) {
-            nameFromDomain = hostLevelUnits[0];
-          }
+        if (hostLevelUnits.length === 2) {
+          nameFromDomain = hostLevelUnits[0];
+        }
 
-          // www.example.com
+        // www.example.com
+        // example.com.cn
+        if (hostLevelUnits.length > 2) {
           // example.com.cn
-          if (hostLevelUnits.length > 2) {
-            // example.com.cn
-            if (['com', 'net', 'org', 'edu', 'gov', 'co'].indexOf(
-                    hostLevelUnits[hostLevelUnits.length - 2]) !== -1) {
-              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
-            } else {  // www.example.com
-              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
-            }
+          if (
+            ['com', 'net', 'org', 'edu', 'gov', 'co'].indexOf(
+              hostLevelUnits[hostLevelUnits.length - 2]
+            ) !== -1
+          ) {
+            nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
+          } else {
+            // www.example.com
+            nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
           }
+        }
 
-          nameFromDomain = nameFromDomain.replace(/-/g, '').toLowerCase();
+        nameFromDomain = nameFromDomain.replace(/-/g, '').toLowerCase();
 
-          return resolve([title, nameFromDomain, hostname]);
-        });
+        return resolve([title, nameFromDomain, hostname]);
       });
+    }
+  );
 }
 
 export function hasMatchedEntry(
-    siteName: Array<string|null>, entries: OTPEntry[]) {
+  siteName: Array<string | null>,
+  entries: OTPEntry[]
+) {
   if (siteName.length < 2) {
     return false;
   }
@@ -179,13 +197,13 @@ export function hasMatchedEntry(
   return false;
 }
 
-function isMatchedEntry(siteName: Array<string|null>, entry: OTPEntry) {
+function isMatchedEntry(siteName: Array<string | null>, entry: OTPEntry) {
   if (!entry.issuer) {
     return false;
   }
 
   const issuerHostMatches = entry.issuer.split('::');
-  const issuer = issuerHostMatches[0].replace(/[^0-9a-z]/ig, '').toLowerCase();
+  const issuer = issuerHostMatches[0].replace(/[^0-9a-z]/gi, '').toLowerCase();
 
   if (!issuer) {
     return false;
@@ -215,30 +233,35 @@ function isMatchedEntry(siteName: Array<string|null>, entry: OTPEntry) {
 
 async function getCachedPassphrase() {
   return new Promise(
-      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-        const cookie = document.cookie;
-        const cookieMatch =
-            cookie ? document.cookie.match(/passphrase=([^;]*)/) : null;
-        const cachedPassphrase =
-            cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
-        const cachedPassphraseLocalStorage = localStorage.encodedPhrase ?
-            CryptoJS.AES.decrypt(localStorage.encodedPhrase, '')
-                .toString(CryptoJS.enc.Utf8) :
-            '';
-        if (cachedPassphrase || cachedPassphraseLocalStorage) {
-          return resolve(cachedPassphrase || cachedPassphraseLocalStorage);
-        }
+    (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+      const cookie = document.cookie;
+      const cookieMatch = cookie
+        ? document.cookie.match(/passphrase=([^;]*)/)
+        : null;
+      const cachedPassphrase =
+        cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
+      const cachedPassphraseLocalStorage = localStorage.encodedPhrase
+        ? CryptoJS.AES.decrypt(localStorage.encodedPhrase, '').toString(
+            CryptoJS.enc.Utf8
+          )
+        : '';
+      if (cachedPassphrase || cachedPassphraseLocalStorage) {
+        return resolve(cachedPassphrase || cachedPassphraseLocalStorage);
+      }
 
-        chrome.runtime.sendMessage(
-            {action: 'passphrase'}, (passphrase: string) => {
-              return resolve(passphrase);
-            });
-      });
+      chrome.runtime.sendMessage(
+        { action: 'passphrase' },
+        (passphrase: string) => {
+          return resolve(passphrase);
+        }
+      );
+    }
+  );
 }
 
 function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split('\n');
-  const exportData: {[hash: string]: OTPStorage} = {};
+  const exportData: { [hash: string]: OTPStorage } = {};
   for (let item of lines) {
     item = item.trim();
     if (!item.startsWith('otpauth:')) {
@@ -256,7 +279,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
       let account = '';
       let secret = '';
       let issuer = '';
-      let period: number|undefined = undefined;
+      let period: number | undefined = undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -270,7 +293,7 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
         account = label;
       }
       const parameters = parameterPart.split('&');
-      parameters.forEach((item) => {
+      parameters.forEach(item => {
         const parameter = item.split('=');
         if (parameter[0].toLowerCase() === 'secret') {
           secret = parameter[1];
@@ -282,29 +305,36 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
           }
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
-          counter = (isNaN(counter) || counter < 0) ? 0 : counter;
+          counter = isNaN(counter) || counter < 0 ? 0 : counter;
         } else if (parameter[0].toLowerCase() === 'period') {
           period = Number(parameter[1]);
-          period = (isNaN(period) || period < 0 || period > 60 ||
-                    60 % period !== 0) ?
-              undefined :
-              period;
+          period =
+            isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
+              ? undefined
+              : period;
         }
       });
 
       if (!secret) {
         continue;
       } else if (
-          !/^[0-9a-f]+$/i.test(secret) && !/^[2-7a-z]+=*$/i.test(secret)) {
+        !/^[0-9a-f]+$/i.test(secret) &&
+        !/^[2-7a-z]+=*$/i.test(secret)
+      ) {
         continue;
       } else {
         const hash = CryptoJS.MD5(secret).toString();
-        if (!/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret) &&
-            type === 'totp') {
+        if (
+          !/^[2-7a-z]+=*$/i.test(secret) &&
+          /^[0-9a-f]+$/i.test(secret) &&
+          type === 'totp'
+        ) {
           type = 'hex';
         } else if (
-            !/^[2-7a-z]+=*$/i.test(secret) && /^[0-9a-f]+$/i.test(secret) &&
-            type === 'hotp') {
+          !/^[2-7a-z]+=*$/i.test(secret) &&
+          /^[0-9a-f]+$/i.test(secret) &&
+          type === 'hotp'
+        ) {
           type = 'hhex';
         }
 
@@ -330,13 +360,15 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 export async function entry(_ui: UI) {
   const cachedPassphrase = await getCachedPassphrase();
   const encryption: Encryption = new Encryption(cachedPassphrase);
-  let shouldShowPassphrase =
-      cachedPassphrase ? false : await EntryStorage.hasEncryptedEntry();
-  const exportData =
-      shouldShowPassphrase ? {} : await EntryStorage.getExport(encryption);
-  const exportEncData = shouldShowPassphrase ?
-      {} :
-      await EntryStorage.getExport(encryption, true);
+  let shouldShowPassphrase = cachedPassphrase
+    ? false
+    : await EntryStorage.hasEncryptedEntry();
+  const exportData = shouldShowPassphrase
+    ? {}
+    : await EntryStorage.getExport(encryption);
+  const exportEncData = shouldShowPassphrase
+    ? {}
+    : await EntryStorage.getExport(encryption, true);
   const entries = shouldShowPassphrase ? [] : await getEntries(encryption);
 
   for (let i = 0; i < entries.length; i++) {
@@ -399,7 +431,7 @@ export async function entry(_ui: UI) {
       isMatchedEntry: (entry: OTPEntry) => {
         return isMatchedEntry(siteName, entry);
       },
-      searchListener: (e) => {
+      searchListener: e => {
         if (e.keyCode === 191) {
           if (_ui.instance.info !== '') {
             return;
@@ -433,10 +465,14 @@ export async function entry(_ui: UI) {
           return true;
         }
 
-        if (entry.issuer.toLowerCase().includes(
-                _ui.instance.searchText.toLowerCase()) ||
-            entry.account.toLowerCase().includes(
-                _ui.instance.searchText.toLowerCase())) {
+        if (
+          entry.issuer
+            .toLowerCase()
+            .includes(_ui.instance.searchText.toLowerCase()) ||
+          entry.account
+            .toLowerCase()
+            .includes(_ui.instance.searchText.toLowerCase())
+        ) {
           return true;
         } else {
           return false;
@@ -445,59 +481,63 @@ export async function entry(_ui: UI) {
       updateCode: async () => {
         return updateCode(_ui.instance);
       },
-      decryptBackupData:
-          (backupData: {[hash: string]: OTPStorage},
-           passphrase: string|null) => {
-            const decryptedbackupData: {[hash: string]: OTPStorage} = {};
-            for (const hash of Object.keys(backupData)) {
-              if (typeof backupData[hash] !== 'object') {
-                continue;
-              }
-              if (!backupData[hash].secret) {
-                continue;
-              }
-              if (backupData[hash].encrypted && !passphrase) {
-                continue;
-              }
-              if (backupData[hash].encrypted && passphrase) {
-                try {
-                  backupData[hash].secret =
-                      CryptoJS.AES.decrypt(backupData[hash].secret, passphrase)
-                          .toString(CryptoJS.enc.Utf8);
-                  backupData[hash].encrypted = false;
-                } catch (error) {
-                  continue;
-                }
-              }
-              // backupData[hash].secret may be empty after decrypt with wrong
-              // passphrase
-              if (!backupData[hash].secret) {
-                continue;
-              }
-              decryptedbackupData[hash] = backupData[hash];
+      decryptBackupData: (
+        backupData: { [hash: string]: OTPStorage },
+        passphrase: string | null
+      ) => {
+        const decryptedbackupData: { [hash: string]: OTPStorage } = {};
+        for (const hash of Object.keys(backupData)) {
+          if (typeof backupData[hash] !== 'object') {
+            continue;
+          }
+          if (!backupData[hash].secret) {
+            continue;
+          }
+          if (backupData[hash].encrypted && !passphrase) {
+            continue;
+          }
+          if (backupData[hash].encrypted && passphrase) {
+            try {
+              backupData[hash].secret = CryptoJS.AES.decrypt(
+                backupData[hash].secret,
+                passphrase
+              ).toString(CryptoJS.enc.Utf8);
+              backupData[hash].encrypted = false;
+            } catch (error) {
+              continue;
             }
-            return decryptedbackupData;
-          },
+          }
+          // backupData[hash].secret may be empty after decrypt with wrong
+          // passphrase
+          if (!backupData[hash].secret) {
+            continue;
+          }
+          decryptedbackupData[hash] = backupData[hash];
+        }
+        return decryptedbackupData;
+      },
       importBackupCode: async () => {
-        let exportData: {[hash: string]: OTPStorage} = {};
+        let exportData: { [hash: string]: OTPStorage } = {};
         try {
           exportData = JSON.parse(_ui.instance.importCode);
-
         } catch (error) {
           // Maybe one-otpauth-per line text
           exportData = getEntryDataFromOTPAuthPerLine(_ui.instance.importCode);
         }
 
         try {
-          const passphrase: string|null =
-              _ui.instance.importEncrypted && _ui.instance.importPassphrase ?
-              _ui.instance.importPassphrase :
-              null;
-          const decryptedbackupData: {[hash: string]: OTPStorage} =
-              _ui.instance.decryptBackupData(exportData, passphrase);
+          const passphrase: string | null =
+            _ui.instance.importEncrypted && _ui.instance.importPassphrase
+              ? _ui.instance.importPassphrase
+              : null;
+          const decryptedbackupData: {
+            [hash: string]: OTPStorage;
+          } = _ui.instance.decryptBackupData(exportData, passphrase);
           if (Object.keys(decryptedbackupData).length) {
             await EntryStorage.import(
-                _ui.instance.encryption, decryptedbackupData);
+              _ui.instance.encryption,
+              decryptedbackupData
+            );
             await _ui.instance.updateEntries();
             alert(_ui.instance.i18n.updateSuccess);
             window.close();
@@ -510,8 +550,11 @@ export async function entry(_ui: UI) {
         }
       },
       noCopy: (code: string) => {
-        return code === 'Encrypted' || code === 'Invalid' ||
-            code.startsWith('&bull;');
+        return (
+          code === 'Encrypted' ||
+          code === 'Invalid' ||
+          code.startsWith('&bull;')
+        );
       },
       updateStorage: async () => {
         await EntryStorage.set(_ui.instance.encryption, _ui.instance.entries);
@@ -525,22 +568,28 @@ export async function entry(_ui: UI) {
       },
       importEntries: async () => {
         await EntryStorage.import(
-            _ui.instance.encryption, JSON.parse(_ui.instance.exportData));
+          _ui.instance.encryption,
+          JSON.parse(_ui.instance.exportData)
+        );
         await _ui.instance.updateEntries();
         _ui.instance.alert(_ui.instance.i18n.updateSuccess);
         return;
       },
       updateEntries: async () => {
-        const exportData =
-            await EntryStorage.getExport(_ui.instance.encryption);
-        const exportEncData =
-            await EntryStorage.getExport(_ui.instance.encryption, true);
+        const exportData = await EntryStorage.getExport(
+          _ui.instance.encryption
+        );
+        const exportEncData = await EntryStorage.getExport(
+          _ui.instance.encryption,
+          true
+        );
         _ui.instance.exportData = JSON.stringify(exportData, null, 2);
         _ui.instance.entries = await getEntries(_ui.instance.encryption);
         _ui.instance.exportFile = getBackupFile(exportData);
         _ui.instance.exportEncryptedFile = getBackupFile(exportEncData);
-        _ui.instance.exportOneLineOtpAuthFile =
-            getOneLineOtpBackupFile(exportData);
+        _ui.instance.exportOneLineOtpAuthFile = getOneLineOtpBackupFile(
+          exportData
+        );
         await _ui.instance.updateCode();
         return;
       },
@@ -566,14 +615,15 @@ export async function entry(_ui: UI) {
         }
         if (target.files[0]) {
           const reader = new FileReader();
-          let decryptedFileData: {[hash: string]: OTPStorage} = {};
+          let decryptedFileData: { [hash: string]: OTPStorage } = {};
           reader.onload = async () => {
-            let importData: {[hash: string]: OTPStorage} = {};
+            let importData: { [hash: string]: OTPStorage } = {};
             try {
               importData = JSON.parse(reader.result as string);
             } catch (e) {
-              importData =
-                  getEntryDataFromOTPAuthPerLine(reader.result as string);
+              importData = getEntryDataFromOTPAuthPerLine(
+                reader.result as string
+              );
             }
 
             let encrypted = false;
@@ -581,10 +631,13 @@ export async function entry(_ui: UI) {
               if (importData[hash].encrypted) {
                 encrypted = true;
                 try {
-                  const oldPassphrase: string|null =
-                      await _ui.instance.getOldPassphrase();
-                  decryptedFileData =
-                      _ui.instance.decryptBackupData(importData, oldPassphrase);
+                  const oldPassphrase:
+                    | string
+                    | null = await _ui.instance.getOldPassphrase();
+                  decryptedFileData = _ui.instance.decryptBackupData(
+                    importData,
+                    oldPassphrase
+                  );
                   break;
                 } catch {
                   break;
@@ -596,7 +649,9 @@ export async function entry(_ui: UI) {
             }
             if (Object.keys(decryptedFileData).length) {
               await EntryStorage.import(
-                  _ui.instance.encryption, decryptedFileData);
+                _ui.instance.encryption,
+                decryptedFileData
+              );
               await _ui.instance.updateEntries();
               alert(_ui.instance.i18n.updateSuccess);
               if (closeWindow) {
@@ -637,8 +692,9 @@ export async function entry(_ui: UI) {
         if (codes) {
           // wait vue apply changes to dom
           setTimeout(() => {
-            codes.scrollTop =
-                _ui.instance.currentClass.edit ? codes.scrollHeight : 0;
+            codes.scrollTop = _ui.instance.currentClass.edit
+              ? codes.scrollHeight
+              : 0;
           }, 0);
         }
         return;
@@ -655,8 +711,11 @@ export async function entry(_ui: UI) {
         return;
       },
       copyCode: async (entry: OTPEntry) => {
-        if (_ui.instance.currentClass.edit || entry.code === 'Invalid' ||
-            entry.code.startsWith('&bull;')) {
+        if (
+          _ui.instance.currentClass.edit ||
+          entry.code === 'Invalid' ||
+          entry.code.startsWith('&bull;')
+        ) {
           return;
         }
 
@@ -666,8 +725,9 @@ export async function entry(_ui: UI) {
         }
 
         if (navigator.userAgent.indexOf('Edge') !== -1) {
-          const codeClipboard =
-              document.getElementById('codeClipboard') as HTMLInputElement;
+          const codeClipboard = document.getElementById(
+            'codeClipboard'
+          ) as HTMLInputElement;
           if (!codeClipboard) {
             return;
           }
@@ -676,15 +736,19 @@ export async function entry(_ui: UI) {
             await insertContentScript();
 
             chrome.tabs.query(
-                {active: true, lastFocusedWindow: true}, (tabs) => {
-                  const tab = tabs[0];
-                  if (!tab || !tab.id) {
-                    return;
-                  }
+              { active: true, lastFocusedWindow: true },
+              tabs => {
+                const tab = tabs[0];
+                if (!tab || !tab.id) {
+                  return;
+                }
 
-                  chrome.tabs.sendMessage(
-                      tab.id, {action: 'pastecode', code: entry.code});
+                chrome.tabs.sendMessage(tab.id, {
+                  action: 'pastecode',
+                  code: entry.code,
                 });
+              }
+            );
           }
 
           codeClipboard.value = entry.code;
@@ -704,47 +768,53 @@ export async function entry(_ui: UI) {
           }, 1000);
         } else {
           chrome.permissions.request(
-              {permissions: ['clipboardWrite']}, async (granted) => {
-                if (granted) {
-                  const codeClipboard =
-                      document.getElementById('codeClipboard') as
-                      HTMLInputElement;
-                  if (!codeClipboard) {
-                    return;
-                  }
-
-                  if (_ui.instance.useAutofill) {
-                    await insertContentScript();
-
-                    chrome.tabs.query(
-                        {active: true, lastFocusedWindow: true}, (tabs) => {
-                          const tab = tabs[0];
-                          if (!tab || !tab.id) {
-                            return;
-                          }
-
-                          chrome.tabs.sendMessage(
-                              tab.id, {action: 'pastecode', code: entry.code});
-                        });
-                  }
-
-                  codeClipboard.value = entry.code;
-                  codeClipboard.focus();
-                  codeClipboard.select();
-                  document.execCommand('Copy');
-                  _ui.instance.notification = _ui.instance.i18n.copied;
-                  clearTimeout(_ui.instance.notificationTimeout);
-                  _ui.instance.currentClass.notificationFadein = true;
-                  _ui.instance.currentClass.notificationFadeout = false;
-                  _ui.instance.notificationTimeout = setTimeout(() => {
-                    _ui.instance.currentClass.notificationFadein = false;
-                    _ui.instance.currentClass.notificationFadeout = true;
-                    setTimeout(() => {
-                      _ui.instance.currentClass.notificationFadeout = false;
-                    }, 200);
-                  }, 1000);
+            { permissions: ['clipboardWrite'] },
+            async granted => {
+              if (granted) {
+                const codeClipboard = document.getElementById(
+                  'codeClipboard'
+                ) as HTMLInputElement;
+                if (!codeClipboard) {
+                  return;
                 }
-              });
+
+                if (_ui.instance.useAutofill) {
+                  await insertContentScript();
+
+                  chrome.tabs.query(
+                    { active: true, lastFocusedWindow: true },
+                    tabs => {
+                      const tab = tabs[0];
+                      if (!tab || !tab.id) {
+                        return;
+                      }
+
+                      chrome.tabs.sendMessage(tab.id, {
+                        action: 'pastecode',
+                        code: entry.code,
+                      });
+                    }
+                  );
+                }
+
+                codeClipboard.value = entry.code;
+                codeClipboard.focus();
+                codeClipboard.select();
+                document.execCommand('Copy');
+                _ui.instance.notification = _ui.instance.i18n.copied;
+                clearTimeout(_ui.instance.notificationTimeout);
+                _ui.instance.currentClass.notificationFadein = true;
+                _ui.instance.currentClass.notificationFadeout = false;
+                _ui.instance.notificationTimeout = setTimeout(() => {
+                  _ui.instance.currentClass.notificationFadein = false;
+                  _ui.instance.currentClass.notificationFadeout = true;
+                  setTimeout(() => {
+                    _ui.instance.currentClass.notificationFadeout = false;
+                  }, 200);
+                }, 1000);
+              }
+            }
+          );
         }
         return;
       },

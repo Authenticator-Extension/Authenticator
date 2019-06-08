@@ -20,8 +20,10 @@ export class Encryption implements IEncryption {
     }
 
     try {
-      let decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
-                                .toString(CryptoJS.enc.Utf8);
+      let decryptedSecret = CryptoJS.AES.decrypt(
+        secret,
+        this.password
+      ).toString(CryptoJS.enc.Utf8);
 
       if (!decryptedSecret) {
         return 'Encrypted';
@@ -37,10 +39,13 @@ export class Encryption implements IEncryption {
 
       decryptedSecret = decryptedSecret.replace(/ /g, '');
 
-      if (!/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
-          !/^[0-9a-f]+$/i.test(decryptedSecret) &&
-          !/^blz\-/.test(decryptedSecret) && !/^bliz\-/.test(decryptedSecret) &&
-          !/^stm\-/.test(decryptedSecret)) {
+      if (
+        !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
+        !/^[0-9a-f]+$/i.test(decryptedSecret) &&
+        !/^blz\-/.test(decryptedSecret) &&
+        !/^bliz\-/.test(decryptedSecret) &&
+        !/^stm\-/.test(decryptedSecret)
+      ) {
         return 'Encrypted';
       }
 

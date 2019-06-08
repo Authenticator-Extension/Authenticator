@@ -91,7 +91,11 @@ export class KeyUtilities {
   }
 
   static generate(
-      type: OTPType, secret: string, counter: number, period: number) {
+    type: OTPType,
+    secret: string,
+    counter: number,
+    period: number
+  ) {
     secret = secret.replace(/\s/g, '');
     let len = 6;
     let b26 = false;
@@ -152,8 +156,8 @@ export class KeyUtilities {
     }
 
     let otp =
-        (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec('7fffffff')) +
-        '';
+      (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec('7fffffff')) +
+      '';
 
     if (b26) {
       return this.base26(Number(otp));
@@ -162,6 +166,6 @@ export class KeyUtilities {
     if (otp.length < len) {
       otp = new Array(len - otp.length + 1).join('0') + otp;
     }
-    return (otp).substr(otp.length - len, len).toString();
+    return otp.substr(otp.length - len, len).toString();
   }
 }
