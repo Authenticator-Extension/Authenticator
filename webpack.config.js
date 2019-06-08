@@ -1,5 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,7 +18,11 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: { 
+          appendTsSuffixTo: [/\.vue$/],
+          transpileOnly: true
+        },
         exclude: /node_modules/
       },
       {
@@ -27,10 +32,27 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ForkTsCheckerWebpackPlugin(
+      {
+        vue: true
+      }
+    )
   ],
   resolve: {
-    extensions: ['.vue', '.tsx', '.ts', '.js'],
+    extensions: [
+      '.mjs',
+      '.js',
+      '.jsx',
+      '.vue',
+      '.json',
+      '.wasm',
+      '.ts',
+      '.tsx'
+    ],
+    modules: [
+      'node_modules'
+    ]
   },
   output: {
     path: path.resolve(__dirname, 'dist')
