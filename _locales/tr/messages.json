@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Kimlik Doğrulayıcı",
+        "message": "Kimlik doğrulayıcısı",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Kimlik Doğrulayıcı",
+        "message": "Kimlik doğrulayıcısı",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
+        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,11 +16,11 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Tanınmayan QR kodu.",
+        "message": "QR kodu bulunamadı.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=') ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Tamam",
+        "message": "Ok",
         "description": "OK."
     },
     "yes": {
@@ -52,11 +52,11 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Hesap Adı",
+        "message": "Müşteri Adı",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Yayınlayan Kuruluş",
+        "message": "Veren kuruluş",
         "description": "Issuer."
     },
     "secret": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Güvenlik",
+        "message": "Emniyet",
         "description": "Security."
     },
     "current_phrase": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bu hesabı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
+        "message": "Bu gizli anahtarı silmek mi istiyorsunuz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
+        "message": "Gizli Anahtarlarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Şifre uyuşmuyor.",
+        "message": "Şiƒreniz doğru değil.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Tercihler",
         "description": "Popup Page Settings"
     },
     "scale": {
