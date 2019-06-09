@@ -137,6 +137,7 @@ import Popup from './components/popup.vue';
 
 // Other
 import { loadI18nMessages } from './ui/i18n';
+import { Encryption } from './models/encryption';
 
 async function init() {
   // Add globals
@@ -146,18 +147,24 @@ async function init() {
   Vue.use(Vuex);
   Vue.use(Vue2Dragula);
 
-  // State store
-  const store = new Vuex.Store({
+  // State stores
+  const moduleStyle: VuexConstructor = {
     state: {
-      useHighContrast:
-        typeof localStorage.useHighContrast === undefined
-          ? false
-          : localStorage.useHighContrast,
+      useHighContrast: localStorage.highContrast === 'true',
+      isEditing: false,
     },
     mutations: {
-      toggleHighContrast(state) {
+      toggleHighContrast(state: { useHighContrast: boolean }) {
         state.useHighContrast = !state.useHighContrast;
+        localStorage.highContrast = state.useHighContrast;
       },
+    },
+  };
+
+  const store = new Vuex.Store({
+    modules: {
+      style: moduleStyle as Object,
+      data: moduleData as Object,
     },
   });
 
