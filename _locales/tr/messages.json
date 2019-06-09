@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Saati Google ile senkronize et",
+        "message": "Geçmişi Google ile eşitle",
         "description": "Sync Clock"
     },
     "remember_phrase": {
