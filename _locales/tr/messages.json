@@ -144,11 +144,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
+        "message": "Şifrelemeyi kaldırmak için lütfen mevcut şifrenizi girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Geçmişi Google ile eşitle",
+        "message": "Saati google ile senkronize et",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -160,19 +160,19 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Hesaplarınız için bir yedeğiniz var mı? Çok geç olana kadar beklemeyin!",
+        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Yakalama başarısız oldu, lütfen sayfayı yeniden yükleyin ve tekrar deneyin.",
+        "message": "Yakalama başarısız, sayfayı yenileyip tekrar deneyiniz.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Zamana dayalı",
+        "message": "Zaman bazlı",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Sayaca Dayalı",
+        "message": "Karşı Delik",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -180,35 +180,35 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Ölçek",
+        "message": "Aralık",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz?Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
+        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Yedekleme Dosyasını İndir",
+        "message": "Yedekleme dosyasını indir",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedekten içeri aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Dosyadan içeri aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Metin dosyasından içeri aktar",
+        "message": "Yedekten içeri aktar",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Tüm girdileri göster",
+        "message": "Girişler gösteriliyor",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Uyarı: yedeklemeler şifrelenmemiş. Kullanım kendi sorumluluğunuzdadır.",
+        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -220,7 +220,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Sil",
+        "message": "Kaldır",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Açılır pencere modu",
+        "message": "Popup görüntüsü",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Yüksek Kontrast Kullan",
+        "message": "&Yüksek Karşıtlık Kullan",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -268,11 +268,11 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Depolama konumu",
+        "message": "Depolama konumları",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Giriş Yap",
+        "message": "Oturum aç",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
@@ -290,7 +290,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var.Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -298,7 +298,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Daha fazla öğrenin",
+        "message": "Learn more",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
