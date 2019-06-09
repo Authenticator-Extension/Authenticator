@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
+        "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
         "description": "Extension Description."
     },
     "added": {
