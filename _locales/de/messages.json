@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentifikator",
+        "message": "Authentifizierung",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Schlüssel-Fehler. Nur Base32(A-Z, 2-7 und =)- und HEX(0-9 und A-F)-Schlüssel sind unterstützt. Ihr Schlüssel ist: ",
+        "message": "Schlüssel-Fehler. Nur Base32(A-Z, 2-7 und =)- und HEX(0-9 und A-F) Schlüssel sind unterstützt. Ihr Schlüssel ist: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -104,7 +104,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Sind Sie sicher, dass Sie diesen Account löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
+        "message": "Sind Sie sicher, dass Sie diesen Schlüssel löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -208,15 +208,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Achtung: Die Backups sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
+        "message": "Vorsicht: Sicherungen, die in Dropbox gespeichert werden, sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Sie müssen das richtige Passwort angeben um Sicherungsdateien zu importieren.",
+        "message": "Sie müssen das richtige Passwort angeben, um Sicherungsdateien zu importieren.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es sofort im Sicherheitsmenü.",
+        "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es im Sicherheitsmenü sofort.",
         "description": "localStorage password warning."
     },
     "remove": {
