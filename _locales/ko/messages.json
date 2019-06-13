@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "인증 도구",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "인증 도",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -24,83 +24,83 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "QR 코드 스캔",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "수동 입력.",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "닫기",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "확인",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "예",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "아니오",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "계정",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "계정명",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "발급자",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "비밀번호",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "성공.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "실패.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "정보",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "내보내기\/가져오기",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "설정",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "보안",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "현재 비밀번호",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "새 비밀번호",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "비밀번호",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "비밀번호 확인",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -112,7 +112,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "업데이트",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "암호화",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,11 +132,11 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "피드백",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "번역",
         "description": "Translate."
     },
     "source": {
@@ -144,15 +144,15 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "데이터 복호화를 위해 비밀번호를 입력하세요.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "구글과 시간 동기화",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "암호 기억",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 생성하세요.",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -172,11 +172,11 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "카운터 기반",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "환경 설정",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "백업 파일 다운로드",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "텍스트 백업 가져오기",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -220,43 +220,43 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "제거",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "암호 보호된 백업 다운로드",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "검색",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "팝업 모드",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "잠금",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "수정",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "수동 동기화",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "자동 입력 사용",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "고대비 사용",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "저장 & 백업",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -268,15 +268,15 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "저장 위치",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "로그인",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "로그아웃",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
@@ -298,7 +298,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "추가 정보",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     }
 }
