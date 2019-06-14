@@ -1,11 +1,5 @@
 import { ManagedStorage } from '../models/storage';
 
-import { UI } from './ui';
-
-function getVersion() {
-  return chrome.runtime.getManifest().version;
-}
-
 export async function syncTimeWithGoogle() {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
@@ -48,14 +42,6 @@ export async function syncTimeWithGoogle() {
   );
 }
 
-function resize(zoom: number) {
-  if (zoom !== 100) {
-    document.body.style.marginBottom = 480 * (zoom / 100 - 1) + 'px';
-    document.body.style.marginRight = 320 * (zoom / 100 - 1) + 'px';
-    document.body.style.transform = 'scale(' + zoom / 100 + ')';
-  }
-}
-
 async function openHelp() {
   let url = 'https://authenticator.cc/docs/en/chrome-issues';
 
@@ -73,232 +59,205 @@ async function openHelp() {
   chrome.tabs.create({ url });
 }
 
-let backupDisabled: boolean | string;
-let storageArea: boolean | string;
-
-ManagedStorage.get('disableBackup').then(value => {
-  backupDisabled = value;
-});
-
-ManagedStorage.get('storageArea').then(value => {
-  storageArea = value;
-});
-
-export async function menu(_ui: UI) {
-  const version = getVersion();
-  const zoom = Number(localStorage.zoom) || 100;
-  resize(zoom);
-  let useAutofill = localStorage.autofill === 'true';
-  let useHighContrast = localStorage.highContrast === 'true';
-
-  const ui: UIConfig = {
-    data: {
-      version,
-      zoom,
-      useAutofill,
-      useHighContrast,
-      newStorageLocation: localStorage.storageLocation,
-      backupDisabled,
-      storageArea,
-    },
-    methods: {
-      openLink: (url: string) => {
-        window.open(url, '_blank');
-        return;
-      },
-      createWindow: (url: string) => {
-        chrome.windows.create({ type: 'normal', url });
-        return;
-      },
-      showMenu: () => {
-        _ui.instance.currentClass.slidein = true;
-        _ui.instance.currentClass.slideout = false;
-        return;
-      },
-      closeMenu: () => {
-        _ui.instance.currentClass.slidein = false;
-        _ui.instance.currentClass.slideout = true;
-        setTimeout(() => {
-          _ui.instance.currentClass.slideout = false;
-        }, 200);
-        return;
-      },
-      openHelp: () => {
-        openHelp();
-        return;
-      },
-      clearFilter: () => {
-        _ui.instance.filter = false;
-        if (_ui.instance.entries.length >= 10) {
-          _ui.instance.showSearch = true;
-        }
-        return;
-      },
-      isChrome: () => {
-        if (navigator.userAgent.indexOf('Chrome') !== -1) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      isEdge: () => {
-        if (navigator.userAgent.indexOf('Edge') !== -1) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-      showEdgeBugWarning: () => {
-        _ui.instance.alert(
-          'Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.'
-        );
-      },
-      saveAutofill: () => {
-        localStorage.autofill = _ui.instance.useAutofill;
-        useAutofill = localStorage.autofill === 'true' ? true : false || false;
-        return;
-      },
-      saveHighContrast: () => {
-        localStorage.highContrast = _ui.instance.useHighContrast;
-        useHighContrast =
-          localStorage.highContrast === 'true' ? true : false || false;
-        return;
-      },
-      saveZoom: () => {
-        localStorage.zoom = _ui.instance.zoom;
-        resize(_ui.instance.zoom);
-        return;
-      },
-      syncClock: async () => {
-        if (navigator.userAgent.indexOf('Edge') !== -1) {
-          const message = await syncTimeWithGoogle();
-          _ui.instance.alert(_ui.instance.i18n[message]);
-        } else {
-          chrome.permissions.request(
-            { origins: ['https://www.google.com/'] },
-            async granted => {
-              if (granted) {
-                const message = await syncTimeWithGoogle();
-                _ui.instance.alert(_ui.instance.i18n[message]);
-              }
-              return;
-            }
-          );
-        }
-        return;
-      },
-      popOut: () => {
-        let windowType;
-        if (navigator.userAgent.indexOf('Firefox') !== -1) {
-          windowType = 'detached_panel';
-        } else if (navigator.userAgent.indexOf('Edge') !== -1) {
-          windowType = 'popup';
-        } else {
-          windowType = 'panel';
-        }
-        chrome.windows.create({
-          url: chrome.extension.getURL('view/popup.html?popup=true'),
-          type: windowType,
-          height: window.innerHeight,
-          width: window.innerWidth,
-        });
-      },
-      isPopup: () => {
-        const params = new URLSearchParams(
-          document.location.search.substring(1)
-        );
-        return params.get('popup');
-      },
-      fixPopupSize: () => {
-        const zoom = Number(localStorage.zoom) / 100 || 1;
-        const correctHeight = 480 * zoom;
-        const correctWidth = 320 * zoom;
-        if (
-          window.innerHeight !== correctHeight ||
-          window.innerWidth !== correctWidth
-        ) {
-          // window update to correct size
-          const adjustedHeight =
-            correctHeight + (window.outerHeight - window.innerHeight);
-          const adjustedWidth =
-            correctWidth + (window.outerWidth - window.innerWidth);
-          chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
-            height: adjustedHeight,
-            width: adjustedWidth,
-          });
-        }
-      },
-      migrateStorage: async () => {
-        // sync => local
-        if (
-          localStorage.storageLocation === 'sync' &&
-          _ui.instance.newStorageLocation === 'local'
-        ) {
-          return new Promise((resolve, reject) => {
-            chrome.storage.sync.get(syncData => {
-              chrome.storage.local.set(syncData, () => {
-                chrome.storage.local.get(localData => {
-                  // Double check if data was set
-                  if (
-                    Object.keys(syncData).every(
-                      value => Object.keys(localData).indexOf(value) >= 0
-                    )
-                  ) {
-                    localStorage.storageLocation = 'local';
-                    chrome.storage.sync.clear();
-                    _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-                    resolve();
-                    return;
-                  } else {
-                    _ui.instance.alert(
-                      _ui.instance.i18n.updateFailure +
-                        ' All data not transferred successfully.'
-                    );
-                    reject('Transfer failure');
-                    return;
-                  }
-                });
-              });
-            });
-          });
-          // local => sync
-        } else if (
-          localStorage.storageLocation === 'local' &&
-          _ui.instance.newStorageLocation === 'sync'
-        ) {
-          return new Promise((resolve, reject) => {
-            chrome.storage.local.get(localData => {
-              chrome.storage.sync.set(localData, () => {
-                chrome.storage.sync.get(syncData => {
-                  // Double check if data was set
-                  if (
-                    Object.keys(localData).every(
-                      value => Object.keys(syncData).indexOf(value) >= 0
-                    )
-                  ) {
-                    localStorage.storageLocation = 'sync';
-                    chrome.storage.local.clear();
-                    _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-                    resolve();
-                    return;
-                  } else {
-                    _ui.instance.alert(
-                      _ui.instance.i18n.updateFailure +
-                        ' All data not transferred successfully.'
-                    );
-                    reject('Transfer failure');
-                    return;
-                  }
-                });
-              });
-            });
-          });
-        } else {
-          return;
-        }
-      },
-    },
+export async function menu() {
+  const ui = {
+    data: {},
+    // methods: {
+    //   openLink: (url: string) => {
+    //     window.open(url, '_blank');
+    //     return;
+    //   },
+    //   createWindow: (url: string) => {
+    //     chrome.windows.create({ type: 'normal', url });
+    //     return;
+    //   },
+    //   showMenu: () => {
+    //     _ui.instance.currentClass.slidein = true;
+    //     _ui.instance.currentClass.slideout = false;
+    //     return;
+    //   },
+    //   closeMenu: () => {
+    //     _ui.instance.currentClass.slidein = false;
+    //     _ui.instance.currentClass.slideout = true;
+    //     setTimeout(() => {
+    //       _ui.instance.currentClass.slideout = false;
+    //     }, 200);
+    //     return;
+    //   },
+    //   openHelp: () => {
+    //     openHelp();
+    //     return;
+    //   },
+    //   clearFilter: () => {
+    //     _ui.instance.filter = false;
+    //     if (_ui.instance.entries.length >= 10) {
+    //       _ui.instance.showSearch = true;
+    //     }
+    //     return;
+    //   },
+    //   isChrome: () => {
+    //     if (navigator.userAgent.indexOf('Chrome') !== -1) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    //   isEdge: () => {
+    //     if (navigator.userAgent.indexOf('Edge') !== -1) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   },
+    //   showEdgeBugWarning: () => {
+    //     _ui.instance.alert(
+    //       'Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.'
+    //     );
+    //   },
+    //   saveAutofill: () => {
+    //     localStorage.autofill = _ui.instance.useAutofill;
+    //     useAutofill = localStorage.autofill === 'true' ? true : false || false;
+    //     return;
+    //   },
+    //   saveHighContrast: () => {
+    //     localStorage.highContrast = _ui.instance.useHighContrast;
+    //     useHighContrast =
+    //       localStorage.highContrast === 'true' ? true : false || false;
+    //     return;
+    //   },
+    //   saveZoom: () => {
+    //     localStorage.zoom = _ui.instance.zoom;
+    //     resize(_ui.instance.zoom);
+    //     return;
+    //   },
+    //   syncClock: async () => {
+    //     if (navigator.userAgent.indexOf('Edge') !== -1) {
+    //       const message = await syncTimeWithGoogle();
+    //       _ui.instance.alert(_ui.instance.i18n[message]);
+    //     } else {
+    //       chrome.permissions.request(
+    //         { origins: ['https://www.google.com/'] },
+    //         async granted => {
+    //           if (granted) {
+    //             const message = await syncTimeWithGoogle();
+    //             _ui.instance.alert(_ui.instance.i18n[message]);
+    //           }
+    //           return;
+    //         }
+    //       );
+    //     }
+    //     return;
+    //   },
+    //   popOut: () => {
+    //     let windowType;
+    //     if (navigator.userAgent.indexOf('Firefox') !== -1) {
+    //       windowType = 'detached_panel';
+    //     } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+    //       windowType = 'popup';
+    //     } else {
+    //       windowType = 'panel';
+    //     }
+    //     chrome.windows.create({
+    //       url: chrome.extension.getURL('view/popup.html?popup=true'),
+    //       type: windowType,
+    //       height: window.innerHeight,
+    //       width: window.innerWidth,
+    //     });
+    //   },
+    //   isPopup: () => {
+    //     const params = new URLSearchParams(
+    //       document.location.search.substring(1)
+    //     );
+    //     return params.get('popup');
+    //   },
+    //   fixPopupSize: () => {
+    //     const zoom = Number(localStorage.zoom) / 100 || 1;
+    //     const correctHeight = 480 * zoom;
+    //     const correctWidth = 320 * zoom;
+    //     if (
+    //       window.innerHeight !== correctHeight ||
+    //       window.innerWidth !== correctWidth
+    //     ) {
+    //       // window update to correct size
+    //       const adjustedHeight =
+    //         correctHeight + (window.outerHeight - window.innerHeight);
+    //       const adjustedWidth =
+    //         correctWidth + (window.outerWidth - window.innerWidth);
+    //       chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
+    //         height: adjustedHeight,
+    //         width: adjustedWidth,
+    //       });
+    //     }
+    //   },
+    //   migrateStorage: async () => {
+    //     // sync => local
+    //     if (
+    //       localStorage.storageLocation === 'sync' &&
+    //       _ui.instance.newStorageLocation === 'local'
+    //     ) {
+    //       return new Promise((resolve, reject) => {
+    //         chrome.storage.sync.get(syncData => {
+    //           chrome.storage.local.set(syncData, () => {
+    //             chrome.storage.local.get(localData => {
+    //               // Double check if data was set
+    //               if (
+    //                 Object.keys(syncData).every(
+    //                   value => Object.keys(localData).indexOf(value) >= 0
+    //                 )
+    //               ) {
+    //                 localStorage.storageLocation = 'local';
+    //                 chrome.storage.sync.clear();
+    //                 _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+    //                 resolve();
+    //                 return;
+    //               } else {
+    //                 _ui.instance.alert(
+    //                   _ui.instance.i18n.updateFailure +
+    //                     ' All data not transferred successfully.'
+    //                 );
+    //                 reject('Transfer failure');
+    //                 return;
+    //               }
+    //             });
+    //           });
+    //         });
+    //       });
+    //       // local => sync
+    //     } else if (
+    //       localStorage.storageLocation === 'local' &&
+    //       _ui.instance.newStorageLocation === 'sync'
+    //     ) {
+    //       return new Promise((resolve, reject) => {
+    //         chrome.storage.local.get(localData => {
+    //           chrome.storage.sync.set(localData, () => {
+    //             chrome.storage.sync.get(syncData => {
+    //               // Double check if data was set
+    //               if (
+    //                 Object.keys(localData).every(
+    //                   value => Object.keys(syncData).indexOf(value) >= 0
+    //                 )
+    //               ) {
+    //                 localStorage.storageLocation = 'sync';
+    //                 chrome.storage.local.clear();
+    //                 _ui.instance.alert(_ui.instance.i18n.updateSuccess);
+    //                 resolve();
+    //                 return;
+    //               } else {
+    //                 _ui.instance.alert(
+    //                   _ui.instance.i18n.updateFailure +
+    //                     ' All data not transferred successfully.'
+    //                 );
+    //                 reject('Transfer failure');
+    //                 return;
+    //               }
+    //             });
+    //           });
+    //         });
+    //       });
+    //     } else {
+    //       return;
+    //     }
+    //   },
+    // },
   };
-
-  _ui.update(ui);
 }

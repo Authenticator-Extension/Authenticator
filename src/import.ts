@@ -1,4 +1,3 @@
-import { entry } from './ui/entry';
 import Vue from 'vue';
 import ImportView from './components/import.vue';
 

@@ -1,5 +1,3 @@
-import { UI } from './ui';
-
 export async function loadI18nMessages() {
   return new Promise(
     (

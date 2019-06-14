@@ -136,8 +136,15 @@ import { Vue2Dragula } from 'vue2-dragula';
 import Popup from './components/popup.vue';
 
 // Other
-import { loadI18nMessages } from './ui/i18n';
-import { Encryption } from './models/encryption';
+import { loadI18nMessages } from './state-temp/i18n';
+import { Style } from './state-temp/Style';
+import { Accounts } from './state-temp/Accounts';
+import { Backup } from './state-temp/Backup';
+import { CurrentView } from './state-temp/CurrentView';
+import { Menu } from './state-temp/Menu';
+import { Notification } from './state-temp/Notification';
+import { Password } from './state-temp/Password';
+import { Qr } from './state-temp/Qr';
 
 async function init() {
   // Add globals
@@ -147,24 +154,17 @@ async function init() {
   Vue.use(Vuex);
   Vue.use(Vue2Dragula);
 
-  // State stores
-  const moduleStyle: VuexConstructor = {
-    state: {
-      useHighContrast: localStorage.highContrast === 'true',
-      isEditing: false,
-    },
-    mutations: {
-      toggleHighContrast(state: { useHighContrast: boolean }) {
-        state.useHighContrast = !state.useHighContrast;
-        localStorage.highContrast = state.useHighContrast;
-      },
-    },
-  };
-
+  // State
   const store = new Vuex.Store({
     modules: {
-      style: moduleStyle as Object,
-      data: moduleData as Object,
+      accounts: await new Accounts().getModule(),
+      backup: new Backup().getModule(),
+      currentView: new CurrentView().getModule(),
+      menu: new Menu().getModule(),
+      notification: new Notification().getModule(),
+      password: new Password().getModule(),
+      qr: new Qr().getModule(),
+      style: new Style().getModule(),
     },
   });
 

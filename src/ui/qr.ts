@@ -1,8 +1,6 @@
 import * as QRGen from 'qrcode-generator';
 import { OTPEntry } from '../models/otp';
 
-import { UI } from './ui';
-
 async function getQrUrl(entry: OTPEntry) {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
@@ -38,34 +36,33 @@ async function getQrUrl(entry: OTPEntry) {
   );
 }
 
-export async function qr(_ui: UI) {
-  const ui: UIConfig = {
-    data: { qr: '' },
-    methods: {
-      shouldShowQrIcon: (entry: OTPEntry) => {
-        return (
-          entry.secret !== 'Encrypted' &&
-          entry.type !== OTPType.battle &&
-          entry.type !== OTPType.steam
-        );
-      },
-      showQr: async (entry: OTPEntry) => {
-        const qrUrl = await getQrUrl(entry);
-        _ui.instance.qr = `url(${qrUrl})`;
-        _ui.instance.currentClass.qrfadein = true;
-        _ui.instance.currentClass.qrfadeout = false;
-        return;
-      },
-      hideQr: () => {
-        _ui.instance.currentClass.qrfadein = false;
-        _ui.instance.currentClass.qrfadeout = true;
-        setTimeout(() => {
-          _ui.instance.currentClass.qrfadeout = false;
-        }, 200);
-        return;
-      },
-    },
+export async function qr() {
+  const ui = {
+    data: {},
+    //   methods: {
+    //     shouldShowQrIcon: (entry: OTPEntry) => {
+    //       return (
+    //         entry.secret !== 'Encrypted' &&
+    //         entry.type !== OTPType.battle &&
+    //         entry.type !== OTPType.steam
+    //       );
+    //     },
+    //     showQr: async (entry: OTPEntry) => {
+    //       const qrUrl = await getQrUrl(entry);
+    //       _ui.instance.qr = `url(${qrUrl})`;
+    //       _ui.instance.currentClass.qrfadein = true;
+    //       _ui.instance.currentClass.qrfadeout = false;
+    //       return;
+    //     },
+    //     hideQr: () => {
+    //       _ui.instance.currentClass.qrfadein = false;
+    //       _ui.instance.currentClass.qrfadeout = true;
+    //       setTimeout(() => {
+    //         _ui.instance.currentClass.qrfadeout = false;
+    //       }, 200);
+    //       return;
+    //     },
+    //   },
+    // };
   };
-
-  _ui.update(ui);
 }

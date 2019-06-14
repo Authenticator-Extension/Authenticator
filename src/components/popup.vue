@@ -1,17 +1,17 @@
 <template>
-    <div v-cloak v-bind:class="{ 'theme-normal': !useHighContrast, 'theme-accessibility': useHighContrast }">
-    <div class="header">
-        <span>{{ i18n.extName }}</span>
-        <div v-show="!isPopup()">
-            <div class="icon" id="i-menu" v-bind:title="i18n.settings" v-on:click="showMenu()" v-show="!isEditing"><svg viewBox="0 0 512 512"><title id="cog-title">cog</title><path d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></div>
-            <div class="icon" id="i-lock" v-bind:title="i18n.lock" v-on:click="lock()" v-show="!isEditing && encryption.getEncryptionStatus()"><svg viewBox="0 0 448 512"><title id="lock-title">lock</title><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg></div>
-            <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !isEditing"><svg viewBox="0 0 512 512"><title id="sync-alt-title">Alternate Sync</title><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></div>
-            <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!isEditing" v-on:click="beginCapture()"><svg viewBox="0 0 1000 1000"><g><path d="M10,431h980v138.1H10V431L10,431z"/><path d="M162.1,323.8H24V12.9h362.6V151H162.1V323.8z"/><path d="M976,323.8H837.9V151H613.4V12.9H976V323.8z"/><path d="M386.6,987.1H24V676.2h138.1V849h224.5V987.1z"/><path d="M976,987.1H613.4V849h224.5V676.2H976V987.1z"/></g></svg></div>
-            <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-if="!isEditing" v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="pencil-alt-title">Alternate Pencil</title><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg></div>
-            <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-else v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="check-title">Check</title><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></div>
+<div v-cloak v-bind:class="{ 'theme-normal': !style.useHighContrast, 'theme-accessibility': style.useHighContrast }">
+        <div class="header">
+            <span>{{ i18n.extName }}</span>
+            <div v-show="!isPopup()">
+                <div class="icon" id="i-menu" v-bind:title="i18n.settings" v-on:click="showMenu()" v-show="!style.isEditing"><svg viewBox="0 0 512 512"><title id="cog-title">cog</title><path d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></div>
+                <div class="icon" id="i-lock" v-bind:title="i18n.lock" v-on:click="lock()" v-show="!style.isEditing && encryption.getEncryptionStatus()"><svg viewBox="0 0 448 512"><title id="lock-title">lock</title><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg></div>
+                <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !style.isEditing"><svg viewBox="0 0 512 512"><title id="sync-alt-title">Alternate Sync</title><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></div>
+                <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!style.isEditing" v-on:click="beginCapture()"><svg viewBox="0 0 1000 1000"><g><path d="M10,431h980v138.1H10V431L10,431z"/><path d="M162.1,323.8H24V12.9h362.6V151H162.1V323.8z"/><path d="M976,323.8H837.9V151H613.4V12.9H976V323.8z"/><path d="M386.6,987.1H24V676.2h138.1V849h224.5V987.1z"/><path d="M976,987.1H613.4V849h224.5V676.2H976V987.1z"/></g></svg></div>
+                <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-if="!style.isEditing" v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="pencil-alt-title">Alternate Pencil</title><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg></div>
+                <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-else v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="check-title">Check</title><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></div>
+            </div>
         </div>
-    </div>
-    <div id="codes" v-bind:class="{'timeout': currentClass.timeout && !isEditing, 'edit': isEditing, 'filter': shouldFilter && filter, 'search': showSearch}">
+        <div id="codes" v-bind:class="{'timeout': style.timeout && !style.isEditing, 'edit': style.isEditing, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <div class="under-header" id="search">
           <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" v-bind:placeholder="i18n.search" type="text">
@@ -30,12 +30,12 @@
                         <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
                     </svg>
                 </div>
-                <div v-bind:class="{'counter': true, 'disabled': currentClass.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><svg viewBox="0 0 512 512"><title id="redo-alt-title">Alternate Redo</title><path d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"></path></svg></div>
+                <div v-bind:class="{'counter': true, 'disabled': style.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><svg viewBox="0 0 512 512"><title id="redo-alt-title">Alternate Redo</title><path d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"></path></svg></div>
                 <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
                 <div class="issuerEdit">
                     <input v-bind:placeholder="i18n.issuer" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
                 </div>
-                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="isEditing ? showBulls(entry.code) : entry.code"></div>
+                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="style.isEditing ? showBulls(entry.code) : entry.code"></div>
                 <div class="issuer">{{ entry.account }}</div>
                 <div class="issuerEdit">
                     <input v-bind:placeholder="i18n.accountName" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
@@ -48,7 +48,7 @@
     </div>
 
     <!-- MENU -->
-    <div id="menu" v-bind:class="{'slidein': currentClass.slidein, 'slideout': currentClass.slideout}">
+    <div id="menu" v-bind:class="{'slidein': style.slidein, 'slideout': style.slideout}">
         <div class="header">
             <span id="menuName">{{ i18n.settings }}</span>
             <div class="icon" id="i-close" v-on:click="closeMenu()"><svg viewBox="0 0 448 512"><title id="arrow-left-title">arrow-left</title><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg></div>
@@ -74,7 +74,7 @@
     </div>
 
     <!-- INFO -->
-    <div id="info" v-bind:class="{'fadein': currentClass.fadein, 'fadeout': currentClass.fadeout}">
+    <div id="info" v-bind:class="{'fadein': style.fadein, 'fadeout': style.fadeout}">
         <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><svg viewBox="0 0 512 512"><title id="times-circle-title">Times Circle</title><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path></svg></div>
         <div id="infoContent">
             <!-- ABOUT -->
@@ -243,10 +243,10 @@
     </div>
 
     <!-- NOTIFICATITON -->
-    <div id="notification" v-bind:class="{'fadein': currentClass.notificationFadein, 'fadeout': currentClass.notificationFadeout}">{{ notification }}</div>
+    <div id="notification" v-bind:class="{'fadein': style.notificationFadein, 'fadeout': style.notificationFadeout}">{{ notification }}</div>
 
     <!-- QR -->
-    <div id="qr" v-bind:class="{'qrfadein': currentClass.qrfadein, 'qrfadeout': currentClass.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
+    <div id="qr" v-bind:class="{'qrfadein': style.qrfadein, 'qrfadeout': style.qrfadeout}" v-bind:style="{'background-image': qr}" v-on:click="hideQr()"></div>
 
     <!-- OVERLAY -->
     <div id="overlay" v-show="message.length && messageIdle || confirmMessage !== ''"></div>
@@ -259,15 +259,12 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 
+import Header from './popup/header.vue';
+
 export default Vue.extend({
-  computed: mapState({
-      useHighContrast (state) {
-          return this.$store.state.style.useHighContrast;
-      },
-      isEditing (state) {
-          return this.$store.state.style.isEditing;
-      }
-  }),
+  computed: mapState('style', [
+      'style'
+  ]),
   methods: {
     isPopup() {
       const params = new URLSearchParams(document.location.search.substring(1));
