@@ -4,7 +4,7 @@ export class Qr implements IModule {
       state: {
         qr: '',
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }

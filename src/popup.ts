@@ -133,7 +133,7 @@ import Vuex from 'vuex';
 import { Vue2Dragula } from 'vue2-dragula';
 
 // Components
-import Popup from './components/popup.vue';
+import Popup from './components/Popup.vue';
 
 // Other
 import { loadI18nMessages } from './state-temp/i18n';

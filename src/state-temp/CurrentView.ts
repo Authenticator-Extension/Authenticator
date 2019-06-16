@@ -4,7 +4,7 @@ export class CurrentView implements IModule {
       state: {
         info: '',
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 

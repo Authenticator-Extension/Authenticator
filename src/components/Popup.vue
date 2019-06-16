@@ -1,16 +1,6 @@
 <template>
 <div v-cloak v-bind:class="{ 'theme-normal': !style.useHighContrast, 'theme-accessibility': style.useHighContrast }">
-        <div class="header">
-            <span>{{ i18n.extName }}</span>
-            <div v-show="!isPopup()">
-                <div class="icon" id="i-menu" v-bind:title="i18n.settings" v-on:click="showMenu()" v-show="!style.isEditing"><svg viewBox="0 0 512 512"><title id="cog-title">cog</title><path d="M444.788 291.1l42.616 24.599c4.867 2.809 7.126 8.618 5.459 13.985-11.07 35.642-29.97 67.842-54.689 94.586a12.016 12.016 0 0 1-14.832 2.254l-42.584-24.595a191.577 191.577 0 0 1-60.759 35.13v49.182a12.01 12.01 0 0 1-9.377 11.718c-34.956 7.85-72.499 8.256-109.219.007-5.49-1.233-9.403-6.096-9.403-11.723v-49.184a191.555 191.555 0 0 1-60.759-35.13l-42.584 24.595a12.016 12.016 0 0 1-14.832-2.254c-24.718-26.744-43.619-58.944-54.689-94.586-1.667-5.366.592-11.175 5.459-13.985L67.212 291.1a193.48 193.48 0 0 1 0-70.199l-42.616-24.599c-4.867-2.809-7.126-8.618-5.459-13.985 11.07-35.642 29.97-67.842 54.689-94.586a12.016 12.016 0 0 1 14.832-2.254l42.584 24.595a191.577 191.577 0 0 1 60.759-35.13V25.759a12.01 12.01 0 0 1 9.377-11.718c34.956-7.85 72.499-8.256 109.219-.007 5.49 1.233 9.403 6.096 9.403 11.723v49.184a191.555 191.555 0 0 1 60.759 35.13l42.584-24.595a12.016 12.016 0 0 1 14.832 2.254c24.718 26.744 43.619 58.944 54.689 94.586 1.667 5.366-.592 11.175-5.459 13.985L444.788 220.9a193.485 193.485 0 0 1 0 70.2zM336 256c0-44.112-35.888-80-80-80s-80 35.888-80 80 35.888 80 80 80 80-35.888 80-80z"></path></svg></div>
-                <div class="icon" id="i-lock" v-bind:title="i18n.lock" v-on:click="lock()" v-show="!style.isEditing && encryption.getEncryptionStatus()"><svg viewBox="0 0 448 512"><title id="lock-title">lock</title><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg></div>
-                <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !style.isEditing"><svg viewBox="0 0 512 512"><title id="sync-alt-title">Alternate Sync</title><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></div>
-                <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!style.isEditing" v-on:click="beginCapture()"><svg viewBox="0 0 1000 1000"><g><path d="M10,431h980v138.1H10V431L10,431z"/><path d="M162.1,323.8H24V12.9h362.6V151H162.1V323.8z"/><path d="M976,323.8H837.9V151H613.4V12.9H976V323.8z"/><path d="M386.6,987.1H24V676.2h138.1V849h224.5V987.1z"/><path d="M976,987.1H613.4V849h224.5V676.2H976V987.1z"/></g></svg></div>
-                <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-if="!style.isEditing" v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="pencil-alt-title">Alternate Pencil</title><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM124.1 339.9c-5.5-5.5-5.5-14.3 0-19.8l154-154c5.5-5.5 14.3-5.5 19.8 0s5.5 14.3 0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"></path></svg></div>
-                <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-else v-on:click="editEntry()"><svg viewBox="0 0 512 512"><title id="check-title">Check</title><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></div>
-            </div>
-        </div>
+        <MainHeader/>
         <div id="codes" v-bind:class="{'timeout': style.timeout && !style.isEditing, 'edit': style.isEditing, 'filter': shouldFilter && filter, 'search': showSearch}">
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <div class="under-header" id="search">
@@ -59,13 +49,13 @@
             </div>
             <div class="menuList">
                 <p v-bind:title="i18n.export_import" v-on:click="showInfo('export')"><span><svg viewBox="0 0 512 512"><title id="exchange-alt-title">Alternate Exchange</title><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"></path></svg></span>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('storage')" v-show="!isEdge()"><span><svg viewBox="0 0 448 512"><title id="database-title">Database</title><path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg></span>{{ i18n.storage_menu }}</p>
+                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('storage')"><span><svg viewBox="0 0 448 512"><title id="database-title">Database</title><path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg></span>{{ i18n.storage_menu }}</p>
                 <p v-bind:title="i18n.security" v-on:click="showInfo('security')"><span><svg viewBox="0 0 512 512"><title id="lock-title">lock</title><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg></span>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()"><span><svg viewBox="0 0 512 512"><title id="sync-alt-title">Alternate Sync</title><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>{{ i18n.sync_clock }}</p>
                 <p v-bind:title="i18n.resize_popup_page" v-on:click="showInfo('resize')"><span><svg viewBox="0 0 512 512"><title id="wrench-title">Wrench</title><path d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36 74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62 3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64 39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99 65.51 0 90.5 24.99 24.99 65.51 24.99 90.5 0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22 37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"></path></svg></span>{{ i18n.resize_popup_page }}</p>
             </div>
                 <div class="menuList">
-                <p v-bind:title="i18n.feedback" v-on:click="openHelp"><span><svg viewBox="0 0 576 512"><title id="comments-title">comments</title><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>{{ i18n.feedback }}</p>
+                <p v-bind:title="i18n.feedback" v-on:click="openHelp()"><span><svg viewBox="0 0 576 512"><title id="comments-title">comments</title><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>{{ i18n.feedback }}</p>
                 <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><span><svg viewBox="0 0 496 512"><title id="globe-americas-title">Globe with Americas shown</title><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg></span>{{ i18n.translate }}</p>
                 <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><span><svg viewBox="0 0 640 512"><title id="code-title">Code</title><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></span>{{ i18n.source }}</p>
             </div>
@@ -96,9 +86,7 @@
                 <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
                 <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
                 <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
-                <p v-if="!isEdge()"><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
-                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
-                <p v-else><a v-on:click="createWindow('view/qrdebug.html')">QR Debugging</a></p>
+                <p><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
             </div>
             <!-- ADD ACCOUNT -->
             <div v-show="info === 'account'">
@@ -141,13 +129,10 @@
             <div v-show="info === 'export'">
                 <div class="text warning" v-if="!encryption.getEncryptionStatus()">{{ i18n.export_info }}</div>
                 <div class="text warning" v-if="unsupportedAccounts">{{ i18n.otp_unsupported_warn }}</div>
-                <a class="button" v-on:click="showEdgeBugWarning()" v-if="isEdge()">{{ i18n.download_backup }}</a>
                 <a download="authenticator.txt" v-bind:href="exportOneLineOtpAuthFile" v-if="!unsupportedAccounts" class="button" target="_blank">{{ i18n.download_backup }}</a>
                 <a download="authenticator.json" v-bind:href="exportFile" class="button" target="_blank" v-else>{{ i18n.download_backup }}</a>
                 <a download="authenticator.json" v-bind:href="exportEncryptedFile" v-if="encryption.getEncryptionStatus()" class="button" target="_blank">{{ i18n.download_enc_backup }}</a>
-                <a class="button" href="import.html" target="_blank" v-if="!isEdge()">{{ i18n.import_backup }}</a>
-                <!-- Workaround for https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/18438862 -->
-                <a class="button" v-on:click="createWindow('view/import.html')" v-else>{{ i18n.import_backup }}</a>
+                <a class="button" href="import.html" target="_blank">{{ i18n.import_backup }}</a>
             </div>
             <!-- DROPBOX -->
             <div v-show="info === 'dropbox'">
@@ -259,17 +244,64 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 
-import Header from './popup/header.vue';
+import MainHeader from './Popup/MainHeader.vue';
+
+const computedPrototype = [
+    mapState('style', ['style']),
+    mapState('qr', ['qr']),
+    mapState('password', ['passphrase']),
+    mapState('notification', ['message', 
+    'messageIdle',
+     'confirmMessage']),
+    mapState('menu', ['version', 'zoom', 'useAutofill', 'useHighContrast',
+    'newStorageLocation', 'backupDisabled', 'storageArea']),
+    mapState('currentView', ['info']),
+    mapState('backup', ['dropboxEncrypted', 'driveEncrypted', 'dropboxToken',
+    'driveToken']),
+    mapState('accounts', [
+        "entries",
+        "encryption",
+        "OTPType",
+        "shouldShowPassphrase",
+        "exportData",
+        "exportEncData",
+        "exportFile",
+        "exportEncryptedFile",
+        "exportOneLineOtpAuthFile",
+        "getFilePassphrase",
+        "sector",
+        "sectorStart",
+        "sectorOffset",
+        "second",
+        "notification",
+        "notificationTimeout",
+        "filter",
+        "shouldFilter",
+        "showSearch",
+        "importType",
+        "importCode",
+        "importEncrypted",
+        "importPassphrase",
+        "importFilePassphrase",
+        "unsupportedAccounts",
+        "searchText",
+        "newAccount",
+        "newPassphrase",
+    ])
+]
+
+let computed = {};
+
+for (const module of computedPrototype) {
+    Object.assign(computed, module);
+}
 
 export default Vue.extend({
-  computed: mapState('style', [
-      'style'
-  ]),
+  computed,
   methods: {
-    isPopup() {
-      const params = new URLSearchParams(document.location.search.substring(1));
-      return params.get('popup');
-    }
+  },
+  components: {
+      MainHeader
   }
 });
 </script>

@@ -7,7 +7,7 @@ export class Backup implements IModule {
         dropboxToken: localStorage.dropboxToken || '',
         driveToken: localStorage.driveToken || '',
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }

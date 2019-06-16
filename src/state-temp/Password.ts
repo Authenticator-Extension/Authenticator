@@ -4,7 +4,7 @@ export class Password implements IModule {
       state: {
         passphrase: '',
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }

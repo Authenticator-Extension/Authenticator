@@ -29,7 +29,7 @@ export class Menu implements IModule {
         backupDisabled: false, // FIX
         storageArea: 'sync', // FIX
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 

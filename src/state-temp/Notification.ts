@@ -6,7 +6,7 @@ export class Notification implements IModule {
         messageIdle: true,
         confirmMessage: '',
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }

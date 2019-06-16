@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import ImportView from './components/import.vue';
+import ImportView from './components/Import.vue';
 
 async function init() {
   new Vue({ render: h => h(ImportView) }).$mount('#import');

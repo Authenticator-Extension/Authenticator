@@ -79,7 +79,7 @@ export class Accounts implements IModule {
         newPassphrase: { phrase: '', confirm: '' },
       },
       mutations: {},
-      namespaced: true
+      namespaced: true,
     };
   }
 
