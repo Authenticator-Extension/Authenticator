@@ -116,35 +116,35 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Et voi lisätä uutta tiliä tai viedä tietoja, ennen kuin kaikkien tilien salaus on poistettu. Anna oikea salasana ennen jatkamista.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Salasanat eivät vastaa toisiaan.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Salattu",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopioitu",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Lähetä palautetta",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Käännä",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Lähdekoodi",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Anna salasana salataksesi tilin tiedot.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
