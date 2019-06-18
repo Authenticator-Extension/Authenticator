@@ -196,71 +196,71 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Tuo varmuuskopiotiedosto",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Tuo tekstivarmuuskopio",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Näytä kaikki tilit",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Varoitus: varmuuskopiot ovat salaamattomia. Käytä toimintoa harkiten.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Anna oikea salasana tuodaksesi varmuuskopiot.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Salasanaasi on säilytetty paikallisessa säilössä. Vaihda salasanasi mahdollisimman pian.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Poista",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Lataa salasanasuojattu varmuuskopio",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Etsi",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Ponnahdusikkuna",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Lukitse",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Muokkaa",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manuaalinen synkronointi",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Täytä automaattisesti",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Suuri kontrasti",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Sijainti ja varmuuskopiot",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Valitse minne tietosi tallennetaan. 'Paikallinen' tallentaa tietosi omalle tietokoneellesi. Vaihtoehto 'Synkronoi' tallentaa tietosi valitsemaasi pilvipalveluun.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
