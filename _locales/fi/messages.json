@@ -148,35 +148,35 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Synkronoi kello Googlen kanssa",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Muista salasana",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Varoitus! Aseta kellosi oikeaan aikaan ennen jatkamista.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Onko sinulla varmuuskopio tileistäsi? Ota varmuuskopio, ennen kuin se on myöhäistä!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Kuvakaappaus epäonnistu. Lataa sivu uudelleen ja kokeile vielä kerran.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Aikaperusteinen",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Laskuriperusteinen",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Asetukset",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,15 +184,15 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Varoitus: kaikki varmuuskopiot ovat salaamattomia. Haluatko lisätä tilin toiseen ohjelmaan? Vie kohdistin minkä tahansa tilin oikean yläkulman päälle ja klikkaa esiin tulevaa painiketta.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Lataa varmuuskopiotiedosto",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Tuo varmuuskopio",
         "description": "Import backup."
     },
     "import_backup_file": {
