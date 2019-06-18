@@ -56,63 +56,63 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Käyttäjä",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Salausavain",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Valmista.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Epäonnistui.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Tietoja",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Vie \/ tuo",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Asetukset",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Suojaus",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Nykyinen salasana",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Uusi salasana",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Salasana",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Vahvista salasana",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Haluatko varmasti poistaa tämän tilin? Toimintoa ei voi peruuttaa.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Salasanaa käytetään tilisi salauksessa. Kukaan ei voi auttaa sinua, jos unohdat salasanasi.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Päivitä",
         "description": "Update."
     },
     "phrase_incorrect": {
