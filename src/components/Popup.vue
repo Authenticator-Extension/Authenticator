@@ -1,41 +1,7 @@
 <template>
 <div v-cloak v-bind:class="{ 'theme-normal': !style.useHighContrast, 'theme-accessibility': style.useHighContrast }">
-        <MainHeader/>
-        <div id="codes" v-bind:class="{'timeout': style.timeout && !style.isEditing, 'edit': style.isEditing, 'filter': shouldFilter && filter, 'search': showSearch}">
-        <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
-        <div class="under-header" id="search">
-          <input id="searchInput" v-on:keydown="searchUpdate()" v-model="searchText" v-bind:placeholder="i18n.search" type="text">
-          <div id="searchHint" v-if="searchText === ''">
-            <div></div>
-            <div id="searchHintBorder">/</div>
-            <div></div>
-          </div>
-        </div>
-        <div v-dragula="entries" drake="entryDrake">
-            <!-- ENTRIES -->
-            <div class="entry" v-for="entry in entries" :key="entry.hash" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
-                <div class="deleteAction" v-on:click="removeEntry(entry)"><svg viewBox="0 0 512 512"><title id="minus-circle-title">Minus Circle</title><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"></path></svg></div>
-                <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-show="sectorStart">
-                    <svg viewBox="0 0 16 16">
-                        <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
-                    </svg>
-                </div>
-                <div v-bind:class="{'counter': true, 'disabled': style.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><svg viewBox="0 0 512 512"><title id="redo-alt-title">Alternate Redo</title><path d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"></path></svg></div>
-                <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
-                <div class="issuerEdit">
-                    <input v-bind:placeholder="i18n.issuer" type="text" v-model="entry.issuer" v-on:change="entry.update(encryption)">
-                </div>
-                <div v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }" v-on:click="copyCode(entry)" v-html="style.isEditing ? showBulls(entry.code) : entry.code"></div>
-                <div class="issuer">{{ entry.account }}</div>
-                <div class="issuerEdit">
-                    <input v-bind:placeholder="i18n.accountName" type="text" v-model="entry.account" v-on:change="entry.update(encryption)">
-                </div>
-                <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)"><svg viewBox="0 0 448 512"><title id="qrcode-title">qrcode</title><path d="M0 224h192V32H0v192zM64 96h64v64H64V96zm192-64v192h192V32H256zm128 128h-64V96h64v64zM0 480h192V288H0v192zm64-128h64v64H64v-64zm352-64h32v128h-96v-32h-32v96h-64V288h96v32h64v-32zm0 160h32v32h-32v-32zm-64 0h32v32h-32v-32z"></path></svg></div>
-                <div class="movehandle"><svg viewBox="0 0 448 512"><title id="bars-title">Bars</title><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg></div>
-            </div>
-        </div>
-        <div class="icon" id="add" v-on:click="showInfo('account')"><svg viewBox="0 0 448 512"><title id="plus-title">plus</title><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></div>
-    </div>
+    <MainHeader/>
+    <MainBody />
 
     <!-- MENU -->
     <div id="menu" v-bind:class="{'slidein': style.slidein, 'slideout': style.slideout}">
@@ -245,6 +211,7 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 
 import MainHeader from './Popup/MainHeader.vue';
+import MainBody from './Popup/MainBody.vue';
 
 const computedPrototype = [
     mapState('style', ['style']),
@@ -301,7 +268,8 @@ export default Vue.extend({
   methods: {
   },
   components: {
-      MainHeader
+      MainHeader,
+      MainBody
   }
 });
 </script>

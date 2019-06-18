@@ -5,7 +5,7 @@
             <div class="icon" id="i-menu" v-bind:title="i18n.settings" v-on:click="showMenu()" v-show="!style.isEditing"><IconCog /></div>
             <div class="icon" id="i-lock" v-bind:title="i18n.lock" v-on:click="lock()" v-show="!style.isEditing && encryption.getEncryptionStatus()"><IconLock /></div>
             <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken !== '' || driveToken !== '') && !style.isEditing"><IconSync /></div>
-            <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!style.isEditing" v-on:click="beginCapture()"><IconQr /></div>
+            <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!style.isEditing" v-on:click="beginCapture()"><IconScan /></div>
             <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-if="!style.isEditing" v-on:click="editEntry()"><IconPencil /></div>
             <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-else v-on:click="editEntry()"><IconCheck /></div>
         </div>
@@ -19,7 +19,7 @@ import { mapState } from "vuex";
 import IconCog from '../../../svg/cog.svg';
 import IconLock from '../../../svg/lock.svg';
 import IconSync from '../../../svg/sync.svg';
-import IconQr from '../../../svg/qr.svg';
+import IconScan from '../../../svg/scan.svg';
 import IconPencil from '../../../svg/pencil.svg';
 import IconCheck from '../../../svg/check.svg';
 
@@ -47,7 +47,7 @@ export default Vue.extend({
     IconCog,
     IconLock,
     IconSync,
-    IconQr,
+    IconScan,
     IconPencil,
     IconCheck
   }
