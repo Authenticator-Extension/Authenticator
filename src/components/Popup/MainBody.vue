@@ -1,5 +1,5 @@
 <template>
-    <div id="codes" v-bind:class="{'timeout': style.timeout && !style.isEditing, 'edit': style.isEditing, 'filter': shouldFilter && filter, 'search': showSearch}">
+    <div id="codes" v-bind:class="{'filter': shouldFilter && filter, 'search': showSearch}">
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <SearchBox />
         <div v-dragula="entries" drake="entryDrake">
@@ -19,19 +19,8 @@ import EntryComponent from './EntryComponent.vue'
 
 import IconPlus from '../../../svg/plus.svg'
 
-const computedPrototype = [
-    mapState('style', ['style']),
-    mapState('accounts', ["entries", "shouldFilter", "showSearch"])
-]
-
-let computed = {};
-
-for (const module of computedPrototype) {
-    Object.assign(computed, module);
-}
-
 export default Vue.extend({
-    computed,
+    computed: mapState('accounts', ["entries", "shouldFilter", "showSearch"]),
     components: {
         SearchBox,
         EntryComponent,

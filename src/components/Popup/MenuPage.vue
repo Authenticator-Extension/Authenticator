@@ -1,5 +1,5 @@
 <template>
-    <div id="menu" v-bind:class="{'slidein': style.slidein, 'slideout': style.slideout}">
+    <div>
         <div class="header">
             <span id="menuName">{{ i18n.settings }}</span>
             <div class="icon" id="i-close" v-on:click="closeMenu()"><IconArrowLeft /></div>
@@ -52,9 +52,6 @@ export default Vue.extend({
         IconCode
     },
     computed: {
-        style: function () {
-            return this.$store.state.style.style
-        },
         version: function () {
             return this.$store.state.menu.version
         }
