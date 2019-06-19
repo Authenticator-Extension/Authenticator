@@ -3,77 +3,14 @@
     <MainHeader/>
     <MainBody />
 
-    <!-- MENU -->
-    <div id="menu" v-bind:class="{'slidein': style.slidein, 'slideout': style.slideout}">
-        <div class="header">
-            <span id="menuName">{{ i18n.settings }}</span>
-            <div class="icon" id="i-close" v-on:click="closeMenu()"><svg viewBox="0 0 448 512"><title id="arrow-left-title">arrow-left</title><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg></div>
-        </div>
-        <div id="menuBody">
-            <div class="menuList">
-                <p v-bind:title="i18n.about" v-on:click="showInfo('about')"><span><svg viewBox="0 0 192 512"><title id="info-title">Info</title><path d="M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z"></path></svg></span>{{ i18n.about }}</p>
-            </div>
-            <div class="menuList">
-                <p v-bind:title="i18n.export_import" v-on:click="showInfo('export')"><span><svg viewBox="0 0 512 512"><title id="exchange-alt-title">Alternate Exchange</title><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"></path></svg></span>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('storage')"><span><svg viewBox="0 0 448 512"><title id="database-title">Database</title><path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg></span>{{ i18n.storage_menu }}</p>
-                <p v-bind:title="i18n.security" v-on:click="showInfo('security')"><span><svg viewBox="0 0 512 512"><title id="lock-title">lock</title><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"></path></svg></span>{{ i18n.security }}</p>
-                <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()"><span><svg viewBox="0 0 512 512"><title id="sync-alt-title">Alternate Sync</title><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>{{ i18n.sync_clock }}</p>
-                <p v-bind:title="i18n.resize_popup_page" v-on:click="showInfo('resize')"><span><svg viewBox="0 0 512 512"><title id="wrench-title">Wrench</title><path d="M507.73 109.1c-2.24-9.03-13.54-12.09-20.12-5.51l-74.36 74.36-67.88-11.31-11.31-67.88 74.36-74.36c6.62-6.62 3.43-17.9-5.66-20.16-47.38-11.74-99.55.91-136.58 37.93-39.64 39.64-50.55 97.1-34.05 147.2L18.74 402.76c-24.99 24.99-24.99 65.51 0 90.5 24.99 24.99 65.51 24.99 90.5 0l213.21-213.21c50.12 16.71 107.47 5.68 147.37-34.22 37.07-37.07 49.7-89.32 37.91-136.73zM64 472c-13.25 0-24-10.75-24-24 0-13.26 10.75-24 24-24s24 10.74 24 24c0 13.25-10.75 24-24 24z"></path></svg></span>{{ i18n.resize_popup_page }}</p>
-            </div>
-                <div class="menuList">
-                <p v-bind:title="i18n.feedback" v-on:click="openHelp()"><span><svg viewBox="0 0 576 512"><title id="comments-title">comments</title><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>{{ i18n.feedback }}</p>
-                <p v-bind:title="i18n.translate" v-on:click="openLink('https://crwd.in/authenticator-firefox')"><span><svg viewBox="0 0 496 512"><title id="globe-americas-title">Globe with Americas shown</title><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg></span>{{ i18n.translate }}</p>
-                <p v-bind:title="i18n.source" v-on:click="openLink('https://github.com/Authenticator-Extension/Authenticator')"><span><svg viewBox="0 0 640 512"><title id="code-title">Code</title><path d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"></path></svg></span>{{ i18n.source }}</p>
-            </div>
-            <div id="version">Version {{ version }}</div>
-        </div>
-    </div>
+    <MenuPage />
 
-    <!-- INFO -->
     <div id="info" v-bind:class="{'fadein': style.fadein, 'fadeout': style.fadeout}">
         <div id="infoClose" v-if="info !== 'passphrase'" v-on:click="closeInfo()"><svg viewBox="0 0 512 512"><title id="times-circle-title">Times Circle</title><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path></svg></div>
         <div id="infoContent">
-            <!-- ABOUT -->
-            <div v-show="info === 'about'">
-                <p><strong>Authenticator</strong> &copy; 2019 <a target='_blank' href='https://github.com/Authenticator-Extension'>Authenticator Extension</a>. Released under the MIT License.</p>
-                <p><a target='_blank' href='https://code.google.com/p/crypto-js/'>crypto-js</a> Copyright Jeff Mott. Licensed under the BSD License.</p>
-                <p><a target='_blank' href='http://www.droidfonts.com/'>Droid Sans Mono</a> Copyright Steve Matteson. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='https://github.com/FortAwesome/Font-Awesome'>Font Awesome Free</a> Licensed under CC BY 4.0</p>
-                <p><a target='_blank' href='https://github.com/jprichardson/node-fs-extra'>fs-extra</a> Copyright JP Richardson. Licensed under the MIT License.</p>
-                <p>Google and Google Drive are trademarks of Google LLC.</p>
-                <p><a target='_blank' href='https://github.com/LazarSoft/jsqrcode'>jsqrcode</a> Copyright Lazar Laszlo. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='http://caligatio.github.com/jsSHA/'>jsSHA</a> Copyright Brian Turek. Licensed under the BSD License.</p>
-                <p><a target='_blank' href='http://davidshimjs.github.io/qrcodejs/'>qrcode.js</a> Copyright Shim Sangmin. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='https://github.com/sass/sass'>sass</a> Copyright Hampton Catlin, Natalie Weizenbaum, and Chris Eppstein under the MIT License</p>
-                <p><a target='_blank' href='http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/'>totp.js</a> Copyright Russ Sayers. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='https://github.com/google/ts-style'>ts-style</a> Copyright Google Inc. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='https://github.com/Microsoft/TypeScript'>TypeScript</a> Copyright Microsoft Corporation. Licensed under the Apache License.</p>
-                <p><a target='_blank' href='https://github.com/vuejs/vue'>vue.js</a> Copyright Evan You. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='https://github.com/Astray-git/vue-dragula'>vue-dragula</a> Copyright Yichang Liu. Licensed under the MIT License.</p>
-                <p><a target='_blank' href='https://github.com/zxing/zxing'>ZXing</a> Copyright ZXing authors. Licensed under the Apache License.</p>
-                <p>Thanks to <a target='_blank' href='https://github.com/multiwebinc'>Mike Robinson</a> &lt;3</p>
-                <p><a target='_blank' href='qrdebug.html'>QR Debugging</a></p>
-            </div>
+            <AboutPage v-show="info === 'about'" />
             <!-- ADD ACCOUNT -->
-            <div v-show="info === 'account'">
-                <div v-show="!newAccount.show">
-                    <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
-                    <div class="button" v-on:click="addAccountManually()">{{ i18n.add_secret }}</div>
-                </div>
-                <div v-show="newAccount.show">
-                    <label>{{ i18n.accountName }}</label>
-                    <input type="text" class="input" v-model="newAccount.account">
-                    <label>{{ i18n.secret }}</label>
-                    <input type="text" class="input" v-model="newAccount.secret">
-                    <select v-model="newAccount.type">
-                        <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
-                        <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
-                        <option v-bind:value="OTPType.battle">Battle.net</option>
-                        <option v-bind:value="OTPType.steam">Steam</option>
-                    </select>
-                    <div class="button-small" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
-                </div>
-            </div>
+            <AddAccountPage v-show="info === 'account'" />
             <!-- SECURITY -->
             <div v-show="info === 'security'">
                 <div class="text warning">{{ i18n.security_warning }}</div>
@@ -212,6 +149,9 @@ import { mapState } from 'vuex';
 
 import MainHeader from './Popup/MainHeader.vue';
 import MainBody from './Popup/MainBody.vue';
+import MenuPage from './Popup/MenuPage.vue';
+import AboutPage from './Popup/AboutPage.vue';
+import AddAccountPage from './Popup/AddAccountPage.vue';
 
 const computedPrototype = [
     mapState('style', ['style']),
@@ -269,7 +209,10 @@ export default Vue.extend({
   },
   components: {
       MainHeader,
-      MainBody
+      MainBody,
+      MenuPage,
+      AboutPage,
+      AddAccountPage
   }
 });
 </script>
