@@ -1,40 +1,25 @@
+import { ManagedStorage } from '../models/storage';
+
 // TODO: rename and move stuff
 
 export class Menu implements IModule {
-  getModule() {
-    // let backupDisabled: boolean | string;
-    // let storageArea: boolean | string;
-
-    // ManagedStorage.get('disableBackup').then(value => {
-    //     backupDisabled = value;
-    // });
-
-    // ManagedStorage.get('storageArea').then(value => {
-    //     storageArea = value;
-    // });
-
-    const version = this.getVersion();
-    const zoom = Number(localStorage.zoom) || 100;
-    this.resize(zoom);
-    const useAutofill = localStorage.autofill === 'true';
-    const useHighContrast = localStorage.highContrast === 'true';
-
-    return {
+  async getModule() {
+    const menuState = {
       state: {
-        version,
-        zoom,
-        useAutofill,
-        useHighContrast,
+        version: chrome.runtime.getManifest().version,
+        zoom: Number(localStorage.zoom) || 100,
+        useAutofill: localStorage.autofill === 'true',
+        useHighContrast: localStorage.highContrast === 'true',
         newStorageLocation: localStorage.storageLocation,
-        backupDisabled: false, // FIX
-        storageArea: 'sync', // FIX
+        backupDisabled: await ManagedStorage.get('disableBackup'), // FIX
+        storageArea: await ManagedStorage.get('storageArea'), // FIX
       },
       namespaced: true,
     };
-  }
 
-  private getVersion() {
-    return chrome.runtime.getManifest().version;
+    this.resize(menuState.state.zoom);
+
+    return menuState;
   }
 
   private resize(zoom: number) {

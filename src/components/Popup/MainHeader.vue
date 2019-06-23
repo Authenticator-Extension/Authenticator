@@ -41,6 +41,9 @@ export default Vue.extend({
     isPopup() {
       const params = new URLSearchParams(document.location.search.substring(1));
       return params.get("popup");
+    },
+    showMenu() {
+      this.$store.commit('style/showMenu');
     }
   },
   components: {

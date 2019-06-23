@@ -160,7 +160,7 @@ async function init() {
       accounts: await new Accounts().getModule(),
       backup: new Backup().getModule(),
       currentView: new CurrentView().getModule(),
-      menu: new Menu().getModule(),
+      menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
       password: new Password().getModule(),
       qr: new Qr().getModule(),

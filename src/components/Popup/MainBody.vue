@@ -3,9 +3,8 @@
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
         <SearchBox />
         <div v-dragula="entries" drake="entryDrake">
-            <div class="entry" v-for="entry in entries" :key="entry.hash" v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)">
-                <EntryComponent />
-            </div>
+            <EntryComponent class="entry" v-for="entry in entries" :key="entry.hash" 
+             v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)" />
         </div>
         <div class="icon" id="add" v-on:click="showInfo('account')"><IconPlus /></div>
     </div>

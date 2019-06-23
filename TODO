@@ -1,0 +1,6 @@
+MAINHEADER:
+- Make thing to report if sync is enabled instead of manually checking
+PAGEHANDLER:
+- https://vuejs.org/v2/guide/components-dynamic-async.html
+ACCOUNTS STATE:
+- Use getters

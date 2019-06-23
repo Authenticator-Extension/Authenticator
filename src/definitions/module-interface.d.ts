@@ -20,3 +20,27 @@ interface VuexConstructor {
     strict?: Boolean;
     devtools?: Boolean;
 }
+
+interface MenuState {
+    version: String;
+    zoom: Number;
+    useAutofill: Boolean;
+    useHighContrast: Boolean;
+    newStorageLocation: String;
+    backupDisabled: Boolean;
+    storageArea: String;
+}
+
+interface StyleState {
+    timeout: Boolean;
+    edit: Boolean;
+    slidein: Boolean;
+    slideout: Boolean;
+    fadein: Boolean;
+    fadeout: Boolean;
+    qrfadein: Boolean;
+    qrfadeout: Boolean;
+    notificationFadein: Boolean;
+    notificationFadeout: Boolean;
+    hotpDiabled: Boolean;
+}

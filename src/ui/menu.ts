@@ -71,11 +71,6 @@ export async function menu() {
     //     chrome.windows.create({ type: 'normal', url });
     //     return;
     //   },
-    //   showMenu: () => {
-    //     _ui.instance.currentClass.slidein = true;
-    //     _ui.instance.currentClass.slideout = false;
-    //     return;
-    //   },
     //   closeMenu: () => {
     //     _ui.instance.currentClass.slidein = false;
     //     _ui.instance.currentClass.slideout = true;

@@ -16,6 +16,12 @@ export class Style implements IModule {
           hotpDiabled: false,
         },
       },
+      mutations: {
+        showMenu(state: { style: StyleState }) {
+          state.style.slidein = true;
+          state.style.slideout = false;
+        },
+      },
       namespaced: true,
     };
   }

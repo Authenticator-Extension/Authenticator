@@ -13,6 +13,7 @@ export enum OTPType {
 
 export class Accounts implements IModule {
   async getModule() {
+    // USE GETTERS FOR THIS
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
     let shouldShowPassphrase = cachedPassphrase
@@ -34,13 +35,9 @@ export class Accounts implements IModule {
         break;
       }
     }
-    const unsupportedAccounts = await this.hasUnsupportedAccounts();
-    const exportFile = this.getBackupFile(exportData);
-    const exportEncryptedFile = this.getBackupFile(exportEncData);
-    const exportOneLineOtpAuthFile = this.getOneLineOtpBackupFile(exportData);
+
     const siteName = await this.getSiteName();
     const shouldFilter = this.hasMatchedEntry(siteName, entries);
-    const showSearch = false;
 
     return {
       state: {
@@ -50,9 +47,9 @@ export class Accounts implements IModule {
         shouldShowPassphrase,
         exportData: JSON.stringify(exportData, null, 2),
         exportEncData: JSON.stringify(exportEncData, null, 2),
-        exportFile,
-        exportEncryptedFile,
-        exportOneLineOtpAuthFile,
+        exportFile: this.getBackupFile(exportData),
+        exportEncryptedFile: this.getBackupFile(exportEncData),
+        exportOneLineOtpAuthFile: this.getOneLineOtpBackupFile(exportData),
         getFilePassphrase: false,
         sector: '',
         sectorStart: false,
@@ -62,13 +59,13 @@ export class Accounts implements IModule {
         notificationTimeout: 0,
         filter: true,
         shouldFilter,
-        showSearch,
+        showSearch: false,
         importType: 'import_file',
         importCode: '',
         importEncrypted: false,
         importPassphrase: '',
         importFilePassphrase: '',
-        unsupportedAccounts,
+        unsupportedAccounts: await this.hasUnsupportedAccounts(),
         searchText: '',
         newAccount: {
           show: false,
