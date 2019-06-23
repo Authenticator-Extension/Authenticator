@@ -145,6 +145,7 @@ import { Menu } from './state-temp/Menu';
 import { Notification } from './state-temp/Notification';
 import { Password } from './state-temp/Password';
 import { Qr } from './state-temp/Qr';
+import { Managed } from './state-temp/Managed';
 
 async function init() {
   // Add globals
@@ -165,6 +166,7 @@ async function init() {
       password: new Password().getModule(),
       qr: new Qr().getModule(),
       style: new Style().getModule(),
+      managed: await new Managed().getModule(),
     },
   });
 

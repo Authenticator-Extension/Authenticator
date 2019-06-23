@@ -2,7 +2,7 @@
     <div>
         <div class="header">
             <span id="menuName">{{ i18n.settings }}</span>
-            <div class="icon" id="i-close" v-on:click="closeMenu()"><IconArrowLeft /></div>
+            <div class="icon" id="i-close" v-on:click="hideMenu()"><IconArrowLeft /></div>
         </div>
         <div id="menuBody">
             <div class="menuList">
@@ -54,6 +54,31 @@ export default Vue.extend({
     computed: {
         version: function () {
             return this.$store.state.menu.version
+        }
+    },
+    methods: {
+        hideMenu () {
+            this.$store.commit('style/hideMenu')
+        },
+        openHelp() {
+            let url = 'https://authenticator.cc/docs/en/chrome-issues';
+
+            if (navigator.userAgent.indexOf('Firefox') !== -1) {
+                url = 'https://authenticator.cc/docs/en/firefox-issues';
+            } else if (navigator.userAgent.indexOf('Edge') !== -1) {
+                url = 'https://authenticator.cc/docs/en/edge-issues';
+            }
+
+            const feedbackURL = this.$store.state.managed.feedbackURL;
+            if (typeof feedbackURL === 'string' && feedbackURL) {
+                url = feedbackURL;
+            }
+
+            chrome.tabs.create({ url });
+        },
+        openLink(url: string) {
+            window.open(url, '_blank');
+            return;
         }
     }
 })

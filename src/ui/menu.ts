@@ -42,45 +42,12 @@ export async function syncTimeWithGoogle() {
   );
 }
 
-async function openHelp() {
-  let url = 'https://authenticator.cc/docs/en/chrome-issues';
-
-  if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    url = 'https://authenticator.cc/docs/en/firefox-issues';
-  } else if (navigator.userAgent.indexOf('Edge') !== -1) {
-    url = 'https://authenticator.cc/docs/en/edge-issues';
-  }
-
-  const feedbackURL = await ManagedStorage.get('feedbackURL');
-  if (typeof feedbackURL === 'string' && feedbackURL) {
-    url = feedbackURL;
-  }
-
-  chrome.tabs.create({ url });
-}
-
 export async function menu() {
   const ui = {
     data: {},
     // methods: {
-    //   openLink: (url: string) => {
-    //     window.open(url, '_blank');
-    //     return;
-    //   },
     //   createWindow: (url: string) => {
     //     chrome.windows.create({ type: 'normal', url });
-    //     return;
-    //   },
-    //   closeMenu: () => {
-    //     _ui.instance.currentClass.slidein = false;
-    //     _ui.instance.currentClass.slideout = true;
-    //     setTimeout(() => {
-    //       _ui.instance.currentClass.slideout = false;
-    //     }, 200);
-    //     return;
-    //   },
-    //   openHelp: () => {
-    //     openHelp();
     //     return;
     //   },
     //   clearFilter: () => {

@@ -21,6 +21,13 @@ export class Style implements IModule {
           state.style.slidein = true;
           state.style.slideout = false;
         },
+        hideMenu(state: { style: StyleState }) {
+          state.style.slidein = false;
+          state.style.slideout = true;
+          setTimeout(() => {
+            state.style.slideout = false;
+          }, 200);
+        },
       },
       namespaced: true,
     };
