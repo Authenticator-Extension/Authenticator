@@ -4,7 +4,7 @@ export class Style implements IModule {
       state: {
         style: {
           timeout: false,
-          edit: false,
+          isEditing: false,
           slidein: false,
           slideout: false,
           fadein: false,
@@ -38,6 +38,9 @@ export class Style implements IModule {
           setTimeout(() => {
             state.style.fadeout = false;
           }, 200);
+        },
+        toggleEdit(state: StyleState) {
+          state.style.isEditing = !state.style.isEditing;
         },
       },
       namespaced: true,

@@ -405,25 +405,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //         }
 //         return;
 //       },
-//       editEntry: () => {
-//         _ui.instance.currentClass.edit = !_ui.instance.currentClass.edit;
-//         if (_ui.instance.filter) {
-//           _ui.instance.filter = false;
-//         }
-//         if (!_ui.instance.currentClass.edit) {
-//           _ui.instance.updateEntries();
-//         }
-//         const codes = document.getElementById('codes');
-//         if (codes) {
-//           // wait vue apply changes to dom
-//           setTimeout(() => {
-//             codes.scrollTop = _ui.instance.currentClass.edit
-//               ? codes.scrollHeight
-//               : 0;
-//           }, 0);
-//         }
-//         return;
-//       },
 //       nextCode: async (entry: OTPEntry) => {
 //         if (_ui.instance.currentClass.Diabled) {
 //           return;

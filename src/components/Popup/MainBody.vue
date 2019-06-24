@@ -6,24 +6,30 @@
             <EntryComponent class="entry" v-for="entry in entries" :key="entry.hash" 
              v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)" />
         </div>
-        <div class="icon" id="add" v-on:click="showInfo('account')"><IconPlus /></div>
+        <div class="icon" id="add" v-on:click="showInfo('AddMethodPage')"><IconPlus /></div>
     </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex';
 
-import SearchBox from './SearchBox.vue'
-import EntryComponent from './EntryComponent.vue'
+import SearchBox from './SearchBox.vue';
+import EntryComponent from './EntryComponent.vue';
 
-import IconPlus from '../../../svg/plus.svg'
+import IconPlus from '../../../svg/plus.svg';
 
 export default Vue.extend({
     computed: mapState('accounts', ["entries", "shouldFilter", "showSearch"]),
+    methods: {
+        showInfo(page: string) {
+            this.$store.commit('style/showInfo');
+            this.$store.commit('currentView/changeView', page);
+        }
+    },
     components: {
         SearchBox,
         EntryComponent,
         IconPlus
     }
-})
+});
 </script>

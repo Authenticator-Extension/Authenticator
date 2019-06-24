@@ -44,6 +44,10 @@ export default Vue.extend({
     },
     showMenu() {
       this.$store.commit('style/showMenu');
+    },
+    editEntry() {
+      this.$store.commit('style/toggleEdit');
+      this.$store.commit('accounts/stopFilter');
     }
   },
   components: {

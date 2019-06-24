@@ -34,7 +34,7 @@ interface MenuState {
 interface StyleState {
     style: {
         timeout: Boolean;
-        edit: Boolean;
+        isEditing: Boolean;
         slidein: Boolean;
         slideout: Boolean;
         fadein: Boolean;
@@ -45,4 +45,40 @@ interface StyleState {
         notificationFadeout: Boolean;
         hotpDiabled: Boolean;
     }
+}
+
+interface AccountsState {
+    entries: IOTPEntry[];
+    encryption: IEncryption;
+    OTPType: OTPType;
+    shouldShowPassphrase: Boolean;
+    exportData: String;
+    exportEncData: String;
+    exportFile: String;
+    exportEncryptedFile: String;
+    exportOneLineOtpAuthFile: String;
+    getFilePassphrase: Boolean;
+    sector: String;
+    sectorStart: Boolean;
+    sectorOffset: Number;
+    second: Number;
+    notification: String;
+    notificationTimeout: Number;
+    filter: Boolean;
+    shouldFilter: Boolean;
+    showSearch: Boolean;
+    importType: String;
+    importCode: String;
+    importEncrypted: Boolean;
+    importPassphrase: String;
+    importFilePassphrase: String;
+    unsupportedAccounts: Boolean;
+    searchText: String;
+    newAccount: {
+        show: Boolean,
+        account: String,
+        secret: String,
+        type: OTPType,
+    };
+    newPassphrase: { phrase: String, confirm: String };
 }

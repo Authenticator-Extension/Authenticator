@@ -75,7 +75,11 @@ export class Accounts implements IModule {
         },
         newPassphrase: { phrase: '', confirm: '' },
       },
-      mutations: {},
+      mutations: {
+        stopFilter(state: AccountsState) {
+          state.filter = false;
+        },
+      },
       namespaced: true,
     };
   }
