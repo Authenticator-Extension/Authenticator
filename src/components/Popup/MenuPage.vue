@@ -6,14 +6,14 @@
         </div>
         <div id="menuBody">
             <div class="menuList">
-                <p v-bind:title="i18n.about" v-on:click="showInfo('about')"><span><IconInfo /></span>{{ i18n.about }}</p>
+                <p v-bind:title="i18n.about" v-on:click="showInfo('AboutPage')"><span><IconInfo /></span>{{ i18n.about }}</p>
             </div>
             <div class="menuList">
-                <p v-bind:title="i18n.export_import" v-on:click="showInfo('export')"><span><IconExchange /></span>{{ i18n.export_import }}</p>
-                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('storage')"><span><IconDatabase /></span>{{ i18n.storage_menu }}</p>
-                <p v-bind:title="i18n.security" v-on:click="showInfo('security')"><span><IconLock /></span>{{ i18n.security }}</p>
+                <p v-bind:title="i18n.export_import" v-on:click="showInfo('ExportPage')"><span><IconExchange /></span>{{ i18n.export_import }}</p>
+                <p v-bind:title="i18n.storage_menu" v-on:click="showInfo('StorageSyncConfPage')"><span><IconDatabase /></span>{{ i18n.storage_menu }}</p>
+                <p v-bind:title="i18n.security" v-on:click="showInfo('SetPasswordPage')"><span><IconLock /></span>{{ i18n.security }}</p>
                 <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()"><span><IconSync /></span>{{ i18n.sync_clock }}</p>
-                <p v-bind:title="i18n.resize_popup_page" v-on:click="showInfo('resize')"><span><IconWrench /></span>{{ i18n.resize_popup_page }}</p>
+                <p v-bind:title="i18n.resize_popup_page" v-on:click="showInfo('PrefrencesPage')"><span><IconWrench /></span>{{ i18n.resize_popup_page }}</p>
             </div>
                 <div class="menuList">
                 <p v-bind:title="i18n.feedback" v-on:click="openHelp()"><span><IconComments /></span>{{ i18n.feedback }}</p>
@@ -79,6 +79,78 @@ export default Vue.extend({
         openLink(url: string) {
             window.open(url, '_blank');
             return;
+        },
+        showInfo(tab: string) {
+        // ALL OF THIS SHOULD BE DONE BY COMPONENTS DURING A LIFECYCLE HOOK
+
+        //   if (tab === 'export' || tab === 'security') {
+        //     const entries = this.$store.state.accounts.entries as OTPEntry[];
+        //     for (let i = 0; i < entries.length; i++) {
+        //       // we have encrypted entry
+        //       // the current passphrase is incorrect
+        //       // cannot export account data
+        //       // or change passphrase
+        //       if (entries[i].code === 'Encrypted') {
+        //         _ui.instance.alert(_ui.instance.i18n.phrase_incorrect);
+        //         return;
+        //       }
+        //     }
+        //   } else if (tab === 'dropbox') {
+        //     if (
+        //       localStorage.dropboxEncrypted !== 'true' &&
+        //       localStorage.dropboxEncrypted !== 'false'
+        //     ) {
+        //       localStorage.dropboxEncrypted = 'true';
+        //       _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
+        //     }
+        //     chrome.permissions.request(
+        //       { origins: ['https://*.dropboxapi.com/*'] },
+        //       async granted => {
+        //         if (granted) {
+        //           _ui.instance.currentClass.fadein = true;
+        //           _ui.instance.currentClass.fadeout = false;
+        //           _ui.instance.info = tab;
+        //         }
+        //         return;
+        //       }
+        //     );
+        //     return;
+        //   } else if (tab === 'drive') {
+        //     if (
+        //       localStorage.driveEncrypted !== 'true' &&
+        //       localStorage.driveEncrypted !== 'false'
+        //     ) {
+        //       localStorage.driveEncrypted = 'true';
+        //       _ui.instance.driveEncrypted = localStorage.driveEncrypted;
+        //     }
+        //     chrome.permissions.request(
+        //       {
+        //         origins: [
+        //           'https://www.googleapis.com/*',
+        //           'https://accounts.google.com/o/oauth2/revoke',
+        //         ],
+        //       },
+        //       async granted => {
+        //         if (granted) {
+        //           _ui.instance.currentClass.fadein = true;
+        //           _ui.instance.currentClass.fadeout = false;
+        //           _ui.instance.info = tab;
+        //         }
+        //         return;
+        //       }
+        //     );
+        //     return;
+        //   } else if (tab === 'storage') {
+        //     if (
+        //       _ui.instance.newStorageLocation !== 'sync' &&
+        //       _ui.instance.newStorageLocation !== 'local'
+        //     ) {
+        //       _ui.instance.newStorageLocation = localStorage.storageLocation;
+        //     }
+        //   }
+          this.$store.commit('style/showInfo');
+          this.$store.commit('currentView/changeView', tab);
+          return;
         }
     }
 })

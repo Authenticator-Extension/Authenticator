@@ -17,15 +17,26 @@ export class Style implements IModule {
         },
       },
       mutations: {
-        showMenu(state: { style: StyleState }) {
+        showMenu(state: StyleState) {
           state.style.slidein = true;
           state.style.slideout = false;
         },
-        hideMenu(state: { style: StyleState }) {
+        hideMenu(state: StyleState) {
           state.style.slidein = false;
           state.style.slideout = true;
           setTimeout(() => {
             state.style.slideout = false;
+          }, 200);
+        },
+        showInfo(state: StyleState) {
+          state.style.fadein = true;
+          state.style.fadeout = false;
+        },
+        hideInfo(state: StyleState) {
+          state.style.fadein = false;
+          state.style.fadeout = true;
+          setTimeout(() => {
+            state.style.fadeout = false;
           }, 200);
         },
       },

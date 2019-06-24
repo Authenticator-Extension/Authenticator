@@ -4,3 +4,7 @@ PAGEHANDLER:
 - https://vuejs.org/v2/guide/components-dynamic-async.html
 ACCOUNTS STATE:
 - Use getters
+MENUPAGE:
+- showInfo incomplete
+EVERYTHING:
+- Run GTS on *.vue code

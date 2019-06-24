@@ -4,9 +4,12 @@ export class CurrentView implements IModule {
       state: {
         info: '',
       },
+      mutations: {
+        changeView(state: { info: string }, viewName: string) {
+          state.info = viewName;
+        },
+      },
       namespaced: true,
     };
   }
-
-  // enum views?
 }

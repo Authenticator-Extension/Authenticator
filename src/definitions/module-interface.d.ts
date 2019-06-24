@@ -32,15 +32,17 @@ interface MenuState {
 }
 
 interface StyleState {
-    timeout: Boolean;
-    edit: Boolean;
-    slidein: Boolean;
-    slideout: Boolean;
-    fadein: Boolean;
-    fadeout: Boolean;
-    qrfadein: Boolean;
-    qrfadeout: Boolean;
-    notificationFadein: Boolean;
-    notificationFadeout: Boolean;
-    hotpDiabled: Boolean;
+    style: {
+        timeout: Boolean;
+        edit: Boolean;
+        slidein: Boolean;
+        slideout: Boolean;
+        fadein: Boolean;
+        fadeout: Boolean;
+        qrfadein: Boolean;
+        qrfadeout: Boolean;
+        notificationFadein: Boolean;
+        notificationFadeout: Boolean;
+        hotpDiabled: Boolean;
+    }
 }
