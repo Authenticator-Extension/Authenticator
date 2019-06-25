@@ -1,7 +1,7 @@
 import * as CryptoJS from 'crypto-js';
 
 import { Encryption } from '../models/encryption';
-import { OTPEntry } from '../models/otp';
+import { OTPEntry, OTPType } from '../models/otp';
 import { EntryStorage } from '../models/storage';
 
 import { insertContentScript } from './add-account';

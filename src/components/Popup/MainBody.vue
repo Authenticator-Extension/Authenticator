@@ -4,7 +4,7 @@
         <SearchBox />
         <div v-dragula="entries" drake="entryDrake">
             <EntryComponent class="entry" v-for="entry in entries" :key="entry.hash" 
-             v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)" />
+             v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)" v-bind:entry="entry" />
         </div>
         <div class="icon" id="add" v-on:click="showInfo('AddMethodPage')"><IconPlus /></div>
     </div>
@@ -17,13 +17,20 @@ import SearchBox from './SearchBox.vue';
 import EntryComponent from './EntryComponent.vue';
 
 import IconPlus from '../../../svg/plus.svg';
+import { OTPEntry } from '../../models/otp';
 
 export default Vue.extend({
-    computed: mapState('accounts', ["entries", "shouldFilter", "showSearch"]),
+    computed: mapState('accounts', ["entries", "filter", "shouldFilter", "showSearch"]),
     methods: {
         showInfo(page: string) {
             this.$store.commit('style/showInfo');
             this.$store.commit('currentView/changeView', page);
+        },
+        isMatchedEntry(entry: OTPEntry) {
+            return true;
+        },
+        isSearchedEntry(entry: OTPEntry) {
+            return true;
         }
     },
     components: {

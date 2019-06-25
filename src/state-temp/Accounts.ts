@@ -1,19 +1,10 @@
 import { EntryStorage } from '../models/storage';
 import { Encryption } from '../models/encryption';
 import * as CryptoJS from 'crypto-js';
-
-export enum OTPType {
-  totp = 1,
-  hotp,
-  battle,
-  steam,
-  hex,
-  hhex,
-}
+import { OTPType } from '../models/otp';
 
 export class Accounts implements IModule {
   async getModule() {
-    // USE GETTERS FOR THIS
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
     let shouldShowPassphrase = cachedPassphrase
@@ -67,12 +58,6 @@ export class Accounts implements IModule {
         importFilePassphrase: '',
         unsupportedAccounts: await this.hasUnsupportedAccounts(),
         searchText: '',
-        newAccount: {
-          show: false,
-          account: '',
-          secret: '',
-          type: OTPType.totp,
-        },
         newPassphrase: { phrase: '', confirm: '' },
       },
       mutations: {

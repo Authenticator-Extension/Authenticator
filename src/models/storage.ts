@@ -1,7 +1,7 @@
 import * as CryptoJS from 'crypto-js';
 
 import { Encryption } from './encryption';
-import { OTPEntry } from './otp';
+import { OTPEntry, OTPType } from './otp';
 
 export class BrowserStorage {
   private static async getStorageLocation() {

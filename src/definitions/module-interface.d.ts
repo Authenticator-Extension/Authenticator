@@ -50,7 +50,7 @@ interface StyleState {
 interface AccountsState {
     entries: IOTPEntry[];
     encryption: IEncryption;
-    OTPType: OTPType;
+    OTPType: Number;
     shouldShowPassphrase: Boolean;
     exportData: String;
     exportEncData: String;
@@ -74,11 +74,5 @@ interface AccountsState {
     importFilePassphrase: String;
     unsupportedAccounts: Boolean;
     searchText: String;
-    newAccount: {
-        show: Boolean,
-        account: String,
-        secret: String,
-        type: OTPType,
-    };
     newPassphrase: { phrase: String, confirm: String };
 }

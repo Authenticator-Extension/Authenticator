@@ -1,5 +1,5 @@
 import * as QRGen from 'qrcode-generator';
-import { OTPEntry } from '../models/otp';
+import { OTPEntry, OTPType } from '../models/otp';
 
 async function getQrUrl(entry: OTPEntry) {
   return new Promise(

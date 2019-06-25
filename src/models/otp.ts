@@ -4,6 +4,15 @@ import { Encryption } from './encryption';
 import { KeyUtilities } from './key-utilities';
 import { EntryStorage } from './storage';
 
+export enum OTPType {
+  totp = 1,
+  hotp,
+  battle,
+  steam,
+  hex,
+  hhex,
+}
+
 export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;

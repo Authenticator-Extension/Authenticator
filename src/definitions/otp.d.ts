@@ -1,14 +1,5 @@
-declare enum OTPType {
-    totp = 1,
-    hotp,
-    battle,
-    steam,
-    hex,
-    hhex
-}
-
 interface IOTPEntry {
-    type: OTPType;
+    type: number; // OTPType
     index: number;
     issuer: string;
     secret: string;

@@ -22,23 +22,50 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { OTPEntry } from '../../models/otp'
+import { OTPEntry, OTPType } from '../../models/otp'
+import { mapState } from 'vuex';
 
 import IconMinusCircle from '../../../svg/minus-circle.svg'
 import IconRedo from '../../../svg/redo.svg'
 import IconQr from '../../../svg/qrcode.svg'
 import IconBars from '../../../svg/bars.svg'
 
+const computedPrototype = [
+    mapState("accounts", ["OTPType", "sectorStart", "sectorOffset", "second"]),
+    mapState("style", ["style"])
+]
+
+let computed = {};
+
+for (const module of computedPrototype) {
+    Object.assign(computed, module);
+}
+
 export default Vue.extend({
+    computed,
+    props: {
+        entry: OTPEntry
+    },
+    methods: {
+        noCopy(code: string) {
+            return (code === 'Encrypted' ||
+                code === 'Invalid' ||
+                code.startsWith('&bull;'));
+        },
+        shouldShowQrIcon(entry: OTPEntry) {
+            return (
+                entry.secret !== 'Encrypted' &&
+                entry.type !== OTPType.battle &&
+                entry.type !== OTPType.steam
+            );
+        },
+    },
     components: {
         IconMinusCircle,
         IconRedo,
         IconQr,
         IconBars
     },
-    props: {
-        entry: OTPEntry
-    }
 })
 </script>
 

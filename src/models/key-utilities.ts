@@ -1,4 +1,5 @@
 import * as jsSHA from 'jssha';
+import { OTPType } from './otp';
 
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
