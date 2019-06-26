@@ -1,8 +1,3 @@
-function cachePassword(password: string) {
-  document.cookie = 'passphrase=' + password;
-  chrome.runtime.sendMessage({ action: 'cachePassphrase', value: password });
-}
-
 export async function passphrase() {
   const ui = {
     data: {},
@@ -18,23 +13,7 @@ export async function passphrase() {
     //     await _ui.instance.changePassphrase();
     //     return;
     //   },
-    //   applyPassphrase: async () => {
-    //     if (!_ui.instance.passphrase) {
-    //       return;
-    //     }
-    //     _ui.instance.encryption.updateEncryptionPassword(
-    //       _ui.instance.passphrase
-    //     );
-    //     await _ui.instance.updateEntries();
-    //     const siteName = await getSiteName();
-    //     _ui.instance.shouldFilter = hasMatchedEntry(
-    //       siteName,
-    //       _ui.instance.entries
-    //     );
-    //     _ui.instance.closeInfo();
-    //     cachePassword(_ui.instance.passphrase);
-    //     return;
-    //   },
+
     //   changePassphrase: async () => {
     //     if (
     //       _ui.instance.newPassphrase.phrase !==

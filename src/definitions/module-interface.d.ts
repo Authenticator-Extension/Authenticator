@@ -10,7 +10,11 @@ interface VuexConstructor {
         [key: string]: Function;
     },
     actions?: {
-        [key: string]: Function;
+        [key: string]: Function | 
+        {
+            root: Boolean;
+            handler: Function;
+        }
     },
     getters?: {
         [key: string]: Function;

@@ -28,16 +28,6 @@ async function init() {
     .load(backup)
     .render();
 
-  try {
-    document.title = ui.instance.i18n.extName;
-  } catch (e) {
-    console.error(e);
-  }
-
-  if (authenticator.shouldShowPassphrase) {
-    authenticator.showInfo('passphrase');
-  }
-
   // localStorage passphrase warning
   if (localStorage.encodedPhrase) {
     authenticator.alert(authenticator.i18n.local_passphrase_warning);
@@ -143,7 +133,6 @@ import { Backup } from './state-temp/Backup';
 import { CurrentView } from './state-temp/CurrentView';
 import { Menu } from './state-temp/Menu';
 import { Notification } from './state-temp/Notification';
-import { Password } from './state-temp/Password';
 import { Qr } from './state-temp/Qr';
 import { Managed } from './state-temp/Managed';
 
@@ -163,7 +152,6 @@ async function init() {
       currentView: new CurrentView().getModule(),
       menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
-      password: new Password().getModule(),
       qr: new Qr().getModule(),
       style: new Style().getModule(),
       managed: await new Managed().getModule(),
@@ -174,10 +162,28 @@ async function init() {
   const instance = new Vue({
     render: h => h(Popup),
     store,
-    mounted: () => {
-      // Dragula stuff here
+    mounted() {
+      this.$store.commit('accounts/updateCodes');
+      setInterval(() => {
+        this.$store.commit('accounts/updateCodes');
+      }, 1000);
     },
   }).$mount('#authenticator');
+
+  // Prompt for password if needed
+  if (instance.$store.state.accounts.shouldShowPassphrase) {
+    instance.$store.commit('style/showInfo');
+    instance.$store.commit('currentView/changeView', 'EnterPasswordPage');
+  }
+
+  // Set document title
+  try {
+    // tslint:disable-next-line
+    // @ts-ignore
+    document.title = instance.i18n.extName;
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 init();

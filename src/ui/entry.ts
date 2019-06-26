@@ -8,48 +8,7 @@ import { insertContentScript } from './add-account';
 
 /* tslint:disable-next-line:no-any */
 async function updateCode(app: any) {
-  let second = new Date().getSeconds();
-  if (localStorage.offset) {
-    // prevent second from negative
-    second += Number(localStorage.offset) + 60;
-  }
-
-  second = second % 60;
-  app.second = second;
-
-  // only when sector is not started (timer is not initialized),
-  // passphrase box should not be shown (no passphrase set) or
-  // there are entiries shown and passphrase box isn't shown (the user has
-  // already provided password)
-  if (
-    !app.sectorStart &&
-    (!app.shouldShowPassphrase ||
-      (app.entries.length > 0 && app.info !== 'passphrase'))
-  ) {
-    app.sectorStart = true;
-    app.sectorOffset = -second;
-  }
-
-  // if (second > 25) {
-  //   app.class.timeout = true;
-  // } else {
-  //   app.class.timeout = false;
-  // }
-  // if (second < 1) {
-  //   const entries = app.entries as OTP[];
-  //   for (let i = 0; i < entries.length; i++) {
-  //     if (entries[i].type !== OTPType.hotp &&
-  //         entries[i].type !== OTPType.hhex) {
-  //       entries[i].generate();
-  //     }
-  //   }
-  // }
-  const entries = app.entries as IOTPEntry[];
-  for (let i = 0; i < entries.length; i++) {
-    if (entries[i].type !== OTPType.hotp && entries[i].type !== OTPType.hhex) {
-      entries[i].generate();
-    }
-  }
+  return;
 }
 
 function getEntryDataFromOTPAuthPerLine(importCode: string) {

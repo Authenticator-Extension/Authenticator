@@ -19,7 +19,7 @@ import { mapState } from "vuex";
 import { OTPType } from "../../models/otp";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       newAccount: {
         account: "",

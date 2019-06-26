@@ -2,6 +2,7 @@ import { EntryStorage } from '../models/storage';
 import { Encryption } from '../models/encryption';
 import * as CryptoJS from 'crypto-js';
 import { OTPType } from '../models/otp';
+import { ActionContext } from 'vuex';
 
 export class Accounts implements IModule {
   async getModule() {
@@ -36,33 +37,106 @@ export class Accounts implements IModule {
         encryption,
         OTPType,
         shouldShowPassphrase,
-        exportData: JSON.stringify(exportData, null, 2),
-        exportEncData: JSON.stringify(exportEncData, null, 2),
-        exportFile: this.getBackupFile(exportData),
-        exportEncryptedFile: this.getBackupFile(exportEncData),
-        exportOneLineOtpAuthFile: this.getOneLineOtpBackupFile(exportData),
-        getFilePassphrase: false,
-        sector: '',
-        sectorStart: false,
-        sectorOffset: 0,
-        second: 0,
-        notification: '',
-        notificationTimeout: 0,
+        exportData: JSON.stringify(exportData, null, 2), // Move to module
+        exportEncData: JSON.stringify(exportEncData, null, 2), // Move to module
+        exportFile: this.getBackupFile(exportData), // Move to module
+        exportEncryptedFile: this.getBackupFile(exportEncData), // Move to module
+        exportOneLineOtpAuthFile: this.getOneLineOtpBackupFile(exportData), // Move to module
+        getFilePassphrase: false, // Move to module
+        sector: '', // Does this even do anything?
+        sectorStart: false, // Should display timer circles?
+        sectorOffset: 0, // Offset in seconds for animations
+        second: 0, // Offset in seconds for math
+        notification: '', // Move to another file
+        notificationTimeout: 0, // Move to another file
         filter: true,
-        shouldFilter,
-        showSearch: false,
-        importType: 'import_file',
-        importCode: '',
-        importEncrypted: false,
-        importPassphrase: '',
-        importFilePassphrase: '',
+        shouldFilter, // Getter?
+        showSearch: false, // Getter?
+        importType: 'import_file', // Move to module
+        importCode: '', // Move to module
+        importEncrypted: false, // Move to module
+        importPassphrase: '', // Move to module
+        importFilePassphrase: '', // Move to module
         unsupportedAccounts: await this.hasUnsupportedAccounts(),
         searchText: '',
-        newPassphrase: { phrase: '', confirm: '' },
+        newPassphrase: { phrase: '', confirm: '' }, // Move to module
       },
       mutations: {
         stopFilter(state: AccountsState) {
           state.filter = false;
+        },
+        updateCodes(state: AccountsState) {
+          let second = new Date().getSeconds();
+          if (localStorage.offset) {
+            // prevent second from negative
+            second += Number(localStorage.offset) + 60;
+          }
+
+          second = second % 60;
+          state.second = second;
+
+          if (!state.sectorStart && state.entries.length > 0) {
+            state.sectorStart = true;
+            state.sectorOffset = -second;
+          }
+
+          // if (second > 25) {
+          //   app.class.timeout = true;
+          // } else {
+          //   app.class.timeout = false;
+          // }
+          // if (second < 1) {
+          //   const entries = app.entries as OTP[];
+          //   for (let i = 0; i < entries.length; i++) {
+          //     if (entries[i].type !== OTPType.hotp &&
+          //         entries[i].type !== OTPType.hhex) {
+          //       entries[i].generate();
+          //     }
+          //   }
+          // }
+          const entries = state.entries as IOTPEntry[];
+          for (let i = 0; i < entries.length; i++) {
+            if (
+              entries[i].type !== OTPType.hotp &&
+              entries[i].type !== OTPType.hhex
+            ) {
+              entries[i].generate();
+            }
+          }
+        },
+        loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
+          state.entries = newCodes;
+        },
+      },
+      actions: {
+        applyPassphrase: async (
+          state: ActionContext<AccountsState, {}>,
+          password: string
+        ) => {
+          if (!password) {
+            return;
+          }
+
+          state.state.encryption.updateEncryptionPassword(password);
+          state.commit(
+            'loadCodes',
+            await this.getEntries(state.state.encryption as Encryption)
+          );
+          state.commit('updateCodes');
+          // const siteName = await getSiteName();
+          // _ui.instance.shouldFilter = hasMatchedEntry(
+          //   siteName,
+          //   _ui.instance.entries
+          // );
+          state.commit('style/hideInfo', null, { root: true });
+
+          document.cookie = 'passphrase=' + password;
+          chrome.runtime.sendMessage({
+            action: 'cachePassphrase',
+            value: password,
+          });
+          console.log(state);
+          return;
         },
       },
       namespaced: true,
