@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Enter your 2-factor authentication code or one-time password.\nThe provided information does not match our records. Please try again.",
         "description": "Extension Description."
     },
     "added": {
