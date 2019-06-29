@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "암호 오류. 오직 Base32(A-Z, 2-7 및 =) 및 HEX(0-9 및 A-F) 형식만 지원됩니다. 허나, 귀하의 암호는 다음과 같습니다: ",
+        "message": "암호 오류. 오직 기본32자(A-Z, 2-7 및 =) 및 HEX(0-9 및 A-F) 형식만 지원됩니다. 허나, 귀하의 암호는 다음과 같습니다: ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "경고: 백업이 암호화되지 않았습니다. 사용시 모든 위험은 사용자에게 있습니다.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "암호 보호된 백업 다운로드",
+        "message": "암호화된 백업 다운로드",
         "description": "Download Encrypted Backup"
     },
     "search": {
