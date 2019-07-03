@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Naam",
+        "message": "Accountnaam",
         "description": "Account Name."
     },
     "issuer": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Fout.",
+        "message": "Mislukt.",
         "description": "Update Failure."
     },
     "about": {
@@ -100,7 +100,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Bevestig wachtwoord",
+        "message": "Wachtwoord bevestigen",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Je kan niet een nieuw account toevoegen of exporteer data tot alle accounts gedecrpyt zijn. Voer A. U. B. het correcte wachtwoord in voordat u verder gaat.",
+        "message": "U kunt niet een nieuw account toevoegen of gegevens exporteren tot alle accounts ontcijferd zijn. Voer het juiste wachtwoord in voordat u verder gaat.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Commentaar",
+        "message": "Feedback",
         "description": "Feedback."
     },
     "translate": {
@@ -144,11 +144,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Voer het wachtwoord in om de accountgegevens te decoderen.",
+        "message": "Voer het wachtwoord in om de accountgegevens te ontcijferen.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Klok met Google",
+        "message": "Klok synchroniseren met Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -184,27 +184,27 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Waarschuwing: alle back-ups zijn ongecodeerd. Wilt u een account toevoegen aan een andere app? Beweeg over de juiste bovenkant van elke account en druk op de knop verborgen.",
+        "message": "Waarschuwing: alle back-ups zijn niet versleuteld. Wilt u een account toevoegen aan een andere app? Beweeg over de rechterbovenkant van een account en druk op de verborgen knop.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Backup downloaden",
+        "message": "Back-up downloaden",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Backup importeren",
+        "message": "Back-up importeren",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Backup importeren",
+        "message": "Back-up importeren",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importeer Text Backup",
+        "message": "Tekstback-up importeren ",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Laat alle reacties zien",
+        "message": "Laat alle invoer zien",
         "description": "Show all entries."
     },
     "dropbox_risk": {
