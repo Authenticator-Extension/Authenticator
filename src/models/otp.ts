@@ -57,8 +57,10 @@ class OTPEntry implements OTP {
       return;
     }
     this.generate();
-    this.counter++;
-    await this.update(encryption);
+    if (this.secret !== 'Encrypted') {
+      this.counter++;
+      await this.update(encryption);
+    }
     return;
   }
 
