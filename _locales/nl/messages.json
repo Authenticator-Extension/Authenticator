@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "U kunt niet een nieuw account toevoegen of gegevens exporteren tot alle accounts ontcijferd zijn. Voer het juiste wachtwoord in voordat u verder gaat.",
+        "message": "U kunt niet een nieuw account toevoegen of gegevens exporteren tot alle accounts zijn ontcijferd. Voer het juiste wachtwoord in voordat u verder gaat.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
