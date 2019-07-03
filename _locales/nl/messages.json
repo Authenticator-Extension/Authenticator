@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "QR Code scannen",
+        "message": "Scan QR-code",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "OK",
         "description": "OK."
     },
     "yes": {
