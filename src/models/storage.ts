@@ -99,13 +99,13 @@ export class EntryStorage {
   ): OTPStorage {
     const storageItem: OTPStorage = {
       account: entry.account,
+      encrypted: encryption.getEncryptionStatus(),
       hash: entry.hash,
       index: entry.index,
       issuer: entry.issuer,
       type: OTPType[entry.type],
-      counter: entry.counter,
+      counter: entry.counter, // TODO: Make this optional for non HOTP accounts
       secret: encryption.getEncryptedSecret(entry.secret),
-      encrypted: encryption.getEncryptionStatus(),
     };
     if (entry.period && entry.period !== 30) {
       storageItem.period = entry.period;
@@ -345,7 +345,7 @@ export class EntryStorage {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
             if (!_data.hasOwnProperty(entry.hash)) {
-              throw new Error('The specific entry is not existing.');
+              throw new Error('Entry to change does not exist.');
             }
             const storageItem = this.getOTPStorageFromEntry(encryption, entry);
             _data[entry.hash] = storageItem;

@@ -59,6 +59,12 @@ export default Vue.extend({
                 entry.type !== OTPType.steam
             );
         },
+        showBulls: (code: string) => {
+            if (code.startsWith('&bull;')) {
+                return code;
+            }
+            return new Array(code.length).fill('&bull;').join('');
+        },
     },
     components: {
         IconMinusCircle,

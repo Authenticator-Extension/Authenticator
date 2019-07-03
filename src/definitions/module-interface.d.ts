@@ -62,7 +62,6 @@ interface AccountsState {
     exportEncryptedFile: String;
     exportOneLineOtpAuthFile: String;
     getFilePassphrase: Boolean;
-    sector: String;
     sectorStart: Boolean;
     sectorOffset: Number;
     second: Number;

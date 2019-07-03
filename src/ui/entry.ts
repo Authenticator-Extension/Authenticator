@@ -244,12 +244,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //         await EntryStorage.set(_ui.instance.encryption, _ui.instance.entries);
 //         return;
 //       },
-//       showBulls: (code: string) => {
-//         if (code.startsWith('&bull;')) {
-//           return code;
-//         }
-//         return new Array(code.length).fill('&bull;').join('');
-//       },
 //       importEntries: async () => {
 //         await EntryStorage.import(
 //           _ui.instance.encryption,
@@ -257,24 +251,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //         );
 //         await _ui.instance.updateEntries();
 //         _ui.instance.alert(_ui.instance.i18n.updateSuccess);
-//         return;
-//       },
-//       updateEntries: async () => {
-//         const exportData = await EntryStorage.getExport(
-//           _ui.instance.encryption
-//         );
-//         const exportEncData = await EntryStorage.getExport(
-//           _ui.instance.encryption,
-//           true
-//         );
-//         _ui.instance.exportData = JSON.stringify(exportData, null, 2);
-//         _ui.instance.entries = await getEntries(_ui.instance.encryption);
-//         _ui.instance.exportFile = getBackupFile(exportData);
-//         _ui.instance.exportEncryptedFile = getBackupFile(exportEncData);
-//         _ui.instance.exportOneLineOtpAuthFile = getOneLineOtpBackupFile(
-//           exportData
-//         );
-//         await _ui.instance.updateCode();
 //         return;
 //       },
 //       getOldPassphrase: async () => {

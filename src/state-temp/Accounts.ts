@@ -43,7 +43,6 @@ export class Accounts implements IModule {
         exportEncryptedFile: this.getBackupFile(exportEncData), // Move to module
         exportOneLineOtpAuthFile: this.getOneLineOtpBackupFile(exportData), // Move to module
         getFilePassphrase: false, // Move to module
-        sector: '', // Does this even do anything?
         sectorStart: false, // Should display timer circles?
         sectorOffset: 0, // Offset in seconds for animations
         second: 0, // Offset in seconds for math
@@ -118,11 +117,7 @@ export class Accounts implements IModule {
           }
 
           state.state.encryption.updateEncryptionPassword(password);
-          state.commit(
-            'loadCodes',
-            await this.getEntries(state.state.encryption as Encryption)
-          );
-          state.commit('updateCodes');
+          await state.dispatch('updateEntries');
           // const siteName = await getSiteName();
           // _ui.instance.shouldFilter = hasMatchedEntry(
           //   siteName,
@@ -135,7 +130,14 @@ export class Accounts implements IModule {
             action: 'cachePassphrase',
             value: password,
           });
-          console.log(state);
+          return;
+        },
+        updateEntries: async (state: ActionContext<AccountsState, {}>) => {
+          state.commit(
+            'loadCodes',
+            await this.getEntries(state.state.encryption as Encryption)
+          );
+          state.commit('updateCodes');
           return;
         },
       },

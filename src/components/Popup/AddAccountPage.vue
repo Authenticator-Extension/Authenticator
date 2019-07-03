@@ -16,7 +16,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import { OTPType } from "../../models/otp";
+import { OTPType, OTPEntry } from "../../models/otp";
 
 export default Vue.extend({
   data: function () {
@@ -30,60 +30,53 @@ export default Vue.extend({
   },
   computed: mapState("accounts", ["OTPType"]),
   methods: {
-    addNewAccount() {
-      //     _ui.instance.newAccount.secret = _ui.instance.newAccount.secret.replace(
-      //       / /g,
-      //       ''
-      //     );
-      //     if (
-      //       !/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
-      //       !/^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret)
-      //     ) {
-      //       _ui.instance.alert(
-      //         _ui.instance.i18n.errorsecret + _ui.instance.newAccount.secret
-      //       );
-      //       return;
-      //     }
-      //     let type: OTPType;
-      //     if (
-      //       !/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
-      //       /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret) &&
-      //       _ui.instance.newAccount.type === 'totp'
-      //     ) {
-      //       type = OTPType.hex;
-      //     } else if (
-      //       !/^[a-z2-7]+=*$/i.test(_ui.instance.newAccount.secret) &&
-      //       /^[0-9a-f]+$/i.test(_ui.instance.newAccount.secret) &&
-      //       _ui.instance.newAccount.type === 'hotp'
-      //     ) {
-      //       type = OTPType.hhex;
-      //     } else {
-      //       type = _ui.instance.newAccount.type;
-      //     }
-      //     const entry = new OTPEntry(
-      //       type,
-      //       '',
-      //       _ui.instance.newAccount.secret,
-      //       _ui.instance.newAccount.account,
-      //       0,
-      //       0
-      //     );
-      //     await entry.create(_ui.instance.encryption);
-      //     await _ui.instance.updateEntries();
-      //     _ui.instance.newAccount.type = OTPType.totp;
-      //     _ui.instance.account = '';
-      //     _ui.instance.secret = '';
-      //     _ui.instance.newAccount.show = false;
-      //     _ui.instance.closeInfo();
-      //     _ui.instance.currentClass.edit = false;
-      //     const codes = document.getElementById('codes');
-      //     if (codes) {
-      //       // wait vue apply changes to dom
-      //       setTimeout(() => {
-      //         codes.scrollTop = 0;
-      //       }, 0);
-      //     }
-      //     return;
+    async addNewAccount() {
+      this.newAccount.secret = this.newAccount.secret.replace(/ /g, '');
+      if (
+        !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
+        !/^[0-9a-f]+$/i.test(this.newAccount.secret)
+      ) {
+        // _ui.instance.alert(
+        //   _ui.instance.i18n.errorsecret + this.newAccount.secret
+        // );
+        return;
+      }
+      let type: OTPType;
+      if (
+        !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
+        /^[0-9a-f]+$/i.test(this.newAccount.secret) &&
+        this.newAccount.type === OTPType.totp
+      ) {
+        type = OTPType.hex;
+      } else if (
+        !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
+        /^[0-9a-f]+$/i.test(this.newAccount.secret) &&
+        this.newAccount.type === OTPType.hotp
+      ) {
+        type = OTPType.hhex;
+      } else {
+        type = this.newAccount.type;
+      }
+      const entry = new OTPEntry(
+        type,
+        '',
+        this.newAccount.secret,
+        this.newAccount.account,
+        0,
+        0
+      );
+      await entry.create(this.$store.state.accounts.encryption);
+      await this.$store.dispatch('accounts/updateEntries');
+      this.$store.commit('style/hideInfo');
+      this.$store.commit('style/toggleEdit');
+      const codes = document.getElementById('codes');
+      if (codes) {
+        // wait vue apply changes to dom
+        setTimeout(() => {
+          codes.scrollTop = 0;
+        }, 0);
+      }
+      return;
     }
   }
 });
