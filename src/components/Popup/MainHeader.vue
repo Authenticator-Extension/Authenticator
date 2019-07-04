@@ -48,7 +48,12 @@ export default Vue.extend({
     editEntry() {
       this.$store.commit('style/toggleEdit');
       this.$store.commit('accounts/stopFilter');
-    }
+    },
+    lock: () => {
+      document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
+      chrome.runtime.sendMessage({ action: 'lock' }, window.close);
+      return;
+    },
   },
   components: {
     IconCog,

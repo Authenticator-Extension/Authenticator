@@ -2,11 +2,6 @@ export async function passphrase() {
   const ui = {
     data: {},
     // methods: {
-    //   lock: () => {
-    //     document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
-    //     chrome.runtime.sendMessage({ action: 'lock' }, window.close);
-    //     return;
-    //   },
     //   removePassphrase: async () => {
     //     _ui.instance.newPassphrase.phrase = '';
     //     _ui.instance.newPassphrase.confirm = '';
