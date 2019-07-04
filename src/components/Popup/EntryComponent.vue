@@ -31,7 +31,7 @@ import IconQr from '../../../svg/qrcode.svg'
 import IconBars from '../../../svg/bars.svg'
 
 const computedPrototype = [
-    mapState("accounts", ["OTPType", "sectorStart", "sectorOffset", "second"]),
+    mapState("accounts", ["OTPType", "sectorStart", "sectorOffset", "second", "encryption"]),
     mapState("style", ["style"])
 ]
 
@@ -59,12 +59,19 @@ export default Vue.extend({
                 entry.type !== OTPType.steam
             );
         },
-        showBulls: (code: string) => {
+        showBulls(code: string) {
             if (code.startsWith('&bull;')) {
                 return code;
             }
             return new Array(code.length).fill('&bull;').join('');
         },
+        async removeEntry(entry: OTPEntry) {
+            if (await this.$store.dispatch('notification/confirm', this.i18n.confirm_delete)) {
+                await entry.delete();
+                await this.$store.dispatch('accounts/updateEntries');
+            }
+            return;
+      },
     },
     components: {
         IconMinusCircle,

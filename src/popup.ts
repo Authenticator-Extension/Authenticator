@@ -178,8 +178,6 @@ async function init() {
 
   // Set document title
   try {
-    // tslint:disable-next-line
-    // @ts-ignore
     document.title = instance.i18n.extName;
   } catch (e) {
     console.error(e);

@@ -1,10 +1,6 @@
 MAINHEADER:
-- Make thing to report if sync is enabled instead of manually checking
+- Make getter to report if sync is enabled instead of manually checking
 PAGEHANDLER:
 - https://vuejs.org/v2/guide/components-dynamic-async.html
-ACCOUNTS STATE:
-- Use getters
-MENUPAGE:
-- showInfo incomplete
 EVERYTHING:
 - Run GTS on *.vue code

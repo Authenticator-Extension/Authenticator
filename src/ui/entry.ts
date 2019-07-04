@@ -333,13 +333,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //         }
 //         return;
 //       },
-//       removeEntry: async (entry: OTPEntry) => {
-//         if (await _ui.instance.confirm(_ui.instance.i18n.confirm_delete)) {
-//           await entry.delete();
-//           await _ui.instance.updateEntries();
-//         }
-//         return;
-//       },
 //       nextCode: async (entry: OTPEntry) => {
 //         if (_ui.instance.currentClass.Diabled) {
 //           return;

@@ -46,8 +46,6 @@ export class Accounts implements IModule {
         sectorStart: false, // Should display timer circles?
         sectorOffset: 0, // Offset in seconds for animations
         second: 0, // Offset in seconds for math
-        notification: '', // Move to another file
-        notificationTimeout: 0, // Move to another file
         filter: true,
         shouldFilter, // Getter?
         showSearch: false, // Getter?

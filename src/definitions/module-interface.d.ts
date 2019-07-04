@@ -79,3 +79,9 @@ interface AccountsState {
     searchText: String;
     newPassphrase: { phrase: String, confirm: String };
 }
+
+interface NotificationState {
+    message: Array<string>;
+    confirmMessage: String;
+    messageIdle: Boolean;
+}

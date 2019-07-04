@@ -1,12 +1,54 @@
+import { ActionContext } from 'vuex';
+
 export class Notification implements IModule {
   getModule() {
     return {
       state: {
-        message: [],
-        messageIdle: true,
-        confirmMessage: '',
+        message: [], // Message content for alert with ok button
+        confirmMessage: '', // Message content for alert with yes / no
+        messageIdle: true, // Should show alert box?
+        notification: '', // Ephermal message text
+        notificationTimeout: 0, // Check if used
+      },
+      mutations: {
+        alert: (state: NotificationState, message: string) => {
+          state.message.unshift(message);
+        },
+        closeAlert: (state: NotificationState) => {
+          state.messageIdle = false;
+          state.message.shift();
+          setTimeout(() => {
+            state.messageIdle = true;
+          }, 200);
+        },
+        setConfirm: (state: NotificationState, message: string) => {
+          state.confirmMessage = message;
+        },
+      },
+      actions: {
+        confirm: async (
+          state: ActionContext<NotificationState, {}>,
+          message: string
+        ) => {
+          return new Promise((resolve: (value: boolean) => void) => {
+            state.commit('setConfirm', message);
+            window.addEventListener('confirm', event => {
+              state.commit('setConfirm', '');
+              if (!this.isCustomEvent(event)) {
+                resolve(false);
+                return;
+              }
+              resolve(event.detail);
+              return;
+            });
+          });
+        },
       },
       namespaced: true,
     };
+  }
+
+  private isCustomEvent(event: Event): event is CustomEvent {
+    return 'detail' in event;
   }
 }
