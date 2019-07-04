@@ -74,8 +74,10 @@ export class OTPEntry implements IOTPEntry {
       return;
     }
     this.generate();
-    this.counter++;
-    await this.update(encryption);
+    if (this.secret !== 'Encrypted') {
+      this.counter++;
+      await this.update(encryption);
+    }
     return;
   }
 
