@@ -1,17 +1,5 @@
 import { OTPEntry } from '../models/otp';
 
-export async function insertContentScript() {
-  return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
-    try {
-      return chrome.tabs.executeScript({ file: '/dist/content.js' }, () => {
-        chrome.tabs.insertCSS({ file: '/css/content.css' }, resolve);
-      });
-    } catch (error) {
-      return reject(error);
-    }
-  });
-}
-
 export async function addAccount() {
   const ui = {
     data: {},

@@ -50,6 +50,17 @@ export class Style implements IModule {
             state.style.qrfadeout = false;
           }, 200);
         },
+        showNotification(state: StyleState) {
+          state.style.notificationFadein = true;
+          state.style.notificationFadeout = false;
+          setTimeout(() => {
+            state.style.notificationFadein = false;
+            state.style.notificationFadeout = true;
+            setTimeout(() => {
+              state.style.notificationFadeout = false;
+            }, 200);
+          }, 1000);
+        },
         toggleEdit(state: StyleState) {
           state.style.isEditing = !state.style.isEditing;
         },

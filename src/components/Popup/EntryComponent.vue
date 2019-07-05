@@ -78,6 +78,57 @@ export default Vue.extend({
             this.$store.commit('style/showQr');
             return;
         },
+        async copyCode(entry: OTPEntry) {
+            if (this.$store.state.style.style.isEditing ||
+                entry.code === 'Invalid' ||
+                entry.code.startsWith('&bull;')) {
+                return;
+            }
+
+            if (entry.code === 'Encrypted') {
+                this.$store.commit('style/showInfo');
+                this.$store.commit('currentView/changeView', 'EnterPasswordPage');
+                return;
+            }
+
+            chrome.permissions.request({ permissions: ['clipboardWrite'] },
+            async granted => {
+                if (granted) {
+                    const codeClipboard = document.getElementById(
+                        'codeClipboard'
+                    ) as HTMLInputElement;
+                    if (!codeClipboard) {
+                        return;
+                    }
+
+                    if (this.$store.state.menu.useAutofill) {
+                        await insertContentScript();
+
+                        chrome.tabs.query(
+                        { active: true, lastFocusedWindow: true },
+                        tabs => {
+                            const tab = tabs[0];
+                            if (!tab || !tab.id) {
+                            return;
+                            }
+
+                            chrome.tabs.sendMessage(tab.id, {
+                            action: 'pastecode',
+                            code: entry.code,
+                            });
+                        });
+                    }
+
+                    codeClipboard.value = entry.code;
+                    codeClipboard.focus();
+                    codeClipboard.select();
+                    document.execCommand('Copy');
+                    this.$store.dispatch('notification/ephermalMessage', this.i18n.copied);
+                }
+            });
+            
+            return;
+        },
     },
     components: {
         IconMinusCircle,
@@ -116,6 +167,18 @@ function getQrUrl(entry: OTPEntry) {
     qr.addData(otpauth);
     qr.make();
     return qr.createDataURL(5);
+}
+
+function insertContentScript() {
+  return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
+    try {
+      return chrome.tabs.executeScript({ file: '/dist/content.js' }, () => {
+        chrome.tabs.insertCSS({ file: '/css/content.css' }, resolve);
+      });
+    } catch (error) {
+      return reject(error);
+    }
+  });
 }
 </script>
 

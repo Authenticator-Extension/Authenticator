@@ -10,7 +10,7 @@ interface VuexConstructor {
         [key: string]: Function;
     },
     actions?: {
-        [key: string]: Function | 
+        [key: string]: Function |
         {
             root: Boolean;
             handler: Function;
@@ -66,7 +66,6 @@ interface AccountsState {
     sectorOffset: Number;
     second: Number;
     notification: String;
-    notificationTimeout: Number;
     filter: Boolean;
     shouldFilter: Boolean;
     showSearch: Boolean;
@@ -84,4 +83,5 @@ interface NotificationState {
     message: Array<string>;
     confirmMessage: String;
     messageIdle: Boolean;
+    notification: String;
 }

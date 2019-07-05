@@ -8,7 +8,6 @@ export class Notification implements IModule {
         confirmMessage: '', // Message content for alert with yes / no
         messageIdle: true, // Should show alert box?
         notification: '', // Ephermal message text
-        notificationTimeout: 0, // Check if used
       },
       mutations: {
         alert: (state: NotificationState, message: string) => {
@@ -23,6 +22,9 @@ export class Notification implements IModule {
         },
         setConfirm: (state: NotificationState, message: string) => {
           state.confirmMessage = message;
+        },
+        setNotification: (state: NotificationState, message: string) => {
+          state.notification = message;
         },
       },
       actions: {
@@ -42,6 +44,13 @@ export class Notification implements IModule {
               return;
             });
           });
+        },
+        ephermalMessage: (
+          state: ActionContext<NotificationState, {}>,
+          message: string
+        ) => {
+          state.commit('setNotification', message);
+          state.commit('style/showNotification', null, { root: true });
         },
       },
       namespaced: true,

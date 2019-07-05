@@ -4,8 +4,6 @@ import { Encryption } from '../models/encryption';
 import { OTPEntry, OTPType } from '../models/otp';
 import { EntryStorage } from '../models/storage';
 
-import { insertContentScript } from './add-account';
-
 /* tslint:disable-next-line:no-any */
 async function updateCode(app: any) {
   return;
@@ -344,114 +342,5 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //         }, 3000);
 //         return;
 //       },
-//       copyCode: async (entry: OTPEntry) => {
-//         if (
-//           _ui.instance.currentClass.edit ||
-//           entry.code === 'Invalid' ||
-//           entry.code.startsWith('&bull;')
-//         ) {
-//           return;
-//         }
-
-//         if (entry.code === 'Encrypted') {
-//           _ui.instance.showInfo('passphrase');
-//           return;
-//         }
-
-//         if (navigator.userAgent.indexOf('Edge') !== -1) {
-//           const codeClipboard = document.getElementById(
-//             'codeClipboard'
-//           ) as HTMLInputElement;
-//           if (!codeClipboard) {
-//             return;
-//           }
-
-//           if (_ui.instance.useAutofill) {
-//             await insertContentScript();
-
-//             chrome.tabs.query(
-//               { active: true, lastFocusedWindow: true },
-//               tabs => {
-//                 const tab = tabs[0];
-//                 if (!tab || !tab.id) {
-//                   return;
-//                 }
-
-//                 chrome.tabs.sendMessage(tab.id, {
-//                   action: 'pastecode',
-//                   code: entry.code,
-//                 });
-//               }
-//             );
-//           }
-
-//           codeClipboard.value = entry.code;
-//           codeClipboard.focus();
-//           codeClipboard.select();
-//           document.execCommand('Copy');
-//           _ui.instance.notification = _ui.instance.i18n.copied;
-//           clearTimeout(_ui.instance.notificationTimeout);
-//           _ui.instance.currentClass.notificationFadein = true;
-//           _ui.instance.currentClass.notificationFadeout = false;
-//           _ui.instance.notificationTimeout = setTimeout(() => {
-//             _ui.instance.currentClass.notificationFadein = false;
-//             _ui.instance.currentClass.notificationFadeout = true;
-//             setTimeout(() => {
-//               _ui.instance.currentClass.notificationFadeout = false;
-//             }, 200);
-//           }, 1000);
-//         } else {
-//           chrome.permissions.request(
-//             { permissions: ['clipboardWrite'] },
-//             async granted => {
-//               if (granted) {
-//                 const codeClipboard = document.getElementById(
-//                   'codeClipboard'
-//                 ) as HTMLInputElement;
-//                 if (!codeClipboard) {
-//                   return;
-//                 }
-
-//                 if (_ui.instance.useAutofill) {
-//                   await insertContentScript();
-
-//                   chrome.tabs.query(
-//                     { active: true, lastFocusedWindow: true },
-//                     tabs => {
-//                       const tab = tabs[0];
-//                       if (!tab || !tab.id) {
-//                         return;
-//                       }
-
-//                       chrome.tabs.sendMessage(tab.id, {
-//                         action: 'pastecode',
-//                         code: entry.code,
-//                       });
-//                     }
-//                   );
-//                 }
-
-//                 codeClipboard.value = entry.code;
-//                 codeClipboard.focus();
-//                 codeClipboard.select();
-//                 document.execCommand('Copy');
-//                 _ui.instance.notification = _ui.instance.i18n.copied;
-//                 clearTimeout(_ui.instance.notificationTimeout);
-//                 _ui.instance.currentClass.notificationFadein = true;
-//                 _ui.instance.currentClass.notificationFadeout = false;
-//                 _ui.instance.notificationTimeout = setTimeout(() => {
-//                   _ui.instance.currentClass.notificationFadein = false;
-//                   _ui.instance.currentClass.notificationFadeout = true;
-//                   setTimeout(() => {
-//                     _ui.instance.currentClass.notificationFadeout = false;
-//                   }, 200);
-//                 }, 1000);
-//               }
-//             }
-//           );
-//         }
-//         return;
-//       },
-//     },
 //   };
 // }
