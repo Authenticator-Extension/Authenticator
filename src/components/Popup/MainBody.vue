@@ -1,6 +1,8 @@
 <template>
     <div id="codes" v-bind:class="{'filter': shouldFilter && filter, 'search': showSearch}">
+        <!-- Filter -->
         <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
+        <!-- Search -->
         <div class="under-header" id="search">
             <input id="searchInput" v-model="searchText" v-bind:placeholder="i18n.search" type="text">
             <div id="searchHint" v-if="searchText === ''">
@@ -9,6 +11,7 @@
                 <div></div>
             </div>
         </div>
+        <!-- Entries -->
         <div v-dragula="entries" drake="entryDrake">
             <EntryComponent class="entry" v-for="entry in entries" :key="entry.hash" 
              v-bind:filtered="!isMatchedEntry(entry)" v-bind:notSearched="!isSearchedEntry(entry)" v-bind:entry="entry" />

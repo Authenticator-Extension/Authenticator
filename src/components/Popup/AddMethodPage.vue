@@ -11,6 +11,50 @@ export default Vue.extend({
     showInfo(page: string) {
       this.$store.commit("style/showInfo");
       this.$store.commit("currentView/changeView", page);
+    },
+    async beginCapture() {
+      // Insert content script
+      await new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          try {
+            return chrome.tabs.executeScript(
+              { file: "/dist/content.js" },
+              () => {
+                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
+              }
+            );
+          } catch (error) {
+            return reject(error);
+          }
+        }
+      );
+
+      const entries = this.$store.state.accounts.entries as IOTPEntry[];
+      for (let i = 0; i < entries.length; i++) {
+        // we have encrypted entry
+        // the current passphrase is incorrect
+        // shouldn't add new account with
+        // the current passphrase
+        if (entries[i].code === "Encrypted") {
+          this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+          return;
+        }
+      }
+
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+        const tab = tabs[0];
+        if (!tab || !tab.id) {
+          return;
+        }
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
+          if (result !== "beginCapture") {
+            this.$store.commit("notification/alert", this.i18n.capture_failed);
+          } else {
+            window.close();
+          }
+        });
+      });
+      return;
     }
   }
 });

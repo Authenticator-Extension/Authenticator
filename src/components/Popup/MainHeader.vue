@@ -14,25 +14,26 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
+import { OTPEntry } from "../../models/otp";
 
 // Icons
-import IconCog from '../../../svg/cog.svg';
-import IconLock from '../../../svg/lock.svg';
-import IconSync from '../../../svg/sync.svg';
-import IconScan from '../../../svg/scan.svg';
-import IconPencil from '../../../svg/pencil.svg';
-import IconCheck from '../../../svg/check.svg';
+import IconCog from "../../../svg/cog.svg";
+import IconLock from "../../../svg/lock.svg";
+import IconSync from "../../../svg/sync.svg";
+import IconScan from "../../../svg/scan.svg";
+import IconPencil from "../../../svg/pencil.svg";
+import IconCheck from "../../../svg/check.svg";
 
 const computedPrototype = [
-    mapState("style", ["style"]),
-    mapState("accounts", ["encryption"]),
-    mapState("backup", ["driveToken", "dropboxToken"]),
+  mapState("style", ["style"]),
+  mapState("accounts", ["encryption"]),
+  mapState("backup", ["driveToken", "dropboxToken"])
 ];
 
 let computed = {};
 
 for (const module of computedPrototype) {
-    Object.assign(computed, module);
+  Object.assign(computed, module);
 }
 
 export default Vue.extend({
@@ -43,17 +44,61 @@ export default Vue.extend({
       return params.get("popup");
     },
     showMenu() {
-      this.$store.commit('style/showMenu');
+      this.$store.commit("style/showMenu");
     },
     editEntry() {
-      this.$store.commit('style/toggleEdit');
-      this.$store.commit('accounts/stopFilter');
+      this.$store.commit("style/toggleEdit");
+      this.$store.commit("accounts/stopFilter");
     },
-    lock: () => {
+    lock() {
       document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
-      chrome.runtime.sendMessage({ action: 'lock' }, window.close);
+      chrome.runtime.sendMessage({ action: "lock" }, window.close);
       return;
     },
+    async beginCapture() {
+      // Insert content script
+      await new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          try {
+            return chrome.tabs.executeScript(
+              { file: "/dist/content.js" },
+              () => {
+                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
+              }
+            );
+          } catch (error) {
+            return reject(error);
+          }
+        }
+      );
+
+      const entries = this.$store.state.accounts.entries as OTPEntry[];
+      for (let i = 0; i < entries.length; i++) {
+        // we have encrypted entry
+        // the current passphrase is incorrect
+        // shouldn't add new account with
+        // the current passphrase
+        if (entries[i].code === "Encrypted") {
+          this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+          return;
+        }
+      }
+
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+        const tab = tabs[0];
+        if (!tab || !tab.id) {
+          return;
+        }
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
+          if (result !== "beginCapture") {
+            this.$store.commit("notification/alert", this.i18n.capture_failed);
+          } else {
+            window.close();
+          }
+        });
+      });
+      return;
+    }
   },
   components: {
     IconCog,
