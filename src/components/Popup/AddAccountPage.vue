@@ -36,9 +36,7 @@ export default Vue.extend({
         !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
         !/^[0-9a-f]+$/i.test(this.newAccount.secret)
       ) {
-        // _ui.instance.alert(
-        //   _ui.instance.i18n.errorsecret + this.newAccount.secret
-        // );
+        this.$store.commit('notification/alert', this.i18n.errorsecret)
         return;
       }
       let type: OTPType;

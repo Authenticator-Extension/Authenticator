@@ -1,7 +1,5 @@
 import { ManagedStorage } from '../models/storage';
 
-// TODO: rename and move stuff
-
 export class Menu implements IModule {
   async getModule() {
     const menuState = {
@@ -11,8 +9,9 @@ export class Menu implements IModule {
         useAutofill: localStorage.autofill === 'true',
         useHighContrast: localStorage.highContrast === 'true',
         newStorageLocation: localStorage.storageLocation,
-        backupDisabled: await ManagedStorage.get('disableBackup'), // FIX
-        storageArea: await ManagedStorage.get('storageArea'), // FIX
+        backupDisabled: await ManagedStorage.get('disableBackup'),
+        storageArea: await ManagedStorage.get('storageArea'), // TODO
+        feedbackURL: await ManagedStorage.get('feedbackURL'),
       },
       namespaced: true,
     };

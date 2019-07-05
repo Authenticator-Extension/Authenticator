@@ -75,7 +75,6 @@ interface AccountsState {
     importPassphrase: String;
     importFilePassphrase: String;
     unsupportedAccounts: Boolean;
-    searchText: String;
     newPassphrase: { phrase: String, confirm: String };
 }
 

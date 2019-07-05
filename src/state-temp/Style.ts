@@ -5,10 +5,10 @@ export class Style implements IModule {
         style: {
           timeout: false,
           isEditing: false,
-          slidein: false,
-          slideout: false,
-          fadein: false,
-          fadeout: false,
+          slidein: false, // menu
+          slideout: false, // menu
+          fadein: false, // info
+          fadeout: false, // info
           qrfadein: false,
           qrfadeout: false,
           notificationFadein: false,

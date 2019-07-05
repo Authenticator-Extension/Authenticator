@@ -1,106 +1,5 @@
 /*
-import { addAccount } from './ui/add-account';
-import { backup } from './ui/backup';
-import { className } from './ui/class';
-import { entry } from './ui/entry';
-import { i18n } from './ui/i18n';
-import { info } from './ui/info';
-import { menu, syncTimeWithGoogle } from './ui/menu';
-import { message } from './ui/message';
-import { passphrase } from './ui/passphrase';
-import { qr } from './ui/qr';
-import { UI } from './ui/ui';
-import Authenticator from './view/popup.vue';
-
-async function init() {
-  const ui = new UI(Authenticator, { el: '#authenticator' });
-
-  const authenticator = await ui
-    .load(className)
-    .load(i18n)
-    .load(menu)
-    .load(info)
-    .load(passphrase)
-    .load(entry)
-    .load(qr)
-    .load(message)
-    .load(addAccount)
-    .load(backup)
-    .render();
-
-  // localStorage passphrase warning
-  if (localStorage.encodedPhrase) {
-    authenticator.alert(authenticator.i18n.local_passphrase_warning);
-  }
-
-  // Remind backup
-  const backupReminder = setInterval(() => {
-    if (authenticator.entries.length === 0) {
-      return;
-    }
-
-    for (let i = 0; i < authenticator.entries.length; i++) {
-      if (authenticator.entries[i].secret === 'Encrypted') {
-        return;
-      }
-    }
-
-    clearInterval(backupReminder);
-
-    const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
-    if (!localStorage.lastRemindingBackupTime) {
-      localStorage.lastRemindingBackupTime = clientTime;
-    } else if (
-      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
-      clientTime - localStorage.lastRemindingBackupTime < 0
-    ) {
-      // backup to cloud
-      authenticator.runScheduledBackup(clientTime);
-    }
-    return;
-  }, 1000);
-
-  document.addEventListener(
-    'keyup',
-    e => {
-      ui.instance.searchListener(e);
-    },
-    false
-  );
-
-  if (
-    ui.instance.entries.length >= 10 &&
-    !(ui.instance.shouldFilter && ui.instance.filter)
-  ) {
-    ui.instance.showSearch = true;
-  }
-
-  chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (['dropboxtoken', 'drivetoken'].indexOf(message.action) > -1) {
-      if (message.action === 'dropboxtoken') {
-        authenticator.dropboxToken = message.value;
-      } else if (message.action === 'drivetoken') {
-        authenticator.driveToken = message.value;
-      }
-      authenticator.backupUpload(
-        String(message.action).substring(
-          0,
-          String(message.action).indexOf('token')
-        )
-      );
-      if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
-        setTimeout(authenticator.closeInfo, 500);
-      }
-    }
-  });
-
-  if (ui.instance.isPopup()) {
-    ui.instance.fixPopupSize();
-  }
-
-  return;
-}
-
+// This needs to have an option
 chrome.permissions.contains(
   { origins: ['https://www.google.com/'] },
   hasPermission => {
@@ -109,8 +8,6 @@ chrome.permissions.contains(
     }
   }
 );
-
-init();
 */
 
 // Vue
@@ -130,7 +27,6 @@ import { CurrentView } from './state-temp/CurrentView';
 import { Menu } from './state-temp/Menu';
 import { Notification } from './state-temp/Notification';
 import { Qr } from './state-temp/Qr';
-import { Managed } from './state-temp/Managed';
 
 async function init() {
   // Add globals
@@ -150,7 +46,6 @@ async function init() {
       notification: new Notification().getModule(),
       qr: new Qr().getModule(),
       style: new Style().getModule(),
-      managed: await new Managed().getModule(),
     },
   });
 
@@ -177,6 +72,116 @@ async function init() {
     document.title = instance.i18n.extName;
   } catch (e) {
     console.error(e);
+  }
+
+  // Warn if legacy password is set
+  if (localStorage.encodedPhrase) {
+    instance.$store.commit(
+      'notification/alert',
+      instance.i18n.local_passphrase_warning
+    );
+  }
+
+  // Backup reminder / run backup
+  const backupReminder = setInterval(() => {
+    if (instance.$store.state.accounts.entries.length === 0) {
+      return;
+    }
+
+    for (let i = 0; i < instance.$store.state.accounts.entries.length; i++) {
+      if (instance.$store.state.accounts.entries[i].secret === 'Encrypted') {
+        return;
+      }
+    }
+
+    clearInterval(backupReminder);
+
+    const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
+    if (!localStorage.lastRemindingBackupTime) {
+      localStorage.lastRemindingBackupTime = clientTime;
+    } else if (
+      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
+      clientTime - localStorage.lastRemindingBackupTime < 0
+    ) {
+      // TODO
+      // authenticator.runScheduledBackup(clientTime);
+    }
+    return;
+  }, 5000);
+
+  // Open search if '/' is pressed
+  document.addEventListener(
+    'keyup',
+    e => {
+      if (e.key === '/') {
+        if (instance.$store.state.style.style.fadein === true) {
+          return;
+        }
+        instance.$store.commit('accounts/stopFilter');
+        // It won't focus the texfield if vue unhides the div
+        instance.$store.commit('accounts/showSearch');
+        const searchDiv = document.getElementById('search');
+        const searchInput = document.getElementById('searchInput');
+        if (!searchInput || !searchDiv) {
+          return;
+        }
+        searchDiv.style.display = 'block';
+        searchInput.focus();
+      }
+    },
+    false
+  );
+
+  // Show search box if more than 10 entries
+  if (
+    instance.$store.state.accounts.entries.length >= 10 &&
+    !(
+      instance.$store.getters['accounts/shouldFilter'] &&
+      instance.$store.state.accounts.filter
+    )
+  ) {
+    instance.$store.commit('accounts/showSearch');
+  }
+
+  // TODO
+  // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  //   if (['dropboxtoken', 'drivetoken'].indexOf(message.action) > -1) {
+  //     if (message.action === 'dropboxtoken') {
+  //       authenticator.dropboxToken = message.value;
+  //     } else if (message.action === 'drivetoken') {
+  //       authenticator.driveToken = message.value;
+  //     }
+  //     authenticator.backupUpload(
+  //       String(message.action).substring(
+  //         0,
+  //         String(message.action).indexOf('token')
+  //       )
+  //     );
+  //     if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
+  //       setTimeout(authenticator.closeInfo, 500);
+  //     }
+  //   }
+  // });
+
+  // Resize window to proper size if popup
+  if (new URLSearchParams(document.location.search.substring(1)).get('popup')) {
+    const zoom = Number(localStorage.zoom) / 100 || 1;
+    const correctHeight = 480 * zoom;
+    const correctWidth = 320 * zoom;
+    if (
+      window.innerHeight !== correctHeight ||
+      window.innerWidth !== correctWidth
+    ) {
+      // window update to correct size
+      const adjustedHeight =
+        correctHeight + (window.outerHeight - window.innerHeight);
+      const adjustedWidth =
+        correctWidth + (window.outerWidth - window.innerWidth);
+      chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
+        height: adjustedHeight,
+        width: adjustedWidth,
+      });
+    }
   }
 }
 

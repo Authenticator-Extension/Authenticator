@@ -110,53 +110,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 // export async function entry(_ui: UI) {
 //   const ui: UIConfig = {
 //     methods: {
-//       searchListener: e => {
-//         if (e.keyCode === 191) {
-//           if (_ui.instance.info !== '') {
-//             return;
-//           }
-//           _ui.instance.filter = false;
-//           // It won't focus the texfield if vue unhides the div
-//           //_ui.instance.showSearch = true;
-//           const searchDiv = document.getElementById('search');
-//           const searchInput = document.getElementById('searchInput');
-//           if (!searchInput || !searchDiv) {
-//             return;
-//           }
-//           searchDiv.style.display = 'block';
-//           searchInput.focus();
-//         }
-//       },
-//       searchUpdate: () => {
-//         if (_ui.instance.filter) {
-//           _ui.instance.filter = false;
-//         }
-//         if (!_ui.instance.showSearch) {
-//           _ui.instance.showSearch = true;
-//         }
-//       },
-//       isSearchedEntry: (entry: OTPEntry) => {
-//         // This gets called before _ui.instance exists sometimes
-//         if (!_ui.instance) {
-//           return true;
-//         }
-//         if (_ui.instance.searchText === '') {
-//           return true;
-//         }
-
-//         if (
-//           entry.issuer
-//             .toLowerCase()
-//             .includes(_ui.instance.searchText.toLowerCase()) ||
-//           entry.account
-//             .toLowerCase()
-//             .includes(_ui.instance.searchText.toLowerCase())
-//         ) {
-//           return true;
-//         } else {
-//           return false;
-//         }
-//       },
 //       updateCode: async () => {
 //         return updateCode(_ui.instance);
 //       },

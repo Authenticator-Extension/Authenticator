@@ -67,7 +67,7 @@ export default Vue.extend({
                 url = 'https://authenticator.cc/docs/en/firefox-issues';
             }
 
-            const feedbackURL = this.$store.state.managed.feedbackURL;
+            const feedbackURL = this.$store.state.menu.feedbackURL;
             if (typeof feedbackURL === 'string' && feedbackURL) {
                 url = feedbackURL;
             }

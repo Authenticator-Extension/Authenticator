@@ -106,25 +106,6 @@ export async function menu() {
     //     );
     //     return params.get('popup');
     //   },
-    //   fixPopupSize: () => {
-    //     const zoom = Number(localStorage.zoom) / 100 || 1;
-    //     const correctHeight = 480 * zoom;
-    //     const correctWidth = 320 * zoom;
-    //     if (
-    //       window.innerHeight !== correctHeight ||
-    //       window.innerWidth !== correctWidth
-    //     ) {
-    //       // window update to correct size
-    //       const adjustedHeight =
-    //         correctHeight + (window.outerHeight - window.innerHeight);
-    //       const adjustedWidth =
-    //         correctWidth + (window.outerWidth - window.innerWidth);
-    //       chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
-    //         height: adjustedHeight,
-    //         width: adjustedWidth,
-    //       });
-    //     }
-    //   },
     //   migrateStorage: async () => {
     //     // sync => local
     //     if (

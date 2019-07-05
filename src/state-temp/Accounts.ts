@@ -52,7 +52,6 @@ export class Accounts implements IModule {
         importPassphrase: '', // Move to module
         importFilePassphrase: '', // Move to module
         unsupportedAccounts: await this.hasUnsupportedAccounts(),
-        searchText: '',
         newPassphrase: { phrase: '', confirm: '' }, // Move to module
       },
       getters: {
@@ -127,11 +126,6 @@ export class Accounts implements IModule {
 
           state.state.encryption.updateEncryptionPassword(password);
           await state.dispatch('updateEntries');
-          // const siteName = await getSiteName();
-          // _ui.instance.shouldFilter = hasMatchedEntry(
-          //   siteName,
-          //   _ui.instance.entries
-          // );
           state.commit('style/hideInfo', null, { root: true });
 
           document.cookie = 'passphrase=' + password;
