@@ -44,6 +44,9 @@ for (const module of computedPrototype) {
 export default Vue.extend({
   computed,
   methods: {
+      hideQr() {
+          this.$store.commit('style/hideQr');
+      }
   },
   components: {
       MainHeader,

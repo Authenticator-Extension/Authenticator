@@ -22,8 +22,9 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { OTPEntry, OTPType } from '../../models/otp'
 import { mapState } from 'vuex';
+import * as QRGen from 'qrcode-generator';
+import { OTPEntry, OTPType } from '../../models/otp'
 
 import IconMinusCircle from '../../../svg/minus-circle.svg'
 import IconRedo from '../../../svg/redo.svg'
@@ -71,7 +72,12 @@ export default Vue.extend({
                 await this.$store.dispatch('accounts/updateEntries');
             }
             return;
-      },
+        },
+        showQr(entry: OTPEntry) {
+            this.$store.commit('qr/setQr', getQrUrl(entry));
+            this.$store.commit('style/showQr');
+            return;
+        },
     },
     components: {
         IconMinusCircle,
@@ -80,5 +86,36 @@ export default Vue.extend({
         IconBars
     },
 })
+
+// TODO: move most of this to a models file and reuse for backup stuff
+function getQrUrl(entry: OTPEntry) {
+    const label = entry.issuer
+    ? entry.issuer + ':' + entry.account
+    : entry.account;
+    const type =
+    entry.type === OTPType.hex
+        ? OTPType[OTPType.totp]
+        : entry.type === OTPType.hhex
+        ? OTPType[OTPType.hotp]
+        : OTPType[entry.type];
+    const otpauth =
+    'otpauth://' +
+    type +
+    '/' +
+    label +
+    '?secret=' +
+    entry.secret +
+    (entry.issuer ? '&issuer=' + entry.issuer.split('::')[0] : '') +
+    (entry.type === OTPType.hotp || entry.type === OTPType.hhex
+        ? '&counter=' + entry.counter
+        : '') +
+    (entry.type === OTPType.totp && entry.period
+        ? '&period=' + entry.period
+        : '');
+    const qr = QRGen(0, 'L');
+    qr.addData(otpauth);
+    qr.make();
+    return qr.createDataURL(5);
+}
 </script>
 

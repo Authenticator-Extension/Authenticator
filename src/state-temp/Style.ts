@@ -39,6 +39,17 @@ export class Style implements IModule {
             state.style.fadeout = false;
           }, 200);
         },
+        showQr(state: StyleState) {
+          state.style.qrfadein = true;
+          state.style.qrfadeout = false;
+        },
+        hideQr(state: StyleState) {
+          state.style.qrfadein = false;
+          state.style.qrfadeout = true;
+          setTimeout(() => {
+            state.style.qrfadeout = false;
+          }, 200);
+        },
         toggleEdit(state: StyleState) {
           state.style.isEditing = !state.style.isEditing;
         },
