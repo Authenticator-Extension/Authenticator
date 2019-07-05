@@ -34,11 +34,7 @@ export class BrowserStorage {
                 localStorage.storageLocation = 'sync';
               } else {
                 // Use default
-                if (navigator.userAgent.indexOf('Edge') !== -1) {
-                  localStorage.storageLocation = 'local';
-                } else {
-                  localStorage.storageLocation = 'sync';
-                }
+                localStorage.storageLocation = 'sync';
               }
               resolve(localStorage.storageLocation);
               return;

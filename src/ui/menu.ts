@@ -64,18 +64,6 @@ export async function menu() {
     //       return false;
     //     }
     //   },
-    //   isEdge: () => {
-    //     if (navigator.userAgent.indexOf('Edge') !== -1) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-    //   showEdgeBugWarning: () => {
-    //     _ui.instance.alert(
-    //       'Due to a bug in Edge, downloading backups is not supported at this time. More info on feedback page.'
-    //     );
-    //   },
     //   saveAutofill: () => {
     //     localStorage.autofill = _ui.instance.useAutofill;
     //     useAutofill = localStorage.autofill === 'true' ? true : false || false;
@@ -93,10 +81,6 @@ export async function menu() {
     //     return;
     //   },
     //   syncClock: async () => {
-    //     if (navigator.userAgent.indexOf('Edge') !== -1) {
-    //       const message = await syncTimeWithGoogle();
-    //       _ui.instance.alert(_ui.instance.i18n[message]);
-    //     } else {
     //       chrome.permissions.request(
     //         { origins: ['https://www.google.com/'] },
     //         async granted => {
@@ -107,15 +91,12 @@ export async function menu() {
     //           return;
     //         }
     //       );
-    //     }
     //     return;
     //   },
     //   popOut: () => {
     //     let windowType;
     //     if (navigator.userAgent.indexOf('Firefox') !== -1) {
     //       windowType = 'detached_panel';
-    //     } else if (navigator.userAgent.indexOf('Edge') !== -1) {
-    //       windowType = 'popup';
     //     } else {
     //       windowType = 'panel';
     //     }

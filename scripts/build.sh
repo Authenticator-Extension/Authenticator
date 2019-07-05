@@ -4,7 +4,7 @@
 # Syntax:
 #   build.sh <platform>
 # Platforms:
-#   'chrome', 'firefox', and 'edge'
+#   'chrome', 'firefox', or 'prod'
 
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
@@ -12,14 +12,14 @@ CREDS=$(cat ./src/models/credentials.ts | tr -d '\n')
 CREDREGEX="^.*'.+'.*'.+'.*'.+'.*$"
 set -e
 
-if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]] && [[ $PLATFORM != "prod" ]]; then
-    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', and 'edge'"
+if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "prod" ]]; then
+    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', and 'prod'"
     exit 1
 fi
 
 echo "Removing old build files..."
 rm -rf build dist
-rm -rf firefox edge chrome release
+rm -rf firefox chrome release
 echo "Checking code style..."
 if gts check 1> /dev/null ; then
     true
@@ -29,7 +29,12 @@ else
 fi
 
 if ! [[ $CREDS =~ $CREDREGEX ]] ; then
-    echo -e "\e[7m\033[33mWarning: Missing info in credentials.ts\033[0m"
+    if [[ $PLATFORM = "prod" ]]; then
+        echo -e "\e[7m\033[33mError: Missing info in credentials.ts\033[0m"
+        exit 1
+    else
+        echo -e "\e[7m\033[33mWarning: Missing info in credentials.ts\033[0m"
+    fi
 fi
 
 if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git"* || $REMOTE = *"git@github.com:Authenticator-Extension/Authenticator.git"* ]] ; then
@@ -53,30 +58,18 @@ fi
 
 postCompile () {
     mkdir $1
-    if [[ $1 = "edge" ]]; then
-        mkdir $1/Extension
-        mkdir $1/Assets
-        cp -r dist css _locales LICENSE view edge-files $1/Extension
-        mv $1/Extension/edge-files/AppXManifest.xml $1
-        mv $1/Extension/edge-files/images $1/Extension
-        mv $1/Extension/edge-files/Assets/icon*.png $1/Assets
-        cp manifest-$1.json $1/Extension/manifest.json
-    else
-        cp -r dist css images _locales LICENSE view $1
-        cp manifest-$1.json $1/manifest.json
-        if [[ $1 = "chrome" ]]; then
-            cp schema-chrome.json $1/schema.json
-        fi
+    cp -r dist css images _locales LICENSE view $1
+    cp manifest-$1.json $1/manifest.json
+    if [[ $1 = "chrome" ]]; then
+        cp schema-chrome.json $1/schema.json
     fi
-    
 }
 
 if [[ $PLATFORM = "prod" ]]; then
     postCompile "chrome"
     postCompile "firefox"
-    postCompile "edge"
     mkdir release
-    mv chrome firefox edge release
+    mv chrome firefox release
 else
     postCompile $PLATFORM
 fi

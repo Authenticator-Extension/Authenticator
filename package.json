@@ -6,16 +6,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "gts check",
     "clean": "gts clean",
-    "packageEdge": "cmd /C \"\"C:\\Program Files (x86)\\Windows Kits\\10\\App Certification Kit\\makeappx.exe\" pack /h SHA256 /d edge /p edge/Authenticator.appx\"",
-    "installEdge": "rm -rf edge && npm run edge && powershell -Command \"Add-AppxPackage -Path edge\\AppxManifest.xml -Register\"",
     "compile": "gts clean && tsc -p .",
     "fix": "gts fix",
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run check",
     "chrome": "bash scripts/build.sh chrome",
-    "firefox": "bash scripts/build.sh firefox",
-    "edge": "bash scripts/build.sh edge"
+    "firefox": "bash scripts/build.sh firefox"
   },
   "repository": {
     "type": "git",
