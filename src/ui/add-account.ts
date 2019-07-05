@@ -11,10 +11,10 @@ export async function addAccount() {
     //       // the current passphrase is incorrect
     //       // shouldn't add new account with
     //       // the current passphrase
-    //       if (entries[i].code === 'Encrypted') {
-    //         _ui.instance.alert(_ui.instance.i18n.phrase_incorrect);
-    //         return;
-    //       }
+    //       if (this.$store.getters["accounts/currentlyEncrypted"]) {
+    //   this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+    //   return;
+    // }
     //     }
 
     //     _ui.instance.newAccount.show = true;

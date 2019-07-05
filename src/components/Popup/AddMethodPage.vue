@@ -29,16 +29,9 @@ export default Vue.extend({
         }
       );
 
-      const entries = this.$store.state.accounts.entries as IOTPEntry[];
-      for (let i = 0; i < entries.length; i++) {
-        // we have encrypted entry
-        // the current passphrase is incorrect
-        // shouldn't add new account with
-        // the current passphrase
-        if (entries[i].code === "Encrypted") {
-          this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
-          return;
-        }
+      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+        return;
       }
 
       chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {

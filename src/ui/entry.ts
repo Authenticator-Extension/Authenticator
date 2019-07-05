@@ -181,13 +181,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 //           throw error;
 //         }
 //       },
-//       noCopy: (code: string) => {
-//         return (
-//           code === 'Encrypted' ||
-//           code === 'Invalid' ||
-//           code.startsWith('&bull;')
-//         );
-//       },
 //       updateStorage: async () => {
 //         await EntryStorage.set(_ui.instance.encryption, _ui.instance.entries);
 //         return;

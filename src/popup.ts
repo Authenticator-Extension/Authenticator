@@ -88,10 +88,8 @@ async function init() {
       return;
     }
 
-    for (let i = 0; i < instance.$store.state.accounts.entries.length; i++) {
-      if (instance.$store.state.accounts.entries[i].secret === 'Encrypted') {
-        return;
-      }
+    if (instance.$store.getters['accounts/currentlyEncrypted']) {
+      return;
     }
 
     clearInterval(backupReminder);

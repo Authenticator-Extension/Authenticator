@@ -64,6 +64,14 @@ export class Accounts implements IModule {
         matchedEntries: (state: AccountsState) => {
           return this.matchedEntries(state.siteName, state.entries);
         },
+        currentlyEncrypted(state: AccountsState) {
+          for (const entry of state.entries) {
+            if (entry.code === 'Encrypted') {
+              return true;
+            }
+          }
+          return false;
+        },
       },
       mutations: {
         stopFilter(state: AccountsState) {
