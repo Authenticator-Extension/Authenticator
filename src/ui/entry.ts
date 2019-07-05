@@ -110,9 +110,6 @@ function getEntryDataFromOTPAuthPerLine(importCode: string) {
 // export async function entry(_ui: UI) {
 //   const ui: UIConfig = {
 //     methods: {
-//       isMatchedEntry: (entry: OTPEntry) => {
-//         return isMatchedEntry(siteName, entry);
-//       },
 //       searchListener: e => {
 //         if (e.keyCode === 191) {
 //           if (_ui.instance.info !== '') {

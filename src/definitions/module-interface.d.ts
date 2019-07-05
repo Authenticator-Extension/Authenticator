@@ -67,7 +67,7 @@ interface AccountsState {
     second: Number;
     notification: String;
     filter: Boolean;
-    shouldFilter: Boolean;
+    siteName: (string | null)[];
     showSearch: Boolean;
     importType: String;
     importCode: String;

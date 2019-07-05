@@ -2,8 +2,8 @@
 <div>
     <div class="deleteAction" v-on:click="removeEntry(entry)"><IconMinusCircle /></div>
     <div class="sector" v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex" v-show="sectorStart">
-    <svg viewBox="0 0 16 16">
-        <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
+        <svg viewBox="0 0 16 16">
+            <circle cx="8" cy="8" r="4" v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"/>
         </svg>
     </div>
     <div v-bind:class="{'counter': true, 'disabled': style.hotpDiabled}" v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex" v-on:click="nextCode(entry)"><IconRedo /></div>

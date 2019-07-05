@@ -28,9 +28,6 @@ export class Accounts implements IModule {
       }
     }
 
-    const siteName = await this.getSiteName();
-    const shouldFilter = this.hasMatchedEntry(siteName, entries);
-
     return {
       state: {
         entries,
@@ -47,8 +44,8 @@ export class Accounts implements IModule {
         sectorOffset: 0, // Offset in seconds for animations
         second: 0, // Offset in seconds for math
         filter: true,
-        shouldFilter, // Getter?
-        showSearch: false, // Getter?
+        siteName: await this.getSiteName(),
+        showSearch: false,
         importType: 'import_file', // Move to module
         importCode: '', // Move to module
         importEncrypted: false, // Move to module
@@ -58,9 +55,23 @@ export class Accounts implements IModule {
         searchText: '',
         newPassphrase: { phrase: '', confirm: '' }, // Move to module
       },
+      getters: {
+        shouldFilter(
+          state: AccountsState,
+          getters: { matchedEntries: string[] }
+        ) {
+          return getters.matchedEntries.length;
+        },
+        matchedEntries: (state: AccountsState) => {
+          return this.matchedEntries(state.siteName, state.entries);
+        },
+      },
       mutations: {
         stopFilter(state: AccountsState) {
           state.filter = false;
+        },
+        showSearch(state: AccountsState) {
+          state.showSearch = true;
         },
         updateCodes(state: AccountsState) {
           let second = new Date().getSeconds();
@@ -137,6 +148,12 @@ export class Accounts implements IModule {
           );
           state.commit('updateCodes');
           return;
+        },
+        clearFilter: async (state: ActionContext<AccountsState, {}>) => {
+          state.commit('stopFilter');
+          if (state.state.entries.length >= 10) {
+            state.commit('showSearch');
+          }
         },
       },
       namespaced: true,
@@ -310,20 +327,20 @@ export class Accounts implements IModule {
     return false;
   }
 
-  private hasMatchedEntry(
-    siteName: Array<string | null>,
-    entries: IOTPEntry[]
-  ) {
+  private matchedEntries(siteName: Array<string | null>, entries: IOTPEntry[]) {
     if (siteName.length < 2) {
       return false;
     }
 
-    for (let i = 0; i < entries.length; i++) {
-      if (this.isMatchedEntry(siteName, entries[i])) {
-        return true;
+    const matched = [];
+
+    for (const entry of entries) {
+      if (this.isMatchedEntry(siteName, entry)) {
+        matched.push(entry.hash);
       }
     }
-    return false;
+
+    return matched;
   }
 
   private isMatchedEntry(siteName: Array<string | null>, entry: IOTPEntry) {

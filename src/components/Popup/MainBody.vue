@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 
 import SearchBox from './SearchBox.vue';
 import EntryComponent from './EntryComponent.vue';
@@ -19,19 +19,32 @@ import EntryComponent from './EntryComponent.vue';
 import IconPlus from '../../../svg/plus.svg';
 import { OTPEntry } from '../../models/otp';
 
+let computed = mapState('accounts', ["entries", "filter", "showSearch"]);
+
+Object.assign(computed, mapGetters('accounts', ['shouldFilter']));
+
 export default Vue.extend({
-    computed: mapState('accounts', ["entries", "filter", "shouldFilter", "showSearch"]),
+    computed,
     methods: {
         showInfo(page: string) {
             this.$store.commit('style/showInfo');
             this.$store.commit('currentView/changeView', page);
         },
         isMatchedEntry(entry: OTPEntry) {
-            return true;
+            for (const hash of this.$store.getters['accounts/matchedEntries']) {
+                if (entry.hash === hash) {
+                    return true;
+                }
+            }
+            return false;
         },
+        // TODO
         isSearchedEntry(entry: OTPEntry) {
             return true;
-        }
+        },
+        clearFilter() {
+            this.$store.dispatch('accounts/clearFilter');
+      },
     },
     components: {
         SearchBox,
