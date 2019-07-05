@@ -196,7 +196,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Nhập khẩu các tập tin sao lưu",
+        "message": "Nhập tệp sao lưu",
         "description": "Import backup file."
     },
     "import_backup_code": {
