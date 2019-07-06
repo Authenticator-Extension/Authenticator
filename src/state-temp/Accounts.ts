@@ -203,10 +203,70 @@ export class Accounts implements IModule {
           );
           return;
         },
-        clearFilter: async (state: ActionContext<AccountsState, {}>) => {
+        clearFilter: (state: ActionContext<AccountsState, {}>) => {
           state.commit('stopFilter');
           if (state.state.entries.length >= 10) {
             state.commit('showSearch');
+          }
+        },
+        migrateStorage: async (
+          state: ActionContext<AccountsState, {}>,
+          newStorageLocation: string
+        ) => {
+          // sync => local
+          if (
+            localStorage.storageLocation === 'sync' &&
+            newStorageLocation === 'local'
+          ) {
+            return new Promise((resolve, reject) => {
+              chrome.storage.sync.get(syncData => {
+                chrome.storage.local.set(syncData, () => {
+                  chrome.storage.local.get(localData => {
+                    // Double check if data was set
+                    if (
+                      Object.keys(syncData).every(
+                        value => Object.keys(localData).indexOf(value) >= 0
+                      )
+                    ) {
+                      localStorage.storageLocation = 'local';
+                      chrome.storage.sync.clear();
+                      resolve('updateSuccess');
+                      return;
+                    } else {
+                      reject(' All data not transferred successfully.');
+                      return;
+                    }
+                  });
+                });
+              });
+            });
+            // local => sync
+          } else if (
+            localStorage.storageLocation === 'local' &&
+            newStorageLocation === 'sync'
+          ) {
+            return new Promise((resolve, reject) => {
+              chrome.storage.local.get(localData => {
+                chrome.storage.sync.set(localData, () => {
+                  chrome.storage.sync.get(syncData => {
+                    // Double check if data was set
+                    if (
+                      Object.keys(localData).every(
+                        value => Object.keys(syncData).indexOf(value) >= 0
+                      )
+                    ) {
+                      localStorage.storageLocation = 'sync';
+                      chrome.storage.local.clear();
+                      resolve('updateSuccess');
+                      return;
+                    } else {
+                      reject(' All data not transferred successfully.');
+                      return;
+                    }
+                  });
+                });
+              });
+            });
           }
         },
       },
