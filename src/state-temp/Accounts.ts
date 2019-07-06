@@ -52,7 +52,6 @@ export class Accounts implements IModule {
         importPassphrase: '', // Move to module
         importFilePassphrase: '', // Move to module
         unsupportedAccounts: await this.hasUnsupportedAccounts(),
-        newPassphrase: { phrase: '', confirm: '' }, // Move to module
       },
       getters: {
         shouldFilter(
@@ -161,6 +160,27 @@ export class Accounts implements IModule {
             value: password,
           });
           return;
+        },
+        changePassphrase: async (
+          state: ActionContext<AccountsState, {}>,
+          password: string
+        ) => {
+          await EntryStorage.import(
+            new Encryption(password),
+            await EntryStorage.getExport(state.state.encryption as Encryption)
+          );
+
+          state.state.encryption.updateEncryptionPassword(password);
+          document.cookie = 'passphrase=' + password;
+          chrome.runtime.sendMessage({
+            action: 'cachePassphrase',
+            value: password,
+          });
+
+          await state.dispatch('updateEntries');
+
+          // remove cached passphrase in old version
+          localStorage.removeItem('encodedPhrase');
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
           state.commit(
