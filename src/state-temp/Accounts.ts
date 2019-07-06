@@ -23,6 +23,7 @@ export class Accounts implements IModule {
 
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].code === 'Encrypted') {
+        console.log(entries[i]);
         shouldShowPassphrase = true;
         break;
       }
@@ -121,6 +122,12 @@ export class Accounts implements IModule {
         },
         loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
           state.entries = newCodes;
+
+          if (state.encryption.getEncryptionStatus()) {
+            for (const entry of state.entries) {
+              entry.applyEncryption(state.encryption);
+            }
+          }
         },
         moveCode(state: AccountsState, opts: { from: number; to: number }) {
           state.entries.splice(

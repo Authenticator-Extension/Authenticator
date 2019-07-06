@@ -1,5 +1,3 @@
-import * as CryptoJS from 'crypto-js';
-
 import { Encryption } from './encryption';
 import { KeyUtilities } from './key-utilities';
 import { EntryStorage } from './storage';
@@ -17,35 +15,40 @@ export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
   issuer: string;
-  secret: string;
+  secret: string | null;
+  encSecret: string | null;
   account: string;
   hash: string;
   counter: number;
   period: number;
   code = '&bull;&bull;&bull;&bull;&bull;&bull;';
 
-  constructor(
-    type: OTPType,
-    issuer: string,
-    secret: string,
-    account: string,
-    index: number,
-    counter: number,
-    period?: number,
-    hash?: string
-  ) {
-    this.type = type;
-    this.index = index;
-    this.issuer = issuer;
-    this.secret = secret;
-    this.account = account;
-    this.hash =
-      hash && /^[0-9a-f]{32}$/.test(hash)
-        ? hash
-        : CryptoJS.MD5(secret).toString();
-    this.counter = counter;
-    if (this.type === OTPType.totp && period) {
-      this.period = period;
+  constructor(entry: {
+    account: string;
+    encrypted: boolean;
+    hash: string;
+    index: number;
+    issuer: string;
+    secret: string;
+    type: OTPType;
+    counter: number;
+    period?: number;
+  }) {
+    this.type = entry.type;
+    this.index = entry.index;
+    this.issuer = entry.issuer;
+    if (entry.encrypted) {
+      this.encSecret = entry.secret;
+      this.secret = null;
+    } else {
+      this.secret = entry.secret;
+      this.encSecret = null;
+    }
+    this.account = entry.account;
+    this.hash = entry.hash;
+    this.counter = entry.counter;
+    if (this.type === OTPType.totp && entry.period) {
+      this.period = entry.period;
     } else {
       this.period = 30;
     }
@@ -64,6 +67,17 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
+  applyEncryption(encryption: Encryption) {
+    const secret = this.encSecret ? this.encSecret : null;
+    if (secret) {
+      this.secret = encryption.getDecryptedSecret({ hash: this.hash, secret });
+      if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
+        this.generate();
+      }
+    }
+    return;
+  }
+
   async delete() {
     await EntryStorage.delete(this);
     return;
@@ -74,7 +88,7 @@ export class OTPEntry implements IOTPEntry {
       return;
     }
     this.generate();
-    if (this.secret !== 'Encrypted') {
+    if (this.secret !== null) {
       this.counter++;
       await this.update(encryption);
     }
@@ -82,7 +96,9 @@ export class OTPEntry implements IOTPEntry {
   }
 
   generate() {
-    if (this.secret === 'Encrypted') {
+    if (!this.secret && !this.encSecret) {
+      this.code = 'Invalid';
+    } else if (!this.secret) {
       this.code = 'Encrypted';
     } else {
       try {

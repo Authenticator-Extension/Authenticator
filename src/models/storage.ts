@@ -101,11 +101,13 @@ export class EntryStorage {
       issuer: entry.issuer,
       type: OTPType[entry.type],
       counter: entry.counter, // TODO: Make this optional for non HOTP accounts
-      secret: encryption.getEncryptedSecret(entry.secret),
+      secret: encryption.getEncryptedSecret(entry),
     };
+
     if (entry.period && entry.period !== 30) {
       storageItem.period = entry.period;
     }
+
     return storageItem;
   }
 
@@ -193,12 +195,11 @@ export class EntryStorage {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
                   const decryptedSecret = encryption.getDecryptedSecret(
-                    _data[hash].secret,
-                    hash
+                    _data[hash]
                   );
                   if (
                     decryptedSecret !== _data[hash].secret &&
-                    decryptedSecret !== 'Encrypted'
+                    decryptedSecret !== null
                   ) {
                     _data[hash].secret = decryptedSecret;
                     _data[hash].encrypted = false;
@@ -292,12 +293,12 @@ export class EntryStorage {
               }
 
               if (data[_hash]) {
-                data[_hash].secret = encryption.getEncryptedSecret(
+                data[_hash].secret = encryption.getEncryptedString(
                   data[_hash].secret
                 );
                 _data[_hash] = data[_hash];
               } else {
-                data[hash].secret = encryption.getEncryptedSecret(
+                data[hash].secret = encryption.getEncryptedString(
                   data[hash].secret
                 );
                 _data[hash] = data[hash];
@@ -432,63 +433,18 @@ export class EntryStorage {
                 period = entryData.period;
               }
 
-              entryData.secret = entryData.encrypted
-                ? encryption.getDecryptedSecret(entryData.secret, hash)
-                : entryData.secret;
-
-              // we need migrate secret in old format here
-              if (/^(blz\-|bliz\-)/.test(entryData.secret)) {
-                const secretMatches = entryData.secret.match(
-                  /^(blz\-|bliz\-)(.*)/
-                );
-                if (secretMatches && secretMatches.length >= 3) {
-                  entryData.secret = secretMatches[2];
-                  entryData.type = OTPType[OTPType.battle];
-                  entryData.hash = CryptoJS.MD5(entryData.secret).toString();
-                  await this.remove(hash);
-                  needMigrate = true;
-                }
-              }
-
-              if (/^stm\-/.test(entryData.secret)) {
-                const secretMatches = entryData.secret.match(/^stm\-(.*)/);
-                if (secretMatches && secretMatches.length >= 2) {
-                  entryData.secret = secretMatches[1];
-                  entryData.type = OTPType[OTPType.steam];
-                  entryData.hash = CryptoJS.MD5(entryData.secret).toString();
-                  await this.remove(hash);
-                  needMigrate = true;
-                }
-              }
-
-              if (
-                !/^[a-z2-7]+=*$/i.test(entryData.secret) &&
-                /^[0-9a-f]+$/i.test(entryData.secret) &&
-                entryData.type === OTPType[OTPType.totp]
-              ) {
-                entryData.type = OTPType[OTPType.hex];
-                needMigrate = true;
-              }
-
-              if (
-                !/^[a-z2-7]+=*$/i.test(entryData.secret) &&
-                /^[0-9a-f]+$/i.test(entryData.secret) &&
-                entryData.type === OTPType[OTPType.hotp]
-              ) {
-                entryData.type = OTPType[OTPType.hhex];
-                needMigrate = true;
-              }
-
-              const entry = new OTPEntry(
+              const entry = new OTPEntry({
+                account: entryData.account,
+                encrypted: entryData.encrypted,
+                hash: entryData.hash,
+                index: entryData.index,
+                issuer: entryData.issuer,
+                secret: entryData.secret,
                 type,
-                entryData.issuer,
-                entryData.secret,
-                entryData.account,
-                entryData.index,
-                entryData.counter,
+                counter: entryData.counter,
                 period,
-                entryData.hash
-              );
+              });
+              entry.applyEncryption(encryption);
               data.push(entry);
 
               // <del>we need correct the hash</del>
@@ -501,10 +457,7 @@ export class EntryStorage {
 
               // Only correct invalid hash here
 
-              if (
-                entry.secret !== 'Encrypted' &&
-                !/^[0-9a-f]{32}$/.test(hash)
-              ) {
+              if (entry.secret !== null && !/^[0-9a-f]{32}$/.test(hash)) {
                 const _hash = CryptoJS.MD5(entryData.secret).toString();
                 if (hash !== _hash) {
                   await this.remove(hash);

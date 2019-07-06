@@ -2,7 +2,8 @@ interface IOTPEntry {
     type: number; // OTPType
     index: number;
     issuer: string;
-    secret: string;
+    encSecret: string | null;
+    secret: string | null;
     account: string;
     hash: string;
     counter: number;
@@ -11,13 +12,15 @@ interface IOTPEntry {
     create(encryption: IEncryption): Promise<void>;
     update(encryption: IEncryption): Promise<void>;
     next(encryption: IEncryption): Promise<void>;
+    applyEncryption(encryption: IEncryption): void;
     delete(): Promise<void>;
     generate(): void;
 }
 
 interface IEncryption {
-    getEncryptedSecret(secret: string): string;
-    getDecryptedSecret(secret: string, hash: string): string;
+    getEncryptedSecret(entry: IOTPEntry): string;
+    getEncryptedString(data: string): string;
+    getDecryptedSecret(entry: OTPStorage): string | null;
     getEncryptionStatus(): boolean;
     updateEncryptionPassword(password: string): void;
 }

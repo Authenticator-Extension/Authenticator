@@ -17,6 +17,7 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry } from "../../models/otp";
+import * as CryptoJS from 'crypto-js';
 
 export default Vue.extend({
   data: function () {
@@ -55,13 +56,16 @@ export default Vue.extend({
       } else {
         type = this.newAccount.type;
       }
-      const entry = new OTPEntry(
+      const entry = new OTPEntry({ 
         type,
-        '',
-        this.newAccount.secret,
-        this.newAccount.account,
-        0,
-        0
+        index: 0,
+        issuer: '',
+        account: this.newAccount.account,
+        encrypted: false,
+        hash: CryptoJS.MD5(this.newAccount.secret).toString(),
+        secret: this.newAccount.secret,
+        counter: 0
+        }
       );
       await entry.create(this.$store.state.accounts.encryption);
       await this.$store.dispatch('accounts/updateEntries');
