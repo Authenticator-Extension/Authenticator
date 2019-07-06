@@ -78,3 +78,10 @@ interface NotificationState {
     messageIdle: Boolean;
     notification: String;
 }
+
+interface BackupState {
+    dropboxEncrypted: Boolean;
+    driveEncrypted: Boolean;
+    dropboxToken: Boolean;
+    driveToken: Boolean;
+}

@@ -10,8 +10,8 @@
     <!-- 3rd Party Backup Services -->
     <div v-show="!backupDisabled" class="text">{{ i18n.storage_sync_info }}</div>
     <p></p>
-    <div class="button" v-show="!backupDisabled" v-on:click="showInfo('drive')">Google Drive</div>
-    <div class="button" v-show="!backupDisabled" v-on:click="showInfo('dropbox')">Dropbox</div>
+    <div class="button" v-show="!backupDisabled" v-on:click="showInfo('DrivePage')">Google Drive</div>
+    <div class="button" v-show="!backupDisabled" v-on:click="showInfo('DropboxPage')">Dropbox</div>
   </div>
 </template>
 <script lang="ts">
@@ -29,10 +29,44 @@ export default Vue.extend({
   computed: mapState("menu", ["backupDisabled", "storageArea"]),
   methods: {
     migrateStorage() {
-      this.$store.dispatch("accounts/migrateStorage", this.newStorageLocation).then((m) => {
+      this.$store
+        .dispatch("accounts/migrateStorage", this.newStorageLocation)
+        .then(m => {
           this.$store.commit("notification/alert", this.i18n[m]);
-      }), (r: string) => {
-          this.$store.commit("notification/alert", (this.i18n.updateFailure + r));
+        }),
+        (r: string) => {
+          this.$store.commit("notification/alert", this.i18n.updateFailure + r);
+        };
+    },
+    showInfo(tab: string) {
+      if (tab === "DropboxPage") {
+        chrome.permissions.request(
+          { origins: ["https://*.dropboxapi.com/*"] },
+          async granted => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+          }
+        );
+        return;
+      } else if (tab === "DrivePage") {
+        chrome.permissions.request(
+          {
+            origins: [
+              "https://www.googleapis.com/*",
+              "https://accounts.google.com/o/oauth2/revoke"
+            ]
+          },
+          async granted => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+            return;
+          }
+        );
+        return;
       }
     }
   }
@@ -46,18 +80,6 @@ export default Vue.extend({
 //       localStorage.dropboxEncrypted = 'true';
 //       _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
 //     }
-//     chrome.permissions.request(
-//       { origins: ['https://*.dropboxapi.com/*'] },
-//       async granted => {
-//         if (granted) {
-//           _ui.instance.currentClass.fadein = true;
-//           _ui.instance.currentClass.fadeout = false;
-//           _ui.instance.info = tab;
-//         }
-//         return;
-//       }
-//     );
-//     return;
 //   } else if (tab === 'drive') {
 //     if (
 //       localStorage.driveEncrypted !== 'true' &&
@@ -66,22 +88,5 @@ export default Vue.extend({
 //       localStorage.driveEncrypted = 'true';
 //       _ui.instance.driveEncrypted = localStorage.driveEncrypted;
 //     }
-//     chrome.permissions.request(
-//       {
-//         origins: [
-//           'https://www.googleapis.com/*',
-//           'https://accounts.google.com/o/oauth2/revoke',
-//         ],
-//       },
-//       async granted => {
-//         if (granted) {
-//           _ui.instance.currentClass.fadein = true;
-//           _ui.instance.currentClass.fadeout = false;
-//           _ui.instance.info = tab;
-//         }
-//         return;
-//       }
-//     );
-//     return;
 //   }
 </script>
