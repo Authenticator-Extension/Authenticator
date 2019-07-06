@@ -2,12 +2,6 @@
     <div id="info">
         <div id="infoClose" v-if="info !== 'EnterPasswordPage'" v-on:click="hideInfo()"><IconXCircle /></div>
         <component v-bind:is="info" id="infoContent"></component>
-        <!--
-        <AddAccountPage v-show="info === 'account'" />
-        <EnterPasswordPage v-show="info === 'passphrase'" />
-        <DropboxPage v-show="info === 'dropbox'" />
-        <DrivePage v-show="info === 'drive'" />
-        -->
     </div>
 </template>
 <script lang="ts">

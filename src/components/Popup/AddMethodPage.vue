@@ -9,6 +9,10 @@ import Vue from "vue";
 export default Vue.extend({
   methods: {
     showInfo(page: string) {
+      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+        return;
+      }
       this.$store.commit("style/showInfo");
       this.$store.commit("currentView/changeView", page);
     },

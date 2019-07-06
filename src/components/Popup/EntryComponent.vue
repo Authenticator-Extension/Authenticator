@@ -55,7 +55,7 @@ export default Vue.extend({
         },
         shouldShowQrIcon(entry: OTPEntry) {
             return (
-                entry.secret !== '' &&
+                entry.secret !== null &&
                 entry.type !== OTPType.battle &&
                 entry.type !== OTPType.steam
             );

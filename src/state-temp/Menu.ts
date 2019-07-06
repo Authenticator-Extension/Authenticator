@@ -8,10 +8,24 @@ export class Menu implements IModule {
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === 'true',
         useHighContrast: localStorage.highContrast === 'true',
-        newStorageLocation: localStorage.storageLocation,
         backupDisabled: await ManagedStorage.get('disableBackup'),
         storageArea: await ManagedStorage.get('storageArea'), // TODO
         feedbackURL: await ManagedStorage.get('feedbackURL'),
+      },
+      mutations: {
+        setZoom: (state: MenuState, zoom: number) => {
+          state.zoom = zoom;
+          localStorage.zoom = zoom;
+          this.resize(zoom);
+        },
+        setAutofill(state: MenuState, useAutofill: boolean) {
+          state.useAutofill = useAutofill;
+          localStorage.autofill = useAutofill;
+        },
+        setHighContrast(state: MenuState, useHighContrast: boolean) {
+          state.useHighContrast = useHighContrast;
+          localStorage.highContrast = useHighContrast;
+        },
       },
       namespaced: true,
     };

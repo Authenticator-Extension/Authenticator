@@ -57,22 +57,6 @@ export async function menu() {
     //       return false;
     //     }
     //   },
-    //   saveAutofill: () => {
-    //     localStorage.autofill = _ui.instance.useAutofill;
-    //     useAutofill = localStorage.autofill === 'true' ? true : false || false;
-    //     return;
-    //   },
-    //   saveHighContrast: () => {
-    //     localStorage.highContrast = _ui.instance.useHighContrast;
-    //     useHighContrast =
-    //       localStorage.highContrast === 'true' ? true : false || false;
-    //     return;
-    //   },
-    //   saveZoom: () => {
-    //     localStorage.zoom = _ui.instance.zoom;
-    //     resize(_ui.instance.zoom);
-    //     return;
-    //   },
     //   syncClock: async () => {
     //       chrome.permissions.request(
     //         { origins: ['https://www.google.com/'] },
@@ -85,26 +69,6 @@ export async function menu() {
     //         }
     //       );
     //     return;
-    //   },
-    //   popOut: () => {
-    //     let windowType;
-    //     if (navigator.userAgent.indexOf('Firefox') !== -1) {
-    //       windowType = 'detached_panel';
-    //     } else {
-    //       windowType = 'panel';
-    //     }
-    //     chrome.windows.create({
-    //       url: chrome.extension.getURL('view/popup.html?popup=true'),
-    //       type: windowType,
-    //       height: window.innerHeight,
-    //       width: window.innerWidth,
-    //     });
-    //   },
-    //   isPopup: () => {
-    //     const params = new URLSearchParams(
-    //       document.location.search.substring(1)
-    //     );
-    //     return params.get('popup');
     //   },
     //   migrateStorage: async () => {
     //     // sync => local

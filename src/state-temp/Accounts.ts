@@ -23,7 +23,6 @@ export class Accounts implements IModule {
 
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].code === 'Encrypted') {
-        console.log(entries[i]);
         shouldShowPassphrase = true;
         break;
       }
@@ -67,7 +66,7 @@ export class Accounts implements IModule {
         },
         currentlyEncrypted(state: AccountsState) {
           for (const entry of state.entries) {
-            if (entry.code === 'Encrypted') {
+            if (entry.secret === null) {
               return true;
             }
           }
@@ -140,7 +139,6 @@ export class Accounts implements IModule {
             if (state.entries[i].index !== i) {
               state.entries[i].index = i;
             }
-            console.log(state.entries[i]);
           }
         },
       },

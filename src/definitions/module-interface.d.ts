@@ -30,7 +30,6 @@ interface MenuState {
     zoom: Number;
     useAutofill: Boolean;
     useHighContrast: Boolean;
-    newStorageLocation: String;
     backupDisabled: Boolean;
     storageArea: String;
 }

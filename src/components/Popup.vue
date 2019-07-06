@@ -1,5 +1,5 @@
 <template>
-<div v-cloak v-bind:class="{ 'theme-normal': !style.useHighContrast, 'theme-accessibility': style.useHighContrast }">
+<div v-cloak v-bind:class="{ 'theme-normal': !useHighContrast, 'theme-accessibility': useHighContrast }">
     <MainHeader />
     <MainBody v-bind:class="{'timeout': style.timeout && !style.isEditing, 'edit': style.isEditing }" />
 
@@ -31,6 +31,7 @@ import NotificationHandler from './Popup/NotificationHandler.vue';
 
 const computedPrototype = [
     mapState('style', ['style']),
+    mapState('menu', ['useHighContrast']),
     mapState('qr', ['qr']),
     mapState("notification", ["notification"])
 ]

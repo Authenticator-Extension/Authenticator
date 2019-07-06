@@ -19,6 +19,58 @@ import Vue from 'vue'
 import { mapState } from 'vuex';
 
 export default Vue.extend({
-    computed: mapState('menu', ['newStorageLocation', 'backupDisabled', 'storageArea'])
+    data: function () {
+        return {
+            newStorageLocation: this.$store.state.menu.storageArea ? this.$store.state.menu.storageArea : localStorage.storageLocation
+        }
+    },
+    computed: mapState('menu', ['backupDisabled', 'storageArea'])
 })
+
+//   } else if (tab === 'dropbox') {
+        //     if (
+        //       localStorage.dropboxEncrypted !== 'true' &&
+        //       localStorage.dropboxEncrypted !== 'false'
+        //     ) {
+        //       localStorage.dropboxEncrypted = 'true';
+        //       _ui.instance.dropboxEncrypted = localStorage.dropboxEncrypted;
+        //     }
+        //     chrome.permissions.request(
+        //       { origins: ['https://*.dropboxapi.com/*'] },
+        //       async granted => {
+        //         if (granted) {
+        //           _ui.instance.currentClass.fadein = true;
+        //           _ui.instance.currentClass.fadeout = false;
+        //           _ui.instance.info = tab;
+        //         }
+        //         return;
+        //       }
+        //     );
+        //     return;
+        //   } else if (tab === 'drive') {
+        //     if (
+        //       localStorage.driveEncrypted !== 'true' &&
+        //       localStorage.driveEncrypted !== 'false'
+        //     ) {
+        //       localStorage.driveEncrypted = 'true';
+        //       _ui.instance.driveEncrypted = localStorage.driveEncrypted;
+        //     }
+        //     chrome.permissions.request(
+        //       {
+        //         origins: [
+        //           'https://www.googleapis.com/*',
+        //           'https://accounts.google.com/o/oauth2/revoke',
+        //         ],
+        //       },
+        //       async granted => {
+        //         if (granted) {
+        //           _ui.instance.currentClass.fadein = true;
+        //           _ui.instance.currentClass.fadeout = false;
+        //           _ui.instance.info = tab;
+        //         }
+        //         return;
+        //       }
+        //     );
+        //     return;
+        //   }
 </script>
