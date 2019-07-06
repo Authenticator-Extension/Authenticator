@@ -11,12 +11,6 @@ export class Accounts implements IModule {
     let shouldShowPassphrase = cachedPassphrase
       ? false
       : await EntryStorage.hasEncryptedEntry();
-    const exportData = shouldShowPassphrase
-      ? {}
-      : await EntryStorage.getExport(encryption);
-    const exportEncData = shouldShowPassphrase
-      ? {}
-      : await EntryStorage.getExport(encryption, true);
     const entries = shouldShowPassphrase
       ? []
       : await this.getEntries(encryption);
@@ -34,11 +28,6 @@ export class Accounts implements IModule {
         encryption,
         OTPType,
         shouldShowPassphrase,
-        exportData: JSON.stringify(exportData, null, 2), // Move to module
-        exportEncData: JSON.stringify(exportEncData, null, 2), // Move to module
-        exportFile: this.getBackupFile(exportData), // Move to module
-        exportEncryptedFile: this.getBackupFile(exportEncData), // Move to module
-        exportOneLineOtpAuthFile: this.getOneLineOtpBackupFile(exportData), // Move to module
         getFilePassphrase: false, // Move to module
         sectorStart: false, // Should display timer circles?
         sectorOffset: 0, // Offset in seconds for animations
@@ -46,12 +35,13 @@ export class Accounts implements IModule {
         filter: true,
         siteName: await this.getSiteName(),
         showSearch: false,
+        exportData: await EntryStorage.getExport(encryption),
+        exportEncData: await EntryStorage.getExport(encryption, true),
         importType: 'import_file', // Move to module
         importCode: '', // Move to module
         importEncrypted: false, // Move to module
         importPassphrase: '', // Move to module
         importFilePassphrase: '', // Move to module
-        unsupportedAccounts: await this.hasUnsupportedAccounts(),
       },
       getters: {
         shouldFilter(
@@ -140,6 +130,18 @@ export class Accounts implements IModule {
             }
           }
         },
+        updateExport(
+          state: AccountsState,
+          exportData: { [k: string]: IOTPEntry }
+        ) {
+          state.exportData = exportData;
+        },
+        updateEncExport(
+          state: AccountsState,
+          exportData: { [k: string]: IOTPEntry }
+        ) {
+          state.exportEncData = exportData;
+        },
       },
       actions: {
         applyPassphrase: async (
@@ -188,6 +190,17 @@ export class Accounts implements IModule {
             await this.getEntries(state.state.encryption as Encryption)
           );
           state.commit('updateCodes');
+          state.commit(
+            'updateExport',
+            await EntryStorage.getExport(state.state.encryption as Encryption)
+          );
+          state.commit(
+            'updateEncExport',
+            await EntryStorage.getExport(
+              state.state.encryption as Encryption,
+              true
+            )
+          );
           return;
         },
         clearFilter: async (state: ActionContext<AccountsState, {}>) => {
@@ -301,71 +314,6 @@ export class Accounts implements IModule {
   private async getEntries(encryption: Encryption) {
     const otpEntries = await EntryStorage.get(encryption);
     return otpEntries;
-  }
-
-  private getBackupFile(entryData: { [hash: string]: OTPStorage }) {
-    let json = JSON.stringify(entryData, null, 2);
-    // for windows notepad
-    json = json.replace(/\n/g, '\r\n');
-    const base64Data = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(json)
-    );
-    return `data:application/octet-stream;base64,${base64Data}`;
-  }
-
-  private getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
-    const otpAuthLines: string[] = [];
-    for (const hash of Object.keys(entryData)) {
-      const otpStorage = entryData[hash];
-      otpStorage.issuer = this.removeUnsafeData(otpStorage.issuer);
-      otpStorage.account = this.removeUnsafeData(otpStorage.account);
-      const label = otpStorage.issuer
-        ? otpStorage.issuer + ':' + otpStorage.account
-        : otpStorage.account;
-      let type = '';
-      if (otpStorage.type === 'totp' || otpStorage.type === 'hex') {
-        type = 'totp';
-      } else if (otpStorage.type === 'hotp' || otpStorage.type === 'hhex') {
-        type = 'hotp';
-      } else {
-        continue;
-      }
-
-      const otpAuthLine =
-        'otpauth://' +
-        type +
-        '/' +
-        label +
-        '?secret=' +
-        otpStorage.secret +
-        (otpStorage.issuer ? '&issuer=' + otpStorage.issuer : '') +
-        (type === 'hotp' ? '&counter=' + otpStorage.counter : '') +
-        (type === 'totp' && otpStorage.period
-          ? '&period=' + otpStorage.period
-          : '');
-
-      otpAuthLines.push(otpAuthLine);
-    }
-
-    const base64Data = CryptoJS.enc.Base64.stringify(
-      CryptoJS.enc.Utf8.parse(otpAuthLines.join('\r\n'))
-    );
-    return `data:application/octet-stream;base64,${base64Data}`;
-  }
-
-  private removeUnsafeData(data: string) {
-    return encodeURIComponent(data.split('::')[0].replace(/:/g, ''));
-  }
-
-  private async hasUnsupportedAccounts() {
-    const entries = await EntryStorage.getExport(new Encryption(''));
-    for (const entry of Object.keys(entries)) {
-      if (entries[entry].type === 'battle' || entries[entry].type === 'steam') {
-        console.log(entries[entry]);
-        return true;
-      }
-    }
-    return false;
   }
 
   private matchedEntries(siteName: Array<string | null>, entries: IOTPEntry[]) {
