@@ -122,6 +122,20 @@ export class Accounts implements IModule {
         loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
           state.entries = newCodes;
         },
+        moveCode(state: AccountsState, opts: { from: number; to: number }) {
+          state.entries.splice(
+            opts.to,
+            0,
+            state.entries.splice(opts.from, 1)[0]
+          );
+
+          for (let i = 0; i < state.entries.length; i++) {
+            if (state.entries[i].index !== i) {
+              state.entries[i].index = i;
+            }
+            console.log(state.entries[i]);
+          }
+        },
       },
       actions: {
         applyPassphrase: async (

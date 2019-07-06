@@ -54,6 +54,7 @@ async function init() {
     render: h => h(Popup),
     store,
     mounted() {
+      // Update time based entries' codes
       this.$store.commit('accounts/updateCodes');
       setInterval(() => {
         this.$store.commit('accounts/updateCodes');
