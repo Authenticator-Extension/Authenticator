@@ -1,32 +1,92 @@
 <template>
+  <div>
     <div>
-        <div>
-            <div class="text warning" v-if="dropboxEncrypted !== 'true' || !encryption.getEncryptionStatus()">{{ i18n.dropbox_risk }}</div>
-            <div v-if="encryption.getEncryptionStatus() && dropboxToken">
-                <label class="combo-label">{{ i18n.encrypted }}</label>
-                <select v-model="dropboxEncrypted" v-on:change="backupUpdateEncryption('dropbox')">
-                    <option value="true">{{ i18n.yes }}</option>
-                    <option value="false">{{ i18n.no }}</option>
-                </select>
-            </div>
-            <div class="button" v-if="dropboxToken" v-on:click="backupLogout('dropbox')">{{ i18n.log_out }}</div>
-            <div class="button" v-else v-on:click="getBackupToken('dropbox')">{{ i18n.sign_in }}</div>
-            <div class="button" v-if="dropboxToken" v-on:click="backupUpload('dropbox')">{{ i18n.manual_dropbox }}</div>
-        </div>
+      <div
+        class="text warning"
+        v-show="isEncrypted || !encryption.getEncryptionStatus()"
+      >{{ i18n.dropbox_risk }}</div>
+      <div v-show="encryption.getEncryptionStatus() && backupToken">
+        <label class="combo-label">{{ i18n.encrypted }}</label>
+        <select v-model="isEncrypted">
+          <option value="true">{{ i18n.yes }}</option>
+          <option value="false">{{ i18n.no }}</option>
+        </select>
+      </div>
+      <div class="button" v-show="backupToken" v-on:click="backupLogout()">{{ i18n.log_out }}</div>
+      <div class="button" v-show="!backupToken" v-on:click="getBackupToken()">{{ i18n.sign_in }}</div>
+      <div class="button" v-show="backupToken" v-on:click="backupUpload()">{{ i18n.manual_dropbox }}</div>
     </div>
+  </div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
-import { mapState } from 'vuex';
+import Vue from "vue";
+import { Dropbox } from "../../models/backup";
 
-const computedPrototype = [mapState('backup', ['dropboxEncrypted', 'dropboxToken']), mapState('accounts', ['encryption'])];
-let computed = {};
-
-for (const module of computedPrototype) {
-    Object.assign(computed, module);
-}
+const service = "dropbox";
 
 export default Vue.extend({
-    computed
-})
+  computed: {
+    encryption: function() {
+      return this.$store.state.accounts.encryption;
+    },
+    isEncrypted: {
+      get(): boolean {
+        if (localStorage.getItem(`${service}Encrypted`) === null) {
+          this.$store.commit("backup/setEnc", { service, value: true });
+          localStorage[`${service}Encrypted`] = true;
+          return true;
+        }
+        return this.$store.state.backup.dropboxEncrypted;
+      },
+      set(newValue: string) {
+        localStorage.dropboxEncrypted = newValue;
+        this.$store.commit("backup/setEnc", { service, value: newValue });
+      }
+    },
+    backupToken: function() {
+      return this.$store.state.backup.dropboxToken;
+    }
+  },
+  methods: {
+    getBackupToken() {
+      chrome.runtime.sendMessage({ action: service });
+    },
+    async backupLogout() {
+      await new Promise((resolve: (value: boolean) => void) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://api.dropboxapi.com/2/auth/token/revoke");
+        xhr.setRequestHeader(
+          "Authorization",
+          "Bearer " + localStorage.dropboxToken
+        );
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            resolve(true);
+            return;
+          }
+        };
+        xhr.send();
+      });
+      localStorage.removeItem(`${service}Token`);
+      this.$store.commit("backup/setToken", { service, value: false });
+      this.$store.commit("style/hideInfo");
+    },
+    async backupUpload(service: string) {
+      const dbox = new Dropbox();
+      const response = await dbox.upload(this.$store.state.encryption);
+      if (response === true) {
+        this.$store.commit("notification/alert", this.i18n.updateSuccess);
+      } else if (localStorage.dropboxRevoked === "true") {
+        this.$store.commit(
+          "notification/alert",
+          chrome.i18n.getMessage("token_revoked", ["Dropbox"])
+        );
+        localStorage.removeItem("dropboxRevoked");
+        this.$store.commit("backup/setToken", { service, value: false });
+      } else {
+        this.$store.commit("notification/alert", this.i18n.updateFailure);
+      }
+    }
+  }
+});
 </script>
