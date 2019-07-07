@@ -9,7 +9,7 @@ export class Menu implements IModule {
         useAutofill: localStorage.autofill === 'true',
         useHighContrast: localStorage.highContrast === 'true',
         backupDisabled: await ManagedStorage.get('disableBackup'),
-        storageArea: await ManagedStorage.get('storageArea'), // TODO
+        storageArea: await ManagedStorage.get('storageArea'),
         feedbackURL: await ManagedStorage.get('feedbackURL'),
       },
       mutations: {

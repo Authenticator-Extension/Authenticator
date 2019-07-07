@@ -80,7 +80,7 @@ export default Vue.extend({
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
-    async backupUpload(service: string) {
+    async backupUpload() {
       const drive = new Drive();
       const response = await drive.upload(this.$store.state.encryption);
       if (response === true) {

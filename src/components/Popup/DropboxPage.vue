@@ -71,7 +71,7 @@ export default Vue.extend({
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
-    async backupUpload(service: string) {
+    async backupUpload() {
       const dbox = new Dropbox();
       const response = await dbox.upload(this.$store.state.encryption);
       if (response === true) {

@@ -27,6 +27,7 @@ import { CurrentView } from './state-temp/CurrentView';
 import { Menu } from './state-temp/Menu';
 import { Notification } from './state-temp/Notification';
 import { Qr } from './state-temp/Qr';
+import { Dropbox, Drive } from './models/backup';
 
 async function init() {
   // Add globals
@@ -102,8 +103,7 @@ async function init() {
       clientTime - localStorage.lastRemindingBackupTime >= 30 ||
       clientTime - localStorage.lastRemindingBackupTime < 0
     ) {
-      // TODO
-      // authenticator.runScheduledBackup(clientTime);
+      runScheduledBackup(clientTime, instance);
     }
     return;
   }, 5000);
@@ -142,26 +142,6 @@ async function init() {
     instance.$store.commit('accounts/showSearch');
   }
 
-  // TODO
-  // chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  //   if (['dropboxtoken', 'drivetoken'].indexOf(message.action) > -1) {
-  //     if (message.action === 'dropboxtoken') {
-  //       authenticator.dropboxToken = message.value;
-  //     } else if (message.action === 'drivetoken') {
-  //       authenticator.driveToken = message.value;
-  //     }
-  //     authenticator.backupUpload(
-  //       String(message.action).substring(
-  //         0,
-  //         String(message.action).indexOf('token')
-  //       )
-  //     );
-  //     if (['dropbox', 'drive'].indexOf(authenticator.info) > -1) {
-  //       setTimeout(authenticator.closeInfo, 500);
-  //     }
-  //   }
-  // });
-
   // Resize window to proper size if popup
   if (new URLSearchParams(document.location.search.substring(1)).get('popup')) {
     const zoom = Number(localStorage.zoom) / 100 || 1;
@@ -185,3 +165,84 @@ async function init() {
 }
 
 init();
+
+async function runScheduledBackup(clientTime: number, instance: Vue) {
+  if (instance.$store.state.backup.dropboxToken) {
+    chrome.permissions.contains(
+      { origins: ['https://*.dropboxapi.com/*'] },
+      async hasPermission => {
+        if (hasPermission) {
+          try {
+            const dropbox = new Dropbox();
+            const res = await dropbox.upload(
+              instance.$store.state.accounts.encryption
+            );
+            if (res) {
+              // we have uploaded backup to Dropbox
+              // no need to remind
+              localStorage.lastRemindingBackupTime = clientTime;
+              return;
+            } else if (localStorage.dropboxRevoked === 'true') {
+              instance.$store.commit(
+                'notificaion/alert',
+                chrome.i18n.getMessage('token_revoked', ['Dropbox'])
+              );
+              localStorage.removeItem('dropboxRevoked');
+            }
+          } catch (error) {
+            // ignore
+          }
+        }
+        instance.$store.commit(
+          'notificaion/alert',
+          instance.i18n.remind_backup
+        );
+        localStorage.lastRemindingBackupTime = clientTime;
+      }
+    );
+  }
+  if (instance.$store.state.backup.driveToken) {
+    chrome.permissions.contains(
+      {
+        origins: [
+          'https://www.googleapis.com/*',
+          'https://accounts.google.com/o/oauth2/revoke',
+        ],
+      },
+      async hasPermission => {
+        if (hasPermission) {
+          try {
+            const drive = new Drive();
+            const res = await drive.upload(
+              instance.$store.state.accounts.encryption
+            );
+            if (res) {
+              localStorage.lastRemindingBackupTime = clientTime;
+              return;
+            } else if (localStorage.driveRevoked === 'true') {
+              instance.$store.commit(
+                'notificaion/alert',
+                chrome.i18n.getMessage('token_revoked', ['Google Drive'])
+              );
+              localStorage.removeItem('driveRevoked');
+            }
+          } catch (error) {
+            // ignore
+          }
+        }
+        instance.$store.commit(
+          'notificaion/alert',
+          instance.i18n.remind_backup
+        );
+        localStorage.lastRemindingBackupTime = clientTime;
+      }
+    );
+  }
+  if (
+    !instance.$store.state.backup.driveToken &&
+    !instance.$store.state.backup.dropboxToken
+  ) {
+    instance.$store.commit('notificaion/alert', instance.i18n.remind_backup);
+    localStorage.lastRemindingBackupTime = clientTime;
+  }
+}

@@ -6,6 +6,7 @@ import QRCode from 'qrcode-reader';
 import { getCredentials } from './models/credentials';
 import { Encryption } from './models/encryption';
 import { EntryStorage, ManagedStorage } from './models/storage';
+import { Dropbox, Drive } from './models/backup';
 
 let cachedPassphrase = '';
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -258,7 +259,7 @@ function getBackupToken(service: string) {
             if (key === 'access_token') {
               if (service === 'dropbox') {
                 localStorage.dropboxToken = value;
-                chrome.runtime.sendMessage({ action: 'dropboxtoken', value });
+                uploadBackup('dropbox');
                 return;
               }
             } else if (key === 'code') {
@@ -308,7 +309,7 @@ function getBackupToken(service: string) {
                     xhr.send();
                   }
                 );
-                chrome.runtime.sendMessage({ action: 'drivetoken', value });
+                uploadBackup('drive');
               }
             }
           }
@@ -316,6 +317,25 @@ function getBackupToken(service: string) {
         return;
       }
     );
+  }
+}
+
+async function uploadBackup(service: string) {
+  const encryption = new Encryption(cachedPassphrase);
+
+  switch (service) {
+    case 'dropbox':
+      const dbox = new Dropbox();
+      await dbox.upload(encryption);
+      break;
+
+    case 'drive':
+      const drive = new Drive();
+      await drive.upload(encryption);
+      break;
+
+    default:
+      break;
   }
 }
 
