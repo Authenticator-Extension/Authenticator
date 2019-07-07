@@ -1,15 +1,3 @@
-/*
-// This needs to have an option
-chrome.permissions.contains(
-  { origins: ['https://www.google.com/'] },
-  hasPermission => {
-    if (hasPermission) {
-      syncTimeWithGoogle();
-    }
-  }
-);
-*/
-
 // Vue
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -19,14 +7,14 @@ import { Vue2Dragula } from 'vue2-dragula';
 import Popup from './components/Popup.vue';
 
 // Other
-import { loadI18nMessages } from './state-temp/i18n';
-import { Style } from './state-temp/Style';
-import { Accounts } from './state-temp/Accounts';
-import { Backup } from './state-temp/Backup';
-import { CurrentView } from './state-temp/CurrentView';
-import { Menu } from './state-temp/Menu';
-import { Notification } from './state-temp/Notification';
-import { Qr } from './state-temp/Qr';
+import { loadI18nMessages } from './store/i18n';
+import { Style } from './store/Style';
+import { Accounts } from './store/Accounts';
+import { Backup } from './store/Backup';
+import { CurrentView } from './store/CurrentView';
+import { Menu } from './store/Menu';
+import { Notification } from './store/Notification';
+import { Qr } from './store/Qr';
 import { Dropbox, Drive } from './models/backup';
 
 async function init() {
@@ -162,6 +150,16 @@ async function init() {
       });
     }
   }
+
+  // TODO: give an option for this
+  chrome.permissions.contains(
+    { origins: ['https://www.google.com/'] },
+    hasPermission => {
+      if (hasPermission) {
+        syncTimeWithGoogle();
+      }
+    }
+  );
 }
 
 init();
@@ -245,4 +243,46 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
     instance.$store.commit('notificaion/alert', instance.i18n.remind_backup);
     localStorage.lastRemindingBackupTime = clientTime;
   }
+}
+
+export function syncTimeWithGoogle() {
+  return new Promise(
+    (resolve: (value: string) => void, reject: (reason: Error) => void) => {
+      try {
+        // tslint:disable-next-line:ban-ts-ignore
+        // @ts-ignore
+        const xhr = new XMLHttpRequest({ mozAnon: true });
+        xhr.open('HEAD', 'https://www.google.com/generate_204');
+        const xhrAbort = setTimeout(() => {
+          xhr.abort();
+          return resolve('updateFailure');
+        }, 5000);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            clearTimeout(xhrAbort);
+            const date = xhr.getResponseHeader('date');
+            if (!date) {
+              return resolve('updateFailure');
+            }
+            const serverTime = new Date(date).getTime();
+            const clientTime = new Date().getTime();
+            const offset = Math.round((serverTime - clientTime) / 1000);
+
+            if (Math.abs(offset) <= 300) {
+              // within 5 minutes
+              localStorage.offset = Math.round(
+                (serverTime - clientTime) / 1000
+              );
+              return resolve('updateSuccess');
+            } else {
+              return resolve('clock_too_far_off');
+            }
+          }
+        };
+        xhr.send();
+      } catch (error) {
+        return reject(error);
+      }
+    }
+  );
 }

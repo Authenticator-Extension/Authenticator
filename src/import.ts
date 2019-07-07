@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import ImportView from './components/Import.vue';
-import { loadI18nMessages } from './state-temp/i18n';
+import { loadI18nMessages } from './store/i18n';
 
 import { Encryption } from './models/encryption';
 import { EntryStorage } from './models/storage';

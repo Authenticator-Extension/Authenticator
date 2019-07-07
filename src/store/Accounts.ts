@@ -73,7 +73,19 @@ export class Accounts implements IModule {
           second = second % 60;
           state.second = second;
 
-          if (!state.sectorStart && state.entries.length > 0) {
+          let currentlyEncrypted = false;
+
+          for (const entry of state.entries) {
+            if (entry.secret === null) {
+              currentlyEncrypted = true;
+            }
+          }
+
+          if (
+            !state.sectorStart &&
+            state.entries.length > 0 &&
+            !currentlyEncrypted
+          ) {
             state.sectorStart = true;
             state.sectorOffset = -second;
           }
