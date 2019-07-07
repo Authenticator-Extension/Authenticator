@@ -13,7 +13,7 @@ export class Style implements IModule {
           qrfadeout: false,
           notificationFadein: false,
           notificationFadeout: false,
-          hotpDiabled: false,
+          hotpDisabled: false,
         },
       },
       mutations: {
@@ -63,6 +63,9 @@ export class Style implements IModule {
         },
         toggleEdit(state: StyleState) {
           state.style.isEditing = !state.style.isEditing;
+        },
+        toggleHotpDisabled(state: StyleState) {
+          state.style.hotpDisabled = !state.style.hotpDisabled;
         },
       },
       namespaced: true,

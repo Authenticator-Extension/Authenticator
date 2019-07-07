@@ -19,19 +19,5 @@
 //         _ui.instance.alert(_ui.instance.i18n.updateSuccess);
 //         return;
 //       },
-//       importFile: (event: Event, closeWindow: boolean) => {
-//
-//       },
-//       nextCode: async (entry: OTPEntry) => {
-//         if (_ui.instance.currentClass.Diabled) {
-//           return;
-//         }
-//         _ui.instance.currentClass.hotpDiabled = true;
-//         await entry.next(_ui.instance.encryption);
-//         setTimeout(() => {
-//           _ui.instance.currentClass.hotpDiabled = false;
-//         }, 3000);
-//         return;
-//       },
 //   };
 // }

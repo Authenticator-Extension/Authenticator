@@ -46,7 +46,7 @@ interface StyleState {
         qrfadeout: Boolean;
         notificationFadein: Boolean;
         notificationFadeout: Boolean;
-        hotpDiabled: Boolean;
+        hotpDisabled: Boolean;
     }
 }
 
