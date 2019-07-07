@@ -55,7 +55,6 @@ interface AccountsState {
     encryption: IEncryption;
     OTPType: Number;
     shouldShowPassphrase: Boolean;
-    getFilePassphrase: Boolean;
     sectorStart: Boolean;
     sectorOffset: Number;
     second: Number;
@@ -65,11 +64,6 @@ interface AccountsState {
     showSearch: Boolean;
     exportData: { [k: string]: IOTPEntry };
     exportEncData: { [k: string]: IOTPEntry };
-    importType: String;
-    importCode: String;
-    importEncrypted: Boolean;
-    importPassphrase: String;
-    importFilePassphrase: String;
 }
 
 interface NotificationState {

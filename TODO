@@ -1,10 +1,4 @@
-MAINHEADER:
 - Make getter to report if sync is enabled instead of manually checking
-PAGEHANDLER:
-- https://vuejs.org/v2/guide/components-dynamic-async.html
-- Make hideInfo into action and clear page when hiding
-EVERYTHING:
-- Run GTS on *.vue code
-
+- Run code formatter on *.vue code
 - Sector shows when encrypted
 - Dev mode color

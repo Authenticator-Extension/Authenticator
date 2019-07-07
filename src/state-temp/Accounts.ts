@@ -28,7 +28,6 @@ export class Accounts implements IModule {
         encryption,
         OTPType,
         shouldShowPassphrase,
-        getFilePassphrase: false, // Move to module
         sectorStart: false, // Should display timer circles?
         sectorOffset: 0, // Offset in seconds for animations
         second: 0, // Offset in seconds for math
@@ -37,11 +36,6 @@ export class Accounts implements IModule {
         showSearch: false,
         exportData: await EntryStorage.getExport(encryption),
         exportEncData: await EntryStorage.getExport(encryption, true),
-        importType: 'import_file', // Move to module
-        importCode: '', // Move to module
-        importEncrypted: false, // Move to module
-        importPassphrase: '', // Move to module
-        importFilePassphrase: '', // Move to module
       },
       getters: {
         shouldFilter(
