@@ -447,30 +447,11 @@ export class EntryStorage {
               entry.applyEncryption(encryption);
               data.push(entry);
 
-              // <del>we need correct the hash</del>
-
-              // Do not correct hash, wrong password
-              // may not only 'Encrypted', but also
-              // other wrong secret. We cannot know
-              // if the hash doesn't match the correct
-              // secret
-
-              // Only correct invalid hash here
-
               if (entry.secret !== null && !/^[0-9a-f]{32}$/.test(hash)) {
-                const _hash = CryptoJS.MD5(entryData.secret).toString();
+                const _hash = CryptoJS.MD5(entry.secret).toString();
                 if (hash !== _hash) {
-                  await this.remove(hash);
-                  entryData.hash = _hash;
-                  needMigrate = true;
+                  console.warn('Invalid hash:', entry);
                 }
-              }
-
-              if (needMigrate) {
-                const _entry: { [hash: string]: OTPStorage } = {};
-                _entry[entryData.hash] = entryData;
-                _entry[entryData.hash].encrypted = false;
-                this.import(encryption, _entry);
               }
             }
 
