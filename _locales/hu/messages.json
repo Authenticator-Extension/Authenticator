@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Titok hiba. Csak Base32 (A-z-ig, 2-7 és =) és a HEX (0-9 és A-F) támogatottak. Azonban az ön titka: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
