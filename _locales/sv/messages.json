@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Fel på hemlig nyckel. Endast Base32(A-Z, 2-7 och =) och Hex(0-9 och A-F) stöds. Men din hemliga nyckel är: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
