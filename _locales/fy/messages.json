@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Geheim flater. Allinnich Base32 (A-Z, 2-7 en =) en HEX (0-9 en A-F) wurdt stipe. Echter, jo geheim is: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
