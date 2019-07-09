@@ -182,7 +182,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               return;
             } else if (localStorage.dropboxRevoked === 'true') {
               instance.$store.commit(
-                'notificaion/alert',
+                'notification/alert',
                 chrome.i18n.getMessage('token_revoked', ['Dropbox'])
               );
               localStorage.removeItem('dropboxRevoked');
@@ -192,7 +192,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           }
         }
         instance.$store.commit(
-          'notificaion/alert',
+          'notification/alert',
           instance.i18n.remind_backup
         );
         localStorage.lastRemindingBackupTime = clientTime;
@@ -219,7 +219,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               return;
             } else if (localStorage.driveRevoked === 'true') {
               instance.$store.commit(
-                'notificaion/alert',
+                'notification/alert',
                 chrome.i18n.getMessage('token_revoked', ['Google Drive'])
               );
               localStorage.removeItem('driveRevoked');
@@ -229,7 +229,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           }
         }
         instance.$store.commit(
-          'notificaion/alert',
+          'notification/alert',
           instance.i18n.remind_backup
         );
         localStorage.lastRemindingBackupTime = clientTime;
@@ -240,7 +240,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
     !instance.$store.state.backup.driveToken &&
     !instance.$store.state.backup.dropboxToken
   ) {
-    instance.$store.commit('notificaion/alert', instance.i18n.remind_backup);
+    instance.$store.commit('notification/alert', instance.i18n.remind_backup);
     localStorage.lastRemindingBackupTime = clientTime;
   }
 }
