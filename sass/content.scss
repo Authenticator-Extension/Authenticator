@@ -1,0 +1,25 @@
+#__ga_grayLayout__ {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 1000000;
+    display: none;
+    cursor: crosshair;
+}
+
+#__ga_grayLayout__ .scan {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+}
+
+#__ga_captureBox__ {
+    position: absolute;
+    border: black 1px dashed;
+    display: none;
+}

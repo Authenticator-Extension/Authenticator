@@ -55,6 +55,7 @@ else
     ./node_modules/webpack-cli/bin/cli.js
 fi
 ./node_modules/sass/sass.js sass:css
+cp ./sass/DroidSansMono.woff2 ./css/
 
 postCompile () {
     mkdir $1
