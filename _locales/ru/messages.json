@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Секретный ошибка. Только Base32 (A-Z, 2-7 и =) и ШЕСТНАДЦАТЕРИЧНЫЙ (0-9 и A-F) поддерживаются. Однако ваш секрет: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
