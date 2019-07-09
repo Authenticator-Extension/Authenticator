@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "認証コードが間違っています。Base32 (A-Z, 2-7, =) と HEX (0-9, A-F) のみ使用できます。認証コード: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
