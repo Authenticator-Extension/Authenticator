@@ -2,7 +2,7 @@ import { getCredentials } from './credentials';
 import { Encryption } from './encryption';
 import { EntryStorage } from './storage';
 
-export class Dropbox {
+export class Dropbox implements BackupProvider {
   private async getToken() {
     return localStorage.dropboxToken || '';
   }
@@ -67,9 +67,46 @@ export class Dropbox {
       }
     );
   }
+  async getUser() {
+    const url = 'https://api.dropboxapi.com/2/users/get_current_account';
+    const token = await this.getToken();
+    return new Promise((resolve: (value: string) => void) => {
+      if (!token) {
+        resolve('Error: No token');
+      }
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', url);
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 401) {
+            localStorage.removeItem('dropboxToken');
+            localStorage.dropboxRevoked = true;
+            resolve(
+              'Error: Response was 401. You will be logged out the next time you open Authenticator.'
+            );
+          }
+          try {
+            const res = JSON.parse(xhr.responseText);
+            if (res.email) {
+              resolve(res.email);
+            } else {
+              console.error('Could not find email in reponse.', res);
+              resolve('Error: res.email was undefined.');
+            }
+          } catch (e) {
+            console.error(e);
+            resolve('Error');
+          }
+        }
+        return;
+      };
+      xhr.send(null);
+    });
+  }
 }
 
-export class Drive {
+export class Drive implements BackupProvider {
   private async getToken() {
     if (
       !localStorage.driveToken ||
@@ -122,7 +159,7 @@ export class Drive {
     return localStorage.driveToken;
   }
 
-  async refreshToken() {
+  private async refreshToken() {
     if (
       navigator.userAgent.indexOf('Chrome') !== -1 &&
       navigator.userAgent.indexOf('OPR') === -1
@@ -376,5 +413,48 @@ export class Drive {
         }
       }
     );
+  }
+
+  async getUser() {
+    const token = await this.getToken();
+    if (!token) {
+      return new Promise((resolve: (value: string) => void) => {
+        resolve('Error: Access revoked or expired.');
+      });
+    }
+
+    return new Promise((resolve: (value: string) => void) => {
+      if (!token) {
+        resolve('Error: Access revoked or expired.');
+      }
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://www.googleapis.com/drive/v2/about?fields=user');
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 401) {
+            localStorage.removeItem('driveToken');
+            resolve(
+              'Error: Response was 401. You will be logged out the next time you open Authenticator.'
+            );
+          }
+          try {
+            const res = JSON.parse(xhr.responseText);
+            if (!res.error) {
+              console.log(res);
+              resolve(res.user.emailAddress);
+            } else {
+              console.error(res.error.message);
+              resolve('Error');
+            }
+          } catch (e) {
+            console.error(e);
+            resolve('Error');
+          }
+        }
+        return;
+      };
+      xhr.send();
+    });
   }
 }

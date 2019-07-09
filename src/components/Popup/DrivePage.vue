@@ -5,6 +5,9 @@
         class="text warning"
         v-show="!isEncrypted || !encryption.getEncryptionStatus()"
       >{{ i18n.dropbox_risk }}</div>
+      <div v-show="backupToken">
+        <div style="margin: 10px 0px 0px 20px">{{ i18n.account }} - {{ email }}</div>
+      </div>
       <div v-show="encryption.getEncryptionStatus() && backupToken">
         <label class="combo-label">{{ i18n.encrypted }}</label>
         <select v-model="isEncrypted">
@@ -25,6 +28,11 @@ import { Drive } from "../../models/backup";
 const service = "drive";
 
 export default Vue.extend({
+  data: function() {
+    return {
+      email: this.i18n.loading
+    };
+  },
   computed: {
     encryption: function() {
       return this.$store.state.accounts.encryption;
@@ -95,6 +103,15 @@ export default Vue.extend({
       } else {
         this.$store.commit("notification/alert", this.i18n.updateFailure);
       }
+    },
+    async getUser() {
+      const drive = new Drive();
+      return await drive.getUser();
+    }
+  },
+  mounted: async function() {
+    if (this.backupToken) {
+      this.email = await this.getUser();
     }
   }
 });
