@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Avainvirhe. Vain Base32(A-Z, 2-7 ja =) ja HEX(0-9 ja A-F) ovat tuettuja. Avaimesi: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
