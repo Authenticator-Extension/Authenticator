@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "암호 오류. 오직 기본32자(A-Z, 2-7 및 =) 및 HEX(0-9 및 A-F) 형식만 지원됩니다. 허나, 귀하의 암호는 다음과 같습니다: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
