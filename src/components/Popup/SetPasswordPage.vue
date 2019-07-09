@@ -4,9 +4,16 @@
     <label>{{ i18n.phrase }}</label>
     <input class="input" type="password" v-model="phrase" />
     <label>{{ i18n.confirm_phrase }}</label>
-    <input class="input" type="password" v-model="confirm" v-on:keyup.enter="changePassphrase()" />
+    <input
+      class="input"
+      type="password"
+      v-model="confirm"
+      v-on:keyup.enter="changePassphrase()"
+    />
     <div id="security-save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
-    <div id="security-remove" v-on:click="removePassphrase()">{{ i18n.remove }}</div>
+    <div id="security-remove" v-on:click="removePassphrase()">
+      {{ i18n.remove }}
+    </div>
   </div>
 </template>
 <script lang="ts">

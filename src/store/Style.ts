@@ -13,8 +13,8 @@ export class Style implements IModule {
           qrfadeout: false,
           notificationFadein: false,
           notificationFadeout: false,
-          hotpDisabled: false,
-        },
+          hotpDisabled: false
+        }
       },
       mutations: {
         showMenu(state: StyleState) {
@@ -66,9 +66,9 @@ export class Style implements IModule {
         },
         toggleHotpDisabled(state: StyleState) {
           state.style.hotpDisabled = !state.style.hotpDisabled;
-        },
+        }
       },
-      namespaced: true,
+      namespaced: true
     };
   }
 }

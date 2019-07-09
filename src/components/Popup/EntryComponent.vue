@@ -13,18 +13,21 @@
           cx="8"
           cy="8"
           r="4"
-          v-bind:style="{animationDuration: entry.period + 's', animationDelay: (sectorOffset % entry.period) + 's'}"
+          v-bind:style="{
+            animationDuration: entry.period + 's',
+            animationDelay: (sectorOffset % entry.period) + 's'
+          }"
         />
       </svg>
     </div>
     <div
-      v-bind:class="{'counter': true, 'disabled': style.hotpDiabled}"
+      v-bind:class="{ counter: true, disabled: style.hotpDiabled }"
       v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex"
       v-on:click="nextCode(entry)"
     >
       <IconRedo />
     </div>
-    <div class="issuer">{{ entry.issuer.split('::')[0] }}</div>
+    <div class="issuer">{{ entry.issuer.split("::")[0] }}</div>
     <div class="issuerEdit">
       <input
         v-bind:placeholder="i18n.issuer"
@@ -34,7 +37,12 @@
       />
     </div>
     <div
-      v-bind:class="{'code': true, 'hotp': entry.type === OTPType.hotp || entry.type === OTPType.hhex, 'no-copy': noCopy(entry.code), 'timeout': entry.period - second % entry.period < 5 }"
+      v-bind:class="{
+        code: true,
+        hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
+        'no-copy': noCopy(entry.code),
+        timeout: entry.period - (second % entry.period) < 5
+      }"
       v-on:click="copyCode(entry)"
       v-html="style.isEditing ? showBulls(entry.code) : entry.code"
     ></div>
@@ -47,7 +55,11 @@
         v-on:change="entry.update(encryption)"
       />
     </div>
-    <div class="showqr" v-if="shouldShowQrIcon(entry)" v-on:click="showQr(entry)">
+    <div
+      class="showqr"
+      v-if="shouldShowQrIcon(entry)"
+      v-on:click="showQr(entry)"
+    >
       <IconQr />
     </div>
     <div class="movehandle">
@@ -246,4 +258,3 @@ function insertContentScript() {
   });
 }
 </script>
-

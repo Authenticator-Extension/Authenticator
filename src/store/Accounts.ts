@@ -1,8 +1,8 @@
-import { EntryStorage } from '../models/storage';
-import { Encryption } from '../models/encryption';
-import * as CryptoJS from 'crypto-js';
-import { OTPType } from '../models/otp';
-import { ActionContext } from 'vuex';
+import { EntryStorage } from "../models/storage";
+import { Encryption } from "../models/encryption";
+import * as CryptoJS from "crypto-js";
+import { OTPType } from "../models/otp";
+import { ActionContext } from "vuex";
 
 export class Accounts implements IModule {
   async getModule() {
@@ -16,7 +16,7 @@ export class Accounts implements IModule {
       : await this.getEntries(encryption);
 
     for (let i = 0; i < entries.length; i++) {
-      if (entries[i].code === 'Encrypted') {
+      if (entries[i].code === "Encrypted") {
         shouldShowPassphrase = true;
         break;
       }
@@ -35,7 +35,7 @@ export class Accounts implements IModule {
         siteName: await this.getSiteName(),
         showSearch: false,
         exportData: await EntryStorage.getExport(encryption),
-        exportEncData: await EntryStorage.getExport(encryption, true),
+        exportEncData: await EntryStorage.getExport(encryption, true)
       },
       getters: {
         shouldFilter(
@@ -54,7 +54,7 @@ export class Accounts implements IModule {
             }
           }
           return false;
-        },
+        }
       },
       mutations: {
         stopFilter(state: AccountsState) {
@@ -147,7 +147,7 @@ export class Accounts implements IModule {
           exportData: { [k: string]: IOTPEntry }
         ) {
           state.exportEncData = exportData;
-        },
+        }
       },
       actions: {
         applyPassphrase: async (
@@ -159,13 +159,13 @@ export class Accounts implements IModule {
           }
 
           state.state.encryption.updateEncryptionPassword(password);
-          await state.dispatch('updateEntries');
-          state.commit('style/hideInfo', null, { root: true });
+          await state.dispatch("updateEntries");
+          state.commit("style/hideInfo", null, { root: true });
 
-          document.cookie = 'passphrase=' + password;
+          document.cookie = "passphrase=" + password;
           chrome.runtime.sendMessage({
-            action: 'cachePassphrase',
-            value: password,
+            action: "cachePassphrase",
+            value: password
           });
           return;
         },
@@ -179,29 +179,29 @@ export class Accounts implements IModule {
           );
 
           state.state.encryption.updateEncryptionPassword(password);
-          document.cookie = 'passphrase=' + password;
+          document.cookie = "passphrase=" + password;
           chrome.runtime.sendMessage({
-            action: 'cachePassphrase',
-            value: password,
+            action: "cachePassphrase",
+            value: password
           });
 
-          await state.dispatch('updateEntries');
+          await state.dispatch("updateEntries");
 
           // remove cached passphrase in old version
-          localStorage.removeItem('encodedPhrase');
+          localStorage.removeItem("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
           state.commit(
-            'loadCodes',
+            "loadCodes",
             await this.getEntries(state.state.encryption as Encryption)
           );
-          state.commit('updateCodes');
+          state.commit("updateCodes");
           state.commit(
-            'updateExport',
+            "updateExport",
             await EntryStorage.getExport(state.state.encryption as Encryption)
           );
           state.commit(
-            'updateEncExport',
+            "updateEncExport",
             await EntryStorage.getExport(
               state.state.encryption as Encryption,
               true
@@ -210,9 +210,9 @@ export class Accounts implements IModule {
           return;
         },
         clearFilter: (state: ActionContext<AccountsState, {}>) => {
-          state.commit('stopFilter');
+          state.commit("stopFilter");
           if (state.state.entries.length >= 10) {
-            state.commit('showSearch');
+            state.commit("showSearch");
           }
         },
         migrateStorage: async (
@@ -221,8 +221,8 @@ export class Accounts implements IModule {
         ) => {
           // sync => local
           if (
-            localStorage.storageLocation === 'sync' &&
-            newStorageLocation === 'local'
+            localStorage.storageLocation === "sync" &&
+            newStorageLocation === "local"
           ) {
             return new Promise((resolve, reject) => {
               chrome.storage.sync.get(syncData => {
@@ -234,12 +234,12 @@ export class Accounts implements IModule {
                         value => Object.keys(localData).indexOf(value) >= 0
                       )
                     ) {
-                      localStorage.storageLocation = 'local';
+                      localStorage.storageLocation = "local";
                       chrome.storage.sync.clear();
-                      resolve('updateSuccess');
+                      resolve("updateSuccess");
                       return;
                     } else {
-                      reject(' All data not transferred successfully.');
+                      reject(" All data not transferred successfully.");
                       return;
                     }
                   });
@@ -248,8 +248,8 @@ export class Accounts implements IModule {
             });
             // local => sync
           } else if (
-            localStorage.storageLocation === 'local' &&
-            newStorageLocation === 'sync'
+            localStorage.storageLocation === "local" &&
+            newStorageLocation === "sync"
           ) {
             return new Promise((resolve, reject) => {
               chrome.storage.local.get(localData => {
@@ -261,12 +261,12 @@ export class Accounts implements IModule {
                         value => Object.keys(syncData).indexOf(value) >= 0
                       )
                     ) {
-                      localStorage.storageLocation = 'sync';
+                      localStorage.storageLocation = "sync";
                       chrome.storage.local.clear();
-                      resolve('updateSuccess');
+                      resolve("updateSuccess");
                       return;
                     } else {
-                      reject(' All data not transferred successfully.');
+                      reject(" All data not transferred successfully.");
                       return;
                     }
                   });
@@ -274,9 +274,9 @@ export class Accounts implements IModule {
               });
             });
           }
-        },
+        }
       },
-      namespaced: true,
+      namespaced: true
     };
   }
 
@@ -293,21 +293,21 @@ export class Accounts implements IModule {
           }
 
           const title = tab.title
-            ? tab.title.replace(/[^a-z0-9]/gi, '').toLowerCase()
+            ? tab.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
             : null;
 
           if (!tab.url) {
             return resolve([title, null]);
           }
 
-          const urlParser = document.createElement('a');
+          const urlParser = document.createElement("a");
           urlParser.href = tab.url;
           const hostname = urlParser.hostname.toLowerCase();
 
           // try to parse name from hostname
           // i.e. hostname is www.example.com
           // name should be example
-          let nameFromDomain = '';
+          let nameFromDomain = "";
 
           // ip address
           if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
@@ -315,11 +315,11 @@ export class Accounts implements IModule {
           }
 
           // local network
-          if (hostname.indexOf('.') === -1) {
+          if (hostname.indexOf(".") === -1) {
             nameFromDomain = hostname;
           }
 
-          const hostLevelUnits = hostname.split('.');
+          const hostLevelUnits = hostname.split(".");
 
           if (hostLevelUnits.length === 2) {
             nameFromDomain = hostLevelUnits[0];
@@ -330,7 +330,7 @@ export class Accounts implements IModule {
           if (hostLevelUnits.length > 2) {
             // example.com.cn
             if (
-              ['com', 'net', 'org', 'edu', 'gov', 'co'].indexOf(
+              ["com", "net", "org", "edu", "gov", "co"].indexOf(
                 hostLevelUnits[hostLevelUnits.length - 2]
               ) !== -1
             ) {
@@ -341,7 +341,7 @@ export class Accounts implements IModule {
             }
           }
 
-          nameFromDomain = nameFromDomain.replace(/-/g, '').toLowerCase();
+          nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
 
           return resolve([title, nameFromDomain, hostname]);
         });
@@ -359,16 +359,16 @@ export class Accounts implements IModule {
         const cachedPassphrase =
           cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
         const cachedPassphraseLocalStorage = localStorage.encodedPhrase
-          ? CryptoJS.AES.decrypt(localStorage.encodedPhrase, '').toString(
+          ? CryptoJS.AES.decrypt(localStorage.encodedPhrase, "").toString(
               CryptoJS.enc.Utf8
             )
-          : '';
+          : "";
         if (cachedPassphrase || cachedPassphraseLocalStorage) {
           return resolve(cachedPassphrase || cachedPassphraseLocalStorage);
         }
 
         chrome.runtime.sendMessage(
-          { action: 'passphrase' },
+          { action: "passphrase" },
           (passphrase: string) => {
             return resolve(passphrase);
           }
@@ -403,18 +403,18 @@ export class Accounts implements IModule {
       return false;
     }
 
-    const issuerHostMatches = entry.issuer.split('::');
+    const issuerHostMatches = entry.issuer.split("::");
     const issuer = issuerHostMatches[0]
-      .replace(/[^0-9a-z]/gi, '')
+      .replace(/[^0-9a-z]/gi, "")
       .toLowerCase();
 
     if (!issuer) {
       return false;
     }
 
-    const siteTitle = siteName[0] || '';
-    const siteNameFromHost = siteName[1] || '';
-    const siteHost = siteName[2] || '';
+    const siteTitle = siteName[0] || "";
+    const siteNameFromHost = siteName[1] || "";
+    const siteHost = siteName[2] || "";
 
     if (issuerHostMatches.length > 1) {
       if (siteHost && siteHost.indexOf(issuerHostMatches[1]) !== -1) {

@@ -1,24 +1,24 @@
-import { getCredentials } from './credentials';
-import { Encryption } from './encryption';
-import { EntryStorage } from './storage';
+import { getCredentials } from "./credentials";
+import { Encryption } from "./encryption";
+import { EntryStorage } from "./storage";
 
 export class Dropbox implements BackupProvider {
   private async getToken() {
-    return localStorage.dropboxToken || '';
+    return localStorage.dropboxToken || "";
   }
 
   async upload(encryption: Encryption) {
     if (localStorage.dropboxEncrypted === undefined) {
       // Encrypt by default if user hasn't set yet
-      localStorage.dropboxEncrypted = 'true';
+      localStorage.dropboxEncrypted = "true";
     }
     const exportData = await EntryStorage.getExport(
       encryption,
-      localStorage.dropboxEncrypted === 'true'
+      localStorage.dropboxEncrypted === "true"
     );
     const backup = JSON.stringify(exportData, null, 2);
 
-    const url = 'https://content.dropboxapi.com/2/files/upload';
+    const url = "https://content.dropboxapi.com/2/files/upload";
     const token = await this.getToken();
     return new Promise(
       (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
@@ -30,20 +30,20 @@ export class Dropbox implements BackupProvider {
           const now = new Date()
             .toISOString()
             .slice(0, 10)
-            .replace(/-/g, '');
+            .replace(/-/g, "");
           const apiArg = {
             path: `/${now}.json`,
-            mode: 'add',
-            autorename: true,
+            mode: "add",
+            autorename: true
           };
-          xhr.open('POST', url);
-          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-          xhr.setRequestHeader('Content-type', 'application/octet-stream');
-          xhr.setRequestHeader('Dropbox-API-Arg', JSON.stringify(apiArg));
+          xhr.open("POST", url);
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("Content-type", "application/octet-stream");
+          xhr.setRequestHeader("Dropbox-API-Arg", JSON.stringify(apiArg));
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                localStorage.removeItem('dropboxToken');
+                localStorage.removeItem("dropboxToken");
                 localStorage.dropboxRevoked = true;
                 resolve(false);
               }
@@ -68,22 +68,22 @@ export class Dropbox implements BackupProvider {
     );
   }
   async getUser() {
-    const url = 'https://api.dropboxapi.com/2/users/get_current_account';
+    const url = "https://api.dropboxapi.com/2/users/get_current_account";
     const token = await this.getToken();
     return new Promise((resolve: (value: string) => void) => {
       if (!token) {
-        resolve('Error: No token');
+        resolve("Error: No token");
       }
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', url);
-      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.open("POST", url);
+      xhr.setRequestHeader("Authorization", "Bearer " + token);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 401) {
-            localStorage.removeItem('dropboxToken');
+            localStorage.removeItem("dropboxToken");
             localStorage.dropboxRevoked = true;
             resolve(
-              'Error: Response was 401. You will be logged out the next time you open Authenticator.'
+              "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
           }
           try {
@@ -91,12 +91,12 @@ export class Dropbox implements BackupProvider {
             if (res.email) {
               resolve(res.email);
             } else {
-              console.error('Could not find email in reponse.', res);
-              resolve('Error: res.email was undefined.');
+              console.error("Could not find email in reponse.", res);
+              resolve("Error: res.email was undefined.");
             }
           } catch (e) {
             console.error(e);
-            resolve('Error');
+            resolve("Error");
           }
         }
         return;
@@ -116,10 +116,10 @@ export class Drive implements BackupProvider {
           reject: (reason: Error) => void
         ) => {
           const xhr = new XMLHttpRequest();
-          xhr.open('GET', 'https://www.googleapis.com/drive/v3/files');
+          xhr.open("GET", "https://www.googleapis.com/drive/v3/files");
           xhr.setRequestHeader(
-            'Authorization',
-            'Bearer ' + localStorage.driveToken
+            "Authorization",
+            "Bearer " + localStorage.driveToken
           );
           xhr.onreadystatechange = async () => {
             if (xhr.readyState === 4) {
@@ -128,16 +128,16 @@ export class Drive implements BackupProvider {
                 if (res.error) {
                   if (res.error.code === 401) {
                     if (
-                      navigator.userAgent.indexOf('Chrome') !== -1 &&
-                      navigator.userAgent.indexOf('OPR') === -1
+                      navigator.userAgent.indexOf("Chrome") !== -1 &&
+                      navigator.userAgent.indexOf("OPR") === -1
                     ) {
                       // Clear invalid token from
                       // chrome://identity-internals/
                       await chrome.identity.removeCachedAuthToken({
-                        token: localStorage.driveToken,
+                        token: localStorage.driveToken
                       });
                     }
-                    localStorage.driveToken = '';
+                    localStorage.driveToken = "";
                     resolve(true);
                   }
                 } else {
@@ -161,14 +161,14 @@ export class Drive implements BackupProvider {
 
   private async refreshToken() {
     if (
-      navigator.userAgent.indexOf('Chrome') !== -1 &&
-      navigator.userAgent.indexOf('OPR') === -1
+      navigator.userAgent.indexOf("Chrome") !== -1 &&
+      navigator.userAgent.indexOf("OPR") === -1
     ) {
       return new Promise((resolve: (value: boolean) => void) => {
         return chrome.identity.getAuthToken(
           {
             interactive: false,
-            scopes: ['https://www.googleapis.com/auth/drive.file'],
+            scopes: ["https://www.googleapis.com/auth/drive.file"]
           },
           token => {
             localStorage.driveToken = token;
@@ -187,28 +187,28 @@ export class Drive implements BackupProvider {
         ) => {
           const xhr = new XMLHttpRequest();
           xhr.open(
-            'POST',
-            'https://www.googleapis.com/oauth2/v4/token?client_id=' +
+            "POST",
+            "https://www.googleapis.com/oauth2/v4/token?client_id=" +
               getCredentials().drive.client_id +
-              '&client_secret=' +
+              "&client_secret=" +
               getCredentials().drive.client_secret +
-              '&refresh_token=' +
+              "&refresh_token=" +
               localStorage.driveRefreshToken +
-              '&grant_type=refresh_token'
+              "&grant_type=refresh_token"
           );
-          xhr.setRequestHeader('Accept', 'application/json');
+          xhr.setRequestHeader("Accept", "application/json");
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                localStorage.removeItem('driveRefreshToken');
+                localStorage.removeItem("driveRefreshToken");
                 localStorage.driveRevoked = true;
                 resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
                 if (res.error) {
-                  if (res.error === 'invalid_grant') {
-                    localStorage.removeItem('driveRefreshToken');
+                  if (res.error === "invalid_grant") {
+                    localStorage.removeItem("driveRefreshToken");
                     localStorage.driveRevoked = true;
                   }
                   console.error(res.error_description);
@@ -245,28 +245,28 @@ export class Drive implements BackupProvider {
         ) => {
           const xhr = new XMLHttpRequest();
           xhr.open(
-            'GET',
-            'https://www.googleapis.com/drive/v3/files/' +
+            "GET",
+            "https://www.googleapis.com/drive/v3/files/" +
               localStorage.driveFolder +
-              '?fields=trashed'
+              "?fields=trashed"
           );
-          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-          xhr.setRequestHeader('Accept', 'application/json');
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("Accept", "application/json");
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                localStorage.removeItem('driveToken');
+                localStorage.removeItem("driveToken");
                 resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
                 if (res.error) {
                   if (res.error.code === 404) {
-                    localStorage.driveFolder = '';
+                    localStorage.driveFolder = "";
                     resolve(true);
                   }
                 } else if (res.trashed) {
-                  localStorage.driveFolder = '';
+                  localStorage.driveFolder = "";
                   resolve(true);
                 } else if (res.error) {
                   console.error(res.error.message);
@@ -293,14 +293,14 @@ export class Drive implements BackupProvider {
         ) => {
           // create folder
           const xhr = new XMLHttpRequest();
-          xhr.open('POST', 'https://www.googleapis.com/drive/v3/files/');
-          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-          xhr.setRequestHeader('Accept', 'application/json');
-          xhr.setRequestHeader('Content-Type', 'application/json');
+          xhr.open("POST", "https://www.googleapis.com/drive/v3/files/");
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("Accept", "application/json");
+          xhr.setRequestHeader("Content-Type", "application/json");
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                localStorage.removeItem('driveToken');
+                localStorage.removeItem("driveToken");
                 resolve(false);
               }
               try {
@@ -321,8 +321,8 @@ export class Drive implements BackupProvider {
           };
           xhr.send(
             JSON.stringify({
-              name: 'Authenticator Backups',
-              mimeType: 'application/vnd.google-apps.folder',
+              name: "Authenticator Backups",
+              mimeType: "application/vnd.google-apps.folder"
             })
           );
         }
@@ -333,11 +333,11 @@ export class Drive implements BackupProvider {
 
   async upload(encryption: Encryption) {
     if (localStorage.driveEncrypted === undefined) {
-      localStorage.driveEncrypted = 'true';
+      localStorage.driveEncrypted = "true";
     }
     const exportData = await EntryStorage.getExport(
       encryption,
-      localStorage.driveEncrypted === 'true'
+      localStorage.driveEncrypted === "true"
     );
     const backup = JSON.stringify(exportData, null, 2);
 
@@ -358,20 +358,20 @@ export class Drive implements BackupProvider {
           const now = new Date()
             .toISOString()
             .slice(0, 10)
-            .replace(/-/g, '');
+            .replace(/-/g, "");
           xhr.open(
-            'POST',
-            'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart'
+            "POST",
+            "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart"
           );
-          xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
           xhr.setRequestHeader(
-            'Content-type',
-            'multipart/related; boundary=segment_marker'
+            "Content-type",
+            "multipart/related; boundary=segment_marker"
           );
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                localStorage.removeItem('driveToken');
+                localStorage.removeItem("driveToken");
                 resolve(false);
               }
               try {
@@ -389,23 +389,23 @@ export class Drive implements BackupProvider {
             return;
           };
           const requestDataPrototype = [
-            '--segment_marker',
-            'Content-Type: application/json; charset=UTF-8',
-            '',
+            "--segment_marker",
+            "Content-Type: application/json; charset=UTF-8",
+            "",
             JSON.stringify({
               name: `${now}.json`,
-              parents: [localStorage.driveFolder],
+              parents: [localStorage.driveFolder]
             }),
-            '',
-            '--segment_marker',
-            'Content-Type: application/octet-stream',
-            '',
+            "",
+            "--segment_marker",
+            "Content-Type: application/octet-stream",
+            "",
             backup,
-            '--segment_marker--',
+            "--segment_marker--"
           ];
-          let requestData = '';
+          let requestData = "";
           requestDataPrototype.forEach(line => {
-            requestData = requestData + line + '\n';
+            requestData = requestData + line + "\n";
           });
           xhr.send(requestData);
         } catch (error) {
@@ -419,23 +419,23 @@ export class Drive implements BackupProvider {
     const token = await this.getToken();
     if (!token) {
       return new Promise((resolve: (value: string) => void) => {
-        resolve('Error: Access revoked or expired.');
+        resolve("Error: Access revoked or expired.");
       });
     }
 
     return new Promise((resolve: (value: string) => void) => {
       if (!token) {
-        resolve('Error: Access revoked or expired.');
+        resolve("Error: Access revoked or expired.");
       }
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://www.googleapis.com/drive/v2/about?fields=user');
-      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+      xhr.open("GET", "https://www.googleapis.com/drive/v2/about?fields=user");
+      xhr.setRequestHeader("Authorization", "Bearer " + token);
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if (xhr.status === 401) {
-            localStorage.removeItem('driveToken');
+            localStorage.removeItem("driveToken");
             resolve(
-              'Error: Response was 401. You will be logged out the next time you open Authenticator.'
+              "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
           }
           try {
@@ -445,11 +445,11 @@ export class Drive implements BackupProvider {
               resolve(res.user.emailAddress);
             } else {
               console.error(res.error.message);
-              resolve('Error');
+              resolve("Error");
             }
           } catch (e) {
             console.error(e);
-            resolve('Error');
+            resolve("Error");
           }
         }
         return;

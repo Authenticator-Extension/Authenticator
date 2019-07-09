@@ -4,9 +4,13 @@
       <div
         class="text warning"
         v-show="!isEncrypted || !encryption.getEncryptionStatus()"
-      >{{ i18n.dropbox_risk }}</div>
+      >
+        {{ i18n.dropbox_risk }}
+      </div>
       <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px">{{ i18n.account }} - {{ email }}</div>
+        <div style="margin: 10px 0px 0px 20px">
+          {{ i18n.account }} - {{ email }}
+        </div>
       </div>
       <div v-show="encryption.getEncryptionStatus() && backupToken">
         <label class="combo-label">{{ i18n.encrypted }}</label>
@@ -15,9 +19,15 @@
           <option value="false">{{ i18n.no }}</option>
         </select>
       </div>
-      <div class="button" v-show="backupToken" v-on:click="backupLogout()">{{ i18n.log_out }}</div>
-      <div class="button" v-show="!backupToken" v-on:click="getBackupToken()">{{ i18n.sign_in }}</div>
-      <div class="button" v-show="backupToken" v-on:click="backupUpload()">{{ i18n.manual_dropbox }}</div>
+      <div class="button" v-show="backupToken" v-on:click="backupLogout()">
+        {{ i18n.log_out }}
+      </div>
+      <div class="button" v-show="!backupToken" v-on:click="getBackupToken()">
+        {{ i18n.sign_in }}
+      </div>
+      <div class="button" v-show="backupToken" v-on:click="backupUpload()">
+        {{ i18n.manual_dropbox }}
+      </div>
     </div>
   </div>
 </template>
