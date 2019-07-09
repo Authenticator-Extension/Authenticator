@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "金鑰錯誤，僅支援Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的金鑰是：",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
