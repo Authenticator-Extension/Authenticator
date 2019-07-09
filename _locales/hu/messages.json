@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Érvénytelen fiók titok",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
