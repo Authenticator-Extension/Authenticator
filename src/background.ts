@@ -145,6 +145,7 @@ async function getTotp(text: string) {
           } catch {
             issuer = parameter[1];
           }
+          issuer = issuer.replace(/\+/g, ' ');
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
           counter = isNaN(counter) || counter < 0 ? 0 : counter;
