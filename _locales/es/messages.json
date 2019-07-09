@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Clave secreta de la cuenta invalida",
         "description": "Secret Error."
     },
     "add_qr": {
