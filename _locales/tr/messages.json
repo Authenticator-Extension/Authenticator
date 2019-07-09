@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=') ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
