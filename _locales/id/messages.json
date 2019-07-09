@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Rahasia kesalahan. Hanya Base32 (A-Z, 2-7 dan =) dan HEX (0-9 dan A-F) yang didukung. Namun, rahasia Anda adalah: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
