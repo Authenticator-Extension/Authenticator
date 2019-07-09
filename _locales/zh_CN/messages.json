@@ -304,5 +304,8 @@
     "otp_backup_learn": {
         "message": "了解更多",
         "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Loading..."
     }
 }
