@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Μυστικό σφάλμα. Υποστηρίζονται μόνο τα Base32 (A-Z, 2-7 και =) και HEX (0-9 και A-F). Ωστόσο, το μυστικό σας είναι:",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
