@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Bí mật lỗi. Chỉ Base32 (A-Z, 2-7 và =) và HEX hỗ trợ (0-9 và A-F). Tuy nhiên, bí mật của bạn là: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
