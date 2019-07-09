@@ -1,5 +1,4 @@
 {
-  "extends": "./node_modules/gts/tsconfig-google.json",
   "compilerOptions": {
     "lib": ["es6", "dom"],
     "target": "es5",
@@ -7,7 +6,16 @@
     "module": "es2015",
     "rootDir": "src",
     "moduleResolution": "node",
-    "outDir": "build"
+    "outDir": "build",
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "pretty": true,
+    "sourceMap": true,
   },
   "include": [
     "src/*.ts",
