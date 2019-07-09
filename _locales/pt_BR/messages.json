@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Erro secreto. Somente Base32(A-Z, 2-7 e =) e HEX(0-9 e A-F) são suportados. Contudo, seu código secreto é: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
