@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autenticatore",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Errore di segreto. Solo Base32 (A-Z, 2-7 e =) e HEX (0-9 e A-F) sono supportati. Tuttavia, il tuo segreto è: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
