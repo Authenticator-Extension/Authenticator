@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Eroare secretă. Doar Base32 (A-Z, 2-7 şi =) şi HEX (0-9 si A-F) sunt acceptate. Cu toate acestea, secretul tău este: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
