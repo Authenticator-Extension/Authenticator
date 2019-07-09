@@ -10,6 +10,7 @@ PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
 CREDS=$(cat ./src/models/credentials.ts | tr -d '\n')
 CREDREGEX="^.*'.+'.*'.+'.*'.+'.*$"
+STYLEFILES="./src/* ./src/**/* ./src/**/**/* ./sass/*.scss"
 set -e
 
 if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "prod" ]]; then
@@ -20,12 +21,10 @@ fi
 echo "Removing old build files..."
 rm -rf build dist
 rm -rf firefox chrome release
-echo "Checking code style..."
-if gts check 1> /dev/null ; then
+if ./node_modules/prettier/bin-prettier.js --check $STYLEFILES 1> /dev/null ; then
     true
 else
-    echo "Fixing code style..."
-    gts fix
+    ./node_modules/prettier/bin-prettier.js --check $STYLEFILES --write
 fi
 
 if ! [[ $CREDS =~ $CREDREGEX ]] ; then
