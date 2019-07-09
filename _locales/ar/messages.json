@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "خطأ سرية. Base32 فقط (من الألف إلى الياء، 2-7 و =) وست عشري (0-9 و A-F) معتمدة. ومع ذلك، السر الخاصة بك: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
