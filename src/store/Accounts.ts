@@ -162,11 +162,13 @@ export class Accounts implements IModule {
           await state.dispatch('updateEntries');
           state.commit('style/hideInfo', null, { root: true });
 
-          document.cookie = 'passphrase=' + password;
-          chrome.runtime.sendMessage({
-            action: 'cachePassphrase',
-            value: password,
-          });
+          if (!state.getters.currentlyEncrypted) {
+            document.cookie = 'passphrase=' + password;
+            chrome.runtime.sendMessage({
+              action: 'cachePassphrase',
+              value: password,
+            });
+          }
           return;
         },
         changePassphrase: async (
