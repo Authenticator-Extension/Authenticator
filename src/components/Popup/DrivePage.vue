@@ -6,7 +6,7 @@
         v-show="!isEncrypted || !encryption.getEncryptionStatus()"
       >{{ i18n.dropbox_risk }}</div>
       <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px">{{ i18n.account }} - {{ email }}</div>
+        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word;">{{ i18n.account }} - {{ email }}</div>
       </div>
       <div v-show="encryption.getEncryptionStatus() && backupToken">
         <label class="combo-label">{{ i18n.encrypted }}</label>

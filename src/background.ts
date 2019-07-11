@@ -145,6 +145,7 @@ async function getTotp(text: string) {
           } catch {
             issuer = parameter[1];
           }
+          issuer = issuer.replace(/\+/g, ' ');
         } else if (parameter[0].toLowerCase() === 'counter') {
           let counter = Number(parameter[1]);
           counter = isNaN(counter) || counter < 0 ? 0 : counter;
@@ -355,5 +356,42 @@ chrome.runtime.onInstalled.addListener(async details => {
 
   if (url) {
     window.open(url, '_blank');
+  }
+});
+
+chrome.commands.onCommand.addListener(async (command: string) => {
+  switch (command) {
+    case 'scan-qr':
+      await new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          try {
+            return chrome.tabs.executeScript(
+              { file: '/dist/content.js' },
+              () => {
+                chrome.tabs.insertCSS({ file: '/css/content.css' }, resolve);
+              }
+            );
+          } catch (error) {
+            console.error(error);
+            return reject(error);
+          }
+        }
+      );
+
+      if (cachedPassphrase === '') {
+        return;
+      }
+
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+        const tab = tabs[0];
+        if (!tab || !tab.id) {
+          return;
+        }
+        chrome.tabs.sendMessage(tab.id, { action: 'capture' });
+      });
+      break;
+
+    default:
+      break;
   }
 });

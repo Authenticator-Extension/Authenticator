@@ -30,6 +30,12 @@
             "dist/background.js"
         ]
     },
+    "commands": {
+        "_execute_browser_action": {},
+        "scan-qr": {
+            "description": "Scan a QR code"
+        }
+    },
     "permissions": [
         "activeTab",
         "<all_urls>",

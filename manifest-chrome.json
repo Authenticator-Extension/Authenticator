@@ -18,6 +18,9 @@
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
     },
+    "commands": {
+        "_execute_browser_action": {}
+    },
     "storage": {
         "managed_schema": "schema.json"
     },
