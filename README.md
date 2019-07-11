@@ -9,8 +9,6 @@
 ## Build Setup
 
 ``` bash
-# install gts globally
-npm install -g gts
 # install development dependencies
 npm install
 # compile
