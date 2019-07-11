@@ -68,9 +68,7 @@ export class Encryption implements IEncryption {
       }
 
       console.warn(
-        `Account ${
-          entry.hash
-        } may have secret ${decryptedSecret}, but hash did not match.`
+        `Account ${entry.hash} may have secret ${decryptedSecret}, but hash did not match.`
       );
       return null;
     } catch (error) {
