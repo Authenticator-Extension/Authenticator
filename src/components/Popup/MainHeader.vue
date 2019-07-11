@@ -1,64 +1,15 @@
 <template>
-  <div class="header">
-    <span>{{ i18n.extName }}</span>
-    <div v-show="!isPopup()">
-      <div
-        class="icon"
-        id="i-menu"
-        v-bind:title="i18n.settings"
-        v-on:click="showMenu()"
-        v-show="!style.isEditing"
-      >
-        <IconCog />
-      </div>
-      <div
-        class="icon"
-        id="i-lock"
-        v-bind:title="i18n.lock"
-        v-on:click="lock()"
-        v-show="!style.isEditing && encryption.getEncryptionStatus()"
-      >
-        <IconLock />
-      </div>
-      <div
-        class="icon"
-        id="i-sync"
-        v-bind:style="{
-          left: encryption.getEncryptionStatus() ? '70px' : '45px'
-        }"
-        v-show="(dropboxToken || driveToken) && !style.isEditing"
-      >
-        <IconSync />
-      </div>
-      <div
-        class="icon"
-        id="i-qr"
-        v-bind:title="i18n.add_qr"
-        v-show="!style.isEditing"
-        v-on:click="beginCapture()"
-      >
-        <IconScan />
-      </div>
-      <div
-        class="icon"
-        id="i-edit"
-        v-bind:title="i18n.edit"
-        v-if="!style.isEditing"
-        v-on:click="editEntry()"
-      >
-        <IconPencil />
-      </div>
-      <div
-        class="icon"
-        id="i-edit"
-        v-bind:title="i18n.edit"
-        v-else
-        v-on:click="editEntry()"
-      >
-        <IconCheck />
-      </div>
+    <div class="header">
+        <span>{{ i18n.extName }}</span>
+        <div v-show="!isPopup()">
+            <div class="icon" id="i-menu" v-bind:title="i18n.settings" v-on:click="showMenu()" v-show="!style.isEditing"><IconCog /></div>
+            <div class="icon" id="i-lock" v-bind:title="i18n.lock" v-on:click="lock()" v-show="!style.isEditing && encryption.getEncryptionStatus()"><IconLock /></div>
+            <div class="icon" id="i-sync" v-bind:style="{left: encryption.getEncryptionStatus() ? '70px' : '45px'}" v-show="(dropboxToken || driveToken) && !style.isEditing"><IconSync /></div>
+            <div class="icon" id="i-qr" v-bind:title="i18n.add_qr" v-show="!style.isEditing" v-on:click="beginCapture()"><IconScan /></div>
+            <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-if="!style.isEditing" v-on:click="editEntry()"><IconPencil /></div>
+            <div class="icon" id="i-edit" v-bind:title="i18n.edit" v-else v-on:click="editEntry()"><IconCheck /></div>
+        </div>
     </div>
-  </div>
 </template>
 <script lang="ts">
 import Vue from "vue";

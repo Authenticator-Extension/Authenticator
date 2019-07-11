@@ -2,19 +2,9 @@
   <div id="import">
     <div v-if="!shouldShowPassphrase">
       <div class="import_tab">
-        <input
-          type="radio"
-          id="import_file_radio"
-          value="FileImport"
-          v-model="importType"
-        />
+        <input type="radio" id="import_file_radio" value="FileImport" v-model="importType" />
         <label for="import_file_radio">{{ i18n.import_backup_file }}</label>
-        <input
-          type="radio"
-          id="import_code_radio"
-          value="TextImport"
-          v-model="importType"
-        />
+        <input type="radio" id="import_code_radio" value="TextImport" v-model="importType" />
         <label for="import_code_radio">{{ i18n.import_backup_code }}</label>
       </div>
       <div>
@@ -23,15 +13,12 @@
           <a
             href="https://authenticator.cc/docs/en/otp-backup"
             target="_blank"
-            >{{ i18n.otp_backup_learn }}</a
-          >
+          >{{ i18n.otp_backup_learn }}</a>
         </p>
       </div>
       <component v-bind:is="importType" />
     </div>
-    <div v-if="shouldShowPassphrase" class="error_password">
-      {{ i18n.import_error_password }}
-    </div>
+    <div v-if="shouldShowPassphrase" class="error_password">{{ i18n.import_error_password }}</div>
   </div>
 </template>
 <script lang="ts">
@@ -47,8 +34,8 @@ export default Vue.extend({
     };
   },
   components: {
-    FileImport,
-    TextImport
+      FileImport,
+      TextImport
   }
 });
 

@@ -1,3 +1,3 @@
 interface I18nMessage {
-  [key: string]: { message: string; description: string };
+    [key: string]: { message: string, description: string };
 }

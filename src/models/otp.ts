@@ -1,6 +1,6 @@
-import { Encryption } from "./encryption";
-import { KeyUtilities } from "./key-utilities";
-import { EntryStorage } from "./storage";
+import { Encryption } from './encryption';
+import { KeyUtilities } from './key-utilities';
+import { EntryStorage } from './storage';
 
 export enum OTPType {
   totp = 1,
@@ -8,7 +8,7 @@ export enum OTPType {
   battle,
   steam,
   hex,
-  hhex
+  hhex,
 }
 
 export class OTPEntry implements IOTPEntry {
@@ -21,7 +21,7 @@ export class OTPEntry implements IOTPEntry {
   hash: string;
   counter: number;
   period: number;
-  code = "&bull;&bull;&bull;&bull;&bull;&bull;";
+  code = '&bull;&bull;&bull;&bull;&bull;&bull;';
 
   constructor(entry: {
     account: string;
@@ -97,9 +97,9 @@ export class OTPEntry implements IOTPEntry {
 
   generate() {
     if (!this.secret && !this.encSecret) {
-      this.code = "Invalid";
+      this.code = 'Invalid';
     } else if (!this.secret) {
-      this.code = "Encrypted";
+      this.code = 'Encrypted';
     } else {
       try {
         this.code = KeyUtilities.generate(
@@ -109,9 +109,9 @@ export class OTPEntry implements IOTPEntry {
           this.period
         );
       } catch (error) {
-        this.code = "Invalid";
+        this.code = 'Invalid';
         if (parent) {
-          parent.postMessage(`Invalid secret: [${this.secret}]`, "*");
+          parent.postMessage(`Invalid secret: [${this.secret}]`, '*');
         }
       }
     }

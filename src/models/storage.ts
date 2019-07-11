@@ -1,12 +1,12 @@
-import * as CryptoJS from "crypto-js";
+import * as CryptoJS from 'crypto-js';
 
-import { Encryption } from "./encryption";
-import { OTPEntry, OTPType } from "./otp";
+import { Encryption } from './encryption';
+import { OTPEntry, OTPType } from './otp';
 
 export class BrowserStorage {
   private static async getStorageLocation() {
-    const managedLocation = await ManagedStorage.get("storageArea");
-    if (managedLocation === "sync" || managedLocation === "local") {
+    const managedLocation = await ManagedStorage.get('storageArea');
+    if (managedLocation === 'sync' || managedLocation === 'local') {
       return new Promise(resolve => {
         if (localStorage.storageLocation !== managedLocation) {
           localStorage.storageLocation = managedLocation;
@@ -15,8 +15,8 @@ export class BrowserStorage {
         return;
       });
     } else if (
-      localStorage.storageLocation !== "sync" &&
-      localStorage.storageLocation !== "local"
+      localStorage.storageLocation !== 'sync' &&
+      localStorage.storageLocation !== 'local'
     ) {
       return new Promise((resolve, reject) => {
         let amountSync: number;
@@ -29,12 +29,12 @@ export class BrowserStorage {
               // If storage location can't be found try to auto-detect storage
               // location
               if (amountLocal > amountSync && amountSync === 0) {
-                localStorage.storageLocation = "local";
+                localStorage.storageLocation = 'local';
               } else if (amountLocal < amountSync && amountLocal === 0) {
-                localStorage.storageLocation = "sync";
+                localStorage.storageLocation = 'sync';
               } else {
                 // Use default
-                localStorage.storageLocation = "sync";
+                localStorage.storageLocation = 'sync';
               }
               resolve(localStorage.storageLocation);
               return;
@@ -56,9 +56,9 @@ export class BrowserStorage {
   /* tslint:disable-next-line:no-any */
   static async get(callback: (items: { [key: string]: any }) => void) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === "local") {
+    if (storageLocation === 'local') {
       chrome.storage.local.get(callback);
-    } else if (storageLocation === "sync") {
+    } else if (storageLocation === 'sync') {
       chrome.storage.sync.get(callback);
     }
     return;
@@ -66,9 +66,9 @@ export class BrowserStorage {
 
   static async set(data: object, callback?: (() => void) | undefined) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === "local") {
+    if (storageLocation === 'local') {
       chrome.storage.local.set(data, callback);
-    } else if (storageLocation === "sync") {
+    } else if (storageLocation === 'sync') {
       chrome.storage.sync.set(data, callback);
     }
     return;
@@ -79,9 +79,9 @@ export class BrowserStorage {
     callback?: (() => void) | undefined
   ) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === "local") {
+    if (storageLocation === 'local') {
       chrome.storage.local.remove(data, callback);
-    } else if (storageLocation === "sync") {
+    } else if (storageLocation === 'sync') {
       chrome.storage.sync.remove(data, callback);
     }
     return;
@@ -101,7 +101,7 @@ export class EntryStorage {
       issuer: entry.issuer,
       type: OTPType[entry.type],
       counter: entry.counter, // TODO: Make this optional for non HOTP accounts
-      secret: encryption.getEncryptedSecret(entry)
+      secret: encryption.getEncryptedSecret(entry),
     };
 
     if (entry.period && entry.period !== 30) {
@@ -136,7 +136,7 @@ export class EntryStorage {
 
   /* tslint:disable-next-line:no-any */
   private static isOTPStorage(entry: any) {
-    if (!entry || !entry.hasOwnProperty("secret")) {
+    if (!entry || !entry.hasOwnProperty('secret')) {
       return false;
     }
 
@@ -147,7 +147,7 @@ export class EntryStorage {
     _data: { [hash: string]: OTPStorage },
     hash: string
   ) {
-    if (typeof _data[hash] !== "object") {
+    if (typeof _data[hash] !== 'object') {
       console.log('Key "' + hash + '" is not an object');
       return false;
     } else {
@@ -236,10 +236,10 @@ export class EntryStorage {
               }
 
               data[hash].hash = data[hash].hash || hash;
-              data[hash].account = data[hash].account || "";
+              data[hash].account = data[hash].account || '';
               data[hash].encrypted = encryption.getEncryptionStatus();
               data[hash].index = data[hash].index || 0;
-              data[hash].issuer = data[hash].issuer || "";
+              data[hash].issuer = data[hash].issuer || '';
               data[hash].type = data[hash].type || OTPType[OTPType.totp];
               data[hash].counter = data[hash].counter || 0;
               const period = data[hash].period;
@@ -321,7 +321,7 @@ export class EntryStorage {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
             if (_data.hasOwnProperty(entry.hash)) {
-              throw new Error("The specific entry has already existed.");
+              throw new Error('The specific entry has already existed.');
             }
             const storageItem = this.getOTPStorageFromEntry(encryption, entry);
             _data[entry.hash] = storageItem;
@@ -342,7 +342,7 @@ export class EntryStorage {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
             if (!_data.hasOwnProperty(entry.hash)) {
-              throw new Error("Entry to change does not exist.");
+              throw new Error('Entry to change does not exist.');
             }
             const storageItem = this.getOTPStorageFromEntry(encryption, entry);
             _data[entry.hash] = storageItem;
@@ -408,12 +408,12 @@ export class EntryStorage {
 
               let type: OTPType;
               switch (entryData.type) {
-                case "totp":
-                case "hotp":
-                case "battle":
-                case "steam":
-                case "hex":
-                case "hhex":
+                case 'totp':
+                case 'hotp':
+                case 'battle':
+                case 'steam':
+                case 'hex':
+                case 'hhex':
                   type = OTPType[entryData.type];
                   break;
                 default:
@@ -442,7 +442,7 @@ export class EntryStorage {
                 secret: entryData.secret,
                 type,
                 counter: entryData.counter,
-                period
+                period,
               });
               entry.applyEncryption(encryption);
               data.push(entry);
@@ -450,7 +450,7 @@ export class EntryStorage {
               if (entry.secret !== null && !/^[0-9a-f]{32}$/.test(hash)) {
                 const _hash = CryptoJS.MD5(entry.secret).toString();
                 if (hash !== _hash) {
-                  console.warn("Invalid hash:", entry);
+                  console.warn('Invalid hash:', entry);
                 }
               }
             }

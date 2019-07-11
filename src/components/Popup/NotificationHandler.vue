@@ -2,7 +2,7 @@
   <div>
     <!-- MESSAGE -->
     <div class="message-box" v-show="message.length && messageIdle">
-      <div>{{ message.length ? message[0] : "" }}</div>
+      <div>{{ message.length ? message[0] : '' }}</div>
       <div class="button-small" v-on:click="closeAlert()">{{ i18n.ok }}</div>
     </div>
 
@@ -11,17 +11,12 @@
       <div>{{ confirmMessage }}</div>
       <div class="buttons">
         <div class="button-small" v-on:click="confirmOK()">{{ i18n.yes }}</div>
-        <div class="button-small" v-on:click="confirmCancel()">
-          {{ i18n.no }}
-        </div>
+        <div class="button-small" v-on:click="confirmCancel()">{{ i18n.no }}</div>
       </div>
     </div>
 
     <!-- OVERLAY -->
-    <div
-      id="overlay"
-      v-show="(message.length && messageIdle) || confirmMessage !== ''"
-    ></div>
+    <div id="overlay" v-show="message.length && messageIdle || confirmMessage !== ''"></div>
   </div>
 </template>
 <script lang="ts">

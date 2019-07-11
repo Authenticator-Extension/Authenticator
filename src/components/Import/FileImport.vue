@@ -83,10 +83,7 @@ export default Vue.extend({
             decryptedFileData = importData;
           }
           if (Object.keys(decryptedFileData).length) {
-            await EntryStorage.import(
-              this.$encryption as Encryption,
-              decryptedFileData
-            );
+            await EntryStorage.import(this.$encryption as Encryption, decryptedFileData);
             alert(this.i18n.updateSuccess);
             if (closeWindow) {
               window.close();
@@ -125,3 +122,4 @@ export default Vue.extend({
   }
 });
 </script>
+

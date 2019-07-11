@@ -1,13 +1,13 @@
-import { ActionContext } from "vuex";
+import { ActionContext } from 'vuex';
 
 export class Notification implements IModule {
   getModule() {
     return {
       state: {
         message: [], // Message content for alert with ok button
-        confirmMessage: "", // Message content for alert with yes / no
+        confirmMessage: '', // Message content for alert with yes / no
         messageIdle: true, // Should show alert box?
-        notification: "" // Ephermal message text
+        notification: '', // Ephermal message text
       },
       mutations: {
         alert: (state: NotificationState, message: string) => {
@@ -25,7 +25,7 @@ export class Notification implements IModule {
         },
         setNotification: (state: NotificationState, message: string) => {
           state.notification = message;
-        }
+        },
       },
       actions: {
         confirm: async (
@@ -33,9 +33,9 @@ export class Notification implements IModule {
           message: string
         ) => {
           return new Promise((resolve: (value: boolean) => void) => {
-            state.commit("setConfirm", message);
-            window.addEventListener("confirm", event => {
-              state.commit("setConfirm", "");
+            state.commit('setConfirm', message);
+            window.addEventListener('confirm', event => {
+              state.commit('setConfirm', '');
               if (!this.isCustomEvent(event)) {
                 resolve(false);
                 return;
@@ -49,15 +49,15 @@ export class Notification implements IModule {
           state: ActionContext<NotificationState, {}>,
           message: string
         ) => {
-          state.commit("setNotification", message);
-          state.commit("style/showNotification", null, { root: true });
-        }
+          state.commit('setNotification', message);
+          state.commit('style/showNotification', null, { root: true });
+        },
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 
   private isCustomEvent(event: Event): event is CustomEvent {
-    return "detail" in event;
+    return 'detail' in event;
   }
 }

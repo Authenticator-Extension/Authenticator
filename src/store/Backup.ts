@@ -2,10 +2,10 @@ export class Backup implements IModule {
   getModule() {
     return {
       state: {
-        dropboxEncrypted: localStorage.dropboxEncrypted === "true",
-        driveEncrypted: localStorage.driveEncrypted === "true",
+        dropboxEncrypted: localStorage.dropboxEncrypted === 'true',
+        driveEncrypted: localStorage.driveEncrypted === 'true',
         dropboxToken: Boolean(localStorage.dropboxToken),
-        driveToken: Boolean(localStorage.driveToken)
+        driveToken: Boolean(localStorage.driveToken),
       },
       mutations: {
         setToken(
@@ -13,11 +13,11 @@ export class Backup implements IModule {
           args: { service: string; value: boolean }
         ) {
           switch (args.service) {
-            case "dropbox":
+            case 'dropbox':
               state.dropboxToken = args.value;
               break;
 
-            case "drive":
+            case 'drive':
               state.driveToken = args.value;
               break;
 
@@ -27,20 +27,20 @@ export class Backup implements IModule {
         },
         setEnc(state: BackupState, args: { service: string; value: boolean }) {
           switch (args.service) {
-            case "dropbox":
+            case 'dropbox':
               state.dropboxEncrypted = args.value;
               break;
 
-            case "drive":
+            case 'drive':
               state.driveEncrypted = args.value;
               break;
 
             default:
               break;
           }
-        }
+        },
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }
