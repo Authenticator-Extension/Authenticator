@@ -1,15 +1,29 @@
 <template>
   <div>
-    <label>{{ i18n.accountName }}</label>
-    <input type="text" class="input" v-model="newAccount.account">
+    <label>{{ i18n.issuer }}</label>
+    <input type="text" class="input" v-model="newAccount.issuer" />
     <label>{{ i18n.secret }}</label>
-    <input type="text" class="input" v-model="newAccount.secret">
-    <select v-model="newAccount.type">
-      <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
-      <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
-      <option v-bind:value="OTPType.battle">Battle.net</option>
-      <option v-bind:value="OTPType.steam">Steam</option>
-    </select>
+    <input type="text" class="input" v-model="newAccount.secret" />
+    <details>
+      <summary>{{ i18n.advanced }}</summary>
+      <label>{{ i18n.accountName }}</label>
+      <input type="text" class="input" v-model="newAccount.account" />
+      <label>{{ i18n.period }}</label>
+      <input
+        type="number"
+        min="1"
+        class="input"
+        v-model.number="newAccount.period"
+        v-bind:disabled="newAccount.type === OTPType.hotp"
+      />
+      <label class="combo-label">{{ i18n.type }}</label>
+      <select v-model="newAccount.type">
+        <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
+        <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
+        <option v-bind:value="OTPType.battle">Battle.net</option>
+        <option v-bind:value="OTPType.steam">Steam</option>
+      </select>
+    </details>
     <div class="button-small" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
   </div>
 </template>
@@ -17,27 +31,30 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry } from "../../models/otp";
-import * as CryptoJS from 'crypto-js';
+import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
-  data: function () {
+  data: function() {
     return {
       newAccount: {
+        issuer: "",
         account: "",
         secret: "",
-        type: OTPType.totp
+        type: OTPType.totp,
+        period: 30
       }
     };
   },
   computed: mapState("accounts", ["OTPType"]),
   methods: {
     async addNewAccount() {
-      this.newAccount.secret = this.newAccount.secret.replace(/ /g, '');
+      this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
+
       if (
         !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
         !/^[0-9a-f]+$/i.test(this.newAccount.secret)
       ) {
-        this.$store.commit('notification/alert', this.i18n.errorsecret)
+        this.$store.commit("notification/alert", this.i18n.errorsecret);
         return;
       }
       let type: OTPType;
@@ -56,22 +73,34 @@ export default Vue.extend({
       } else {
         type = this.newAccount.type;
       }
-      const entry = new OTPEntry({ 
+
+      if (type === OTPType.hhex || type === OTPType.hotp) {
+        this.newAccount.period = NaN;
+      } else if (
+        this.newAccount.period < 1 ||
+        typeof this.newAccount.period !== "number"
+      ) {
+        this.newAccount.period = NaN;
+      }
+
+      const entry = new OTPEntry({
         type,
         index: 0,
-        issuer: '',
+        issuer: this.newAccount.issuer,
         account: this.newAccount.account,
         encrypted: false,
         hash: CryptoJS.MD5(this.newAccount.secret).toString(),
         secret: this.newAccount.secret,
-        counter: 0
-        }
-      );
+        counter: 0,
+        period: this.newAccount.period
+      });
+
       await entry.create(this.$store.state.accounts.encryption);
-      await this.$store.dispatch('accounts/updateEntries');
-      this.$store.commit('style/hideInfo');
-      this.$store.commit('style/toggleEdit');
-      const codes = document.getElementById('codes');
+      await this.$store.dispatch("accounts/updateEntries");
+      this.$store.commit("style/hideInfo");
+      this.$store.commit("style/toggleEdit");
+
+      const codes = document.getElementById("codes");
       if (codes) {
         // wait vue apply changes to dom
         setTimeout(() => {
