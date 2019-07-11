@@ -1,10 +1,10 @@
-import Vue from 'vue';
-import ImportView from './components/Import.vue';
-import { loadI18nMessages } from './store/i18n';
+import Vue from "vue";
+import ImportView from "./components/Import.vue";
+import { loadI18nMessages } from "./store/i18n";
 
-import { Encryption } from './models/encryption';
-import { EntryStorage } from './models/storage';
-import * as CryptoJS from 'crypto-js';
+import { Encryption } from "./models/encryption";
+import { EntryStorage } from "./models/storage";
+import * as CryptoJS from "crypto-js";
 
 async function init() {
   // i18n
@@ -16,8 +16,8 @@ async function init() {
   Vue.prototype.$encryption = encryption;
 
   const instance = new Vue({
-    render: h => h(ImportView),
-  }).$mount('#import');
+    render: h => h(ImportView)
+  }).$mount("#import");
 
   // Set title
   try {
@@ -43,7 +43,7 @@ function getCachedPassphrase() {
       }
 
       chrome.runtime.sendMessage(
-        { action: 'passphrase' },
+        { action: "passphrase" },
         (passphrase: string) => {
           return resolve(passphrase);
         }
@@ -58,7 +58,7 @@ export function decryptBackupData(
 ) {
   const decryptedbackupData: { [hash: string]: OTPStorage } = {};
   for (const hash of Object.keys(backupData)) {
-    if (typeof backupData[hash] !== 'object') {
+    if (typeof backupData[hash] !== "object") {
       continue;
     }
     if (!backupData[hash].secret) {
@@ -89,25 +89,25 @@ export function decryptBackupData(
 }
 
 export function getEntryDataFromOTPAuthPerLine(importCode: string) {
-  const lines = importCode.split('\n');
+  const lines = importCode.split("\n");
   const exportData: { [hash: string]: OTPStorage } = {};
   for (let item of lines) {
     item = item.trim();
-    if (!item.startsWith('otpauth:')) {
+    if (!item.startsWith("otpauth:")) {
       continue;
     }
 
-    let uri = item.split('otpauth://')[1];
+    let uri = item.split("otpauth://")[1];
     let type = uri.substr(0, 4).toLowerCase();
     uri = uri.substr(5);
-    let label = uri.split('?')[0];
-    const parameterPart = uri.split('?')[1];
+    let label = uri.split("?")[0];
+    const parameterPart = uri.split("?")[1];
     if (!parameterPart) {
       continue;
     } else {
-      let account = '';
-      let secret = '';
-      let issuer = '';
+      let account = "";
+      let secret = "";
+      let issuer = "";
       let period: number | undefined = undefined;
 
       try {
@@ -115,28 +115,28 @@ export function getEntryDataFromOTPAuthPerLine(importCode: string) {
       } catch (error) {
         console.error(error);
       }
-      if (label.indexOf(':') !== -1) {
-        issuer = label.split(':')[0];
-        account = label.split(':')[1];
+      if (label.indexOf(":") !== -1) {
+        issuer = label.split(":")[0];
+        account = label.split(":")[1];
       } else {
         account = label;
       }
-      const parameters = parameterPart.split('&');
+      const parameters = parameterPart.split("&");
       parameters.forEach(item => {
-        const parameter = item.split('=');
-        if (parameter[0].toLowerCase() === 'secret') {
+        const parameter = item.split("=");
+        if (parameter[0].toLowerCase() === "secret") {
           secret = parameter[1];
-        } else if (parameter[0].toLowerCase() === 'issuer') {
+        } else if (parameter[0].toLowerCase() === "issuer") {
           try {
             issuer = decodeURIComponent(parameter[1]);
           } catch {
             issuer = parameter[1];
           }
-          issuer = issuer.replace(/\+/g, ' ');
-        } else if (parameter[0].toLowerCase() === 'counter') {
+          issuer = issuer.replace(/\+/g, " ");
+        } else if (parameter[0].toLowerCase() === "counter") {
           let counter = Number(parameter[1]);
           counter = isNaN(counter) || counter < 0 ? 0 : counter;
-        } else if (parameter[0].toLowerCase() === 'period') {
+        } else if (parameter[0].toLowerCase() === "period") {
           period = Number(parameter[1]);
           period =
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
@@ -157,15 +157,15 @@ export function getEntryDataFromOTPAuthPerLine(importCode: string) {
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === 'totp'
+          type === "totp"
         ) {
-          type = 'hex';
+          type = "hex";
         } else if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === 'hotp'
+          type === "hotp"
         ) {
-          type = 'hhex';
+          type = "hhex";
         }
 
         exportData[hash] = {
@@ -176,7 +176,7 @@ export function getEntryDataFromOTPAuthPerLine(importCode: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0,
+          counter: 0
         };
         if (period) {
           exportData[hash].period = period;

@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'position') {
+  if (message.action === "position") {
     if (!sender.tab) {
       return;
     }
@@ -22,15 +22,15 @@ function getQrDebug(
   height: number,
   windowWidth: number
 ) {
-  chrome.tabs.captureVisibleTab(tab.windowId, { format: 'png' }, dataUrl => {
+  chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" }, dataUrl => {
     const qr = new Image();
     qr.src = dataUrl;
     qr.onload = () => {
       const devicePixelRatio = qr.width / windowWidth;
-      const captureCanvas = document.createElement('canvas');
+      const captureCanvas = document.createElement("canvas");
       captureCanvas.width = width * devicePixelRatio;
       captureCanvas.height = height * devicePixelRatio;
-      const ctx = captureCanvas.getContext('2d');
+      const ctx = captureCanvas.getContext("2d");
       if (!ctx) {
         return;
       }
@@ -46,10 +46,10 @@ function getQrDebug(
         height * devicePixelRatio
       );
       const url = captureCanvas.toDataURL();
-      const infoDom = document.getElementById('info');
+      const infoDom = document.getElementById("info");
       if (infoDom) {
         infoDom.innerHTML =
-          '<b>Scan Data:</b><br>' +
+          "<b>Scan Data:</b><br>" +
           `<br>` +
           `Window Inner Width: ${windowWidth}<br>` +
           `Width: ${width}<br>` +
@@ -64,11 +64,11 @@ function getQrDebug(
             window.devicePixelRatio
           }<br>` +
           `Tab ID: ${tab.id}<br>` +
-          '<br>' +
-          '<b>Captured Screenshot:</b>';
+          "<br>" +
+          "<b>Captured Screenshot:</b>";
       }
 
-      const qrDom = document.getElementById('qr') as HTMLImageElement;
+      const qrDom = document.getElementById("qr") as HTMLImageElement;
       if (qrDom) {
         qrDom.src = url;
       }

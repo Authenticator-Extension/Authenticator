@@ -6,7 +6,7 @@ export async function loadI18nMessages() {
     ) => {
       try {
         const xhr = new XMLHttpRequest();
-        xhr.overrideMimeType('application/json');
+        xhr.overrideMimeType("application/json");
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
             const i18nMessage: I18nMessage = JSON.parse(xhr.responseText);
@@ -18,7 +18,7 @@ export async function loadI18nMessages() {
           }
           return;
         };
-        xhr.open('GET', chrome.extension.getURL('/_locales/en/messages.json'));
+        xhr.open("GET", chrome.extension.getURL("/_locales/en/messages.json"));
         xhr.send();
       } catch (error) {
         return reject(error);

@@ -1,6 +1,5 @@
+declare module "vue2-dragula" {
+  import { PluginFunction, VueConstructor } from "vue";
 
-declare module 'vue2-dragula' {
-    import { PluginFunction, VueConstructor } from "vue";
-
-    const Vue2Dragula: PluginFunction<VueConstructor>;
+  const Vue2Dragula: PluginFunction<VueConstructor>;
 }

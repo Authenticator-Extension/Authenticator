@@ -1,10 +1,20 @@
 <template>
-  <div id="codes" v-bind:class="{'filter': shouldFilter && filter, 'search': showSearch}">
+  <div
+    id="codes"
+    v-bind:class="{ filter: shouldFilter && filter, search: showSearch }"
+  >
     <!-- Filter -->
-    <div class="under-header" id="filter" v-on:click="clearFilter()">{{ i18n.show_all_entries }}</div>
+    <div class="under-header" id="filter" v-on:click="clearFilter()">
+      {{ i18n.show_all_entries }}
+    </div>
     <!-- Search -->
     <div class="under-header" id="search">
-      <input id="searchInput" v-model="searchText" v-bind:placeholder="i18n.search" type="text" />
+      <input
+        id="searchInput"
+        v-model="searchText"
+        v-bind:placeholder="i18n.search"
+        type="text"
+      />
       <div id="searchHint" v-if="searchText === ''">
         <div></div>
         <div id="searchHintBorder">/</div>
@@ -91,10 +101,25 @@ export default Vue.extend({
     });
 
     // Update entry index if dragged
-    this.$dragula.$service.eventBus.$on("dropModel", async ({ dragIndex, dropIndex }: {dragIndex: number, dropIndex: number}) => {
-        this.$store.commit("accounts/moveCode", { from: dragIndex, to: dropIndex });
-        await EntryStorage.set(this.$store.state.accounts.encryption, this.$store.state.accounts.entries);
-    })
+    this.$dragula.$service.eventBus.$on(
+      "dropModel",
+      async ({
+        dragIndex,
+        dropIndex
+      }: {
+        dragIndex: number;
+        dropIndex: number;
+      }) => {
+        this.$store.commit("accounts/moveCode", {
+          from: dragIndex,
+          to: dropIndex
+        });
+        await EntryStorage.set(
+          this.$store.state.accounts.encryption,
+          this.$store.state.accounts.entries
+        );
+      }
+    );
   },
   components: {
     EntryComponent,
