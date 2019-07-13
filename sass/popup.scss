@@ -548,6 +548,7 @@ svg {
 // Info
 #info {
   position: absolute;
+  display: none;
   height: 460px;
   width: 300px;
   padding: 10px;
@@ -558,7 +559,7 @@ svg {
     box-shadow: 1px 1px 3px themed("grey-1");
   }
   left: 10px;
-  top: -1000px;
+  top: 10px;
   z-index: 100;
 
   #infoContent {
@@ -642,12 +643,12 @@ svg {
   }
 
   &.fadein {
-    top: 10px;
+    display: inherit;
     animation: fadein 0.2s 1 ease-out;
   }
 
   &.fadeout {
-    top: 110px;
+    display: inherit;
     animation: fadeout 0.2s 1 ease-in;
   }
 }
@@ -657,17 +658,17 @@ svg {
   width: 320px;
   height: 480px;
   position: absolute;
-  left: -1000px;
+  display: none;
   top: 0;
 
   &.slidein {
-    left: 0;
+    display: inherit;
     animation: slidein 0.2s 1 ease-out;
     opacity: 1;
   }
 
   &.slideout {
-    left: -55px;
+    display: inherit;
     animation: slideout 0.2s 1 ease-in;
     opacity: 0;
   }
