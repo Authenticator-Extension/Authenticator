@@ -33,7 +33,7 @@
         style="width: 70px;"
         v-model="autolock"
       />
-      <span style="margin-top: 10px;">{{ i18n.seconds }}</span>
+      <span style="margin-top: 10px;">{{ i18n.minutes }}</span>
     </div>
     <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
   </div>

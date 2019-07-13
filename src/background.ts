@@ -407,6 +407,6 @@ function setAutolock() {
   if (Number(localStorage.autolock) > 0) {
     autolockTimeout = setTimeout(() => {
       cachedPassphrase = "";
-    }, Number(localStorage.autolock) * 1000);
+    }, Number(localStorage.autolock) * 60000);
   }
 }

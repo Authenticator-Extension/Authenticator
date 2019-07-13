@@ -307,7 +307,7 @@
     "autolock": {
         "message": "Lock after"
     },
-    "seconds": {
-        "message": "seconds"
+    "minutes": {
+        "message": "minutes"
     }
 }
