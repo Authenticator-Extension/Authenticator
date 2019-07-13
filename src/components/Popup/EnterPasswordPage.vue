@@ -9,7 +9,14 @@
       v-on:keyup.enter="applyPassphrase()"
       autofocus
     />
-    <div class="button-small" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
+    <div
+      class="button-small"
+      tabindex="0"
+      v-on:keyup.enter="applyPassphrase()"
+      v-on:click="applyPassphrase()"
+    >
+      {{ i18n.ok }}
+    </div>
   </div>
 </template>
 <script lang="ts">

@@ -2,8 +2,10 @@
   <div id="info">
     <div
       id="infoClose"
+      tabindex="0"
       v-if="info !== 'EnterPasswordPage'"
       v-on:click="hideInfo()"
+      v-on:keyup.enter="hideInfo()"
     >
       <IconXCircle />
     </div>

@@ -7,7 +7,9 @@
         id="i-menu"
         v-bind:title="i18n.settings"
         v-on:click="showMenu()"
+        v-on:keyup.enter="showMenu()"
         v-show="!style.isEditing"
+        v-bind:tabindex="tabindex"
       >
         <IconCog />
       </div>
@@ -16,7 +18,9 @@
         id="i-lock"
         v-bind:title="i18n.lock"
         v-on:click="lock()"
+        v-on:keyup.enter="lock()"
         v-show="!style.isEditing && encryption.getEncryptionStatus()"
+        v-bind:tabindex="tabindex"
       >
         <IconLock />
       </div>
@@ -36,6 +40,8 @@
         v-bind:title="i18n.add_qr"
         v-show="!style.isEditing"
         v-on:click="beginCapture()"
+        v-on:keyup.enter="beginCapture()"
+        v-bind:tabindex="tabindex"
       >
         <IconScan />
       </div>
@@ -45,6 +51,8 @@
         v-bind:title="i18n.edit"
         v-if="!style.isEditing"
         v-on:click="editEntry()"
+        v-on:keyup.enter="editEntry()"
+        v-bind:tabindex="tabindex"
       >
         <IconPencil />
       </div>
@@ -54,6 +62,8 @@
         v-bind:title="i18n.edit"
         v-else
         v-on:click="editEntry()"
+        v-on:keyup.enter="editEntry()"
+        v-bind:tabindex="tabindex"
       >
         <IconCheck />
       </div>
@@ -62,7 +72,6 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
 import { OTPEntry } from "../../models/otp";
 
 // Icons
@@ -73,20 +82,24 @@ import IconScan from "../../../svg/scan.svg";
 import IconPencil from "../../../svg/pencil.svg";
 import IconCheck from "../../../svg/check.svg";
 
-const computedPrototype = [
-  mapState("style", ["style"]),
-  mapState("accounts", ["encryption"]),
-  mapState("backup", ["driveToken", "dropboxToken"])
-];
-
-let computed = {};
-
-for (const module of computedPrototype) {
-  Object.assign(computed, module);
-}
-
 export default Vue.extend({
-  computed,
+  computed: {
+    style(): StyleState {
+      return this.$store.state.style.style;
+    },
+    encryption(): IEncryption {
+      return this.$store.state.accounts.encryption;
+    },
+    driveToken(): boolean {
+      return this.$store.state.backup.driveToken;
+    },
+    dropboxToken(): boolean {
+      return this.$store.state.backup.dropboxToken;
+    },
+    tabindex(): number {
+      return this.$store.getters["style/tabindex"];
+    }
+  },
   methods: {
     isPopup() {
       const params = new URLSearchParams(document.location.search.substring(1));

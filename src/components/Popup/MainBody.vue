@@ -4,13 +4,20 @@
     v-bind:class="{ filter: shouldFilter && filter, search: showSearch }"
   >
     <!-- Filter -->
-    <div class="under-header" id="filter" v-on:click="clearFilter()">
+    <div
+      v-bind:tabindex="tabindex"
+      class="under-header"
+      id="filter"
+      v-on:click="clearFilter()"
+      v-on:keyup.enter="clearFilter()"
+    >
       {{ i18n.show_all_entries }}
     </div>
     <!-- Search -->
     <div class="under-header" id="search">
       <input
         id="searchInput"
+        v-bind:tabindex="tabindex"
         v-model="searchText"
         v-bind:placeholder="i18n.search"
         type="text"
@@ -26,10 +33,16 @@
       <EntryComponent
         class="entry"
         v-for="entry in entries"
-        :key="entry.hash"
+        v-bind:key="entry.hash"
         v-bind:filtered="!isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
         v-bind:entry="entry"
+        v-bind:tabindex="
+          (!isSearchedEntry(entry) && showSearch) ||
+          (!isMatchedEntry(entry) && filter && shouldFilter)
+            ? -1
+            : tabindex
+        "
       />
     </div>
     <div class="icon" id="add" v-on:click="showInfo('AddMethodPage')">
@@ -49,7 +62,11 @@ import IconPlus from "../../../svg/plus.svg";
 
 let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
 
-Object.assign(computed, mapGetters("accounts", ["shouldFilter"]));
+Object.assign(
+  computed,
+  mapGetters("accounts", ["shouldFilter"]),
+  mapGetters("style", ["tabindex"])
+);
 
 export default Vue.extend({
   data: function() {

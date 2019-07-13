@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <div class="deleteAction" v-on:click="removeEntry(entry)">
+  <div v-on:keyup.enter="copyCode(entry)">
+    <div
+      class="deleteAction"
+      tabindex="0"
+      v-on:click="removeEntry(entry)"
+      v-on:keyup.enter="removeEntry(entry)"
+    >
       <IconMinusCircle />
     </div>
     <div

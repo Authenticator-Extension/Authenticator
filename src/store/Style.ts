@@ -68,6 +68,41 @@ export class Style implements IModule {
           state.style.hotpDisabled = !state.style.hotpDisabled;
         }
       },
+      getters: {
+        tabindex(
+          { style }: StyleState,
+          getters: {},
+          rootState: { notification: NotificationState }
+        ) {
+          if (
+            style.fadein ||
+            style.slidein ||
+            (rootState.notification.message.length &&
+              rootState.notification.messageIdle) ||
+            rootState.notification.confirmMessage !== ""
+          ) {
+            return -1;
+          } else {
+            return 0;
+          }
+        },
+        menuTabindex(
+          { style }: StyleState,
+          getters: {},
+          rootState: { notification: NotificationState }
+        ) {
+          if (
+            style.fadein ||
+            (rootState.notification.message.length &&
+              rootState.notification.messageIdle) ||
+            rootState.notification.confirmMessage !== ""
+          ) {
+            return -1;
+          } else {
+            return 0;
+          }
+        }
+      },
       namespaced: true
     };
   }

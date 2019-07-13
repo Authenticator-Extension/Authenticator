@@ -2,7 +2,12 @@
   <div>
     <div class="text warning">{{ i18n.security_warning }}</div>
     <label>{{ i18n.phrase }}</label>
-    <input class="input" type="password" v-model="phrase" />
+    <input
+      class="input"
+      type="password"
+      v-on:keyup.enter="changePassphrase()"
+      v-model="phrase"
+    />
     <label>{{ i18n.confirm_phrase }}</label>
     <input
       class="input"
