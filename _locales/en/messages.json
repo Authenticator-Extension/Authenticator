@@ -303,5 +303,11 @@
     },
     "loading": {
         "message": "Loading..."
+    },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "seconds": {
+        "message": "seconds"
     }
 }

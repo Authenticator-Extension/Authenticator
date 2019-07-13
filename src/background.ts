@@ -9,6 +9,8 @@ import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive } from "./models/backup";
 
 let cachedPassphrase = "";
+let autolockTimeout: number;
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "position") {
     if (!sender.tab) {
@@ -24,12 +26,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     );
   } else if (message.action === "cachePassphrase") {
     cachedPassphrase = message.value;
+    clearTimeout(autolockTimeout);
+    setAutolock();
   } else if (message.action === "passphrase") {
     sendResponse(cachedPassphrase);
   } else if (["dropbox", "drive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
+  } else if (message.action === "resetAutolock") {
+    clearTimeout(autolockTimeout);
+    setAutolock();
   }
 });
 
@@ -395,3 +402,11 @@ chrome.commands.onCommand.addListener(async (command: string) => {
       break;
   }
 });
+
+function setAutolock() {
+  if (Number(localStorage.autolock) > 0) {
+    autolockTimeout = setTimeout(() => {
+      cachedPassphrase = "";
+    }, Number(localStorage.autolock) * 1000);
+  }
+}
