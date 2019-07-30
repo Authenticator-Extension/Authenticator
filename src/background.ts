@@ -167,7 +167,7 @@ async function getTotp(text: string) {
         chrome.tabs.sendMessage(id, { action: "secretqr", secret });
       } else {
         const encryption = new Encryption(cachedPassphrase);
-        const hash = CryptoJS.MD5(secret).toString();
+        const hash = CryptoJS.SHA256(secret).toString();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&

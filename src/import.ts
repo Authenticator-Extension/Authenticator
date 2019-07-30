@@ -153,7 +153,7 @@ export function getEntryDataFromOTPAuthPerLine(importCode: string) {
       ) {
         continue;
       } else {
-        const hash = CryptoJS.MD5(secret).toString();
+        const hash = CryptoJS.SHA256(secret).toString();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&

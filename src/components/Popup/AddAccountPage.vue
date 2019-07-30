@@ -62,7 +62,7 @@ export default Vue.extend({
         issuer: "",
         account: this.newAccount.account,
         encrypted: false,
-        hash: CryptoJS.MD5(this.newAccount.secret).toString(),
+        hash: CryptoJS.SHA256(this.newAccount.secret).toString(),
         secret: this.newAccount.secret,
         counter: 0
       });

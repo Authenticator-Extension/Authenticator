@@ -284,7 +284,7 @@ export class EntryStorage {
                 data[hash].type = OTPType[OTPType.hhex];
               }
 
-              const _hash = CryptoJS.MD5(data[hash].secret).toString();
+              const _hash = CryptoJS.SHA256(data[hash].secret).toString();
               // not a valid hash
               if (!/^[0-9a-f]{32}$/.test(hash)) {
                 data[_hash] = data[hash];
@@ -448,7 +448,7 @@ export class EntryStorage {
               data.push(entry);
 
               if (entry.secret !== null && !/^[0-9a-f]{32}$/.test(hash)) {
-                const _hash = CryptoJS.MD5(entry.secret).toString();
+                const _hash = CryptoJS.SHA256(entry.secret).toString();
                 if (hash !== _hash) {
                   console.warn("Invalid hash:", entry);
                 }

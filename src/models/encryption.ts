@@ -34,7 +34,7 @@ export class Encryption implements IEncryption {
 
   getDecryptedSecret(entry: { secret: string; hash: string }): string | null {
     try {
-      if (entry.hash === CryptoJS.MD5(entry.secret).toString()) {
+      if (entry.hash === CryptoJS.SHA256(entry.secret).toString()) {
         return entry.secret;
       }
 
@@ -51,7 +51,7 @@ export class Encryption implements IEncryption {
         return null;
       }
 
-      if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
+      if (entry.hash === CryptoJS.SHA256(decryptedSecret).toString()) {
         return decryptedSecret;
       }
 
