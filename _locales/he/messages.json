@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "אימות",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "אמת",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -36,83 +36,83 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "אישור",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "כן",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "לא",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "חשבון",
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Store Name",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "מנפיק",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "קוד אבטחה",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "הצליח.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "שגיאה.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "אודות",
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "ייצוא\/ייבוא",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "הגדרות",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "אבטחה",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "סיסמא נוכחית",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "סיסמה חדשה",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "סיסמא",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "אימות סיסמה",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "האם אתה בטוח שברצונך למחוק את החשבון הזה? לא ניתן לבטל פעולה זו.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "סיסמה זו תשמש להצפנת חשבונותיך. אף אחד לא יכול לעזור לך אם תשכח את הסיסמה.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "עדכן",
         "description": "Update."
     },
     "phrase_incorrect": {
