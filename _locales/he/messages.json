@@ -116,51 +116,51 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "אינך יכול להוסיף חשבון חדש או לייצא נתונים עד שכל החשבונות מפוענחים. אנא הזן את הסיסמה הנכונה לפני שתמשיך.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "הסיסמאות אינן תואמות.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "מוצפן",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "הועתק",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "משוב",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "תרגם",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "קוד מקור",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "הזן סיסמה לפענוח נתוני חשבון.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "סינכרון היסטוריה עם גוגל",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "זכור את הסיסמה שלי",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "זהירות! השעון המקומי שלך רחוק מדי, אנא תקן אותו לפני שתמשיך.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "האם יש לך גיבוי לחשבונות שלך? אל תחכה עד שיהיה מאוחר מדי!",
         "description": "Remind Backup"
     },
     "capture_failed": {
