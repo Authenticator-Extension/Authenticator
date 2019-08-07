@@ -33,7 +33,8 @@
     "background": {
         "scripts": [
             "dist/background.js"
-        ]
+        ],
+        "persistent": false
     },
     "permissions": [
         "activeTab",
