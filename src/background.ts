@@ -285,12 +285,12 @@ function getBackupToken(service: string) {
                     xhr.open(
                       "POST",
                       "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-                      getCredentials().drive.client_id +
-                      "&client_secret=" +
-                      getCredentials().drive.client_secret +
-                      "&code=" +
-                      value +
-                      "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
+                        getCredentials().drive.client_id +
+                        "&client_secret=" +
+                        getCredentials().drive.client_secret +
+                        "&code=" +
+                        value +
+                        "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
                     );
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader(
