@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       message.info.windowWidth
     );
   } else if (message.action === "cachePassphrase") {
-    document.cookie = "passphrase=" + message.value;
+    document.cookie = `passphrase="${message.value}${getCookieExpiry()}"`;
     cachedPassphrase = message.value;
     clearTimeout(autolockTimeout);
     setAutolock();
@@ -285,12 +285,12 @@ function getBackupToken(service: string) {
                     xhr.open(
                       "POST",
                       "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-                        getCredentials().drive.client_id +
-                        "&client_secret=" +
-                        getCredentials().drive.client_secret +
-                        "&code=" +
-                        value +
-                        "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
+                      getCredentials().drive.client_id +
+                      "&client_secret=" +
+                      getCredentials().drive.client_secret +
+                      "&code=" +
+                      value +
+                      "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
                     );
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader(
@@ -407,10 +407,22 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
 function setAutolock() {
   if (Number(localStorage.autolock) > 0) {
+    document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry()}"`;
     autolockTimeout = setTimeout(() => {
-      document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
       cachedPassphrase = "";
     }, Number(localStorage.autolock) * 60000);
+  }
+}
+
+function getCookieExpiry() {
+  if (localStorage.autolock && Number(localStorage.autolock) > 0) {
+    const offset = Number(localStorage.autolock) * 60000;
+    const now = new Date().getTime();
+    const autolockExpiry = new Date(now + offset).toUTCString();
+
+    return `;expires=${autolockExpiry}`;
+  } else {
+    return "";
   }
 }
 
