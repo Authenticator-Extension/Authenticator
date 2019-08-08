@@ -34,14 +34,22 @@ import { OTPType, OTPEntry } from "../../models/otp";
 import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
-  data: function() {
+  data: function(): {
+    newAccount: {
+      issuer: string;
+      account: string;
+      secret: string;
+      type: OTPType;
+      period: number | undefined;
+    };
+  } {
     return {
       newAccount: {
         issuer: "",
         account: "",
         secret: "",
         type: OTPType.totp,
-        period: 30
+        period: undefined
       }
     };
   },
@@ -75,12 +83,12 @@ export default Vue.extend({
       }
 
       if (type === OTPType.hhex || type === OTPType.hotp) {
-        this.newAccount.period = NaN;
+        this.newAccount.period = undefined;
       } else if (
-        this.newAccount.period < 1 ||
-        typeof this.newAccount.period !== "number"
+        typeof this.newAccount.period !== "number" ||
+        this.newAccount.period < 1
       ) {
-        this.newAccount.period = NaN;
+        this.newAccount.period = undefined;
       }
 
       const entry = new OTPEntry({
