@@ -8,8 +8,8 @@ stages:
 jobs:
   include:
   - stage: test
-    name: TS style check
-    script: gts check
+    name: Style check
+    script: ./node_modules/prettier/bin-prettier.js --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
   - stage: test
     name: lintspaces
     script: npm i -g lintspaces-cli && lintspaces -nt -d 'spaces' -i 'js-comments'

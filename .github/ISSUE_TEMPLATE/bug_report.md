@@ -1,6 +1,9 @@
 ---
 name: Bug report
 about: Report a bug in Authenticator
+title: ''
+labels: bug
+assignees: ''
 
 ---
 
@@ -12,4 +15,4 @@ about: Report a bug in Authenticator
 
 **Platform:** <This is required>
  - Browser: [Chrome, Firefox]
- - Browser Version: 
+ - Browser Version:

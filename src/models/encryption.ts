@@ -1,4 +1,4 @@
-import * as CryptoJS from 'crypto-js';
+import * as CryptoJS from "crypto-js";
 
 export class Encryption implements IEncryption {
   private password: string;
@@ -20,7 +20,7 @@ export class Encryption implements IEncryption {
       }
     } else {
       console.error(entry);
-      throw new Error('Invalid entry');
+      throw new Error("Invalid entry");
     }
   }
 
@@ -55,7 +55,7 @@ export class Encryption implements IEncryption {
         return decryptedSecret;
       }
 
-      decryptedSecret = decryptedSecret.replace(/ /g, '');
+      decryptedSecret = decryptedSecret.replace(/ /g, "");
 
       if (
         !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
@@ -68,9 +68,7 @@ export class Encryption implements IEncryption {
       }
 
       console.warn(
-        `Account ${
-          entry.hash
-        } may have secret ${decryptedSecret}, but hash did not match.`
+        `Account ${entry.hash} may have secret ${decryptedSecret}, but hash did not match.`
       );
       return null;
     } catch (error) {
