@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nazwa użytkownika",
         "description": "Account Name."
     },
     "issuer": {
@@ -305,12 +305,12 @@
         "message": "Wczytywanie..."
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Zaawansowane"
     },
     "period": {
-        "message": "Period"
+        "message": "Okres"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     }
 }
