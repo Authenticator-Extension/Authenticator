@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de la cuenta",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -303,5 +303,14 @@
     },
     "loading": {
         "message": "Loading..."
+    },
+    "advanced": {
+        "message": "Advanced"
+    },
+    "period": {
+        "message": "Period"
+    },
+    "type": {
+        "message": "Type"
     }
 }
