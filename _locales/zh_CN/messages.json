@@ -307,5 +307,14 @@
     },
     "loading": {
         "message": "Loading..."
+    },
+    "advanced": {
+        "message": "Advanced"
+    },
+    "period": {
+        "message": "Period"
+    },
+    "type": {
+        "message": "Type"
     }
 }
