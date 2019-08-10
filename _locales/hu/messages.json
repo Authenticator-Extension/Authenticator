@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Fiók név",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -303,5 +303,14 @@
     },
     "loading": {
         "message": "Betöltés..."
+    },
+    "advanced": {
+        "message": "Advanced"
+    },
+    "period": {
+        "message": "Period"
+    },
+    "type": {
+        "message": "Type"
     }
 }
