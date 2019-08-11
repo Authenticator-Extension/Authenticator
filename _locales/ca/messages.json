@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nom d'usuari",
         "description": "Account Name."
     },
     "issuer": {
@@ -305,7 +305,7 @@
         "message": "Carregant..."
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avançat"
     },
     "period": {
         "message": "Period"
