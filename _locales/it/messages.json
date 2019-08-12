@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nome Utente",
         "description": "Account Name."
     },
     "issuer": {
@@ -302,15 +302,15 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Caricamento..."
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avanzate"
     },
     "period": {
-        "message": "Period"
+        "message": "Periodo"
     },
     "type": {
-        "message": "Type"
+        "message": "Tipo"
     }
 }
