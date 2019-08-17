@@ -11,6 +11,11 @@ export enum OTPType {
   hhex
 }
 
+export enum CodeState {
+  Invalid = "-1",
+  Encrypted = "-2"
+}
+
 export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
@@ -97,9 +102,9 @@ export class OTPEntry implements IOTPEntry {
 
   generate() {
     if (!this.secret && !this.encSecret) {
-      this.code = "Invalid";
+      this.code = CodeState.Invalid;
     } else if (!this.secret) {
-      this.code = "Encrypted";
+      this.code = CodeState.Encrypted;
     } else {
       try {
         this.code = KeyUtilities.generate(
@@ -109,10 +114,8 @@ export class OTPEntry implements IOTPEntry {
           this.period
         );
       } catch (error) {
-        this.code = "Invalid";
-        if (parent) {
-          parent.postMessage(`Invalid secret: [${this.secret}]`, "*");
-        }
+        this.code = CodeState.Invalid;
+        console.log("Invalid secret.", error);
       }
     }
   }
