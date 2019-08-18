@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Nieprawidłowy sekretny kod konta",
+        "message": "Niepoprawny sekretny kod konta",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Synchronizuj wewnętrzny zegar z Google",
+        "message": "Synchronizuj zegar z Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uwaga: wszystkie kopie zapasowe są odszyfrowane. Chcesz dodać kono do innej aplikacji? Ustaw kursor nad prawym górnym rogiem dowolnego konta i wciśnij ukryty znak.",
+        "message": "Uwaga: wszystkie kopie zapasowe są odszyfrowane. Chcesz dodać kono do innej aplikacji? Ustaw kursor nad prawym górnym rogiem dowolnego konta i naciśnij ukryty przycisk.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import tekstowej kopii zapasowej",
+        "message": "Importuj tekstową kopię zapasową",
         "description": "Import backup code."
     },
     "show_all_entries": {
