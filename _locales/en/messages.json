@@ -52,12 +52,12 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Account Name",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
-      "message": "Issuer",
-      "description": "Issuer."
+        "message": "Issuer",
+        "description": "Issuer."
     },
     "secret": {
         "message": "Secret",
@@ -224,52 +224,52 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-      "message": "Download Password-Protected Backup",
-      "description": "Download Encrypted Backup"
+        "message": "Download Password-Protected Backup",
+        "description": "Download Encrypted Backup"
     },
     "search": {
-      "message": "Search",
-      "description": "Search"
+        "message": "Search",
+        "description": "Search"
     },
     "popout": {
-      "message": "Popup mode",
-      "description": "Make window turn into persistent popup"
+        "message": "Popup mode",
+        "description": "Make window turn into persistent popup"
     },
     "lock": {
-      "message": "Lock",
-      "description": "Lock accounts"
+        "message": "Lock",
+        "description": "Lock accounts"
     },
     "edit": {
-      "message": "Edit",
-      "description": "Edit"
+        "message": "Edit",
+        "description": "Edit"
     },
     "manual_dropbox": {
-      "message": "Manual Sync",
-      "description": "Manual sync"
+        "message": "Manual Sync",
+        "description": "Manual sync"
     },
     "use_autofill": {
-      "message": "Use Autofill",
-      "description": "Use Autofill"
+        "message": "Use Autofill",
+        "description": "Use Autofill"
     },
     "use_high_contrast": {
-      "message": "Use High Contrast",
-      "description": "Use High Contrast"
+        "message": "Use High Contrast",
+        "description": "Use High Contrast"
     },
     "storage_menu": {
-      "message": "Storage & Backup",
-      "description": "Storage and sync menu title"
+        "message": "Storage & Backup",
+        "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-      "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
-      "description": "Message explaning the diffrences between sync and local storage spaces."
+        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-      "message": "Automatically backup your data to 3rd party storage services.",
-      "description": "3rd party backup info"
+        "message": "Automatically backup your data to 3rd party storage services.",
+        "description": "3rd party backup info"
     },
     "storage_location": {
-      "message": "Storage Location",
-      "description": "Storage location"
+        "message": "Storage Location",
+        "description": "Storage location"
     },
     "sign_in": {
         "message": "Sign in",
@@ -309,5 +309,17 @@
     },
     "minutes": {
         "message": "minutes"
+    },
+    "advanced": {
+        "message": "Advanced"
+    },
+    "period": {
+        "message": "Period"
+    },
+    "type": {
+        "message": "Type"
+    },
+    "invalid": {
+        "message": "Invalid"
     }
 }
