@@ -304,6 +304,12 @@
     "loading": {
         "message": "Caricamento..."
     },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
     "advanced": {
         "message": "Avanzate"
     },
@@ -312,5 +318,8 @@
     },
     "type": {
         "message": "Tipo"
+    },
+    "invalid": {
+        "message": "Invalid"
     }
 }
