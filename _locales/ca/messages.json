@@ -305,10 +305,10 @@
         "message": "Carregant..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Bloquejar després"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minuts"
     },
     "advanced": {
         "message": "Avançat"
@@ -320,6 +320,6 @@
         "message": "Tipus"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "No és vàlid"
     }
 }
