@@ -56,7 +56,7 @@ export default Vue.extend({
           try {
             importData = JSON.parse(reader.result as string);
           } catch (e) {
-            importData = getEntryDataFromOTPAuthPerLine(
+            importData = await getEntryDataFromOTPAuthPerLine(
               reader.result as string
             );
           }

@@ -5,6 +5,7 @@ import { loadI18nMessages } from "./store/i18n";
 import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import * as CryptoJS from "crypto-js";
+import { argon } from "./models/argon";
 
 async function init() {
   // i18n
@@ -88,7 +89,7 @@ export function decryptBackupData(
   return decryptedbackupData;
 }
 
-export function getEntryDataFromOTPAuthPerLine(importCode: string) {
+export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split("\n");
   const exportData: { [hash: string]: OTPStorage } = {};
   for (let item of lines) {
@@ -153,7 +154,7 @@ export function getEntryDataFromOTPAuthPerLine(importCode: string) {
       ) {
         continue;
       } else {
-        const hash = CryptoJS.MD5(secret).toString();
+        const hash = await argon.hash(secret);
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&

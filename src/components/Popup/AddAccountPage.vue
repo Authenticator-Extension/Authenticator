@@ -31,7 +31,7 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry } from "../../models/otp";
-import * as CryptoJS from "crypto-js";
+import { argon } from "../../models/argon";
 
 export default Vue.extend({
   data: function(): {
@@ -97,7 +97,7 @@ export default Vue.extend({
         issuer: this.newAccount.issuer,
         account: this.newAccount.account,
         encrypted: false,
-        hash: CryptoJS.MD5(this.newAccount.secret).toString(),
+        hash: await argon.hash(this.newAccount.secret),
         secret: this.newAccount.secret,
         counter: 0,
         period: this.newAccount.period

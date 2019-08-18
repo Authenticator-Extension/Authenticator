@@ -1,7 +1,6 @@
-import * as CryptoJS from "crypto-js";
-
 import { Encryption } from "./encryption";
 import { OTPEntry, OTPType } from "./otp";
+import { argon } from "./argon";
 
 export class BrowserStorage {
   private static async getStorageLocation() {
@@ -185,7 +184,7 @@ export class EntryStorage {
         reject: (reason: Error) => void
       ) => {
         try {
-          BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
+          BrowserStorage.get(async (_data: { [hash: string]: OTPStorage }) => {
             for (const hash of Object.keys(_data)) {
               if (!this.isValidEntry(_data, hash)) {
                 delete _data[hash];
@@ -194,7 +193,7 @@ export class EntryStorage {
               if (!encrypted) {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
-                  const decryptedSecret = encryption.getDecryptedSecret(
+                  const decryptedSecret = await encryption.getDecryptedSecret(
                     _data[hash]
                   );
                   if (
@@ -226,7 +225,7 @@ export class EntryStorage {
     return new Promise(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
-          BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
+          BrowserStorage.get(async (_data: { [hash: string]: OTPStorage }) => {
             for (const hash of Object.keys(data)) {
               // never trust data import from user
               // we do not support encrypted data import any longer
@@ -284,9 +283,14 @@ export class EntryStorage {
                 data[hash].type = OTPType[OTPType.hhex];
               }
 
-              const _hash = CryptoJS.MD5(data[hash].secret).toString();
-              // not a valid hash
-              if (!/^[0-9a-f]{32}$/.test(hash)) {
+              const _hash = await argon.hash(data[hash].secret);
+
+              // not a valid / old hash
+              if (
+                !/^\$argon2(?:d|i|di)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+                  hash
+                )
+              ) {
                 data[_hash] = data[hash];
                 data[_hash].hash = _hash;
                 delete data[hash];
@@ -444,14 +448,19 @@ export class EntryStorage {
                 counter: entryData.counter,
                 period
               });
-              entry.applyEncryption(encryption);
+              await entry.applyEncryption(encryption);
               data.push(entry);
 
-              if (entry.secret !== null && !/^[0-9a-f]{32}$/.test(hash)) {
-                const _hash = CryptoJS.MD5(entry.secret).toString();
-                if (hash !== _hash) {
-                  console.warn("Invalid hash:", entry);
-                }
+              if (
+                entry.secret !== null &&
+                !(
+                  /^[0-9a-f]{32}$/.test(hash) ||
+                  /^\$argon2(?:d|i|di)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+                    hash
+                  )
+                )
+              ) {
+                console.warn("Invalid hash:", entry);
               }
             }
 

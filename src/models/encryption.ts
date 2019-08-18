@@ -1,4 +1,5 @@
 import * as CryptoJS from "crypto-js";
+import { argon } from "./argon";
 
 export class Encryption implements IEncryption {
   private password: string;
@@ -32,9 +33,14 @@ export class Encryption implements IEncryption {
     }
   }
 
-  getDecryptedSecret(entry: { secret: string; hash: string }): string | null {
+  async getDecryptedSecret(entry: { secret: string; hash: string }) {
     try {
-      if (entry.hash === CryptoJS.MD5(entry.secret).toString()) {
+      // Test hash of secret
+      if (entry.hash.startsWith("$argon2")) {
+        if (await argon.compareHash(entry.hash, entry.secret)) {
+          return entry.secret;
+        }
+      } else if (entry.hash === CryptoJS.MD5(entry.secret).toString()) {
         return entry.secret;
       }
 
@@ -51,7 +57,11 @@ export class Encryption implements IEncryption {
         return null;
       }
 
-      if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
+      if (entry.hash.startsWith("$argon2")) {
+        if (await argon.compareHash(entry.hash, decryptedSecret)) {
+          return decryptedSecret;
+        }
+      } else if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
         return decryptedSecret;
       }
 

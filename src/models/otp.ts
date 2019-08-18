@@ -67,10 +67,13 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  applyEncryption(encryption: Encryption) {
+  async applyEncryption(encryption: Encryption) {
     const secret = this.encSecret ? this.encSecret : null;
     if (secret) {
-      this.secret = encryption.getDecryptedSecret({ hash: this.hash, secret });
+      this.secret = await encryption.getDecryptedSecret({
+        hash: this.hash,
+        secret
+      });
       if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
         this.generate();
       }

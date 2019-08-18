@@ -44,7 +44,7 @@ export default Vue.extend({
         exportData = JSON.parse(this.importCode);
       } catch (error) {
         // Maybe one-otpauth-per line text
-        exportData = getEntryDataFromOTPAuthPerLine(this.importCode);
+        exportData = await getEntryDataFromOTPAuthPerLine(this.importCode);
       }
 
       try {

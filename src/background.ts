@@ -1,5 +1,3 @@
-import * as CryptoJS from "crypto-js";
-// tslint:disable-next-line:ban-ts-ignore
 // @ts-ignore
 import QRCode from "qrcode-reader";
 
@@ -7,6 +5,7 @@ import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive } from "./models/backup";
+import { argon } from "./models/argon";
 
 let cachedPassphrase = "";
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -167,7 +166,7 @@ async function getTotp(text: string) {
         chrome.tabs.sendMessage(id, { action: "secretqr", secret });
       } else {
         const encryption = new Encryption(cachedPassphrase);
-        const hash = CryptoJS.MD5(secret).toString();
+        const hash = await argon.hash(secret);
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
