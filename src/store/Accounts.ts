@@ -116,12 +116,6 @@ export class Accounts implements IModule {
         },
         loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
           state.entries = newCodes;
-
-          if (state.encryption.getEncryptionStatus()) {
-            for (const entry of state.entries) {
-              entry.applyEncryption(state.encryption);
-            }
-          }
         },
         moveCode(state: AccountsState, opts: { from: number; to: number }) {
           state.entries.splice(
@@ -193,10 +187,16 @@ export class Accounts implements IModule {
           localStorage.removeItem("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
-          state.commit(
-            "loadCodes",
-            await this.getEntries(state.state.encryption as Encryption)
-          );
+          const entries = await this.getEntries(state.state
+            .encryption as Encryption);
+
+          if (state.state.encryption.getEncryptionStatus()) {
+            for (const entry of entries) {
+              await entry.applyEncryption(state.state.encryption as Encryption);
+            }
+          }
+
+          state.commit("loadCodes", entries);
           state.commit("updateCodes");
           state.commit(
             "updateExport",
