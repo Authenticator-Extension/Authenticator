@@ -304,6 +304,12 @@
     "loading": {
         "message": "Завантаження..."
     },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
     "advanced": {
         "message": "Advanced"
     },
@@ -312,5 +318,8 @@
     },
     "type": {
         "message": "Type"
+    },
+    "invalid": {
+        "message": "Invalid"
     }
 }
