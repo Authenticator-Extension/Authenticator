@@ -319,5 +319,11 @@
     },
     "invalid": {
         "message": "Invalid"
+    },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
     }
 }
