@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Felhasználónév",
         "description": "Account Name."
     },
     "issuer": {
@@ -305,21 +305,21 @@
         "message": "Betöltés..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Lezárás ennyi idő után"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "percek"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Haladó"
     },
     "period": {
-        "message": "Period"
+        "message": "Időszak"
     },
     "type": {
-        "message": "Type"
+        "message": "Típus"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Érvénytelen"
     }
 }
