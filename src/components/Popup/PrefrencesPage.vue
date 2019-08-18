@@ -24,6 +24,17 @@
       <label class="combo-label">{{ i18n.use_high_contrast }}</label>
       <input class="checkbox" type="checkbox" v-model="useHighContrast" />
     </div>
+    <div style="display: flex;" v-show="encryption.getEncryptionStatus()">
+      <label style="margin-left: 20px;">{{ i18n.autolock }}</label>
+      <input
+        class="input"
+        type="number"
+        min="0"
+        style="width: 70px;"
+        v-model="autolock"
+      />
+      <span style="margin-top: 10px;">{{ i18n.minutes }}</span>
+    </div>
     <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
   </div>
 </template>
@@ -54,6 +65,18 @@ export default Vue.extend({
       },
       set(useHighContrast: boolean) {
         this.$store.commit("menu/setHighContrast", useHighContrast);
+      }
+    },
+    encryption(): IEncryption {
+      return this.$store.state.accounts.encryption;
+    },
+    autolock: {
+      get(): number {
+        return this.$store.state.menu.autolock;
+      },
+      set(autolock: number) {
+        this.$store.commit("menu/setAutolock", autolock);
+        chrome.runtime.sendMessage({ action: "resetAutolock" });
       }
     }
   },

@@ -17,7 +17,7 @@ jobs:
     env: CACHE_NAME=LINTSPACES
   - stage: test
     name: Build Firefox and run addons-linter
-    script: npm install --only=production addons-linter && npm run firefox && addons-linter
+    script: npm install --only=production -g addons-linter && npm run firefox && addons-linter
       firefox
     env: CACHE_NAME=FIREFOXLINTER
   - stage: test
