@@ -304,6 +304,12 @@
     "loading": {
         "message": "Carregant..."
     },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
     "advanced": {
         "message": "Avançat"
     },
@@ -312,5 +318,8 @@
     },
     "type": {
         "message": "Tipus"
+    },
+    "invalid": {
+        "message": "Invalid"
     }
 }
