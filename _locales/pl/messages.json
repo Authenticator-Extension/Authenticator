@@ -305,10 +305,10 @@
         "message": "Wczytywanie..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Zablokuj po"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minuty"
     },
     "advanced": {
         "message": "Zaawansowane"
@@ -320,6 +320,6 @@
         "message": "Typ"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Niepoprawny"
     }
 }
