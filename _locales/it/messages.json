@@ -305,10 +305,10 @@
         "message": "Caricamento..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Blocca dopo"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minuti"
     },
     "advanced": {
         "message": "Avanzate"
@@ -320,6 +320,6 @@
         "message": "Tipo"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Non valido"
     }
 }
