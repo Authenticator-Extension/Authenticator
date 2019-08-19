@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Geçersiz hesap anahtarı",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -305,7 +305,7 @@
         "message": "Yükleniyor..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Sonrasında kilitle"
     },
     "minutes": {
         "message": "dakika"
@@ -314,7 +314,7 @@
         "message": "Gelişmiş"
     },
     "period": {
-        "message": "Period"
+        "message": "Süre"
     },
     "type": {
         "message": "Tür"
