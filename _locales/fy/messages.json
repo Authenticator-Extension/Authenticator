@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Brûkersnamme",
         "description": "Account Name."
     },
     "issuer": {
@@ -305,21 +305,21 @@
         "message": "Lade…"
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Beskoattelje nei"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minuten"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avansearre"
     },
     "period": {
-        "message": "Period"
+        "message": "Perioade"
     },
     "type": {
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Unjildich"
     }
 }
