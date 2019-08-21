@@ -35,16 +35,7 @@ export class Encryption implements IEncryption {
 
   async getDecryptedSecret(entry: { secret: string; hash: string }) {
     try {
-      // Test hash of secret
-      if (entry.hash.startsWith("$argon2")) {
-        if (await argon.compareHash(entry.hash, entry.secret)) {
-          return entry.secret;
-        }
-      } else if (entry.hash === CryptoJS.MD5(entry.secret).toString()) {
-        return entry.secret;
-      }
-
-      let decryptedSecret = CryptoJS.AES.decrypt(
+      const decryptedSecret = CryptoJS.AES.decrypt(
         entry.secret,
         this.password
       ).toString(CryptoJS.enc.Utf8);
@@ -57,16 +48,6 @@ export class Encryption implements IEncryption {
         return null;
       }
 
-      if (entry.hash.startsWith("$argon2")) {
-        if (await argon.compareHash(entry.hash, decryptedSecret)) {
-          return decryptedSecret;
-        }
-      } else if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
-        return decryptedSecret;
-      }
-
-      decryptedSecret = decryptedSecret.replace(/ /g, "");
-
       if (
         !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
         !/^[0-9a-f]+$/i.test(decryptedSecret) &&
@@ -77,8 +58,19 @@ export class Encryption implements IEncryption {
         return null;
       }
 
+      if (entry.hash.startsWith("$argon2")) {
+        if (await argon.compareHash(entry.hash, decryptedSecret)) {
+          return decryptedSecret;
+        }
+      } else if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
+        return decryptedSecret;
+      }
+
       console.warn(
-        `Account ${entry.hash} may have secret ${decryptedSecret}, but hash did not match.`
+        `Account ${entry.hash} may have secret ${decryptedSecret.replace(
+          / /g,
+          ""
+        )}, but hash did not match.`
       );
       return null;
     } catch (error) {

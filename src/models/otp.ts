@@ -1,6 +1,8 @@
 import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
 import { EntryStorage } from "./storage";
+import { argon } from "./argon";
+import * as CryptoJS from "crypto-js";
 
 export enum OTPType {
   totp = 1,
@@ -96,6 +98,22 @@ export class OTPEntry implements IOTPEntry {
       await this.update(encryption);
     }
     return;
+  }
+
+  async rehash(encryption: Encryption) {
+    const secret = this.secret;
+    if (!secret) {
+      return;
+    }
+
+    if (this.hash !== CryptoJS.MD5(secret).toString()) {
+      return;
+    }
+
+    const newHash = await argon.hash(secret);
+    await this.delete();
+    this.hash = newHash;
+    await this.create(encryption);
   }
 
   generate() {

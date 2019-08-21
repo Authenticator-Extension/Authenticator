@@ -15,6 +15,7 @@ interface IOTPEntry {
   applyEncryption(encryption: IEncryption): Promise<void>;
   delete(): Promise<void>;
   generate(): void;
+  rehash(encryption: IEncryption): Promise<void>;
 }
 
 interface IEncryption {

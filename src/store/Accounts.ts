@@ -152,8 +152,24 @@ export class Accounts implements IModule {
             return;
           }
 
+          state.commit("currentView/changeView", "LoadingPage", { root: true });
+
           state.state.encryption.updateEncryptionPassword(password);
           await state.dispatch("updateEntries");
+
+          if (state.state.encryption.getEncryptionStatus()) {
+            for (const entry of state.state.entries) {
+              if (
+                !/^\$argon2(?:d|i|di)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+                  entry.hash
+                )
+              ) {
+                await entry.rehash(state.state.encryption);
+              }
+            }
+            await state.dispatch("updateEntries");
+          }
+
           state.commit("style/hideInfo", null, { root: true });
 
           if (!state.getters.currentlyEncrypted) {
