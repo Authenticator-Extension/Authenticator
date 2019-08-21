@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nom d'utilisateur",
         "description": "Account Name."
     },
     "issuer": {
@@ -305,21 +305,21 @@
         "message": "Chargement ..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Verrouiller après"
     },
     "minutes": {
         "message": "minutes"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avancé"
     },
     "period": {
-        "message": "Period"
+        "message": "Période"
     },
     "type": {
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Invalide"
     }
 }
