@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nombre de usuario",
         "description": "Account Name."
     },
     "issuer": {
@@ -302,24 +302,24 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Cargando..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Bloquear después"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minutos"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avanzado"
     },
     "period": {
-        "message": "Period"
+        "message": "Periodo"
     },
     "type": {
-        "message": "Type"
+        "message": "Tipo"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Inválido"
     }
 }
