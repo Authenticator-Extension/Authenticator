@@ -60,9 +60,7 @@ function getQrDebug(
           `Screen Height: ${window.screen.height}<br>` +
           `Capture Width: ${qr.width}<br>` +
           `Capture Height: ${qr.height}<br>` +
-          `Device Pixel Ratio: ${devicePixelRatio} / ${
-            window.devicePixelRatio
-          }<br>` +
+          `Device Pixel Ratio: ${devicePixelRatio} / ${window.devicePixelRatio}<br>` +
           `Tab ID: ${tab.id}<br>` +
           "<br>" +
           "<b>Captured Screenshot:</b>";
