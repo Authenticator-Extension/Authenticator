@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "يولد مصادق رموز التحقق 2-خطوة في المستعرض الخاص بك.",
         "description": "Extension Description."
     },
     "added": {
