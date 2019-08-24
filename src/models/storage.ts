@@ -448,7 +448,9 @@ export class EntryStorage {
                 counter: entryData.counter,
                 period
               });
-              await entry.applyEncryption(encryption);
+              if (encryption.getEncryptionStatus()) {
+                await entry.applyEncryption(encryption);
+              }
               data.push(entry);
 
               if (
