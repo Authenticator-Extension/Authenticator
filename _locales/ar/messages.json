@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentication",
+        "message": "مصادقة",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " وقد أضيفت.",
+        "message": " تم اضافة الوظيفة",
         "description": "Added Account."
     },
     "errorqr": {
