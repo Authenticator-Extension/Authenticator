@@ -8,23 +8,6 @@ export class Encryption implements IEncryption {
     this.password = password;
   }
 
-  getEncryptedSecret(entry: IOTPEntry): string {
-    if (entry.encSecret) {
-      return entry.encSecret;
-    } else if (entry.secret) {
-      if (!this.password) {
-        // Not encrypted, give unencrypted.
-        return entry.secret;
-      } else {
-        // Not encrypted and password is set, encrypt.
-        return CryptoJS.AES.encrypt(entry.secret, this.password).toString();
-      }
-    } else {
-      console.error(entry);
-      throw new Error("Invalid entry");
-    }
-  }
-
   getEncryptedString(data: string): string {
     if (!this.password) {
       return data;
@@ -58,7 +41,11 @@ export class Encryption implements IEncryption {
         return null;
       }
 
-      if (entry.hash.startsWith("$argon2")) {
+      if (
+        /^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+          entry.hash
+        )
+      ) {
         if (await argon.compareHash(entry.hash, decryptedSecret)) {
           return decryptedSecret;
         }

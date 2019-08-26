@@ -9,9 +9,9 @@ interface IOTPEntry {
   counter: number;
   code: string;
   period: number;
-  create(encryption: IEncryption): Promise<void>;
-  update(encryption: IEncryption): Promise<void>;
-  next(encryption: IEncryption): Promise<void>;
+  create(): Promise<void>;
+  update(): Promise<void>;
+  next(): Promise<void>;
   applyEncryption(encryption: IEncryption): Promise<void>;
   delete(): Promise<void>;
   generate(): void;
@@ -19,7 +19,6 @@ interface IOTPEntry {
 }
 
 interface IEncryption {
-  getEncryptedSecret(entry: IOTPEntry): string;
   getEncryptedString(data: string): string;
   getDecryptedSecret(entry: OTPStorage): Promise<string | null>;
   getEncryptionStatus(): boolean;

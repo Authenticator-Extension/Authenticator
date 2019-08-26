@@ -13,7 +13,15 @@ async function init() {
 
   // Load entries to global
   const encryption = new Encryption(await getCachedPassphrase());
-  Vue.prototype.$entries = await EntryStorage.get(encryption);
+  const entries = await EntryStorage.get();
+
+  if (encryption.getEncryptionStatus()) {
+    for (const entry of entries) {
+      await entry.applyEncryption(encryption);
+    }
+  }
+
+  Vue.prototype.$entries = entries;
   Vue.prototype.$encryption = encryption;
 
   const instance = new Vue({

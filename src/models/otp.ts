@@ -25,28 +25,34 @@ export class OTPEntry implements IOTPEntry {
   period: number;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
-  constructor(entry: {
-    account: string;
-    encrypted: boolean;
-    hash: string;
-    index: number;
-    issuer: string;
-    secret: string;
-    type: OTPType;
-    counter: number;
-    period?: number;
-  }) {
+  constructor(
+    entry: {
+      account: string;
+      encrypted: boolean;
+      hash: string;
+      index: number;
+      issuer: string;
+      secret: string;
+      type: OTPType;
+      counter: number;
+      period?: number;
+    },
+    encryption?: Encryption
+  ) {
     this.type = entry.type;
     this.index = entry.index;
     this.issuer = entry.issuer;
+    this.account = entry.account;
     if (entry.encrypted) {
       this.encSecret = entry.secret;
       this.secret = null;
     } else {
       this.secret = entry.secret;
       this.encSecret = null;
+      if (encryption && encryption.getEncryptionStatus()) {
+        this.encSecret = encryption.getEncryptedString(this.secret);
+      }
     }
-    this.account = entry.account;
     this.hash = entry.hash;
     this.counter = entry.counter;
     if (this.type === OTPType.totp && entry.period) {
@@ -59,13 +65,13 @@ export class OTPEntry implements IOTPEntry {
     }
   }
 
-  async create(encryption: Encryption) {
-    await EntryStorage.add(encryption, this);
+  async create() {
+    await EntryStorage.add(this);
     return;
   }
 
-  async update(encryption: Encryption) {
-    await EntryStorage.update(encryption, this);
+  async update() {
+    await EntryStorage.update(this);
     return;
   }
 
@@ -88,19 +94,19 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async next(encryption: Encryption) {
+  async next() {
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
     this.generate();
     if (this.secret !== null) {
       this.counter++;
-      await this.update(encryption);
+      await this.update();
     }
     return;
   }
 
-  async rehash(encryption: Encryption) {
+  async rehash() {
     const secret = this.secret;
     if (!secret) {
       return;
@@ -113,7 +119,7 @@ export class OTPEntry implements IOTPEntry {
     const newHash = await argon.hash(secret);
     await this.delete();
     this.hash = newHash;
-    await this.create(encryption);
+    await this.create();
   }
 
   generate() {

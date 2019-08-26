@@ -11,9 +11,7 @@ export class Accounts implements IModule {
     let shouldShowPassphrase = cachedPassphrase
       ? false
       : await EntryStorage.hasEncryptedEntry();
-    const entries = shouldShowPassphrase
-      ? []
-      : await this.getEntries(encryption);
+    const entries = shouldShowPassphrase ? [] : await this.getEntries();
 
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].code === "Encrypted") {
@@ -34,8 +32,8 @@ export class Accounts implements IModule {
         filter: true,
         siteName: await this.getSiteName(),
         showSearch: false,
-        exportData: await EntryStorage.getExport(encryption),
-        exportEncData: await EntryStorage.getExport(encryption, true)
+        exportData: await EntryStorage.getExport(entries),
+        exportEncData: await EntryStorage.getExport(entries, true)
       },
       getters: {
         shouldFilter(
@@ -144,6 +142,39 @@ export class Accounts implements IModule {
         }
       },
       actions: {
+        deleteCode: async (
+          state: ActionContext<AccountsState, {}>,
+          hash: string
+        ) => {
+          const index = state.state.entries.findIndex(
+            entry => entry.hash === hash
+          );
+          if (index > -1) {
+            state.state.entries.splice(index, 1);
+          }
+          state.commit(
+            "updateExport",
+            await EntryStorage.getExport(state.state.entries)
+          );
+          state.commit(
+            "updateEncExport",
+            await EntryStorage.getExport(state.state.entries, true)
+          );
+        },
+        addCode: async (
+          state: ActionContext<AccountsState, {}>,
+          entry: IOTPEntry
+        ) => {
+          state.state.entries.unshift(entry);
+          state.commit(
+            "updateExport",
+            await EntryStorage.getExport(state.state.entries)
+          );
+          state.commit(
+            "updateEncExport",
+            await EntryStorage.getExport(state.state.entries, true)
+          );
+        },
         applyPassphrase: async (
           state: ActionContext<AccountsState, {}>,
           password: string
@@ -157,17 +188,24 @@ export class Accounts implements IModule {
           state.state.encryption.updateEncryptionPassword(password);
           await state.dispatch("updateEntries");
 
+          // Migrate old hashes to argon2
           if (state.state.encryption.getEncryptionStatus()) {
+            let changedHash = false;
+
             for (const entry of state.state.entries) {
               if (
-                !/^\$argon2(?:d|i|di)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+                !/^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
                   entry.hash
                 )
               ) {
                 await entry.rehash(state.state.encryption);
+                changedHash = true;
               }
             }
-            await state.dispatch("updateEntries");
+
+            if (changedHash) {
+              await state.dispatch("updateEntries");
+            }
           }
 
           state.commit("style/hideInfo", null, { root: true });
@@ -187,7 +225,7 @@ export class Accounts implements IModule {
         ) => {
           await EntryStorage.import(
             new Encryption(password),
-            await EntryStorage.getExport(state.state.encryption as Encryption)
+            await EntryStorage.getExport(state.state.entries)
           );
 
           state.state.encryption.updateEncryptionPassword(password);
@@ -203,8 +241,7 @@ export class Accounts implements IModule {
           localStorage.removeItem("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
-          const entries = await this.getEntries(state.state
-            .encryption as Encryption);
+          const entries = await this.getEntries();
 
           if (state.state.encryption.getEncryptionStatus()) {
             for (const entry of entries) {
@@ -216,14 +253,11 @@ export class Accounts implements IModule {
           state.commit("updateCodes");
           state.commit(
             "updateExport",
-            await EntryStorage.getExport(state.state.encryption as Encryption)
+            await EntryStorage.getExport(state.state.entries)
           );
           state.commit(
             "updateEncExport",
-            await EntryStorage.getExport(
-              state.state.encryption as Encryption,
-              true
-            )
+            await EntryStorage.getExport(state.state.entries, true)
           );
           return;
         },
@@ -395,8 +429,8 @@ export class Accounts implements IModule {
     );
   }
 
-  private async getEntries(encryption: Encryption) {
-    const otpEntries = await EntryStorage.get(encryption);
+  private async getEntries() {
+    const otpEntries = await EntryStorage.get();
     return otpEntries;
   }
 

@@ -12,7 +12,7 @@ export class Dropbox implements BackupProvider {
       // Encrypt by default if user hasn't set yet
       localStorage.dropboxEncrypted = "true";
     }
-    const exportData = await EntryStorage.getExport(
+    const exportData = await EntryStorage.backupGetExport(
       encryption,
       localStorage.dropboxEncrypted === "true"
     );
@@ -335,7 +335,7 @@ export class Drive implements BackupProvider {
     if (localStorage.driveEncrypted === undefined) {
       localStorage.driveEncrypted = "true";
     }
-    const exportData = await EntryStorage.getExport(
+    const exportData = await EntryStorage.backupGetExport(
       encryption,
       localStorage.driveEncrypted === "true"
     );

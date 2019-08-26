@@ -91,20 +91,23 @@ export default Vue.extend({
         this.newAccount.period = undefined;
       }
 
-      const entry = new OTPEntry({
-        type,
-        index: 0,
-        issuer: this.newAccount.issuer,
-        account: this.newAccount.account,
-        encrypted: false,
-        hash: await argon.hash(this.newAccount.secret),
-        secret: this.newAccount.secret,
-        counter: 0,
-        period: this.newAccount.period
-      });
+      const entry = new OTPEntry(
+        {
+          type,
+          index: 0,
+          issuer: this.newAccount.issuer,
+          account: this.newAccount.account,
+          encrypted: false,
+          hash: await argon.hash(this.newAccount.secret),
+          secret: this.newAccount.secret,
+          counter: 0,
+          period: this.newAccount.period
+        },
+        this.$store.state.accounts.encryption
+      );
 
-      await entry.create(this.$store.state.accounts.encryption);
-      await this.$store.dispatch("accounts/updateEntries");
+      await entry.create();
+      await this.$store.dispatch("accounts/addCode", entry);
       this.$store.commit("style/hideInfo");
       this.$store.commit("style/toggleEdit");
 

@@ -4,9 +4,11 @@ export class argon {
   static async hash(value: string) {
     const salt = window.crypto.getRandomValues(new Uint8Array(16));
     const hash = await argon2.hash({
-      // TODO: Set stronger defaults
       pass: value,
-      salt
+      salt,
+      mem: 1024 * 16,
+      parallelism: 4,
+      type: argon2.ArgonType.Argon2id
     });
 
     return hash.encoded;
