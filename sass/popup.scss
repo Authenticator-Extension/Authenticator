@@ -650,6 +650,10 @@ svg {
     top: 110px;
     animation: fadeout 0.2s 1 ease-in;
   }
+
+  &.show {
+    top: 10px;
+  }
 }
 
 // Menu

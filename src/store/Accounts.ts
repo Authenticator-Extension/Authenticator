@@ -208,7 +208,7 @@ export class Accounts implements IModule {
             }
           }
 
-          state.commit("style/hideInfo", null, { root: true });
+          state.commit("style/hideInfo", true, { root: true });
 
           if (!state.getters.currentlyEncrypted) {
             document.cookie = "passphrase=" + password;

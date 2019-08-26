@@ -20,7 +20,11 @@
     />
 
     <PageHandler
-      v-bind:class="{ fadein: style.fadein, fadeout: style.fadeout }"
+      v-bind:class="{
+        fadein: style.fadein,
+        fadeout: style.fadeout,
+        show: style.show
+      }"
     />
 
     <NotificationHandler />

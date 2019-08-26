@@ -43,6 +43,7 @@ interface StyleState {
     slideout: Boolean;
     fadein: Boolean;
     fadeout: Boolean;
+    show: Boolean;
     qrfadein: Boolean;
     qrfadeout: Boolean;
     notificationFadein: Boolean;

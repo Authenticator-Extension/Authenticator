@@ -54,7 +54,7 @@ async function init() {
 
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
-    instance.$store.commit("style/showInfo");
+    instance.$store.commit("style/showInfo", true);
     // If we have cached password, use that
     if (instance.$store.state.accounts.encryption.getEncryptionStatus()) {
       instance.$store.commit("currentView/changeView", "LoadingPage");
@@ -66,7 +66,7 @@ async function init() {
         await EntryStorage.getExport(instance.$store.state.accounts.entries)
       );
       instance.$store.commit("accounts/updateCodes");
-      instance.$store.commit("style/hideInfo");
+      instance.$store.commit("style/hideInfo", true);
     } else {
       instance.$store.commit("currentView/changeView", "EnterPasswordPage");
     }
