@@ -180,23 +180,23 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scală",
+        "message": "Dimensiune",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Avertisment: copiile de siguranță nu sunt criptate. Vrei să adaugi unul dintre conturi în altă aplicație? Treci cu mouse-ul peste oricare cont și în partea dreaptă sus va apărea un buton ascuns.",
+        "message": "Avertisment: copiile de siguranță nu sunt criptate. Vrei să adaugi unul dintre conturi în altă aplicație? Trece cursorul peste oricare cont și în partea dreaptă sus va apărea un buton ascuns.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Descarcă copia de rezervă",
+        "message": "Descarcă o copie de siguranță",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Importă copia de rezervă",
+        "message": "Importă o copie de siguranță",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Importă fisierul de rezervă",
+        "message": "Importă un fișier cu o copie de siguranță",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -204,7 +204,7 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Arată toate intrările",
+        "message": "Arată tot",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Descarca Backup protejat prin parolă",
+        "message": "Descarcă o copie de siguranță protejată cu parolă",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -232,15 +232,15 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Mod pop-up",
+        "message": "Afișare în fereastră separată",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Închide",
+        "message": "Blochează acces",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Editează",
+        "message": "Modifică",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -248,7 +248,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Foloseste Completarea automată",
+        "message": "Folosește Autocompletarea",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Localizarea spațiului de stocare",
+        "message": "Stocare",
         "description": "Storage location"
     },
     "sign_in": {
