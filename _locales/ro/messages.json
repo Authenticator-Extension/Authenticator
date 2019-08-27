@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator generează coduri de verificare pentru al doilea pas în browserul tău.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Cheia secretă a contului este invalidă",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nume de utilizator",
         "description": "Account Name."
     },
     "issuer": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Ești sigur că vrei să ștergi acest cont? Această acțiune nu poate fi anulată.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Ai o copie de siguranță a conturilor tale? Nu aștepta până e prea târziu!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Preferințe",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Avertisment: copiile de siguranță nu sunt criptate. Vrei să adaugi unul dintre conturi în altă aplicație? Treci cu mouse-ul peste oricare cont și în partea dreaptă sus va apărea un buton ascuns.",
         "description": "Export menu info text"
     },
     "download_backup": {
