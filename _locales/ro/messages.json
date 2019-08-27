@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Autentificator",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autentificator",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Întroducere manuală",
+        "message": "Introducere manuală",
         "description": "Manual Entry."
     },
     "close": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Cheie secretă",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Eşec.",
+        "message": "Eșec.",
         "description": "Update Failure."
     },
     "about": {
@@ -92,7 +92,7 @@
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Parolă Nouă",
+        "message": "Parolă nouă",
         "description": "New Passphrase."
     },
     "phrase": {
@@ -100,7 +100,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirmați parola",
+        "message": "Confirmă parola",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -116,15 +116,15 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Nu poti adăuga un nou cont sau poti exporta date până când toate conturile sunt decriptate. Vă rugăm să introduceţi parola corectă înainte de a continua.",
+        "message": "Nu poti adăuga un nou cont sau exporta datele înainte ca toate conturile să fie decriptate. Te rugăm să introduci parola corectă înainte de a continua.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Parola nu se potriveste.",
+        "message": "Parola nu se potrivește.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Incriptat",
+        "message": "Criptat",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Impresie",
+        "message": "Opinii",
         "description": "Feedback."
     },
     "translate": {
@@ -140,23 +140,23 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Codul Sursă",
+        "message": "Cod sursă",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduceţi parola pentru a decripta datele contului.",
+        "message": "Introdu parola pentru a decripta datele contului.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sincronizează Ceasul cu Google",
+        "message": "Sincronizează ceasul cu Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Memorează Parola",
+        "message": "Memorează parola",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Atentie! Ceasul local nu este sincronizat cu ceasul global. Va rugam sa remediati problema înainte de a continua.",
+        "message": "Atenție! Ceasul local are o abatere foarte mare. Te rugăm să remediezi problema înainte de a continua.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -164,15 +164,15 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Captură eșuată, vă rugăm să reîncărcați pagina și încercați din nou.",
+        "message": "Captura a eșuat, te rugăm să reîncarci pagina și să încerci din nou.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Bazat pe Timp",
+        "message": "Bazat pe timp",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Bazat pe Contor",
+        "message": "Bazat pe contor",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -290,34 +290,34 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Ai unul sau mai multe conturi Steam ori Blizzard. Copiile de siguranță necriptate nu vor putea utiliza formatul standardizat.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Poți importa copii de siguranță din câteva alte aplicații.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Află mai multe",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Se încarcă..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Blocare automată după"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minute"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avansat"
     },
     "period": {
-        "message": "Period"
+        "message": "Perioadă"
     },
     "type": {
-        "message": "Type"
+        "message": "Tip"
     },
     "invalid": {
         "message": "Invalid"
