@@ -10,9 +10,20 @@
       v-model="confirm"
       v-on:keyup.enter="changePassphrase()"
     />
-    <div id="security-save" v-on:click="changePassphrase()">{{ i18n.ok }}</div>
-    <div id="security-remove" v-on:click="removePassphrase()">
-      {{ i18n.remove }}
+    <div v-show="!enforcePassword">
+      <div id="security-save" v-on:click="changePassphrase()">
+        {{ i18n.ok }}
+      </div>
+      <div id="security-remove" v-on:click="removePassphrase()">
+        {{ i18n.remove }}
+      </div>
+    </div>
+    <div
+      class="button-small"
+      v-show="enforcePassword"
+      v-on:click="changePassphrase()"
+    >
+      {{ i18n.ok }}
     </div>
   </div>
 </template>
@@ -25,6 +36,11 @@ export default Vue.extend({
       phrase: "",
       confirm: ""
     };
+  },
+  computed: {
+    enforcePassword: function() {
+      return this.$store.state.menu.enforcePassword;
+    }
   },
   methods: {
     async removePassphrase() {

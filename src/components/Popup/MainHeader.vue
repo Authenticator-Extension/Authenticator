@@ -104,6 +104,14 @@ export default Vue.extend({
       return;
     },
     async beginCapture() {
+      if (
+        this.$store.state.menu.enforcePassword &&
+        !this.$store.state.accounts.encryption.getEncryptionStatus()
+      ) {
+        this.$store.commit("style/showInfo");
+        this.$store.commit("currentView/changeView", "SetPasswordPage");
+        return;
+      }
       // Insert content script
       await new Promise(
         (resolve: () => void, reject: (reason: Error) => void) => {
