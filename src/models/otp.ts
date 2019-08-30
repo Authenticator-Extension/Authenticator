@@ -75,6 +75,21 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
+  async changeEncryption(encryption: Encryption) {
+    if (!this.secret) {
+      return;
+    }
+
+    if (encryption.getEncryptionStatus()) {
+      this.encSecret = encryption.getEncryptedString(this.secret);
+    } else {
+      this.encSecret = null;
+    }
+
+    await this.update();
+    return;
+  }
+
   async applyEncryption(encryption: Encryption) {
     const secret = this.encSecret ? this.encSecret : null;
     if (secret) {

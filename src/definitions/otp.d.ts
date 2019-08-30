@@ -13,6 +13,7 @@ interface IOTPEntry {
   update(): Promise<void>;
   next(): Promise<void>;
   applyEncryption(encryption: IEncryption): Promise<void>;
+  changeEncryption(encryption: IEncryption): Promise<void>;
   delete(): Promise<void>;
   generate(): void;
   rehash(encryption: IEncryption): Promise<void>;

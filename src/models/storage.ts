@@ -201,7 +201,7 @@ export class EntryStorage {
         if (!encrypted) {
           if (!entry.secret) {
             // Not unencrypted
-          } else if (entry.encSecret) {
+          } else {
             exportData[entry.hash] = this.getOTPStorageFromEntry(
               entry as OTPEntry,
               true

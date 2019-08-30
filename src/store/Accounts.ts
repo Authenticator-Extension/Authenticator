@@ -223,17 +223,17 @@ export class Accounts implements IModule {
           state: ActionContext<AccountsState, {}>,
           password: string
         ) => {
-          await EntryStorage.import(
-            new Encryption(password),
-            await EntryStorage.getExport(state.state.entries)
-          );
-
           state.state.encryption.updateEncryptionPassword(password);
+
           document.cookie = "passphrase=" + password;
           chrome.runtime.sendMessage({
             action: "cachePassphrase",
             value: password
           });
+
+          for (const entry of state.state.entries) {
+            await entry.changeEncryption(state.state.encryption);
+          }
 
           await state.dispatch("updateEntries");
 
