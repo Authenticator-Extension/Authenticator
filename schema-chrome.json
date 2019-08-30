@@ -11,9 +11,9 @@
       "description": "If set to true, then 3rd party backup options will be hidden. If 3rd party backup is already configured for a user this will not stop it.",
       "type": "boolean"
     },
-    "disableExportImport": {
+    "disableExport": {
       "title": "Disable import / export menu",
-      "description": "If set to true, then 'Export / Import' menu will be hidden.",
+      "description": "If set to true, then export buttons will be hidden.",
       "type": "boolean"
     },
     "disablePasswordCaching": {
