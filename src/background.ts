@@ -25,7 +25,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       message.info.windowWidth
     );
   } else if (message.action === "cachePassphrase") {
-    document.cookie = `passphrase="${message.value}${getCookieExpiry()}"`;
     cachedPassphrase = message.value;
     clearTimeout(autolockTimeout);
     setAutolock();
@@ -405,25 +404,37 @@ chrome.commands.onCommand.addListener(async (command: string) => {
   }
 });
 
-function setAutolock() {
+async function setAutolock() {
+  const enforcedAutolock = Number(await ManagedStorage.get("enforceAutolock"));
+
+  if (enforcedAutolock) {
+    if (enforcedAutolock > 0) {
+      document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
+        enforcedAutolock
+      )}"`;
+      autolockTimeout = setTimeout(() => {
+        cachedPassphrase = "";
+      }, enforcedAutolock * 60000);
+      return;
+    }
+  }
+
   if (Number(localStorage.autolock) > 0) {
-    document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry()}"`;
+    document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
+      Number(localStorage.autolock)
+    )}"`;
     autolockTimeout = setTimeout(() => {
       cachedPassphrase = "";
     }, Number(localStorage.autolock) * 60000);
   }
 }
 
-function getCookieExpiry() {
-  if (localStorage.autolock && Number(localStorage.autolock) > 0) {
-    const offset = Number(localStorage.autolock) * 60000;
-    const now = new Date().getTime();
-    const autolockExpiry = new Date(now + offset).toUTCString();
+function getCookieExpiry(time: number) {
+  const offset = time * 60000;
+  const now = new Date().getTime();
+  const autolockExpiry = new Date(now + offset).toUTCString();
 
-    return `;expires=${autolockExpiry}`;
-  } else {
-    return "";
-  }
+  return `;expires=${autolockExpiry}`;
 }
 
 function getCachedPassphrase() {
