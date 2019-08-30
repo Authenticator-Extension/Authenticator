@@ -33,6 +33,10 @@ export default Vue.extend({
       return;
     },
     async changePassphrase() {
+      if (this.phrase === "") {
+        return;
+      }
+
       if (this.phrase !== this.confirm) {
         this.$store.commit("notification/alert", this.i18n.phrase_not_match);
         return;
@@ -40,6 +44,7 @@ export default Vue.extend({
 
       await this.$store.dispatch("accounts/changePassphrase", this.phrase);
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
+      this.$store.commit("style/hideInfo");
       return;
     }
   }

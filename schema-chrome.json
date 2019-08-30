@@ -16,11 +16,6 @@
       "description": "If set to true, then export buttons will be hidden.",
       "type": "boolean"
     },
-    "disablePasswordCaching": {
-      "title": "Disable password caching",
-      "description": "If set to true, then Authenticator will never cache encryption password in the background. Normally the password is stored for as long as the browser is open, this will make Authenticator prompt for password on every open. WARNING: This will break everything that changes data with background services (E.g.: QR scanning and import page).",
-      "type": "boolean"
-    },
     "storageArea": {
       "title": "Storage area",
       "description": "Set to 'sync' or 'local'. If set will force user to use specified storage area. This setting will not check if a user is currently using another storage space and may hide data.",
