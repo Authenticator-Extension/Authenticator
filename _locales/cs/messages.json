@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Neplatné číslo účtu",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportovat \/ Importovat",
+        "message": "Exportovat / Importovat",
         "description": "Export and Import."
     },
     "settings": {
