@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " wurde hinzugefügt.",
+        "message": " đã được thêm.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Số tài khoản không hợp lệ",
+        "message": "Dữ liệu tài khoản không hợp lệ",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Mục hướng dẫn sử dụng",
+        "message": "Nhập thủ công",
         "description": "Manual Entry."
     },
     "close": {
@@ -36,11 +36,11 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Xác nhận",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Đồng ý",
         "description": "Yes."
     },
     "no": {
@@ -60,19 +60,19 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Bí mật",
+        "message": "Mã bí mật",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Sự thành công.",
+        "message": "Thành công.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Sự thất bại.",
+        "message": "Thất bại.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Về",
+        "message": "Về chúng tôi",
         "description": "About."
     },
     "export_import": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bạn có chắc sẽ xóa chuỗi khóa này? Sau khi xóa sẽ không thể khôi phục lại được.",
+        "message": "Bạn có chắc sẽ xóa tài khoản này? Yêu cầu này không thể hoàn tác.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Mật khẩu này sẽ được dùng để mã hóa toàn bộ dữ liệu của bạn. Không ai có thể giúp bạn khôi phục lại mật khẩu này nếu bạn quên mật khẩu.",
+        "message": "Mật khẩu này sẽ được dùng để mã hóa toàn bộ dữ liệu của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Đã được mã hoá",
+        "message": "Đã mã hóa",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Thông tin phản hồi",
+        "message": "Phản hồi",
         "description": "Feedback."
     },
     "translate": {
@@ -140,11 +140,11 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Mã Nguồn",
+        "message": "Mã nguồn",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Nhập mật khẩu để giải mã dữ liệu tài khoản.",
+        "message": "Nhập mật khẩu để giải mã dữ liệu của bạn.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
