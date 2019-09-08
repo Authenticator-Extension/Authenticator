@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Tên đăng nhập",
         "description": "Account Name."
     },
     "issuer": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Xuất \/ Nhập dữ liệu",
+        "message": "Xuất / Nhập dữ liệu",
         "description": "Export and Import."
     },
     "settings": {
@@ -305,21 +305,21 @@
         "message": "Loading..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Khóa sau"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "phút"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Nâng cao"
     },
     "period": {
-        "message": "Period"
+        "message": "Thời hạn"
     },
     "type": {
-        "message": "Type"
+        "message": "Loại"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Không hợp lệ"
     }
 }
