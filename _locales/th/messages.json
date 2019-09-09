@@ -156,7 +156,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "ระวัง! เวลาท้องถิ่นของคุณไม่ถูกต้อง โปรดแก้ไขก่อนดำเนินการขั้นต่อไป",
+        "message": "ระวัง! เวลาของคุณไม่ถูกต้อง โปรดแก้ไขก่อนดำเนินการขั้นต่อไป",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "หน้าป๊อปอัพ",
+        "message": "การตั้งค่า",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "ดาวน์โหลดการสำรองไฟล์",
+        "message": "ดาวน์โหลด Backup",
         "description": "Download backup file."
     },
     "import_backup": {
