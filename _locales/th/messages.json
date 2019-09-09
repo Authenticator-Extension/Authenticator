@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "ดาวน์โหลด Backup",
+        "message": "ดาวน์โหลดการสำรองข้อมูล",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -196,11 +196,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "นำเข้าไฟล์สำรองข้อมูล",
+        "message": "นำเข้าการสำรองข้อมูล (ไฟล์)",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "นำเข้าข้อความสำรองข้อมูล",
+        "message": "นำเข้าการสำรองข้อมูล (ข้อความ)",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -212,11 +212,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "คุณต้องระบุรหัสผ่านที่ถูกต้องเพื่อนำเข้าข้อมูลสำรอง",
+        "message": "โปรดระบุรหัสผ่านที่ถูกต้องเพื่อนำเข้าการสำรองข้อมูล",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "รหัสผ่านของคุณถูกเก็บไว้ในเครื่องกรุณาเปลี่ยนในเมนูความปลอดภัยทันที",
+        "message": "รหัสผ่านของคุณถูกเก็บไว้ในเครื่อง กรุณาเปลี่ยนในเมนูความปลอดภัยทันที",
         "description": "localStorage password warning."
     },
     "remove": {
