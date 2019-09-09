@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " ถูกเพิ่มเรียบร้อย.",
+        "message": " ถูกเพิ่มเรียบร้อย",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "รหัสลับผิดพลาด . รูปแบบ base32 ประกอบด้วย (A-Z, 2-7 และ =) หรือรูปแบบเลขฐาน 16 ประกอบ (0-9 และ A-F) ที่สนับสนุน รหัสลับของคุณคือ : ",
+        "message": "ข้อมูลบัญชีไม่ถูกต้อง",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "กรอกรหัสลับด้วยตัวเอง",
+        "message": "กรอกข้อมูลด้วยตนเอง",
         "description": "Manual Entry."
     },
     "close": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "ชื่อบัญชี",
+        "message": "ชื่อผู้ใช้",
         "description": "Account Name."
     },
     "issuer": {
@@ -64,11 +64,11 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "สำเร็จ.",
+        "message": "สำเร็จ",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "ล้มเหลว.",
+        "message": "ล้มเหลว",
         "description": "Update Failure."
     },
     "about": {
