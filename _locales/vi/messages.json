@@ -180,19 +180,19 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Quy mô",
+        "message": "Tỉ lệ",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Cảnh báo: tất cả các bản sao lưu chưa được mã hóa. Cần chuyển tài khoản đến ứng dụng khác? Di chuột lên góc trên phải của tài khoản bất kỳ và nhấn vào nút ẩn.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Tải về tập tin sao lưu",
+        "message": "Tải về tệp sao lưu",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Nhập khẩu dự phòng",
+        "message": "Nhập bản sao lưu",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Chú ý: Các bản sao lưu chưa được mã hóa. Hãy cẩn trọng khi sử dụng.",
+        "message": "Chú ý: các bản sao lưu chưa được mã hóa. Hãy cẩn trọng khi sử dụng.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Tải về bản sao lưu đã mã hoá",
+        "message": "Tải về tệp sao lưu đã mã hoá",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -240,7 +240,7 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Chỉnh sửa",
+        "message": "Sửa",
         "description": "Edit"
     },
     "manual_dropbox": {
