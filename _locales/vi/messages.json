@@ -212,23 +212,23 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Bạn phải nhập mật khẩu đúng để có thể nhập sao lưu.",
+        "message": "Mật khẩu của bản sao lưu bạn vừa nhập không đúng.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Mật khẩu của bạn được lưu trữ tại địa phương, xin vui lòng thay đổi nó trong trình đơn bảo mật ngay lập tức.",
+        "message": "Mật khẩu của bạn đang được lưu trữ cục bộ, vui lòng thay đổi nó trong trình đơn bảo mật ngay.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Gỡ bỏ Lịch chia sẻ",
+        "message": "Xóa",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Tải về bản sao lưu mật khẩu bảo vệ",
+        "message": "Tải về bản sao lưu mật khẩu đã mã hoá",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "&nbsp; Tìm kiếm&nbsp;",
+        "message": "Tìm kiếm",
         "description": "Search"
     },
     "popout": {
@@ -244,7 +244,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Hướng dẫn sử dụng đồng bộ",
+        "message": "Đồng bộ thủ công",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -252,11 +252,11 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Tương phản cao",
+        "message": "Độ tương phản cao",
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Lí & Backup",
+        "message": "Sao lưu dữ liệu",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
