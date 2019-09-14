@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Đồng hồ đồng bộ với Google",
+        "message": "Đồng bộ đồng hồ với Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -156,15 +156,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Cẩn thận! Đồng hồ địa phương của bạn là quá xa, xin vui lòng sửa chữa nó trước khi tiếp tục.",
+        "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Bạn có một bản sao lưu cho tài khoản của bạn? Đừng chờ đợi cho đến khi quá muộn!",
+        "message": "Bạn đã tạo bản sao lưu chưa? Đừng đợi đến khi quá muộn!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Thất bại trong việc bắt giữ, xin vui lòng tải lại trang web và thử lại.",
+        "message": "Quét thất bại, vui lòng tải lại trang và thử lại.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Tải về bản sao lưu mật khẩu đã mã hoá",
+        "message": "Tải về bản sao lưu đã mã hoá",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Chế độ Popup",
+        "message": "Chế độ cửa sổ",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
