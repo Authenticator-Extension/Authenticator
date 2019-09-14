@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Tên của ứng dụng yêu cầu xác thực",
+        "message": "Nhà phát hành",
         "description": "Issuer."
     },
     "secret": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Nhập văn bản sao lưu",
+        "message": "Nhập bản sao lưu",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Chú ý: bản sao lưu được mã hóa. Sử dụng tại rủi ro của riêng bạn.",
+        "message": "Chú ý: Các bản sao lưu chưa được mã hóa. Hãy cẩn trọng khi sử dụng.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
