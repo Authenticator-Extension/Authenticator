@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Експорт \/ Імпорт",
+        "message": "Експорт / Імпорт",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Безпека",
+        "message": "Захист",
         "description": "Security."
     },
     "current_phrase": {
