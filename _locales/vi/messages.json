@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Nhận thực tạo ra mã số xác thực 2 yếu tố trong trình duyệt của bạn.",
+        "message": "Authenticator tạo ra mã xác thực 2 yếu tố ngay trong trình duyệt của bạn.",
         "description": "Extension Description."
     },
     "added": {
@@ -88,7 +88,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mật Khẩu Hiện Tại",
+        "message": "Mật khẩu hiện tại",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -168,7 +168,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Dựa trên thời gian",
+        "message": "Theo thời gian",
         "description": "Time Based"
     },
     "based_on_counter": {
