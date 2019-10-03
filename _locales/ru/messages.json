@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Экспорт \/ Импорт",
+        "message": "Экспорт / Импорт",
         "description": "Export and Import."
     },
     "settings": {
@@ -314,12 +314,12 @@
         "message": "Advanced"
     },
     "period": {
-        "message": "Period"
+        "message": "Период"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип\n"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Больной"
     }
 }
