@@ -255,7 +255,7 @@ export class EntryStorage {
         reject: (reason: Error) => void
       ) => {
         try {
-          BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
+          BrowserStorage.get(async (_data: { [hash: string]: OTPStorage }) => {
             for (const hash of Object.keys(_data)) {
               if (!this.isValidEntry(_data, hash)) {
                 delete _data[hash];
@@ -282,6 +282,7 @@ export class EntryStorage {
                 }
               }
             }
+            Object.assign(_data, await BrowserStorage.getKey());
             return resolve(_data);
           });
           return;

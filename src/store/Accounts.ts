@@ -35,6 +35,7 @@ export class Accounts implements IModule {
         showSearch: false,
         exportData: await EntryStorage.getExport(entries),
         exportEncData: await EntryStorage.getExport(entries, true),
+        key: await BrowserStorage.getKey(),
         wrongPassword: false
       },
       getters: {
@@ -141,6 +142,12 @@ export class Accounts implements IModule {
           exportData: { [k: string]: IOTPEntry }
         ) {
           state.exportEncData = exportData;
+        },
+        updateKeyExport(
+          state: AccountsState,
+          key: { enc: string; hash: string } | null
+        ) {
+          state.key = key;
         },
         wrongPassword(state: AccountsState) {
           state.wrongPassword = true;
@@ -287,6 +294,7 @@ export class Accounts implements IModule {
             "updateEncExport",
             await EntryStorage.getExport(state.state.entries, true)
           );
+          state.commit("updateKeyExport", await BrowserStorage.getKey());
           return;
         },
         clearFilter: (state: ActionContext<AccountsState, {}>) => {

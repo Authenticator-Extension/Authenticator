@@ -46,11 +46,12 @@ export default Vue.extend({
   data: function() {
     const exportData = this.$store.state.accounts.exportData;
     const exportEncData = this.$store.state.accounts.exportEncData;
+    const key = this.$store.state.accounts.key;
 
     return {
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
-      exportEncryptedFile: getBackupFile(exportEncData),
+      exportEncryptedFile: getBackupFile(exportEncData, key),
       exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData)
     };
   },
@@ -73,7 +74,13 @@ function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {
   return false;
 }
 
-function getBackupFile(entryData: { [hash: string]: OTPStorage }) {
+function getBackupFile(
+  entryData: { [hash: string]: OTPStorage },
+  key?: Object
+) {
+  if (key) {
+    Object.assign(entryData, { key: key });
+  }
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, "\r\n");
