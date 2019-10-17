@@ -1,5 +1,4 @@
 import * as CryptoJS from "crypto-js";
-import { argon } from "./argon";
 
 export class Encryption implements IEncryption {
   private password: string;

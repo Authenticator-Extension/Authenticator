@@ -56,10 +56,10 @@ export class BrowserStorage {
   // TODO: promise this
   static async get(callback: (items: { [key: string]: any }) => void) {
     const storageLocation = await this.getStorageLocation();
-    const removeKey = function (items: { [key: string]: any }): void {
+    const removeKey = function(items: { [key: string]: any }): void {
       delete items.key;
       callback(items);
-    }
+    };
 
     if (storageLocation === "local") {
       chrome.storage.local.get(removeKey);
@@ -70,25 +70,24 @@ export class BrowserStorage {
   }
 
   static getKey() {
-    return new Promise(
-      async (resolve: (key: string | null) => void) => {
-        const storageLocation = await this.getStorageLocation();
-        const callback = function (items: { [key: string]: any }): void {
-          if (typeof items.key === "string") {
-            resolve(items.key);
-          } else {
-            resolve(null);
-          }
-          return;
-        }
-
-        if (storageLocation === "local") {
-          chrome.storage.local.get(callback);
-        } else if (storageLocation === "sync") {
-          chrome.storage.sync.get(callback);
+    return new Promise(async (resolve: (key: string | null) => void) => {
+      const storageLocation = await this.getStorageLocation();
+      const callback = function(items: { [key: string]: any }): void {
+        if (typeof items.key === "string") {
+          resolve(items.key);
+        } else {
+          resolve(null);
         }
         return;
-      })
+      };
+
+      if (storageLocation === "local") {
+        chrome.storage.local.get(callback);
+      } else if (storageLocation === "sync") {
+        chrome.storage.sync.get(callback);
+      }
+      return;
+    });
   }
 
   static async set(data: object, callback?: (() => void) | undefined) {

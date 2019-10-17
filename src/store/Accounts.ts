@@ -185,45 +185,52 @@ export class Accounts implements IModule {
 
           state.commit("currentView/changeView", "LoadingPage", { root: true });
 
-          const key = await BrowserStorage.getKey();
-          if (!key) {
-            // migrate to key
-          } else {
-            // decrypt using key
+          const encKey = await BrowserStorage.getKey();
+          if (!encKey) {
+            // --- migrate to key
+            // verify current password
             state.state.encryption.updateEncryptionPassword(password);
             await state.dispatch("updateEntries");
+
+            if (state.getters.currentlyEncrypted) {
+              state.commit("style/hideInfo", true, { root: true });
+              return;
+            }
+            // gen key
+            const randomKey = crypto.getRandomValues(new Uint32Array(30));
+            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
+
+            // store key
+            BrowserStorage.set({ key: encKey }, async () => {
+              // change entry encryption to key
+              for (const entry of state.state.entries) {
+                await entry.changeEncryption(
+                  new Encryption(wordArray.toString())
+                );
+              }
+
+              state.state.encryption.updateEncryptionPassword(
+                wordArray.toString()
+              );
+              await state.dispatch("updateEntries");
+            });
+          } else {
+            // --- decrypt using key
+            const key = CryptoJS.AES.decrypt(encKey, password).toString();
+
+            state.state.encryption.updateEncryptionPassword(key);
+            await state.dispatch("updateEntries");
+
+            if (!state.getters.currentlyEncrypted) {
+              chrome.runtime.sendMessage({
+                action: "cachePassphrase",
+                value: key
+              });
+            }
           }
-
-
-
-          // if (state.state.encryption.getEncryptionStatus()) {
-          //   // Migrate old hashes to argon2
-          //   let changedHash = false;
-
-          //   for (const entry of state.state.entries) {
-          //     if (
-          //       !/^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
-          //         entry.hash
-          //       )
-          //     ) {
-          //       await entry.rehash(state.state.encryption);
-          //       changedHash = true;
-          //     }
-          //   }
-
-          //   if (changedHash) {
-          //     await state.dispatch("updateEntries");
-          //   }
-          // }
 
           state.commit("style/hideInfo", true, { root: true });
-
-          if (!state.getters.currentlyEncrypted) {
-            chrome.runtime.sendMessage({
-              action: "cachePassphrase",
-              value: password
-            });
-          }
           return;
         },
         changePassphrase: async (
@@ -408,16 +415,14 @@ export class Accounts implements IModule {
   }
 
   private getCachedPassphrase() {
-    return new Promise(
-      (resolve: (value: string) => void) => {
-        chrome.runtime.sendMessage(
-          { action: "passphrase" },
-          (passphrase: string) => {
-            return resolve(passphrase);
-          }
-        );
-      }
-    );
+    return new Promise((resolve: (value: string) => void) => {
+      chrome.runtime.sendMessage(
+        { action: "passphrase" },
+        (passphrase: string) => {
+          return resolve(passphrase);
+        }
+      );
+    });
   }
 
   private async getEntries() {
