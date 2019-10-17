@@ -157,7 +157,7 @@ export default Vue.extend({
       }
 
       if (entry.code === "Encrypted") {
-        this.$store.commit("style/showInfo");
+        this.$store.commit("style/showInfo", true);
         this.$store.commit("currentView/changeView", "EnterPasswordPage");
         return;
       }
