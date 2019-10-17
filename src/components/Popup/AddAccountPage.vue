@@ -98,7 +98,6 @@ export default Vue.extend({
           issuer: this.newAccount.issuer,
           account: this.newAccount.account,
           encrypted: false,
-          hash: await argon.hash(this.newAccount.secret),
           secret: this.newAccount.secret,
           counter: 0,
           period: this.newAccount.period

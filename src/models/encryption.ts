@@ -40,23 +40,7 @@ export class Encryption implements IEncryption {
         return null;
       }
 
-      if (
-        /^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
-          entry.hash
-        )
-      ) {
-        return decryptedSecret;
-      } else if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
-        return decryptedSecret;
-      }
-
-      console.warn(
-        `Account ${entry.hash} may have secret ${decryptedSecret.replace(
-          / /g,
-          ""
-        )}, but hash did not match.`
-      );
-      return null;
+      return decryptedSecret;
     } catch (error) {
       return null;
     }

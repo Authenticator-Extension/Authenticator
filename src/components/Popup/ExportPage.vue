@@ -67,7 +67,6 @@ function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {
       exportData[entry].type === "battle" ||
       exportData[entry].type === "steam"
     ) {
-      console.log(exportData[entry]);
       return true;
     }
   }

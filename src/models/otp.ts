@@ -1,8 +1,7 @@
 import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
 import { EntryStorage } from "./storage";
-import { argon } from "./argon";
-import * as CryptoJS from "crypto-js";
+import * as uuid from "uuid/v4";
 
 export enum OTPType {
   totp = 1,
@@ -29,13 +28,13 @@ export class OTPEntry implements IOTPEntry {
     entry: {
       account: string;
       encrypted: boolean;
-      hash: string;
       index: number;
       issuer: string;
       secret: string;
       type: OTPType;
       counter: number;
       period?: number;
+      hash?: string;
     },
     encryption?: Encryption
   ) {
@@ -53,7 +52,12 @@ export class OTPEntry implements IOTPEntry {
         this.encSecret = encryption.getEncryptedString(this.secret);
       }
     }
-    this.hash = entry.hash;
+
+    if (entry.hash) {
+      this.hash = entry.hash;
+    } else {
+      this.hash = uuid(); // UUID
+    }
     this.counter = entry.counter;
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
@@ -121,19 +125,9 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async rehash() {
-    const secret = this.secret;
-    if (!secret) {
-      return;
-    }
-
-    if (this.hash !== CryptoJS.MD5(secret).toString()) {
-      return;
-    }
-
-    const newHash = await argon.hash(secret);
+  async genUUID() {
     await this.delete();
-    this.hash = newHash;
+    this.hash = uuid();
     await this.create();
   }
 

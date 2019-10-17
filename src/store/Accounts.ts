@@ -204,22 +204,21 @@ export class Accounts implements IModule {
             const encKeyHash = await argon.hash(wordArray.toString());
 
             // store key
-            BrowserStorage.set(
-              { key: { enc: encKey, hash: encKeyHash } },
-              async () => {
-                // change entry encryption to key
-                for (const entry of state.state.entries) {
-                  await entry.changeEncryption(
-                    new Encryption(wordArray.toString())
-                  );
-                }
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
+            });
+            // change entry encryption to key and remove old hash
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(
+                new Encryption(wordArray.toString())
+              );
+              await entry.genUUID();
+            }
 
-                state.state.encryption.updateEncryptionPassword(
-                  wordArray.toString()
-                );
-                await state.dispatch("updateEntries");
-              }
+            state.state.encryption.updateEncryptionPassword(
+              wordArray.toString()
             );
+            await state.dispatch("updateEntries");
           } else {
             // --- decrypt using key
             const key = CryptoJS.AES.decrypt(encKey.enc, password).toString();
@@ -234,7 +233,6 @@ export class Accounts implements IModule {
               });
             }
           }
-
           state.commit("style/hideInfo", true, { root: true });
           return;
         },
