@@ -66,6 +66,7 @@ interface AccountsState {
   showSearch: Boolean;
   exportData: { [k: string]: IOTPEntry };
   exportEncData: { [k: string]: IOTPEntry };
+  wrongPassword: Boolean;
 }
 
 interface NotificationState {

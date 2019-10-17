@@ -34,7 +34,8 @@ export class Accounts implements IModule {
         siteName: await this.getSiteName(),
         showSearch: false,
         exportData: await EntryStorage.getExport(entries),
-        exportEncData: await EntryStorage.getExport(entries, true)
+        exportEncData: await EntryStorage.getExport(entries, true),
+        wrongPassword: false
       },
       getters: {
         shouldFilter(
@@ -140,6 +141,9 @@ export class Accounts implements IModule {
           exportData: { [k: string]: IOTPEntry }
         ) {
           state.exportEncData = exportData;
+        },
+        wrongPassword(state: AccountsState) {
+          state.wrongPassword = true;
         }
       },
       actions: {
@@ -222,6 +226,14 @@ export class Accounts implements IModule {
           } else {
             // --- decrypt using key
             const key = CryptoJS.AES.decrypt(encKey.enc, password).toString();
+
+            if (!(await argon.compareHash(encKey.hash, key))) {
+              state.commit("wrongPassword");
+              state.commit("currentView/changeView", "EnterPasswordPage", {
+                root: true
+              });
+              return;
+            }
 
             state.state.encryption.updateEncryptionPassword(key);
             await state.dispatch("updateEntries");

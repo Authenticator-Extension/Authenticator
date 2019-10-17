@@ -641,6 +641,12 @@ svg {
     @include security-button(30px);
   }
 
+  .badInput {
+    @include themify($themes) {
+      border-color: themed("red-1");
+    }
+  }
+
   &.fadein {
     top: 10px;
     animation: fadein 0.2s 1 ease-out;
