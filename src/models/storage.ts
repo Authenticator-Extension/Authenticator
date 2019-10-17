@@ -53,14 +53,42 @@ export class BrowserStorage {
   }
 
   /* tslint:disable-next-line:no-any */
+  // TODO: promise this
   static async get(callback: (items: { [key: string]: any }) => void) {
     const storageLocation = await this.getStorageLocation();
+    const removeKey = function (items: { [key: string]: any }): void {
+      delete items.key;
+      callback(items);
+    }
+
     if (storageLocation === "local") {
-      chrome.storage.local.get(callback);
+      chrome.storage.local.get(removeKey);
     } else if (storageLocation === "sync") {
-      chrome.storage.sync.get(callback);
+      chrome.storage.sync.get(removeKey);
     }
     return;
+  }
+
+  static getKey() {
+    return new Promise(
+      async (resolve: (key: string | null) => void) => {
+        const storageLocation = await this.getStorageLocation();
+        const callback = function (items: { [key: string]: any }): void {
+          if (typeof items.key === "string") {
+            resolve(items.key);
+          } else {
+            resolve(null);
+          }
+          return;
+        }
+
+        if (storageLocation === "local") {
+          chrome.storage.local.get(callback);
+        } else if (storageLocation === "sync") {
+          chrome.storage.sync.get(callback);
+        }
+        return;
+      })
   }
 
   static async set(data: object, callback?: (() => void) | undefined) {
@@ -226,7 +254,7 @@ export class EntryStorage {
         reject: (reason: Error) => void
       ) => {
         try {
-          BrowserStorage.get(async (_data: { [hash: string]: OTPStorage }) => {
+          BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
             for (const hash of Object.keys(_data)) {
               if (!this.isValidEntry(_data, hash)) {
                 delete _data[hash];
@@ -235,7 +263,7 @@ export class EntryStorage {
               if (!encrypted) {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
-                  const decryptedSecret = await encryption.getDecryptedSecret(
+                  const decryptedSecret = encryption.getDecryptedSecret(
                     _data[hash]
                   );
                   if (

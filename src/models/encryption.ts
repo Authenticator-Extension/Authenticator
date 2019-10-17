@@ -16,7 +16,7 @@ export class Encryption implements IEncryption {
     }
   }
 
-  async getDecryptedSecret(entry: { secret: string; hash: string }) {
+  getDecryptedSecret(entry: { secret: string; hash: string }) {
     try {
       const decryptedSecret = CryptoJS.AES.decrypt(
         entry.secret,
@@ -46,9 +46,7 @@ export class Encryption implements IEncryption {
           entry.hash
         )
       ) {
-        if (await argon.compareHash(entry.hash, decryptedSecret)) {
-          return decryptedSecret;
-        }
+        return decryptedSecret;
       } else if (entry.hash === CryptoJS.MD5(decryptedSecret).toString()) {
         return decryptedSecret;
       }

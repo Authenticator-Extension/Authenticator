@@ -1,4 +1,4 @@
-import { EntryStorage } from "../models/storage";
+import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
 import { OTPType } from "../models/otp";
@@ -185,33 +185,40 @@ export class Accounts implements IModule {
 
           state.commit("currentView/changeView", "LoadingPage", { root: true });
 
-          state.state.encryption.updateEncryptionPassword(password);
-          await state.dispatch("updateEntries");
-
-          // Migrate old hashes to argon2
-          if (state.state.encryption.getEncryptionStatus()) {
-            let changedHash = false;
-
-            for (const entry of state.state.entries) {
-              if (
-                !/^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
-                  entry.hash
-                )
-              ) {
-                await entry.rehash(state.state.encryption);
-                changedHash = true;
-              }
-            }
-
-            if (changedHash) {
-              await state.dispatch("updateEntries");
-            }
+          const key = await BrowserStorage.getKey();
+          if (!key) {
+            // migrate to key
+          } else {
+            // decrypt using key
+            state.state.encryption.updateEncryptionPassword(password);
+            await state.dispatch("updateEntries");
           }
+
+
+
+          // if (state.state.encryption.getEncryptionStatus()) {
+          //   // Migrate old hashes to argon2
+          //   let changedHash = false;
+
+          //   for (const entry of state.state.entries) {
+          //     if (
+          //       !/^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+          //         entry.hash
+          //       )
+          //     ) {
+          //       await entry.rehash(state.state.encryption);
+          //       changedHash = true;
+          //     }
+          //   }
+
+          //   if (changedHash) {
+          //     await state.dispatch("updateEntries");
+          //   }
+          // }
 
           state.commit("style/hideInfo", true, { root: true });
 
           if (!state.getters.currentlyEncrypted) {
-            document.cookie = "passphrase=" + password;
             chrome.runtime.sendMessage({
               action: "cachePassphrase",
               value: password
@@ -225,7 +232,6 @@ export class Accounts implements IModule {
         ) => {
           state.state.encryption.updateEncryptionPassword(password);
 
-          document.cookie = "passphrase=" + password;
           chrome.runtime.sendMessage({
             action: "cachePassphrase",
             value: password
@@ -403,22 +409,7 @@ export class Accounts implements IModule {
 
   private getCachedPassphrase() {
     return new Promise(
-      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-        const cookie = document.cookie;
-        const cookieMatch = cookie
-          ? document.cookie.match(/passphrase=([^;]*)/)
-          : null;
-        const cachedPassphrase =
-          cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
-        const cachedPassphraseLocalStorage = localStorage.encodedPhrase
-          ? CryptoJS.AES.decrypt(localStorage.encodedPhrase, "").toString(
-              CryptoJS.enc.Utf8
-            )
-          : "";
-        if (cachedPassphrase || cachedPassphraseLocalStorage) {
-          return resolve(cachedPassphrase || cachedPassphraseLocalStorage);
-        }
-
+      (resolve: (value: string) => void) => {
         chrome.runtime.sendMessage(
           { action: "passphrase" },
           (passphrase: string) => {

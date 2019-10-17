@@ -90,10 +90,10 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async applyEncryption(encryption: Encryption) {
+  applyEncryption(encryption: Encryption) {
     const secret = this.encSecret ? this.encSecret : null;
     if (secret) {
-      this.secret = await encryption.getDecryptedSecret({
+      this.secret = encryption.getDecryptedSecret({
         hash: this.hash,
         secret
       });

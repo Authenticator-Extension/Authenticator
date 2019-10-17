@@ -41,16 +41,6 @@ init();
 function getCachedPassphrase() {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-      const cookie = document.cookie;
-      const cookieMatch = cookie
-        ? document.cookie.match(/passphrase=([^;]*)/)
-        : null;
-      const cachedPassphrase =
-        cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
-      if (cachedPassphrase) {
-        return resolve(cachedPassphrase);
-      }
-
       chrome.runtime.sendMessage(
         { action: "passphrase" },
         (passphrase: string) => {
