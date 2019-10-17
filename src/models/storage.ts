@@ -70,24 +70,26 @@ export class BrowserStorage {
   }
 
   static getKey() {
-    return new Promise(async (resolve: (key: string | null) => void) => {
-      const storageLocation = await this.getStorageLocation();
-      const callback = function(items: { [key: string]: any }): void {
-        if (typeof items.key === "string") {
-          resolve(items.key);
-        } else {
-          resolve(null);
+    return new Promise(
+      async (resolve: (key: { enc: string; hash: string } | null) => void) => {
+        const storageLocation = await this.getStorageLocation();
+        const callback = function(items: { [key: string]: any }): void {
+          if (typeof items.key === "object") {
+            resolve(items.key);
+          } else {
+            resolve(null);
+          }
+          return;
+        };
+
+        if (storageLocation === "local") {
+          chrome.storage.local.get(callback);
+        } else if (storageLocation === "sync") {
+          chrome.storage.sync.get(callback);
         }
         return;
-      };
-
-      if (storageLocation === "local") {
-        chrome.storage.local.get(callback);
-      } else if (storageLocation === "sync") {
-        chrome.storage.sync.get(callback);
       }
-      return;
-    });
+    );
   }
 
   static async set(data: object, callback?: (() => void) | undefined) {

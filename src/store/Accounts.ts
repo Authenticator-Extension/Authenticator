@@ -3,6 +3,7 @@ import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
 import { OTPType } from "../models/otp";
 import { ActionContext } from "vuex";
+import { argon } from "../models/argon";
 
 export class Accounts implements IModule {
   async getModule() {
@@ -200,24 +201,28 @@ export class Accounts implements IModule {
             const randomKey = crypto.getRandomValues(new Uint32Array(30));
             const wordArray = CryptoJS.lib.WordArray.create(randomKey);
             const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
+            const encKeyHash = await argon.hash(wordArray.toString());
 
             // store key
-            BrowserStorage.set({ key: encKey }, async () => {
-              // change entry encryption to key
-              for (const entry of state.state.entries) {
-                await entry.changeEncryption(
-                  new Encryption(wordArray.toString())
-                );
-              }
+            BrowserStorage.set(
+              { key: { enc: encKey, hash: encKeyHash } },
+              async () => {
+                // change entry encryption to key
+                for (const entry of state.state.entries) {
+                  await entry.changeEncryption(
+                    new Encryption(wordArray.toString())
+                  );
+                }
 
-              state.state.encryption.updateEncryptionPassword(
-                wordArray.toString()
-              );
-              await state.dispatch("updateEntries");
-            });
+                state.state.encryption.updateEncryptionPassword(
+                  wordArray.toString()
+                );
+                await state.dispatch("updateEntries");
+              }
+            );
           } else {
             // --- decrypt using key
-            const key = CryptoJS.AES.decrypt(encKey, password).toString();
+            const key = CryptoJS.AES.decrypt(encKey.enc, password).toString();
 
             state.state.encryption.updateEncryptionPassword(key);
             await state.dispatch("updateEntries");
