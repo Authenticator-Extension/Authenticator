@@ -6,7 +6,7 @@ export class argon {
     const hash = await argon2.hash({
       pass: value,
       salt,
-      mem: 1024 * 8,
+      mem: 1024 * 16,
       type: argon2.ArgonType.Argon2id
     });
 
