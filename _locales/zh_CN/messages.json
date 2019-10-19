@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "导出 \/ 导入",
+        "message": "导出 / 导入",
         "description": "Export and Import."
     },
     "settings": {
