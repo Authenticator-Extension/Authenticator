@@ -1,6 +1,6 @@
 import { Encryption } from "./encryption";
 import { OTPEntry, OTPType } from "./otp";
-import { argon } from "./argon";
+import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
   private static async getStorageLocation() {
@@ -355,20 +355,18 @@ export class EntryStorage {
                 data[hash].type = OTPType[OTPType.hhex];
               }
 
-              const _hash = await argon.hash(data[hash].secret);
-
               // not a valid / old hash
               if (
-                !/^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
+                !/^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$/.test(
                   hash
                 )
               ) {
+                const _hash = await uuid();
+
                 data[_hash] = data[hash];
                 data[_hash].hash = _hash;
                 delete data[hash];
-              }
 
-              if (data[_hash]) {
                 data[_hash].secret = encryption.getEncryptedString(
                   data[_hash].secret
                 );

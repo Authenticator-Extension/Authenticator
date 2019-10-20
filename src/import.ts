@@ -5,7 +5,7 @@ import { loadI18nMessages } from "./store/i18n";
 import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import * as CryptoJS from "crypto-js";
-import { argon } from "./models/argon";
+import * as uuid from "uuid/v4";
 
 async function init() {
   // i18n
@@ -152,7 +152,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       ) {
         continue;
       } else {
-        const hash = await argon.hash(secret);
+        const hash = await uuid();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
