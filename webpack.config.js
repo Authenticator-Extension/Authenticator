@@ -10,7 +10,6 @@ module.exports = {
     content: './src/content.ts',
     popup: './src/popup.ts',
     import: './src/import.ts',
-    qr: './src/qr.ts',
     qrdebug: './src/qrdebug.ts',
     test: './src/test/test.ts'
   },
@@ -19,7 +18,7 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
-        options: { 
+        options: {
           appendTsSuffixTo: [/\.vue$/],
           transpileOnly: true
         },
@@ -32,6 +31,15 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'vue-svg-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {},
+          }
+        ]
       }
     ]
   },
