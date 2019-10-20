@@ -36,6 +36,12 @@
         ],
         "persistent": true
     },
+    "sandbox": {
+        "pages": [
+            "view/argon.html"
+        ],
+        "content_security_policy": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+    },
     "permissions": [
         "activeTab",
         "storage",

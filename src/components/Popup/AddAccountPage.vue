@@ -31,7 +31,6 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry } from "../../models/otp";
-import { argon } from "../../models/argon";
 
 export default Vue.extend({
   data: function(): {

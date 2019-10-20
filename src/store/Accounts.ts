@@ -3,7 +3,6 @@ import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
 import { OTPType } from "../models/otp";
 import { ActionContext } from "vuex";
-import { argon } from "../models/argon";
 
 export class Accounts implements IModule {
   async getModule() {
@@ -212,7 +211,27 @@ export class Accounts implements IModule {
             const randomKey = crypto.getRandomValues(new Uint32Array(30));
             const wordArray = CryptoJS.lib.WordArray.create(randomKey);
             const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
-            const encKeyHash = await argon.hash(wordArray.toString());
+            const encKeyHash = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "hash",
+                  value: wordArray.toString()
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
+
+            if (encKeyHash === "error") {
+              state.commit("style/hideInfo", true, { root: true });
+              return;
+            }
 
             // store key
             await BrowserStorage.set({
@@ -233,8 +252,25 @@ export class Accounts implements IModule {
           } else {
             // --- decrypt using key
             const key = CryptoJS.AES.decrypt(encKey.enc, password).toString();
+            const isCorrectPassword = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "verify",
+                  value: key,
+                  hash: encKey.hash
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
 
-            if (!(await argon.compareHash(encKey.hash, key))) {
+            if (!isCorrectPassword) {
               state.commit("wrongPassword");
               state.commit("currentView/changeView", "EnterPasswordPage", {
                 root: true
