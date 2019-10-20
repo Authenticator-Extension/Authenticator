@@ -228,7 +228,7 @@ export class Accounts implements IModule {
               }
             );
 
-            if (encKeyHash === "error") {
+            if (!encKeyHash) {
               state.commit("style/hideInfo", true, { root: true });
               return;
             }
@@ -295,18 +295,65 @@ export class Accounts implements IModule {
           state: ActionContext<AccountsState, {}>,
           password: string
         ) => {
-          state.state.encryption.updateEncryptionPassword(password);
+          if (password) {
+            const randomKey = crypto.getRandomValues(new Uint32Array(30));
+            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
+            const encKeyHash = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "hash",
+                  value: wordArray.toString()
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
 
-          chrome.runtime.sendMessage({
-            action: "cachePassphrase",
-            value: password
-          });
+            if (!encKeyHash) {
+              return;
+            }
 
-          for (const entry of state.state.entries) {
-            await entry.changeEncryption(state.state.encryption);
+            // store key
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
+            });
+            // change entry encryption and regen hash
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(
+                new Encryption(wordArray.toString())
+              );
+              await entry.genUUID();
+            }
+
+            state.state.encryption.updateEncryptionPassword(
+              wordArray.toString()
+            );
+            await state.dispatch("updateEntries");
+
+            chrome.runtime.sendMessage({
+              action: "cachePassphrase",
+              value: wordArray.toString()
+            });
+          } else {
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(new Encryption(""));
+            }
+
+            state.state.encryption.updateEncryptionPassword("");
+
+            await state.dispatch("updateEntries");
+
+            chrome.runtime.sendMessage({
+              action: "lock"
+            });
           }
-
-          await state.dispatch("updateEntries");
 
           // remove cached passphrase in old version
           localStorage.removeItem("encodedPhrase");

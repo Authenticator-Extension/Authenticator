@@ -10,25 +10,15 @@ window.addEventListener("message", event => {
 
   switch (message.action) {
     case "hash":
-      argon
-        .hash(message.value)
-        .then(hash => {
-          source.postMessage({ response: hash }, event.origin);
-        })
-        .catch(() => {
-          source.postMessage({ response: "error" }, event.origin);
-        });
+      argon.hash(message.value).then(hash => {
+        source.postMessage({ response: hash }, event.origin);
+      });
       break;
 
     case "verify":
-      argon
-        .compareHash(message.hash, message.value)
-        .then(result => {
-          source.postMessage({ response: result }, event.origin);
-        })
-        .catch(() => {
-          source.postMessage({ response: "error" }, event.origin);
-        });
+      argon.compareHash(message.hash, message.value).then(result => {
+        source.postMessage({ response: result }, event.origin);
+      });
       break;
 
     default:
