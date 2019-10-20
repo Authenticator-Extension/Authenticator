@@ -348,6 +348,8 @@ export class Accounts implements IModule {
 
             state.state.encryption.updateEncryptionPassword("");
 
+            BrowserStorage.remove("key");
+
             await state.dispatch("updateEntries");
 
             chrome.runtime.sendMessage({

@@ -21,6 +21,7 @@
   </div>
 </template>
 <script lang="ts">
+import * as CryptoJS from "crypto-js";
 import Vue from "vue";
 import {
   decryptBackupData,
@@ -39,7 +40,11 @@ export default Vue.extend({
   },
   methods: {
     async importBackupCode() {
-      let exportData: { [hash: string]: OTPStorage } = {};
+      let exportData: {
+        // @ts-ignore
+        key?: { enc: string; hash: string };
+        [hash: string]: OTPStorage;
+      } = {};
       try {
         exportData = JSON.parse(this.importCode);
       } catch (error) {
@@ -47,14 +52,30 @@ export default Vue.extend({
         exportData = await getEntryDataFromOTPAuthPerLine(this.importCode);
       }
 
+      let key: { enc: string; hash: string } | null = null;
+
+      if (exportData.key) {
+        key = exportData.key;
+        delete exportData.key;
+      }
+
       try {
         const passphrase: string | null =
           this.importEncrypted && this.importPassphrase
             ? this.importPassphrase
             : null;
-        const decryptedbackupData: {
+        let decryptedbackupData: {
           [hash: string]: OTPStorage;
-        } = decryptBackupData(exportData, passphrase);
+        } = {};
+        if (key && passphrase) {
+          decryptedbackupData = decryptBackupData(
+            exportData,
+            CryptoJS.AES.decrypt(key.enc, passphrase).toString()
+          );
+        } else {
+          decryptedbackupData = decryptBackupData(exportData, passphrase);
+        }
+
         if (Object.keys(decryptedbackupData).length) {
           await EntryStorage.import(
             this.$encryption as Encryption,
