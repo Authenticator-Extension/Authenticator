@@ -41,6 +41,7 @@ function showGrayLayout() {
     document.body.appendChild(grayLayout);
     const scan = document.createElement("div");
     scan.className = "scan";
+    scan.id = "__ga_scan__";
     scan.style.background = `url('${scanGIF}') no-repeat center`;
     grayLayout.appendChild(scan);
     const captureBox = document.createElement("div");
@@ -76,6 +77,11 @@ function grayLayoutDown(event: MouseEvent) {
   captureBox.style.width = "1px";
   captureBox.style.height = "1px";
   captureBox.style.display = "block";
+
+  const scan = document.getElementById("__ga_scan__");
+  if (scan) {
+    scan.style.background = "transparent";
+  }
   return;
 }
 
