@@ -14,6 +14,9 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "errorqr":
         alert(chrome.i18n.getMessage("errorqr"));
         break;
+      case "errorenc":
+        alert(chrome.i18n.getMessage("phrase_incorrect"));
+        break;
       case "added":
         alert(message.account + chrome.i18n.getMessage("added"));
         break;

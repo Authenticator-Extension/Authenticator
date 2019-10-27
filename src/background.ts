@@ -204,6 +204,13 @@ async function getTotp(text: string) {
         if (period) {
           entryData[hash].period = period;
         }
+        if (
+          (await EntryStorage.hasEncryptedEntry()) !==
+          encryption.getEncryptionStatus()
+        ) {
+          chrome.tabs.sendMessage(id, { action: "errorenc" });
+          return;
+        }
         await EntryStorage.import(encryption, entryData);
         chrome.tabs.sendMessage(id, { action: "added", account });
       }
