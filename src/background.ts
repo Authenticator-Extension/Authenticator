@@ -410,6 +410,10 @@ function setAutolock() {
     document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry()}"`;
     autolockTimeout = setTimeout(() => {
       cachedPassphrase = "";
+      const id = contentTab.id;
+      if (id) {
+        chrome.tabs.sendMessage(id, { action: "stopCapture" });
+      }
     }, Number(localStorage.autolock) * 60000);
   }
 }

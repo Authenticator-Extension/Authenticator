@@ -23,6 +23,17 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "pastecode":
         pasteCode(message.code);
         break;
+      case "stopCapture":
+        const captureBox = document.getElementById("__ga_captureBox__");
+        if (captureBox) {
+          captureBox.style.display = "none";
+        }
+
+        const grayLayout = document.getElementById("__ga_grayLayout__");
+        if (grayLayout) {
+          grayLayout.style.display = "none";
+        }
+        break;
       default:
         // invalid command, ignore it
         break;
