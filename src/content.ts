@@ -14,6 +14,9 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "errorqr":
         alert(chrome.i18n.getMessage("errorqr"));
         break;
+      case "errorenc":
+        alert(chrome.i18n.getMessage("phrase_incorrect"));
+        break;
       case "added":
         alert(message.account + chrome.i18n.getMessage("added"));
         break;
@@ -22,6 +25,17 @@ if (!document.getElementById("__ga_grayLayout__")) {
         break;
       case "pastecode":
         pasteCode(message.code);
+        break;
+      case "stopCapture":
+        const captureBox = document.getElementById("__ga_captureBox__");
+        if (captureBox) {
+          captureBox.style.display = "none";
+        }
+
+        const grayLayout = document.getElementById("__ga_grayLayout__");
+        if (grayLayout) {
+          grayLayout.style.display = "none";
+        }
         break;
       default:
         // invalid command, ignore it

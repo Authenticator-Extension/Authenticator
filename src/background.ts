@@ -204,6 +204,13 @@ async function getTotp(text: string) {
         if (period) {
           entryData[hash].period = period;
         }
+        if (
+          (await EntryStorage.hasEncryptedEntry()) !==
+          encryption.getEncryptionStatus()
+        ) {
+          chrome.tabs.sendMessage(id, { action: "errorenc" });
+          return;
+        }
         await EntryStorage.import(encryption, entryData);
         chrome.tabs.sendMessage(id, { action: "added", account });
       }
@@ -410,6 +417,10 @@ function setAutolock() {
     document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry()}"`;
     autolockTimeout = setTimeout(() => {
       cachedPassphrase = "";
+      const id = contentTab.id;
+      if (id) {
+        chrome.tabs.sendMessage(id, { action: "stopCapture" });
+      }
     }, Number(localStorage.autolock) * 60000);
   }
 }
