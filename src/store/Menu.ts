@@ -10,6 +10,9 @@ export class Menu implements IModule {
         useHighContrast: localStorage.highContrast === "true",
         autolock: Number(localStorage.autolock) || 0,
         backupDisabled: await ManagedStorage.get("disableBackup"),
+        exportDisabled: await ManagedStorage.get("disableExport"),
+        enforcePassword: await ManagedStorage.get("enforcePassword"),
+        enforceAutolock: await ManagedStorage.get("enforceAutolock"),
         storageArea: await ManagedStorage.get("storageArea"),
         feedbackURL: await ManagedStorage.get("feedbackURL")
       },

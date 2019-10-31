@@ -32,6 +32,7 @@
         min="0"
         style="width: 70px;"
         v-model="autolock"
+        :disabled="Boolean(enforceAutolock)"
       />
       <span style="margin-top: 10px;">{{ i18n.minutes }}</span>
     </div>
@@ -70,9 +71,16 @@ export default Vue.extend({
     encryption(): IEncryption {
       return this.$store.state.accounts.encryption;
     },
+    enforceAutolock() {
+      return this.$store.state.menu.enforceAutolock;
+    },
     autolock: {
       get(): number {
-        return this.$store.state.menu.autolock;
+        if (this.$store.state.menu.enforceAutolock) {
+          return this.$store.state.menu.enforceAutolock;
+        } else {
+          return this.$store.state.menu.autolock;
+        }
       },
       set(autolock: number) {
         this.$store.commit("menu/setAutolock", autolock);
