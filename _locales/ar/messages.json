@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "بيانات الحساب غير صالحة",
         "description": "Secret Error."
     },
     "add_qr": {
