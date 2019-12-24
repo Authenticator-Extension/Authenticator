@@ -335,7 +335,12 @@ export class Accounts implements IModule {
             state.state.encryption.updateEncryptionPassword(
               wordArray.toString()
             );
+
             await state.dispatch("updateEntries");
+
+            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+              await BrowserStorage.clearLogs();
+            }
 
             chrome.runtime.sendMessage({
               action: "cachePassphrase",
