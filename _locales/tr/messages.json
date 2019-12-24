@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Yedekleme dosyasını indir",
+        "message": "Yedekleme Dosyasını İndir",
         "description": "Download backup file."
     },
     "import_backup": {
