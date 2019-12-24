@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "İçe\/Dışa aktar",
+        "message": "İçe/Dışa aktar",
         "description": "Export and Import."
     },
     "settings": {
@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Depolama konumları",
+        "message": "Depolama konumu",
         "description": "Storage location"
     },
     "sign_in": {
