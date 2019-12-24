@@ -200,15 +200,15 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Yedekten içeri aktar",
+        "message": "Metin dosyasından içeri aktar",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Girişler gösteriliyor",
+        "message": "Tüm girdileri göster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Uyarı: Dropbox'a kaydedilen yedekler şifrelenmemiştir. Bu riski göz önüne alarak kullanınız.",
+        "message": "Uyarı: yedeklemeler şifrelenmemiş. Kullanım kendi sorumluluğunuzdadır.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -216,7 +216,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
+        "message": "Parolanız yerel olarak depolanır, lütfen hemen güvenlik menüsünden değiştirin.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -228,7 +228,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Arama",
+        "message": "Ara",
         "description": "Search"
     },
     "popout": {
