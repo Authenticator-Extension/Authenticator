@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Kimlik doğrulayıcısı",
+        "message": "Kimlik Doğrulayıcı",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Kimlik doğrulayıcısı",
+        "message": "Kimlik Doğrulayıcı",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "QR kodu bulunamadı.",
+        "message": "Tanınmayan QR kodu.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manuel giriş",
+        "message": "El ile Giriş",
         "description": "Manual Entry."
     },
     "close": {
@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Tamam",
         "description": "OK."
     },
     "yes": {
@@ -56,11 +56,11 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Veren kuruluş",
+        "message": "Yayınlayan Kuruluş",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Şifre",
+        "message": "Gizli Anahtar",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Emniyet",
+        "message": "Güvenlik",
         "description": "Security."
     },
     "current_phrase": {
@@ -100,15 +100,15 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Şifreyi doğrula",
+        "message": "Şifreyi Doğrula",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bu gizli anahtarı silmek mi istiyorsunuz? Bu işlem geri alınamaz.",
+        "message": "Bu hesabı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
+        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır. Şifreyi unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
     },
     "update": {
