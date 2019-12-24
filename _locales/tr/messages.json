@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download parola korumalı yedekleme",
+        "message": "Parola Korumalı Yedeklemeyi İndirin",
         "description": "Download Encrypted Backup"
     },
     "search": {
