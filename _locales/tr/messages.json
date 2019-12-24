@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Gizli Anahtarlarınızı Şifrelemek için bu parola kullanılacaktır. Eğer bu şifreyi unutursanız size asla kimse yardımcı olamaz.",
+        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
+        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemez veya dışa aktaramazsınız. Lütfen devam etmeden önce doğru şifreyi girin.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Şiƒreniz doğru değil.",
+        "message": "Şifre uyuşmuyor.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -144,11 +144,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Şifrelemeyi kaldırmak için lütfen mevcut şifrenizi girin.",
+        "message": "Hesap verilerinin şifresini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Saati google ile senkronize et",
+        "message": "Saati Google ile senkronize et",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Gizli Anahtarlarınızı Yedeklediniz Mi? İş işten geçene kadar beklemeyin!",
+        "message": "Hesaplarınız için bir yedeğiniz var mı? Çok geç olana kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
