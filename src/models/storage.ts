@@ -119,19 +119,26 @@ export class BrowserStorage {
   // https://github.com/Authenticator-Extension/Authenticator/issues/412
   static async clearLogs() {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === "local") {
-      chrome.storage.local.get(data => {
-        chrome.storage.local.clear(() => {
-          chrome.storage.local.set(data);
+    await new Promise((resolve: () => void) => {
+      if (storageLocation === "local") {
+        chrome.storage.local.get(data => {
+          chrome.storage.local.clear(() => {
+            chrome.storage.local.set(data, () => {
+              resolve();
+            });
+          });
         });
-      });
-    } else if (storageLocation === "sync") {
-      chrome.storage.sync.get(data => {
-        chrome.storage.sync.clear(() => {
-          chrome.storage.sync.set(data);
+      } else if (storageLocation === "sync") {
+        chrome.storage.sync.get(data => {
+          chrome.storage.sync.clear(() => {
+            chrome.storage.sync.set(data, () => {
+              resolve();
+            });
+          });
         });
-      });
-    }
+      }
+    });
+    return;
   }
 }
 

@@ -338,6 +338,7 @@ export class Accounts implements IModule {
 
             await state.dispatch("updateEntries");
 
+            // https://github.com/Authenticator-Extension/Authenticator/issues/412
             if (navigator.userAgent.indexOf("Chrome") !== -1) {
               await BrowserStorage.clearLogs();
             }
