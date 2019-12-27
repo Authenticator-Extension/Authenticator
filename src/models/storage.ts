@@ -114,6 +114,32 @@ export class BrowserStorage {
     }
     return;
   }
+
+  // Use for Chrome only.
+  // https://github.com/Authenticator-Extension/Authenticator/issues/412
+  static async clearLogs() {
+    const storageLocation = await this.getStorageLocation();
+    await new Promise((resolve: () => void) => {
+      if (storageLocation === "local") {
+        chrome.storage.local.get(data => {
+          chrome.storage.local.clear(() => {
+            chrome.storage.local.set(data, () => {
+              resolve();
+            });
+          });
+        });
+      } else if (storageLocation === "sync") {
+        chrome.storage.sync.get(data => {
+          chrome.storage.sync.clear(() => {
+            chrome.storage.sync.set(data, () => {
+              resolve();
+            });
+          });
+        });
+      }
+    });
+    return;
+  }
 }
 
 export class EntryStorage {
@@ -512,18 +538,6 @@ export class EntryStorage {
               data.sort((a, b) => {
                 return a.index - b.index;
               });
-
-              if (
-                entry.secret !== null &&
-                !(
-                  /^[0-9a-f]{32}$/.test(hash) ||
-                  /^\$argon2(?:d|i|di|id)\$v=(\d+)\$m=(\d+),t=(\d+),p=(\d+)\$([A-Za-z0-9+/=]+)\$([A-Za-z0-9+/=]*)$/.test(
-                    hash
-                  )
-                )
-              ) {
-                console.warn("Invalid hash:", entry);
-              }
             }
 
             return resolve(data);

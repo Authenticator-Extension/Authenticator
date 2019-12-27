@@ -335,7 +335,13 @@ export class Accounts implements IModule {
             state.state.encryption.updateEncryptionPassword(
               wordArray.toString()
             );
+
             await state.dispatch("updateEntries");
+
+            // https://github.com/Authenticator-Extension/Authenticator/issues/412
+            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+              await BrowserStorage.clearLogs();
+            }
 
             chrome.runtime.sendMessage({
               action: "cachePassphrase",
