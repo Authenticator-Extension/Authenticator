@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Autenticación",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportar \/ Importar",
+        "message": "Exportar / Importar",
         "description": "Export and Import."
     },
     "settings": {
