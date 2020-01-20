@@ -26,6 +26,20 @@ export class Encryption implements IEncryption {
         return null;
       }
 
+      if (decryptedSecret.length < 8) {
+        return null;
+      }
+
+      if (
+        !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
+        !/^[0-9a-f]+$/i.test(decryptedSecret) &&
+        !/^blz\-/.test(decryptedSecret) &&
+        !/^bliz\-/.test(decryptedSecret) &&
+        !/^stm\-/.test(decryptedSecret)
+      ) {
+        return null;
+      }
+
       return decryptedSecret;
     } catch (error) {
       return null;
