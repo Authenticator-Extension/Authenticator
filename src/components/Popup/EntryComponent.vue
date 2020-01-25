@@ -44,7 +44,7 @@
         timeout: entry.period - (second % entry.period) < 5
       }"
       v-on:click="copyCode(entry)"
-      v-html="style.isEditing ? showBulls(entry.code) : entry.code"
+      v-html="style.isEditing ? showBulls(entry.code) : showCode(entry.code)"
     ></div>
     <div class="issuer">{{ entry.account }}</div>
     <div class="issuerEdit">
@@ -71,7 +71,7 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
-import { OTPEntry, OTPType } from "../../models/otp";
+import { OTPEntry, OTPType, CodeState } from "../../models/otp";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -103,7 +103,9 @@ export default Vue.extend({
   methods: {
     noCopy(code: string) {
       return (
-        code === "Encrypted" || code === "Invalid" || code.startsWith("&bull;")
+        code === CodeState.Encrypted ||
+        code === CodeState.Invalid ||
+        code.startsWith("&bull;")
       );
     },
     shouldShowQrIcon(entry: OTPEntry) {
@@ -112,6 +114,15 @@ export default Vue.extend({
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
       );
+    },
+    showCode(code: string) {
+      if (code === CodeState.Encrypted) {
+        return this.i18n.encrypted;
+      } else if (code === CodeState.Invalid) {
+        return this.i18n.invalid;
+      } else {
+        return code;
+      }
     },
     showBulls(code: string) {
       if (code.startsWith("&bull;")) {
@@ -150,13 +161,13 @@ export default Vue.extend({
     async copyCode(entry: OTPEntry) {
       if (
         this.$store.state.style.style.isEditing ||
-        entry.code === "Invalid" ||
+        entry.code === CodeState.Invalid ||
         entry.code.startsWith("&bull;")
       ) {
         return;
       }
 
-      if (entry.code === "Encrypted") {
+      if (entry.code === CodeState.Encrypted) {
         this.$store.commit("style/showInfo", true);
         this.$store.commit("currentView/changeView", "EnterPasswordPage");
         return;

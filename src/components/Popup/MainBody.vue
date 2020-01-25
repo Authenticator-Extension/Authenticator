@@ -60,6 +60,15 @@ export default Vue.extend({
   computed,
   methods: {
     showInfo(page: string) {
+      if (page === "AddMethodPage") {
+        if (
+          this.$store.state.menu.enforcePassword &&
+          !this.$store.state.accounts.encryption.getEncryptionStatus()
+        ) {
+          page = "SetPasswordPage";
+        }
+      }
+
       this.$store.commit("style/showInfo");
       this.$store.commit("currentView/changeView", page);
     },

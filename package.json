@@ -31,6 +31,7 @@
     "sass": "^1.21.0",
     "ts-loader": "^6.0.2",
     "typescript": "^3.5.1",
+    "url-loader": "^2.0.1",
     "vue-loader": "^15.7.0",
     "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.6.10",

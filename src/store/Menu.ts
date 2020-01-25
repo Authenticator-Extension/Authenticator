@@ -8,7 +8,11 @@ export class Menu implements IModule {
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
         useHighContrast: localStorage.highContrast === "true",
+        autolock: Number(localStorage.autolock) || 0,
         backupDisabled: await ManagedStorage.get("disableBackup"),
+        exportDisabled: await ManagedStorage.get("disableExport"),
+        enforcePassword: await ManagedStorage.get("enforcePassword"),
+        enforceAutolock: await ManagedStorage.get("enforceAutolock"),
         storageArea: await ManagedStorage.get("storageArea"),
         feedbackURL: await ManagedStorage.get("feedbackURL")
       },
@@ -25,6 +29,10 @@ export class Menu implements IModule {
         setHighContrast(state: MenuState, useHighContrast: boolean) {
           state.useHighContrast = useHighContrast;
           localStorage.highContrast = useHighContrast;
+        },
+        setAutolock(state: MenuState, autolock: number) {
+          state.autolock = autolock;
+          localStorage.autolock = autolock;
         }
       },
       namespaced: true

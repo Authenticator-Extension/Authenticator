@@ -1,3 +1,6 @@
+// @ts-ignore
+import scanGIF from "../images/scan.gif";
+
 if (!document.getElementById("__ga_grayLayout__")) {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.action) {
@@ -11,14 +14,28 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "errorqr":
         alert(chrome.i18n.getMessage("errorqr"));
         break;
+      case "errorenc":
+        alert(chrome.i18n.getMessage("phrase_incorrect"));
+        break;
       case "added":
         alert(message.account + chrome.i18n.getMessage("added"));
         break;
       case "text":
-        showQrCode(message.text);
+        alert(message.text);
         break;
       case "pastecode":
         pasteCode(message.code);
+        break;
+      case "stopCapture":
+        const captureBox = document.getElementById("__ga_captureBox__");
+        if (captureBox) {
+          captureBox.style.display = "none";
+        }
+
+        const grayLayout = document.getElementById("__ga_grayLayout__");
+        if (grayLayout) {
+          grayLayout.style.display = "none";
+        }
         break;
       default:
         // invalid command, ignore it
@@ -38,10 +55,8 @@ function showGrayLayout() {
     document.body.appendChild(grayLayout);
     const scan = document.createElement("div");
     scan.className = "scan";
-    scan.style.background =
-      "url(" +
-      chrome.extension.getURL("images/scan.gif") +
-      ") no-repeat center";
+    scan.id = "__ga_scan__";
+    scan.style.background = `url('${scanGIF}') no-repeat center`;
     grayLayout.appendChild(scan);
     const captureBox = document.createElement("div");
     captureBox.id = "__ga_captureBox__";
@@ -76,6 +91,11 @@ function grayLayoutDown(event: MouseEvent) {
   captureBox.style.width = "1px";
   captureBox.style.height = "1px";
   captureBox.style.display = "block";
+
+  const scan = document.getElementById("__ga_scan__");
+  if (scan) {
+    scan.style.background = "transparent";
+  }
   return;
 }
 
@@ -170,21 +190,6 @@ function sendPosition(
     action: "position",
     info: { left, top, width, height, windowWidth: window.innerWidth }
   });
-}
-
-function showQrCode(msg: string) {
-  const left = screen.width / 2 - 200;
-  const top = screen.height / 2 - 100;
-  const url =
-    chrome.extension.getURL("view/qr.html") + "?" + encodeURIComponent(msg);
-  window.open(
-    url,
-    "_blank",
-    "toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, copyhistory=no, width=400, height=200, left=" +
-      left +
-      ",top=" +
-      top
-  );
 }
 
 function pasteCode(code: string) {

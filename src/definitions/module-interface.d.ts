@@ -29,6 +29,7 @@ interface VuexConstructor {
 interface MenuState {
   version: String;
   zoom: Number;
+  autolock: Number;
   useAutofill: Boolean;
   useHighContrast: Boolean;
   backupDisabled: Boolean;

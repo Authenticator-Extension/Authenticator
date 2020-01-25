@@ -42,7 +42,16 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: "vue-svg-loader"
+        loader: 'vue-svg-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {},
+          }
+        ]
       }
     ]
   },

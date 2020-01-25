@@ -1,7 +1,7 @@
 import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
-import { OTPType } from "../models/otp";
+import { OTPType, CodeState } from "../models/otp";
 import { ActionContext } from "vuex";
 
 export class Accounts implements IModule {
@@ -14,7 +14,7 @@ export class Accounts implements IModule {
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
 
     for (let i = 0; i < entries.length; i++) {
-      if (entries[i].code === "Encrypted") {
+      if (entries[i].code === CodeState.Encrypted) {
         shouldShowPassphrase = true;
         break;
       }

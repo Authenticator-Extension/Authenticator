@@ -8,6 +8,8 @@ import { Dropbox, Drive } from "./models/backup";
 import * as uuid from "uuid/v4";
 
 let cachedPassphrase = "";
+let autolockTimeout: number;
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "position") {
     if (!sender.tab) {
@@ -23,12 +25,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     );
   } else if (message.action === "cachePassphrase") {
     cachedPassphrase = message.value;
+    clearTimeout(autolockTimeout);
+    setAutolock();
   } else if (message.action === "passphrase") {
-    sendResponse(cachedPassphrase);
+    sendResponse(getCachedPassphrase());
   } else if (["dropbox", "drive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
+    document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
+  } else if (message.action === "resetAutolock") {
+    clearTimeout(autolockTimeout);
+    setAutolock();
   }
 });
 
@@ -193,6 +201,13 @@ async function getTotp(text: string) {
         };
         if (period) {
           entryData[hash].period = period;
+        }
+        if (
+          (await EntryStorage.hasEncryptedEntry()) !==
+          encryption.getEncryptionStatus()
+        ) {
+          chrome.tabs.sendMessage(id, { action: "errorenc" });
+          return;
         }
         await EntryStorage.import(encryption, entryData);
         chrome.tabs.sendMessage(id, { action: "added", account });
@@ -394,3 +409,58 @@ chrome.commands.onCommand.addListener(async (command: string) => {
       break;
   }
 });
+
+async function setAutolock() {
+  const enforcedAutolock = Number(await ManagedStorage.get("enforceAutolock"));
+
+  if (enforcedAutolock) {
+    if (enforcedAutolock > 0) {
+      document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
+        enforcedAutolock
+      )}"`;
+      autolockTimeout = setTimeout(() => {
+        cachedPassphrase = "";
+      }, enforcedAutolock * 60000);
+      return;
+    }
+  }
+
+  if (Number(localStorage.autolock) > 0) {
+    document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
+      Number(localStorage.autolock)
+    )}"`;
+    autolockTimeout = setTimeout(() => {
+      cachedPassphrase = "";
+      const id = contentTab.id;
+      if (id) {
+        chrome.tabs.sendMessage(id, { action: "stopCapture" });
+      }
+    }, Number(localStorage.autolock) * 60000);
+  }
+}
+
+function getCookieExpiry(time: number) {
+  const offset = time * 60000;
+  const now = new Date().getTime();
+  const autolockExpiry = new Date(now + offset).toUTCString();
+
+  return `;expires=${autolockExpiry}`;
+}
+
+function getCachedPassphrase() {
+  if (cachedPassphrase) {
+    return cachedPassphrase;
+  }
+
+  const cookie = document.cookie;
+  const cookieMatch = cookie
+    ? document.cookie.match(/passphrase=([^;]*)/)
+    : null;
+  const cookiePassphrase =
+    cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
+  if (cookiePassphrase) {
+    return cookiePassphrase;
+  }
+
+  return "";
+}
