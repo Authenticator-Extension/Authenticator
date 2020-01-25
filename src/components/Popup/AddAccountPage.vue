@@ -57,6 +57,11 @@ export default Vue.extend({
     async addNewAccount() {
       this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
 
+      if (this.newAccount.secret.length < 16) {
+        this.$store.commit("notification/alert", this.i18n.errorsecret);
+        return;
+      }
+
       if (
         !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
         !/^[0-9a-f]+$/i.test(this.newAccount.secret)
