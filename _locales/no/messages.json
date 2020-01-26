@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autentisering",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export \/ Import",
+        "message": "Export / Import",
         "description": "Export and Import."
     },
     "settings": {
