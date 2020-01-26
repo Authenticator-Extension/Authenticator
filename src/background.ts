@@ -418,7 +418,7 @@ async function setAutolock() {
       document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
         enforcedAutolock
       )}"`;
-      autolockTimeout = setTimeout(() => {
+      autolockTimeout = window.setTimeout(() => {
         cachedPassphrase = "";
       }, enforcedAutolock * 60000);
       return;
@@ -429,7 +429,7 @@ async function setAutolock() {
     document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
       Number(localStorage.autolock)
     )}"`;
-    autolockTimeout = setTimeout(() => {
+    autolockTimeout = window.setTimeout(() => {
       cachedPassphrase = "";
       const id = contentTab.id;
       if (id) {
