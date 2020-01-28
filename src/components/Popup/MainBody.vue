@@ -123,10 +123,7 @@ export default Vue.extend({
           from: dragIndex,
           to: dropIndex
         });
-        await EntryStorage.set(
-          this.$store.state.accounts.encryption,
-          this.$store.state.accounts.entries
-        );
+        await EntryStorage.set(this.$store.state.accounts.entries);
       }
     );
   },

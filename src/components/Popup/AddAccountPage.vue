@@ -31,7 +31,6 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry } from "../../models/otp";
-import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
   data: function(): {
@@ -57,6 +56,11 @@ export default Vue.extend({
   methods: {
     async addNewAccount() {
       this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
+
+      if (this.newAccount.secret.length < 16) {
+        this.$store.commit("notification/alert", this.i18n.errorsecret);
+        return;
+      }
 
       if (
         !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
@@ -91,20 +95,22 @@ export default Vue.extend({
         this.newAccount.period = undefined;
       }
 
-      const entry = new OTPEntry({
-        type,
-        index: 0,
-        issuer: this.newAccount.issuer,
-        account: this.newAccount.account,
-        encrypted: false,
-        hash: CryptoJS.MD5(this.newAccount.secret).toString(),
-        secret: this.newAccount.secret,
-        counter: 0,
-        period: this.newAccount.period
-      });
+      const entry = new OTPEntry(
+        {
+          type,
+          index: 0,
+          issuer: this.newAccount.issuer,
+          account: this.newAccount.account,
+          encrypted: false,
+          secret: this.newAccount.secret,
+          counter: 0,
+          period: this.newAccount.period
+        },
+        this.$store.state.accounts.encryption
+      );
 
-      await entry.create(this.$store.state.accounts.encryption);
-      await this.$store.dispatch("accounts/updateEntries");
+      await entry.create();
+      await this.$store.dispatch("accounts/addCode", entry);
       this.$store.commit("style/hideInfo");
       this.$store.commit("style/toggleEdit");
 

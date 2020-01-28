@@ -20,10 +20,12 @@
   },
   "homepage": "https://github.com/Authenticator-Extension/Authenticator#readme",
   "devDependencies": {
+    "@types/argon2-browser": "^1.6.0",
     "@types/chrome": "^0.0.86",
     "@types/crypto-js": "^3.1.43",
     "@types/jssha": "2.0.0",
-    "css-loader": "^2.1.1",
+    "@types/uuid": "^3.4.5",
+    "base64-loader": "^1.0.0",
     "fork-ts-checker-webpack-plugin": "^1.3.5",
     "prettier": "1.18.2",
     "sass": "^1.21.0",
@@ -33,15 +35,17 @@
     "vue-loader": "^15.7.0",
     "vue-svg-loader": "^0.12.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.33.0",
+    "webpack": "^4.38.0",
     "webpack-cli": "^3.3.3",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "argon2-browser": "^1.12.0",
     "crypto-js": "^3.1.9-1",
     "jssha": "^2.3.1",
     "qrcode-generator": "^1.4.3",
     "qrcode-reader": "^1.0.4",
+    "uuid": "^3.3.3",
     "vue": "^2.6.10",
     "vue2-dragula": "^2.5.4",
     "vuex": "^3.1.1"

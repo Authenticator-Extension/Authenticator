@@ -4,7 +4,7 @@ interface IModule {
 
 interface VuexConstructor {
   state?: {
-    [key: string]: Object | Function;
+    [key: string]: any;
   };
   mutations?: {
     [key: string]: Function;
@@ -44,6 +44,7 @@ interface StyleState {
     slideout: Boolean;
     fadein: Boolean;
     fadeout: Boolean;
+    show: Boolean;
     qrfadein: Boolean;
     qrfadeout: Boolean;
     notificationFadein: Boolean;
@@ -66,6 +67,8 @@ interface AccountsState {
   showSearch: Boolean;
   exportData: { [k: string]: IOTPEntry };
   exportEncData: { [k: string]: IOTPEntry };
+  key: { enc: string; hash: string } | null;
+  wrongPassword: Boolean;
 }
 
 interface NotificationState {

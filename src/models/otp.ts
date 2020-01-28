@@ -1,6 +1,7 @@
 import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
 import { EntryStorage } from "./storage";
+import * as uuid from "uuid/v4";
 
 export enum OTPType {
   totp = 1,
@@ -28,29 +29,40 @@ export class OTPEntry implements IOTPEntry {
   period: number;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
-  constructor(entry: {
-    account: string;
-    encrypted: boolean;
-    hash: string;
-    index: number;
-    issuer: string;
-    secret: string;
-    type: OTPType;
-    counter: number;
-    period?: number;
-  }) {
+  constructor(
+    entry: {
+      account: string;
+      encrypted: boolean;
+      index: number;
+      issuer: string;
+      secret: string;
+      type: OTPType;
+      counter: number;
+      period?: number;
+      hash?: string;
+    },
+    encryption?: Encryption
+  ) {
     this.type = entry.type;
     this.index = entry.index;
     this.issuer = entry.issuer;
+    this.account = entry.account;
     if (entry.encrypted) {
       this.encSecret = entry.secret;
       this.secret = null;
     } else {
       this.secret = entry.secret;
       this.encSecret = null;
+      if (encryption && encryption.getEncryptionStatus()) {
+        this.encSecret = encryption.getEncryptedString(this.secret);
+      }
     }
-    this.account = entry.account;
-    this.hash = entry.hash;
+
+    if (entry.hash) {
+      this.hash = entry.hash;
+    } else {
+      this.hash = uuid(); // UUID
+    }
     this.counter = entry.counter;
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
@@ -62,20 +74,38 @@ export class OTPEntry implements IOTPEntry {
     }
   }
 
-  async create(encryption: Encryption) {
-    await EntryStorage.add(encryption, this);
+  async create() {
+    await EntryStorage.add(this);
     return;
   }
 
-  async update(encryption: Encryption) {
-    await EntryStorage.update(encryption, this);
+  async update() {
+    await EntryStorage.update(this);
+    return;
+  }
+
+  async changeEncryption(encryption: Encryption) {
+    if (!this.secret) {
+      return;
+    }
+
+    if (encryption.getEncryptionStatus()) {
+      this.encSecret = encryption.getEncryptedString(this.secret);
+    } else {
+      this.encSecret = null;
+    }
+
+    await this.update();
     return;
   }
 
   applyEncryption(encryption: Encryption) {
     const secret = this.encSecret ? this.encSecret : null;
     if (secret) {
-      this.secret = encryption.getDecryptedSecret({ hash: this.hash, secret });
+      this.secret = encryption.getDecryptedSecret({
+        hash: this.hash,
+        secret
+      });
       if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
         this.generate();
       }
@@ -88,16 +118,22 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async next(encryption: Encryption) {
+  async next() {
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
     this.generate();
     if (this.secret !== null) {
       this.counter++;
-      await this.update(encryption);
+      await this.update();
     }
     return;
+  }
+
+  async genUUID() {
+    await this.delete();
+    this.hash = uuid();
+    await this.create();
   }
 
   generate() {

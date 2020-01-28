@@ -1,5 +1,3 @@
-import * as CryptoJS from "crypto-js";
-// tslint:disable-next-line:ban-ts-ignore
 // @ts-ignore
 import QRCode from "qrcode-reader";
 
@@ -7,6 +5,7 @@ import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive } from "./models/backup";
+import * as uuid from "uuid/v4";
 
 let cachedPassphrase = "";
 let autolockTimeout: number;
@@ -175,7 +174,7 @@ async function getTotp(text: string) {
         chrome.tabs.sendMessage(id, { action: "secretqr", secret });
       } else {
         const encryption = new Encryption(cachedPassphrase);
-        const hash = CryptoJS.MD5(secret).toString();
+        const hash = await uuid();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
@@ -419,7 +418,7 @@ async function setAutolock() {
       document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
         enforcedAutolock
       )}"`;
-      autolockTimeout = setTimeout(() => {
+      autolockTimeout = window.setTimeout(() => {
         cachedPassphrase = "";
       }, enforcedAutolock * 60000);
       return;
@@ -430,7 +429,7 @@ async function setAutolock() {
     document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
       Number(localStorage.autolock)
     )}"`;
-    autolockTimeout = setTimeout(() => {
+    autolockTimeout = window.setTimeout(() => {
       cachedPassphrase = "";
       const id = contentTab.id;
       if (id) {

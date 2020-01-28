@@ -2,7 +2,7 @@
   <div id="info">
     <div
       id="infoClose"
-      v-if="info !== 'EnterPasswordPage'"
+      v-if="!(info === 'EnterPasswordPage' || info === 'LoadingPage')"
       v-on:click="hideInfo()"
     >
       <IconXCircle />
@@ -25,6 +25,7 @@ import DropboxPage from "./DropboxPage.vue";
 import DrivePage from "./DrivePage.vue";
 import StorageSyncConfPage from "./StorageSyncConfPage.vue";
 import PrefrencesPage from "./PrefrencesPage.vue";
+import LoadingPage from "./LoadingPage.vue";
 
 export default Vue.extend({
   computed: {
@@ -48,7 +49,8 @@ export default Vue.extend({
     DropboxPage,
     DrivePage,
     PrefrencesPage,
-    StorageSyncConfPage
+    StorageSyncConfPage,
+    LoadingPage
   }
 });
 </script>

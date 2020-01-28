@@ -138,7 +138,7 @@ export default Vue.extend({
         )
       ) {
         await entry.delete();
-        await this.$store.dispatch("accounts/updateEntries");
+        await this.$store.dispatch("accounts/deleteCode", entry.hash);
       }
       return;
     },
@@ -152,7 +152,7 @@ export default Vue.extend({
         return;
       }
       this.$store.commit("style/toggleHotpDisabled");
-      await entry.next(this.$store.state.accounts.encryption);
+      await entry.next();
       setTimeout(() => {
         this.$store.commit("style/toggleHotpDisabled");
       }, 3000);
@@ -168,7 +168,7 @@ export default Vue.extend({
       }
 
       if (entry.code === CodeState.Encrypted) {
-        this.$store.commit("style/showInfo");
+        this.$store.commit("style/showInfo", true);
         this.$store.commit("currentView/changeView", "EnterPasswordPage");
         return;
       }

@@ -26,6 +26,7 @@
   </div>
 </template>
 <script lang="ts">
+import * as CryptoJS from "crypto-js";
 import Vue from "vue";
 import {
   decryptBackupData,
@@ -52,13 +53,24 @@ export default Vue.extend({
         const reader = new FileReader();
         let decryptedFileData: { [hash: string]: OTPStorage } = {};
         reader.onload = async () => {
-          let importData: { [hash: string]: OTPStorage } = {};
+          let importData: {
+            // @ts-ignore
+            key?: { enc: string; hash: string };
+            [hash: string]: OTPStorage;
+          } = {};
           try {
             importData = JSON.parse(reader.result as string);
           } catch (e) {
-            importData = getEntryDataFromOTPAuthPerLine(
+            importData = await getEntryDataFromOTPAuthPerLine(
               reader.result as string
             );
+          }
+
+          let key: { enc: string; hash: string } | null = null;
+
+          if (importData.key) {
+            key = importData.key;
+            delete importData.key;
           }
 
           let encrypted = false;
@@ -69,10 +81,19 @@ export default Vue.extend({
                 const oldPassphrase:
                   | string
                   | null = await this.getOldPassphrase();
-                decryptedFileData = decryptBackupData(
-                  importData,
-                  oldPassphrase
-                );
+
+                if (key) {
+                  decryptedFileData = decryptBackupData(
+                    importData,
+                    CryptoJS.AES.decrypt(key.enc, oldPassphrase).toString()
+                  );
+                } else {
+                  decryptedFileData = decryptBackupData(
+                    importData,
+                    oldPassphrase
+                  );
+                }
+
                 break;
               } catch {
                 break;

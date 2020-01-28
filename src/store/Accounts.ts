@@ -1,4 +1,4 @@
-import { EntryStorage } from "../models/storage";
+import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
 import { OTPType, CodeState } from "../models/otp";
@@ -11,9 +11,7 @@ export class Accounts implements IModule {
     let shouldShowPassphrase = cachedPassphrase
       ? false
       : await EntryStorage.hasEncryptedEntry();
-    const entries = shouldShowPassphrase
-      ? []
-      : await this.getEntries(encryption);
+    const entries = shouldShowPassphrase ? [] : await this.getEntries();
 
     for (let i = 0; i < entries.length; i++) {
       if (entries[i].code === CodeState.Encrypted) {
@@ -34,8 +32,10 @@ export class Accounts implements IModule {
         filter: true,
         siteName: await this.getSiteName(),
         showSearch: false,
-        exportData: await EntryStorage.getExport(encryption),
-        exportEncData: await EntryStorage.getExport(encryption, true)
+        exportData: await EntryStorage.getExport(entries),
+        exportEncData: await EntryStorage.getExport(entries, true),
+        key: await BrowserStorage.getKey(),
+        wrongPassword: false
       },
       getters: {
         shouldFilter(
@@ -116,12 +116,6 @@ export class Accounts implements IModule {
         },
         loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
           state.entries = newCodes;
-
-          if (state.encryption.getEncryptionStatus()) {
-            for (const entry of state.entries) {
-              entry.applyEncryption(state.encryption);
-            }
-          }
         },
         moveCode(state: AccountsState, opts: { from: number; to: number }) {
           state.entries.splice(
@@ -147,9 +141,51 @@ export class Accounts implements IModule {
           exportData: { [k: string]: IOTPEntry }
         ) {
           state.exportEncData = exportData;
+        },
+        updateKeyExport(
+          state: AccountsState,
+          key: { enc: string; hash: string } | null
+        ) {
+          state.key = key;
+        },
+        wrongPassword(state: AccountsState) {
+          state.wrongPassword = true;
         }
       },
       actions: {
+        deleteCode: async (
+          state: ActionContext<AccountsState, {}>,
+          hash: string
+        ) => {
+          const index = state.state.entries.findIndex(
+            entry => entry.hash === hash
+          );
+          if (index > -1) {
+            state.state.entries.splice(index, 1);
+          }
+          state.commit(
+            "updateExport",
+            await EntryStorage.getExport(state.state.entries)
+          );
+          state.commit(
+            "updateEncExport",
+            await EntryStorage.getExport(state.state.entries, true)
+          );
+        },
+        addCode: async (
+          state: ActionContext<AccountsState, {}>,
+          entry: IOTPEntry
+        ) => {
+          state.state.entries.unshift(entry);
+          state.commit(
+            "updateExport",
+            await EntryStorage.getExport(state.state.entries)
+          );
+          state.commit(
+            "updateEncExport",
+            await EntryStorage.getExport(state.state.entries, true)
+          );
+        },
         applyPassphrase: async (
           state: ActionContext<AccountsState, {}>,
           password: string
@@ -158,55 +194,198 @@ export class Accounts implements IModule {
             return;
           }
 
-          state.state.encryption.updateEncryptionPassword(password);
-          await state.dispatch("updateEntries");
-          state.commit("style/hideInfo", null, { root: true });
+          state.commit("currentView/changeView", "LoadingPage", { root: true });
 
-          if (!state.getters.currentlyEncrypted) {
-            chrome.runtime.sendMessage({
-              action: "cachePassphrase",
-              value: password
+          const encKey = await BrowserStorage.getKey();
+          if (!encKey) {
+            // --- migrate to key
+            // verify current password
+            state.state.encryption.updateEncryptionPassword(password);
+            await state.dispatch("updateEntries");
+
+            if (state.getters.currentlyEncrypted) {
+              state.commit("style/hideInfo", true, { root: true });
+              return;
+            }
+            // gen key
+            const randomKey = crypto.getRandomValues(new Uint32Array(30));
+            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
+            const encKeyHash = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "hash",
+                  value: wordArray.toString()
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
+
+            if (!encKeyHash) {
+              state.commit("style/hideInfo", true, { root: true });
+              return;
+            }
+
+            // store key
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
             });
+            // change entry encryption to key and remove old hash
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(
+                new Encryption(wordArray.toString())
+              );
+              await entry.genUUID();
+            }
+
+            state.state.encryption.updateEncryptionPassword(
+              wordArray.toString()
+            );
+            await state.dispatch("updateEntries");
+          } else {
+            // --- decrypt using key
+            const key = CryptoJS.AES.decrypt(encKey.enc, password).toString();
+            const isCorrectPassword = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "verify",
+                  value: key,
+                  hash: encKey.hash
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
+
+            if (!isCorrectPassword) {
+              state.commit("wrongPassword");
+              state.commit("currentView/changeView", "EnterPasswordPage", {
+                root: true
+              });
+              return;
+            }
+
+            state.state.encryption.updateEncryptionPassword(key);
+            await state.dispatch("updateEntries");
+
+            if (!state.getters.currentlyEncrypted) {
+              chrome.runtime.sendMessage({
+                action: "cachePassphrase",
+                value: key
+              });
+            }
           }
+          state.commit("style/hideInfo", true, { root: true });
           return;
         },
         changePassphrase: async (
           state: ActionContext<AccountsState, {}>,
           password: string
         ) => {
-          await EntryStorage.import(
-            new Encryption(password),
-            await EntryStorage.getExport(state.state.encryption as Encryption)
-          );
+          if (password) {
+            const randomKey = crypto.getRandomValues(new Uint32Array(30));
+            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
+            const encKeyHash = await new Promise(
+              (resolve: (value: string) => void) => {
+                const iframe = document.getElementById("argon-sandbox");
+                const message = {
+                  action: "hash",
+                  value: wordArray.toString()
+                };
+                if (iframe) {
+                  window.addEventListener("message", response => {
+                    resolve(response.data.response);
+                  });
+                  //@ts-ignore
+                  iframe.contentWindow.postMessage(message, "*");
+                }
+              }
+            );
 
-          state.state.encryption.updateEncryptionPassword(password);
-          chrome.runtime.sendMessage({
-            action: "cachePassphrase",
-            value: password
-          });
+            if (!encKeyHash) {
+              return;
+            }
 
-          await state.dispatch("updateEntries");
+            // store key
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
+            });
+            // change entry encryption and regen hash
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(
+                new Encryption(wordArray.toString())
+              );
+              await entry.genUUID();
+            }
+
+            state.state.encryption.updateEncryptionPassword(
+              wordArray.toString()
+            );
+
+            await state.dispatch("updateEntries");
+
+            // https://github.com/Authenticator-Extension/Authenticator/issues/412
+            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+              await BrowserStorage.clearLogs();
+            }
+
+            chrome.runtime.sendMessage({
+              action: "cachePassphrase",
+              value: wordArray.toString()
+            });
+          } else {
+            for (const entry of state.state.entries) {
+              await entry.changeEncryption(new Encryption(""));
+            }
+
+            state.state.encryption.updateEncryptionPassword("");
+
+            BrowserStorage.remove("key");
+
+            await state.dispatch("updateEntries");
+
+            chrome.runtime.sendMessage({
+              action: "lock"
+            });
+          }
 
           // remove cached passphrase in old version
           localStorage.removeItem("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
-          state.commit(
-            "loadCodes",
-            await this.getEntries(state.state.encryption as Encryption)
-          );
+          const entries = await this.getEntries();
+
+          if (state.state.encryption.getEncryptionStatus()) {
+            for (const entry of entries) {
+              await entry.applyEncryption(state.state.encryption as Encryption);
+            }
+          }
+
+          state.commit("loadCodes", entries);
           state.commit("updateCodes");
           state.commit(
             "updateExport",
-            await EntryStorage.getExport(state.state.encryption as Encryption)
+            await EntryStorage.getExport(state.state.entries)
           );
           state.commit(
             "updateEncExport",
-            await EntryStorage.getExport(
-              state.state.encryption as Encryption,
-              true
-            )
+            await EntryStorage.getExport(state.state.entries, true)
           );
+          state.commit("updateKeyExport", await BrowserStorage.getKey());
           return;
         },
         clearFilter: (state: ActionContext<AccountsState, {}>) => {
@@ -350,20 +529,18 @@ export class Accounts implements IModule {
   }
 
   private getCachedPassphrase() {
-    return new Promise(
-      (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-        chrome.runtime.sendMessage(
-          { action: "passphrase" },
-          (passphrase: string) => {
-            return resolve(passphrase);
-          }
-        );
-      }
-    );
+    return new Promise((resolve: (value: string) => void) => {
+      chrome.runtime.sendMessage(
+        { action: "passphrase" },
+        (passphrase: string) => {
+          return resolve(passphrase);
+        }
+      );
+    });
   }
 
-  private async getEntries(encryption: Encryption) {
-    const otpEntries = await EntryStorage.get(encryption);
+  private async getEntries() {
+    const otpEntries = await EntryStorage.get();
     return otpEntries;
   }
 

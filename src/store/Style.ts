@@ -9,6 +9,7 @@ export class Style implements IModule {
           slideout: false, // menu
           fadein: false, // info
           fadeout: false, // info
+          show: false, // info
           qrfadein: false,
           qrfadeout: false,
           notificationFadein: false,
@@ -28,13 +29,21 @@ export class Style implements IModule {
             state.style.slideout = false;
           }, 200);
         },
-        showInfo(state: StyleState) {
-          state.style.fadein = true;
-          state.style.fadeout = false;
+        showInfo(state: StyleState, noAnimate?: boolean) {
+          if (noAnimate) {
+            state.style.show = true;
+          } else {
+            state.style.fadein = true;
+            state.style.fadeout = false;
+          }
         },
-        hideInfo(state: StyleState) {
-          state.style.fadein = false;
-          state.style.fadeout = true;
+        hideInfo(state: StyleState, noAnimate?: boolean) {
+          if (noAnimate) {
+            state.style.show = false;
+          } else {
+            state.style.fadein = false;
+            state.style.fadeout = true;
+          }
           setTimeout(() => {
             state.style.fadeout = false;
           }, 200);

@@ -8,7 +8,11 @@
       v-model="password"
       v-on:keyup.enter="applyPassphrase()"
       autofocus
+      v-bind:class="{ badInput: wrongPassword }"
     />
+    <label class="warning" v-show="wrongPassword">{{
+      i18n.phrase_not_match
+    }}</label>
     <div class="button-small" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
   </div>
 </template>
@@ -21,6 +25,11 @@ export default Vue.extend({
     return {
       password: ""
     };
+  },
+  computed: {
+    wrongPassword() {
+      return this.$store.state.accounts.wrongPassword;
+    }
   },
   methods: {
     applyPassphrase() {
