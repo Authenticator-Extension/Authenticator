@@ -28,7 +28,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     clearTimeout(autolockTimeout);
     setAutolock();
   } else if (message.action === "passphrase") {
-    sendResponse(getCachedPassphrase());
+    sendResponse(cachedPassphrase);
   } else if (["dropbox", "drive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
@@ -415,9 +415,6 @@ async function setAutolock() {
 
   if (enforcedAutolock) {
     if (enforcedAutolock > 0) {
-      document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
-        enforcedAutolock
-      )}"`;
       autolockTimeout = window.setTimeout(() => {
         cachedPassphrase = "";
       }, enforcedAutolock * 60000);
@@ -426,9 +423,6 @@ async function setAutolock() {
   }
 
   if (Number(localStorage.autolock) > 0) {
-    document.cookie = `passphrase="${getCachedPassphrase()}${getCookieExpiry(
-      Number(localStorage.autolock)
-    )}"`;
     autolockTimeout = window.setTimeout(() => {
       cachedPassphrase = "";
       const id = contentTab.id;
@@ -445,22 +439,4 @@ function getCookieExpiry(time: number) {
   const autolockExpiry = new Date(now + offset).toUTCString();
 
   return `;expires=${autolockExpiry}`;
-}
-
-function getCachedPassphrase() {
-  if (cachedPassphrase) {
-    return cachedPassphrase;
-  }
-
-  const cookie = document.cookie;
-  const cookieMatch = cookie
-    ? document.cookie.match(/passphrase=([^;]*)/)
-    : null;
-  const cookiePassphrase =
-    cookieMatch && cookieMatch.length > 1 ? cookieMatch[1] : null;
-  if (cookiePassphrase) {
-    return cookiePassphrase;
-  }
-
-  return "";
 }
