@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator génère, dans votre navigateur, des codes d'authentification (TOTP) en deux étapes.",
+        "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Erreur sur la clef secrète. Seul les caractères Base32(A-Z, 2-7 et =) et HEX(0-9 et A-F) sont supportés. Néanmoins, votre clef secrète est: ",
+        "message": "Secret du compte invalide",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nom du compte",
+        "message": "Nom d'utilisateur",
         "description": "Account Name."
     },
     "issuer": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Page de popup",
+        "message": "Préférences",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -302,24 +302,24 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Chargement ..."
+    },
+    "autolock": {
+        "message": "Verrouiller après"
+    },
+    "minutes": {
+        "message": "minutes"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avancé"
     },
     "period": {
-        "message": "Period"
+        "message": "Période"
     },
     "type": {
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
-    },
-    "autolock": {
-        "message": "Lock after"
-    },
-    "minutes": {
-        "message": "minutes"
+        "message": "Invalide"
     }
 }

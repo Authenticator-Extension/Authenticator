@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Titok hiba. Csak Base32 (A-z-ig, 2-7 és =) és a HEX (0-9 és A-F) támogatottak. Azonban az ön titka: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Fiók név",
+        "message": "Felhasználónév",
         "description": "Account Name."
     },
     "issuer": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Felugró ablak",
+        "message": "Tulajdonságok",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -302,24 +302,24 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
-    },
-    "advanced": {
-        "message": "Advanced"
-    },
-    "period": {
-        "message": "Period"
-    },
-    "type": {
-        "message": "Type"
-    },
-    "invalid": {
-        "message": "Invalid"
+        "message": "Betöltés..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Lezárás ennyi idő után"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "percek"
+    },
+    "advanced": {
+        "message": "Haladó"
+    },
+    "period": {
+        "message": "Időszak"
+    },
+    "type": {
+        "message": "Típus"
+    },
+    "invalid": {
+        "message": "Érvénytelen"
     }
 }

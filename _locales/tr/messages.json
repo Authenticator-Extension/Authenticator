@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Kimlik Doğrulayıcı, internet tarayıcınızda iki adımlı doğrulama kodları oluşturur.",
+        "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Gizli Anahtar Hatası. Sadece 32'lik ('A-Z', '2-7' ve '=' ) ve 16'lık (HEX)('0-9' ve 'A-F') desteklenmektedir. Fakat Sizin Gizli Anahtarınız: ",
+        "message": "Geçersiz hesap anahtarı",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manuel giriş",
+        "message": "El ile Giriş",
         "description": "Manual Entry."
     },
     "close": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Hesap Adı",
+        "message": "Kullanıcı Adı",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Şifre",
+        "message": "Gizli Anahtar",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -100,7 +100,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Şifreyi doğrula",
+        "message": "Şifreyi Doğrula",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır.Şifreyi unutursanız kimse size yardım edemez.",
+        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır. Şifreyi unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Tüm hesap bilgilerinin şifresi çözülene kadar verilerinizi dışarı aktaramaz veya yeni bir hesap ekleyemezsiniz. Lütfen devam etmeden önce doğru şifre giriniz.",
+        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemez veya dışa aktaramazsınız. Lütfen devam etmeden önce doğru şifreyi girin.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap verilerin şifresini çözmek için parolanızı girin.",
+        "message": "Hesap verilerinin şifresini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Hesaplarınız için bir yedeğiniz var mı? Çok geç olana kadar beklemeyin!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -168,7 +168,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Zamana dayalı",
+        "message": "Zamana Dayalı",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -176,15 +176,15 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Açılır sayfa",
+        "message": "Tercihler",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Ölçek",
+        "message": "Aralık",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz?Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
+        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,11 +192,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedekten içeri aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Dosyadan içeri aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -216,19 +216,19 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Parolanız yerel olarak depolanır, lütfen bunu güvenlik menüsünden hemen değiştirin.",
+        "message": "Parolanız yerel olarak depolanır, lütfen hemen güvenlik menüsünden değiştirin.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Sil",
+        "message": "Kaldır",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download parola korumalı yedekleme",
+        "message": "Parola Korumalı Yedeklemeyi İndirin",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Arama",
+        "message": "Ara",
         "description": "Search"
     },
     "popout": {
@@ -260,7 +260,7 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Verilerinizin nerede saklanacağını seçin.''local' kullanmak verilerinizi bilgisayarınızda saklar.'sync' özelliğini kullanmak bir senkronizasyon hesabına giriş yaptıysanız tarayıcınızın verilerinizi buluta senkronize etmesini sağlar.",
+        "message": "Verilerinizin nerede saklanacağını seçin. 'local' kullanmak verilerinizi bilgisayarınızda depolar. 'sync' kullanılması, bir senkronizasyon hesabında oturum açtıysanız tarayıcınızın bilgilerinizi buluta senkronize etmesini sağlar.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
@@ -268,11 +268,11 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Depolama konumu",
+        "message": "Depolama Yeri",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Giriş Yap",
+        "message": "Oturum aç",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
@@ -290,36 +290,36 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var.Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Yedeklemeleri diğer bazı uygulamalardan içe aktarabilirsiniz.",
+        "message": "Yedekleri diğer bazı uygulamalardan içe aktarabilirsiniz.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Daha fazla öğrenin",
+        "message": "Daha fazla bilgi edinin",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
-    },
-    "advanced": {
-        "message": "Advanced"
-    },
-    "period": {
-        "message": "Period"
-    },
-    "type": {
-        "message": "Type"
-    },
-    "invalid": {
-        "message": "Invalid"
+        "message": "Yükleniyor..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Sonrasında kilitle"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "dakika"
+    },
+    "advanced": {
+        "message": "Gelişmiş"
+    },
+    "period": {
+        "message": "Süre"
+    },
+    "type": {
+        "message": "Tür"
+    },
+    "invalid": {
+        "message": "Geçersiz"
     }
 }

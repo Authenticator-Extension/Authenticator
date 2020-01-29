@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "账户名称",
+        "message": "用户名",
         "description": "Account Name."
     },
     "issuer": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "两次密码不一致。",
+        "message": "密码不匹配。",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -289,10 +289,6 @@
             }
         }
     },
-    "download_otp_backup": {
-        "message": "下载OTP URL备份",
-        "description": "Download OTP URL backup file."
-    },
     "otp_unsupported_warn": {
         "message": "您添加了Steam或战网账号，所以备份文件将不会使用标准输出格式。",
         "description": "Warning if using account that is not supported by standard backup format."
@@ -306,24 +302,24 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
-    },
-    "advanced": {
-        "message": "Advanced"
-    },
-    "period": {
-        "message": "Period"
-    },
-    "type": {
-        "message": "Type"
-    },
-    "invalid": {
-        "message": "Invalid"
+        "message": "正在载入..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "锁定时间"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "分钟"
+    },
+    "advanced": {
+        "message": "高级选项"
+    },
+    "period": {
+        "message": "周期"
+    },
+    "type": {
+        "message": "类型"
+    },
+    "invalid": {
+        "message": "无效代码"
     }
 }

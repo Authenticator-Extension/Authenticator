@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentication",
+        "message": "مصادقة",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " وقد أضيفت.",
+        "message": " تم اضافة الوظيفة",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "خطأ سرية. Base32 فقط (من الألف إلى الياء، 2-7 و =) وست عشري (0-9 و A-F) معتمدة. ومع ذلك، السر الخاصة بك: ",
+        "message": "بيانات الحساب غير صالحة",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "إسم الحساب",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "الصورة المنبثقة",
+        "message": "Preferences",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -304,6 +304,12 @@
     "loading": {
         "message": "Loading..."
     },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
     "advanced": {
         "message": "Advanced"
     },
@@ -315,11 +321,5 @@
     },
     "invalid": {
         "message": "Invalid"
-    },
-    "autolock": {
-        "message": "Lock after"
-    },
-    "minutes": {
-        "message": "minutes"
     }
 }

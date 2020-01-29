@@ -1,30 +1,30 @@
 {
     "extName": {
-        "message": "Авторизация",
+        "message": "Аутентификатор",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Авторизация",
+        "message": "Аутентификатор",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Аутентификатор генерирует коды подтверждения (Totp) 2-шаг в вашем браузере.",
+        "message": "Аутентификатор генерирует коды двухфакторной аутентификации в вашем браузере.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлено.",
+        "message": " добавлен.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Нераспознанный QR-код.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Секретный ошибка. Только Base32 (A-Z, 2-7 и =) и ШЕСТНАДЦАТЕРИЧНЫЙ (0-9 и A-F) поддерживаются. Однако ваш секрет: ",
+        "message": "Недопустимый номер учётной записи",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Отсканировать QR-код",
+        "message": "QR-код",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -48,11 +48,11 @@
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Учетная запись",
         "description": "Account."
     },
     "accountName": {
-        "message": "Имя учётной записи",
+        "message": "Имя пользователя",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Секрет",
+        "message": "Секретный ключ",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Экспортировать и импортировать",
+        "message": "Экспорт / Импорт",
         "description": "Export and Import."
     },
     "settings": {
@@ -84,7 +84,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Настройки Безопасности",
+        "message": "Безопасность",
         "description": "Security."
     },
     "current_phrase": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
+        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не сможет помочь вам, если вы забудете его.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,15 +116,15 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить новую учетную запись или вывести данные, пока не будет выполнен вход во все учётные записи. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
+        "message": "Вы не можете добавить новую учетную запись или экспортировать данные, пока все учетные записи не будут расшифрованы. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Пороли не совпадают.",
+        "message": "Пароль не совпадает.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Данные зашифрованы",
         "description": "Encrypted."
     },
     "copied": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Введите пароль для доступа к данным учётной записи.",
+        "message": "Введите пароль для расшифровки данных учетной записи.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -156,27 +156,27 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Внимание! Ваши местные часы слишком далеко, пожалуйста, исправить перед продолжением.",
+        "message": "Внимание! Ваши данные местного времени не совпадают, пожалуйста синхронизируйте время перед тем как продолжить.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Crystal, poet updated\nDecorate my peaceful corner,\nPledge of sacred poetry\nAnd friendship is a sweet",
+        "message": "У вас есть резервная копия для ваших учетных записей? Создайте резервную копию, пока не поздно!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Фокусировка не удалась, перезагрузите страницу и повторите попытку.",
+        "message": "Захват не выполнен, перезагрузите страницу и повторите попытку.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Время",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Счетчик",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Всплывающее окно",
+        "message": "Настройки",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Внимание: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку.",
+        "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с QR-кодом.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -192,15 +192,15 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Импорт резервной копии",
+        "message": "Восстановить резервную копию",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Импортировать резервный файл",
+        "message": "Восстановить резервную копию из файла",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Импорт текста резервной копии",
+        "message": "Восстановить резервную копию из текста",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -216,7 +216,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Ваш пароль хранится локально, пожалуйста немедленно изменить его в меню безопасность.",
+        "message": "Ваши данные хоронятся в открытом виде, для защиты установите пароль в настройках безопасности.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Скачать защищенные паролем резервного копирования",
+        "message": "Сохранить защищенную паролем резервную копию",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -232,11 +232,11 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Всплывающее изображение",
+        "message": "Отдельное окно",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Заблокировать",
+        "message": "Защищено паролем",
         "description": "Lock accounts"
     },
     "edit": {
@@ -248,11 +248,11 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Использование функции автозаполнения",
+        "message": "Автозаполнение",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Использовать высокую контрастность",
+        "message": "Высокая контрастность",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -276,11 +276,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Выход",
+        "message": "Выйти",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Возникла проблема подключения к вашей учётной записи, пожалуйста войдите снова.$SERVICE$.$SERVICE$$SERVICE$$SERVICE$$SERVICE$.",
+        "message": "При подключении к вашей учетной записи $SERVICE$ произошла ошибка. Пожалуйста, войдите снова.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -290,36 +290,36 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "нету",
+        "message": "У вас есть один или несколько аккаунтов Steam или Blizzard. Незашифрованные резервные копии не будут использовать стандартный формат резервного копирования.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Резервные копии можно импортировать из других приложений.",
+        "message": "Вы можете импортировать резервные копии из других приложений.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Подробнее",
+        "message": "Узнать больше",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "wird geladen..."
+    },
+    "autolock": {
+        "message": "Lock Owner"
+    },
+    "minutes": {
+        "message": "минут"
     },
     "advanced": {
         "message": "Advanced"
     },
     "period": {
-        "message": "Period"
+        "message": "Период"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип\n"
     },
     "invalid": {
-        "message": "Invalid"
-    },
-    "autolock": {
-        "message": "Lock after"
-    },
-    "minutes": {
-        "message": "minutes"
+        "message": "Больной"
     }
 }

@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentifikator",
+        "message": "Authentifizierung",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Die Authenticator Erweiterung generiert Zwei-Faktor-Authentifizierung Codes in Ihrem Browser.",
+        "message": "Authenticator erzeugt zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Schlüssel-Fehler. Nur Base32(A-Z, 2-7 und =)- und HEX(0-9 und A-F)-Schlüssel sind unterstützt. Ihr Schlüssel ist: ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Kontoname",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Sind Sie sicher, dass Sie diesen Schlüssel löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Haben Sie ein Backup für ihre Accounts? Warten Sie nicht bis es zu spät ist!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Popup Page",
+        "message": "Einstellungen",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -208,15 +208,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Achtung: Die Backups sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
+        "message": "Vorsicht: Sicherungen, die in Dropbox gespeichert werden, sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Sie müssen das richtige Passwort angeben um Sicherungsdateien zu importieren.",
+        "message": "Sie müssen das richtige Passwort angeben, um Sicherungsdateien zu importieren.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es sofort im Sicherheitsmenü.",
+        "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es im Sicherheitsmenü sofort.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -290,19 +290,25 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Du hast ein oder mehrere Steam- oder Blizzard-Konten. Unverschlüsselte Backups werden kein standardisiertes Backup-Format verwenden.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Sie können Backups aus einigen anderen Anwendungen importieren.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Weitere Informationen",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
         "message": "Loading..."
+    },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
     },
     "advanced": {
         "message": "Advanced"
@@ -315,11 +321,5 @@
     },
     "invalid": {
         "message": "Invalid"
-    },
-    "autolock": {
-        "message": "Lock after"
-    },
-    "minutes": {
-        "message": "minutes"
     }
 }
