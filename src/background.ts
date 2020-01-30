@@ -9,6 +9,7 @@ import * as uuid from "uuid/v4";
 
 let cachedPassphrase = "";
 let autolockTimeout: number;
+let contentTab: chrome.tabs.Tab | undefined;
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "position") {
@@ -37,10 +38,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   } else if (message.action === "resetAutolock") {
     clearTimeout(autolockTimeout);
     setAutolock();
+  } else if (message.action === "updateContentTab") {
+    contentTab = message.data;
   }
 });
-
-let contentTab: chrome.tabs.Tab;
 
 function getQr(
   tab: chrome.tabs.Tab,
@@ -90,10 +91,10 @@ function getQr(
       ) => {
         if (error) {
           console.error(error);
-          const id = contentTab.id;
-          if (!id) {
+          if (!contentTab || !contentTab.id) {
             return;
           }
+          const id = contentTab.id;
           chrome.tabs.sendMessage(id, { action: "errorqr" });
         } else {
           getTotp(text.result);
@@ -105,10 +106,10 @@ function getQr(
 }
 
 async function getTotp(text: string) {
-  const id = contentTab.id;
-  if (!id || !text) {
+  if (!contentTab || !contentTab.id || !text) {
     return;
   }
+  const id = contentTab.id;
 
   if (text.indexOf("otpauth://") !== 0) {
     if (text === "error decoding QR Code") {
@@ -401,6 +402,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
         if (!tab || !tab.id) {
           return;
         }
+        contentTab = tab;
         chrome.tabs.sendMessage(tab.id, { action: "capture" });
       });
       break;
@@ -413,30 +415,24 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 async function setAutolock() {
   const enforcedAutolock = Number(await ManagedStorage.get("enforceAutolock"));
 
-  if (enforcedAutolock) {
-    if (enforcedAutolock > 0) {
-      autolockTimeout = window.setTimeout(() => {
-        cachedPassphrase = "";
-      }, enforcedAutolock * 60000);
-      return;
-    }
+  if (enforcedAutolock && enforcedAutolock > 0) {
+    autolockTimeout = window.setTimeout(() => {
+      cachedPassphrase = "";
+      if (contentTab && contentTab.id) {
+        chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
+      }
+      chrome.runtime.sendMessage({ action: "stopImport" });
+    }, enforcedAutolock * 60000);
+    return;
   }
 
   if (Number(localStorage.autolock) > 0) {
     autolockTimeout = window.setTimeout(() => {
       cachedPassphrase = "";
-      const id = contentTab.id;
-      if (id) {
-        chrome.tabs.sendMessage(id, { action: "stopCapture" });
+      if (contentTab && contentTab.id) {
+        chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
       }
+      chrome.runtime.sendMessage({ action: "stopImport" });
     }, Number(localStorage.autolock) * 60000);
   }
-}
-
-function getCookieExpiry(time: number) {
-  const offset = time * 60000;
-  const now = new Date().getTime();
-  const autolockExpiry = new Date(now + offset).toUTCString();
-
-  return `;expires=${autolockExpiry}`;
 }

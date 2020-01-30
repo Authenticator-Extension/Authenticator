@@ -49,6 +49,13 @@ export default Vue.extend({
   components: {
     FileImport,
     TextImport
+  },
+  mounted() {
+    chrome.runtime.onMessage.addListener(event => {
+      if (event.action === "stopImport") {
+        this.shouldShowPassphrase = true;
+      }
+    });
   }
 });
 

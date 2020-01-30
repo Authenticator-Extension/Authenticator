@@ -138,6 +138,7 @@ export default Vue.extend({
         if (!tab || !tab.id) {
           return;
         }
+        chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
           if (result !== "beginCapture") {
             this.$store.commit("notification/alert", this.i18n.capture_failed);
