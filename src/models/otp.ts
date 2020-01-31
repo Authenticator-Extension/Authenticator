@@ -1,34 +1,71 @@
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
-/// <reference path="./encryption.ts" />
-/// <reference path="./interface.ts" />
-/// <reference path="./key-utilities.ts" />
+import { Encryption } from "./encryption";
+import { KeyUtilities } from "./key-utilities";
+import { EntryStorage } from "./storage";
+import * as uuid from "uuid/v4";
 
-class OTPEntry implements OTP {
+export enum OTPType {
+  totp = 1,
+  hotp,
+  battle,
+  steam,
+  hex,
+  hhex
+}
+
+export enum CodeState {
+  Invalid = "-1",
+  Encrypted = "-2"
+}
+
+export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
   issuer: string;
-  secret: string;
+  secret: string | null;
+  encSecret: string | null;
   account: string;
   hash: string;
   counter: number;
   period: number;
-  code = '&bull;&bull;&bull;&bull;&bull;&bull;';
+  code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
-      type: OTPType, issuer: string, secret: string, account: string,
-      index: number, counter: number, period?: number, hash?: string) {
-    this.type = type;
-    this.index = index;
-    this.issuer = issuer;
-    this.secret = secret;
-    this.account = account;
-    this.hash = hash && /^[0-9a-f]{32}$/.test(hash) ?
-        hash :
-        CryptoJS.MD5(secret).toString();
-    this.counter = counter;
-    if (this.type === OTPType.totp && period) {
-      this.period = period;
+    entry: {
+      account: string;
+      encrypted: boolean;
+      index: number;
+      issuer: string;
+      secret: string;
+      type: OTPType;
+      counter: number;
+      period?: number;
+      hash?: string;
+    },
+    encryption?: Encryption
+  ) {
+    this.type = entry.type;
+    this.index = entry.index;
+    this.issuer = entry.issuer;
+    this.account = entry.account;
+    if (entry.encrypted) {
+      this.encSecret = entry.secret;
+      this.secret = null;
+    } else {
+      this.secret = entry.secret;
+      this.encSecret = null;
+      if (encryption && encryption.getEncryptionStatus()) {
+        this.encSecret = encryption.getEncryptedString(this.secret);
+      }
+    }
+
+    if (entry.hash) {
+      this.hash = entry.hash;
+    } else {
+      this.hash = uuid(); // UUID
+    }
+    this.counter = entry.counter;
+    if (this.type === OTPType.totp && entry.period) {
+      this.period = entry.period;
     } else {
       this.period = 30;
     }
@@ -37,13 +74,42 @@ class OTPEntry implements OTP {
     }
   }
 
-  async create(encryption: Encryption) {
-    await EntryStorage.add(encryption, this);
+  async create() {
+    await EntryStorage.add(this);
     return;
   }
 
-  async update(encryption: Encryption) {
-    await EntryStorage.update(encryption, this);
+  async update() {
+    await EntryStorage.update(this);
+    return;
+  }
+
+  async changeEncryption(encryption: Encryption) {
+    if (!this.secret) {
+      return;
+    }
+
+    if (encryption.getEncryptionStatus()) {
+      this.encSecret = encryption.getEncryptedString(this.secret);
+    } else {
+      this.encSecret = null;
+    }
+
+    await this.update();
+    return;
+  }
+
+  applyEncryption(encryption: Encryption) {
+    const secret = this.encSecret ? this.encSecret : null;
+    if (secret) {
+      this.secret = encryption.getDecryptedSecret({
+        hash: this.hash,
+        secret
+      });
+      if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
+        this.generate();
+      }
+    }
     return;
   }
 
@@ -52,30 +118,40 @@ class OTPEntry implements OTP {
     return;
   }
 
-  async next(encryption: Encryption) {
+  async next() {
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
     this.generate();
-    if (this.secret !== 'Encrypted') {
+    if (this.secret !== null) {
       this.counter++;
-      await this.update(encryption);
+      await this.update();
     }
     return;
   }
 
+  async genUUID() {
+    await this.delete();
+    this.hash = uuid();
+    await this.create();
+  }
+
   generate() {
-    if (this.secret === 'Encrypted') {
-      this.code = 'Encrypted';
+    if (!this.secret && !this.encSecret) {
+      this.code = CodeState.Invalid;
+    } else if (!this.secret) {
+      this.code = CodeState.Encrypted;
     } else {
       try {
         this.code = KeyUtilities.generate(
-            this.type, this.secret, this.counter, this.period);
+          this.type,
+          this.secret,
+          this.counter,
+          this.period
+        );
       } catch (error) {
-        this.code = 'Invalid';
-        if (parent) {
-          parent.postMessage(`Invalid secret: [${this.secret}]`, '*');
-        }
+        this.code = CodeState.Invalid;
+        console.log("Invalid secret.", error);
       }
     }
   }

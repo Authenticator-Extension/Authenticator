@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Ο Επαληθευτής δημιουργεί κωδικούς επαλήθευσης σε 2 βήματα στο πρόγραμμα περιήγησης.",
+        "message": "Authenticator generates two-factor authentication codes in your browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Μυστικό σφάλμα. Υποστηρίζονται μόνο τα Base32 (A-Z, 2-7 και =) και HEX (0-9 και A-F). Ωστόσο, το μυστικό σας είναι:",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Όνομα Λογαριασμού",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Εξαγωγή\/εισαγωγή",
+        "message": "Εξαγωγή/εισαγωγή",
         "description": "Export and Import."
     },
     "settings": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Αναδυόμενο σελίδα",
+        "message": "Preferences",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -300,5 +300,26 @@
     "otp_backup_learn": {
         "message": "Learn more",
         "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Loading..."
+    },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
+    "advanced": {
+        "message": "Advanced"
+    },
+    "period": {
+        "message": "Period"
+    },
+    "type": {
+        "message": "Type"
+    },
+    "invalid": {
+        "message": "Invalid"
     }
 }

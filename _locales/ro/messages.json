@@ -1,0 +1,325 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator generează coduri de verificare pentru al doilea pas în browserul tău.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " a fost adăugat.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Cod QR nerecunoscut.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Cheia secretă a contului este invalidă",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Scanează codul QR",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Introducere manuală",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Închide",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "Ok",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Da",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Nu",
+        "description": "No."
+    },
+    "account": {
+        "message": "Cont",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Nume de utilizator",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Emitent",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Cheie secretă",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Succes.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Eșec.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Despre",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Export / Import",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Setări",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Securitate",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Parola curentă",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Parolă nouă",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Parolă",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Confirmă parola",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Ești sigur că vrei să ștergi acest cont? Această acțiune nu poate fi anulată.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Actualizează",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Nu poti adăuga un nou cont sau exporta datele înainte ca toate conturile să fie decriptate. Te rugăm să introduci parola corectă înainte de a continua.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Parola nu se potrivește.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Criptat",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Copiat",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Opinii",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Traducere",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Cod sursă",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Introdu parola pentru a decripta datele contului.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Sincronizează ceasul cu Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Memorează parola",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Atenție! Ceasul local are o abatere foarte mare. Te rugăm să remediezi problema înainte de a continua.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Ai o copie de siguranță a conturilor tale? Nu aștepta până e prea târziu!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Captura a eșuat, te rugăm să reîncarci pagina și să încerci din nou.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Bazat pe timp",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Bazat pe contor",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Preferințe",
+        "description": "Popup Page Settings"
+    },
+    "scale": {
+        "message": "Dimensiune",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Avertisment: copiile de siguranță nu sunt criptate. Vrei să adaugi unul dintre conturi în altă aplicație? Trece cursorul peste oricare cont și în partea dreaptă sus va apărea un buton ascuns.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Descarcă o copie de siguranță",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Importă o copie de siguranță",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Importă un fișier cu o copie de siguranță",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Importă copie de siguranță sub formă de text",
+        "description": "Import backup code."
+    },
+    "show_all_entries": {
+        "message": "Arată tot",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Avetisment: copiile de siguranță nu sunt criptate. Le folosești pe riscul propriu.",
+        "description": "Backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Trebuie să folosești parola corectă ca să imporți copiile de siguranță.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Parola ta este stocată în browser, te rog să o schimbi imediat din meniul de securitate.",
+        "description": "localStorage password warning."
+    },
+    "remove": {
+        "message": "Șterge",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+        "message": "Descarcă o copie de siguranță protejată cu parolă",
+        "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Căutare",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Afișare în fereastră separată",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Blochează acces",
+        "description": "Lock accounts"
+    },
+    "edit": {
+        "message": "Modifică",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Sincronizare manuală",
+        "description": "Manual sync"
+    },
+    "use_autofill": {
+        "message": "Folosește Autocompletarea",
+        "description": "Use Autofill"
+    },
+    "use_high_contrast": {
+        "message": "Folosește contrast sporit",
+        "description": "Use High Contrast"
+    },
+    "storage_menu": {
+        "message": "Stocare și copii de siguranță",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "Alege unde sunt stocate datele tale. Opțiunea 'local' stochează datele pe computerul tău. Dacă ești autentificat cu un cont corespunzător, opțiunea `sync' permite browser-ului tău să sincronizeze datele în cloud.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "Creează copii de siguranță automate folosind servicii de stocare de la terți.",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "Stocare",
+        "description": "Storage location"
+    },
+    "sign_in": {
+        "message": "Autentificare",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "log_out": {
+        "message": "Ieșire din cont",
+        "description": "Sign out of 3rd party storage services"
+    },
+    "token_revoked": {
+        "message": "Conectarea la $SERVICE$ a eșuat, te rugăm să te autentifici din nou.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "Ai unul sau mai multe conturi Steam ori Blizzard. Copiile de siguranță necriptate nu vor putea utiliza formatul standardizat.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "Poți importa copii de siguranță din câteva alte aplicații.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Află mai multe",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Se încarcă..."
+    },
+    "autolock": {
+        "message": "Blocare automată după"
+    },
+    "minutes": {
+        "message": "minute"
+    },
+    "advanced": {
+        "message": "Avansat"
+    },
+    "period": {
+        "message": "Perioadă"
+    },
+    "type": {
+        "message": "Tip"
+    },
+    "invalid": {
+        "message": "Invalid"
+    }
+}

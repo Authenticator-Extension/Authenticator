@@ -1,0 +1,325 @@
+{
+    "extName": {
+        "message": "Authenticator",
+        "description": "Extension Name."
+    },
+    "extShortName": {
+        "message": "Authenticator",
+        "description": "Extension Short Name."
+    },
+    "extDesc": {
+        "message": "Authenticator generearret 2-stapsferifikaasjekoades yn jo browser.",
+        "description": "Extension Description."
+    },
+    "added": {
+        "message": " is tafoege.",
+        "description": "Added Account."
+    },
+    "errorqr": {
+        "message": "Net-werkende QR-koade.",
+        "description": "QR Error."
+    },
+    "errorsecret": {
+        "message": "Net krekt accountgeheim",
+        "description": "Secret Error."
+    },
+    "add_qr": {
+        "message": "Skan QR-koade",
+        "description": "Scan QR Code."
+    },
+    "add_secret": {
+        "message": "Hânmjittige ynfier",
+        "description": "Manual Entry."
+    },
+    "close": {
+        "message": "Slute",
+        "description": "Close."
+    },
+    "ok": {
+        "message": "OK",
+        "description": "OK."
+    },
+    "yes": {
+        "message": "Ja",
+        "description": "Yes."
+    },
+    "no": {
+        "message": "Nee",
+        "description": "No."
+    },
+    "account": {
+        "message": "Account",
+        "description": "Account."
+    },
+    "accountName": {
+        "message": "Brûkersnamme",
+        "description": "Account Name."
+    },
+    "issuer": {
+        "message": "Utjouwer",
+        "description": "Issuer."
+    },
+    "secret": {
+        "message": "Geheim",
+        "description": "Secret."
+    },
+    "updateSuccess": {
+        "message": "Slagge.",
+        "description": "Update Success."
+    },
+    "updateFailure": {
+        "message": "Mislearre.",
+        "description": "Update Failure."
+    },
+    "about": {
+        "message": "Oer",
+        "description": "About."
+    },
+    "export_import": {
+        "message": "Eksportearje / Ymportearje",
+        "description": "Export and Import."
+    },
+    "settings": {
+        "message": "Ynstellingen",
+        "description": "Settings."
+    },
+    "security": {
+        "message": "Befeiliging",
+        "description": "Security."
+    },
+    "current_phrase": {
+        "message": "Aktueel ​​wachtwurd",
+        "description": "Current Passphrase."
+    },
+    "new_phrase": {
+        "message": "Nij wachtwurd",
+        "description": "New Passphrase."
+    },
+    "phrase": {
+        "message": "Wachtwurd",
+        "description": "Passphrase."
+    },
+    "confirm_phrase": {
+        "message": "Wachtwurd befêstigje",
+        "description": "Confirm Passphrase."
+    },
+    "confirm_delete": {
+        "message": "Binne jo wis dat jo dit account fuortsmite wolle? Dit kin net ûngedien makke wurde.",
+        "description": "Remove entry confirmation"
+    },
+    "security_warning": {
+        "message": "Dit wachtwurd wurdt brûkt foar it fersiferjen fan jo accounts. Net ien kin jo helpe as jo it wachtwurd ferjitte.",
+        "description": "Passphrase Warning."
+    },
+    "update": {
+        "message": "Fernije",
+        "description": "Update."
+    },
+    "phrase_incorrect": {
+        "message": "Jo kinne net in nij account tafoegje of gegevens eksportearje oant alle accounts ûntsifere binne. Fier it krekte wachtwurd yn eardat jo fierder gean.",
+        "description": "Passphrase Incorrect."
+    },
+    "phrase_not_match": {
+        "message": "Wachtwurd komt net oerien.",
+        "description": "Passphrase Not Match."
+    },
+    "encrypted": {
+        "message": "Fersifere",
+        "description": "Encrypted."
+    },
+    "copied": {
+        "message": "Kopiearre",
+        "description": "Copied."
+    },
+    "feedback": {
+        "message": "Kommentaar",
+        "description": "Feedback."
+    },
+    "translate": {
+        "message": "Oersette",
+        "description": "Translate."
+    },
+    "source": {
+        "message": "Boarnekoade",
+        "description": "Source Code."
+    },
+    "passphrase_info": {
+        "message": "Fier it wachtwurd yn om de accountgegevens te ûntsiferjen.",
+        "description": "Passphrase Info"
+    },
+    "sync_clock": {
+        "message": "Klok syngronisearje mei Google",
+        "description": "Sync Clock"
+    },
+    "remember_phrase": {
+        "message": "Wachtwurd ûnthâlde",
+        "description": "Remember Passphrase"
+    },
+    "clock_too_far_off": {
+        "message": "Let op! De klok fan jo lokale kompjûter is te fier foar/efter, werstel dit eardat jo trochgean.",
+        "description": "Local Time is Too Far Off"
+    },
+    "remind_backup": {
+        "message": "Hawwe jo in reservekopy foar jo accounts? Wachtsje net oant it te let is!",
+        "description": "Remind Backup"
+    },
+    "capture_failed": {
+        "message": "Fêstlizzen is mislearre, laad de side opnij en probearje it opnij.",
+        "description": "Capture Failed"
+    },
+    "based_on_time": {
+        "message": "Tiidsbûn",
+        "description": "Time Based"
+    },
+    "based_on_counter": {
+        "message": "Teller bûn",
+        "description": "Counter Based"
+    },
+    "resize_popup_page": {
+        "message": "Foarkarren",
+        "description": "Popup Page Settings"
+    },
+    "scale": {
+        "message": "Skeal",
+        "description": "Scale"
+    },
+    "export_info": {
+        "message": "Warskôging: alle reservekopyen binne net fersifere. Wolle jo in account tafoegje oan in oare app? Beweegje oer de rjochterboppekant fan in account en druk op de ferstoppe knop.",
+        "description": "Export menu info text"
+    },
+    "download_backup": {
+        "message": "Reservekopy downloade",
+        "description": "Download backup file."
+    },
+    "import_backup": {
+        "message": "Reservekopy ymportearje",
+        "description": "Import backup."
+    },
+    "import_backup_file": {
+        "message": "Reservekopybestân ymportearje",
+        "description": "Import backup file."
+    },
+    "import_backup_code": {
+        "message": "Tekstreservekopy ymportearje",
+        "description": "Import backup code."
+    },
+    "show_all_entries": {
+        "message": "Lit alle ynfier sjen",
+        "description": "Show all entries."
+    },
+    "dropbox_risk": {
+        "message": "Warskôging: reservekopyen binne net fersifere. Brûk op eigen risiko.",
+        "description": "Backup risk warning."
+    },
+    "import_error_password": {
+        "message": "Jo moatte it krekte wachtwurd opjaan om reservekopyen te ymportearjen.",
+        "description": "Error password warning when import backups."
+    },
+    "local_passphrase_warning": {
+        "message": "Jo wachtwurd is lokaal bewarre, wizigje dizze daliks yn it menu befeiliging.",
+        "description": "localStorage password warning."
+    },
+    "remove": {
+        "message": "Fuortsmite",
+        "description": "Remove password."
+    },
+    "download_enc_backup": {
+        "message": "Wachtwurd-befeilige reservekopy downloade",
+        "description": "Download Encrypted Backup"
+    },
+    "search": {
+        "message": "Sykje",
+        "description": "Search"
+    },
+    "popout": {
+        "message": "Pop-upmodus",
+        "description": "Make window turn into persistent popup"
+    },
+    "lock": {
+        "message": "Beskoattelje",
+        "description": "Lock accounts"
+    },
+    "edit": {
+        "message": "Bewurkje",
+        "description": "Edit"
+    },
+    "manual_dropbox": {
+        "message": "Hânmjittige syngronisaasje",
+        "description": "Manual sync"
+    },
+    "use_autofill": {
+        "message": "Automatysk oanfolje brûke",
+        "description": "Use Autofill"
+    },
+    "use_high_contrast": {
+        "message": "Heech kontrast brûke",
+        "description": "Use High Contrast"
+    },
+    "storage_menu": {
+        "message": "Unthâld & reservekopy",
+        "description": "Storage and sync menu title"
+    },
+    "storage_location_info": {
+        "message": "Kies wêr't jo gegevens bewarre wurde. Mei ‘lokale’ wurden de gegevens bewarre op jo PC. Mei ‘sync’ wurde uw gegevens syngronisearre nei de cloud as jo oanmeld binne by in account.",
+        "description": "Message explaning the diffrences between sync and local storage spaces."
+    },
+    "storage_sync_info": {
+        "message": "Automatysk in reservekopy meitsje fan jo gegevens nei opslachtsjinsten fan tredden.",
+        "description": "3rd party backup info"
+    },
+    "storage_location": {
+        "message": "Unthâldlokaasje",
+        "description": "Storage location"
+    },
+    "sign_in": {
+        "message": "Oanmelde",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "log_out": {
+        "message": "Ofmelde",
+        "description": "Sign out of 3rd party storage services"
+    },
+    "token_revoked": {
+        "message": "Der wie in probleem mei de ferbining nei jo $SERVICE$-account, meld jo opnij oan.",
+        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+        "placeholders": {
+            "service": {
+                "content": "$1",
+                "example": "Google Drive"
+            }
+        }
+    },
+    "otp_unsupported_warn": {
+        "message": "Jo hawwe ien of mear Steam- of Blizzard-accounts. Net-fersifere reservekopyen sille gjin standerdisearre reservekopy-yndieling brûke.",
+        "description": "Warning if using account that is not supported by standard backup format."
+    },
+    "otp_backup_inform": {
+        "message": "Jo kinne reservekopyen fan inkelde andere tapassingen ymportearje.",
+        "description": "Info text on import page"
+    },
+    "otp_backup_learn": {
+        "message": "Mear ynfo",
+        "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Lade…"
+    },
+    "autolock": {
+        "message": "Beskoattelje nei"
+    },
+    "minutes": {
+        "message": "minuten"
+    },
+    "advanced": {
+        "message": "Avansearre"
+    },
+    "period": {
+        "message": "Perioade"
+    },
+    "type": {
+        "message": "Type"
+    },
+    "invalid": {
+        "message": "Unjildich"
+    }
+}

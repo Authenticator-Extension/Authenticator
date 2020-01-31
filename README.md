@@ -9,14 +9,10 @@
 ## Build Setup
 
 ``` bash
-# install typescript and gts
-npm install -g typescript gts
 # install development dependencies
 npm install
-# fix code style issues
-gts fix
 # compile
-npm run [chrome, firefox, edge]
+npm run [chrome, firefox]
 ```
 
-Note that Windows users should download a tool like [Git Bash](https://git-scm.com/download/win) or [Cygwin](http://cygwin.com/) to build. Building for Edge requires the [Windows App Certification Kit](https://developer.microsoft.com/en-us/windows/develop/app-certification-kit)
+Note that Windows users should download a tool like [Git Bash](https://git-scm.com/download/win) or [Cygwin](http://cygwin.com/) to build.

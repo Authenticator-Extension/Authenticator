@@ -3,9 +3,9 @@ build
 chrome
 firefox
 edge
+dist
 .vscode
 .atom-build.yml
 scripts/authenticator-build-key.enc
 cert.pfx
-css/popup.css
-css/popup.css.map
+css

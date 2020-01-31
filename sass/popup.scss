@@ -1,413 +1,417 @@
-@import 'ui';
+@import "ui";
 
 // Structure
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-[v-cloak] { 
-    display: none;
+[v-cloak] {
+  display: none;
 }
 
 body {
-    width: 320px;
-    height: 480px;
-    transform-origin: left top;
-    overflow: hidden;
-    font-family: arial, 'Microsoft YaHei';
-    cursor: default;
-    user-select: none;
+  width: 320px;
+  height: 480px;
+  transform-origin: left top;
+  overflow: hidden;
+  font-family: arial, "Microsoft YaHei";
+  font-size: 16px;
+  cursor: default;
+  user-select: none;
 }
 
 svg {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .icon {
-    @include themify($themes) {
-        fill: themed('grey-1');
-    }
-    vertical-align: middle;
-    svg {
-        height: 16px;
-        width: 16px;
-    }
+  @include themify($themes) {
+    fill: themed("grey-1");
+  }
+  vertical-align: middle;
+  svg {
+    height: 16px;
+    width: 16px;
+  }
 }
 
 #codeClipboard {
-    position: absolute;
-    top: -1000px;
+  position: absolute;
+  top: -1000px;
 }
 
 // Header
 .header {
-    height: 38px;
-    line-height: 38px;
-    position: relative;
-    text-align: center;
-    font-size: 16px;
-    @include themify($themes) {
-        color: themed('black-1');
-        background: themed('white-1');
-        border-bottom: themed('grey-2') 1px solid;
-    }
+  height: 38px;
+  line-height: 38px;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  @include themify($themes) {
+    color: themed("black-1");
+    background: themed("white-1");
+    border-bottom: themed("grey-2") 1px solid;
+  }
 
-    .icon {
-        @include hover-black;
-        cursor: pointer;
+  .icon {
+    @include hover-black;
+    cursor: pointer;
 
-        svg {
-            vertical-align: sub;
-        }
+    svg {
+      vertical-align: sub;
     }
+  }
 }
 
 #i-menu {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
+  position: absolute;
+  left: 20px;
+  bottom: 0;
 }
 
 #i-lock {
-    position: absolute;
-    left: 45px;
-    bottom: 0;
+  position: absolute;
+  left: 45px;
+  bottom: 0;
 }
 
 #i-sync {
-    position: absolute;
-    left: 70px;
-    bottom: 0;
-    cursor: default;
-    @include themify($themes) {
-        fill: themed('grey-2');
-    }
+  position: absolute;
+  left: 70px;
+  bottom: 0;
+  cursor: default;
+  @include themify($themes) {
+    fill: themed("grey-2");
+  }
 
-    &:hover {
-        svg {
-            fill: inherit;
-        }
+  &:hover {
+    svg {
+      fill: inherit;
     }
+  }
 }
 
 #i-qr {
-    position: absolute;
-    right: 45px;
-    bottom: 0;
+  position: absolute;
+  right: 45px;
+  bottom: 0;
 }
 
 #i-edit {
-    position: absolute;
-    right: 20px;
-    bottom: 0;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
 }
 
 #i-close {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
+  position: absolute;
+  left: 20px;
+  bottom: 0;
 }
 
 // Search & Filter
 .under-header {
-    padding: 0 10px;
-    margin-left: 10px;
-    font-size: 12px;
-    height: 24px;
-    line-height: 24px;
-    cursor: pointer;
-    display: none;
+  padding: 0 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+  cursor: pointer;
+  display: none;
 }
 
 #filter {
-    @include themify($themes) {
-        background: themed('yellow-2');
-    }
+  @include themify($themes) {
+    background: themed("yellow-2");
+  }
 
-    &:hover {
-        @include themify($themes) {
-            background: themed('yellow-1');
-        }
+  &:hover {
+    @include themify($themes) {
+      background: themed("yellow-1");
     }
+  }
 }
 
 #search {
-    position: relative;
+  position: relative;
+  @include themify($themes) {
+    background: themed("white-1");
+    border: themed("grey-2") 1px solid;
+    border-top: none;
+  }
+
+  &:hover {
     @include themify($themes) {
-        background: themed('white-1');
-        border: themed('grey-2') 1px solid;
-        border-top: none;
+      background: themed("white-search");
     }
+  }
 
-    &:hover {
-        @include themify($themes) {
-            background: themed('white-search');
-        }
+  input {
+    font-family: arial, "Microsoft YaHei";
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    @include themify($themes) {
+      color: themed("black-search");
     }
+  }
 
-    input {
-        font-family: arial, 'Microsoft YaHei';
-        background: none;
-        border: none;
-        width: 100%;
-        height: 100%;
-        @include themify($themes) {
-            color: themed('black-search');
-        }
+  #searchHint {
+    position: absolute;
+    top: -1px;
+    right: 0px;
+    padding-right: 10px;
+    display: grid;
+    grid-template-rows: 4.5px 15px 4.5px;
+    grid-template-columns: 15px;
+  }
+
+  #searchHintBorder {
+    @include themify($themes) {
+      color: themed("white-1");
+      background: themed("grey-search");
     }
-        
-    #searchHint {
-        position: absolute;
-        top: -1px;
-        right: 0px;
-        padding-right: 10px;
-        display: grid;
-        grid-template-rows: 4.5px 15px 4.5px;
-        grid-template-columns: 15px;
-    }
-    
-    #searchHintBorder {
-        @include themify($themes) {
-            color: themed('white-1');
-            background: themed('grey-search');
-        }
-        text-align: center;
-        border-radius: 1.5px;
-        line-height: 16px;
-        font-weight: bolder;
-    }
+    text-align: center;
+    border-radius: 1.5px;
+    line-height: 16px;
+    font-weight: bolder;
+  }
 }
 
 // Codes
 #codes {
-    height: 442px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+  height: 442px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  @include themify($themes) {
+    background: themed("grey-background");
+  }
+  padding-right: 10px;
+
+  .deleteAction {
     @include themify($themes) {
-        background: themed('grey-background');
+      @include icon-special(20px, themed("red-1"));
     }
-    padding-right:10px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 10;
+    display: none;
+  }
+
+  &:hover {
+    padding-right: 0;
+    overflow-y: scroll;
+  }
+
+  &.edit {
+    .code {
+      @include themify($themes) {
+        color: themed("grey-2") !important;
+      }
+      user-select: none;
+      cursor: default;
+    }
+
+    .issuer,
+    .showqr,
+    .showqr.hidden {
+      display: none;
+    }
+
+    .issuerEdit,
+    .movehandle,
+    #add {
+      display: block;
+    }
 
     .deleteAction {
-        @include themify($themes) {
-            @include icon-special(20px, themed('red-1'));
-        }
-        position: absolute;
-        top: -10px;
-        left: -10px;
-        z-index: 10;
-        display: none;
-    }
-    
-    &:hover {
-        padding-right: 0;
-        overflow-y: scroll;
-    }
-    
-    &.edit {
-        .code {
-            @include themify($themes) {
-                color: themed('grey-2')!important;
-            }
-            user-select: none;
-            cursor: default;
-        }
-        
-        .issuer, .showqr,
-        .showqr.hidden {
-            display: none;
-        }
-        
-        .issuerEdit,
-        .movehandle, #add {
-            display: block;
-        }
-
-        .deleteAction {
-            display: block;
-            cursor: pointer;
-        }
-
-        .sector, .counter {
-            position: absolute;
-            left: -1000px;
-            opacity: 0;
-        }
+      display: block;
+      cursor: pointer;
     }
 
-    &.filter .entry[filtered],
-    &.search .entry[notSearched] {
-        height: 0;
-        margin: 0;
-        padding: 0;
-        opacity: 0;
-        border: none;
-        overflow: hidden;
-        position: absolute;
+    .sector,
+    .counter {
+      position: absolute;
+      left: -1000px;
+      opacity: 0;
+    }
+  }
+
+  &.filter .entry[filtered],
+  &.search .entry[notSearched] {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    border: none;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  &.filter #filter,
+  &.search #search {
+    display: block;
+  }
+
+  &:not(.edit) {
+    // Is this used?
+    .entry[unencrypted="true"]:hover .warning {
+      height: 24px;
     }
 
-    &.filter #filter,
-    &.search #search {
-        display: block;
+    .code.timeout:not(.hotp) {
+      animation: twinkling 1s infinite ease-in-out;
     }
-
-    &:not(.edit) {
-        // Is this used?
-        .entry[unencrypted="true"]:hover .warning {
-            height: 24px;
-        }
-
-        .code.timeout:not(.hotp) {
-            animation: twinkling 1s infinite ease-in-out;
-        }
-    }
+  }
 }
 
 .entry {
-    margin: 10px;
-    margin-right: 0;
-    padding: 10px;
+  margin: 10px;
+  margin-right: 0;
+  padding: 10px;
+  @include themify($themes) {
+    border: themed("grey-2") 1px solid;
+    background: themed("white-1");
+  }
+  border-radius: 2px;
+  position: relative;
+
+  .issuer {
+    font-size: 12px;
     @include themify($themes) {
-        border: themed('grey-2') 1px solid;
-        background: themed('white-1');
+      color: themed("black-1");
     }
-    border-radius: 2px;
-    position: relative;
+    width: 80%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 
-    .issuer {
-        font-size: 12px;
+  .code {
+    font-size: 36px;
+    @include themify($themes) {
+      color: themed("blue-1");
+    }
+    width: 80%;
+    user-select: text;
+    font-family: "Droid Sans Mono";
+    cursor: pointer;
+  }
+
+  .sector,
+  .counter {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .sector {
+    svg {
+      width: 16px;
+      height: 16px;
+      margin: 2px;
+    }
+
+    circle {
+      fill: none;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      @include themify($themes) {
+        stroke: themed("grey-1");
+      }
+      stroke-width: 8px;
+      stroke-dasharray: 25.12;
+      animation-name: timer;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+  .counter {
+    @include themify($themes) {
+      @include icon-special(18px, themed("grey-1"));
+    }
+    text-align: center;
+    cursor: pointer;
+
+    .disabled {
+      svg {
         @include themify($themes) {
-            color: themed('black-1');
+          fill: themed("grey-2");
         }
-        width: 80%;
-        text-overflow: ellipsis;
-        overflow: hidden;
+      }
+      cursor: default;
     }
 
-    .code {
-        font-size: 36px;
+    &:not(.disabled):hover {
+      svg {
         @include themify($themes) {
-            color: themed('blue-1');
+          fill: themed("black-1");
         }
-        width: 80%;
-        user-select: text;
-        font-family: 'Droid Sans Mono';
-        cursor: pointer;
+      }
     }
+  }
 
-    .sector, .counter {
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
+  .issuerEdit {
+    display: none;
+
+    input {
+      border: none;
+      height: 14px;
+      width: 70%;
+      font-size: 12px;
+      outline: none;
+      @include themify($themes) {
+        background: themed("grey-3");
+      }
     }
-    
-    .sector {
-        svg {
-            width: 16px;
-            height: 16px;
-            margin: 2px;
-        }
+  }
 
-        circle {
-            fill: none;
-            transform: rotate(-90deg);
-            transform-origin: 50% 50%;
-            @include themify($themes) {
-                stroke: themed('grey-1');
-            }
-            stroke-width: 8px;
-            stroke-dasharray: 25.12;
-            animation-name: timer;
-            animation-iteration-count: infinite;
-            animation-timing-function: linear;
-        }
+  .movehandle {
+    @include themify($themes) {
+      @include icon-special(24px, themed("grey-2"));
     }
+    height: 98px;
+    line-height: 98px;
+    right: 10px;
+    top: 0;
+    position: absolute;
+    cursor: move;
+    display: none;
+  }
 
-    .counter {
-        @include themify($themes) {
-            @include icon-special(18px, themed('grey-1'));
-        }
-        text-align: center;
-        cursor: pointer;
-
-        .disabled {
-            svg {
-                @include themify($themes) {
-                    fill: themed('grey-2');
-                }
-            }
-            cursor: default;
-        }
-
-        &:not(.disabled):hover {
-            svg {
-                @include themify($themes) {
-                    fill: themed('black-1');
-                }
-            }
-        }
+  .showqr {
+    @include themify($themes) {
+      @include icon-special(20px, themed("grey-2"));
     }
+    @include hover-black;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    cursor: pointer;
+    opacity: 0;
+  }
 
-    .issuerEdit {
-        display: none;
-
-        input {
-            border: none;
-            height: 14px;
-            width: 70%;
-            font-size: 12px;
-            outline: none;
-            @include themify($themes) {
-                background: themed('grey-3');
-            }
-            
-        }
+  &:hover {
+    .showqr {
+      opacity: 1;
     }
 
     .movehandle {
+      svg {
         @include themify($themes) {
-            @include icon-special(24px, themed('grey-2'));
+          fill: themed("black-1");
         }
-        height: 98px;
-        line-height: 98px;
-        right: 10px;
-        top: 0;
-        position: absolute;
-        cursor: move;
-        display: none;
+      }
     }
-
-    .showqr {
-        @include themify($themes) {
-            @include icon-special(20px, themed('grey-2'));
-        }
-        @include hover-black;
-        right: 10px;
-        top: 10px;
-        position: absolute;
-        cursor: pointer;
-        opacity: 0;
-    }
-
-    &:hover {
-        .showqr {
-            opacity: 1;
-        }
-
-        .movehandle {
-            svg {
-                @include themify($themes) {
-                    fill: themed('black-1');
-                }
-            }
-        }
-    }
-    /*
+  }
+  /*
     // Is this used?
     &[dropOver="true"] {
         border: $grey-1 1px dashed;
@@ -435,480 +439,491 @@ svg {
 }
 
 .no-copy {
-    cursor: default;
+  cursor: default;
 }
 
 #add {
-    @extend .button;
-    @include hover-black;
-    margin-right: 0;
-    line-height: 56px;
-    display: none;
+  @extend .button;
+  @include hover-black;
+  margin-right: 0;
+  line-height: 56px;
+  display: none;
 }
 
 // Modals
 #notification {
-    position: absolute;
-    left: 60px;
-    top: -1000px;
-    width: 200px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    @include themify($themes) {
-        background: themed('black-transparent');
-        color: themed('white-1');
-    }
-    font-size: 20px;
-    border-radius: 2px;
+  position: absolute;
+  left: 60px;
+  top: -1000px;
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  @include themify($themes) {
+    background: themed("black-transparent");
+    color: themed("white-1");
+  }
+  font-size: 20px;
+  border-radius: 2px;
 
-    &.fadein {
-        top: 190px;
-        animation: fadeshow 0.2s 1 ease-out;
-    }
+  &.fadein {
+    top: 190px;
+    animation: fadeshow 0.2s 1 ease-out;
+  }
 
-    &.fadeout {
-        top: 190px;
-        animation: fadehide 0.2s 1 ease-in;
-    }
+  &.fadeout {
+    top: 190px;
+    animation: fadehide 0.2s 1 ease-in;
+  }
 }
 
 .message-box {
-    position: absolute;
-    width: 300px;
-    padding: 10px;
-    @include themify($themes) {
-        color: themed('black-1');
-        border: themed('grey-1') 1px solid;
-        background: themed('white-1');
-        box-shadow: 1px 1px 3px themed('grey-1');
-    }
-    border-radius: 2px;
-    left: 10px;
-    top: 150px;
-    z-index: 1000;
+  position: absolute;
+  width: 300px;
+  padding: 10px;
+  @include themify($themes) {
+    color: themed("black-1");
+    border: themed("grey-1") 1px solid;
+    background: themed("white-1");
+    box-shadow: 1px 1px 3px themed("grey-1");
+  }
+  border-radius: 2px;
+  left: 10px;
+  top: 150px;
+  z-index: 1000;
 
-    .button-small {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+  .button-small {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 .buttons {
-    text-align: center;
+  text-align: center;
 
-    .button-small {
-        display: inline-block;
-        margin: 10px;
-        padding: 5px 20px;
-    }
+  .button-small {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 20px;
+  }
 }
 
 #qr {
-    width: 320px;
-    height: 480px;
-    top: -1000px;
-    left: 0;
-    position: absolute;
-    z-index: 10;
-    @include themify($themes) {
-        background-color: themed('white-transparent');
-    }
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 320px;
+  height: 480px;
+  top: -1000px;
+  left: 0;
+  position: absolute;
+  z-index: 10;
+  @include themify($themes) {
+    background-color: themed("white-transparent");
+  }
+  background-repeat: no-repeat;
+  background-position: center;
 
-    canvas {
-        display: none;
-    }
+  canvas {
+    display: none;
+  }
 
-    &.qrfadein {
-        top: 0;
-        animation: fadeshow 0.2s 1 ease-out;
-    }
+  &.qrfadein {
+    top: 0;
+    animation: fadeshow 0.2s 1 ease-out;
+  }
 
-    &.qrfadeout {
-        top: 0;
-        animation: fadehide 0.2s 1 ease-in;
-    }
+  &.qrfadeout {
+    top: 0;
+    animation: fadehide 0.2s 1 ease-in;
+  }
 }
 
 #overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 900;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 900;
 }
 
 // Info
 #info {
-    position: absolute;
-    height: 460px;
-    width: 300px;
-    padding: 10px;
+  position: absolute;
+  height: 460px;
+  width: 300px;
+  padding: 10px;
+  @include themify($themes) {
+    color: themed("black-1");
+    border: themed("grey-1");
+    background: themed("white-1");
+    box-shadow: 1px 1px 3px themed("grey-1");
+  }
+  left: 10px;
+  top: -1000px;
+  z-index: 100;
+
+  #infoContent {
+    height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    p {
+      margin-bottom: 20px;
+    }
+  }
+
+  #infoClose {
+    @include hover-black;
     @include themify($themes) {
-        color: themed('black-1');
-        border: themed('grey-1');
-        background: themed('white-1');
-        box-shadow: 1px 1px 3px themed('grey-1');
+      @include icon-special(14px, themed("grey-1"));
     }
-    left: 10px;
-    top: -1000px;
-    z-index: 100;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
 
-    #infoContent {
-        height: 420px;
-        overflow-y: auto;
-        overflow-x: hidden;
+  label {
+    display: block;
+    margin: 10px 0 0 10px;
+  }
 
-        p {
-            margin-bottom: 20px;
-        }
+  .combo-label {
+    display: inline-block;
+    margin: 20px;
+    margin-right: 0px;
+    font-size: 16px;
+  }
+
+  .checkbox {
+    margin: 20px;
+  }
+
+  select {
+    margin: 20px;
+    font-size: 12px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .button {
+    display: block;
+  }
+
+  .text {
+    display: block;
+    margin: 10px 0 0 10px;
+  }
+
+  .warning {
+    @include themify($themes) {
+      color: themed("red-1");
     }
+  }
 
-    #infoClose {
-        @include hover-black;
-        @include themify($themes) {
-            @include icon-special(14px, themed('grey-1'));
-        }
-        height: 20px;
-        width: 20px;
-        cursor: pointer;
-    }
+  // Security
+  @mixin security-button($margin-left) {
+    @extend .button-small;
+    font-size: 12px;
+    margin: 20px 100px;
+    padding: 10px;
+    display: inline-block;
+    width: 80px;
+    margin-left: $margin-left;
+    margin-right: 0;
+  }
 
-    label {
-        display: block;
-        margin: 10px 0 0 10px;
-    }
+  #security-save {
+    @include security-button(40px);
+  }
 
-    .combo-label {
-        display: inline-block;
-        margin: 20px;
-        margin-right: 0px;
-        font-size: 16px;
-    }
+  #security-remove {
+    @include security-button(30px);
+  }
 
-    .checkbox {
-        margin: 20px;
+  .badInput {
+    @include themify($themes) {
+      border-color: themed("red-1");
     }
+  }
 
-    select {
-        margin: 20px;
-        font-size: 12px;
-    }
+  &.fadein {
+    top: 10px;
+    animation: fadein 0.2s 1 ease-out;
+  }
 
-    a {
-        text-decoration: none;
-    }
+  &.fadeout {
+    top: 110px;
+    animation: fadeout 0.2s 1 ease-in;
+  }
 
-    .button {
-        display: block;
-    }
-
-    .text {
-        display: block;
-        margin: 10px 0 0 10px;
-    }
-
-    .warning {
-        @include themify($themes) {
-            color: themed('red-1');
-        }
-    }
-    
-    // Security
-    @mixin security-button($margin-left) {
-        @extend .button-small;
-        font-size: 12px;
-        margin: 20px 100px;
-        padding: 10px;
-        display: inline-block;
-        width: 80px;
-        margin-left: $margin-left;
-        margin-right: 0;
-    }
-
-    #security-save {
-        @include security-button(40px);
-    }
-
-    #security-remove {
-        @include security-button(30px);
-    }     
-
-    &.fadein {
-        top: 10px;
-        animation: fadein 0.2s 1 ease-out;
-    }
-
-    &.fadeout {
-        top: 110px;
-        animation: fadeout 0.2s 1 ease-in;
-    }
+  &.show {
+    top: 10px;
+  }
 }
 
 // Menu
 #menu {
-    width: 320px;
-    height: 480px;
+  width: 320px;
+  height: 480px;
+  position: absolute;
+  left: -1000px;
+  top: 0;
+
+  &.slidein {
+    left: 0;
+    animation: slidein 0.2s 1 ease-out;
+    opacity: 1;
+  }
+
+  &.slideout {
+    left: -55px;
+    animation: slideout 0.2s 1 ease-in;
+    opacity: 0;
+  }
+
+  #menuBody {
+    overflow-y: auto;
+    height: 442px;
+    width: inherit;
     position: absolute;
-    left: -1000px;
-    top: 0;
+    @include themify($themes) {
+      background: themed("grey-background");
+    }
+  }
 
-    &.slidein {
-        left: 0;
-        animation: slidein 0.2s 1 ease-out;
-        opacity: 1;
+  .menuList {
+    margin: 10px;
+    border-radius: 2px;
+    @include themify($themes) {
+      border: themed("grey-2") 1px solid;
+      background: themed("white-1");
     }
 
-    &.slideout {
-        left: -55px;
-        animation: slideout 0.2s 1 ease-in;
-        opacity: 0;
-    }
+    p {
+      position: relative;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 30px auto;
+      @include themify($themes) {
+        border-bottom: themed("grey-2") 1px solid;
+        color: themed("grey-1");
+      }
 
-    #menuBody {
-        overflow-y: auto;
-        height: 442px;
-        width: inherit;
-        position: absolute;
+      span {
+        display: flex;
+        align-items: center;
+
+        svg {
+          @include themify($themes) {
+            fill: themed("grey-1");
+          }
+          height: 16px;
+          width: 16px;
+        }
+      }
+
+      &:hover {
         @include themify($themes) {
-            background: themed('grey-background');
+          background: themed("blue-menu");
+          color: themed("black-1");
         }
+
+        svg {
+          @include themify($themes) {
+            fill: themed("black-1");
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
-
-    .menuList {
-        margin: 10px;
-        border-radius: 2px;
-        @include themify($themes) {
-            border: themed('grey-2') 1px solid;
-            background: themed('white-1');
-        }
-        
-        p {
-            position: relative;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            display: grid;
-            grid-template-columns: 30px auto;
-            @include themify($themes) {
-                border-bottom: themed('grey-2') 1px solid;
-                color: themed('grey-1');
-            }
-            
-            span {
-                display: flex;
-                align-items: center;
-
-                svg {
-                    @include themify($themes) {
-                        fill: themed('grey-1');
-                    }
-                    height: 16px;
-                    width: 16px;
-                }
-            }
-
-            &:hover {
-                @include themify($themes) {
-                    background: themed('blue-menu');
-                    color: themed('black-1');
-                }
-
-                svg {
-                    @include themify($themes) {
-                        fill: themed('black-1');
-                    }
-                }
-            }
-
-            &:last-child {
-                border-bottom: none;
-            }
-        }
-    }
+  }
 }
 
 #version {
-    text-align: center;
-    margin: 10px;
-    @include themify($themes) {
-        color: themed('grey-1');
-    }
+  text-align: center;
+  margin: 10px;
+  @include themify($themes) {
+    color: themed("grey-1");
+  }
 }
 
 // Animations
 @keyframes timer {
-    to {
-        stroke-dashoffset: -25.12;
-    }
+  to {
+    stroke-dashoffset: -25.12;
+  }
 }
 
-@keyframes twinkling{
-    0%{
-        color: #EEA59C;
-    }
-    100%{
-        color: #DD4B39;
-    }
+@keyframes twinkling {
+  0% {
+    color: #eea59c;
+  }
+  100% {
+    color: #dd4b39;
+  }
 }
 
-@keyframes fadeshow{
-    0%{
-        opacity:0;
-    }
-    100%{
-        opacity:1;
-    }
+@keyframes fadeshow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@keyframes fadehide{
-    0%{
-        opacity:1;
-    }
-    100%{
-        opacity:0;
-    }
+@keyframes fadehide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-@keyframes fadein{
-    0%{
-        opacity:0;
-        top:110px;
-    }
-    100%{
-        opacity:1;
-        top:10px;
-    }
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    top: 110px;
+  }
+  100% {
+    opacity: 1;
+    top: 10px;
+  }
 }
 
-@keyframes fadeout{
-    0%{
-        opacity:1;
-        top:10px;
-    }
-    100%{
-        opacity:0;
-        top:110px;
-    }
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+    top: 10px;
+  }
+  100% {
+    opacity: 0;
+    top: 110px;
+  }
 }
 
-@keyframes slidein{
-    0%{
-        opacity:0;
-        left:-55px;
-    }
-    100%{
-        opacity:1;
-        left:0;
-    }
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    left: -55px;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
 }
 
-@keyframes slideout{
-    0%{
-        opacity:1;
-        left:0;
-    }
-    100%{
-        opacity:0;
-        left:-55px;
-    }
+@keyframes slideout {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  100% {
+    opacity: 0;
+    left: -55px;
+  }
 }
 
 // Misc
 @font-face {
-    font-family: 'Droid Sans Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url(DroidSansMono.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+  font-family: "Droid Sans Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url(DroidSansMono.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 .gu-mirror {
-    display: none;
+  display: none;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    @include themify($themes) {
-        background: themed('grey-3');
-    }
+  width: 10px;
+  @include themify($themes) {
+    background: themed("grey-3");
+  }
 }
 
 ::-webkit-scrollbar-thumb {
-    @include themify($themes) {
-        background-color: themed('grey-1');
-        border: 2px solid themed('grey-3');
-    }
-    border-radius: 5px;
+  @include themify($themes) {
+    background-color: themed("grey-1");
+    border: 2px solid themed("grey-3");
+  }
+  border-radius: 5px;
 }
 
 // Accessibility overrides
 .theme-accessibility {
-    select {
-        border-color: white;
+  select {
+    border-color: white;
+    color: white;
+    background-color: black;
+  }
+  .entry {
+    .issuerEdit {
+      input {
         color: white;
-        background-color: black;
-    }
-    .entry {
-        .issuerEdit {
-            input {
-                color: white;
-                background: black;
-                border: white 1px solid;
-            }
-        }
-
-        .showqr {
-            svg {
-                fill: yellow;
-            }
-
-            &:hover {
-                svg {
-                    fill: yellow;
-                }
-            }
-        }
+        background: black;
+        border: white 1px solid;
+      }
     }
 
-    #menu {
-        .menuList {
-            p:hover {
-                color: black;
+    .showqr {
+      svg {
+        fill: yellow;
+      }
 
-                svg {
-                    fill: black;
-                }
-            }
+      &:hover {
+        svg {
+          fill: yellow;
         }
+      }
     }
+  }
 
-    .header {
-        .icon {
-            svg {
-                fill: yellow;
-            }
-    
-            &#i-sync {
-                svg {
-                    fill: white;
-                }
+  #menu {
+    .menuList {
+      p:hover {
+        color: black;
 
-                &:hover {
-                    svg {
-                        fill: white;
-                    }
-                }
-            }
-
-            &:hover {
-                svg {
-                    fill: yellow;
-                }
-            }
+        svg {
+          fill: black;
         }
+      }
     }
+  }
+
+  .header {
+    .icon {
+      svg {
+        fill: yellow;
+      }
+
+      &#i-sync {
+        svg {
+          fill: white;
+        }
+
+        &:hover {
+          svg {
+            fill: white;
+          }
+        }
+      }
+
+      &:hover {
+        svg {
+          fill: yellow;
+        }
+      }
+    }
+  }
 }

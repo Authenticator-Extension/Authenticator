@@ -4,11 +4,11 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticador",
+        "message": "Autenticación",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autenticador genera códigos de verificación de 2 pasos en su navegador.",
+        "message": "Authenticator genera códigos de autenticación de dos factores en su navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Error en la clave secreta. Sólo se admiten codificaciones Base32 (A-Z, 2-7 y =) y HEX (0-9 y A-F). Sin embargo, tu clave secreta es: ",
+        "message": "Clave secreta de la cuenta invalida",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Introducción manual",
+        "message": "Entrada manual",
         "description": "Manual Entry."
     },
     "close": {
@@ -40,7 +40,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Si",
+        "message": "Sí",
         "description": "Yes."
     },
     "no": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nombre de la cuenta",
+        "message": "Nombre de usuario",
         "description": "Account Name."
     },
     "issuer": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Ha fallado.",
+        "message": "Falla.",
         "description": "Update Failure."
     },
     "about": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportar\/Importar",
+        "message": "Exportar / Importar",
         "description": "Export and Import."
     },
     "settings": {
@@ -100,15 +100,15 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirma la contraseña",
+        "message": "Confirmar contraseña",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "¿Estás seguro que deseas borrar esta cuenta? Esta acción no se puede deshacer.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Esta contraseña se utilizará para cifrar tus cuentas. Nadie puede ayudarte si olvidas la contraseña.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No puedes agregar una nueva cuenta o exportar tus datos hasta que todas las cuentas hayan sido desencriptadas. Por favor, introduzce la contraseña correcta antes de continuar.",
+        "message": "Usted no puede agregar una nueva cuenta o exportar datos hasta que todas las cuentas hayan sido descifradas. Por favor, introduzca la contraseña correcta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encriptado",
+        "message": "Cifrado",
         "description": "Encrypted."
     },
     "copied": {
@@ -140,11 +140,11 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Código fuente",
+        "message": "Código Fuente",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Introduze la contraseña para desencriptar los datos de la cuenta.",
+        "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "¿Tienes una copia de seguridad para tus cuentas? ¡No esperes hasta que sea demasiado tarde!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Página emergente",
+        "message": "Preferencias",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -290,15 +290,36 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Tienes una o más cuentas de Steam o Blizzard. Las copias de seguridad no cifradas no utilizarán el formato de copia de seguridad estandarizado.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Puedes importar copias de seguridad desde otras aplicaciones.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Aprende más",
         "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Cargando..."
+    },
+    "autolock": {
+        "message": "Bloquear después"
+    },
+    "minutes": {
+        "message": "minutos"
+    },
+    "advanced": {
+        "message": "Avanzado"
+    },
+    "period": {
+        "message": "Periodo"
+    },
+    "type": {
+        "message": "Tipo"
+    },
+    "invalid": {
+        "message": "Inválido"
     }
 }

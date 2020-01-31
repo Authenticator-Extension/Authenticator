@@ -1,53 +1,48 @@
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/crypto-js/index.d.ts" />
+import * as CryptoJS from "crypto-js";
 
-class Encryption {
+export class Encryption implements IEncryption {
   private password: string;
 
   constructor(password: string) {
     this.password = password;
   }
 
-  getEncryptedSecret(secret: string): string {
+  getEncryptedString(data: string): string {
     if (!this.password) {
-      return secret;
+      return data;
+    } else {
+      return CryptoJS.AES.encrypt(data, this.password).toString();
     }
-    return CryptoJS.AES.encrypt(secret, this.password).toString();
   }
 
-  getDecryptedSecret(secret: string, hash: string): string {
-    if (!this.password) {
-      return secret;
-    }
-
+  getDecryptedSecret(entry: { secret: string; hash: string }) {
     try {
-      let decryptedSecret = CryptoJS.AES.decrypt(secret, this.password)
-                                .toString(CryptoJS.enc.Utf8);
+      const decryptedSecret = CryptoJS.AES.decrypt(
+        entry.secret,
+        this.password
+      ).toString(CryptoJS.enc.Utf8);
 
       if (!decryptedSecret) {
-        return 'Encrypted';
+        return null;
       }
 
       if (decryptedSecret.length < 8) {
-        return 'Encrypted';
+        return null;
       }
 
-      if (hash === CryptoJS.MD5(decryptedSecret).toString()) {
-        return decryptedSecret;
-      }
-
-      decryptedSecret = decryptedSecret.replace(/ /g, '');
-
-      if (!/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
-          !/^[0-9a-f]+$/i.test(decryptedSecret) &&
-          !/^blz\-/.test(decryptedSecret) && !/^bliz\-/.test(decryptedSecret) &&
-          !/^stm\-/.test(decryptedSecret)) {
-        return 'Encrypted';
+      if (
+        !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
+        !/^[0-9a-f]+$/i.test(decryptedSecret) &&
+        !/^blz\-/.test(decryptedSecret) &&
+        !/^bliz\-/.test(decryptedSecret) &&
+        !/^stm\-/.test(decryptedSecret)
+      ) {
+        return null;
       }
 
       return decryptedSecret;
     } catch (error) {
-      return 'Encrypted';
+      return null;
     }
   }
 

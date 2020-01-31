@@ -1,16 +1,15 @@
+import * as jsSHA from "jssha";
+import { OTPType } from "./otp";
+
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
 // http://blog.tinisles.com/2011/10/google-authenticator-one-time-password-algorithm-in-javascript/
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
-/* tslint:disable:no-reference */
-/// <reference path="../../node_modules/@types/jssha/index.d.ts" />
-/// <reference path="./interface.ts" />
-
-class KeyUtilities {
+export class KeyUtilities {
   private static dec2hex(s: number): string {
-    return (s < 15.5 ? '0' : '') + Math.round(s).toString(16);
+    return (s < 15.5 ? "0" : "") + Math.round(s).toString(16);
   }
 
   private static hex2dec(s: string): number {
@@ -18,7 +17,7 @@ class KeyUtilities {
   }
 
   private static hex2str(hex: string) {
-    let str = '';
+    let str = "";
     for (let i = 0; i < hex.length; i += 2) {
       str += String.fromCharCode(this.hex2dec(hex.substr(i, 2)));
     }
@@ -33,18 +32,18 @@ class KeyUtilities {
   }
 
   private static base32tohex(base32: string): string {
-    const base32chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567';
-    let bits = '';
-    let hex = '';
+    const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+    let bits = "";
+    let hex = "";
     let padding = 0;
 
     for (let i = 0; i < base32.length; i++) {
-      if (base32.charAt(i) === '=') {
-        bits += '00000';
+      if (base32.charAt(i) === "=") {
+        bits += "00000";
         padding++;
       } else {
         const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-        bits += this.leftpad(val.toString(2), 5, '0');
+        bits += this.leftpad(val.toString(2), 5, "0");
       }
     }
 
@@ -72,15 +71,15 @@ class KeyUtilities {
         hex = hex.substr(0, hex.length - 2);
         break;
       default:
-        throw new Error('Invalid Base32 string');
+        throw new Error("Invalid Base32 string");
     }
 
     return hex;
   }
 
   private static base26(num: number) {
-    const chars = '23456789BCDFGHJKMNPQRTVWXY';
-    let output = '';
+    const chars = "23456789BCDFGHJKMNPQRTVWXY";
+    let output = "";
     const len = 5;
     for (let i = 0; i < len; i++) {
       output += chars[num % chars.length];
@@ -93,8 +92,12 @@ class KeyUtilities {
   }
 
   static generate(
-      type: OTPType, secret: string, counter: number, period: number) {
-    secret = secret.replace(/\s/g, '');
+    type: OTPType,
+    secret: string,
+    counter: number,
+    period: number
+  ) {
+    secret = secret.replace(/\s/g, "");
     let len = 6;
     let b26 = false;
     let key: string;
@@ -121,7 +124,7 @@ class KeyUtilities {
     }
 
     if (!key) {
-      throw new Error('Invalid secret key');
+      throw new Error("Invalid secret key");
     }
 
     if (type !== OTPType.hotp && type !== OTPType.hhex) {
@@ -132,38 +135,38 @@ class KeyUtilities {
       counter = Math.floor(epoch / period);
     }
 
-    const time = this.leftpad(this.dec2hex(counter), 16, '0');
+    const time = this.leftpad(this.dec2hex(counter), 16, "0");
 
     if (key.length % 2 === 1) {
-      if (key.substr(-1) === '0') {
+      if (key.substr(-1) === "0") {
         key = key.substr(0, key.length - 1);
       } else {
-        key += '0';
+        key += "0";
       }
     }
 
     // external library for SHA functionality
-    const hmacObj = new jsSHA('SHA-1', 'HEX');
-    hmacObj.setHMACKey(key, 'HEX');
+    const hmacObj = new jsSHA("SHA-1", "HEX");
+    hmacObj.setHMACKey(key, "HEX");
     hmacObj.update(time);
-    const hmac = hmacObj.getHMAC('HEX');
+    const hmac = hmacObj.getHMAC("HEX");
 
     let offset = 0;
-    if (hmac !== 'KEY MUST BE IN BYTE INCREMENTS') {
+    if (hmac !== "KEY MUST BE IN BYTE INCREMENTS") {
       offset = this.hex2dec(hmac.substring(hmac.length - 1));
     }
 
     let otp =
-        (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec('7fffffff')) +
-        '';
+      (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +
+      "";
 
     if (b26) {
       return this.base26(Number(otp));
     }
 
     if (otp.length < len) {
-      otp = new Array(len - otp.length + 1).join('0') + otp;
+      otp = new Array(len - otp.length + 1).join("0") + otp;
     }
-    return (otp).substr(otp.length - len, len).toString();
+    return otp.substr(otp.length - len, len).toString();
   }
 }

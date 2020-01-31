@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generuje w przeglądarce kody 2-stopniowej weryfikacji.",
+        "message": "Authenticator generuje w przeglądarce kody uwierzytelniania dwuskładnikowego.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Błąd sekretnego kodu. Dopuszczalne znaki Base32(A-Z, 2-7 and =) oraz HEX(0-9 and A-F). Jednakże, twój sekretny kod to: ",
+        "message": "Niepoprawny sekretny kod konta",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Nazwa konta",
+        "message": "Nazwa użytkownika",
         "description": "Account Name."
     },
     "issuer": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Eksport \/ Import",
+        "message": "Eksport / Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -148,7 +148,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Synchronizuj wewnętrzny zegar z Google",
+        "message": "Synchronizuj zegar z Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Wyskakująca strona",
+        "message": "Ustawienia",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uwaga: wszystkie kopie zapasowe są odszyfrowane. Chcesz dodać kono do innej aplikacji? Ustaw kursor nad prawym górnym rogiem dowolnego konta i wciśnij ukryty znak.",
+        "message": "Uwaga: wszystkie kopie zapasowe są odszyfrowane. Chcesz dodać kono do innej aplikacji? Ustaw kursor nad prawym górnym rogiem dowolnego konta i naciśnij ukryty przycisk.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import tekstowej kopii zapasowej",
+        "message": "Importuj tekstową kopię zapasową",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -300,5 +300,26 @@
     "otp_backup_learn": {
         "message": "Dowiedz się więcej",
         "description": "learn more link on import page. Placed after otp_backup_inform"
+    },
+    "loading": {
+        "message": "Wczytywanie..."
+    },
+    "autolock": {
+        "message": "Zablokuj po"
+    },
+    "minutes": {
+        "message": "min"
+    },
+    "advanced": {
+        "message": "Zaawansowane"
+    },
+    "period": {
+        "message": "Okres"
+    },
+    "type": {
+        "message": "Typ"
+    },
+    "invalid": {
+        "message": "Niepoprawne"
     }
 }

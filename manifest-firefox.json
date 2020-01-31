@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "5.3.2",
+    "version": "6.0.0",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "applications": {
@@ -27,34 +27,14 @@
     },
     "background": {
         "scripts": [
-            "js/jsqrcode/grid.js",
-            "js/jsqrcode/version.js",
-            "js/jsqrcode/detector.js",
-            "js/jsqrcode/formatinf.js",
-            "js/jsqrcode/errorlevel.js",
-            "js/jsqrcode/bitmat.js",
-            "js/jsqrcode/datablock.js",
-            "js/jsqrcode/bmparser.js",
-            "js/jsqrcode/datamask.js",
-            "js/jsqrcode/rsdecoder.js",
-            "js/jsqrcode/gf256poly.js",
-            "js/jsqrcode/gf256.js",
-            "js/jsqrcode/decoder.js",
-            "js/jsqrcode/qrcode.js",
-            "js/jsqrcode/findpat.js",
-            "js/jsqrcode/alignpat.js",
-            "js/jsqrcode/databr.js",
-            "js/md5.js",
-            "js/aes.js",
-            "js/sha.js",
-            "js/qrcode.js",
-            "build/models/encryption.js",
-            "build/models/interface.js",
-            "build/models/otp.js",
-            "build/models/storage.js",
-            "build/models/credentials.js",
-            "build/background.js"
+            "dist/background.js"
         ]
+    },
+    "commands": {
+        "_execute_browser_action": {},
+        "scan-qr": {
+            "description": "Scan a QR code"
+        }
     },
     "permissions": [
         "activeTab",
@@ -69,10 +49,6 @@
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",
         "https://accounts.google.com/o/oauth2/revoke"
-    ],
-    "web_accessible_resources": [
-        "view/qr.html",
-        "images/scan.gif"
     ],
     "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke ; default-src 'none'"
 }
