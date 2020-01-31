@@ -9,7 +9,7 @@
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
 CREDS=$(cat ./src/models/credentials.ts | tr -d '\n')
-CREDREGEX="^.*'.+'.*'.+'.*'.+'.*$"
+CREDREGEX='^.*".+".*".+".*".+".*$'
 STYLEFILES="./src/* ./src/**/* ./src/**/**/* ./sass/*.scss"
 set -e
 
