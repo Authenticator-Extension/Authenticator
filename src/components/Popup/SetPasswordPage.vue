@@ -44,6 +44,7 @@ export default Vue.extend({
   },
   methods: {
     async removePassphrase() {
+      this.$store.commit("currentView/changeView", "LoadingPage");
       await this.$store.dispatch("accounts/changePassphrase", "");
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
       return;
@@ -58,6 +59,7 @@ export default Vue.extend({
         return;
       }
 
+      this.$store.commit("currentView/changeView", "LoadingPage");
       await this.$store.dispatch("accounts/changePassphrase", this.phrase);
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
       this.$store.commit("style/hideInfo");
