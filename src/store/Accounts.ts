@@ -336,13 +336,9 @@ export class Accounts implements IModule {
                 new Encryption(wordArray.toString())
               );
               // if not uuidv4 regen
-              if (
-                !entry.hash.match(
-                  /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i
-                )
-              ) {
+              if (/[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i.test(entry.hash)) {
                 removeHashes.push(entry.hash);
-                await entry.genUUID();
+                entry.genUUID();
               }
             }
 
