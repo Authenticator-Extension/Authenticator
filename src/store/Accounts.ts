@@ -351,7 +351,7 @@ export class Accounts implements IModule {
               key: { enc: encKey, hash: encKeyHash }
             });
             await EntryStorage.set(state.state.entries);
-            if (removeHashes) {
+            if (removeHashes.length) {
               await new Promise(resolve => {
                 BrowserStorage.remove(removeHashes, () => {
                   resolve();
