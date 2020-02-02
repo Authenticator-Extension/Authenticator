@@ -13,10 +13,10 @@ interface IOTPEntry {
   update(): Promise<void>;
   next(): Promise<void>;
   applyEncryption(encryption: IEncryption): void;
-  changeEncryption(encryption: IEncryption): Promise<void>;
+  changeEncryption(encryption: IEncryption): void;
   delete(): Promise<void>;
   generate(): void;
-  genUUID(): Promise<void>;
+  genUUID(): void;
 }
 
 interface IEncryption {

@@ -233,17 +233,26 @@ export class Accounts implements IModule {
               return;
             }
 
-            // store key
-            await BrowserStorage.set({
-              key: { enc: encKey, hash: encKeyHash }
-            });
             // change entry encryption to key and remove old hash
+            let oldKeys: string[] = [];
             for (const entry of state.state.entries) {
               await entry.changeEncryption(
                 new Encryption(wordArray.toString())
               );
-              await entry.genUUID();
+              oldKeys.push(entry.hash);
+              entry.genUUID();
             }
+
+            // store key
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
+            });
+            await EntryStorage.set(state.state.entries);
+            await new Promise(resolve => {
+              BrowserStorage.remove(oldKeys, () => {
+                resolve();
+              });
+            });
 
             state.state.encryption.updateEncryptionPassword(
               wordArray.toString()
@@ -320,16 +329,34 @@ export class Accounts implements IModule {
               return;
             }
 
-            // store key
-            await BrowserStorage.set({
-              key: { enc: encKey, hash: encKeyHash }
-            });
             // change entry encryption and regen hash
+            let removeHashes: string[] = [];
             for (const entry of state.state.entries) {
               await entry.changeEncryption(
                 new Encryption(wordArray.toString())
               );
-              await entry.genUUID();
+              // if not uuidv4 regen
+              if (
+                !entry.hash.match(
+                  /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i
+                )
+              ) {
+                removeHashes.push(entry.hash);
+                await entry.genUUID();
+              }
+            }
+
+            // store key
+            await BrowserStorage.set({
+              key: { enc: encKey, hash: encKeyHash }
+            });
+            await EntryStorage.set(state.state.entries);
+            if (removeHashes) {
+              await new Promise(resolve => {
+                BrowserStorage.remove(removeHashes, () => {
+                  resolve();
+                });
+              });
             }
 
             state.state.encryption.updateEncryptionPassword(
@@ -351,6 +378,7 @@ export class Accounts implements IModule {
             for (const entry of state.state.entries) {
               await entry.changeEncryption(new Encryption(""));
             }
+            await EntryStorage.set(state.state.entries);
 
             state.state.encryption.updateEncryptionPassword("");
 

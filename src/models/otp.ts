@@ -84,7 +84,7 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async changeEncryption(encryption: Encryption) {
+  changeEncryption(encryption: Encryption) {
     if (!this.secret) {
       return;
     }
@@ -94,8 +94,6 @@ export class OTPEntry implements IOTPEntry {
     } else {
       this.encSecret = null;
     }
-
-    await this.update();
     return;
   }
 
@@ -130,10 +128,10 @@ export class OTPEntry implements IOTPEntry {
     return;
   }
 
-  async genUUID() {
-    await this.delete();
+  genUUID() {
+    // await this.delete();
     this.hash = uuid();
-    await this.create();
+    // await this.create();
   }
 
   generate() {
