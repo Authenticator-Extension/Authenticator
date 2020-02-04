@@ -1,4 +1,4 @@
-> .codeclimate.yml
+# .codeclimate.yml
 
 version: "2"
 checks:
@@ -54,7 +54,7 @@ exclude_patterns:
   - lib/jekyll/mime.types
   - lib/jekyll/commands/serve/livereload_assets/livereload.js
   
-  >### editorconfig
+>### editorconfig
   root = true
 
 [*]
