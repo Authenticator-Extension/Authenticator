@@ -1,3 +1,75 @@
+> ### .codeclimate.yml
+
+version: "2"
+checks:
+  argument-count:
+    enabled: true
+    config:
+      threshold: 5
+  file-lines:
+    enabled: true
+    config:
+      threshold: 300
+  method-complexity:
+    enabled: true
+    config:
+      threshold: 15
+  method-count:
+    enabled: true
+    config:
+      threshold: 50
+  method-lines:
+    enabled: true
+    config:
+      threshold: 30
+plugins:
+  fixme:
+    enabled: false
+  rubocop:
+    enabled: true
+    channel: rubocop-0-60
+
+exclude_patterns:
+  - "*.*"
+  - ".*"
+
+  - Gemfile
+  - LICENSE
+  - Rakefile
+
+  - benchmark/
+  - docs/
+  - exe/
+  - features/
+  - rake/
+  - rubocop/
+  - script/
+  - spec/
+  - test/
+  - vendor/
+
+  - lib/blank_template/
+  - lib/site_template/
+  - lib/theme_template/
+  - lib/jekyll/mime.types
+  - lib/jekyll/commands/serve/livereload_assets/livereload.js
+  
+  > ### .editorconfig
+  root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+>### .config-variables
+
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
