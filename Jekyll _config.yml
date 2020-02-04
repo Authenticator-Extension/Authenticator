@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 Gem::Specification.new do |spec|
   spec.name          = 'jekyll-config-variables'
   spec.version       = '0.1.1'
-  spec.authors       = ['Garen Torikian']
-  spec.email         = ['gjtorikian@gmail.com']
+  spec.authors       = ['9-g']
+  spec.email         = ['g9@g--9.gq']
   spec.summary       = 'A Jekyll monkey-patch to allow you to use variables within your _config.yml file'
   spec.description   = ''
-  spec.homepage      = 'https://github.com/gjtorikian/jekyll-config-variables'
+  spec.homepage      = 'https://github.com/9-g/jekyll-config-variables'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
