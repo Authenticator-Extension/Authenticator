@@ -54,7 +54,7 @@ exclude_patterns:
   - lib/jekyll/mime.types
   - lib/jekyll/commands/serve/livereload_assets/livereload.js
   
->### editorconfig
+# .editorconfig
   root = true
 
 [*]
@@ -68,7 +68,7 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
->### config-variables
+# .config-variables
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
