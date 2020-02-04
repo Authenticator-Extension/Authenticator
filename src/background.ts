@@ -219,8 +219,11 @@ async function getTotp(text: string) {
 }
 
 function getBackupToken(service: string) {
-  if (navigator.userAgent.indexOf("Chrome") !== -1 && 
-    navigator.userAgent.indexOf("Edg") === -1 && service === "drive") {
+  if (
+    navigator.userAgent.indexOf("Chrome") !== -1 &&
+    navigator.userAgent.indexOf("Edg") === -1 &&
+    service === "drive"
+  ) {
     chrome.identity.getAuthToken(
       {
         interactive: true,
@@ -240,7 +243,8 @@ function getBackupToken(service: string) {
       authUrl =
         "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=" +
         getCredentials().dropbox.client_id +
-        "&redirect_uri=" + redirUrl
+        "&redirect_uri=" +
+        redirUrl;
     } else if (service === "drive") {
       if (navigator.userAgent.indexOf("Edg") !== -1) {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
@@ -251,7 +255,8 @@ function getBackupToken(service: string) {
       authUrl =
         "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
         getCredentials().drive.client_id +
-        "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" + redirUrl
+        "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" +
+        redirUrl;
     }
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
@@ -303,7 +308,9 @@ function getBackupToken(service: string) {
                         getCredentials().drive.client_secret +
                         "&code=" +
                         value +
-                        "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
+                        "&redirect_uri=" +
+                        redirUrl +
+                        "&grant_type=authorization_code"
                     );
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader(
@@ -372,8 +379,10 @@ chrome.runtime.onInstalled.addListener(async details => {
 
   let url: string | null = null;
 
-  if (navigator.userAgent.indexOf("Chrome") !== -1 &&
-    navigator.userAgent.indexOf("Edg") === -1) {
+  if (
+    navigator.userAgent.indexOf("Chrome") !== -1 &&
+    navigator.userAgent.indexOf("Edg") === -1
+  ) {
     url = "https://authenticator.cc/docs/en/chrome-issues";
   }
 
