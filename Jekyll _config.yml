@@ -1,4 +1,4 @@
->### codeclimate.yml
+>#.codeclimate.yml
 
 version: "2"
 checks:
