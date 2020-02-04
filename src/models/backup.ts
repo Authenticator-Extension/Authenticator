@@ -129,7 +129,8 @@ export class Drive implements BackupProvider {
                   if (res.error.code === 401) {
                     if (
                       navigator.userAgent.indexOf("Chrome") !== -1 &&
-                      navigator.userAgent.indexOf("OPR") === -1
+                      navigator.userAgent.indexOf("OPR") === -1 &&
+                      navigator.userAgent.indexOf("Edg") === -1
                     ) {
                       // Clear invalid token from
                       // chrome://identity-internals/
@@ -162,7 +163,8 @@ export class Drive implements BackupProvider {
   private async refreshToken() {
     if (
       navigator.userAgent.indexOf("Chrome") !== -1 &&
-      navigator.userAgent.indexOf("OPR") === -1
+      navigator.userAgent.indexOf("OPR") === -1 &&
+      navigator.userAgent.indexOf("Edg") === -1
     ) {
       return new Promise((resolve: (value: boolean) => void) => {
         return chrome.identity.getAuthToken(

@@ -372,7 +372,8 @@ chrome.runtime.onInstalled.addListener(async details => {
 
   let url: string | null = null;
 
-  if (navigator.userAgent.indexOf("Chrome") !== -1) {
+  if (navigator.userAgent.indexOf("Chrome") !== -1 &&
+    navigator.userAgent.indexOf("Edg") === -1) {
     url = "https://authenticator.cc/docs/en/chrome-issues";
   }
 

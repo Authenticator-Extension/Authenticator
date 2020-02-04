@@ -106,6 +106,8 @@ export default Vue.extend({
 
       if (navigator.userAgent.indexOf("Firefox") !== -1) {
         url = "https://authenticator.cc/docs/en/firefox-issues";
+      } else if (navigator.userAgent.indexOf("Edg") !== -1) {
+        url = "https://authenticator.cc/docs/en/edge-issues";
       }
 
       const feedbackURL = this.$store.state.menu.feedbackURL;
