@@ -27,13 +27,13 @@ interface IEncryption {
 }
 
 interface OTPStorage {
-  account: string;
+  account?: string;
   encrypted: boolean;
   hash: string;
   index: number;
-  issuer: string;
+  issuer?: string;
   secret: string;
   type: string;
-  counter: number;
+  counter?: number;
   period?: number;
 }

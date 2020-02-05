@@ -99,8 +99,12 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
-    otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
-    otpStorage.account = removeUnsafeData(otpStorage.account);
+    if (otpStorage.issuer) {
+      otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
+    }
+    if (otpStorage.account) {
+      otpStorage.account = removeUnsafeData(otpStorage.account);
+    }
     const label = otpStorage.issuer
       ? otpStorage.issuer + ":" + otpStorage.account
       : otpStorage.account;

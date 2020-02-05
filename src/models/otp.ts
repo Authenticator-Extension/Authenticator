@@ -31,13 +31,13 @@ export class OTPEntry implements IOTPEntry {
 
   constructor(
     entry: {
-      account: string;
+      account?: string;
       encrypted: boolean;
       index: number;
-      issuer: string;
+      issuer?: string;
       secret: string;
       type: OTPType;
-      counter: number;
+      counter?: number;
       period?: number;
       hash?: string;
     },
@@ -45,8 +45,16 @@ export class OTPEntry implements IOTPEntry {
   ) {
     this.type = entry.type;
     this.index = entry.index;
-    this.issuer = entry.issuer;
-    this.account = entry.account;
+    if (entry.issuer) {
+      this.issuer = entry.issuer;
+    } else {
+      this.issuer = "";
+    }
+    if (entry.account) {
+      this.account = entry.account;
+    } else {
+      this.account = "";
+    }
     if (entry.encrypted) {
       this.encSecret = entry.secret;
       this.secret = null;
@@ -63,7 +71,11 @@ export class OTPEntry implements IOTPEntry {
     } else {
       this.hash = uuid(); // UUID
     }
-    this.counter = entry.counter;
+    if (entry.counter) {
+      this.counter = entry.counter;
+    } else {
+      this.counter = 0;
+    }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
     } else {

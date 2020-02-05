@@ -162,18 +162,27 @@ export class EntryStorage {
     }
 
     const storageItem: OTPStorage = {
-      account: entry.account,
       encrypted: Boolean(entry.encSecret),
       hash: entry.hash,
       index: entry.index,
-      issuer: entry.issuer,
       type: OTPType[entry.type],
-      counter: entry.counter, // TODO: Make this optional for non HOTP accounts
       secret
     };
 
+    if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
+      storageItem.counter = entry.counter;
+    }
+
     if (entry.period && entry.period !== 30) {
       storageItem.period = entry.period;
+    }
+
+    if (entry.issuer) {
+      storageItem.issuer = entry.issuer;
+    }
+
+    if (entry.account) {
+      storageItem.account = entry.account;
     }
 
     return storageItem;

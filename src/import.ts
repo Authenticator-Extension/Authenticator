@@ -104,10 +104,10 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     if (!parameterPart) {
       continue;
     } else {
-      let account = "";
       let secret = "";
-      let issuer = "";
-      let period: number | undefined = undefined;
+      let account: string | undefined;
+      let issuer: string | undefined;
+      let period: number | undefined;
 
       try {
         label = decodeURIComponent(label);
