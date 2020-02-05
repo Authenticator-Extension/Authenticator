@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Olgu",
         "description": "OK."
     },
     "yes": {
@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Väljastaja",
         "description": "Issuer."
     },
     "secret": {
@@ -72,7 +72,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Teave",
         "description": "About."
     },
     "export_import": {
@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Kehtiv salasõna",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Uus salasõna",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Salasõna",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Kinnita salasõna",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -124,7 +124,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Krüpteeritud",
         "description": "Encrypted."
     },
     "copied": {
@@ -132,15 +132,15 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Tagasiside",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Tõlkimine",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Lähtekood",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Eelistused",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -232,7 +232,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Hüpikakna režiim",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -248,11 +248,11 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Automaatne täitmine",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Kõrge kontrastsus",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -314,12 +314,12 @@
         "message": "Advanced"
     },
     "period": {
-        "message": "Period"
+        "message": "Periood"
     },
     "type": {
-        "message": "Type"
+        "message": "Liik"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Kehtetu"
     }
 }
