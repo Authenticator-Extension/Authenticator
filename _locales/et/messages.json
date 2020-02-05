@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Ebaõnnestus.",
         "description": "Update Failure."
     },
     "about": {
@@ -112,7 +112,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Uuenda",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Salasõna ei kattu.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -148,15 +148,15 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Sünkrooni kell Google'ga",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Mäleta salasõna",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Ettevaatust! Teie kohalik kell liiga mööda, palun parandage enne jätkamist.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -168,7 +168,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Ajapõhine",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -204,7 +204,7 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Kuva kõik kirjed",
         "description": "Show all entries."
     },
     "dropbox_risk": {
