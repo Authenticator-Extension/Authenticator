@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autentikaator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autentikaator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Autentikaator genereerib teie brauseris mitmikautentimis koode.",
         "description": "Extension Description."
     },
     "added": {
