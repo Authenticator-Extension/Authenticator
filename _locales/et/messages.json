@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " on lisatud.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -144,7 +144,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Kontoandmete dekrüpteerimiseks sisestage salasõna.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Suum",
         "description": "Scale"
     },
     "export_info": {
@@ -188,19 +188,19 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Laadi alla varukoopia fail",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Impordi varukoopia",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Impordi varukoopia fail",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Impordi tekst varukoopia",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -228,7 +228,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Otsi",
         "description": "Search"
     },
     "popout": {
@@ -236,7 +236,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Lukusta",
         "description": "Lock accounts"
     },
     "edit": {
