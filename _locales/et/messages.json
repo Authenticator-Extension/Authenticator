@@ -32,7 +32,7 @@
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Sulge",
         "description": "Close."
     },
     "ok": {
@@ -40,11 +40,11 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Jah",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Ei",
         "description": "No."
     },
     "account": {
@@ -80,11 +80,11 @@
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Seaded",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Turvalisus",
         "description": "Security."
     },
     "current_phrase": {
@@ -240,7 +240,7 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Muuda",
         "description": "Edit"
     },
     "manual_dropbox": {
