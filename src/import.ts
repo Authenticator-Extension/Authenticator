@@ -108,6 +108,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       let account: string | undefined;
       let issuer: string | undefined;
       let period: number | undefined;
+      let digits: number | undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -141,6 +142,9 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
               ? undefined
               : period;
+        } else if (parameter[0].toLowerCase() === "digits") {
+          digits = Number(parameter[1]);
+          digits = isNaN(digits) ? 6 : digits;
         }
       });
 
@@ -179,6 +183,9 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         };
         if (period) {
           exportData[hash].period = period;
+        }
+        if (digits) {
+          exportData[hash].digits = digits;
         }
       }
     }

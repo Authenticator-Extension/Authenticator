@@ -106,8 +106,8 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
       otpStorage.account = removeUnsafeData(otpStorage.account);
     }
     const label = otpStorage.issuer
-      ? otpStorage.issuer + ":" + otpStorage.account
-      : otpStorage.account;
+      ? otpStorage.issuer + ":" + (otpStorage.account || "")
+      : otpStorage.account || "";
     let type = "";
     if (otpStorage.type === "totp" || otpStorage.type === "hex") {
       type = "totp";
@@ -128,7 +128,8 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
       (type === "hotp" ? "&counter=" + otpStorage.counter : "") +
       (type === "totp" && otpStorage.period
         ? "&period=" + otpStorage.period
-        : "");
+        : "") +
+      (otpStorage.digits ? "&digits=" + otpStorage.digits : "");
 
     otpAuthLines.push(otpAuthLine);
   }

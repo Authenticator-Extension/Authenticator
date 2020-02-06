@@ -16,6 +16,12 @@
         v-model.number="newAccount.period"
         v-bind:disabled="newAccount.type === OTPType.hotp"
       />
+      <label class="combo-label">{{ i18n.digits }}</label>
+      <select v-model="newAccount.digits">
+        <option v-bind:value="6">6</option>
+        <option v-bind:value="8">8</option>
+      </select>
+      <br>
       <label class="combo-label">{{ i18n.type }}</label>
       <select v-model="newAccount.type">
         <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
@@ -40,6 +46,7 @@ export default Vue.extend({
       secret: string;
       type: OTPType;
       period: number | undefined;
+      digits: number;
     };
   } {
     return {
@@ -48,7 +55,8 @@ export default Vue.extend({
         account: "",
         secret: "",
         type: OTPType.totp,
-        period: undefined
+        period: undefined,
+        digits: 6
       }
     };
   },
@@ -104,7 +112,8 @@ export default Vue.extend({
           encrypted: false,
           secret: this.newAccount.secret,
           counter: 0,
-          period: this.newAccount.period
+          period: this.newAccount.period,
+          digits: this.newAccount.digits
         },
         this.$store.state.accounts.encryption
       );

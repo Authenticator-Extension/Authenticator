@@ -126,10 +126,11 @@ async function getTotp(text: string) {
     if (!label || !parameterPart) {
       chrome.tabs.sendMessage(id, { action: "errorqr" });
     } else {
-      let account = "";
       let secret = "";
-      let issuer = "";
-      let period: number | undefined = undefined;
+      let account: string | undefined;
+      let issuer: string | undefined;
+      let period: number | undefined;
+      let digits: number | undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -163,6 +164,9 @@ async function getTotp(text: string) {
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
               ? undefined
               : period;
+        } else if (parameter[0].toLowerCase() === "digits") {
+          digits = Number(parameter[1]);
+          digits = isNaN(digits) ? 6 : digits;
         }
       });
 
@@ -202,6 +206,9 @@ async function getTotp(text: string) {
         };
         if (period) {
           entryData[hash].period = period;
+        }
+        if (digits) {
+          entryData[hash].digits = digits;
         }
         if (
           (await EntryStorage.hasEncryptedEntry()) !==

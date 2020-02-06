@@ -185,6 +185,10 @@ export class EntryStorage {
       storageItem.account = entry.account;
     }
 
+    if (entry.digits && entry.digits !== 6) {
+      storageItem.digits = entry.digits;
+    }
+
     return storageItem;
   }
 
@@ -348,12 +352,19 @@ export class EntryStorage {
               data[hash].issuer = data[hash].issuer || "";
               data[hash].type = data[hash].type || OTPType[OTPType.totp];
               data[hash].counter = data[hash].counter || 0;
+              data[hash].digits = data[hash].digits || 6;
               const period = data[hash].period;
               if (
                 data[hash].type !== OTPType[OTPType.totp] ||
                 (period && (isNaN(period) || period <= 0))
               ) {
                 delete data[hash].period;
+              }
+
+              // If invalid digits, then use defualt.
+              const digits = data[hash].digits;
+              if (digits && (digits > 10 || digits < 1)) {
+                data[hash].digits = 6;
               }
 
               if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
@@ -521,7 +532,7 @@ export class EntryStorage {
                   entryData.type = OTPType[OTPType.totp];
               }
 
-              let period = 30;
+              let period: number | undefined;
               if (
                 entryData.type === OTPType[OTPType.totp] &&
                 entryData.period &&
@@ -539,7 +550,8 @@ export class EntryStorage {
                 secret: entryData.secret,
                 type,
                 counter: entryData.counter,
-                period
+                period,
+                digits: entryData.digits
               });
 
               data.push(entry);

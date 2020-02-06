@@ -27,6 +27,7 @@ export class OTPEntry implements IOTPEntry {
   hash: string;
   counter: number;
   period: number;
+  digits: number;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
@@ -40,6 +41,7 @@ export class OTPEntry implements IOTPEntry {
       counter?: number;
       period?: number;
       hash?: string;
+      digits?: number;
     },
     encryption?: Encryption
   ) {
@@ -65,7 +67,6 @@ export class OTPEntry implements IOTPEntry {
         this.encSecret = encryption.getEncryptedString(this.secret);
       }
     }
-
     if (entry.hash) {
       this.hash = entry.hash;
     } else {
@@ -75,6 +76,11 @@ export class OTPEntry implements IOTPEntry {
       this.counter = entry.counter;
     } else {
       this.counter = 0;
+    }
+    if (entry.digits) {
+      this.digits = entry.digits;
+    } else {
+      this.digits = 6;
     }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
@@ -155,7 +161,8 @@ export class OTPEntry implements IOTPEntry {
           this.type,
           this.secret,
           this.counter,
-          this.period
+          this.period,
+          this.digits
         );
       } catch (error) {
         this.code = CodeState.Invalid;

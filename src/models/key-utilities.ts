@@ -95,10 +95,13 @@ export class KeyUtilities {
     type: OTPType,
     secret: string,
     counter: number,
-    period: number
+    period: number,
+    len?: number
   ) {
     secret = secret.replace(/\s/g, "");
-    let len = 6;
+    if (!len) {
+      len = 6;
+    }
     let b26 = false;
     let key: string;
     switch (type) {

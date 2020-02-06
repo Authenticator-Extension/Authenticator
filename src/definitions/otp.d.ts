@@ -9,6 +9,7 @@ interface IOTPEntry {
   counter: number;
   code: string;
   period: number;
+  digits: number;
   create(): Promise<void>;
   update(): Promise<void>;
   next(): Promise<void>;
@@ -36,4 +37,5 @@ interface OTPStorage {
   type: string;
   counter?: number;
   period?: number;
+  digits?: number;
 }

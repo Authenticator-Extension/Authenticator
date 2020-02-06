@@ -321,5 +321,8 @@
     },
     "invalid": {
         "message": "Invalid"
+    },
+    "digits": {
+        "message": "Digits"
     }
 }
