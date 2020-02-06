@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "배",
+        "message": "스케일",
         "description": "Scale"
     },
     "export_info": {
