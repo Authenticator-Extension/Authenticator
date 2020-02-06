@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Laadi alla parooliga kaitstud varukoopia",
         "description": "Download Encrypted Backup"
     },
     "search": {
