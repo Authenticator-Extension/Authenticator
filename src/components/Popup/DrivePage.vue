@@ -79,7 +79,10 @@ export default Vue.extend({
         );
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
-            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+            if (
+              navigator.userAgent.indexOf("Chrome") !== -1 &&
+              navigator.userAgent.indexOf("Edg") === -1
+            ) {
               chrome.identity.removeCachedAuthToken(
                 { token: localStorage.driveToken },
                 () => {
