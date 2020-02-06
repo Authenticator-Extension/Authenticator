@@ -1,5 +1,5 @@
-import * as jsSHA from "jssha";
 import { OTPType } from "./otp";
+import * as CryptoJS from "crypto-js";
 
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
@@ -145,16 +145,14 @@ export class KeyUtilities {
       }
     }
 
-    // external library for SHA functionality
-    const hmacObj = new jsSHA("SHA-1", "HEX");
-    hmacObj.setHMACKey(key, "HEX");
-    hmacObj.update(time);
-    const hmac = hmacObj.getHMAC("HEX");
+    const hmacObj = CryptoJS.HmacSHA1(
+      CryptoJS.enc.Hex.parse(time),
+      CryptoJS.enc.Hex.parse(key)
+    );
+    const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
 
     let offset = 0;
-    if (hmac !== "KEY MUST BE IN BYTE INCREMENTS") {
-      offset = this.hex2dec(hmac.substring(hmac.length - 1));
-    }
+    offset = this.hex2dec(hmac.substring(hmac.length - 1));
 
     let otp =
       (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +

@@ -141,9 +141,7 @@ export class OTPEntry implements IOTPEntry {
   }
 
   genUUID() {
-    // await this.delete();
     this.hash = uuid();
-    // await this.create();
   }
 
   generate() {
