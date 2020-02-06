@@ -1,0 +1,9 @@
+- test import undefined issuer \ account
+- test digits
+  - from qr
+  - from import normal
+  - from import otpauth
+  - from manual
+  - export normal
+  - export otpauth
+- algo
