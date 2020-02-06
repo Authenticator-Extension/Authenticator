@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "내보내기\/가져오기",
+        "message": "내보내기/가져오기",
         "description": "Export and Import."
     },
     "settings": {
