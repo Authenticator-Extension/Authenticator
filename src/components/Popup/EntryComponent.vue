@@ -248,9 +248,10 @@ function getQrUrl(entry: OTPEntry) {
     (entry.type === OTPType.hotp || entry.type === OTPType.hhex
       ? "&counter=" + entry.counter
       : "") +
-    (entry.type === OTPType.totp && entry.period
+    (entry.type === OTPType.totp && entry.period !== 30
       ? "&period=" + entry.period
-      : "");
+      : "") +
+    (entry.digits !== 6 ? "&digits=" + entry.digits : "");
   const qr = QRGen(0, "L");
   qr.addData(otpauth);
   qr.make();

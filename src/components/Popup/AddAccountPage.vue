@@ -21,7 +21,7 @@
         <option v-bind:value="6">6</option>
         <option v-bind:value="8">8</option>
       </select>
-      <br>
+      <br />
       <label class="combo-label">{{ i18n.type }}</label>
       <select v-model="newAccount.type">
         <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
