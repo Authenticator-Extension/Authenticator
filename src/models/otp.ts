@@ -17,6 +17,12 @@ export enum CodeState {
   Encrypted = "-2"
 }
 
+export enum OTPAlgorithm {
+  SHA1 = 1,
+  SHA256,
+  SHA512
+}
+
 export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
@@ -28,6 +34,7 @@ export class OTPEntry implements IOTPEntry {
   counter: number;
   period: number;
   digits: number;
+  algorithm: OTPAlgorithm;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
@@ -42,6 +49,7 @@ export class OTPEntry implements IOTPEntry {
       period?: number;
       hash?: string;
       digits?: number;
+      algorithm?: OTPAlgorithm;
     },
     encryption?: Encryption
   ) {
@@ -81,6 +89,11 @@ export class OTPEntry implements IOTPEntry {
       this.digits = entry.digits;
     } else {
       this.digits = 6;
+    }
+    if (entry.algorithm) {
+      this.algorithm = entry.algorithm;
+    } else {
+      this.algorithm = OTPAlgorithm.SHA1;
     }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
@@ -162,7 +175,8 @@ export class OTPEntry implements IOTPEntry {
           this.secret,
           this.counter,
           this.period,
-          this.digits
+          this.digits,
+          this.algorithm
         );
       } catch (error) {
         this.code = CodeState.Invalid;

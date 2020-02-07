@@ -4,6 +4,9 @@
   - from import normal
   - from import otpauth
   - from manual
-  - export normal
-  - export otpauth
 - algo
+  - export
+  - from qr
+  - from import normal
+  - from import otpauth
+  - from manual

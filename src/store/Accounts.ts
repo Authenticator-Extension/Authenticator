@@ -1,7 +1,7 @@
 import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
-import { OTPType, CodeState } from "../models/otp";
+import { OTPType, OTPAlgorithm, CodeState } from "../models/otp";
 import { ActionContext } from "vuex";
 
 export class Accounts implements IModule {
@@ -25,6 +25,7 @@ export class Accounts implements IModule {
         entries,
         encryption,
         OTPType,
+        OTPAlgorithm,
         shouldShowPassphrase,
         sectorStart: false, // Should display timer circles?
         sectorOffset: 0, // Offset in seconds for animations

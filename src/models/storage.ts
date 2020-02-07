@@ -1,5 +1,5 @@
 import { Encryption } from "./encryption";
-import { OTPEntry, OTPType } from "./otp";
+import { OTPEntry, OTPType, OTPAlgorithm } from "./otp";
 import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
@@ -189,6 +189,10 @@ export class EntryStorage {
       storageItem.digits = entry.digits;
     }
 
+    if (entry.algorithm && entry.algorithm !== OTPAlgorithm.SHA1) {
+      storageItem.algorithm = OTPAlgorithm[entry.algorithm];
+    }
+
     return storageItem;
   }
 
@@ -353,6 +357,8 @@ export class EntryStorage {
               data[hash].type = data[hash].type || OTPType[OTPType.totp];
               data[hash].counter = data[hash].counter || 0;
               data[hash].digits = data[hash].digits || 6;
+              data[hash].algorithm =
+                data[hash].algorithm || OTPAlgorithm[OTPAlgorithm.SHA1];
               const period = data[hash].period;
               if (
                 data[hash].type !== OTPType[OTPType.totp] ||
@@ -361,10 +367,16 @@ export class EntryStorage {
                 delete data[hash].period;
               }
 
-              // If invalid digits, then use defualt.
+              // If invalid digits, then use default.
               const digits = data[hash].digits;
               if (digits && (digits > 10 || digits < 1)) {
                 data[hash].digits = 6;
+              }
+
+              // If invalid algorithm, then use default
+              // @ts-ignore - it's fine if this ends up undefined
+              if (!OTPAlgorithm[data[hash].algorithm]) {
+                data[hash].algorithm = OTPAlgorithm[OTPAlgorithm.SHA1];
               }
 
               if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
@@ -551,7 +563,9 @@ export class EntryStorage {
                 type,
                 counter: entryData.counter,
                 period,
-                digits: entryData.digits
+                digits: entryData.digits,
+                // @ts-ignore - it's fine if this ends up undefined
+                algorithm: OTPAlgorithm[entryData.algorithm]
               });
 
               data.push(entry);

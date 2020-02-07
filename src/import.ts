@@ -107,6 +107,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       let secret = "";
       let account: string | undefined;
       let issuer: string | undefined;
+      let algorithm: string | undefined;
       let period: number | undefined;
       let digits: number | undefined;
 
@@ -145,6 +146,8 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         } else if (parameter[0].toLowerCase() === "digits") {
           digits = Number(parameter[1]);
           digits = isNaN(digits) ? 6 : digits;
+        } else if (parameter[0].toLowerCase() === "algorithm") {
+          algorithm = parameter[1];
         }
       });
 
@@ -186,6 +189,9 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         }
         if (digits) {
           exportData[hash].digits = digits;
+        }
+        if (algorithm) {
+          exportData[hash].algorithm = algorithm;
         }
       }
     }

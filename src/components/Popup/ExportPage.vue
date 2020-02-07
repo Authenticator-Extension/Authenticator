@@ -129,7 +129,8 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
       (type === "totp" && otpStorage.period
         ? "&period=" + otpStorage.period
         : "") +
-      (otpStorage.digits ? "&digits=" + otpStorage.digits : "");
+      (otpStorage.digits ? "&digits=" + otpStorage.digits : "") +
+      (otpStorage.algorithm ? "&algorithm=" + otpStorage.algorithm : "");
 
     otpAuthLines.push(otpAuthLine);
   }

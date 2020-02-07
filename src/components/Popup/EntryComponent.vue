@@ -251,7 +251,8 @@ function getQrUrl(entry: OTPEntry) {
     (entry.type === OTPType.totp && entry.period !== 30
       ? "&period=" + entry.period
       : "") +
-    (entry.digits !== 6 ? "&digits=" + entry.digits : "");
+    (entry.digits !== 6 ? "&digits=" + entry.digits : "") +
+    (entry.algorithm ? "&algorithm=" + entry.algorithm : "");
   const qr = QRGen(0, "L");
   qr.addData(otpauth);
   qr.make();

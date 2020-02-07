@@ -324,5 +324,8 @@
     },
     "digits": {
         "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }

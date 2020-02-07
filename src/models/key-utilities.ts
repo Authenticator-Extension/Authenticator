@@ -1,4 +1,4 @@
-import { OTPType } from "./otp";
+import { OTPType, OTPAlgorithm } from "./otp";
 import * as CryptoJS from "crypto-js";
 
 // Originally based on the JavaScript implementation as provided by Russell
@@ -96,7 +96,8 @@ export class KeyUtilities {
     secret: string,
     counter: number,
     period: number,
-    len?: number
+    len?: number,
+    algorithm?: OTPAlgorithm
   ) {
     secret = secret.replace(/\s/g, "");
     if (!len) {
@@ -148,10 +149,28 @@ export class KeyUtilities {
       }
     }
 
-    const hmacObj = CryptoJS.HmacSHA1(
-      CryptoJS.enc.Hex.parse(time),
-      CryptoJS.enc.Hex.parse(key)
-    );
+    let hmacObj: CryptoJS.WordArray;
+    switch (algorithm) {
+      case OTPAlgorithm.SHA256:
+        hmacObj = CryptoJS.HmacSHA256(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+      case OTPAlgorithm.SHA512:
+        hmacObj = CryptoJS.HmacSHA512(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+      default:
+        hmacObj = CryptoJS.HmacSHA1(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+    }
+
     const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
 
     let offset = 0;
