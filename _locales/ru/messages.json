@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Больной"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
