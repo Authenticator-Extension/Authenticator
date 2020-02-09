@@ -18,8 +18,8 @@
       />
       <label class="combo-label">{{ i18n.digits }}</label>
       <select v-model="newAccount.digits">
-        <option v-bind:value="6">6</option>
-        <option v-bind:value="8">8</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
       </select>
       <br />
       <label class="combo-label">{{ i18n.algorithm }}</label>

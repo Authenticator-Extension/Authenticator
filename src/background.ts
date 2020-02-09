@@ -167,7 +167,7 @@ async function getTotp(text: string) {
               : period;
         } else if (parameter[0].toLowerCase() === "digits") {
           digits = Number(parameter[1]);
-          digits = isNaN(digits) ? 6 : digits;
+          digits = isNaN(digits) || digits === 0 ? 6 : digits;
         } else if (parameter[0].toLowerCase() === "algorithm") {
           algorithm = parameter[1];
         }
