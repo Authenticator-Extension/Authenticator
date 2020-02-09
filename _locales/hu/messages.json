@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Érvénytelen"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }

@@ -321,5 +321,11 @@
     },
     "minutes": {
         "message": "minutes"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
