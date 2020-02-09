@@ -323,9 +323,9 @@
         "message": "Niepoprawne"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Cyfry"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algorytm"
     }
 }
