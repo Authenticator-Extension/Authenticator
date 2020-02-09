@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "エクスポート\/インポート",
+        "message": "エクスポート/インポート",
         "description": "Export and Import."
     },
     "settings": {
@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "無効"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
