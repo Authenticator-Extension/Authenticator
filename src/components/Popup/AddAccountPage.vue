@@ -16,6 +16,19 @@
         v-model.number="newAccount.period"
         v-bind:disabled="newAccount.type === OTPType.hotp"
       />
+      <label class="combo-label">{{ i18n.digits }}</label>
+      <select v-model="newAccount.digits">
+        <option value="6">6</option>
+        <option value="8">8</option>
+      </select>
+      <br />
+      <label class="combo-label">{{ i18n.algorithm }}</label>
+      <select v-model="newAccount.algorithm">
+        <option v-bind:value="OTPAlgorithm.SHA1">SHA-1</option>
+        <option v-bind:value="OTPAlgorithm.SHA256">SHA-256</option>
+        <option v-bind:value="OTPAlgorithm.SHA512">SHA-512</option>
+      </select>
+      <br />
       <label class="combo-label">{{ i18n.type }}</label>
       <select v-model="newAccount.type">
         <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
@@ -30,7 +43,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import { OTPType, OTPEntry } from "../../models/otp";
+import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 
 export default Vue.extend({
   data: function(): {
@@ -40,6 +53,8 @@ export default Vue.extend({
       secret: string;
       type: OTPType;
       period: number | undefined;
+      digits: number;
+      algorithm: OTPAlgorithm;
     };
   } {
     return {
@@ -48,11 +63,13 @@ export default Vue.extend({
         account: "",
         secret: "",
         type: OTPType.totp,
-        period: undefined
+        period: undefined,
+        digits: 6,
+        algorithm: OTPAlgorithm.SHA1
       }
     };
   },
-  computed: mapState("accounts", ["OTPType"]),
+  computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
   methods: {
     async addNewAccount() {
       this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
@@ -104,7 +121,9 @@ export default Vue.extend({
           encrypted: false,
           secret: this.newAccount.secret,
           counter: 0,
-          period: this.newAccount.period
+          period: this.newAccount.period,
+          digits: this.newAccount.digits,
+          algorithm: this.newAccount.algorithm
         },
         this.$store.state.accounts.encryption
       );

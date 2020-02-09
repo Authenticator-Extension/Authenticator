@@ -71,7 +71,7 @@
 import Vue from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
-import { OTPEntry, OTPType, CodeState } from "../../models/otp";
+import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -248,8 +248,12 @@ function getQrUrl(entry: OTPEntry) {
     (entry.type === OTPType.hotp || entry.type === OTPType.hhex
       ? "&counter=" + entry.counter
       : "") +
-    (entry.type === OTPType.totp && entry.period
+    (entry.type === OTPType.totp && entry.period !== 30
       ? "&period=" + entry.period
+      : "") +
+    (entry.digits !== 6 ? "&digits=" + entry.digits : "") +
+    (entry.algorithm !== OTPAlgorithm.SHA1
+      ? "&algorithm=" + OTPAlgorithm[entry.algorithm]
       : "");
   const qr = QRGen(0, "L");
   qr.addData(otpauth);

@@ -17,6 +17,12 @@ export enum CodeState {
   Encrypted = "-2"
 }
 
+export enum OTPAlgorithm {
+  SHA1 = 1,
+  SHA256,
+  SHA512
+}
+
 export class OTPEntry implements IOTPEntry {
   type: OTPType;
   index: number;
@@ -27,26 +33,38 @@ export class OTPEntry implements IOTPEntry {
   hash: string;
   counter: number;
   period: number;
+  digits: number;
+  algorithm: OTPAlgorithm;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
     entry: {
-      account: string;
+      account?: string;
       encrypted: boolean;
       index: number;
-      issuer: string;
+      issuer?: string;
       secret: string;
       type: OTPType;
-      counter: number;
+      counter?: number;
       period?: number;
       hash?: string;
+      digits?: number;
+      algorithm?: OTPAlgorithm;
     },
     encryption?: Encryption
   ) {
     this.type = entry.type;
     this.index = entry.index;
-    this.issuer = entry.issuer;
-    this.account = entry.account;
+    if (entry.issuer) {
+      this.issuer = entry.issuer;
+    } else {
+      this.issuer = "";
+    }
+    if (entry.account) {
+      this.account = entry.account;
+    } else {
+      this.account = "";
+    }
     if (entry.encrypted) {
       this.encSecret = entry.secret;
       this.secret = null;
@@ -57,13 +75,26 @@ export class OTPEntry implements IOTPEntry {
         this.encSecret = encryption.getEncryptedString(this.secret);
       }
     }
-
     if (entry.hash) {
       this.hash = entry.hash;
     } else {
       this.hash = uuid(); // UUID
     }
-    this.counter = entry.counter;
+    if (entry.counter) {
+      this.counter = entry.counter;
+    } else {
+      this.counter = 0;
+    }
+    if (entry.digits) {
+      this.digits = entry.digits;
+    } else {
+      this.digits = 6;
+    }
+    if (entry.algorithm) {
+      this.algorithm = entry.algorithm;
+    } else {
+      this.algorithm = OTPAlgorithm.SHA1;
+    }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
     } else {
@@ -129,9 +160,7 @@ export class OTPEntry implements IOTPEntry {
   }
 
   genUUID() {
-    // await this.delete();
     this.hash = uuid();
-    // await this.create();
   }
 
   generate() {
@@ -145,7 +174,9 @@ export class OTPEntry implements IOTPEntry {
           this.type,
           this.secret,
           this.counter,
-          this.period
+          this.period,
+          this.digits,
+          this.algorithm
         );
       } catch (error) {
         this.code = CodeState.Invalid;

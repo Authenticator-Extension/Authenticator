@@ -1,5 +1,5 @@
 import { Encryption } from "./encryption";
-import { OTPEntry, OTPType } from "./otp";
+import { OTPEntry, OTPType, OTPAlgorithm } from "./otp";
 import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
@@ -162,18 +162,35 @@ export class EntryStorage {
     }
 
     const storageItem: OTPStorage = {
-      account: entry.account,
       encrypted: Boolean(entry.encSecret),
       hash: entry.hash,
       index: entry.index,
-      issuer: entry.issuer,
       type: OTPType[entry.type],
-      counter: entry.counter, // TODO: Make this optional for non HOTP accounts
       secret
     };
 
+    if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
+      storageItem.counter = entry.counter;
+    }
+
     if (entry.period && entry.period !== 30) {
       storageItem.period = entry.period;
+    }
+
+    if (entry.issuer) {
+      storageItem.issuer = entry.issuer;
+    }
+
+    if (entry.account) {
+      storageItem.account = entry.account;
+    }
+
+    if (entry.digits && entry.digits !== 6) {
+      storageItem.digits = entry.digits;
+    }
+
+    if (entry.algorithm && entry.algorithm !== OTPAlgorithm.SHA1) {
+      storageItem.algorithm = OTPAlgorithm[entry.algorithm];
     }
 
     return storageItem;
@@ -287,6 +304,34 @@ export class EntryStorage {
                 delete _data[hash];
                 continue;
               }
+              // remove unnecessary fields
+              if (
+                !(_data[hash].type === OTPType[OTPType.hotp]) &&
+                !(_data[hash].type === OTPType[OTPType.hhex])
+              ) {
+                delete _data[hash].counter;
+              }
+
+              if (_data[hash].period === 30) {
+                delete _data[hash].period;
+              }
+
+              if (!_data[hash].issuer) {
+                delete _data[hash].issuer;
+              }
+
+              if (!_data[hash].account) {
+                delete _data[hash].account;
+              }
+
+              if (_data[hash].digits === 6) {
+                delete _data[hash].digits;
+              }
+
+              if (_data[hash].algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]) {
+                delete _data[hash].algorithm;
+              }
+
               if (!encrypted) {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
@@ -339,12 +384,27 @@ export class EntryStorage {
               data[hash].issuer = data[hash].issuer || "";
               data[hash].type = data[hash].type || OTPType[OTPType.totp];
               data[hash].counter = data[hash].counter || 0;
+              data[hash].digits = data[hash].digits || 6;
+              data[hash].algorithm =
+                data[hash].algorithm || OTPAlgorithm[OTPAlgorithm.SHA1];
               const period = data[hash].period;
               if (
                 data[hash].type !== OTPType[OTPType.totp] ||
                 (period && (isNaN(period) || period <= 0))
               ) {
                 delete data[hash].period;
+              }
+
+              // If invalid digits, then use default.
+              const digits = data[hash].digits;
+              if (digits && (digits > 10 || digits < 1)) {
+                data[hash].digits = 6;
+              }
+
+              // If invalid algorithm, then use default
+              // @ts-ignore - it's fine if this ends up undefined
+              if (!OTPAlgorithm[data[hash].algorithm]) {
+                data[hash].algorithm = OTPAlgorithm[OTPAlgorithm.SHA1];
               }
 
               if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
@@ -512,7 +572,7 @@ export class EntryStorage {
                   entryData.type = OTPType[OTPType.totp];
               }
 
-              let period = 30;
+              let period: number | undefined;
               if (
                 entryData.type === OTPType[OTPType.totp] &&
                 entryData.period &&
@@ -530,7 +590,10 @@ export class EntryStorage {
                 secret: entryData.secret,
                 type,
                 counter: entryData.counter,
-                period
+                period,
+                digits: entryData.digits,
+                // @ts-ignore - it's fine if this ends up undefined
+                algorithm: OTPAlgorithm[entryData.algorithm]
               });
 
               data.push(entry);
