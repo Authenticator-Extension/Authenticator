@@ -304,6 +304,34 @@ export class EntryStorage {
                 delete _data[hash];
                 continue;
               }
+              // remove unnecessary fields
+              if (
+                !(_data[hash].type === OTPType[OTPType.hotp]) &&
+                !(_data[hash].type === OTPType[OTPType.hhex])
+              ) {
+                delete _data[hash].counter;
+              }
+
+              if (_data[hash].period === 30) {
+                delete _data[hash].period;
+              }
+
+              if (!_data[hash].issuer) {
+                delete _data[hash].issuer;
+              }
+
+              if (!_data[hash].account) {
+                delete _data[hash].account;
+              }
+
+              if (_data[hash].digits === 6) {
+                delete _data[hash].digits;
+              }
+
+              if (_data[hash].algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]) {
+                delete _data[hash].algorithm;
+              }
+
               if (!encrypted) {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
