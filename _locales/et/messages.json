@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Kehtetu"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
