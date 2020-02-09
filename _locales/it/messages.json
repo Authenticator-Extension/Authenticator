@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Esporta \/ Importa",
+        "message": "Esporta / Importa",
         "description": "Export and Import."
     },
     "settings": {
@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Non valido"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
