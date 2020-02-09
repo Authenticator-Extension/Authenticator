@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Exportieren \/ Importieren",
+        "message": "Exportieren / Importieren",
         "description": "Export and Import."
     },
     "settings": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten\/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
+        "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Invalid"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
