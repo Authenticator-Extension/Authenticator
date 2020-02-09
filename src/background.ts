@@ -4,7 +4,7 @@ import QRCode from "qrcode-reader";
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
-import { Dropbox, Drive } from "./models/backup";
+import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
 
 let cachedPassphrase = "";
@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     setAutolock();
   } else if (message.action === "passphrase") {
     sendResponse(cachedPassphrase);
-  } else if (["dropbox", "drive"].indexOf(message.action) > -1) {
+  } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
@@ -257,6 +257,11 @@ function getBackupToken(service: string) {
         getCredentials().drive.client_id +
         "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" +
         redirUrl;
+    } else if (service === "onedrive") {
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
+      authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
+        getCredentials().onedrive.client_id
+      }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
@@ -267,7 +272,10 @@ function getBackupToken(service: string) {
         let hashMatches = url.split("#");
         if (service === "drive") {
           hashMatches = url.slice(0, -1).split("?");
+        } else if (service === "onedrive") {
+          hashMatches = url.split("?");
         }
+
         if (hashMatches.length < 2) {
           return;
         }
@@ -340,6 +348,54 @@ function getBackupToken(service: string) {
                   }
                 );
                 uploadBackup("drive");
+              } else if (service === "onedrive") {
+                const xhr = new XMLHttpRequest();
+                // Need to trade code we got from launchWebAuthFlow for a
+                // token & refresh token
+                await new Promise(
+                  (
+                    resolve: (value: boolean) => void,
+                    reject: (reason: Error) => void
+                  ) => {
+                    xhr.open(
+                      "POST",
+                      "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                    );
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader(
+                      "Content-Type",
+                      "application/x-www-form-urlencoded"
+                    );
+                    xhr.onreadystatechange = () => {
+                      if (xhr.readyState === 4) {
+                        try {
+                          const res = JSON.parse(xhr.responseText);
+                          if (res.error) {
+                            console.error(res.error_description);
+                            resolve(false);
+                          } else {
+                            localStorage.oneDriveToken = res.access_token;
+                            localStorage.oneDriveRefreshToken =
+                              res.refresh_token;
+                            resolve(true);
+                          }
+                        } catch (error) {
+                          console.error(error);
+                          reject(error);
+                        }
+                      }
+                      return;
+                    };
+                    xhr.send(
+                      `client_id=${
+                        getCredentials().onedrive.client_id
+                      }&grant_type=authorization_code&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&code=${value}&redirect_uri=${redirUrl}&client_secret=${encodeURIComponent(
+                        getCredentials().onedrive.client_secret
+                      )}`
+                    );
+                  }
+                );
+                uploadBackup("onedrive");
               }
             }
           }
@@ -362,6 +418,11 @@ async function uploadBackup(service: string) {
     case "drive":
       const drive = new Drive();
       await drive.upload(encryption);
+      break;
+
+    case "onedrive":
+      const onedrive = new OneDrive();
+      await onedrive.upload(encryption);
       break;
 
     default:

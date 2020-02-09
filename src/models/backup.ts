@@ -443,8 +443,208 @@ export class Drive implements BackupProvider {
           try {
             const res = JSON.parse(xhr.responseText);
             if (!res.error) {
-              console.log(res);
               resolve(res.user.emailAddress);
+            } else {
+              console.error(res.error.message);
+              resolve("Error");
+            }
+          } catch (e) {
+            console.error(e);
+            resolve("Error");
+          }
+        }
+        return;
+      };
+      xhr.send();
+    });
+  }
+}
+
+export class OneDrive implements BackupProvider {
+  private async getToken() {
+    if (
+      !localStorage.oneDriveToken ||
+      (await new Promise(
+        (
+          resolve: (value: boolean) => void,
+          reject: (reason: Error) => void
+        ) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open(
+            "GET",
+            "https://graph.microsoft.com/v1.0/me/drive/special/approot"
+          );
+          xhr.setRequestHeader(
+            "Authorization",
+            "Bearer " + localStorage.oneDriveToken
+          );
+          xhr.onreadystatechange = async () => {
+            if (xhr.readyState === 4) {
+              try {
+                const res = JSON.parse(xhr.responseText);
+                if (res.error) {
+                  if (res.error.code === 401) {
+                    localStorage.oneDriveToken = "";
+                    resolve(true);
+                  }
+                } else {
+                  resolve(false);
+                }
+              } catch (error) {
+                console.error(error);
+                reject(error);
+              }
+            }
+            return;
+          };
+          xhr.send();
+        }
+      ))
+    ) {
+      await this.refreshToken();
+    }
+    return localStorage.oneDriveToken;
+  }
+
+  private async refreshToken() {
+    return new Promise(
+      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(
+          "POST",
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        );
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 401) {
+              localStorage.removeItem("oneDriveRefreshToken");
+              localStorage.oneDriveRevoked = true;
+              resolve(false);
+            }
+            try {
+              const res = JSON.parse(xhr.responseText);
+              if (res.error) {
+                if (res.error === "invalid_grant") {
+                  localStorage.removeItem("oneDriveRefreshToken");
+                  localStorage.oneDriveRevoked = true;
+                }
+                console.error(res.error_description);
+                resolve(false);
+              } else {
+                localStorage.oneDriveToken = res.access_token;
+                resolve(true);
+              }
+            } catch (error) {
+              console.error(error);
+              reject(error);
+            }
+          }
+          return;
+        };
+        xhr.send(
+          `client_id=${getCredentials().onedrive.client_id}&refresh_token=${
+            localStorage.oneDriveRefreshToken
+          }&client_secret=${encodeURIComponent(
+            getCredentials().onedrive.client_secret
+          )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
+        );
+      }
+    );
+  }
+
+  async upload(encryption: Encryption) {
+    if (localStorage.oneDriveEncrypted === undefined) {
+      localStorage.oneDriveEncrypted = "true";
+    }
+    const exportData = await EntryStorage.backupGetExport(
+      encryption,
+      localStorage.oneDriveEncrypted === "true"
+    );
+    const backup = JSON.stringify(exportData, null, 2);
+
+    const token = await this.getToken();
+    if (!token) {
+      return new Promise((resolve: (value: boolean) => void) => {
+        resolve(false);
+      });
+    }
+
+    return new Promise(
+      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
+        if (!token) {
+          resolve(false);
+        }
+        try {
+          const xhr = new XMLHttpRequest();
+          const now = new Date()
+            .toISOString()
+            .slice(0, 10)
+            .replace(/-/g, "");
+          xhr.open(
+            "PUT",
+            `https://graph.microsoft.com/v1.0/me/drive/special/approot:/${now}.json:/content`
+          );
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("Content-type", "application/octet-stream");
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 401) {
+                localStorage.removeItem("oneDriveToken");
+                resolve(false);
+              }
+              try {
+                const res = JSON.parse(xhr.responseText);
+                if (!res.error) {
+                  resolve(true);
+                } else {
+                  console.error(res.error.message);
+                  resolve(false);
+                }
+              } catch (error) {
+                reject(error);
+              }
+            }
+            return;
+          };
+          xhr.send(backup);
+        } catch (error) {
+          return reject(error);
+        }
+      }
+    );
+  }
+
+  async getUser() {
+    const token = await this.getToken();
+    if (!token) {
+      return new Promise((resolve: (value: string) => void) => {
+        resolve("Error: Access revoked or expired.");
+      });
+    }
+
+    return new Promise((resolve: (value: string) => void) => {
+      if (!token) {
+        resolve("Error: Access revoked or expired.");
+      }
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://graph.microsoft.com/v1.0/me/");
+      xhr.setRequestHeader("Authorization", "Bearer " + token);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 401) {
+            localStorage.removeItem("oneDriveToken");
+            resolve(
+              "Error: Response was 401. You will be logged out the next time you open Authenticator."
+            );
+          }
+          try {
+            const res = JSON.parse(xhr.responseText);
+            if (!res.error) {
+              resolve(res.userPrincipalName);
             } else {
               console.error(res.error.message);
               resolve("Error");
