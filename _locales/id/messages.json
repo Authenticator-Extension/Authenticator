@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Tidak valid"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
