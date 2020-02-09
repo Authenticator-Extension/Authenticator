@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Eksportearje \/ Ymportearje",
+        "message": "Eksportearje / Ymportearje",
         "description": "Export and Import."
     },
     "settings": {
@@ -156,7 +156,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Let op! De klok fan jo lokale kompjûter is te fier foar\/efter, werstel dit eardat jo trochgean.",
+        "message": "Let op! De klok fan jo lokale kompjûter is te fier foar/efter, werstel dit eardat jo trochgean.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Unjildich"
+    },
+    "digits": {
+        "message": "Digits"
+    },
+    "algorithm": {
+        "message": "Algorithm"
     }
 }
