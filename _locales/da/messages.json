@@ -323,9 +323,9 @@
         "message": "Ugyldigt"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Cifre"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritme"
     }
 }
