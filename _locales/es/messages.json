@@ -323,9 +323,9 @@
         "message": "Inválido"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Dígitos"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritmo"
     }
 }
