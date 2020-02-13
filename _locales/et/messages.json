@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Seda salasõna kasutatakse teie kontode krüpteerimiseks. Kui unustate salasõna, ei saa keegi teid aidata.",
         "description": "Passphrase Warning."
     },
     "update": {
