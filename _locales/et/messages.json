@@ -172,7 +172,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Loenduripõhine",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -216,7 +216,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Teie salasõna hoiustatakse kohapeal, palun muutke seda kohe turvalisuse menüüst.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -256,15 +256,15 @@
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Hoiustamine & varundamine",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Valige, kus teie andmeid hoiustatakse. „Kohaliku” kasutamine salvestab teie andmed arvutisse. Sünkroonimisfunktsiooni kasutamine võimaldab brauseril sünkroonida teie andmeid pilvega, kui olete sünkroonimiskontole sisse logitud.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Varundage oma andmed automaatselt kolmanda osapoole salvestusteenustesse.",
         "description": "3rd party backup info"
     },
     "storage_location": {
@@ -290,11 +290,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Teil on üks või mitu Steami või Blizzardi kontot. Krüpteerimata varukoopiad ei kasuta standardiseeritud varundusvormingut.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Saate importida varukoopiaid mõnest teisest rakendusest.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -311,7 +311,7 @@
         "message": "minutit"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Lisavalikud"
     },
     "period": {
         "message": "Periood"
