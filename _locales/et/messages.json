@@ -268,7 +268,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Talletuskoht",
         "description": "Storage location"
     },
     "sign_in": {
