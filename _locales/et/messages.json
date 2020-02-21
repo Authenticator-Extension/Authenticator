@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Kehtetu konto saladus",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Saladus",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -116,7 +116,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Uut kontot ei saa lisada ega andmeid eksportida enne, kui kõik kontod on dekrüpteeritud. Enne jätkamist sisestage õige salasõna.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -160,11 +160,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Kas teil on varukoopia oma kontode jaoks? Ärge oodake, kuni on liiga hilja!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Jäädvustus ebaõnnestus, laadige leht uuesti ja proovige uuesti.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Hoiatus: kõik varukoopiad on krüpteerimata. Kas soovite konto lisada mõnele teisele rakendusele? Suunake kursor paremas ülaservas mis tahes kontole ja klõpsake peidetud nupule.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -212,7 +212,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Varukoopiate importimiseks peate sisestama õige salasõna.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -280,7 +280,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Teie kontoga $SERVICE$ ühendamisel tekkis probleem, palun logige uuesti sisse.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
