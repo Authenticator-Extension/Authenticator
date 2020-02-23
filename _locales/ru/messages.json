@@ -323,9 +323,9 @@
         "message": "Больной"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифры"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Алгоритм"
     }
 }
