@@ -200,11 +200,11 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Εισαγωγή αντιγράφων κειμένου",
+        "message": "Αντίγραφο ασφαλείας εισαγώμενου κειμένου",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Δείτε όλες τις καταχωρήσεις",
+        "message": "Εμφάνισε όλες τις καταχωρήσεις",
         "description": "Show all entries."
     },
     "dropbox_risk": {
