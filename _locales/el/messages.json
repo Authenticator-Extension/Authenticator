@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Επαληθευτής",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Επαληθευτής",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
+        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Παρακαλώ εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Το Συνθηματικό δεν ταιριάζει",
+        "message": "Ο κωδικός δεν ταιριάζει.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -290,42 +290,42 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Μη κρυπτογραφημένα αντίγραφα ασφαλείας δεν θα χρησιμοποιήσουν τυποποιημένη μορφή αντιγράφου ασφαλείας.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Μπορείτε να εισάγετε αντίγραφα ασφαλείας από άλλες εφαρμογές.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Μάθετε περισσότερα",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Φόρτωση σε εξέλιξη..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Κλείδωμα μετά από"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "λεπτά"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Για προχωρημένους"
     },
     "period": {
-        "message": "Period"
+        "message": "Περίοδος"
     },
     "type": {
-        "message": "Type"
+        "message": "Τύπος"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Μη έγκυρο"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Ψηφία"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Αλγόριθμος"
     }
 }
