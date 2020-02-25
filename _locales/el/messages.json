@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Ο επαληθευτής αναπαράγει κωδικούς επαλήθευσης ταυτότητας δυο παραγόντων, στο πρόγραμμα περιήγησής σας.",
         "description": "Extension Description."
     },
     "added": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Όνομα Χρήστη",
         "description": "Account Name."
     },
     "issuer": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει στη περίπτωση που ξεχάσετε τον κωδικό πρόσβασης.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Έχετε ένα αντίγραφο ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
         "description": "Remind Backup"
     },
     "capture_failed": {
