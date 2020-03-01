@@ -26,7 +26,9 @@
         v-bind:style="{
           left: encryption.getEncryptionStatus() ? '70px' : '45px'
         }"
-        v-show="(dropboxToken || driveToken) && !style.isEditing"
+        v-show="
+          (dropboxToken || driveToken || oneDriveToken) && !style.isEditing
+        "
       >
         <IconSync />
       </div>
@@ -76,7 +78,7 @@ import IconCheck from "../../../svg/check.svg";
 const computedPrototype = [
   mapState("style", ["style"]),
   mapState("accounts", ["encryption"]),
-  mapState("backup", ["driveToken", "dropboxToken"])
+  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"])
 ];
 
 let computed = {};
