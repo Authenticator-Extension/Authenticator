@@ -23,7 +23,7 @@ export class Dropbox implements BackupProvider {
     return new Promise(
       (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
         if (!token) {
-          resolve(false);
+          return resolve(false);
         }
         try {
           const xhr = new XMLHttpRequest();
@@ -45,7 +45,7 @@ export class Dropbox implements BackupProvider {
               if (xhr.status === 401) {
                 localStorage.removeItem("dropboxToken");
                 localStorage.dropboxRevoked = true;
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -72,7 +72,7 @@ export class Dropbox implements BackupProvider {
     const token = await this.getToken();
     return new Promise((resolve: (value: string) => void) => {
       if (!token) {
-        resolve("Error: No token");
+        return resolve("Error: No token");
       }
       const xhr = new XMLHttpRequest();
       xhr.open("POST", url);
@@ -204,7 +204,7 @@ export class Drive implements BackupProvider {
               if (xhr.status === 401) {
                 localStorage.removeItem("driveRefreshToken");
                 localStorage.driveRevoked = true;
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -235,9 +235,7 @@ export class Drive implements BackupProvider {
   private async getFolder() {
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: boolean) => void) => {
-        resolve(false);
-      });
+      return false;
     }
     if (localStorage.driveFolder) {
       await new Promise(
@@ -258,7 +256,7 @@ export class Drive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 localStorage.removeItem("driveToken");
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -303,7 +301,7 @@ export class Drive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 localStorage.removeItem("driveToken");
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -345,15 +343,13 @@ export class Drive implements BackupProvider {
 
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: boolean) => void) => {
-        resolve(false);
-      });
+      return false;
     }
     const folderId = await this.getFolder();
     return new Promise(
       (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
         if (!token || !folderId) {
-          resolve(false);
+          return resolve(false);
         }
         try {
           const xhr = new XMLHttpRequest();
@@ -374,7 +370,7 @@ export class Drive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 localStorage.removeItem("driveToken");
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -420,9 +416,7 @@ export class Drive implements BackupProvider {
   async getUser() {
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: string) => void) => {
-        resolve("Error: Access revoked or expired.");
-      });
+      return "Error: Access revoked or expired.";
     }
 
     return new Promise((resolve: (value: string) => void) => {
@@ -523,7 +517,7 @@ export class OneDrive implements BackupProvider {
             if (xhr.status === 401) {
               localStorage.removeItem("oneDriveRefreshToken");
               localStorage.oneDriveRevoked = true;
-              resolve(false);
+              return resolve(false);
             }
             try {
               const res = JSON.parse(xhr.responseText);
@@ -568,15 +562,13 @@ export class OneDrive implements BackupProvider {
 
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: boolean) => void) => {
-        resolve(false);
-      });
+      return false;
     }
 
     return new Promise(
       (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
         if (!token) {
-          resolve(false);
+          return resolve(false);
         }
         try {
           const xhr = new XMLHttpRequest();
@@ -594,7 +586,7 @@ export class OneDrive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 localStorage.removeItem("oneDriveToken");
-                resolve(false);
+                return resolve(false);
               }
               try {
                 const res = JSON.parse(xhr.responseText);
@@ -621,15 +613,10 @@ export class OneDrive implements BackupProvider {
   async getUser() {
     const token = await this.getToken();
     if (!token) {
-      return new Promise((resolve: (value: string) => void) => {
-        resolve("Error: Access revoked or expired.");
-      });
+      return "Error: Access revoked or expired.";
     }
 
     return new Promise((resolve: (value: string) => void) => {
-      if (!token) {
-        resolve("Error: Access revoked or expired.");
-      }
       const xhr = new XMLHttpRequest();
       xhr.open("GET", "https://graph.microsoft.com/v1.0/me/");
       xhr.setRequestHeader("Authorization", "Bearer " + token);
