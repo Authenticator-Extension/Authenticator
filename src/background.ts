@@ -261,6 +261,8 @@ function getBackupToken(service: string) {
     } else if (service === "drive") {
       if (navigator.userAgent.indexOf("Edg") !== -1) {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
+      } else if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-firefox");
       } else {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
       }
