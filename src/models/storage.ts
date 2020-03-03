@@ -649,14 +649,14 @@ export class ManagedStorage {
     return new Promise((resolve: (result: boolean | string) => void) => {
       chrome.storage.managed.get(data => {
         if (chrome.runtime.lastError) {
-          resolve(false);
+          return resolve(false);
         }
         if (data) {
           if (data[key]) {
-            resolve(data[key]);
+            return resolve(data[key]);
           }
         }
-        resolve(false);
+        return resolve(false);
       });
     });
   }

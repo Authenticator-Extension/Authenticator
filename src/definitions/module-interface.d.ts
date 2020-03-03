@@ -81,6 +81,8 @@ interface NotificationState {
 interface BackupState {
   dropboxEncrypted: Boolean;
   driveEncrypted: Boolean;
+  oneDriveEncrypted: Boolean;
   dropboxToken: Boolean;
   driveToken: Boolean;
+  oneDriveToken: Boolean;
 }
