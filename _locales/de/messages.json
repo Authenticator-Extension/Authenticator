@@ -314,13 +314,13 @@
         "message": "Erweiterte"
     },
     "period": {
-        "message": "Period"
+        "message": "Zeitraum"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Ungültig"
     },
     "digits": {
         "message": "Ziffern"
