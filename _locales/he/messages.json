@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator מחוללת קודי אימות דו שלבי מהדפדפן.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "קוד QR בלתי מזוהה.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -24,15 +24,15 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "סרוק קוד QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "הזנה ידנית",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "סגור",
         "description": "Close."
     },
     "ok": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "שם משתמש",
         "description": "Account Name."
     },
     "issuer": {
@@ -164,23 +164,23 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "הצילום נכשל, נא לרענן את הדף ולנסות שנית.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "מבוסס זמן",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "מבוסס מונה",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "העדפות",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "קנה מידה",
         "description": "Scale"
     },
     "export_info": {
@@ -188,15 +188,15 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "הורד את קובץ הגיבוי",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "ייבא גיבוי",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "ייבא קובץ גיבוי",
         "description": "Import backup file."
     },
     "import_backup_code": {
