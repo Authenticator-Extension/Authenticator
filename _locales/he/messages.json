@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "ייבא גיבוי כטקסט",
         "description": "Import backup code."
     },
     "show_all_entries": {
