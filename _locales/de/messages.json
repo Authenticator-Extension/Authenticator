@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Fehler beim Erkennen des QR Codes.",
+        "message": "Unbekannter QR-Code.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -48,19 +48,19 @@
         "description": "No."
     },
     "account": {
-        "message": "Konto",
+        "message": "Benutzerkonto",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nutzername",
+        "message": "Benutzername",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Aussteller",
+        "message": "Herausgeber",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Schlüssel",
+        "message": "Passwort",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -88,23 +88,23 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Aktuelles Kennwort",
+        "message": "Aktuelles Passwort",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Neues Kennwort",
+        "message": "Neues Passwort",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Kennwort",
+        "message": "Passwort",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Kennwort bestätigen",
+        "message": "Passwort bestätigen",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Sind Sie sicher, dass Sie diesen Schlüssel löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
+        "message": "Sind Sie sicher, dass Sie diesen Account löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Kennwort stimmt nicht überein.",
+        "message": "Passwort stimmt nicht überein.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -132,7 +132,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Rückmeldung",
         "description": "Feedback."
     },
     "translate": {
@@ -152,7 +152,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Kennwort speichern",
+        "message": "Passwort merken",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Skalierung",
+        "message": "Skalieren",
         "description": "Scale"
     },
     "export_info": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Sicherungsdatei herunterladen",
+        "message": "Backup-Datei herunterladen",
         "description": "Download backup file."
     },
     "import_backup": {
