@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator genererer to-faktor autentiseringskoder i nettleseren din.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " har blitt lagt til.",
         "description": "Added Account."
     },
     "errorqr": {
