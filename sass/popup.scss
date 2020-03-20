@@ -769,6 +769,17 @@ svg {
   }
 }
 
+@keyframes flash {
+  0%,
+  33% {
+    opacity: 0;
+  }
+  33.1%,
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeshow {
   0% {
     opacity: 0;
@@ -923,6 +934,14 @@ svg {
         svg {
           fill: yellow;
         }
+      }
+    }
+  }
+
+  #codes {
+    &:not(.edit) {
+      .code.timeout:not(.hotp) {
+        animation: flash 1s infinite;
       }
     }
   }
