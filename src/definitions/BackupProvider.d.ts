@@ -1,4 +1,4 @@
 interface BackupProvider {
-  upload(encryption: IEncryption): Promise<boolean>;
+  upload(encryption: EncryptionInterface): Promise<boolean>;
   getUser(): Promise<string>;
 }

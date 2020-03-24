@@ -1,4 +1,4 @@
-export class CurrentView implements IModule {
+export class CurrentView implements Module {
   getModule() {
     return {
       state: {

@@ -2,3 +2,8 @@ node_modules
 dist
 firefox
 chrome
+scripts
+webpack.config.js
+webpack.prod.js
+src/test
+src/models/credentials.ts

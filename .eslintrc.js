@@ -15,5 +15,9 @@ module.exports = {
   env: {
     "amd": true,
     "node": true  
+  },
+  rules: {
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 };

@@ -1,4 +1,4 @@
-export class Backup implements IModule {
+export class Backup implements Module {
   getModule() {
     return {
       state: {
