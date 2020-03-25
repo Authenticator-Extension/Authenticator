@@ -1,4 +1,4 @@
-export class Style implements IModule {
+export class Style implements Module {
   getModule() {
     return {
       state: {

@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "QR-код",
+        "message": "Отсканировать QR-код",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -323,9 +323,9 @@
         "message": "Больной"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифры"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Алгоритм"
     }
 }

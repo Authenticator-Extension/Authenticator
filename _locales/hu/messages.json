@@ -323,9 +323,9 @@
         "message": "Érvénytelen"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Számok"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritmus"
     }
 }

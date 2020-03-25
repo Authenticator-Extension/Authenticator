@@ -323,9 +323,9 @@
         "message": "無効"
     },
     "digits": {
-        "message": "Digits"
+        "message": "桁数"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "アルゴリズム"
     }
 }

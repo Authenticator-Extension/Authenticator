@@ -59,7 +59,7 @@ export default Vue.extend({
   }
 });
 
-function shouldShowPassphrase(entries: IOTPEntry[]) {
+function shouldShowPassphrase(entries: OTPEntryInterface[]) {
   for (const entry of entries) {
     if (!entry.secret) {
       return true;

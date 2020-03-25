@@ -323,9 +323,9 @@
         "message": "Geçersiz"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Basamaklar"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritma"
     }
 }

@@ -304,6 +304,12 @@
     "loading": {
         "message": "Loading..."
     },
+    "autolock": {
+        "message": "Lock after"
+    },
+    "minutes": {
+        "message": "minutes"
+    },
     "advanced": {
         "message": "Advanced"
     },
@@ -315,12 +321,6 @@
     },
     "invalid": {
         "message": "Invalid"
-    },
-    "autolock": {
-        "message": "Lock after"
-    },
-    "minutes": {
-        "message": "minutes"
     },
     "digits": {
         "message": "Digits"

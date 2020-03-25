@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Επαληθευτής",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Επαληθευτής",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Ο επαληθευτής αναπαράγει κωδικούς επαλήθευσης ταυτότητας δυο παραγόντων, στο πρόγραμμα περιήγησής σας.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Μη έγκυρο μυστικό λογαριασμού",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Όνομα Χρήστη",
         "description": "Account Name."
     },
     "issuer": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει στη περίπτωση που ξεχάσετε τον κωδικό πρόσβασης.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
+        "message": "Δεν μπορείτε να προσθέσετε νέο λογαριασμό ή να εξαγάγετε δεδομένα μέχρι να αποκρυπτογραφηθούν όλοι οι λογαριασμοί. Παρακαλώ εισαγάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Το Συνθηματικό δεν ταιριάζει",
+        "message": "Ο κωδικός δεν ταιριάζει.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -160,7 +160,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Έχετε ένα αντίγραφο ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Ρυθμίσεις",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -200,15 +200,15 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Εισαγωγή αντιγράφων κειμένου",
+        "message": "Αντίγραφο ασφαλείας εισαγώμενου κειμένου",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Δείτε όλες τις καταχωρήσεις",
+        "message": "Εμφάνισε όλες τις καταχωρήσεις",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Προσοχή: τα αντίγραφα ασφαλείας δεν είναι κρυπτογραφημένα. Χρησιμοποιήστε το με δική σας ευθύνη.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -252,7 +252,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Χρήση υψηλής αντίθεσης",
         "description": "Use High Contrast"
     },
     "storage_menu": {
@@ -272,15 +272,15 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "Σύνδεση",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "Αποσύνδεση",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Υπήρξε ένα πρόβλημα στην σύνδεση με τον $SERVICE$ λογαριασμό σας, παρακαλώ συνδεθείτε ξανά.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -290,42 +290,42 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Μη κρυπτογραφημένα αντίγραφα ασφαλείας δεν θα χρησιμοποιήσουν τυποποιημένη μορφή αντιγράφου ασφαλείας.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Μπορείτε να εισάγετε αντίγραφα ασφαλείας από άλλες εφαρμογές.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Μάθετε περισσότερα",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Φόρτωση σε εξέλιξη..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Κλείδωμα μετά από"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "λεπτά"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Για προχωρημένους"
     },
     "period": {
-        "message": "Period"
+        "message": "Περίοδος"
     },
     "type": {
-        "message": "Type"
+        "message": "Τύπος"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Μη έγκυρο"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Ψηφία"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Αλγόριθμος"
     }
 }
