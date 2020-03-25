@@ -308,24 +308,24 @@
         "message": "Lås etter"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minutter"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avansert"
     },
     "period": {
-        "message": "Period"
+        "message": "Periode"
     },
     "type": {
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Ugyldig"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Sifre"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritme"
     }
 }
