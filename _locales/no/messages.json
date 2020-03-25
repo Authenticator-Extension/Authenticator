@@ -20,19 +20,19 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Ugyldig kontohemmelighet",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Skann QR-kode",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Skriv inn manuelt",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "Lukk",
         "description": "Close."
     },
     "ok": {
@@ -40,71 +40,71 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nei",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Konto",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Brukernavn",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Utsteder",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Hemmelig",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Vellykket.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Feil.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Om",
         "description": "About."
     },
     "export_import": {
-        "message": "Export / Import",
+        "message": "Eksport/Import",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Innstillinger",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Sikkerhet",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Nåværende passord",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Nytt passord",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Passord",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Bekreft passord",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Er du sikker på at du vil slette denne brukeren? Denne handlingen kan ikke angres.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
