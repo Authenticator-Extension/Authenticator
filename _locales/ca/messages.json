@@ -323,9 +323,9 @@
         "message": "No és vàlid"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Dígits"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algorisme"
     }
 }

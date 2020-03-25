@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "인증 도",
+        "message": "인증 도구",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -180,7 +180,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "배",
+        "message": "스케일",
         "description": "Scale"
     },
     "export_info": {
@@ -196,7 +196,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "백업 가져오기",
+        "message": "백업 파일 가져오기",
         "description": "Import backup file."
     },
     "import_backup_code": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "암호화된 백업 다운로드",
+        "message": "암호로 보호된 백업 다운로드",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -240,7 +240,7 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "수정",
+        "message": "편집",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -323,9 +323,9 @@
         "message": "무효"
     },
     "digits": {
-        "message": "Digits"
+        "message": "자릿수"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "알고리즘"
     }
 }
