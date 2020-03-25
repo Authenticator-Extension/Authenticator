@@ -68,7 +68,7 @@ export default Vue.extend({
         this.$store.commit("menu/setHighContrast", useHighContrast);
       }
     },
-    encryption(): IEncryption {
+    encryption(): EncryptionInterface {
       return this.$store.state.accounts.encryption;
     },
     enforceAutolock() {

@@ -1,6 +1,6 @@
 import { ActionContext } from "vuex";
 
-export class Notification implements IModule {
+export class Notification implements Module {
   getModule() {
     return {
       state: {

@@ -23,6 +23,7 @@ import EnterPasswordPage from "./EnterPasswordPage.vue";
 import ExportPage from "./ExportPage.vue";
 import DropboxPage from "./DropboxPage.vue";
 import DrivePage from "./DrivePage.vue";
+import OneDrivePage from "./OneDrivePage.vue";
 import StorageSyncConfPage from "./StorageSyncConfPage.vue";
 import PrefrencesPage from "./PrefrencesPage.vue";
 import LoadingPage from "./LoadingPage.vue";
@@ -48,6 +49,7 @@ export default Vue.extend({
     ExportPage,
     DropboxPage,
     DrivePage,
+    OneDrivePage,
     PrefrencesPage,
     StorageSyncConfPage,
     LoadingPage

@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Invalide"
+    },
+    "digits": {
+        "message": "Chiffres"
+    },
+    "algorithm": {
+        "message": "Algorithme"
     }
 }

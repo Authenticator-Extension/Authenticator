@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "无效代码"
+    },
+    "digits": {
+        "message": "位数"
+    },
+    "algorithm": {
+        "message": "算法"
     }
 }

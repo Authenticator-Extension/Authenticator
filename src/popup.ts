@@ -15,7 +15,7 @@ import { CurrentView } from "./store/CurrentView";
 import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
-import { Dropbox, Drive } from "./models/backup";
+import { Dropbox, Drive, OneDrive } from "./models/backup";
 import { EntryStorage } from "./models/storage";
 
 async function init() {
@@ -251,9 +251,47 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
       }
     );
   }
+  if (instance.$store.state.backup.oneDriveToken) {
+    chrome.permissions.contains(
+      {
+        origins: [
+          "https://graph.microsoft.com/me/*",
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        ]
+      },
+      async hasPermission => {
+        if (hasPermission) {
+          try {
+            const onedrive = new OneDrive();
+            const res = await onedrive.upload(
+              instance.$store.state.accounts.encryption
+            );
+            if (res) {
+              localStorage.lastRemindingBackupTime = clientTime;
+              return;
+            } else if (localStorage.oneDriveRevoked === "true") {
+              instance.$store.commit(
+                "notification/alert",
+                chrome.i18n.getMessage("token_revoked", ["OneDrive"])
+              );
+              localStorage.removeItem("oneDriveRevoked");
+            }
+          } catch (error) {
+            // ignore
+          }
+        }
+        instance.$store.commit(
+          "notification/alert",
+          instance.i18n.remind_backup
+        );
+        localStorage.lastRemindingBackupTime = clientTime;
+      }
+    );
+  }
   if (
     !instance.$store.state.backup.driveToken &&
-    !instance.$store.state.backup.dropboxToken
+    !instance.$store.state.backup.dropboxToken &&
+    !instance.$store.state.backup.oneDriveToken
   ) {
     instance.$store.commit("notification/alert", instance.i18n.remind_backup);
     localStorage.lastRemindingBackupTime = clientTime;
@@ -264,7 +302,7 @@ export function syncTimeWithGoogle() {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
       try {
-        // tslint:disable-next-line:ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
         const xhr = new XMLHttpRequest({ mozAnon: true });
         xhr.open("HEAD", "https://www.google.com/generate_204");

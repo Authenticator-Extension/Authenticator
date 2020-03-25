@@ -26,6 +26,13 @@
     <div
       class="button"
       v-show="!backupDisabled"
+      v-on:click="showInfo('OneDrivePage')"
+    >
+      OneDrive
+    </div>
+    <div
+      class="button"
+      v-show="!backupDisabled"
       v-on:click="showInfo('DropboxPage')"
     >
       Dropbox
@@ -74,6 +81,23 @@ export default Vue.extend({
             origins: [
               "https://www.googleapis.com/*",
               "https://accounts.google.com/o/oauth2/revoke"
+            ]
+          },
+          async granted => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+            return;
+          }
+        );
+        return;
+      } else if (tab === "OneDrivePage") {
+        chrome.permissions.request(
+          {
+            origins: [
+              "https://graph.microsoft.com/me/*",
+              "https://login.microsoftonline.com/common/oauth2/v2.0/token"
             ]
           },
           async granted => {

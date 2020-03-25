@@ -1,5 +1,5 @@
-import * as jsSHA from "jssha";
-import { OTPType } from "./otp";
+import { OTPType, OTPAlgorithm } from "./otp";
+import * as CryptoJS from "crypto-js";
 
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
@@ -95,10 +95,14 @@ export class KeyUtilities {
     type: OTPType,
     secret: string,
     counter: number,
-    period: number
+    period: number,
+    len?: number,
+    algorithm?: OTPAlgorithm
   ) {
     secret = secret.replace(/\s/g, "");
-    let len = 6;
+    if (!len) {
+      len = 6;
+    }
     let b26 = false;
     let key: string;
     switch (type) {
@@ -145,16 +149,32 @@ export class KeyUtilities {
       }
     }
 
-    // external library for SHA functionality
-    const hmacObj = new jsSHA("SHA-1", "HEX");
-    hmacObj.setHMACKey(key, "HEX");
-    hmacObj.update(time);
-    const hmac = hmacObj.getHMAC("HEX");
+    let hmacObj: CryptoJS.WordArray;
+    switch (algorithm) {
+      case OTPAlgorithm.SHA256:
+        hmacObj = CryptoJS.HmacSHA256(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+      case OTPAlgorithm.SHA512:
+        hmacObj = CryptoJS.HmacSHA512(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+      default:
+        hmacObj = CryptoJS.HmacSHA1(
+          CryptoJS.enc.Hex.parse(time),
+          CryptoJS.enc.Hex.parse(key)
+        );
+        break;
+    }
+
+    const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
 
     let offset = 0;
-    if (hmac !== "KEY MUST BE IN BYTE INCREMENTS") {
-      offset = this.hex2dec(hmac.substring(hmac.length - 1));
-    }
+    offset = this.hex2dec(hmac.substring(hmac.length - 1));
 
     let otp =
       (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +

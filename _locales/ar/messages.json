@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "اسم المستخدم",
         "description": "Account Name."
     },
     "issuer": {
@@ -176,7 +176,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "تفضيلات",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -302,24 +302,30 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "جاري التحميل..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "أقفال بعد"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "دقائق"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "إعدادات متقدمة"
     },
     "period": {
-        "message": "Period"
+        "message": "المدة"
     },
     "type": {
-        "message": "Type"
+        "message": "نوع"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "معطل"
+    },
+    "digits": {
+        "message": "وحدات"
+    },
+    "algorithm": {
+        "message": "‮الخوارزمية"
     }
 }

@@ -33,9 +33,9 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { Drive } from "../../models/backup";
+import { OneDrive } from "../../models/backup";
 
-const service = "drive";
+const service = "onedrive";
 
 export default Vue.extend({
   data: function() {
@@ -49,9 +49,9 @@ export default Vue.extend({
     },
     isEncrypted: {
       get(): boolean {
-        if (localStorage.getItem(`${service}Encrypted`) === null) {
+        if (localStorage.getItem(`oneDriveEncrypted`) === null) {
           this.$store.commit("backup/setEnc", { service, value: true });
-          localStorage[`${service}Encrypted`] = true;
+          localStorage.oneDriveEncrypted = true;
           return true;
         }
         return this.$store.state.backup.driveEncrypted;
@@ -62,7 +62,7 @@ export default Vue.extend({
       }
     },
     backupToken: function() {
-      return this.$store.state.backup.driveToken;
+      return this.$store.state.backup.oneDriveToken;
     }
   },
   methods: {
@@ -70,56 +70,30 @@ export default Vue.extend({
       chrome.runtime.sendMessage({ action: service });
     },
     async backupLogout() {
-      await new Promise((resolve: (value: boolean) => void) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(
-          "POST",
-          "https://accounts.google.com/o/oauth2/revoke?token=" +
-            localStorage.driveToken
-        );
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-            if (
-              navigator.userAgent.indexOf("Chrome") !== -1 &&
-              navigator.userAgent.indexOf("Edg") === -1
-            ) {
-              chrome.identity.removeCachedAuthToken(
-                { token: localStorage.driveToken },
-                () => {
-                  resolve(true);
-                }
-              );
-            } else {
-              resolve(true);
-            }
-            return;
-          }
-        };
-        xhr.send();
-      });
-      localStorage.removeItem("driveToken");
+      localStorage.removeItem("oneDriveToken");
+      localStorage.removeItem("oneDriveRefreshToken");
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
     async backupUpload() {
-      const drive = new Drive();
-      const response = await drive.upload(this.$store.state.encryption);
+      const oneDrive = new OneDrive();
+      const response = await oneDrive.upload(this.$store.state.encryption);
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      } else if (localStorage.driveRevoked === "true") {
+      } else if (localStorage.oneDriveRevoked === "true") {
         this.$store.commit(
           "notification/alert",
-          chrome.i18n.getMessage("token_revoked", ["Google Drive"])
+          chrome.i18n.getMessage("token_revoked", ["OneDrive"])
         );
-        localStorage.removeItem("driveRevoked");
+        localStorage.removeItem("oneDriveRevoked");
         this.$store.commit("backup/setToken", { service, value: false });
       } else {
         this.$store.commit("notification/alert", this.i18n.updateFailure);
       }
     },
     async getUser() {
-      const drive = new Drive();
-      return await drive.getUser();
+      const oneDrive = new OneDrive();
+      return await oneDrive.getUser();
     }
   },
   mounted: async function() {

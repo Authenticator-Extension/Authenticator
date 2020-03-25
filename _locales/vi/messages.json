@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "Mật khẩu này sẽ được dùng để mã hóa toàn bộ dữ liệu của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
+        "message": "Mật khẩu này sẽ được sử dụng để mã hóa tài khoản của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -188,7 +188,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Tải về tệp sao lưu",
+        "message": "Tải xuống tập tin sao lưu",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -256,7 +256,7 @@
         "description": "Use High Contrast"
     },
     "storage_menu": {
-        "message": "Sao lưu dữ liệu",
+        "message": "Lưu trữ và sao lưu",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Không hợp lệ"
+    },
+    "digits": {
+        "message": "Đồng hồ số"
+    },
+    "algorithm": {
+        "message": "Thuật toán"
     }
 }

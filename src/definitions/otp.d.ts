@@ -1,4 +1,4 @@
-interface IOTPEntry {
+interface OTPEntryInterface {
   type: number; // OTPType
   index: number;
   issuer: string;
@@ -9,17 +9,19 @@ interface IOTPEntry {
   counter: number;
   code: string;
   period: number;
+  digits: number;
+  algorithm: number; // OTPAlgorithm
   create(): Promise<void>;
   update(): Promise<void>;
   next(): Promise<void>;
-  applyEncryption(encryption: IEncryption): void;
-  changeEncryption(encryption: IEncryption): void;
+  applyEncryption(encryption: EncryptionInterface): void;
+  changeEncryption(encryption: EncryptionInterface): void;
   delete(): Promise<void>;
   generate(): void;
   genUUID(): void;
 }
 
-interface IEncryption {
+interface EncryptionInterface {
   getEncryptedString(data: string): string;
   getDecryptedSecret(entry: OTPStorage): string | null;
   getEncryptionStatus(): boolean;
@@ -27,13 +29,15 @@ interface IEncryption {
 }
 
 interface OTPStorage {
-  account: string;
+  account?: string;
   encrypted: boolean;
   hash: string;
   index: number;
-  issuer: string;
+  issuer?: string;
   secret: string;
   type: string;
-  counter: number;
+  counter?: number;
   period?: number;
+  digits?: number;
+  algorithm?: string;
 }

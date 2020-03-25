@@ -321,5 +321,11 @@
     },
     "invalid": {
         "message": "Geçersiz"
+    },
+    "digits": {
+        "message": "Basamaklar"
+    },
+    "algorithm": {
+        "message": "Algoritma"
     }
 }

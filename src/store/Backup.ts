@@ -1,11 +1,13 @@
-export class Backup implements IModule {
+export class Backup implements Module {
   getModule() {
     return {
       state: {
         dropboxEncrypted: localStorage.dropboxEncrypted === "true",
         driveEncrypted: localStorage.driveEncrypted === "true",
+        oneDriveEncrypted: localStorage.oneDriveEncrypted === "true",
         dropboxToken: Boolean(localStorage.dropboxToken),
-        driveToken: Boolean(localStorage.driveToken)
+        driveToken: Boolean(localStorage.driveToken),
+        oneDriveToken: Boolean(localStorage.oneDriveToken)
       },
       mutations: {
         setToken(
@@ -21,6 +23,10 @@ export class Backup implements IModule {
               state.driveToken = args.value;
               break;
 
+            case "onedrive":
+              state.driveToken = args.value;
+              break;
+
             default:
               break;
           }
@@ -33,6 +39,10 @@ export class Backup implements IModule {
 
             case "drive":
               state.driveEncrypted = args.value;
+              break;
+
+            case "onedrive":
+              state.oneDriveEncrypted = args.value;
               break;
 
             default:

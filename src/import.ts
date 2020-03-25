@@ -39,16 +39,14 @@ async function init() {
 init();
 
 function getCachedPassphrase() {
-  return new Promise(
-    (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-      chrome.runtime.sendMessage(
-        { action: "passphrase" },
-        (passphrase: string) => {
-          return resolve(passphrase);
-        }
-      );
-    }
-  );
+  return new Promise((resolve: (value: string) => void) => {
+    chrome.runtime.sendMessage(
+      { action: "passphrase" },
+      (passphrase: string) => {
+        return resolve(passphrase);
+      }
+    );
+  });
 }
 
 export function decryptBackupData(
@@ -104,10 +102,12 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     if (!parameterPart) {
       continue;
     } else {
-      let account = "";
       let secret = "";
-      let issuer = "";
-      let period: number | undefined = undefined;
+      let account: string | undefined;
+      let issuer: string | undefined;
+      let algorithm: string | undefined;
+      let period: number | undefined;
+      let digits: number | undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -132,15 +132,22 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
             issuer = parameter[1];
           }
           issuer = issuer.replace(/\+/g, " ");
-        } else if (parameter[0].toLowerCase() === "counter") {
+        } /* else if (parameter[0].toLowerCase() === "counter") {
           let counter = Number(parameter[1]);
           counter = isNaN(counter) || counter < 0 ? 0 : counter;
-        } else if (parameter[0].toLowerCase() === "period") {
+        } */ else if (
+          parameter[0].toLowerCase() === "period"
+        ) {
           period = Number(parameter[1]);
           period =
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
               ? undefined
               : period;
+        } else if (parameter[0].toLowerCase() === "digits") {
+          digits = Number(parameter[1]);
+          digits = isNaN(digits) ? 6 : digits;
+        } else if (parameter[0].toLowerCase() === "algorithm") {
+          algorithm = parameter[1];
         }
       });
 
@@ -179,6 +186,12 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         };
         if (period) {
           exportData[hash].period = period;
+        }
+        if (digits) {
+          exportData[hash].digits = digits;
+        }
+        if (algorithm) {
+          exportData[hash].algorithm = algorithm;
         }
       }
     }

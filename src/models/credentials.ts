@@ -6,6 +6,10 @@ export function getCredentials() {
     },
     dropbox: {
       client_id: "" // Dropbox client ID
+    },
+    onedrive: {
+      client_id: "", // Microsoft Identity client ID
+      client_secret: "" // Microsoft Identity client secret
     }
   };
 }

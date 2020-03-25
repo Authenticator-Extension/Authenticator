@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import scanGIF from "../images/scan.gif";
 
@@ -26,7 +27,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "pastecode":
         pasteCode(message.code);
         break;
-      case "stopCapture":
+      case "stopCapture": {
         const captureBox = document.getElementById("__ga_captureBox__");
         if (captureBox) {
           captureBox.style.display = "none";
@@ -37,6 +38,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
           grayLayout.style.display = "none";
         }
         break;
+      }
       default:
         // invalid command, ignore it
         break;

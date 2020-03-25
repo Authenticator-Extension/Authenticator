@@ -1,10 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import QRCode from "qrcode-reader";
 
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
-import { Dropbox, Drive } from "./models/backup";
+import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
 
 let cachedPassphrase = "";
@@ -30,7 +31,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     setAutolock();
   } else if (message.action === "passphrase") {
     sendResponse(cachedPassphrase);
-  } else if (["dropbox", "drive"].indexOf(message.action) > -1) {
+  } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
@@ -126,10 +127,12 @@ async function getTotp(text: string) {
     if (!label || !parameterPart) {
       chrome.tabs.sendMessage(id, { action: "errorqr" });
     } else {
-      let account = "";
       let secret = "";
-      let issuer = "";
-      let period: number | undefined = undefined;
+      let account: string | undefined;
+      let issuer: string | undefined;
+      let algorithm: string | undefined;
+      let period: number | undefined;
+      let digits: number | undefined;
 
       try {
         label = decodeURIComponent(label);
@@ -155,14 +158,19 @@ async function getTotp(text: string) {
           }
           issuer = issuer.replace(/\+/g, " ");
         } else if (parameter[0].toLowerCase() === "counter") {
-          let counter = Number(parameter[1]);
-          counter = isNaN(counter) || counter < 0 ? 0 : counter;
+          // let counter = Number(parameter[1]);
+          // counter = isNaN(counter) || counter < 0 ? 0 : counter;
         } else if (parameter[0].toLowerCase() === "period") {
           period = Number(parameter[1]);
           period =
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
               ? undefined
               : period;
+        } else if (parameter[0].toLowerCase() === "digits") {
+          digits = Number(parameter[1]);
+          digits = isNaN(digits) || digits === 0 ? 6 : digits;
+        } else if (parameter[0].toLowerCase() === "algorithm") {
+          algorithm = parameter[1];
         }
       });
 
@@ -203,6 +211,12 @@ async function getTotp(text: string) {
         if (period) {
           entryData[hash].period = period;
         }
+        if (digits) {
+          entryData[hash].digits = digits;
+        }
+        if (algorithm) {
+          entryData[hash].algorithm = algorithm;
+        }
         if (
           (await EntryStorage.hasEncryptedEntry()) !==
           encryption.getEncryptionStatus()
@@ -219,7 +233,11 @@ async function getTotp(text: string) {
 }
 
 function getBackupToken(service: string) {
-  if (navigator.userAgent.indexOf("Chrome") !== -1 && service === "drive") {
+  if (
+    navigator.userAgent.indexOf("Chrome") !== -1 &&
+    navigator.userAgent.indexOf("Edg") === -1 &&
+    service === "drive"
+  ) {
     chrome.identity.getAuthToken(
       {
         interactive: true,
@@ -233,18 +251,33 @@ function getBackupToken(service: string) {
     );
   } else {
     let authUrl = "";
+    let redirUrl = "";
     if (service === "dropbox") {
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
       authUrl =
         "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=" +
         getCredentials().dropbox.client_id +
         "&redirect_uri=" +
-        encodeURIComponent(chrome.identity.getRedirectURL());
+        redirUrl;
     } else if (service === "drive") {
+      if (navigator.userAgent.indexOf("Edg") !== -1) {
+        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
+      } else if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-firefox");
+      } else {
+        redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
+      }
+
       authUrl =
         "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
         getCredentials().drive.client_id +
         "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" +
-        encodeURIComponent("https://authenticator.cc/oauth");
+        redirUrl;
+    } else if (service === "onedrive") {
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
+      authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
+        getCredentials().onedrive.client_id
+      }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
@@ -255,7 +288,10 @@ function getBackupToken(service: string) {
         let hashMatches = url.split("#");
         if (service === "drive") {
           hashMatches = url.slice(0, -1).split("?");
+        } else if (service === "onedrive") {
+          hashMatches = url.split("?");
         }
+
         if (hashMatches.length < 2) {
           return;
         }
@@ -296,7 +332,9 @@ function getBackupToken(service: string) {
                         getCredentials().drive.client_secret +
                         "&code=" +
                         value +
-                        "&redirect_uri=https://authenticator.cc/oauth&grant_type=authorization_code"
+                        "&redirect_uri=" +
+                        redirUrl +
+                        "&grant_type=authorization_code"
                     );
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader(
@@ -326,6 +364,54 @@ function getBackupToken(service: string) {
                   }
                 );
                 uploadBackup("drive");
+              } else if (service === "onedrive") {
+                const xhr = new XMLHttpRequest();
+                // Need to trade code we got from launchWebAuthFlow for a
+                // token & refresh token
+                await new Promise(
+                  (
+                    resolve: (value: boolean) => void,
+                    reject: (reason: Error) => void
+                  ) => {
+                    xhr.open(
+                      "POST",
+                      "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                    );
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader(
+                      "Content-Type",
+                      "application/x-www-form-urlencoded"
+                    );
+                    xhr.onreadystatechange = () => {
+                      if (xhr.readyState === 4) {
+                        try {
+                          const res = JSON.parse(xhr.responseText);
+                          if (res.error) {
+                            console.error(res.error_description);
+                            resolve(false);
+                          } else {
+                            localStorage.oneDriveToken = res.access_token;
+                            localStorage.oneDriveRefreshToken =
+                              res.refresh_token;
+                            resolve(true);
+                          }
+                        } catch (error) {
+                          console.error(error);
+                          reject(error);
+                        }
+                      }
+                      return;
+                    };
+                    xhr.send(
+                      `client_id=${
+                        getCredentials().onedrive.client_id
+                      }&grant_type=authorization_code&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&code=${value}&redirect_uri=${redirUrl}&client_secret=${encodeURIComponent(
+                        getCredentials().onedrive.client_secret
+                      )}`
+                    );
+                  }
+                );
+                uploadBackup("onedrive");
               }
             }
           }
@@ -341,13 +427,15 @@ async function uploadBackup(service: string) {
 
   switch (service) {
     case "dropbox":
-      const dbox = new Dropbox();
-      await dbox.upload(encryption);
+      await new Dropbox().upload(encryption);
       break;
 
     case "drive":
-      const drive = new Drive();
-      await drive.upload(encryption);
+      await new Drive().upload(encryption);
+      break;
+
+    case "onedrive":
+      await new OneDrive().upload(encryption);
       break;
 
     default:
@@ -365,7 +453,10 @@ chrome.runtime.onInstalled.addListener(async details => {
 
   let url: string | null = null;
 
-  if (navigator.userAgent.indexOf("Chrome") !== -1) {
+  if (
+    navigator.userAgent.indexOf("Chrome") !== -1 &&
+    navigator.userAgent.indexOf("Edg") === -1
+  ) {
     url = "https://authenticator.cc/docs/en/chrome-issues";
   }
 
