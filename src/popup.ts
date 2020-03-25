@@ -302,7 +302,7 @@ export function syncTimeWithGoogle() {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
       try {
-        // tslint:disable-next-line:ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
         const xhr = new XMLHttpRequest({ mozAnon: true });
         xhr.open("HEAD", "https://www.google.com/generate_204");

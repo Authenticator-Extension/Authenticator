@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Vue from "vue";
 import { Store } from "vuex";
 
@@ -7,8 +8,8 @@ declare module "vue/types/vue" {
     $store: Store<any>;
     $dragula: any;
     // Only in Import
-    $entries: IOTPEntry[];
-    $encryption: IEncryption;
+    $entries: OTPEntryInterface[];
+    $encryption: EncryptionInterface;
     // In all
     i18n: { [key: string]: string };
   }

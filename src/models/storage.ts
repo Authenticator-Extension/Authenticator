@@ -52,10 +52,11 @@ export class BrowserStorage {
     }
   }
 
-  /* tslint:disable-next-line:no-any */
   // TODO: promise this
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static async get(callback: (items: { [key: string]: any }) => void) {
     const storageLocation = await this.getStorageLocation();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const removeKey = function(items: { [key: string]: any }): void {
       delete items.key;
       callback(items);
@@ -71,23 +72,25 @@ export class BrowserStorage {
 
   static getKey() {
     return new Promise(
-      async (resolve: (key: { enc: string; hash: string } | null) => void) => {
-        const storageLocation = await this.getStorageLocation();
-        const callback = function(items: { [key: string]: any }): void {
-          if (typeof items.key === "object") {
-            resolve(items.key);
-          } else {
-            resolve(null);
+      (resolve: (key: { enc: string; hash: string } | null) => void) => {
+        this.getStorageLocation().then(storageLocation => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const callback = function(items: { [key: string]: any }): void {
+            if (typeof items.key === "object") {
+              resolve(items.key);
+            } else {
+              resolve(null);
+            }
+            return;
+          };
+
+          if (storageLocation === "local") {
+            chrome.storage.local.get(callback);
+          } else if (storageLocation === "sync") {
+            chrome.storage.sync.get(callback);
           }
           return;
-        };
-
-        if (storageLocation === "local") {
-          chrome.storage.local.get(callback);
-        } else if (storageLocation === "sync") {
-          chrome.storage.sync.get(callback);
-        }
-        return;
+        });
       }
     );
   }
@@ -224,7 +227,10 @@ export class EntryStorage {
       return false;
     }
 
-    if (!entry || !entry.hasOwnProperty("secret")) {
+    if (
+      !entry ||
+      !Object.prototype.hasOwnProperty.hasOwnProperty.call(entry, "secret")
+    ) {
       return false;
     }
 
@@ -248,27 +254,25 @@ export class EntryStorage {
   }
 
   static hasEncryptedEntry() {
-    return new Promise(
-      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
-        BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-          for (const hash of Object.keys(_data)) {
-            if (!this.isValidEntry(_data, hash)) {
-              continue;
-            }
-            if (_data[hash].encrypted) {
-              return resolve(true);
-            }
+    return new Promise((resolve: (value: boolean) => void) => {
+      BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
+        for (const hash of Object.keys(_data)) {
+          if (!this.isValidEntry(_data, hash)) {
+            continue;
           }
-          return resolve(false);
-        });
-        return;
-      }
-    );
+          if (_data[hash].encrypted) {
+            return resolve(true);
+          }
+        }
+        return resolve(false);
+      });
+      return;
+    });
   }
 
-  static getExport(data: IOTPEntry[], encrypted?: boolean) {
+  static getExport(data: OTPEntryInterface[], encrypted?: boolean) {
     try {
-      let exportData: { [hash: string]: OTPStorage } = {};
+      const exportData: { [hash: string]: OTPStorage } = {};
       for (const entry of data) {
         if (!encrypted) {
           if (!entry.secret) {
@@ -402,14 +406,15 @@ export class EntryStorage {
               }
 
               // If invalid algorithm, then use default
+              // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
               // @ts-ignore - it's fine if this ends up undefined
               if (!OTPAlgorithm[data[hash].algorithm]) {
                 data[hash].algorithm = OTPAlgorithm[OTPAlgorithm.SHA1];
               }
 
-              if (/^(blz\-|bliz\-)/.test(data[hash].secret)) {
+              if (/^(blz-|bliz-)/.test(data[hash].secret)) {
                 const secretMatches = data[hash].secret.match(
-                  /^(blz\-|bliz\-)(.*)/
+                  /^(blz-|bliz-)(.*)/
                 );
                 if (secretMatches && secretMatches.length >= 3) {
                   data[hash].secret = secretMatches[2];
@@ -417,8 +422,8 @@ export class EntryStorage {
                 }
               }
 
-              if (/^stm\-/.test(data[hash].secret)) {
-                const secretMatches = data[hash].secret.match(/^stm\-(.*)/);
+              if (/^stm-/.test(data[hash].secret)) {
+                const secretMatches = data[hash].secret.match(/^stm-(.*)/);
                 if (secretMatches && secretMatches.length >= 2) {
                   data[hash].secret = secretMatches[1];
                   data[hash].type = OTPType[OTPType.steam];
@@ -495,7 +500,7 @@ export class EntryStorage {
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-            if (!_data.hasOwnProperty(entry.hash)) {
+            if (!Object.prototype.hasOwnProperty.call(_data, entry.hash)) {
               throw new Error("Entry to change does not exist.");
             }
             const storageItem = this.getOTPStorageFromEntry(entry);
@@ -592,6 +597,7 @@ export class EntryStorage {
                 counter: entryData.counter,
                 period,
                 digits: entryData.digits,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                 // @ts-ignore - it's fine if this ends up undefined
                 algorithm: OTPAlgorithm[entryData.algorithm]
               });
@@ -614,11 +620,9 @@ export class EntryStorage {
   }
 
   static remove(hash: string) {
-    return new Promise(
-      (resolve: () => void, reject: (reason: Error) => void) => {
-        return BrowserStorage.remove(hash, resolve);
-      }
-    );
+    return new Promise((resolve: () => void) => {
+      return BrowserStorage.remove(hash, resolve);
+    });
   }
 
   static delete(entry: OTPEntry) {
@@ -626,7 +630,7 @@ export class EntryStorage {
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-            if (_data.hasOwnProperty(entry.hash)) {
+            if (Object.prototype.hasOwnProperty.call(_data, entry.hash)) {
               delete _data[entry.hash];
             }
             _data = this.ensureUniqueIndex(_data);

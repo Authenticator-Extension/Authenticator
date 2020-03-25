@@ -1,9 +1,10 @@
-interface IModule {
+interface Module {
   getModule(): Promise<VuexConstructor> | VuexConstructor;
 }
 
 interface VuexConstructor {
   state?: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   };
   mutations?: {
@@ -13,76 +14,77 @@ interface VuexConstructor {
     [key: string]:
       | Function
       | {
-          root: Boolean;
+          root: boolean;
           handler: Function;
         };
   };
   getters?: {
     [key: string]: Function;
   };
-  modules?: Object;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  modules?: Record<string, any>;
   plugins?: Array<Function>;
-  strict?: Boolean;
-  devtools?: Boolean;
+  strict?: boolean;
+  devtools?: boolean;
 }
 
 interface MenuState {
-  version: String;
-  zoom: Number;
-  autolock: Number;
-  useAutofill: Boolean;
-  useHighContrast: Boolean;
-  backupDisabled: Boolean;
-  storageArea: String;
+  version: string;
+  zoom: number;
+  autolock: number;
+  useAutofill: boolean;
+  useHighContrast: boolean;
+  backupDisabled: boolean;
+  storageArea: string;
 }
 
 interface StyleState {
   style: {
-    timeout: Boolean;
-    isEditing: Boolean;
-    slidein: Boolean;
-    slideout: Boolean;
-    fadein: Boolean;
-    fadeout: Boolean;
-    show: Boolean;
-    qrfadein: Boolean;
-    qrfadeout: Boolean;
-    notificationFadein: Boolean;
-    notificationFadeout: Boolean;
-    hotpDisabled: Boolean;
+    timeout: boolean;
+    isEditing: boolean;
+    slidein: boolean;
+    slideout: boolean;
+    fadein: boolean;
+    fadeout: boolean;
+    show: boolean;
+    qrfadein: boolean;
+    qrfadeout: boolean;
+    notificationFadein: boolean;
+    notificationFadeout: boolean;
+    hotpDisabled: boolean;
   };
 }
 
 interface AccountsState {
-  entries: IOTPEntry[];
-  encryption: IEncryption;
-  OTPType: Number;
-  shouldShowPassphrase: Boolean;
-  sectorStart: Boolean;
-  sectorOffset: Number;
-  second: Number;
-  notification: String;
-  filter: Boolean;
+  entries: OTPEntryInterface[];
+  encryption: EncryptionInterface;
+  OTPType: number;
+  shouldShowPassphrase: boolean;
+  sectorStart: boolean;
+  sectorOffset: number;
+  second: number;
+  notification: string;
+  filter: boolean;
   siteName: (string | null)[];
-  showSearch: Boolean;
-  exportData: { [k: string]: IOTPEntry };
-  exportEncData: { [k: string]: IOTPEntry };
+  showSearch: boolean;
+  exportData: { [k: string]: OTPEntryInterface };
+  exportEncData: { [k: string]: OTPEntryInterface };
   key: { enc: string; hash: string } | null;
-  wrongPassword: Boolean;
+  wrongPassword: boolean;
 }
 
 interface NotificationState {
   message: Array<string>;
-  confirmMessage: String;
-  messageIdle: Boolean;
-  notification: String;
+  confirmMessage: string;
+  messageIdle: boolean;
+  notification: string;
 }
 
 interface BackupState {
-  dropboxEncrypted: Boolean;
-  driveEncrypted: Boolean;
-  oneDriveEncrypted: Boolean;
-  dropboxToken: Boolean;
-  driveToken: Boolean;
-  oneDriveToken: Boolean;
+  dropboxEncrypted: boolean;
+  driveEncrypted: boolean;
+  oneDriveEncrypted: boolean;
+  dropboxToken: boolean;
+  driveToken: boolean;
+  oneDriveToken: boolean;
 }

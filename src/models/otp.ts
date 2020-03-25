@@ -23,7 +23,7 @@ export enum OTPAlgorithm {
   SHA512
 }
 
-export class OTPEntry implements IOTPEntry {
+export class OTPEntry implements OTPEntryInterface {
   type: OTPType;
   index: number;
   issuer: string;

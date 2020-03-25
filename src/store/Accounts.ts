@@ -4,7 +4,7 @@ import * as CryptoJS from "crypto-js";
 import { OTPType, OTPAlgorithm, CodeState } from "../models/otp";
 import { ActionContext } from "vuex";
 
-export class Accounts implements IModule {
+export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
@@ -105,7 +105,7 @@ export class Accounts implements IModule {
           //     }
           //   }
           // }
-          const entries = state.entries as IOTPEntry[];
+          const entries = state.entries as OTPEntryInterface[];
           for (let i = 0; i < entries.length; i++) {
             if (
               entries[i].type !== OTPType.hotp &&
@@ -115,7 +115,7 @@ export class Accounts implements IModule {
             }
           }
         },
-        loadCodes(state: AccountsState, newCodes: IOTPEntry[]) {
+        loadCodes(state: AccountsState, newCodes: OTPEntryInterface[]) {
           state.entries = newCodes;
         },
         moveCode(state: AccountsState, opts: { from: number; to: number }) {
@@ -133,13 +133,13 @@ export class Accounts implements IModule {
         },
         updateExport(
           state: AccountsState,
-          exportData: { [k: string]: IOTPEntry }
+          exportData: { [k: string]: OTPEntryInterface }
         ) {
           state.exportData = exportData;
         },
         updateEncExport(
           state: AccountsState,
-          exportData: { [k: string]: IOTPEntry }
+          exportData: { [k: string]: OTPEntryInterface }
         ) {
           state.exportEncData = exportData;
         },
@@ -175,7 +175,7 @@ export class Accounts implements IModule {
         },
         addCode: async (
           state: ActionContext<AccountsState, {}>,
-          entry: IOTPEntry
+          entry: OTPEntryInterface
         ) => {
           state.state.entries.unshift(entry);
           state.commit(
@@ -223,6 +223,7 @@ export class Accounts implements IModule {
                   window.addEventListener("message", response => {
                     resolve(response.data.response);
                   });
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                   //@ts-ignore
                   iframe.contentWindow.postMessage(message, "*");
                 }
@@ -235,7 +236,7 @@ export class Accounts implements IModule {
             }
 
             // change entry encryption to key and remove old hash
-            let oldKeys: string[] = [];
+            const oldKeys: string[] = [];
             for (const entry of state.state.entries) {
               await entry.changeEncryption(
                 new Encryption(wordArray.toString())
@@ -274,6 +275,7 @@ export class Accounts implements IModule {
                   window.addEventListener("message", response => {
                     resolve(response.data.response);
                   });
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                   //@ts-ignore
                   iframe.contentWindow.postMessage(message, "*");
                 }
@@ -320,6 +322,7 @@ export class Accounts implements IModule {
                   window.addEventListener("message", response => {
                     resolve(response.data.response);
                   });
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                   //@ts-ignore
                   iframe.contentWindow.postMessage(message, "*");
                 }
@@ -331,7 +334,7 @@ export class Accounts implements IModule {
             }
 
             // change entry encryption and regen hash
-            let removeHashes: string[] = [];
+            const removeHashes: string[] = [];
             for (const entry of state.state.entries) {
               await entry.changeEncryption(
                 new Encryption(wordArray.toString())
@@ -489,72 +492,67 @@ export class Accounts implements IModule {
   }
 
   private async getSiteName() {
-    return new Promise(
-      (
-        resolve: (value: Array<string | null>) => void,
-        reject: (reason: Error) => void
-      ) => {
-        chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-          const tab = tabs[0];
-          if (!tab) {
-            return resolve([null, null]);
-          }
+    return new Promise((resolve: (value: Array<string | null>) => void) => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+        const tab = tabs[0];
+        if (!tab) {
+          return resolve([null, null]);
+        }
 
-          const title = tab.title
-            ? tab.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
-            : null;
+        const title = tab.title
+          ? tab.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
+          : null;
 
-          if (!tab.url) {
-            return resolve([title, null]);
-          }
+        if (!tab.url) {
+          return resolve([title, null]);
+        }
 
-          const urlParser = document.createElement("a");
-          urlParser.href = tab.url;
-          const hostname = urlParser.hostname.toLowerCase();
+        const urlParser = document.createElement("a");
+        urlParser.href = tab.url;
+        const hostname = urlParser.hostname.toLowerCase();
 
-          // try to parse name from hostname
-          // i.e. hostname is www.example.com
-          // name should be example
-          let nameFromDomain = "";
+        // try to parse name from hostname
+        // i.e. hostname is www.example.com
+        // name should be example
+        let nameFromDomain = "";
 
-          // ip address
-          if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
-            nameFromDomain = hostname;
-          }
+        // ip address
+        if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
+          nameFromDomain = hostname;
+        }
 
-          // local network
-          if (hostname.indexOf(".") === -1) {
-            nameFromDomain = hostname;
-          }
+        // local network
+        if (hostname.indexOf(".") === -1) {
+          nameFromDomain = hostname;
+        }
 
-          const hostLevelUnits = hostname.split(".");
+        const hostLevelUnits = hostname.split(".");
 
-          if (hostLevelUnits.length === 2) {
-            nameFromDomain = hostLevelUnits[0];
-          }
+        if (hostLevelUnits.length === 2) {
+          nameFromDomain = hostLevelUnits[0];
+        }
 
-          // www.example.com
+        // www.example.com
+        // example.com.cn
+        if (hostLevelUnits.length > 2) {
           // example.com.cn
-          if (hostLevelUnits.length > 2) {
-            // example.com.cn
-            if (
-              ["com", "net", "org", "edu", "gov", "co"].indexOf(
-                hostLevelUnits[hostLevelUnits.length - 2]
-              ) !== -1
-            ) {
-              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
-            } else {
-              // www.example.com
-              nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
-            }
+          if (
+            ["com", "net", "org", "edu", "gov", "co"].indexOf(
+              hostLevelUnits[hostLevelUnits.length - 2]
+            ) !== -1
+          ) {
+            nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
+          } else {
+            // www.example.com
+            nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
           }
+        }
 
-          nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
+        nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
 
-          return resolve([title, nameFromDomain, hostname]);
-        });
-      }
-    );
+        return resolve([title, nameFromDomain, hostname]);
+      });
+    });
   }
 
   private getCachedPassphrase() {
@@ -573,7 +571,10 @@ export class Accounts implements IModule {
     return otpEntries;
   }
 
-  private matchedEntries(siteName: Array<string | null>, entries: IOTPEntry[]) {
+  private matchedEntries(
+    siteName: Array<string | null>,
+    entries: OTPEntryInterface[]
+  ) {
     if (siteName.length < 2) {
       return false;
     }
@@ -589,7 +590,10 @@ export class Accounts implements IModule {
     return matched;
   }
 
-  private isMatchedEntry(siteName: Array<string | null>, entry: IOTPEntry) {
+  private isMatchedEntry(
+    siteName: Array<string | null>,
+    entry: OTPEntryInterface
+  ) {
     if (!entry.issuer) {
       return false;
     }

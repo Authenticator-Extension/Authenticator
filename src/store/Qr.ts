@@ -1,4 +1,4 @@
-export class Qr implements IModule {
+export class Qr implements Module {
   getModule() {
     return {
       state: {

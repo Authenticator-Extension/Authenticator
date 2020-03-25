@@ -39,16 +39,14 @@ async function init() {
 init();
 
 function getCachedPassphrase() {
-  return new Promise(
-    (resolve: (value: string) => void, reject: (reason: Error) => void) => {
-      chrome.runtime.sendMessage(
-        { action: "passphrase" },
-        (passphrase: string) => {
-          return resolve(passphrase);
-        }
-      );
-    }
-  );
+  return new Promise((resolve: (value: string) => void) => {
+    chrome.runtime.sendMessage(
+      { action: "passphrase" },
+      (passphrase: string) => {
+        return resolve(passphrase);
+      }
+    );
+  });
 }
 
 export function decryptBackupData(
@@ -134,10 +132,12 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
             issuer = parameter[1];
           }
           issuer = issuer.replace(/\+/g, " ");
-        } else if (parameter[0].toLowerCase() === "counter") {
+        } /* else if (parameter[0].toLowerCase() === "counter") {
           let counter = Number(parameter[1]);
           counter = isNaN(counter) || counter < 0 ? 0 : counter;
-        } else if (parameter[0].toLowerCase() === "period") {
+        } */ else if (
+          parameter[0].toLowerCase() === "period"
+        ) {
           period = Number(parameter[1]);
           period =
             isNaN(period) || period < 0 || period > 60 || 60 % period !== 0

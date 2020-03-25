@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import QRCode from "qrcode-reader";
 
@@ -157,8 +158,8 @@ async function getTotp(text: string) {
           }
           issuer = issuer.replace(/\+/g, " ");
         } else if (parameter[0].toLowerCase() === "counter") {
-          let counter = Number(parameter[1]);
-          counter = isNaN(counter) || counter < 0 ? 0 : counter;
+          // let counter = Number(parameter[1]);
+          // counter = isNaN(counter) || counter < 0 ? 0 : counter;
         } else if (parameter[0].toLowerCase() === "period") {
           period = Number(parameter[1]);
           period =
@@ -426,18 +427,15 @@ async function uploadBackup(service: string) {
 
   switch (service) {
     case "dropbox":
-      const dbox = new Dropbox();
-      await dbox.upload(encryption);
+      await new Dropbox().upload(encryption);
       break;
 
     case "drive":
-      const drive = new Drive();
-      await drive.upload(encryption);
+      await new Drive().upload(encryption);
       break;
 
     case "onedrive":
-      const onedrive = new OneDrive();
-      await onedrive.upload(encryption);
+      await new OneDrive().upload(encryption);
       break;
 
     default:

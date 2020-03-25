@@ -1,6 +1,6 @@
 import * as CryptoJS from "crypto-js";
 
-export class Encryption implements IEncryption {
+export class Encryption implements EncryptionInterface {
   private password: string;
 
   constructor(password: string) {
@@ -33,9 +33,9 @@ export class Encryption implements IEncryption {
       if (
         !/^[a-z2-7]+=*$/i.test(decryptedSecret) &&
         !/^[0-9a-f]+$/i.test(decryptedSecret) &&
-        !/^blz\-/.test(decryptedSecret) &&
-        !/^bliz\-/.test(decryptedSecret) &&
-        !/^stm\-/.test(decryptedSecret)
+        !/^blz-/.test(decryptedSecret) &&
+        !/^bliz-/.test(decryptedSecret) &&
+        !/^stm-/.test(decryptedSecret)
       ) {
         return null;
       }

@@ -174,7 +174,7 @@ export class Drive implements BackupProvider {
           },
           token => {
             localStorage.driveToken = token;
-            if (!Boolean(token)) {
+            if (!token) {
               localStorage.driveRevoked = true;
             }
             resolve(Boolean(token));

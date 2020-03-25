@@ -1,6 +1,6 @@
 import { ManagedStorage } from "../models/storage";
 
-export class Menu implements IModule {
+export class Menu implements Module {
   async getModule() {
     const menuState = {
       state: {
