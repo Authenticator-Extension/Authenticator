@@ -108,91 +108,91 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Dette passordet vil bli brukt til å kryptere kontoene dine. Ingen kan hjelpe deg hvis du glemmer passordet.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Oppdater",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Du kan ikke legge til en ny konto eller eksportere data før alle kontoer er dekryptert. Vennligst tast inn riktig passord før du fortsetter.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Passord stemmer ikke overens.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Kryptert",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopiert",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Tilbakemelding",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Oversett",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Kildekode",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Skriv inn passordet for å dekryptere konto data.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Synkroniser klokke med Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Husk Passord",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Forsiktig! Din lokale klokke er for langt unna. Vennligst fiks den før du fortsetter.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Har du en sikkerhetskopi for kontoene dine? Ikke vent til det er for sent!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Opptak mislyktes, vennligst last inn siden på nytt og prøv igjen.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Tidsbasert",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Tellerbasert",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Preferanser",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Advarsel: alle sikkerhetskopier er ikke kryptert. Vil du legge til en konto i en annen app? Hold musepekeren over øvre høyre del av kontoen, og trykk på den skjulte knappen.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Last ned sikkerhetskopi",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importer Sikkerhetskopi",
         "description": "Import backup."
     },
     "import_backup_file": {
