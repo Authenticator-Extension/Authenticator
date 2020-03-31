@@ -1,18 +1,18 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "احراز هویت کننده",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "احراز هویت کننده",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "افزونه Authenticator کدهای تأیید هویت دو مرحله‌ای را در مرورگر شما تولید می‌کند.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " اضافه شده است.",
         "description": "Added Account."
     },
     "errorqr": {
