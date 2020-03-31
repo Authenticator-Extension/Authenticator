@@ -36,7 +36,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "باشه",
+        "message": "تایید",
         "description": "OK."
     },
     "yes": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "موفق بود.",
+        "message": "با موفقیت انجام شد.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "این کلمه عبور برای رمزنگاری حساب شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
+        "message": "این کلمه عبور برای رمزنگاری حساب‌های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -116,11 +116,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "شما نمی‌توانید حساب جدیدی اضافه کنید یا داده‌ها را اکسپورت کنید، مگر اینکه تمام حساب‌ها رمزگشایی شده باشند. لطفا کلمه عبور صحیح را قبل از ادامه وارد نمایید.",
+        "message": "شما نمی‌توانید تا زمانی تمام حساب‌ها رمزگشایی نشده‌اند حساب جدیدی اضافه کنید یا داده‌ها را اکسپورت کنید. لطفا کلمه عبور صحیح را قبل از ادامه وارد نمایید.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "کلمه عبور صحیح نیست.",
+        "message": "کلمه عبور منطبق نیست.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
