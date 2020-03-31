@@ -16,203 +16,203 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "QR code شناسایی نشد.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "رمز حساب نامعتبر است",
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "اسکن QR Code",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "وارد کردن به طور دستی",
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "بستن",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "باشه",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "بله",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "خیر",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "حساب",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "نام کاربری",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "صادرکننده",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "رمز",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "موفق بود.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "ناموفق بود.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "درباره",
         "description": "About."
     },
     "export_import": {
-        "message": "Export / Import",
+        "message": "ایمپورت / اکسپورت",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "تنظیمات",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "امنیت",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "کلمه عبور فعلی",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "کلمه عبور جدید",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "کلمه عبور",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "تأیید کلمه عبور",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "آیا مطمئن هستید که می‌خواهید این حساب را حذف کنید؟ این عملیات قابل بازگردانی نیست.",
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "این کلمه عبور برای رمزنگاری حساب شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "به‌روز رسانی",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "شما نمی‌توانید حساب جدیدی اضافه کنید یا داده‌ها را اکسپورت کنید، مگر اینکه تمام حساب‌ها رمزگشایی شده باشند. لطفا کلمه عبور صحیح را قبل از ادامه وارد نمایید.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "کلمه عبور صحیح نیست.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "رمزنگاری شده",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "کپی شد",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "ﺑﺎﺯﺧﻮﺭﺩ",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "ترجمه",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "کد منبع",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "کلمه عبور را برای رمزگشایی داده‌ها وارد نمایید.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "همگام‌سازی ساعت با گوگل",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "به خاطر سپردن کلمه عبور",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "اخطار! ساعت محلی شما نادرست است، لطفا قبل از ادامه آن را تصحیح نمایید.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "آیا یک نسخه پشتیبان برای حساب‌های خود دارید؟ صبر نکنید تا خیلی دیر شود!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "تصویر برداری موفق نبود، لطفا صفحه را ریفرش کرده و دوباره تلاش کنید.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "مبتنی بر زمان",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "مبتنی بر شمارنده",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "تنظیمات",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "مقیاس",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری شده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "دانلود فایل پشتیبان",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "ایمپورت کردن پشتیبان",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "ایمپورت کردن فایل پشتیبان",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "ایمپورت کردن پشتیبان متنی",
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "نمایش تمام ورودی‌ها",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "هشدار: فایل‌های پشتیبان‌ رمزنگاری شده هستند. با مسئولیت خودتان استفاده کنید.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "باید کلمه عبور صحیح را برای ایمپورت کردن فایل‌های پشتیبان ارائه دهید.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
