@@ -208,7 +208,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "هشدار: فایل‌های پشتیبان‌ رمزنگاری شده هستند. با مسئولیت خودتان استفاده کنید.",
+        "message": "هشدار: فایل‌های پشتیبان‌ رمزنگاری نشده‌اند. با مسئولیت خودتان استفاده کنید.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -264,7 +264,7 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "گرفتن نسخه پشتیبان خودکار از داده‌ها توسط خدمات شخص ثالث.",
+        "message": "گرفتن نسخه پشتیبان خودکار از داده‌های شما توسط سرویس‌های شخص ثالث.",
         "description": "3rd party backup info"
     },
     "storage_location": {
