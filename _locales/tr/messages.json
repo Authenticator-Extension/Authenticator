@@ -196,7 +196,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Yedeklemeyi içe aktar",
+        "message": "Yedekleme Dosyasını İçe Aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
