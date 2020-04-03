@@ -196,11 +196,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Yedekleme Dosyasını İçe Aktar",
+        "message": "Yedekleme dosyasını içe aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Metin dosyasından içeri aktar",
+        "message": "Metin yedeklemeyi içe aktar",
         "description": "Import backup code."
     },
     "show_all_entries": {
