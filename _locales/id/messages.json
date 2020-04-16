@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Otentikator",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -326,6 +326,6 @@
         "message": "4S73 Rd5O Frwz Wgnf 2LJY Mrtj Wftl Ympa"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritma"
     }
 }
