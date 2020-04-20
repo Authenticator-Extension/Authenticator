@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autentikaator genereerib teie brauseris mitmikautentimis koode.",
+        "message": "Autentikaator genereerib teie brauseris mitmikautentimise koode.",
         "description": "Extension Description."
     },
     "added": {
