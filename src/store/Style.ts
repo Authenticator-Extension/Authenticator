@@ -78,9 +78,9 @@ export class Style implements Module {
         }
       },
       getters: {
-        // Returns true if menu of info screen shown
+        // Returns true if menu or info screen shown
         isMenuShown(state: StyleState) {
-          return (state.style.fadein || state.style.show || state.style.slidein);
+          return state.style.fadein || state.style.show || state.style.slidein;
         }
       },
       namespaced: true
