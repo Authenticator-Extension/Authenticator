@@ -116,7 +116,11 @@ async function init() {
     "keyup",
     e => {
       if (e.key === "/") {
-        if (instance.$store.state.style.style.fadein === true) {
+        if (
+          instance.$store.state.style.style.fadein ||
+          instance.$store.state.style.style.show ||
+          instance.$store.state.style.style.slidein
+        ) {
           return;
         }
         instance.$store.commit("accounts/stopFilter");
