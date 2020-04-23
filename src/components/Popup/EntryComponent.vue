@@ -110,6 +110,7 @@ export default Vue.extend({
     },
     shouldShowQrIcon(entry: OTPEntry) {
       return (
+        !this.$store.state.entry.showQrDisabled &&
         entry.secret !== null &&
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam

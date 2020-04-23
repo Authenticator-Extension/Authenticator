@@ -16,6 +16,7 @@ import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { Entry } from "./store/Entry";
 import { EntryStorage } from "./models/storage";
 
 async function init() {
@@ -32,6 +33,7 @@ async function init() {
       accounts: await new Accounts().getModule(),
       backup: new Backup().getModule(),
       currentView: new CurrentView().getModule(),
+      entry: await new Entry().getModule(),
       menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
       qr: new Qr().getModule(),
