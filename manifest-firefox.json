@@ -36,6 +36,10 @@
             "description": "Scan a QR code"
         }
     },
+    "options_ui": {
+        "page": "view/options.html",
+        "browser_style": true
+    },
     "permissions": [
         "activeTab",
         "<all_urls>",
