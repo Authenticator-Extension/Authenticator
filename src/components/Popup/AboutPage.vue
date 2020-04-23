@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      <strong>Authenticator</strong> &copy; 2019
+      <strong>Authenticator</strong> &copy; 2014-{{ new Date().getFullYear() }}
       <a target="_blank" href="https://github.com/Authenticator-Extension"
         >Authenticator Extension</a
       >. Released under the MIT License.
@@ -22,28 +22,18 @@
       >
       Licensed under CC BY 4.0
     </p>
-    <p>
-      <a target="_blank" href="https://github.com/jprichardson/node-fs-extra"
-        >fs-extra</a
-      >
-      Copyright JP Richardson. Licensed under the MIT License.
-    </p>
     <p>Google and Google Drive are trademarks of Google LLC.</p>
     <p>
-      <a target="_blank" href="https://github.com/LazarSoft/jsqrcode"
-        >jsqrcode</a
-      >
+      <a target="_blank" href="https://github.com/edi9999/jsqrcode">jsqrcode</a>
       Copyright Lazar Laszlo. Licensed under the Apache License.
     </p>
     <p>
-      <a target="_blank" href="http://caligatio.github.com/jsSHA/">jsSHA</a>
-      Copyright Brian Turek. Licensed under the BSD License.
-    </p>
-    <p>
-      <a target="_blank" href="http://davidshimjs.github.io/qrcodejs/"
-        >qrcode.js</a
+      <a
+        target="_blank"
+        href="https://github.com/kazuhikoarase/qrcode-generator"
+        >qrcode-generator</a
       >
-      Copyright Shim Sangmin. Licensed under the MIT License.
+      Copyright Kazuhiko Arase. Licensed under the MIT License.
     </p>
     <p>
       <a target="_blank" href="https://github.com/sass/sass">sass</a> Copyright
