@@ -13,6 +13,7 @@ export class Menu implements Module {
         exportDisabled: await ManagedStorage.get("disableExport"),
         enforcePassword: await ManagedStorage.get("enforcePassword"),
         enforceAutolock: await ManagedStorage.get("enforceAutolock"),
+        showQrDisabled: await ManagedStorage.get("disableExport"),
         storageArea: await ManagedStorage.get("storageArea"),
         feedbackURL: await ManagedStorage.get("feedbackURL")
       },
