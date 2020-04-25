@@ -24,6 +24,10 @@
             "description": "Scan a QR code"
         }
     },
+    "options_ui": {
+        "page": "view/options.html",
+        "chrome_style": true
+    },
     "storage": {
         "managed_schema": "schema.json"
     },
