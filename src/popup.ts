@@ -116,7 +116,13 @@ async function init() {
     "keyup",
     e => {
       if (e.key === "/") {
-        if (instance.$store.getters["style/isMenuShown"]) {
+        const eventTarget = e.target as HTMLElement;
+        if (
+          instance.$store.getters["style/isMenuShown"] ||
+          (eventTarget &&
+            "tagName" in eventTarget &&
+            eventTarget.tagName === "INPUT")
+        ) {
           return;
         }
         instance.$store.commit("accounts/stopFilter");
