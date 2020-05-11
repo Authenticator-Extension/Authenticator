@@ -200,7 +200,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importa un backup testuale",
+        "message": "Importa Backup Dati",
         "description": "Import backup code."
     },
     "show_all_entries": {
