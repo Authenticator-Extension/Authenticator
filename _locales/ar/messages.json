@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "رمز ريال قطري غير المعترف بها.",
+        "message": "رمز الاستجابة السريع غير المعترف به.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "الفشل:",
+        "message": "فشل التحديث:",
         "description": "Update Failure."
     },
     "about": {
@@ -96,7 +96,7 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password:",
+        "message": "كلمة المرور:",
         "description": "Passphrase."
     },
     "confirm_phrase": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "security_warning": {
-        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا أحد يمكن أن تساعدك إذا كنت قد نسيت كلمة المرور.",
+        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا يمكن أن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -120,7 +120,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "لا تتطابق كلمات المرور.",
+        "message": "عبارة المرور غير متطابقة.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -156,23 +156,23 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "تحذير! ساعة الكمبيوتر المحلي بعيدة جداً، الرجاء إصلاحه قبل المتابعة.",
+        "message": "تحذير! التوقيت المحلي بعيد جدًا، الرجاء إصلاحه قبل المتابعة.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى فوات!",
+        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى فوات الاوان!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "فشل في التقاط ويرجى إعادة تحميل الصفحة وحاول مرة أخرى.",
+        "message": "فشل في التقاط الرمز ويرجى إعادة تحميل الصفحة وحاول مرة أخرى.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "الوقت على أساس",
+        "message": "قائم على الوقت",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "مضادة على أساس",
+        "message": "قائم على العداد",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -184,7 +184,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "تحذير: على كافة النسخ الاحتياطية غير مشفرة. هل ترغب في إضافة حساب إلى آخر التطبيق؟ تحوم فوق الجزء الأيمن العلوي من أي حساب، وضرب على الزر المخفي.",
+        "message": "تحذير: جميع النسخ الاحتياطية غير مشفرة. هل تريد إضافة حساب إلى تطبيق آخر؟ مرر فوق الجزء العلوي الأيمن من أي حساب واضغط على الزر المخفي.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -204,11 +204,11 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "تظهر كافة الإدخالات",
+        "message": "إظهار كافة الإدخالات.",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "تحذير: يتم النسخ الاحتياطية غير مشفرة. استخدام على مسؤوليتك الخاصة.",
+        "message": "تحذير: النسخ الاحتياطية غير مشفرة. استخدام على مسؤوليتك الخاصة.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -224,7 +224,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "تحميل النسخة الاحتياطية محمية بكلمة مرور",
+        "message": "تحميل النسخة الاحتياطية المشفرة",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -232,11 +232,11 @@
         "description": "Search"
     },
     "popout": {
-        "message": "الصورة المنبثقة",
+        "message": "النافذة المنبثقة",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "اغلق الحساب",
         "description": "Lock accounts"
     },
     "edit": {
