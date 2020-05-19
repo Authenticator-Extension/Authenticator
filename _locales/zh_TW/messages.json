@@ -255,6 +255,22 @@
         "message": "高對比",
         "description": "Use High Contrast"
     },
+    "theme": {
+        "message": "Theme",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Light",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Dark",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "High Contrast",
+        "description": "High Contrast theme"
+    },
     "storage_menu": {
         "message": "存儲及備份",
         "description": "Storage and sync menu title"

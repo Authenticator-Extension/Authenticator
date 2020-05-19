@@ -7,7 +7,9 @@ export class Menu implements Module {
         version: chrome.runtime.getManifest().version,
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
-        useHighContrast: localStorage.highContrast === "true",
+        theme:
+          localStorage.theme ||
+          (localStorage.highContrast === "true" ? "accessibility" : "normal"),
         autolock: Number(localStorage.autolock) || 0,
         backupDisabled: await ManagedStorage.get("disableBackup"),
         exportDisabled: await ManagedStorage.get("disableExport"),
@@ -26,9 +28,10 @@ export class Menu implements Module {
           state.useAutofill = useAutofill;
           localStorage.autofill = useAutofill;
         },
-        setHighContrast(state: MenuState, useHighContrast: boolean) {
-          state.useHighContrast = useHighContrast;
-          localStorage.highContrast = useHighContrast;
+        setTheme(state: MenuState, theme: string) {
+          state.theme = theme;
+          localStorage.theme = theme;
+          localStorage.removeItem("useHighContrast");
         },
         setAutolock(state: MenuState, autolock: number) {
           state.autolock = autolock;

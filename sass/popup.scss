@@ -780,6 +780,16 @@ svg {
   }
 }
 
+@keyframes glint {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+}
+
 @keyframes fadeshow {
   0% {
     opacity: 0;
@@ -869,6 +879,17 @@ svg {
     border: 2px solid themed("grey-3");
   }
   border-radius: 5px;
+}
+
+// Dark overrides
+.theme-dark {
+  #codes {
+    &:not(.edit) {
+      .code.timeout:not(.hotp) {
+        animation: glint 1s infinite;
+      }
+    }
+  }
 }
 
 // Accessibility overrides
