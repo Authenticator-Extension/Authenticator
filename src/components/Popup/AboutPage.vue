@@ -24,6 +24,10 @@
     </p>
     <p>Google and Google Drive are trademarks of Google LLC.</p>
     <p>
+      <a target="_blank" href="https://github.com/cozmo/jsQR">jsQR</a>
+      Copyright Cosmo Wolfe. Licensed under the Apache License.
+    </p>
+    <p>
       <a target="_blank" href="https://github.com/edi9999/jsqrcode">jsqrcode</a>
       Copyright Lazar Laszlo. Licensed under the Apache License.
     </p>
