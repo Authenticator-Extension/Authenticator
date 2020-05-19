@@ -209,8 +209,7 @@ export class Accounts implements Module {
               return;
             }
             // gen key
-            const randomKey = crypto.getRandomValues(new Uint32Array(30));
-            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const wordArray = CryptoJS.lib.WordArray.random(120);
             const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
             const encKeyHash = await new Promise(
               (resolve: (value: string) => void) => {
@@ -308,8 +307,7 @@ export class Accounts implements Module {
           password: string
         ) => {
           if (password) {
-            const randomKey = crypto.getRandomValues(new Uint32Array(30));
-            const wordArray = CryptoJS.lib.WordArray.create(randomKey);
+            const wordArray = CryptoJS.lib.WordArray.random(120);
             const encKey = CryptoJS.AES.encrypt(wordArray, password).toString();
             const encKeyHash = await new Promise(
               (resolve: (value: string) => void) => {
