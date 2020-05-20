@@ -34,7 +34,7 @@
         class="input"
         type="number"
         min="0"
-        style="width: 70px;"
+        style="width: 70px; text-align: center;"
         v-model="autolock"
         :disabled="Boolean(enforceAutolock)"
       />

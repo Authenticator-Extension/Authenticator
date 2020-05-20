@@ -139,12 +139,10 @@ $theme-map: null;
 
 .input {
   display: block;
-  margin-bottom: 20px;
-  margin-top: 15px;
+  margin: 15px 10px 20px 10px;
   padding: 5px 10px;
   width: 260px;
   border: none;
-  text-align: center;
   @include themify($themes) {
     color: themed("black-1");
     border-bottom: themed("black-1") 1px solid;
