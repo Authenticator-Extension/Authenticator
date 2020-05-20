@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Megértem, hogy az összes adatomat helyreállíthatatlanul törli.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Hitelesítő visszaállítása"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az Authenticator alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
     },
     "security_warning": {
         "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Téma",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Világos",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Sötét",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Nagy kontrasztú",
         "description": "High Contrast theme"
     },
     "storage_menu": {
