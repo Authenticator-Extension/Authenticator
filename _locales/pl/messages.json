@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Rozumiem, że wszystkie moje dane zostaną nieodwracalnie usunięte.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Zresetuj Authenticatora"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie Authenticatora. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem Authenticatora należy rozważyć zapisanie kopii zapasowej."
     },
     "security_warning": {
         "message": "To hasło będzie służyć szyfrowaniu twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Motyw",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Jasny",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Ciemny",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Wysoki kontrast",
         "description": "High Contrast theme"
     },
     "storage_menu": {
