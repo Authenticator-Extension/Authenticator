@@ -107,6 +107,16 @@
         "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει στη περίπτωση που ξεχάσετε τον κωδικό πρόσβασης.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Χρήση υψηλής αντίθεσης",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Theme",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Light",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Dark",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "High Contrast",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Αποθήκευση & δημιουργία αντιγράφων ασφαλείας",
