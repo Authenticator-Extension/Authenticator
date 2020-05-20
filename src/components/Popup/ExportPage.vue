@@ -85,7 +85,12 @@ function getBackupFile(
 ) {
   if (key) {
     Object.assign(entryData, { key: key });
+  } else {
+    for (const hash of Object.keys(entryData)) {
+      entryData[hash].encrypted = false;
+    }
   }
+
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, "\r\n");
