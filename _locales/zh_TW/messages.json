@@ -107,6 +107,16 @@
         "message": "您確定要刪除此帳戶嗎？此操作無法撤消。",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "高對比",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Theme",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Light",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Dark",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "High Contrast",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "存儲及備份",
