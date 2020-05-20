@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Tôi hiểu rằng toàn bộ dữ liệu của tôi sẽ bị xóa và không thể khôi phục.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Reset Authenticator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập Authenticator về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại Authenticator."
     },
     "security_warning": {
         "message": "Mật khẩu này sẽ được sử dụng để mã hóa tài khoản của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Chủ đề",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Sáng",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Tối",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Tương phản cao",
         "description": "High Contrast theme"
     },
     "storage_menu": {
