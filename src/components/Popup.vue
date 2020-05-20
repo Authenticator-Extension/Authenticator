@@ -2,8 +2,9 @@
   <div
     v-cloak
     v-bind:class="{
-      'theme-normal': !useHighContrast,
-      'theme-accessibility': useHighContrast
+      'theme-normal': theme !== 'accessibility' && theme !== 'dark',
+      'theme-accessibility': theme === 'accessibility',
+      'theme-dark': theme === 'dark'
     }"
   >
     <MainHeader />
@@ -64,7 +65,7 @@ import NotificationHandler from "./Popup/NotificationHandler.vue";
 
 const computedPrototype = [
   mapState("style", ["style"]),
-  mapState("menu", ["useHighContrast"]),
+  mapState("menu", ["theme"]),
   mapState("qr", ["qr"]),
   mapState("notification", ["notification"])
 ];

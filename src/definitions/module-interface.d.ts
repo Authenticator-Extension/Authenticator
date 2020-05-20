@@ -33,7 +33,7 @@ interface MenuState {
   zoom: number;
   autolock: number;
   useAutofill: boolean;
-  useHighContrast: boolean;
+  theme: string;
   backupDisabled: boolean;
   storageArea: string;
 }
