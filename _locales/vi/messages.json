@@ -112,7 +112,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Thiết lập lại Authenticator"
     },
     "delete_all_warning": {
         "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập Authenticator về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại Authenticator."
