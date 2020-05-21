@@ -165,7 +165,7 @@ export class EntryStorage {
     }
 
     const storageItem: OTPStorage = {
-      encrypted: !entry.secret,
+      encrypted: Boolean(entry.encSecret),
       hash: entry.hash,
       index: entry.index,
       type: OTPType[entry.type],
