@@ -622,6 +622,7 @@ svg {
     border-radius: 8px;
     background: grey;
     margin: 2px 3px;
+    transition: all 80ms linear;
   }
 
   .prefrence-item input[type="checkbox"]::after {
@@ -635,6 +636,7 @@ svg {
     top: 0;
     left: 0;
     box-shadow: 0 0 2px black;
+    transition: all 80ms linear;
   }
 
   .prefrence-item input[type="checkbox"]:checked::before {
@@ -958,6 +960,15 @@ svg {
 
   .entry .issuerEdit input {
     color: #ccc;
+  }
+
+  ::-webkit-scrollbar {
+    background: #1e1e1e !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 2px solid #1e1e1e !important;
   }
 }
 
