@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "您确定要删除此密钥吗？此操作无法撤销。",
+        "message": "您确定要删除此密钥吗？该操作无法撤销。",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "我明白我的所有数据都将不可恢复地删除。",
+        "message": "我明白所有数据都将被删除且不可恢复。",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
@@ -186,7 +186,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "弹出页面设置",
+        "message": "偏好",
         "description": "Popup Page Settings"
     },
     "scale": {
