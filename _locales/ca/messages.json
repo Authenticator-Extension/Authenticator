@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "Entenc que totes les meves dades s'esborraran i no es podran recuperar.",
+        "message": "Entenc que totes les meves dades s'esborraran i seran impossibles de recuperar.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Reinicialitza l'Authenticator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Això esborrarà totes les vostres dades i reiniciarà completament l'Authenticator. No podreu recuperar cap dada un cop esborrades! Considereu de fer una còpia de seguretat abans de reiniciar l'Authenticator."
     },
     "security_warning": {
         "message": "Aquesta contrasenya s'emprarà per xifrar els vostres comptes. Ningú us podrà ajudar si oblideu la contrasenya.",
