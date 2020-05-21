@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "我明白我的所有数据都将不可恢复地删除。",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "重置身份验证器"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "这将删除您的所有数据并完全重置身份验证器。 您将无法恢复任何已删除的数据！您应该考虑在重置身份验证器之前保存备份。"
     },
     "security_warning": {
         "message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "主题",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "浅色",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "深色",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "高对比度",
         "description": "High Contrast theme"
     },
     "storage_menu": {
