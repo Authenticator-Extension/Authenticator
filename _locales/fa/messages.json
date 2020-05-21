@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "من متوجه هستم که تمام داده‌های من بدون امکان بازیابی حذف خواهند شد.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "بازنشانی Authenticator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "این تمام داده‌های شما را حذف کرده و افزونه Authenticator را به طور کامل بازنشانی می‌کند. شما بعداً قادر نخواهید بود داده‌های حذف شده را بازیابی کنید! شما باید قبل از بازنشانی افزونه Authenticator از داده‌های خود نسخه پشتیبان تهیه کنید."
     },
     "security_warning": {
         "message": "این کلمه عبور برای رمزنگاری حساب‌های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "زمینه",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "روشن",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "تیره",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "کنتراست بالا",
         "description": "High Contrast theme"
     },
     "storage_menu": {
