@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Am înțeles că toate datele mele vor fi șterse irecuperabil.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Resetează Autentificator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Această acțiune va șterge toate datele și va reseta complet Autentificatorul. Nu veți putea recupera datele șterse! Ar fi bine să salvați o copie de rezervă înainte de a reseta autentificatorul."
     },
     "security_warning": {
         "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Temă",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Luminoasă",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Întunecată",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Contrast sporit",
         "description": "High Contrast theme"
     },
     "storage_menu": {
