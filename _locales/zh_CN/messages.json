@@ -115,10 +115,10 @@
         "message": "重置身份验证器"
     },
     "delete_all_warning": {
-        "message": "这将删除您的所有数据并完全重置身份验证器。 您将无法恢复任何已删除的数据！您应该考虑在重置身份验证器之前保存备份。"
+        "message": "这将删除所有数据并完全重置身份验证器。 任何已删除的数据都无法恢复！在重置身份验证器之前您应保存备份。"
     },
     "security_warning": {
-        "message": "您的密钥将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
+        "message": "您的账户数据将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -170,7 +170,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "您是否为密钥创建了备份？不要等到为时已晚。",
+        "message": "您是否为账户数据创建了备份？不要等到为时已晚。",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -306,7 +306,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "连接到您的 $SERVICE$ 账号时出错，请登录后重试。",
+        "message": "连接到您的 $SERVICE$ 账号时出错，请重试。",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -331,7 +331,7 @@
         "message": "正在载入..."
     },
     "autolock": {
-        "message": "锁定时间"
+        "message": "在"
     },
     "minutes": {
         "message": "分钟"
