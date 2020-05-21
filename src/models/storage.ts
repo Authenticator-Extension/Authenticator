@@ -160,12 +160,15 @@ export class EntryStorage {
       console.warn("Invalid entry", entry);
     }
 
+    let encrypted = Boolean(entry.encSecret);
+
     if (unencrypted && entry.secret) {
       secret = entry.secret;
+      encrypted = false;
     }
 
     const storageItem: OTPStorage = {
-      encrypted: Boolean(entry.encSecret),
+      encrypted,
       hash: entry.hash,
       index: entry.index,
       type: OTPType[entry.type],
