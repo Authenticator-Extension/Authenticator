@@ -334,7 +334,7 @@
         "message": "在"
     },
     "minutes": {
-        "message": "分钟"
+        "message": "分钟后自动锁定"
     },
     "advanced": {
         "message": "高级选项"
