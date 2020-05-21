@@ -108,11 +108,11 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Entenc que totes les meves dades s'esborraran i no es podran recuperar.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Reinicialitza l'Authenticator"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Clar",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Fosc",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Alt contrast",
         "description": "High Contrast theme"
     },
     "storage_menu": {
