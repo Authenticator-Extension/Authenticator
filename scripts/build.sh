@@ -59,7 +59,6 @@ fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./css/
 
-echo "Compiling..."
 if [[ $PLATFORM = "prod" ]]; then
     echo "Generating licenses file..."
     ./node_modules/.bin/npm-license-generator \
