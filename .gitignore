@@ -9,3 +9,5 @@ dist
 scripts/authenticator-build-key.enc
 cert.pfx
 css
+.license-gen-tmp
+view/licenses.html
