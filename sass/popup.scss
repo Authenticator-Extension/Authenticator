@@ -586,13 +586,13 @@ svg {
     margin: 10px 0 0 10px;
   }
 
-  .prefrence-item {
+  .control-group {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .prefrence-item select {
+  .control-group select {
     width: 100px;
     padding: 5px 10px;
     @include themify($themes) {
@@ -602,7 +602,7 @@ svg {
     }
   }
 
-  .prefrence-item input[type="checkbox"] {
+  .control-group input[type="checkbox"] {
     position: relative;
     border: none;
     background: none;
@@ -614,7 +614,7 @@ svg {
     outline: none;
   }
 
-  .prefrence-item input[type="checkbox"]::before {
+  .control-group input[type="checkbox"]::before {
     content: "";
     display: block;
     width: 28px;
@@ -625,7 +625,7 @@ svg {
     transition: all 80ms linear;
   }
 
-  .prefrence-item input[type="checkbox"]::after {
+  .control-group input[type="checkbox"]::after {
     content: "";
     display: block;
     position: absolute;
@@ -639,11 +639,11 @@ svg {
     transition: all 80ms linear;
   }
 
-  .prefrence-item input[type="checkbox"]:checked::before {
+  .control-group input[type="checkbox"]:checked::before {
     background: #08c;
   }
 
-  .prefrence-item input[type="checkbox"]:checked::after {
+  .control-group input[type="checkbox"]:checked::after {
     transform: matrix(1, 0, 0, 1, 18, 0);
   }
 
@@ -1047,19 +1047,19 @@ svg {
     }
   }
 
-  #info .prefrence-item input[type="checkbox"]::before {
+  #info .control-group input[type="checkbox"]::before {
     background: none;
     border: 2px solid white;
     box-sizing: border-box;
   }
 
-  #info .prefrence-item input[type="checkbox"]::after {
+  #info .control-group input[type="checkbox"]::after {
     border: 2px solid black;
     margin: -2px;
     box-shadow: none;
   }
 
-  #info .prefrence-item input[type="checkbox"]:checked::before {
+  #info .control-group input[type="checkbox"]:checked::before {
     background: white;
   }
 

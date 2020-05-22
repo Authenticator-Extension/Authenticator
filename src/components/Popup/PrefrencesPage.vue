@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="prefrence-item">
+    <div class="control-group">
       <label class="combo-label">{{ i18n.theme }}</label>
       <select v-model="theme">
         <option value="normal">{{ i18n.theme_light }}</option>
@@ -8,7 +8,7 @@
         <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
       </select>
     </div>
-    <div class="prefrence-item">
+    <div class="control-group">
       <label class="combo-label">{{ i18n.scale }}</label>
       <select v-model="zoom">
         <option value="125">125%</option>
@@ -24,11 +24,11 @@
         <option value="20">20%</option>
       </select>
     </div>
-    <div class="prefrence-item">
+    <div class="control-group">
       <label class="combo-label">{{ i18n.use_autofill }}</label>
       <input class="checkbox" type="checkbox" v-model="useAutofill" />
     </div>
-    <div class="prefrence-item" v-show="encryption.getEncryptionStatus()">
+    <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
         class="input"

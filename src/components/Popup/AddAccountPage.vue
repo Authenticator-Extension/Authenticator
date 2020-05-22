@@ -16,26 +16,38 @@
         v-model.number="newAccount.period"
         v-bind:disabled="newAccount.type === OTPType.hotp"
       />
-      <label class="combo-label">{{ i18n.digits }}</label>
-      <select v-model="newAccount.digits">
-        <option value="6">6</option>
-        <option value="8">8</option>
-      </select>
-      <br />
-      <label class="combo-label">{{ i18n.algorithm }}</label>
-      <select v-model="newAccount.algorithm">
-        <option v-bind:value="OTPAlgorithm.SHA1">SHA-1</option>
-        <option v-bind:value="OTPAlgorithm.SHA256">SHA-256</option>
-        <option v-bind:value="OTPAlgorithm.SHA512">SHA-512</option>
-      </select>
-      <br />
-      <label class="combo-label">{{ i18n.type }}</label>
-      <select v-model="newAccount.type">
-        <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
-        <option v-bind:value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
-        <option v-bind:value="OTPType.battle">Battle.net</option>
-        <option v-bind:value="OTPType.steam">Steam</option>
-      </select>
+      <div class="control-group">
+        <label class="combo-label" style="margin: 20px 10px;">{{
+          i18n.digits
+        }}</label>
+        <select style="margin: 20px 10px;" v-model="newAccount.digits">
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="combo-label" style="margin: 20px 10px;">{{
+          i18n.algorithm
+        }}</label>
+        <select style="margin: 20px 10px;" v-model="newAccount.algorithm">
+          <option v-bind:value="OTPAlgorithm.SHA1">SHA-1</option>
+          <option v-bind:value="OTPAlgorithm.SHA256">SHA-256</option>
+          <option v-bind:value="OTPAlgorithm.SHA512">SHA-512</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label class="combo-label" style="margin: 20px 10px;">{{
+          i18n.type
+        }}</label>
+        <select style="margin: 20px 10px;" v-model="newAccount.type">
+          <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
+          <option v-bind:value="OTPType.hotp">{{
+            i18n.based_on_counter
+          }}</option>
+          <option v-bind:value="OTPType.battle">Battle.net</option>
+          <option v-bind:value="OTPType.steam">Steam</option>
+        </select>
+      </div>
     </details>
     <div class="button-small" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
   </div>
