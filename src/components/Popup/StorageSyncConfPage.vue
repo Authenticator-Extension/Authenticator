@@ -2,15 +2,20 @@
   <div>
     <!-- Storage Settings -->
     <div class="text">{{ i18n.storage_location_info }}</div>
-    <label class="combo-label">{{ i18n.storage_location }}</label>
-    <select
-      v-model="newStorageLocation"
-      :disabled="storageArea"
-      v-on:change="migrateStorage()"
-    >
-      <option value="sync">sync</option>
-      <option value="local">local</option>
-    </select>
+    <div class="control-group">
+      <label class="combo-label" style="margin: 20px 10px;">{{
+        i18n.storage_location
+      }}</label>
+      <select
+        style="margin: 20px 10px;"
+        v-model="newStorageLocation"
+        :disabled="storageArea"
+        v-on:change="migrateStorage()"
+      >
+        <option value="sync">sync</option>
+        <option value="local">local</option>
+      </select>
+    </div>
     <!-- 3rd Party Backup Services -->
     <div v-show="!backupDisabled" class="text">
       {{ i18n.storage_sync_info }}
