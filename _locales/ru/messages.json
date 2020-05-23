@@ -266,7 +266,7 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Тема оформления",
+        "message": "Тема",
         "description": "Theme"
     },
     "theme_light": {
