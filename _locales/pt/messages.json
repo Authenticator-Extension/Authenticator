@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "O autenticador gera códigos de autenticação de dois factores no seu navegador.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Código QR não reconhecido.",
         "description": "QR Error."
     },
     "errorsecret": {
