@@ -483,6 +483,138 @@ export class Accounts implements Module {
               });
             });
           }
+        },
+        enableSecurityKey: async (state: ActionContext<AccountsState, {}>) => {
+          const createCredentialOptions: CredentialCreationOptions = {
+            publicKey: {
+              rp: {
+                id: chrome.runtime.id,
+                name: "Authenticator"
+              },
+              user: {
+                name: "Authenticator",
+                displayName: "Authenticator",
+                id: new Uint8Array(16)
+              },
+              challenge: new Uint8Array(16),
+              pubKeyCredParams: [
+                { type: "public-key", alg: -7 },
+                { type: "public-key", alg: -35 },
+                { type: "public-key", alg: -36 },
+                { type: "public-key", alg: -257 },
+                { type: "public-key", alg: -258 },
+                { type: "public-key", alg: -259 },
+                { type: "public-key", alg: -37 },
+                { type: "public-key", alg: -38 },
+                { type: "public-key", alg: -39 }
+              ],
+              authenticatorSelection: {
+                authenticatorAttachment: "platform",
+                requireResidentKey: false,
+                userVerification: "required"
+              }
+            }
+          };
+
+          let credentialInfo: Credential | null = null;
+
+          try {
+            credentialInfo = await navigator.credentials.create(
+              createCredentialOptions
+            );
+          } catch (e) {
+            console.error(e);
+          }
+
+          if (credentialInfo === null) {
+            return chrome.i18n.getMessage("operationFailed");
+          } else {
+            const cachedPassphrase = await this.getCachedPassphrase();
+            const encKey = await BrowserStorage.getKey();
+            if (encKey === null) {
+              return chrome.i18n.getMessage("noPassphraseWarning");
+            }
+            const encryptedKey = CryptoJS.AES.encrypt(
+              CryptoJS.enc.Hex.parse(cachedPassphrase),
+              credentialInfo.id
+            ).toString();
+            localStorage.securityTokenEncryptedKey = encryptedKey;
+            return chrome.i18n.getMessage("securityKeyEnabled");
+          }
+        },
+        applySecurityKey: async (state: ActionContext<AccountsState, {}>) => {
+          const encKey = await BrowserStorage.getKey();
+          if (!encKey) {
+            // TODO: alert to ask customer enter password first to migrate
+            return;
+          }
+
+          let credentialInfo: Credential | null = null;
+
+          try {
+            credentialInfo = await navigator.credentials.get({
+              publicKey: {
+                challenge: new Uint8Array(16),
+                rpId: chrome.runtime.id,
+                userVerification: "required"
+              }
+            });
+          } catch (e) {
+            console.error(e);
+          }
+
+          if (credentialInfo === null) {
+            state.commit("currentView/changeView", "EnterPasswordPage", {
+              root: true
+            });
+            return;
+          }
+
+          const credentialId = credentialInfo.id;
+
+          const key = CryptoJS.AES.decrypt(
+            localStorage.securityTokenEncryptedKey,
+            credentialId
+          ).toString();
+          const isCorrectPassword = await new Promise(
+            (resolve: (value: string) => void) => {
+              const iframe = document.getElementById("argon-sandbox");
+              const message = {
+                action: "verify",
+                value: key,
+                hash: encKey.hash
+              };
+              if (iframe) {
+                window.addEventListener("message", response => {
+                  resolve(response.data.response);
+                });
+                // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                //@ts-ignore
+                iframe.contentWindow.postMessage(message, "*");
+              }
+            }
+          );
+
+          if (!isCorrectPassword) {
+            state.commit("wrongPassword");
+            state.commit("currentView/changeView", "EnterPasswordPage", {
+              root: true
+            });
+            return;
+          }
+
+          state.state.encryption.updateEncryptionPassword(key);
+          await state.dispatch("updateEntries");
+
+          if (!state.getters.currentlyEncrypted) {
+            chrome.runtime.sendMessage({
+              action: "cachePassphrase",
+              value: key
+            });
+          }
+
+          state.commit("style/hideInfo", true, { root: true });
+          return;
         }
       },
       namespaced: true

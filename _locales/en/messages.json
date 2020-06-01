@@ -353,5 +353,17 @@
     },
     "algorithm": {
         "message": "Algorithm"
+    },
+    "operationFailed": {
+        "message": "Operation failed."
+    },
+    "noPassphraseWarning": {
+        "message": "You must set a passphrase before enable security key."
+    },
+    "securityKeyEnabled": {
+        "message": "Security key enabled."
+    },
+    "alreadyEnabledSecurityKeyWarning": {
+        "message": "You have already enabled security key, do you want to continue?"
     }
 }

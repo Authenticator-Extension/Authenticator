@@ -137,6 +137,19 @@ $theme-map: null;
   padding: 10px;
 }
 
+.button-u2f {
+  @extend .button;
+  margin: 20px 97px;
+  width: 84px;
+  border: none !important;
+  padding: 0;
+}
+
+.button-u2f svg {
+  width: 64px;
+  height: 64px;
+}
+
 .input {
   display: block;
   margin: 15px 10px 20px 10px;
