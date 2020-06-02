@@ -385,6 +385,7 @@ export class Accounts implements Module {
             state.state.encryption.updateEncryptionPassword("");
 
             BrowserStorage.remove("key");
+            localStorage.removeItem("securityTokenEncryptedKey");
 
             await state.dispatch("updateEntries");
 
