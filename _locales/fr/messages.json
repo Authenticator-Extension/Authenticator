@@ -150,7 +150,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Code source",
+        "message": "Code Source",
         "description": "Source Code."
     },
     "passphrase_info": {
