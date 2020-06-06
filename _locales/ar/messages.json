@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "رمز ريال قطري غير المعترف بها.",
+        "message": "رمز الاستجابة السريع غير معترف به.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -68,7 +68,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "الفشل:",
+        "message": "فشل التحديث.",
         "description": "Update Failure."
     },
     "about": {
@@ -96,7 +96,7 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password:",
+        "message": "كلمة المرور",
         "description": "Passphrase."
     },
     "confirm_phrase": {
@@ -118,7 +118,7 @@
         "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين أداة المصادقة بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين أداة المصادقة."
     },
     "security_warning": {
-        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا أحد يمكن أن تساعدك إذا كنت قد نسيت كلمة المرور.",
+        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا يمكن أن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "لا تتطابق كلمات المرور.",
+        "message": "عبارة المرور غير متطابقة.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -166,15 +166,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "تحذير! ساعة الكمبيوتر المحلي بعيدة جداً، الرجاء إصلاحه قبل المتابعة.",
+        "message": "تحذير! التوقيت المحلي بعيد جدًا، الرجاء إصلاحه قبل المتابعة.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى فوات!",
+        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى فوات الاوان!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "فشل في التقاط ويرجى إعادة تحميل الصفحة وحاول مرة أخرى.",
+        "message": "فشل في التقاط الرمز, يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.",
         "description": "Capture Failed"
     },
     "based_on_time": {
