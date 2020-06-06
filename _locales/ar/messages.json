@@ -108,14 +108,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "أفهم أنه سيتم حذف جميع بياناتي بشكل لا رجعة فيه.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "إعادة تعيين أداة المصادقة"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين أداة المصادقة بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين أداة المصادقة."
     },
     "security_warning": {
         "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا أحد يمكن أن تساعدك إذا كنت قد نسيت كلمة المرور.",
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "المظهر",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "فاتح",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "غامق",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "تباين عالي",
         "description": "High Contrast theme"
     },
     "storage_menu": {
