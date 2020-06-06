@@ -182,7 +182,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "مضادة على أساس",
+        "message": "قائم على العداد",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -194,7 +194,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "تحذير: على كافة النسخ الاحتياطية غير مشفرة. هل ترغب في إضافة حساب إلى آخر التطبيق؟ تحوم فوق الجزء الأيمن العلوي من أي حساب، وضرب على الزر المخفي.",
+        "message": "تحذير: جميع نسخك الاحتياطية غير مشفرة. هل ترغب في إضافة حساب إلى آخر التطبيق؟ مرر فوق الجزء الأيمن العلوي من أي حساب، و اضغط على الزر المخفي.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -214,11 +214,11 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "تظهر كافة الإدخالات",
+        "message": "إظهار كافة الإدخالات",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "تحذير: يتم النسخ الاحتياطية غير مشفرة. استخدام على مسؤوليتك الخاصة.",
+        "message": "تحذير: النسخ الاحتياطية غير مشفرة. استخدم على مسؤوليتك الخاصة.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -234,7 +234,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "تحميل النسخة الاحتياطية محمية بكلمة مرور",
+        "message": "تنزيل النسخة الاحتياطية المحمية بكلمة مرور",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -242,11 +242,11 @@
         "description": "Search"
     },
     "popout": {
-        "message": "الصورة المنبثقة",
+        "message": "الوضع المنبثق",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "قفل",
         "description": "Lock accounts"
     },
     "edit": {
