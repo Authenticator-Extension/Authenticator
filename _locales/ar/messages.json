@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "يولد مصادق رموز التحقق 2-خطوة في المستعرض الخاص بك.",
+        "message": "يقوم المصادق بإنشاء رموز المصادقة ذات عاملين في المتصفح الخاص بك.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " تم اضافة الوظيفة.",
+        "message": " تم إضافته.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -48,7 +48,7 @@
         "description": "No."
     },
     "account": {
-        "message": "الحسابات",
+        "message": "حساب",
         "description": "Account."
     },
     "accountName": {
