@@ -385,7 +385,6 @@ export class Accounts implements Module {
             state.state.encryption.updateEncryptionPassword("");
 
             BrowserStorage.remove("key");
-            localStorage.removeItem("securityTokenEncryptedKey");
 
             await state.dispatch("updateEntries");
 
@@ -396,6 +395,9 @@ export class Accounts implements Module {
 
           // remove cached passphrase in old version
           localStorage.removeItem("encodedPhrase");
+
+          // remove security token encrypted key in old version
+          localStorage.removeItem("securityTokenEncryptedKey");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
           const entries = await this.getEntries();

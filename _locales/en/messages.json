@@ -365,5 +365,8 @@
     },
     "alreadyEnabledSecurityKeyWarning": {
         "message": "You have already enabled security key, do you want to continue?"
+    },
+    "updatePassphraseDisableSecurityKeyWarning": {
+        "message": "Update passphrase will reset security key, do you want to continue?"
     }
 }

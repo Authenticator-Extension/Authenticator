@@ -83,6 +83,16 @@ export default Vue.extend({
         return;
       }
 
+      if (
+        localStorage.securityTokenEncryptedKey &&
+        !(await this.$store.dispatch(
+          "notification/confirm",
+          this.i18n.updatePassphraseDisableSecurityKeyWarning
+        ))
+      ) {
+        return;
+      }
+
       this.$store.commit("currentView/changeView", "LoadingPage");
       await this.$store.dispatch("accounts/changePassphrase", this.phrase);
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
@@ -99,7 +109,9 @@ export default Vue.extend({
       ) {
         const result = await this.$store.dispatch("accounts/enableSecurityKey");
         this.$store.commit("notification/alert", result);
+        this.$store.commit("style/hideInfo");
       }
+      return;
     }
   },
   components: {
