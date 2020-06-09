@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "帳號金鑰無效",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "使用者名稱",
         "description": "Account Name."
     },
     "issuer": {
@@ -112,7 +112,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "重設Authenticator"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -186,7 +186,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "偏好設定",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -266,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "主題",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "亮色",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "暗色",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "高對比",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -328,16 +328,16 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "載入中..."
     },
     "autolock": {
         "message": "Lock after"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "分鐘"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "進階設定"
     },
     "period": {
         "message": "Period"
@@ -346,7 +346,7 @@
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "無效"
     },
     "digits": {
         "message": "Digits"
