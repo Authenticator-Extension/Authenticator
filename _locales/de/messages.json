@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Ich verstehe, dass alle meine Daten unwiederbringlich gelöscht werden.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
