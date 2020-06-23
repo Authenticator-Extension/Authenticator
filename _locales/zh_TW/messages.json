@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Authenticator在你的瀏覽器中生成兩步驟驗證碼。",
         "description": "Extension Description."
     },
     "added": {
@@ -108,7 +108,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "我了解我所有的資料將被刪除且無法復原。",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
