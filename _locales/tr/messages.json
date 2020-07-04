@@ -266,15 +266,15 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Açık",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Karanlık",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
