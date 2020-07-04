@@ -108,11 +108,11 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini anlıyorum.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Kimlik Doğrulayıcıyı Sıfırla"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -278,7 +278,7 @@
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Yüksek Kontrast",
         "description": "High Contrast theme"
     },
     "storage_menu": {
