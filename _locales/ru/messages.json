@@ -107,6 +107,16 @@
         "message": "Вы уверены, что хотите удалить эту учетную запись? Это действие нельзя отменить.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Я понимаю, что все мои данные будут безвозвратно удалены.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Сбросить аутентификатор"
+    },
+    "delete_all_warning": {
+        "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
+    },
     "security_warning": {
         "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не сможет помочь вам, если вы забудете его.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Высокая контрастность",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Тема",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Светлая",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Тёмная",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Высокая контрастность",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Хранение и резервное копирование",

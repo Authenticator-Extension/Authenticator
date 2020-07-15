@@ -59,6 +59,14 @@ fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./css/
 
+if [[ $PLATFORM = "prod" ]]; then
+    echo "Generating licenses file..."
+    ./node_modules/.bin/npm-license-generator \
+        --out-path ./view/licenses.html \
+        --template ./scripts/licenses-template.html \
+        --error-missing=true
+fi
+
 postCompile () {
     mkdir $1
     cp -r dist css images _locales LICENSE view $1

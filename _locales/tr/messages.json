@@ -107,6 +107,16 @@
         "message": "Bu hesabı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini anlıyorum.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Kimlik Doğrulayıcıyı Sıfırla"
+    },
+    "delete_all_warning": {
+        "message": "Bu, tüm verilerinizi siler ve Kimlik Doğrulayıcı'yı tamamen sıfırlar. Silinen verileri kurtaramazsınız! Kimlik Doğrulayıcı'yı sıfırlamadan önce bir yedek kaydetmeyi düşünün."
+    },
     "security_warning": {
         "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır. Şifreyi unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
@@ -180,7 +190,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Aralık",
+        "message": "Genişlet",
         "description": "Scale"
     },
     "export_info": {
@@ -196,11 +206,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Yedeklemeyi içe aktar",
+        "message": "Yedekleme dosyasını içe aktar",
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Metin dosyasından içeri aktar",
+        "message": "Metin yedeklemeyi içe aktar",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Yüksek Kontrast Kullan",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Tema",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Açık",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Karanlık",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Yüksek Kontrast",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Depolama & Yedekleme",

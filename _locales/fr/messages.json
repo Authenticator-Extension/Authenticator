@@ -107,6 +107,16 @@
         "message": "Etes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Je comprends que toutes mes données seront définitivement supprimées.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Réinitialiser Authentificator"
+    },
+    "delete_all_warning": {
+        "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
+    },
     "security_warning": {
         "message": "Ce mot de passe sera utilisé pour chiffrer vos comptes. Personne ne sera en mesure de vous aider à les retrouver si vous les perdez.",
         "description": "Passphrase Warning."
@@ -140,7 +150,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Code source",
+        "message": "Code Source",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Utiliser le contraste élevé",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Thème",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Clair",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Sombre",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Contraste élevé",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Stockage et sauvegarde",

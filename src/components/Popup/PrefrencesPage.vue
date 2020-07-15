@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div>
+    <div class="control-group">
+      <label class="combo-label">{{ i18n.theme }}</label>
+      <select v-model="theme">
+        <option value="normal">{{ i18n.theme_light }}</option>
+        <option value="dark">{{ i18n.theme_dark }}</option>
+        <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
+      </select>
+    </div>
+    <div class="control-group">
       <label class="combo-label">{{ i18n.scale }}</label>
       <select v-model="zoom">
         <option value="125">125%</option>
@@ -16,25 +24,23 @@
         <option value="20">20%</option>
       </select>
     </div>
-    <div>
+    <div class="control-group">
       <label class="combo-label">{{ i18n.use_autofill }}</label>
       <input class="checkbox" type="checkbox" v-model="useAutofill" />
     </div>
-    <div>
-      <label class="combo-label">{{ i18n.use_high_contrast }}</label>
-      <input class="checkbox" type="checkbox" v-model="useHighContrast" />
-    </div>
-    <div style="display: flex;" v-show="encryption.getEncryptionStatus()">
-      <label style="margin-left: 20px;">{{ i18n.autolock }}</label>
+    <div class="control-group" v-show="encryption.getEncryptionStatus()">
+      <label class="combo-label">{{ i18n.autolock }}</label>
       <input
         class="input"
         type="number"
         min="0"
-        style="width: 70px;"
+        style="width: 70px; text-align: center;"
         v-model="autolock"
         :disabled="Boolean(enforceAutolock)"
       />
-      <span style="margin-top: 10px;">{{ i18n.minutes }}</span>
+      <span class="combo-label" style="margin-left: 0; margin-right: 20px;">{{
+        i18n.minutes
+      }}</span>
     </div>
     <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
   </div>
@@ -60,12 +66,12 @@ export default Vue.extend({
         this.$store.commit("menu/setAutofill", useAutofill);
       }
     },
-    useHighContrast: {
-      get(): boolean {
-        return this.$store.state.menu.useHighContrast;
+    theme: {
+      get(): string {
+        return this.$store.state.menu.theme;
       },
-      set(useHighContrast: boolean) {
-        this.$store.commit("menu/setHighContrast", useHighContrast);
+      set(theme: string) {
+        this.$store.commit("menu/setTheme", theme);
       }
     },
     encryption(): EncryptionInterface {

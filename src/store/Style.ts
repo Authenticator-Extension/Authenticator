@@ -77,6 +77,12 @@ export class Style implements Module {
           state.style.hotpDisabled = !state.style.hotpDisabled;
         }
       },
+      getters: {
+        // Returns true if menu or info screen shown
+        isMenuShown(state: StyleState) {
+          return state.style.fadein || state.style.show || state.style.slidein;
+        }
+      },
       namespaced: true
     };
   }

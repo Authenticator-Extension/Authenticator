@@ -15,7 +15,6 @@ import Vue from "vue";
 
 import IconXCircle from "../../../svg/x-circle.svg";
 
-import AboutPage from "./AboutPage.vue";
 import AddAccountPage from "./AddAccountPage.vue";
 import AddMethodPage from "./AddMethodPage.vue";
 import SetPasswordPage from "./SetPasswordPage.vue";
@@ -41,7 +40,6 @@ export default Vue.extend({
   },
   components: {
     IconXCircle,
-    AboutPage,
     AddAccountPage,
     AddMethodPage,
     SetPasswordPage,

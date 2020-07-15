@@ -107,6 +107,16 @@
         "message": "Bạn có chắc sẽ xóa tài khoản này? Yêu cầu này không thể hoàn tác.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Tôi hiểu rằng toàn bộ dữ liệu của tôi sẽ bị xóa và không thể khôi phục.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Thiết lập lại Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập Authenticator về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại Authenticator."
+    },
     "security_warning": {
         "message": "Mật khẩu này sẽ được sử dụng để mã hóa tài khoản của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Độ tương phản cao",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Chủ đề",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Sáng",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Tối",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Tương phản cao",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Lưu trữ và sao lưu",

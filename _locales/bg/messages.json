@@ -107,6 +107,16 @@
         "message": "Are you sure you want to delete this account? This action cannot be undone.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Висок контраст",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Theme",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Light",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Dark",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "High Contrast",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Съхранение & Архивиране",

@@ -116,7 +116,7 @@ async function init() {
     "keyup",
     e => {
       if (e.key === "/") {
-        if (instance.$store.state.style.style.fadein === true) {
+        if (instance.$store.getters["style/isMenuShown"]) {
           return;
         }
         instance.$store.commit("accounts/stopFilter");

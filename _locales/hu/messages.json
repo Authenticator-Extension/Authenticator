@@ -107,6 +107,16 @@
         "message": "Biztosan törli ezt a fiókot? Ez a művelet nem vonható vissza.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Megértem, hogy az összes adatomat helyreállíthatatlanul törli.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Hitelesítő visszaállítása"
+    },
+    "delete_all_warning": {
+        "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az Authenticator alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
+    },
     "security_warning": {
         "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Nagy kontraszt használata",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Téma",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Világos",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Sötét",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Nagy kontrasztú",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Tárolás és biztonsági mentés",

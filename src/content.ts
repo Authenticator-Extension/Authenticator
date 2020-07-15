@@ -271,7 +271,7 @@ function fireInputEvents(inputBox: HTMLInputElement) {
   return;
 }
 
-window.onkeydown = event => {
+window.onkeydown = (event: KeyboardEvent) => {
   if (event.key === "Escape") {
     event.preventDefault();
     const grayLayout = document.getElementById("__ga_grayLayout__");

@@ -107,6 +107,16 @@
         "message": "Ești sigur că vrei să ștergi acest cont? Această acțiune nu poate fi anulată.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Am înțeles că toate datele mele vor fi șterse irecuperabil.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Resetează Autentificator"
+    },
+    "delete_all_warning": {
+        "message": "Această acțiune va șterge toate datele și va reseta complet Autentificatorul. Nu veți putea recupera datele șterse! Ar fi bine să salvați o copie de rezervă înainte de a reseta autentificatorul."
+    },
     "security_warning": {
         "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",
         "description": "Passphrase Warning."
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Folosește contrast sporit",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Temă",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Luminoasă",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Întunecată",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Contrast sporit",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Stocare și copii de siguranță",

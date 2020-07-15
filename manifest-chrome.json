@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "6.1.0",
+    "version": "6.2.0",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -23,6 +23,10 @@
         "scan-qr": {
             "description": "Scan a QR code"
         }
+    },
+    "options_ui": {
+        "page": "view/options.html",
+        "chrome_style": true
     },
     "storage": {
         "managed_schema": "schema.json"

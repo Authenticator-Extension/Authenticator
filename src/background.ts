@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
 import QRCode from "qrcode-reader";
+import jsQR from "jsqr";
 
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
@@ -92,11 +93,26 @@ function getQr(
       ) => {
         if (error) {
           console.error(error);
-          if (!contentTab || !contentTab.id) {
-            return;
+          const qrImageData = ctx.getImageData(
+            0,
+            0,
+            captureCanvas.width,
+            captureCanvas.height
+          );
+          const jsQrCode = jsQR(
+            qrImageData.data,
+            captureCanvas.width,
+            captureCanvas.height
+          );
+          if (jsQrCode) {
+            getTotp(jsQrCode.data);
+          } else {
+            if (!contentTab || !contentTab.id) {
+              return;
+            }
+            const id = contentTab.id;
+            chrome.tabs.sendMessage(id, { action: "errorqr" });
           }
-          const id = contentTab.id;
-          chrome.tabs.sendMessage(id, { action: "errorqr" });
         } else {
           getTotp(text.result);
         }
@@ -244,6 +260,9 @@ function getBackupToken(service: string) {
         scopes: ["https://www.googleapis.com/auth/drive.file"]
       },
       value => {
+        if (!value) {
+          return false;
+        }
         localStorage.driveToken = value;
         chrome.runtime.sendMessage({ action: "drivetoken", value });
         return true;
@@ -263,7 +282,7 @@ function getBackupToken(service: string) {
       if (navigator.userAgent.indexOf("Edg") !== -1) {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
       } else if (navigator.userAgent.indexOf("Firefox") !== -1) {
-        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-firefox");
+        redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
       } else {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
       }

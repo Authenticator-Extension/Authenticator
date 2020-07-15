@@ -8,9 +8,11 @@
     </div>
     <div id="menuBody">
       <div class="menuList">
-        <p v-bind:title="i18n.about" v-on:click="showInfo('AboutPage')">
-          <span><IconInfo /></span>{{ i18n.about }}
-        </p>
+        <a href="licenses.html" target="_blank" style="text-decoration: none;">
+          <p v-bind:title="i18n.about">
+            <span><IconInfo /></span>{{ i18n.about }}
+          </p>
+        </a>
       </div>
       <div class="menuList">
         <p

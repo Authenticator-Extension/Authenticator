@@ -11,6 +11,7 @@ module.exports = {
     content: "./src/content.ts",
     popup: "./src/popup.ts",
     import: "./src/import.ts",
+    options: "./src/options.ts",
     qrdebug: "./src/qrdebug.ts",
     test: "./src/test/test.ts"
   },

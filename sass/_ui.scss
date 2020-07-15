@@ -41,6 +41,25 @@ $themes: (
     white-search: black,
     grey-search: white,
     blue-menu: cyan
+  ),
+  dark: (
+    black-1: #ccc,
+    black-transparent: rgba(255, 255, 255, 0.5),
+    white-1: #242424,
+    white-transparent: rgba(0, 0, 0, 0.5),
+    grey-1: grey,
+    grey-2: rgba(255, 255, 255, 0.15),
+    grey-3: #444,
+    grey-background: #1e1e1e,
+    blue-1: white,
+    yellow-1: rgba(255, 255, 255, 0.5),
+    yellow-2: rgba(255, 255, 255, 0.35),
+    red-1: #dd4b39,
+    red-2: #61221a,
+    black-search: white,
+    white-search: #202020,
+    grey-search: rgba(255, 255, 255, 0.35),
+    blue-menu: #2a2d2e
   )
 );
 
@@ -120,13 +139,14 @@ $theme-map: null;
 
 .input {
   display: block;
-  margin: 0 10px 10px 10px;
-  padding: 10px;
+  margin: 15px 10px 20px 10px;
+  padding: 5px 10px;
   width: 260px;
+  border: none;
   @include themify($themes) {
     color: themed("black-1");
-    border: themed("grey-2") 1px solid;
-    background: themed("white-1");
+    border-bottom: themed("black-1") 1px solid;
+    background: themed("grey-3");
   }
   outline: none;
 }

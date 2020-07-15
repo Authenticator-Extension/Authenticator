@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Accesso",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -107,6 +107,16 @@
         "message": "Sei sicuro di voler eliminare questo account? L'operazione non può essere annullata.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Resetta Autenticatore"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "Questa password verrà usata per cifrare i tuoi account. Se dimentichi la password non ti potrà aiutare nessuno.",
         "description": "Passphrase Warning."
@@ -200,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_code": {
-        "message": "Importa un backup testuale",
+        "message": "Importa Backup Dati",
         "description": "Import backup code."
     },
     "show_all_entries": {
@@ -254,6 +264,22 @@
     "use_high_contrast": {
         "message": "Usa Alto Contrasto",
         "description": "Use High Contrast"
+    },
+    "theme": {
+        "message": "Tema",
+        "description": "Theme"
+    },
+    "theme_light": {
+        "message": "Chiaro",
+        "description": "Light theme"
+    },
+    "theme_dark": {
+        "message": "Scuro",
+        "description": "Dark theme"
+    },
+    "theme_high_contrast": {
+        "message": "Contrasto Alto",
+        "description": "High Contrast theme"
     },
     "storage_menu": {
         "message": "Archivio & Backup",

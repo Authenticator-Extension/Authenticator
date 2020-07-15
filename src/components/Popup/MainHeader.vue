@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <span>{{ i18n.extName }}</span>
+    <span v-on:dblclick="popOut()">{{ i18n.extName }}</span>
     <div v-show="!isPopup()">
       <div
         class="icon"
@@ -93,6 +93,21 @@ export default Vue.extend({
     isPopup() {
       const params = new URLSearchParams(document.location.search.substring(1));
       return params.get("popup");
+    },
+    popOut() {
+      let windowType;
+      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        windowType = "detached_panel";
+      } else {
+        windowType = "panel";
+      }
+      chrome.windows.create({
+        url: chrome.extension.getURL("view/popup.html?popup=true"),
+        type: windowType,
+        height: window.innerHeight,
+        width: window.innerWidth
+      });
+      window.close();
     },
     showMenu() {
       this.$store.commit("style/showMenu");
