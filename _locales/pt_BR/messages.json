@@ -107,6 +107,16 @@
         "message": "Tem certeza que deseja excluir esta conta? Esta ação não pode ser desfeita.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Eu compreendo que todos os meus dados serão irrecuperavelmente deletados.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Redefinir Autenticador"
+    },
+    "delete_all_warning": {
+        "message": "Isso irá deletar todos os seus dados e redefinir o Autenticador completamente. Você não conseguirá recuperar qualquer dado deletado! Você deveria fazer uma cópia de segurança antes de redefinir o Autenticador."
+    },
     "security_warning": {
         "message": "Essa senha será usada para criptografar as suas contas. Ninguém poderá te ajudar se você esquecer a senha.",
         "description": "Passphrase Warning."
@@ -256,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Claro",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Escuro",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Alto contraste",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -343,15 +353,5 @@
     },
     "algorithm": {
         "message": "Algoritmo"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }

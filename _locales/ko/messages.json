@@ -107,6 +107,16 @@
         "message": "정말로 이 계정을 삭제하시겠습니까? 이 작업은 취소할 수 없습니다.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "이 비밀번호는 귀하의 계정을 암호화합니다. 분실 시 아무런 도움을 받을 수 없습니다.",
         "description": "Passphrase Warning."
@@ -343,15 +353,5 @@
     },
     "algorithm": {
         "message": "알고리즘"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }

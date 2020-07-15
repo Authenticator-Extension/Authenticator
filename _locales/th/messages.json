@@ -107,6 +107,16 @@
         "message": "คุณแน่ใจต้องการลบบัญชีนี้ ? การกระทำดังกล่าวไม่สามารถกู้คืนกลับมาได้",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    },
     "security_warning": {
         "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",
         "description": "Passphrase Warning."
@@ -339,19 +349,9 @@
         "message": "ไม่ถูกต้อง"
     },
     "digits": {
-        "message": "Digits"
+        "message": "หลัก"
     },
     "algorithm": {
         "message": "Algorithm"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }

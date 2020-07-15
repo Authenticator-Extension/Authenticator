@@ -107,6 +107,16 @@
         "message": "Weet u zeker dat u dit account wilt verwijderen? Dit kan niet ongedaan worden gemaakt.",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "Ik begrijp dat al mijn gegevens onherstelbaar zullen worden verwijderd.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Authenticator herinitialiseren"
+    },
+    "delete_all_warning": {
+        "message": "Dit zal al uw gegevens verwijderen en de Authenticator volledig herinitialiseren. U bent niet in staat om verwijderde gegevens te herstellen! Overweeg om een back-up op te slaan voordat u de Authenticator herinitialiseert."
+    },
     "security_warning": {
         "message": "Dit wachtwoord wordt gebruikt voor het versleutelen van uw accounts. Niemand kan u helpen als u het wachtwoord vergeet.",
         "description": "Passphrase Warning."
@@ -256,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Thema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Licht",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Donker",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Hoog contrast",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -343,15 +353,5 @@
     },
     "algorithm": {
         "message": "Algoritme"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }

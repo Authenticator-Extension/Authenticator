@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autentikaator genereerib teie brauseris mitmikautentimis koode.",
+        "message": "Autentikaator genereerib teie brauseris mitmikautentimise koode.",
         "description": "Extension Description."
     },
     "added": {
@@ -106,6 +106,16 @@
     "confirm_delete": {
         "message": "Kas te olete kindel, et soovite selle konto kustutada? Seda toimingut ei saa tagasi võtta.",
         "description": "Remove entry confirmation"
+    },
+    "confirm_delete_all": {
+        "message": "Ma mõistan, et kõik minu andmed kustutatakse pöördumatult.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Lähtesta autentikaator"
+    },
+    "delete_all_warning": {
+        "message": "See kustutab kõik teie andmed ja lähtestab Autentikaatori täielikult. Kustutatud andmeid ei saa taastada! Enne Autentikaatori lähtestamist peaksite kaaluma varukoopia loomist."
     },
     "security_warning": {
         "message": "Seda salasõna kasutatakse teie kontode krüpteerimiseks. Kui unustate salasõna, ei saa keegi teid aidata.",
@@ -256,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Teema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Hele",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Tume",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Kõrge kontrastsus",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -343,15 +353,5 @@
     },
     "algorithm": {
         "message": "Algoritm"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }

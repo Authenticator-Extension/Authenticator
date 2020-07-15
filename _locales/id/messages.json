@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Otentikator",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -106,6 +106,16 @@
     "confirm_delete": {
         "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
         "description": "Remove entry confirmation"
+    },
+    "confirm_delete_all": {
+        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "Reset Authenticator"
+    },
+    "delete_all_warning": {
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
         "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
@@ -342,16 +352,6 @@
         "message": "Digits"
     },
     "algorithm": {
-        "message": "Algorithm"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Algoritma"
     }
 }

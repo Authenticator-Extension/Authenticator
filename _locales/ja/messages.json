@@ -107,6 +107,16 @@
         "message": "このアカウントを削除してもよろしいですか？ 実行後は元に戻せません。",
         "description": "Remove entry confirmation"
     },
+    "confirm_delete_all": {
+        "message": "私はすべてのデータが削除されて復旧できないことを承知しています。",
+        "description": "Message that user is required to acknowledge before clearing all data."
+    },
+    "delete_all": {
+        "message": "認証システムをリセット"
+    },
+    "delete_all_warning": {
+        "message": "これにより、すべてのデータが削除され、認証システムが完全にリセットされます。 削除されたデータを復元することはできません。 認証システムをリセットする前にバックアップを保存することをお勧めします。"
+    },
     "security_warning": {
         "message": "このパスワードであなたのアカウントを暗号化します。パスワードを紛失すると復旧できなくなりますのでご注意ください。",
         "description": "Passphrase Warning."
@@ -256,19 +266,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "テーマ",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "ライト",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "ダーク",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "高コントラスト",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -343,15 +353,5 @@
     },
     "algorithm": {
         "message": "アルゴリズム"
-    },
-    "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Reset Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     }
 }
