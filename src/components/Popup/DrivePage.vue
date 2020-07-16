@@ -12,9 +12,12 @@
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
-      <div v-show="encryption.getEncryptionStatus() && backupToken">
+      <div
+        class="control-group"
+        v-show="encryption.getEncryptionStatus() && backupToken"
+      >
         <label class="combo-label">{{ i18n.encrypted }}</label>
-        <select v-model="isEncrypted">
+        <select style="margin: 20px 10px;" v-model="isEncrypted">
           <option value="true">{{ i18n.yes }}</option>
           <option value="false">{{ i18n.no }}</option>
         </select>
