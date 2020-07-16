@@ -17,6 +17,7 @@
 
     <MenuPage
       id="menu"
+      v-show="style.slidein || style.slideout"
       v-bind:class="{ slidein: style.slidein, slideout: style.slideout }"
     />
 
