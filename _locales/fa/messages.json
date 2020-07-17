@@ -76,11 +76,11 @@
         "description": "About."
     },
     "export_import": {
-        "message": "ایمپورت / اکسپورت",
+        "message": "وارد کردن/خروجی گرفتن",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "تنظیمات",
+        "message": "Settings",
         "description": "Settings."
     },
     "security": {
