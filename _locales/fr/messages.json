@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " à été ajouté.",
+        "message": " a été ajouté.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emetteur",
+        "message": "Émetteur",
         "description": "Issuer."
     },
     "secret": {
@@ -68,11 +68,11 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Echec.",
+        "message": "Échec.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "A Propos",
+        "message": "À propos",
         "description": "About."
     },
     "export_import": {
@@ -104,7 +104,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Etes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
+        "message": "Êtes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -122,7 +122,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Mise à Jour",
+        "message": "Mise à jour",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -150,7 +150,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Code Source",
+        "message": "Code source",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -214,11 +214,11 @@
         "description": "Import backup code."
     },
     "show_all_entries": {
-        "message": "Afficher Toutes les Entrées",
+        "message": "Afficher toutes les entrées",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez les à vos propres risques.",
+        "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez-les à vos propres risques.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -246,7 +246,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Vérouiller",
+        "message": "Verrouiller",
         "description": "Lock accounts"
     },
     "edit": {
@@ -294,7 +294,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Emplacement de Stockage",
+        "message": "Emplacement de stockage",
         "description": "Storage location"
     },
     "sign_in": {
@@ -328,7 +328,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Chargement ..."
+        "message": "Chargement..."
     },
     "autolock": {
         "message": "Verrouiller après"
