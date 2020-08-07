@@ -11,6 +11,13 @@
         <label for="import_file_radio">{{ i18n.import_backup_file }}</label>
         <input
           type="radio"
+          id="import_qr_radio"
+          value="QrImport"
+          v-model="importType"
+        />
+        <label for="import_qr_radio">{{ i18n.import_backup_qr }}</label>
+        <input
+          type="radio"
           id="import_code_radio"
           value="TextImport"
           v-model="importType"
@@ -37,6 +44,7 @@
 <script lang="ts">
 import Vue from "vue";
 import FileImport from "./Import/FileImport.vue";
+import QrImport from "./Import/QrImport.vue";
 import TextImport from "./Import/TextImport.vue";
 
 export default Vue.extend({
@@ -48,6 +56,7 @@ export default Vue.extend({
   },
   components: {
     FileImport,
+    QrImport,
     TextImport
   },
   mounted() {
