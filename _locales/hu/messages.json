@@ -353,5 +353,17 @@
     },
     "algorithm": {
         "message": "Algoritmus"
+    },
+    "import_backup_qr": {
+        "message": "Import QR Image Backup",
+        "description": "Import qr image backup."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "You can select multiple files to import backup in batches.",
+        "description": "You can select multiple image files to import backup in batches."
     }
 }
