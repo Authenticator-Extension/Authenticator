@@ -209,9 +209,21 @@
         "message": "ייבא קובץ גיבוי",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Import QR Image Backup",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "ייבא גיבוי כטקסט",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "You can select multiple files to import backup in batches.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "הצג את כל הערכים",
