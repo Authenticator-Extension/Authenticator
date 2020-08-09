@@ -210,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Импортировать резервную копию QR-изображений",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
