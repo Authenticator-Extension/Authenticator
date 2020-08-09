@@ -43,7 +43,10 @@ export class Accounts implements Module {
           state: AccountsState,
           getters: { matchedEntries: string[] }
         ) {
-          return getters.matchedEntries.length;
+          return (
+            localStorage.smartFilter !== "false" &&
+            getters.matchedEntries.length
+          );
         },
         matchedEntries: (state: AccountsState) => {
           return this.matchedEntries(state.siteName, state.entries);

@@ -7,6 +7,7 @@ export class Menu implements Module {
         version: chrome.runtime.getManifest().version,
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
+        smartFilter: localStorage.smartFilter !== "false",
         theme:
           localStorage.theme ||
           (localStorage.highContrast === "true" ? "accessibility" : "normal"),
@@ -27,6 +28,10 @@ export class Menu implements Module {
         setAutofill(state: MenuState, useAutofill: boolean) {
           state.useAutofill = useAutofill;
           localStorage.autofill = useAutofill;
+        },
+        setSmartFilter(state: MenuState, smartFilter: boolean) {
+          state.smartFilter = smartFilter;
+          localStorage.smartFilter = smartFilter;
         },
         setTheme(state: MenuState, theme: string) {
           state.theme = theme;

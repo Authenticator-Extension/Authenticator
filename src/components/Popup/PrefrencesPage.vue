@@ -28,6 +28,10 @@
       <label class="combo-label">{{ i18n.use_autofill }}</label>
       <input class="checkbox" type="checkbox" v-model="useAutofill" />
     </div>
+    <div class="control-group">
+      <label class="combo-label">{{ i18n.smart_filter }}</label>
+      <input class="checkbox" type="checkbox" v-model="smartFilter" />
+    </div>
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
@@ -64,6 +68,14 @@ export default Vue.extend({
       },
       set(useAutofill: boolean) {
         this.$store.commit("menu/setAutofill", useAutofill);
+      }
+    },
+    smartFilter: {
+      get(): boolean {
+        return this.$store.state.menu.smartFilter;
+      },
+      set(smartFilter: boolean) {
+        this.$store.commit("menu/setSmartFilter", smartFilter);
       }
     },
     theme: {
