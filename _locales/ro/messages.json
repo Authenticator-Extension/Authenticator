@@ -210,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importă copie de rezervă a imaginii QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -218,11 +218,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Import reușit, dar unele imagini QR nu au putut fi recunoscute.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Puteți selecta mai multe fișiere pentru a importa calupuri de copii de rezervă.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
