@@ -210,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "导入 QR 图片备份",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -222,7 +222,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "您可以同时选择多个文件进行批量导入",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
