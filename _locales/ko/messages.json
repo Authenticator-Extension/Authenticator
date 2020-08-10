@@ -365,5 +365,8 @@
     },
     "algorithm": {
         "message": "알고리즘"
+    },
+    "smart_filter": {
+        "message": "Smart Filter"
     }
 }
