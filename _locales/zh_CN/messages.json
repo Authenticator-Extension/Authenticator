@@ -365,5 +365,8 @@
     "import_backup_qr_in_batches": {
         "message": "You can select multiple files to import backup in batches.",
         "description": "You can select multiple image files to import backup in batches."
+    },
+    "smart_filter": {
+        "message": "Smart Filter"
     }
 }
