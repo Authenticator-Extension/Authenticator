@@ -115,7 +115,7 @@
         "message": "Restablecer auntenticador"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Esto eliminará todos tus datos y restablecerá completamente Authenticator. ¡No podrás recuperar ningún dato eliminado! Deberías considerar guardar una copia de seguridad antes de resetear Authenticator."
     },
     "security_warning": {
         "message": "Esta contraseña se utilizará para cifrar tus cuentas. Nadie puede ayudarte si olvidas la contraseña.",
@@ -367,6 +367,6 @@
         "message": "Algoritmo"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Filtro inteligente"
     }
 }
