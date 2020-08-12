@@ -24,8 +24,15 @@
     <!-- Entries -->
     <div v-dragula drake="entryDrake">
       <EntryComponent
+        class="entry pinnedEntry"
+        v-for="entry in pinnedEntries"
+        :key="entry.hash"
+        v-bind:notSearched="!isSearchedEntry(entry)"
+        v-bind:entry="entry"
+      />
+      <EntryComponent
         class="entry"
-        v-for="entry in entries"
+        v-for="entry in unpinnedEntries"
         :key="entry.hash"
         v-bind:filtered="!isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
@@ -47,7 +54,13 @@ import EntryComponent from "./EntryComponent.vue";
 
 import IconPlus from "../../../svg/plus.svg";
 
-let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
+let computed = mapState("accounts", [
+  "entries",
+  "pinnedEntries",
+  "unpinnedEntries",
+  "filter",
+  "showSearch"
+]);
 
 Object.assign(computed, mapGetters("accounts", ["shouldFilter"]));
 

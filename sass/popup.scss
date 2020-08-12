@@ -219,7 +219,8 @@ svg {
 
     .issuer,
     .showqr,
-    .showqr.hidden {
+    .showqr.hidden,
+    .pin {
       display: none;
     }
 
@@ -386,7 +387,8 @@ svg {
     display: none;
   }
 
-  .showqr {
+  .showqr,
+  .pin {
     @include themify($themes) {
       @include icon-special(20px, themed("grey-2"));
     }
@@ -398,8 +400,13 @@ svg {
     opacity: 0;
   }
 
+  .showqr {
+    right: 35px;
+  }
+
   &:hover {
-    .showqr {
+    .showqr,
+    .pin {
       opacity: 1;
     }
 
@@ -436,6 +443,16 @@ svg {
         transition: height 0.2s;
     }
     */
+}
+
+.pinnedEntry {
+  .pin {
+    opacity: 1;
+  }
+
+  .movehandle {
+    display: none !important;
+  }
 }
 
 .no-copy {
@@ -988,7 +1005,8 @@ svg {
       }
     }
 
-    .showqr {
+    .showqr,
+    .pin {
       svg {
         fill: yellow;
       }

@@ -35,6 +35,7 @@ export class OTPEntry implements OTPEntryInterface {
   period: number;
   digits: number;
   algorithm: OTPAlgorithm;
+  pinned: boolean;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
@@ -50,6 +51,7 @@ export class OTPEntry implements OTPEntryInterface {
       hash?: string;
       digits?: number;
       algorithm?: OTPAlgorithm;
+      pinned?: boolean;
     },
     encryption?: Encryption
   ) {
@@ -94,6 +96,11 @@ export class OTPEntry implements OTPEntryInterface {
       this.algorithm = entry.algorithm;
     } else {
       this.algorithm = OTPAlgorithm.SHA1;
+    }
+    if (entry.pinned) {
+      this.pinned = entry.pinned;
+    } else {
+      this.pinned = false;
     }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;

@@ -58,6 +58,8 @@ interface StyleState {
 
 interface AccountsState {
   entries: OTPEntryInterface[];
+  pinnedEntries: OTPEntryInterface[];
+  unpinnedEntries: OTPEntryInterface[];
   encryption: EncryptionInterface;
   OTPType: number;
   shouldShowPassphrase: boolean;

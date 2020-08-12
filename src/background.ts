@@ -222,7 +222,8 @@ async function getTotp(text: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0
+          counter: 0,
+          pinned: false
         };
         if (period) {
           entryData[hash].period = period;

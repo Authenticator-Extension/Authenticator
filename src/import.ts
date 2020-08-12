@@ -182,7 +182,8 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0
+          counter: 0,
+          pinned: false
         };
         if (period) {
           exportData[hash].period = period;

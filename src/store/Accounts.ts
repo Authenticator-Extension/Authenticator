@@ -20,9 +20,14 @@ export class Accounts implements Module {
       }
     }
 
+    const pinnedEntries = entries.filter(entry => entry.pinned);
+    const unpinnedEntries = entries.filter(entry => !entry.pinned);
+
     return {
       state: {
         entries,
+        pinnedEntries,
+        unpinnedEntries,
         encryption,
         OTPType,
         OTPAlgorithm,
@@ -131,6 +136,36 @@ export class Accounts implements Module {
           for (let i = 0; i < state.entries.length; i++) {
             if (state.entries[i].index !== i) {
               state.entries[i].index = i;
+            }
+          }
+        },
+        pinEntry(state: AccountsState, entry: OTPEntryInterface) {
+          state.entries[entry.index].pinned = !entry.pinned;
+          if (entry.pinned) {
+            const unpinnedEntryIndex = state.unpinnedEntries.findIndex(
+              unpinnedEntry => unpinnedEntry.index === entry.index
+            );
+            state.unpinnedEntries.splice(unpinnedEntryIndex, 1);
+            const pinnedEntryIndex = state.pinnedEntries.findIndex(
+              pinnedEntry => pinnedEntry.index > entry.index
+            );
+            if (pinnedEntryIndex < 0) {
+              state.pinnedEntries.push(entry);
+            } else {
+              state.pinnedEntries.splice(pinnedEntryIndex, 0, entry);
+            }
+          } else {
+            const pinnedEntryIndex = state.pinnedEntries.findIndex(
+              pinnedEntry => pinnedEntry.index === entry.index
+            );
+            state.pinnedEntries.splice(pinnedEntryIndex, 1);
+            const unpinnedEntryIndex = state.unpinnedEntries.findIndex(
+              unpinnedEntry => unpinnedEntry.index > entry.index
+            );
+            if (unpinnedEntryIndex < 0) {
+              state.unpinnedEntries.push(entry);
+            } else {
+              state.unpinnedEntries.splice(unpinnedEntryIndex, 0, entry);
             }
           }
         },

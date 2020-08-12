@@ -62,6 +62,9 @@
     >
       <IconQr />
     </div>
+    <div class="pin" v-on:click="pin(entry)">
+      <IconPin />
+    </div>
     <div class="movehandle">
       <IconBars />
     </div>
@@ -72,11 +75,13 @@ import Vue from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
+import { EntryStorage } from "../../models/storage";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
 import IconQr from "../../../svg/qrcode.svg";
 import IconBars from "../../../svg/bars.svg";
+import IconPin from "../../../svg/pin.svg";
 
 const computedPrototype = [
   mapState("accounts", [
@@ -142,6 +147,12 @@ export default Vue.extend({
         await this.$store.dispatch("accounts/deleteCode", entry.hash);
       }
       return;
+    },
+    async pin(entry: OTPEntry) {
+      this.$store.commit("accounts/pinEntry", entry);
+      await EntryStorage.set(this.$store.state.accounts.entries);
+      const codesEl = document.getElementById("codes") as HTMLDivElement;
+      codesEl.scrollTop = 0;
     },
     showQr(entry: OTPEntry) {
       this.$store.commit("qr/setQr", getQrUrl(entry));
@@ -223,7 +234,8 @@ export default Vue.extend({
     IconMinusCircle,
     IconRedo,
     IconQr,
-    IconBars
+    IconBars,
+    IconPin
   }
 });
 
