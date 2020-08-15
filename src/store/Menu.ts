@@ -7,6 +7,7 @@ export class Menu implements Module {
         version: chrome.runtime.getManifest().version,
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
+        showScanOverlay: localStorage.scanOverlay === "true",
         smartFilter: localStorage.smartFilter !== "false",
         theme:
           localStorage.theme ||
@@ -28,6 +29,10 @@ export class Menu implements Module {
         setAutofill(state: MenuState, useAutofill: boolean) {
           state.useAutofill = useAutofill;
           localStorage.autofill = useAutofill;
+        },
+        setScanOverlay(state: MenuState, showScanOverlay: boolean) {
+          state.showScanOverlay = showScanOverlay;
+          localStorage.scanOverlay = showScanOverlay;
         },
         setSmartFilter(state: MenuState, smartFilter: boolean) {
           state.smartFilter = smartFilter;

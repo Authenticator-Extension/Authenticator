@@ -33,6 +33,7 @@ interface MenuState {
   zoom: number;
   autolock: number;
   useAutofill: boolean;
+  showScanOverlay: boolean;
   smartFilter: boolean;
   theme: string;
   backupDisabled: boolean;

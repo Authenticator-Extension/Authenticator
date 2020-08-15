@@ -29,6 +29,10 @@
       <input class="checkbox" type="checkbox" v-model="useAutofill" />
     </div>
     <div class="control-group">
+      <label class="combo-label">{{ i18n.show_scan_overlay }}</label>
+      <input class="checkbox" type="checkbox" v-model="showScanOverlay" />
+    </div>
+    <div class="control-group">
       <label class="combo-label">{{ i18n.smart_filter }}</label>
       <input class="checkbox" type="checkbox" v-model="smartFilter" />
     </div>
@@ -68,6 +72,14 @@ export default Vue.extend({
       },
       set(useAutofill: boolean) {
         this.$store.commit("menu/setAutofill", useAutofill);
+      }
+    },
+    showScanOverlay: {
+      get(): boolean {
+        return this.$store.state.menu.showScanOverlay;
+      },
+      set(showScanOverlay: boolean) {
+        this.$store.commit("menu/setScanOverlay", showScanOverlay);
       }
     },
     smartFilter: {

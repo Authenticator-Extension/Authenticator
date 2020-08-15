@@ -58,7 +58,9 @@ function showGrayLayout() {
     const scan = document.createElement("div");
     scan.className = "scan";
     scan.id = "__ga_scan__";
-    scan.style.background = `url('${scanGIF}') no-repeat center`;
+    scan.style.background = !localStorage.scanOverlay
+      ? `url('${scanGIF}') no-repeat center`
+      : "transparent";
     grayLayout.appendChild(scan);
     const captureBox = document.createElement("div");
     captureBox.id = "__ga_captureBox__";
