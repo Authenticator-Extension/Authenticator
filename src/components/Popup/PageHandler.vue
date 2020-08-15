@@ -24,7 +24,7 @@ import DropboxPage from "./DropboxPage.vue";
 import DrivePage from "./DrivePage.vue";
 import OneDrivePage from "./OneDrivePage.vue";
 import StorageSyncConfPage from "./StorageSyncConfPage.vue";
-import PrefrencesPage from "./PrefrencesPage.vue";
+import PreferencesPage from "./PreferencesPage.vue";
 import LoadingPage from "./LoadingPage.vue";
 
 export default Vue.extend({
@@ -48,7 +48,7 @@ export default Vue.extend({
     DropboxPage,
     DrivePage,
     OneDrivePage,
-    PrefrencesPage,
+    PreferencesPage,
     StorageSyncConfPage,
     LoadingPage
   }
