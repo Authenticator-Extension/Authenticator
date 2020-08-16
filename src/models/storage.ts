@@ -172,9 +172,12 @@ export class EntryStorage {
       hash: entry.hash,
       index: entry.index,
       type: OTPType[entry.type],
-      secret,
-      pinned: entry.pinned
+      secret
     };
+
+    if (entry.pinned) {
+      storageItem.pinned = true;
+    }
 
     if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
       storageItem.counter = entry.counter;

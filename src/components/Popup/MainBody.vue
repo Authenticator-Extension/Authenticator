@@ -54,15 +54,12 @@ import EntryComponent from "./EntryComponent.vue";
 
 import IconPlus from "../../../svg/plus.svg";
 
-let computed = mapState("accounts", [
-  "entries",
-  "pinnedEntries",
-  "unpinnedEntries",
-  "filter",
-  "showSearch"
-]);
+let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
 
-Object.assign(computed, mapGetters("accounts", ["shouldFilter"]));
+Object.assign(
+  computed,
+  mapGetters("accounts", ["shouldFilter", "pinnedEntries", "unpinnedEntries"])
+);
 
 export default Vue.extend({
   data: function() {

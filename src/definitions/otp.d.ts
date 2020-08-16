@@ -41,5 +41,5 @@ interface OTPStorage {
   period?: number;
   digits?: number;
   algorithm?: string;
-  pinned: boolean;
+  pinned?: boolean;
 }
