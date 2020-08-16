@@ -218,11 +218,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "İçe aktarma başarılı, ancak bazı QR görüntüleri tanınmıyor.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Yedeği toplu olarak içe aktarmak için birden fazla dosya seçebilirsiniz.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
