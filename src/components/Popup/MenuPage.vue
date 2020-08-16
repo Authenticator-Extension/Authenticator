@@ -38,7 +38,7 @@
         </p>
         <p
           v-bind:title="i18n.resize_popup_page"
-          v-on:click="showInfo('PrefrencesPage')"
+          v-on:click="showInfo('PreferencesPage')"
         >
           <span><IconWrench /></span>{{ i18n.resize_popup_page }}
         </p>
