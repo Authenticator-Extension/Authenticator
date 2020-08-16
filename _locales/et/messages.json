@@ -218,7 +218,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Importimine õnnestus, aga mõnda QR'i pilti ei suudetud tuvastada.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -367,6 +367,6 @@
         "message": "Algoritm"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Nutikas filter"
     }
 }
