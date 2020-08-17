@@ -175,6 +175,10 @@ export class EntryStorage {
       secret
     };
 
+    if (entry.pinned) {
+      storageItem.pinned = true;
+    }
+
     if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
       storageItem.counter = entry.counter;
     }
@@ -339,6 +343,8 @@ export class EntryStorage {
                 delete _data[hash].algorithm;
               }
 
+              delete _data[hash].pinned;
+
               if (!encrypted) {
                 // decrypt the data to export
                 if (_data[hash].encrypted) {
@@ -394,6 +400,7 @@ export class EntryStorage {
               data[hash].digits = data[hash].digits || 6;
               data[hash].algorithm =
                 data[hash].algorithm || OTPAlgorithm[OTPAlgorithm.SHA1];
+              data[hash].pinned = data[hash].pinned || false;
               const period = data[hash].period;
               if (
                 data[hash].type !== OTPType[OTPType.totp] ||
@@ -602,7 +609,8 @@ export class EntryStorage {
                 digits: entryData.digits,
                 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                 // @ts-ignore - it's fine if this ends up undefined
-                algorithm: OTPAlgorithm[entryData.algorithm]
+                algorithm: OTPAlgorithm[entryData.algorithm],
+                pinned: entryData.pinned
               });
 
               data.push(entry);

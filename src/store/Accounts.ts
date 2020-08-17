@@ -58,6 +58,12 @@ export class Accounts implements Module {
             }
           }
           return false;
+        },
+        pinnedEntries(state: AccountsState) {
+          return state.entries.filter(entry => entry.pinned);
+        },
+        unpinnedEntries(state: AccountsState) {
+          return state.entries.filter(entry => !entry.pinned);
         }
       },
       mutations: {
@@ -133,6 +139,9 @@ export class Accounts implements Module {
               state.entries[i].index = i;
             }
           }
+        },
+        pinEntry(state: AccountsState, entry: OTPEntryInterface) {
+          state.entries[entry.index].pinned = !entry.pinned;
         },
         updateExport(
           state: AccountsState,
