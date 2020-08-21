@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "İçe/Dışa aktar",
+        "message": "İçe / Dışa aktar",
         "description": "Export and Import."
     },
     "settings": {
@@ -142,7 +142,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Geribildirim",
+        "message": "Geri bildirim",
         "description": "Feedback."
     },
     "translate": {
