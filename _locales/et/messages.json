@@ -218,7 +218,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importimine õnnestus, aga mõnda QR'i pilti ei suudetud tuvastada.",
+        "message": "Importimine õnnestus, kuid mõnda QR'i pilti ei suudetud tuvastada.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
