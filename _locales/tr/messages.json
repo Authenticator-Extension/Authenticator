@@ -115,10 +115,10 @@
         "message": "Kimlik Doğrulayıcıyı Sıfırla"
     },
     "delete_all_warning": {
-        "message": "Bu, tüm verilerinizi siler ve Kimlik Doğrulayıcı'yı tamamen sıfırlar. Silinen verileri kurtaramazsınız! Kimlik Doğrulayıcı'yı sıfırlamadan önce bir yedek kaydetmeyi düşünün."
+        "message": "Bu, tüm verilerinizi silecek ve Kimlik Doğrulayıcı'yı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız! Kimlik Doğrulayıcı'yı sıfırlamadan önce bir yedek kaydetmeyi düşünün."
     },
     "security_warning": {
-        "message": "Bu şifre hesaplarınızı şifrelemek için kullanılacaktır. Şifreyi unutursanız kimse size yardım edemez.",
+        "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
         "description": "Passphrase Warning."
     },
     "update": {
