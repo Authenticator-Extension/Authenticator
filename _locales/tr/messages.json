@@ -238,7 +238,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Parolanız yerel olarak depolanır, lütfen hemen güvenlik menüsünden değiştirin.",
+        "message": "Parolanız yerel olarak depolanır, lütfen güvenlik menüsünden hemen değiştirin.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -270,7 +270,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Otomatik Doldur özelliği kullanın",
+        "message": "Use Autofill",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
