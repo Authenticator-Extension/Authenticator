@@ -270,7 +270,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Otomatik doldurmayı kullanın",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
