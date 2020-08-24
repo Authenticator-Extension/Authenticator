@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemez veya dışa aktaramazsınız. Lütfen devam etmeden önce doğru şifreyi girin.",
+        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemez veya dışa aktaramazsınız. Lütfen devam etmeden önce doğru parolayı girin.",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
