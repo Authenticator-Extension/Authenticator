@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mevcut Şifre",
+        "message": "Mevcut Parola",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Yeni Şifre",
+        "message": "Yeni Parola",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Şifre",
+        "message": "Parola",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Şifreyi Doğrula",
+        "message": "Parolayı doğrula",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
-        "message": "Şifre uyuşmuyor.",
+        "message": "Parola uyuşmuyor.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
