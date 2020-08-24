@@ -162,7 +162,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Şifreyi hatırla",
+        "message": "Parolayı Hatırla",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -194,7 +194,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
+        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya bir hesap eklemek ister misiniz?Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -302,7 +302,7 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Verilerinizi otomatik olarak 3. taraf depolama hizmetlerine yedekleyin.",
+        "message": "Verilerinizi otomatik olarak 3. taraf depolama servislerine yedekleyin.",
         "description": "3rd party backup info"
     },
     "storage_location": {
