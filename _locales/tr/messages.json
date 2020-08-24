@@ -202,7 +202,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedeklemeyi içe aktar",
+        "message": "Yedeklemeyi İçe Aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
