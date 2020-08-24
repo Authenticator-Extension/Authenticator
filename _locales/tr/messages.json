@@ -328,7 +328,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standartlaştırılmış yedekleme biçimi kullanmaz.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler, standartlaştırılmış yedekleme formatını kullanmayacaktır.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
