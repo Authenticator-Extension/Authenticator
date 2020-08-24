@@ -166,7 +166,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Dikkat! Yerel saatiniz farklı, devam etmek için lütfen düzeltin.",
+        "message": "Dikkat! Yerel saatiniz farklı, lütfen devam etmeden önce düzeltin.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
