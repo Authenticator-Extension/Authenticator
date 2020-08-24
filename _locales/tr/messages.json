@@ -234,7 +234,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Yedekleri içeri aktarmak için doğru şifreyi sağlamalısınız.",
+        "message": "Yedekleri içe aktarmak için doğru parolayı sağlamalısınız.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
