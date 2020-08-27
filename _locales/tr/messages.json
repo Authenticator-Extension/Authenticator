@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Kuruluş",
         "description": "Issuer."
     },
     "secret": {
