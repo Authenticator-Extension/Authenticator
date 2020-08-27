@@ -206,11 +206,11 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Yedekleme dosyasını içe aktar",
+        "message": "Yedekleme Dosyasını İçe Aktar",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "QR Kod Görüntü Yedeklemesini İçe Aktar",
+        "message": "QR Kod Yedeklemesini İçe Aktar",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -270,7 +270,7 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Otomatik doldurmayı kullanın",
+        "message": "Otomatik Doldurmayı Kullanın",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
