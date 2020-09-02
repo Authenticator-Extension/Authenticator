@@ -286,11 +286,11 @@
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Dunkel",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Hoher Kontrast",
         "description": "High Contrast theme"
     },
     "storage_menu": {
