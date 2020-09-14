@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Секретный ключ",
+        "message": "yobit.net",
         "description": "Secret."
     },
     "updateSuccess": {
