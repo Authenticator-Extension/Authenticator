@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "すべてのアカウントが解読されるまで、新しいアカウントを追加したり、データをエクスポートすることはできません。続行する前に正しいパスワードを入力してください。",
+        "message": "すべてのアカウントが復号されるまで、新しいアカウントを追加したり、データをエクスポートすることはできません。続行する前に正しいパスワードを入力してください。",
         "description": "Passphrase Incorrect."
     },
     "phrase_not_match": {
@@ -154,7 +154,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "アカウントデータを復号化するパスワードを入力してください。",
+        "message": "アカウントデータを復号するためのパスワードを入力してください。",
         "description": "Passphrase Info"
     },
     "sync_clock": {
