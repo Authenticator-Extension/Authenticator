@@ -222,7 +222,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Вы можете выбрать несколько файлов изображения для импорта резервных копий в пакетном режиме.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -367,6 +367,6 @@
         "message": "Алгоритм"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "\"Умный\" фильтр"
     }
 }
