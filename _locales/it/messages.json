@@ -28,7 +28,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Inserire manualmente",
+        "message": "Inserisci manualmente",
         "description": "Manual Entry."
     },
     "close": {
@@ -290,7 +290,7 @@
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Contrasto Alto",
+        "message": "Contrasto Elevato",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -328,7 +328,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Hai uno o più account di Steam o Blizzardo. I backup non cifrati non utilizzeranno il formato di backup standard.",
+        "message": "Hai uno o più account di Steam o Blizzard. I backup non cifrati non utilizzeranno il formato di backup standard.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
