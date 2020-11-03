@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Autenticatore",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Accesso",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Account segreto invalido",
+        "message": "Chiave segreta dell'account non valida",
         "description": "Secret Error."
     },
     "add_qr": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Segreto",
+        "message": "Chiave segreta",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -166,7 +166,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Attenzione! Il vostro orologio locale è troppo lontano, si prega di risolvere prima di continuare.",
+        "message": "Attenzione! C'è una differenza troppo grande con il vostro orologio locale, si prega di risolvere prima di continuare.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -182,7 +182,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contatore di base",
+        "message": "Basato su un contatore",
         "description": "Counter Based"
     },
     "resize_popup_page": {
