@@ -210,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Impor cadangan gambar QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -218,7 +218,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -278,19 +278,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Terang",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Gelap",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Kontras Tinggi",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -361,12 +361,12 @@
         "message": "Tidak valid"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Digit"
     },
     "algorithm": {
         "message": "Algoritma"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Filter pintar"
     }
 }
