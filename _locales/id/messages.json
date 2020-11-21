@@ -115,7 +115,7 @@
         "message": "Reset Authenticator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat cadangan terlebih dahulu sebelum mereset ulang Autentikator."
     },
     "security_warning": {
         "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
@@ -222,7 +222,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
