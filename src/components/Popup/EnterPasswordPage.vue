@@ -1,19 +1,16 @@
 <template>
   <div>
     <div class="text">{{ i18n.passphrase_info }}</div>
-    <label></label>
-    <input
-      class="input"
+    <a-text-input
       type="password"
       v-model="password"
-      v-on:keyup.enter="applyPassphrase()"
-      autofocus
-      v-bind:class="{ badInput: wrongPassword }"
+      @enter="applyPassphrase()"
+      :class="{ badInput: wrongPassword }"
     />
     <label class="warning" v-show="wrongPassword">{{
       i18n.phrase_not_match
     }}</label>
-    <div class="button-small" v-on:click="applyPassphrase()">{{ i18n.ok }}</div>
+    <a-button type="small" @click="applyPassphrase()">{{ i18n.ok }}</a-button>
   </div>
 </template>
 <script lang="ts">

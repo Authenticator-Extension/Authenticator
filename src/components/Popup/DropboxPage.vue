@@ -12,25 +12,23 @@
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
-      <div
-        class="control-group"
+      <a-select-input
         v-show="encryption.getEncryptionStatus() && backupToken"
+        :label="i18n.encrypted"
+        v-model="isEncrypted"
       >
-        <label class="combo-label">{{ i18n.encrypted }}</label>
-        <select style="margin: 20px 10px;" v-model="isEncrypted">
-          <option value="true">{{ i18n.yes }}</option>
-          <option value="false">{{ i18n.no }}</option>
-        </select>
-      </div>
-      <div class="button" v-show="backupToken" v-on:click="backupLogout()">
+        <option value="true">{{ i18n.yes }}</option>
+        <option value="false">{{ i18n.no }}</option>
+      </a-select-input>
+      <a-button v-show="backupToken" @click="backupLogout()">
         {{ i18n.log_out }}
-      </div>
-      <div class="button" v-show="!backupToken" v-on:click="getBackupToken()">
+      </a-button>
+      <a-button v-show="!backupToken" @click="getBackupToken()">
         {{ i18n.sign_in }}
-      </div>
-      <div class="button" v-show="backupToken" v-on:click="backupUpload()">
+      </a-button>
+      <a-button v-show="backupToken" @click="backupUpload()">
         {{ i18n.manual_dropbox }}
-      </div>
+      </a-button>
     </div>
   </div>
 </template>

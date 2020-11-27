@@ -1,37 +1,33 @@
 <template>
   <div>
-    <div class="control-group">
-      <label class="combo-label">{{ i18n.theme }}</label>
-      <select v-model="theme">
-        <option value="normal">{{ i18n.theme_light }}</option>
-        <option value="dark">{{ i18n.theme_dark }}</option>
-        <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
-      </select>
-    </div>
-    <div class="control-group">
-      <label class="combo-label">{{ i18n.scale }}</label>
-      <select v-model="zoom">
-        <option value="125">125%</option>
-        <option value="100">100%</option>
-        <option value="90">90%</option>
-        <option value="80">80%</option>
-        <option value="67">67%</option>
-        <option value="57">57%</option>
-        <option value="50">50%</option>
-        <option value="40">40%</option>
-        <option value="33">33%</option>
-        <option value="25">25%</option>
-        <option value="20">20%</option>
-      </select>
-    </div>
-    <div class="control-group">
-      <label class="combo-label">{{ i18n.use_autofill }}</label>
-      <input class="checkbox" type="checkbox" v-model="useAutofill" />
-    </div>
-    <div class="control-group">
-      <label class="combo-label">{{ i18n.smart_filter }}</label>
-      <input class="checkbox" type="checkbox" v-model="smartFilter" />
-    </div>
+    <a-select-input
+      :label="i18n.theme"
+      v-model="theme"
+      style="margin-left: 10px;"
+    >
+      <option value="normal">{{ i18n.theme_light }}</option>
+      <option value="dark">{{ i18n.theme_dark }}</option>
+      <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
+    </a-select-input>
+    <a-select-input
+      :label="i18n.scale"
+      v-model="zoom"
+      style="margin-left: 10px;"
+    >
+      <option value="125">125%</option>
+      <option value="100">100%</option>
+      <option value="90">90%</option>
+      <option value="80">80%</option>
+      <option value="67">67%</option>
+      <option value="57">57%</option>
+      <option value="50">50%</option>
+      <option value="40">40%</option>
+      <option value="33">33%</option>
+      <option value="25">25%</option>
+      <option value="20">20%</option>
+    </a-select-input>
+    <a-toggle-input :label="i18n.use_autofill" v-model="useAutofill" />
+    <a-toggle-input :label="i18n.smart_filter" v-model="smartFilter" />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
@@ -46,7 +42,7 @@
         i18n.minutes
       }}</span>
     </div>
-    <div class="button" v-on:click="popOut()">{{ i18n.popout }}</div>
+    <a-button @click="popOut()">{{ i18n.popout }}</a-button>
   </div>
 </template>
 <script lang="ts">

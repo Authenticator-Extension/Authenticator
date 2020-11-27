@@ -5,6 +5,7 @@ import { Vue2Dragula } from "vue2-dragula";
 
 // Components
 import Popup from "./components/Popup.vue";
+import CommonComponents from "./components/common/index";
 
 // Other
 import { loadI18nMessages } from "./store/i18n";
@@ -25,6 +26,11 @@ async function init() {
   // Load modules
   Vue.use(Vuex);
   Vue.use(Vue2Dragula);
+
+  // Load common components globally
+  for (const component of CommonComponents) {
+    Vue.component(component.name, component.component);
+  }
 
   // State
   const store = new Vuex.Store({

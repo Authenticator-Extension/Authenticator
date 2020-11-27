@@ -116,6 +116,8 @@ $theme-map: null;
   position: relative;
   text-align: center;
   font-size: 16px;
+  width: -moz-available;
+  width: -webkit-fill-available;
   @include themify($themes) {
     background: themed("white-1");
     border: themed("grey-2") 1px solid;
