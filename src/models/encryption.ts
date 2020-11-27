@@ -20,7 +20,7 @@ export class Encryption implements EncryptionInterface {
       const decryptedSecret = CryptoJS.AES.decrypt(
         entry.secret,
         this.password
-      ).toString();
+      ).toString(CryptoJS.enc.Utf8);
 
       if (!decryptedSecret) {
         return null;

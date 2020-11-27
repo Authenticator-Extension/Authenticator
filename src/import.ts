@@ -69,7 +69,7 @@ export function decryptBackupData(
         backupData[hash].secret = CryptoJS.AES.decrypt(
           backupData[hash].secret,
           passphrase
-        ).toString();
+        ).toString(CryptoJS.enc.Utf8);
         backupData[hash].encrypted = false;
       } catch (error) {
         continue;
