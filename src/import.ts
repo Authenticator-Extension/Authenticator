@@ -1,5 +1,6 @@
 import Vue from "vue";
 import ImportView from "./components/Import.vue";
+import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
 
 import { Encryption } from "./models/encryption";
@@ -10,6 +11,11 @@ import * as uuid from "uuid/v4";
 async function init() {
   // i18n
   Vue.prototype.i18n = await loadI18nMessages();
+
+  // Load common components globally
+  for (const component of CommonComponents) {
+    Vue.component(component.name, component.component);
+  }
 
   // Load entries to global
   const encryption = new Encryption(await getCachedPassphrase());

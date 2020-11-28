@@ -15,6 +15,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: ["label", "value", "type", "autofocus"]
+  props: ["label", "value", "type"]
 });
 </script>

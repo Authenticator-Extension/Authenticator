@@ -3,16 +3,13 @@
     <p style="margin: 10px 20px 20px 20px;">
       {{ i18n.import_backup_qr_in_batches }}
     </p>
-    <div class="import_file">
-      <label for="import_qr">{{ i18n.import_backup_qr }}</label>
-      <input
-        id="import_qr"
-        type="file"
-        v-on:change="importQr($event, true)"
-        accept="image/*"
-        multiple
-      />
-    </div>
+    <a-file-input
+      button-type="file"
+      accept="image/*"
+      @change="importQr($event, true)"
+      multiple="true"
+      :label="i18n.import_backup_qr"
+    />
   </div>
 </template>
 <script lang="ts">
