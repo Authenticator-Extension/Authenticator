@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Аутентификатор",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Имя пользователя",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +60,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "yobit.net",
+        "message": "Секрет",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -76,7 +76,7 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Экспорт / Импорт",
+        "message": "Export / Import",
         "description": "Export and Import."
     },
     "settings": {
@@ -112,13 +112,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Сбросить аутентификатор"
+        "message": "Reset Authenticator"
     },
     "delete_all_warning": {
         "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
     },
     "security_warning": {
-        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не сможет помочь вам, если вы забудете его.",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
