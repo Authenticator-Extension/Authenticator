@@ -57,7 +57,7 @@ else
     ./node_modules/webpack-cli/bin/cli.js
 fi
 ./node_modules/sass/sass.js sass:css
-cp ./sass/DroidSansMono.woff2 ./css/
+cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/
 
 if [[ $PLATFORM = "prod" ]]; then
     echo "Generating licenses file..."
