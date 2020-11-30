@@ -7,34 +7,23 @@
       <div class="text warning" v-if="unsupportedAccounts">
         {{ i18n.otp_unsupported_warn }}
       </div>
-      <a
+      <a-button-link
         download="authenticator.txt"
-        v-bind:href="exportOneLineOtpAuthFile"
+        :href="exportOneLineOtpAuthFile"
         v-if="!unsupportedAccounts"
-        class="button"
-        target="_blank"
-        >{{ i18n.download_backup }}</a
+        >{{ i18n.download_backup }}</a-button-link
       >
-      <a
+      <a-button-link download="authenticator.json" :href="exportFile" v-else>{{
+        i18n.download_backup
+      }}</a-button-link>
+      <a-button-link
         download="authenticator.json"
-        v-bind:href="exportFile"
-        class="button"
-        target="_blank"
-        v-else
-        >{{ i18n.download_backup }}</a
-      >
-      <a
-        download="authenticator.json"
-        v-bind:href="exportEncryptedFile"
+        :href="exportEncryptedFile"
         v-if="encryption.getEncryptionStatus()"
-        class="button"
-        target="_blank"
-        >{{ i18n.download_enc_backup }}</a
+        >{{ i18n.download_enc_backup }}</a-button-link
       >
     </div>
-    <a class="button" href="import.html" target="_blank">{{
-      i18n.import_backup
-    }}</a>
+    <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
   </div>
 </template>
 <script lang="ts">

@@ -2,46 +2,29 @@
   <div>
     <!-- Storage Settings -->
     <div class="text">{{ i18n.storage_location_info }}</div>
-    <div class="control-group">
-      <label class="combo-label" style="margin: 20px 10px;">{{
-        i18n.storage_location
-      }}</label>
-      <select
-        style="margin: 20px 10px;"
-        v-model="newStorageLocation"
-        :disabled="storageArea"
-        v-on:change="migrateStorage()"
-      >
-        <option value="sync">sync</option>
-        <option value="local">local</option>
-      </select>
-    </div>
+    <a-select-input
+      :label="i18n.storage_location"
+      v-model="newStorageLocation"
+      :disabled="storageArea"
+      @change="migrateStorage()"
+    >
+      <option value="sync">sync</option>
+      <option value="local">local</option>
+    </a-select-input>
     <!-- 3rd Party Backup Services -->
     <div v-show="!backupDisabled" class="text">
       {{ i18n.storage_sync_info }}
     </div>
     <p></p>
-    <div
-      class="button"
-      v-show="!backupDisabled"
-      v-on:click="showInfo('DrivePage')"
-    >
+    <a-button v-show="!backupDisabled" click="showInfo('DrivePage')">
       Google Drive
-    </div>
-    <div
-      class="button"
-      v-show="!backupDisabled"
-      v-on:click="showInfo('OneDrivePage')"
-    >
+    </a-button>
+    <a-button v-show="!backupDisabled" @click="showInfo('OneDrivePage')">
       OneDrive
-    </div>
-    <div
-      class="button"
-      v-show="!backupDisabled"
-      v-on:click="showInfo('DropboxPage')"
-    >
+    </a-button>
+    <a-button v-show="!backupDisabled" @click="showInfo('DropboxPage')">
       Dropbox
-    </div>
+    </a-button>
   </div>
 </template>
 <script lang="ts">

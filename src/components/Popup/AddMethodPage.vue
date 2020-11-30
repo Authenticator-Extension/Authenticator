@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
-    <div class="button" v-on:click="showInfo('AddAccountPage')">
+    <a-button @click="beginCapture()">{{ i18n.add_qr }}</a-button>
+    <a-button @click="showInfo('AddAccountPage')">
       {{ i18n.add_secret }}
-    </div>
+    </a-button>
   </div>
 </template>
 <script lang="ts">

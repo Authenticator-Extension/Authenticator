@@ -7,17 +7,15 @@
       <input type="checkbox" id="encryptedCode" v-model="importEncrypted" />
       <label for="encryptedCode">{{ i18n.encrypted }}</label>
     </div>
-    <div class="import_passphrase" v-show="importEncrypted">
-      <label for="import_passphrase">{{ i18n.phrase }}</label>
-      <input
-        id="import_passphrase"
-        type="password"
-        v-model="importPassphrase"
-      />
-    </div>
-    <button v-on:click="importBackupCode()">
+    <a-text-input
+      :label="i18n.phrase"
+      v-model="importPassphrase"
+      type="password"
+      v-show="importEncrypted"
+    />
+    <a-button @click="importBackupCode()">
       {{ i18n.import_backup_code }}
-    </button>
+    </a-button>
   </div>
 </template>
 <script lang="ts">

@@ -721,7 +721,9 @@ svg {
 
   .badInput {
     @include themify($themes) {
-      border-color: themed("red-1");
+      input {
+        border-color: themed("red-1");
+      }
     }
   }
 

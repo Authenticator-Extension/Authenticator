@@ -1,5 +1,5 @@
 <template>
-  <div id="import">
+  <div id="import" class="theme-normal">
     <div v-if="!shouldShowPassphrase">
       <div class="import_tab">
         <input
