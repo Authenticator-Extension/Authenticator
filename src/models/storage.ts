@@ -1,5 +1,5 @@
 import { Encryption } from "./encryption";
-import { OTPEntry, OTPType, OTPAlgorithm } from "./otp";
+import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
 import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
@@ -281,6 +281,11 @@ export class EntryStorage {
     try {
       const exportData: { [hash: string]: OTPStorage } = {};
       for (const entry of data) {
+        // Skip unable-decrypted data
+        if (entry.code === CodeState.Encrypted) {
+          continue;
+        }
+
         if (!encrypted) {
           if (!entry.secret) {
             // Not unencrypted

@@ -126,8 +126,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account or export data until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Some accounts are not decrypted, we will skip them in the backup file.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Password does not match.",
