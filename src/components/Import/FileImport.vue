@@ -51,6 +51,11 @@ export default Vue.extend({
             // @ts-ignore
             key?: { enc: string; hash: string };
             [hash: string]: OTPStorage;
+            // Bug #557, uploaded backups were missing `key`
+            // @ts-ignore
+            enc?: string;
+            // @ts-ignore
+            hash?: string;
           } = {};
           try {
             importData = JSON.parse(reader.result as string);
@@ -65,6 +70,10 @@ export default Vue.extend({
           if (importData.key) {
             key = importData.key;
             delete importData.key;
+          } else if (importData.enc && importData.hash) {
+            key = { enc: importData.enc, hash: importData.hash };
+            delete importData.hash;
+            delete importData.enc;
           }
 
           let encrypted = false;
