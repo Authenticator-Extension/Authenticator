@@ -112,7 +112,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "인증 도구 초기화"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -134,7 +134,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "암호화",
+        "message": "암호화됨",
         "description": "Encrypted."
     },
     "copied": {
@@ -210,7 +210,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "QR 이미지 백업 가져오기",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -218,7 +218,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "성공적으로 가져왔지만, 일부 QR 이미지를 인식하지 못했습니다.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -278,19 +278,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "테마",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "밝은",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "어두운",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "고대비",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -367,6 +367,6 @@
         "message": "알고리즘"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "스마트 필터"
     }
 }
