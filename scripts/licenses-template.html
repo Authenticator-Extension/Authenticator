@@ -1,73 +1,100 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authenticator || About</title>
+    
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <br>
+    <br>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1">
-</head>
+   
+    <nav class="navbar">
+      <div class="navbar__container">
+        <a href="https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai?hl=en" id="navbar__logo">Authenticator</a>
+        <div class="navbar__toggle" id="mobile-menu">
+          <span class="bar"></span> <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <ul class="navbar__menu">
 
-<body>
-  <h1 id="package-name">
-    <a href="https://github.com/Authenticator-Extension">
-      Authenticator Extension
-    </a>
-  </h1>
-  <div class="licenses">
-    <h2>Acknowledgements</h2>
-    <p>Google and Google Drive are trademarks of Google LLC.</p>
-    <p>
-      <a target="_blank" href="https://github.com/FortAwesome/Font-Awesome">
-        Font Awesome Free
-      </a> - Licensed under CC BY 4.0
-    </p>
-    <p>
-      <a target="_blank" href="http://www.droidfonts.com/">
-        Droid Sans Mono
-      </a> - Copyright Steve Matteson. Licensed under the Apache License.
-    </p>
-    <p>
-      Thanks to
-      <a target="_blank" href="https://github.com/multiwebinc">Mike Robinson</a>
-      &lt;3
-    </p>
-    <p><a target="_blank" href="qrdebug.html">QR Debugging</a></p>
-    {{#renderLicenses}}
-    <h3>
-      {{#pkgs}}
-      {{#homepage}}<a href="{{{homepage}}}">{{/homepage}}{{name}}{{#homepage}}</a>{{/homepage}}{{#comma}}, {{/comma}}
-      {{/pkgs}}
-    </h3>
-    <blockquote>
-      {{text}}
-    </blockquote>
-    {{/renderLicenses}}
-  </div>
-  <style>
-    .licenses blockquote {
-      white-space: pre-wrap;
-      background-color: whitesmoke;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      display: inline-block;
-      width: 50%;
-    }
+          <li class="navbar__item">
+            <a href="https://github.com/Authenticator-Extension/Authenticator" class="navbar__links" id="home-page">Contribute</a>
+          </li>
+        </ul>
+      </div>
+      
+    </nav>
+    <div class="content">
+    <center>
+      <h1 id="package-name">
+        <a href="https://github.com/Authenticator-Extension">
+          Authenticator Extension
+        </a>
+      </h1>
+      <div class="licenses">
+        <h2>Acknowledgements</h2>
+        <p>Google and Google Drive are trademarks of Google LLC.</p>
+        <p>
+          <a target="_blank" href="https://github.com/FortAwesome/Font-Awesome">
+            Font Awesome Free
+          </a> - Licensed under CC BY 4.0
+        </p>
+        <p>
+          <a target="_blank" href="http://www.droidfonts.com/">
+            Droid Sans Mono
+          </a> - Copyright Steve Matteson. Licensed under the Apache License.
+        </p>
+        <p>
+          Thanks to
+          <a target="_blank" href="https://github.com/multiwebinc">Mike Robinson</a>
+          &lt;3
+        </p>
+        <p><a target="_blank" href="qrdebug.html">QR Debugging</a></p>
+        {{#renderLicenses}}
+        <h3>
+          {{#pkgs}}
+          {{#homepage}}<a href="{{{homepage}}}">{{/homepage}}{{name}}{{#homepage}}</a>{{/homepage}}{{#comma}}, {{/comma}}
+          {{/pkgs}}
+        </h3>
+        <blockquote>
+          {{text}}
+        </blockquote>
+        {{/renderLicenses}}
+      </div>
+      <style>
+        .licenses blockquote {
+          white-space: pre-wrap;
+          background-color: rgb(0, 0, 0);
+          padding-left: 1rem;
+          padding-right: 1rem;
+          display: inline-block;
+          width: 50%;
+        }
+    
+        @media only screen and (max-width: 768px) {
+          .licenses blockquote {
+            width: 100%;
+            margin: 0px;
+          }
+        }
+    
+        @media only screen and (min-width: 768px) {
+          body {
+            margin-left: 10vw;
+          }
+        }
+    
+        .licenses h3,
+        #package-name {
+          font-family: sans-serif;
+        }
+      </style>
+    </center>
+    </div>
 
-    @media only screen and (max-width: 768px) {
-      .licenses blockquote {
-        width: 100%;
-        margin: 0px;
-      }
-    }
-
-    @media only screen and (min-width: 768px) {
-      body {
-        margin-left: 10vw;
-      }
-    }
-
-    .licenses h3,
-    #package-name {
-      font-family: sans-serif;
-    }
-  </style>
-</body>
+  </body>
+</html>
