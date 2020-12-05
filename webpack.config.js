@@ -52,8 +52,6 @@ module.exports = {
         ]
       }
     ],
-    // to supress mocha warnings
-    exprContextCritical: false,
   },
   plugins: [
     new VueLoaderPlugin(),

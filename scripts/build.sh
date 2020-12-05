@@ -70,10 +70,18 @@ fi
 postCompile () {
     mkdir $1
     cp -r dist css images _locales LICENSE view $1
-    cp manifest-$1.json $1/manifest.json
-    if [[ $1 = "chrome" ]]; then
-        cp schema-chrome.json $1/schema.json
+
+    if [[ $PLATFORM != "prod" ]]; then
+        cp manifests/manifest-$1-testing.json $1/manifest.json
+    else
+        cp manifests/manifest-$1.json $1/manifest.json
     fi
+
+    if [[ $1 = "chrome" ]]; then
+        cp manifests/schema-chrome.json $1/schema.json
+    fi
+
+    
 }
 
 if [[ $PLATFORM = "prod" ]]; then
