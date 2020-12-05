@@ -54,7 +54,7 @@ echo "Compiling..."
 if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 else
-    ./node_modules/webpack-cli/bin/cli.js
+    ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
 fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/

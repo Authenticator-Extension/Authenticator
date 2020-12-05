@@ -3,7 +3,6 @@ const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
-  mode: "development",
   devtool: "source-map",
   entry: {
     argon: "./src/argon.ts",
@@ -13,7 +12,6 @@ module.exports = {
     import: "./src/import.ts",
     options: "./src/options.ts",
     qrdebug: "./src/qrdebug.ts",
-    test: "./src/test.ts"
   },
   // For argon2-browser & mocha
   node: {
