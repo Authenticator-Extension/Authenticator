@@ -2,7 +2,8 @@
 # This script builds for release and puts api secrets in relevant files
 
 # Insert secrets
-openssl aes-256-cbc -K $encrypted_a5950de01601_key -iv $encrypted_a5950de01601_iv -in scripts/credentials.ts.enc -out src/models/credentials.ts -d
+gpg --quiet --batch --yes --decrypt --passphrase="$CREDS_FILE_PASSWORD" \
+  --output $GITHUB_WORKSPACE/src/models/credentials.ts $GITHUB_WORKSPACE/scripts/credentials.ts.gpg
 
 # Build release
 bash scripts/build.sh prod
