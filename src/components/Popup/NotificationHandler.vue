@@ -3,17 +3,17 @@
     <!-- MESSAGE -->
     <div class="message-box" v-show="message.length && messageIdle">
       <div>{{ message.length ? message[0] : "" }}</div>
-      <div class="button-small" v-on:click="closeAlert()">{{ i18n.ok }}</div>
+      <a-button type="small" @click="closeAlert()">{{ i18n.ok }}</a-button>
     </div>
 
     <!-- CONFRIM -->
     <div class="message-box" v-show="confirmMessage !== ''">
       <div>{{ confirmMessage }}</div>
       <div class="buttons">
-        <div class="button-small" v-on:click="confirmOK()">{{ i18n.yes }}</div>
-        <div class="button-small" v-on:click="confirmCancel()">
+        <a-button type="small" @click="confirmOK()">{{ i18n.yes }}</a-button>
+        <a-button type="small" @click="confirmCancel()">
           {{ i18n.no }}
-        </div>
+        </a-button>
       </div>
     </div>
 
