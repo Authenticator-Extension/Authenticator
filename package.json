@@ -27,7 +27,6 @@
     "@types/mocha": "^8.0.4",
     "@types/sinon": "^9.0.9",
     "@types/sinon-chai": "^3.2.5",
-    "@types/source-map-support": "^0.5.3",
     "@types/uuid": "^3.4.9",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
