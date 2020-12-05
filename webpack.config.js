@@ -15,7 +15,7 @@ module.exports = {
     qrdebug: "./src/qrdebug.ts",
     test: "./src/test.ts"
   },
-  // For argon2-browser
+  // For argon2-browser & mocha
   node: {
     fs: "empty"
   },
@@ -53,7 +53,9 @@ module.exports = {
           }
         ]
       }
-    ]
+    ],
+    // to supress mocha warnings
+    exprContextCritical: false,
   },
   plugins: [
     new VueLoaderPlugin(),
