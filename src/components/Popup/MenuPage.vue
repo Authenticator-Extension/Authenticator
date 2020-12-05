@@ -129,13 +129,6 @@ export default Vue.extend({
           this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
           return;
         }
-
-        if (tab === "ExportPage") {
-          this.$store.commit(
-            "notification/alert",
-            this.i18n.phrase_incorrect_export
-          );
-        }
       }
       this.$store.commit("style/showInfo");
       this.$store.commit("currentView/changeView", tab);

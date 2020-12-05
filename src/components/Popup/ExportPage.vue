@@ -7,6 +7,9 @@
       <div class="text warning" v-if="unsupportedAccounts">
         {{ i18n.otp_unsupported_warn }}
       </div>
+      <div class="text warning" v-if="currentlyEncrypted">
+        {{ i18n.phrase_incorrect_export }}
+      </div>
       <a-button-link
         download="authenticator.txt"
         :href="exportOneLineOtpAuthFile"
@@ -43,7 +46,8 @@ export default Vue.extend({
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
       exportEncryptedFile: getBackupFile(exportEncData, key),
-      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData)
+      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData),
+      currentlyEncrypted: this.$store.getters["accounts/currentlyEncrypted"]
     };
   },
   computed: {

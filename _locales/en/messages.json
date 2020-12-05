@@ -130,7 +130,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Some accounts are not decrypted, we will skip them in the backup file.",
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
