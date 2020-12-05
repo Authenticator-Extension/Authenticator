@@ -1,9 +1,10 @@
 import "mocha";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-mocha.checkLeaks();
-
 import "./test/demo";
+import "./test/components/Popup/EnterPasswordPage";
+
+mocha.setup({
+  checkLeaks: true
+});
 
 mocha.run();
