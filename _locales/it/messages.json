@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Non è possibile aggiungere un nuovo account fino a quando tutti gli account non saranno decrittografati. Si prega di inserire la password corretta prima di continuare.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
