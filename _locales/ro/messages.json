@@ -126,11 +126,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Nu poți adăuga un nou cont înainte ca toate conturile să fie decriptate. Te rog introdu parola corectă înainte de a continua.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Conturile care nu au putut fi decriptate nu vor fi incluse în această copie de siguranță.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
