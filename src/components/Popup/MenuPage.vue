@@ -124,8 +124,8 @@ export default Vue.extend({
       return;
     },
     showInfo(tab: string) {
-      if (tab === "SetPasswordPage" || tab === "ExportPage") {
-        if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+        if (tab === "SetPasswordPage") {
           this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
           return;
         }
