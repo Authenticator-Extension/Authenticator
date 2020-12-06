@@ -126,8 +126,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "모든 계정이 복호화될 때까지 새 계정을 추가하거나 데이터를 내보낼 수 없습니다. 계속하기 전에 올바른 비밀번호를 입력해주세요.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "비밀번호가 일치하지 않습니다.",
