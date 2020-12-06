@@ -126,8 +126,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Você não pode adicionar uma nova conta ou exportar os dados até que todas as contas estejam descriptografadas. Por favor digite a senha correta antes de continuar.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "As senhas não correspondem.",
