@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "すべてのアカウントが復号化されるまで、新しいアカウントを追加することはできません。続行する前に正しいパスワードを入力してください。",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
