@@ -7,7 +7,7 @@ on:
 jobs:
   i18n-strings:
     runs-on: ubuntu-latest
-    name: Process new i18n strings`
+    name: Process new i18n strings
     
     steps:
       - uses: actions/checkout@v2
