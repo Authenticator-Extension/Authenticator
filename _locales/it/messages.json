@@ -130,7 +130,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Gli account che non è stato possibile decrittografare non verranno inclusi in questo backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
