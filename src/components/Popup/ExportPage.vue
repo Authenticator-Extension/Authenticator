@@ -46,8 +46,7 @@ export default Vue.extend({
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
       exportEncryptedFile: getBackupFile(exportEncData, key),
-      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData),
-      currentlyEncrypted: this.$store.getters["accounts/currentlyEncrypted"]
+      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData)
     };
   },
   computed: {
@@ -56,6 +55,9 @@ export default Vue.extend({
     },
     exportDisabled: function() {
       return this.$store.state.menu.exportDisabled;
+    },
+    currentlyEncrypted: function() {
+      return this.$store.getters["accounts/currentlyEncrypted"];
     }
   }
 });
