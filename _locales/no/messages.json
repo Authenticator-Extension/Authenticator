@@ -126,8 +126,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Du kan ikke legge til en ny konto eller eksportere data før alle kontoer er dekryptert. Vennligst tast inn riktig passord før du fortsetter.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Passord stemmer ikke overens.",
