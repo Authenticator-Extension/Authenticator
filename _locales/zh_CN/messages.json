@@ -126,11 +126,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "部分账户与密码不匹配，您无法添加新账户或者更改密码。请提供正确的密码后重试。",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "备份文件不会包含无法解密的账号。",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
