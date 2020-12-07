@@ -108,11 +108,11 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Я розумію, що всі мої дані буде невиправно видалено.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Скинути автентифікатор"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -214,7 +214,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Імпортувати резервну копію QR-зображення",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -222,11 +222,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Імпорт успішний, але деяке QR-зображення не може бути розпізнано.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Ви можете вибрати декілька файлів для імпорту резервних копій групами.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -274,15 +274,15 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Використовувати автозаповнення",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Використовувати високу контрастність",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Тема",
         "description": "Theme"
     },
     "theme_light": {
@@ -302,7 +302,7 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Виберіть місце зберігання даних. Використовуючи 'local', Ваші дані зберігаються на ПК. Використовуючи 'sync', Ви дозволяє браузеру синхронізувати ваші дані з хмарою, якщо Ви увійшли за допомогою синхронізованого облікового запису.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
