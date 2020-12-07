@@ -152,6 +152,7 @@ function wordArrayToByteArray(wordArray: CryptoJS.lib.WordArray) {
       byteArray.push((word >> (8 * j)) & 0xff);
     }
   }
+  byteArray.length = wordArray.sigBytes;
   return byteArray;
 }
 
