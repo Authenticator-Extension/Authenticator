@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
+        "message": "Автентифікатор генерує коди двофакторної автентифікації у вашому браузері.",
         "description": "Extension Description."
     },
     "added": {
@@ -286,19 +286,19 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Світла",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Темна",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Висока контрастність",
         "description": "High Contrast theme"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Сховище і резервне копіювання",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
@@ -350,27 +350,27 @@
         "message": "Lock after"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "хвилин"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Додатково"
     },
     "period": {
-        "message": "Period"
+        "message": "Період"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Невірний"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифри"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Алгоритм"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Розумний фільтр"
     }
 }
