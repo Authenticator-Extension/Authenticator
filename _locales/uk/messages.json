@@ -115,7 +115,7 @@
         "message": "Скинути автентифікатор"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Це призведе до видалення всіх Ваших даних і повного скидання автентифікатора. Ви не зможете відновити втрачені дані! Вам слід розглянути можливість збереження резервної копії перед скиданням автентифікатора."
     },
     "security_warning": {
         "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не може допомогти вам, якщо ви забудете пароль.",
@@ -250,7 +250,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Завантажити захищену паролем резервну копію",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -306,11 +306,11 @@
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Автоматично створювати резервні копії Ваших даних у сторонніх сервісах-сховищах.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Місце зберігання",
         "description": "Storage location"
     },
     "sign_in": {
@@ -347,7 +347,7 @@
         "message": "Завантаження..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Блокувати після"
     },
     "minutes": {
         "message": "хвилин"
