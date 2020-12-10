@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "تا رمزگشایی همه حساب ها ، نمی توانید حساب جدیدی اضافه کنید. لطفا قبل از ادامه رمز عبور صحیح را وارد کنید.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
