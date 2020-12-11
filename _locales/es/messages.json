@@ -126,11 +126,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "No puedes añadir una nueva cuenta hasta que todas las demás cuentas estén descifradas. Por favor introduzca la contraseña correcta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Las cuentas que no se pudieron descifrar no se incluirán en esta copia de seguridad.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
