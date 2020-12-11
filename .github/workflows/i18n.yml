@@ -1,0 +1,17 @@
+name: i18n
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  i18n-strings:
+    runs-on: ubuntu-latest
+    name: Process new i18n strings
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - run: bash scripts/i18n.sh
+        env:
+          DEPLOY_KEY_PASSWORD: ${{ secrets.DEPLOY_KEY_PASSWORD }}

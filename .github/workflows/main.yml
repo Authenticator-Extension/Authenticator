@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  style:
+    runs-on: ubuntu-latest
+    name: Style checks
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+      
+      - name: Install dependencies
+        run: |
+          npm i prettier
+          sudo npm i -g lintspaces-cli
+
+      - name: Prettier
+        run: ./node_modules/prettier/bin-prettier.js --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
+
+      - name: lintspaces
+        run: |
+          lintspaces -nt -d 'spaces' -i 'js-comments' src/*/* src/*.ts view/* manifest-*.json css/popup.css css/import.css
+  build-ffx:
+    runs-on: ubuntu-latest
+    name: Build Firefox & run addons-linter
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+      
+      - name: Install dependencies
+        run: |
+          npm i
+          sudo npm install --only=production -g addons-linter
+          
+      - name: Build
+        run: npm run firefox
+        
+      - name: Run addons-linter
+        run: addons-linter firefox
+  build-chrome:
+    runs-on: ubuntu-latest
+    name: Build Chrome
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+      
+      - name: Install dependencies
+        run: npm i
+          
+      - name: Build
+        run: npm run chrome
