@@ -32,7 +32,7 @@
         "description": "Manual Entry."
     },
     "close": {
-        "message": "Close",
+        "message": "වසන්න",
         "description": "Close."
     },
     "ok": {
@@ -44,7 +44,7 @@
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "නැහැ",
         "description": "No."
     },
     "account": {
