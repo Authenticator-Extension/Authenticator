@@ -56,7 +56,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Emissor",
         "description": "Issuer."
     },
     "secret": {
@@ -64,7 +64,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Sucesso",
+        "message": "Sucesso.",
         "description": "Update Success."
     },
     "updateFailure": {
@@ -88,19 +88,19 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Senha Atual",
+        "message": "Palavra-passe atual",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nova Senha",
+        "message": "Nova palavra-passe",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Senha",
+        "message": "Palavra-passe",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirmar Senha",
+        "message": "Confirmar palavra-passe",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -112,13 +112,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Redefinir Autenticação"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Irá apagar todos os seus dados e redefinir a autenticação completamente. Não será possível recuperar quaisquer dados apagados! Deve considerar guardar uma cópia de segurança antes de redefinir a autenticação."
     },
     "security_warning": {
-        "message": "Esta senha será usada para encriptar todas as suas contas. Ninguém poderá ajudá-lo caso esqueça a sua senha.",
+        "message": "Esta palavra-passe será utilizada para encriptar todas as suas contas. Ninguém poderá ajudá-lo caso se esqueça da sua palavra-passe.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -126,7 +126,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Não pode adicionar uma nova conta até que todas as contas estejam desencriptadas. Por favor, digite a senha correta antes de continuar.",
+        "message": "Não pode adicionar uma nova conta até que todas as contas estejam desencriptadas. Por favor, digite a palavra-passe correta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -134,7 +134,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "As senhas não correspondem.",
+        "message": "As palavras-passe não correspondem.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -158,7 +158,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Digite a senha para desencriptar os dados da conta.",
+        "message": "Digite a palavra-passe para desencriptar os dados da conta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -302,15 +302,15 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Selecione onde os seus dados deverão ser armazenados. 'local' armazena os seus dados no seu computador. 'sincronizar' permite que o seu navegador sincronize os seus dados com a cloud caso esteja conectado a uma conta de sincronização.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Automaticamente os seus dados serão exportados para serviços de armazenamento de terceiros.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Local de Armazenamento",
         "description": "Storage location"
     },
     "sign_in": {
@@ -332,45 +332,45 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Você tem uma ou mais contas Steam ou Blizzard. As cópias de segurança não encriptadas não utilizarão o formato padrão de backup.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Você pode importar cópias de segurança de outras aplicações.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Mais informações",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "A carregar..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Bloquear após"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minutos"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Avançado"
     },
     "period": {
-        "message": "Period"
+        "message": "Período"
     },
     "type": {
-        "message": "Type"
+        "message": "Tipo"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Inválido"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Dígitos"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritmo"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Filtro Inteligente"
     }
 }
