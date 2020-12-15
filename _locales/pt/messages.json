@@ -266,39 +266,39 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Editar",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Sincronização manual",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Utilizar preenchimento automático",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Utilizar alto contraste",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Claro",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Escuro",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Alto Contraste",
         "description": "High Contrast theme"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Armazenamento & Cópia de Segurança",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
