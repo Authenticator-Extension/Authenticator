@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Ler código QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -52,7 +52,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Nome de Utilizador",
         "description": "Account Name."
     },
     "issuer": {
@@ -104,11 +104,11 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Tem a certeza que pretende eliminar esta conta? Esta ação não pode ser revertida.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Compreendo que todos os meus dados serão definitivamente apagados.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
@@ -118,7 +118,7 @@
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Esta senha será usada para encriptar todas as suas contas. Ninguém poderá ajudá-lo caso esqueça a sua senha.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -126,15 +126,15 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Não pode adicionar uma nova conta até que todas as contas estejam desencriptadas. Por favor, digite a senha correta antes de continuar.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Contas que não puderam ser desencriptadas não serão incluídas nesta cópia de segurança.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "As senhas não correspondem.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -158,7 +158,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Digite a senha para desencriptar os dados da conta.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -174,11 +174,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Você tem alguma cópia de segurança das suas contas? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "A captura falhou, por favor recarregue a página e tente novamente.",
         "description": "Capture Failed"
     },
     "based_on_time": {
@@ -186,7 +186,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Baseado no Contador",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -202,67 +202,67 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Exportar cópia de segurança",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importar cópia de segurança",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importar cópia de segurança",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importar código QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importar código de segurança",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Importação bem sucedida mas algum código QR não foi reconhecido.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Pode selecionar vários ficheiros para importar cópias de segurança em lotes.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Mostrar todas as entradas",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Aviso: os backups estão desencriptados. Use por sua conta e risco.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Você deve fornecer a senha correta para importar as cópias de segurança.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Sua senha encontra-se armazenada localmente. Por favor, altere-a no menu de segurança imediatamente.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Remover",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Exportar cópia de segurança protegida por senha",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Pesquisa",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Modo pop-up",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Bloquear",
         "description": "Lock accounts"
     },
     "edit": {
