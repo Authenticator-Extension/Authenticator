@@ -182,7 +182,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Baseada no tempo",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -190,15 +190,15 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Definições",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Escala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Aviso: todos os backups estão desencriptados. Pretende adicionar uma conta noutra aplicação? Passe o rato sobre a parte superior direita de qualquer conta e clique no botão escondido.",
         "description": "Export menu info text"
     },
     "download_backup": {
