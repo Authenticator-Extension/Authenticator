@@ -166,15 +166,15 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Lembrar senha",
+        "message": "Lembrar palavra-passe",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Cuidado! Seu relógio está atrasado, por favor corrigi-lo antes de continuar.",
+        "message": "Cuidado! O seu relógio está atrasado, por favor corrija antes de continuar.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Você tem alguma cópia de segurança das suas contas? Não espere até que seja tarde demais!",
+        "message": "Tem alguma cópia de segurança das suas contas? Não espere até que seja tarde demais!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -182,7 +182,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Baseada no tempo",
+        "message": "Baseado no Tempo",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -238,11 +238,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Você deve fornecer a senha correta para importar as cópias de segurança.",
+        "message": "Deve fornecer a palavra-passe correta para importar as cópias de segurança.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Sua senha encontra-se armazenada localmente. Por favor, altere-a no menu de segurança imediatamente.",
+        "message": "A palavra-passe encontra-se armazenada localmente. Por favor, altere-a no menu de segurança imediatamente.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -250,7 +250,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Exportar cópia de segurança protegida por senha",
+        "message": "Exportar cópia de segurança protegida por palavra-passe",
         "description": "Download Encrypted Backup"
     },
     "search": {
