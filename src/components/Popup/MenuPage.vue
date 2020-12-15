@@ -49,14 +49,14 @@
         </p>
         <p
           v-bind:title="i18n.translate"
-          v-on:click="openLink('https://crwd.in/authenticator-firefox')"
+          v-on:click="openLink('https://otp.ee/translate')"
         >
           <span><IconGlobe /></span>{{ i18n.translate }}
         </p>
         <p
           v-bind:title="i18n.source"
           v-on:click="
-            openLink('https://github.com/Authenticator-Extension/Authenticator')
+            openLink('https://otp.ee/sourcecode')
           "
         >
           <span><IconCode /></span>{{ i18n.source }}
@@ -104,12 +104,12 @@ export default Vue.extend({
       this.$store.commit("style/hideMenu");
     },
     openHelp() {
-      let url = "https://authenticator.cc/docs/en/chrome-issues";
+      let url = "https://otp.ee/chromeissues";
 
       if (navigator.userAgent.indexOf("Firefox") !== -1) {
-        url = "https://authenticator.cc/docs/en/firefox-issues";
+        url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
-        url = "https://authenticator.cc/docs/en/edge-issues";
+        url = "https://otp.ee/edgeissues";
       }
 
       const feedbackURL = this.$store.state.menu.feedbackURL;
