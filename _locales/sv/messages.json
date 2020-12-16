@@ -23,6 +23,10 @@
         "message": "Fel på hemlig nyckel. Endast Base32(A-Z, 2-7 och =) och Hex(0-9 och A-F) stöds. Men din hemliga nyckel är: ",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skanna QR-kod",
         "description": "Scan QR Code."
