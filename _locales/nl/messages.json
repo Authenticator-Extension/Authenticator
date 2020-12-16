@@ -23,6 +23,10 @@
         "message": "Ongeldig accountgeheim",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Scan QR-code",
         "description": "Scan QR Code."
