@@ -23,6 +23,10 @@
         "message": "Kehtetu konto saladus",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skaneeri QR kood",
         "description": "Scan QR Code."
