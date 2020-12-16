@@ -23,6 +23,10 @@
         "message": "Geçersiz hesap anahtarı",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "QR kodunu tara",
         "description": "Scan QR Code."
