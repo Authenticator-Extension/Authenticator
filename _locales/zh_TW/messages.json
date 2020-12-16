@@ -23,6 +23,10 @@
         "message": "帳號金鑰無效",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "掃描QR碼",
         "description": "Scan QR Code."
