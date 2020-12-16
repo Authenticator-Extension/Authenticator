@@ -23,6 +23,10 @@
         "message": "Cheia secretă a contului este invalidă",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Scanează codul QR",
         "description": "Scan QR Code."
