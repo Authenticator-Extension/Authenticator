@@ -372,5 +372,9 @@
     "phrase_incorrect_export": {
         "message": "Accounts that were not able to be decrypted will not be included in this backup.",
         "description": "Skip Unable-decripted Data."
+    },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
     }
 }
