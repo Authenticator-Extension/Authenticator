@@ -23,6 +23,10 @@
         "message": "ข้อมูลบัญชีไม่ถูกต้อง",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "สแกน QR Code",
         "description": "Scan QR Code."
