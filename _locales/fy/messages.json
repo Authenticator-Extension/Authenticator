@@ -23,6 +23,10 @@
         "message": "Net krekt accountgeheim",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skan QR-koade",
         "description": "Scan QR Code."
