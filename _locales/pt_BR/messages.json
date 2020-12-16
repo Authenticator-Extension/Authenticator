@@ -23,6 +23,10 @@
         "message": "Segredo da conta inválido",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Escanear código QR",
         "description": "Scan QR Code."
