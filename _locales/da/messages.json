@@ -23,6 +23,10 @@
         "message": "Ugyldig kontohemmelighed",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skan QR-kode",
         "description": "Scan QR Code."
