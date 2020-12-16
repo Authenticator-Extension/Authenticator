@@ -1,11 +1,10 @@
 const path = require("path");
 const merge = require('webpack-merge');
 const common = require('./webpack.config.js');
-const webpack = require('webpack');
 
 module.exports = merge(common, {
   entry: {
-    test: "./src/test.ts"
+    test: "./src/test.ts",
   },
   module: {
     rules: [
@@ -23,7 +22,7 @@ module.exports = merge(common, {
         enforce: "post"
       }
     ],
-    // to supress mocha warnings
+    // to suppress mocha warnings
     exprContextCritical: false,
   }
 });
