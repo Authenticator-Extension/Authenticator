@@ -14,7 +14,7 @@
       <div
         class="icon"
         id="i-plus"
-        v-bind:title="i18n.settings"
+        v-bind:title="i18n.add_code"
         v-on:click="showInfo('AddMethodPage')"
         v-show="style.isEditing"
       >

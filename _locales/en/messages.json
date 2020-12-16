@@ -23,6 +23,10 @@
         "message": "Invalid account secret",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add code",
+        "description": "Add code."
+    },
     "add_qr": {
         "message": "Scan QR Code",
         "description": "Scan QR Code."
