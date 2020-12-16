@@ -23,6 +23,10 @@
         "message": "Неприпустимий ідентифікатор аккаунта.",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Сканувати QR-код",
         "description": "Scan QR Code."
