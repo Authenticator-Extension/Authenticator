@@ -23,6 +23,10 @@
         "message": "Nama account tidak valid",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Pindai kode QR",
         "description": "Scan QR Code."
