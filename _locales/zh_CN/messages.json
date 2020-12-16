@@ -23,6 +23,10 @@
         "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "扫描QR码",
         "description": "Scan QR Code."
