@@ -23,6 +23,10 @@
         "message": "بيانات الحساب غير صالحة",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "مسح رمز QR",
         "description": "Scan QR Code."
