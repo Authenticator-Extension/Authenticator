@@ -24,8 +24,8 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add code",
-        "description": "Add code."
+        "message": "Add account",
+        "description": "Add account."
     },
     "add_qr": {
         "message": "Scan QR Code",
