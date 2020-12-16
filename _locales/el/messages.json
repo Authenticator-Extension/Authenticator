@@ -23,6 +23,10 @@
         "message": "Μη έγκυρο μυστικό λογαριασμού",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Σάρωση QR κωδικού",
         "description": "Scan QR Code."
