@@ -9,8 +9,8 @@ NC='\033[0m'
 BRANCH=${GITHUB_REF##*/}
 
 # Configure git
-git config --global user.email "27856297+dependabot-preview[bot]@users.noreply.github.com"
-git config --global user.name "GitHub Actions"
+git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --global user.name "github-actions[bot]"
 git remote set-url origin git@github.com:${GITHUB_REPOSITORY}.git
 gpg --quiet --batch --yes --decrypt --passphrase="$DEPLOY_KEY_PASSWORD" \
   --output $GITHUB_WORKSPACE/scripts/deploy-key $GITHUB_WORKSPACE/scripts/deploy-key.gpg
