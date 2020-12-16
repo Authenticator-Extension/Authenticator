@@ -23,6 +23,10 @@
         "message": "Chyba tajného klíče. Podporovány jsou pouze Base32(A-Z, 2-7 a =) a HEX(0-9 a A-F). Nicméně, Váš tajný klíč je: ",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Naskenovat QR kód",
         "description": "Scan QR Code."
