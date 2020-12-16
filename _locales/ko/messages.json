@@ -23,6 +23,10 @@
         "message": "유효하지 않은 계정 비밀번호",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "QR 코드 스캔",
         "description": "Scan QR Code."
