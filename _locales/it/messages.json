@@ -23,6 +23,10 @@
         "message": "Chiave segreta dell'account non valida",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Scansiona il codice QR",
         "description": "Scan QR Code."
