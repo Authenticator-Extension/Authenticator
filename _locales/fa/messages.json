@@ -23,6 +23,10 @@
         "message": "رمز حساب نامعتبر است",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "اسکن QR Code",
         "description": "Scan QR Code."
