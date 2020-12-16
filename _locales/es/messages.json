@@ -23,6 +23,10 @@
         "message": "Clave secreta de la cuenta invalida",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Escanear un código QR",
         "description": "Scan QR Code."
