@@ -39,9 +39,6 @@
         v-bind:entry="entry"
       />
     </div>
-    <div class="icon" id="add" v-on:click="showInfo('AddMethodPage')">
-      <IconPlus />
-    </div>
   </div>
 </template>
 <script lang="ts">
@@ -69,19 +66,6 @@ export default Vue.extend({
   },
   computed,
   methods: {
-    showInfo(page: string) {
-      if (page === "AddMethodPage") {
-        if (
-          this.$store.state.menu.enforcePassword &&
-          !this.$store.state.accounts.encryption.getEncryptionStatus()
-        ) {
-          page = "SetPasswordPage";
-        }
-      }
-
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
-    },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
         if (entry.hash === hash) {

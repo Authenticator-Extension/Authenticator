@@ -13,6 +13,15 @@
       </div>
       <div
         class="icon"
+        id="i-plus"
+        v-bind:title="i18n.add_code"
+        v-on:click="showInfo('AddMethodPage')"
+        v-show="style.isEditing"
+      >
+        <IconPlus />
+      </div>
+      <div
+        class="icon"
         id="i-lock"
         v-bind:title="i18n.lock"
         v-on:click="lock()"
@@ -74,6 +83,7 @@ import IconSync from "../../../svg/sync.svg";
 import IconScan from "../../../svg/scan.svg";
 import IconPencil from "../../../svg/pencil.svg";
 import IconCheck from "../../../svg/check.svg";
+import IconPlus from "../../../svg/plus.svg";
 
 const computedPrototype = [
   mapState("style", ["style"]),
@@ -111,6 +121,18 @@ export default Vue.extend({
     },
     showMenu() {
       this.$store.commit("style/showMenu");
+    },
+    showInfo(page: string) {
+      if (page === "AddMethodPage") {
+        if (
+          this.$store.state.menu.enforcePassword &&
+          !this.$store.state.accounts.encryption.getEncryptionStatus()
+        ) {
+          page = "SetPasswordPage";
+        }
+      }
+      this.$store.commit("style/showInfo");
+      this.$store.commit("currentView/changeView", page);
     },
     editEntry() {
       this.$store.commit("style/toggleEdit");
@@ -173,7 +195,8 @@ export default Vue.extend({
     IconSync,
     IconScan,
     IconPencil,
-    IconCheck
+    IconCheck,
+    IconPlus
   }
 });
 </script>
