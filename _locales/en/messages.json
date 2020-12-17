@@ -35,6 +35,18 @@
         "message": "Manual Entry",
         "description": "Manual Entry."
     },
+    "migration_fail": {
+        "message": "Migrate data failed. You need export data from Google Authenticator again.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Migrate data successfully, but some account data is broken.",
+        "description": "Some migration data is broken."
+    },
+    "migration_success": {
+        "message": "Migrate data successfully.",
+        "description": "Migrate data successfully."
+    },
     "close": {
         "message": "Close",
         "description": "Close."

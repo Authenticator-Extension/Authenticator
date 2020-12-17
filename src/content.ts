@@ -24,6 +24,15 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "text":
         alert(message.text);
         break;
+      case "migrationfail":
+        alert(chrome.i18n.getMessage("migration_fail"));
+        break;
+      case "migrationpartlyfail":
+        alert(chrome.i18n.getMessage("migration_partly_fail"));
+        break;
+      case "migrationsuccess":
+        alert(chrome.i18n.getMessage("migration_success"));
+        break;
       case "pastecode":
         pasteCode(message.code);
         break;

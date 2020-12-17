@@ -9,6 +9,8 @@ import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
 
+import { getOTPAuthPerLineFromOPTAuthMigration } from "./import";
+
 let cachedPassphrase = "";
 let autolockTimeout: number;
 let contentTab: chrome.tabs.Tab | undefined;
@@ -122,17 +124,46 @@ function getQr(
   });
 }
 
-async function getTotp(text: string) {
+async function getTotp(text: string, silent = false) {
   if (!contentTab || !contentTab.id || !text) {
-    return;
+    return false;
   }
   const id = contentTab.id;
 
   if (text.indexOf("otpauth://") !== 0) {
-    if (text === "error decoding QR Code") {
-      chrome.tabs.sendMessage(id, { action: "errorqr" });
+    if (text.indexOf("otpauth-migration://") === 0) {
+      const otpUrls = getOTPAuthPerLineFromOPTAuthMigration(text);
+      if (otpUrls.length === 0) {
+        !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });
+        return false;
+      }
+
+      let failedCount = 0;
+      for (const otpUrl of otpUrls) {
+        const success = await getTotp(otpUrl, true);
+        if (!success) {
+          failedCount++;
+        }
+      }
+      if (failedCount === otpUrls.length) {
+        !silent && chrome.tabs.sendMessage(id, { action: "migrationfail" });
+        return false;
+      }
+
+      if (failedCount > 0) {
+        !silent &&
+          chrome.tabs.sendMessage(id, { action: "migrationpartlyfail" });
+        return true;
+      }
+
+      !silent && chrome.tabs.sendMessage(id, { action: "migrationsuccess" });
+      return true;
+    } else if (text === "error decoding QR Code") {
+      !silent && chrome.tabs.sendMessage(id, { action: "errorqr" });
+      return false;
     } else {
-      chrome.tabs.sendMessage(id, { action: "text", text });
+      !silent && chrome.tabs.sendMessage(id, { action: "text", text });
+      return true;
     }
   } else {
     let uri = text.split("otpauth://")[1];
@@ -141,7 +172,8 @@ async function getTotp(text: string) {
     let label = uri.split("?")[0];
     const parameterPart = uri.split("?")[1];
     if (!label || !parameterPart) {
-      chrome.tabs.sendMessage(id, { action: "errorqr" });
+      !silent && chrome.tabs.sendMessage(id, { action: "errorqr" });
+      return false;
     } else {
       let secret = "";
       let account: string | undefined;
@@ -191,12 +223,14 @@ async function getTotp(text: string) {
       });
 
       if (!secret) {
-        chrome.tabs.sendMessage(id, { action: "errorqr" });
+        !silent && chrome.tabs.sendMessage(id, { action: "errorqr" });
+        return false;
       } else if (
         !/^[0-9a-f]+$/i.test(secret) &&
         !/^[2-7a-z]+=*$/i.test(secret)
       ) {
-        chrome.tabs.sendMessage(id, { action: "secretqr", secret });
+        !silent && chrome.tabs.sendMessage(id, { action: "secretqr", secret });
+        return false;
       } else {
         const encryption = new Encryption(cachedPassphrase);
         const hash = await uuid();
@@ -238,15 +272,15 @@ async function getTotp(text: string) {
           (await EntryStorage.hasEncryptedEntry()) !==
           encryption.getEncryptionStatus()
         ) {
-          chrome.tabs.sendMessage(id, { action: "errorenc" });
-          return;
+          !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });
+          return false;
         }
         await EntryStorage.import(encryption, entryData);
-        chrome.tabs.sendMessage(id, { action: "added", account });
+        !silent && chrome.tabs.sendMessage(id, { action: "added", account });
+        return true;
       }
     }
   }
-  return;
 }
 
 function getBackupToken(service: string) {

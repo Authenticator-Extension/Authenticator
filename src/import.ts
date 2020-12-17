@@ -168,7 +168,7 @@ function subBytesArray(bytes: number[], start: number, length: number) {
   return subBytes;
 }
 
-function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
+export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
   if (!migrationUri.startsWith("otpauth-migration:")) {
     return [];
   }
