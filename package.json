@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "description": "Authenticator generates 2-Step Verification codes in your browser.",
   "scripts": {
-    "compile": "bash ./scripts/build.sh firefox",
-    "fix": "gts fix",
+    "compile": "bash scripts/build.sh firefox",
     "chrome": "bash scripts/build.sh chrome",
     "firefox": "bash scripts/build.sh firefox",
-    "prod": "bash scripts/build.sh prod"
+    "prod": "bash scripts/build.sh prod",
+    "pretest": "bash scripts/build.sh test",
+    "test": "node scripts/test-runner.js"
   },
   "repository": {
     "type": "git",
@@ -39,7 +40,8 @@
     "fork-ts-checker-webpack-plugin": "^4.1.4",
     "mocha": "^8.2.1",
     "npm-license-generator": "^1.1.0",
-    "prettier": "1.18.2",
+    "nyc": "^15.1.0",
+    "prettier": "2.2.1",
     "puppeteer": "^5.5.0",
     "sass": "^1.26.11",
     "sinon": "^9.2.1",

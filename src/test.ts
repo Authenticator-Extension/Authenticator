@@ -4,7 +4,6 @@ import { MochaReporter } from "./mochaReporter";
 import "./test/components/Popup/EnterPasswordPage";
 
 mocha.setup({
-  checkLeaks: true,
   // @ts-expect-error - typings are wrong, CI not declared
   reporter: CI ? MochaReporter : "html"
 });
