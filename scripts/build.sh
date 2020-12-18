@@ -4,7 +4,7 @@
 # Syntax:
 #   build.sh <platform>
 # Platforms:
-#   'chrome', 'firefox', or 'prod'
+#   'chrome', 'firefox', 'test', or 'prod'
 
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
@@ -13,14 +13,14 @@ CREDREGEX='^.*".+".*".+".*".+".*".+".*".+".*$'
 STYLEFILES="./src/* ./src/**/* ./src/**/**/* ./src/**/**/**/* ./sass/*.scss"
 set -e
 
-if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "prod" ]]; then
-    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', and 'prod'"
+if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "prod" ]] && [[ $PLATFORM != "test" ]]; then
+    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', 'test', and 'prod'"
     exit 1
 fi
 
 echo "Removing old build files..."
 rm -rf build dist
-rm -rf firefox chrome release
+rm -rf firefox chrome release test
 echo "Checking style..."
 if ./node_modules/.bin/prettier --check $STYLEFILES 1> /dev/null ; then
     true
@@ -53,8 +53,11 @@ fi
 echo "Compiling..."
 if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
-else
+elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
+    ./node_modules/.bin/tsc scripts/test-runner.ts
+else 
+    ./node_modules/webpack-cli/bin/cli.js
 fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/
@@ -71,7 +74,7 @@ postCompile () {
     mkdir $1
     cp -r dist css images _locales LICENSE view $1
 
-    if [[ $PLATFORM != "prod" ]]; then
+    if [[ $PLATFORM == "test" ]]; then
         cp manifests/manifest-$1-testing.json $1/manifest.json
     else
         cp manifests/manifest-$1.json $1/manifest.json
@@ -89,6 +92,11 @@ if [[ $PLATFORM = "prod" ]]; then
     postCompile "firefox"
     mkdir release
     mv chrome firefox release
+elif [[ $PLATFORM = "test" ]]; then
+    postCompile "chrome"
+    postCompile "firefox"
+    mkdir test
+    mv chrome firefox test
 else
     postCompile $PLATFORM
 fi

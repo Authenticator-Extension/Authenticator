@@ -24,7 +24,7 @@ describe("EnterPasswordPage", function() {
     }
   });
 
-  const storeOpts = {
+  let storeOpts = {
     modules: {
       accounts: {
         actions: {
@@ -40,7 +40,8 @@ describe("EnterPasswordPage", function() {
   let store: Store<typeof storeOpts>;
 
   beforeEach(() => {
-    sinon.restore();
+    // TODO: find a nicer var
+    storeOpts.modules.accounts.actions.applyPassphrase = sinon.fake();
     store = new Vuex.Store(storeOpts);
   });
 
@@ -63,11 +64,11 @@ describe("EnterPasswordPage", function() {
 
     const passwordInput = wrapper.find("input");
 
-    passwordInput.setValue("somePassword");
-    await passwordInput.trigger("enter");
+    passwordInput.setValue("anotherPassword");
+    await passwordInput.trigger("keyup.enter");
     storeOpts.modules.accounts.actions.applyPassphrase.should.have.been.calledWith(
       sinon.match.any,
-      "somePassword"
+      "anotherPassword"
     );
   });
 

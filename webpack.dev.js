@@ -1,9 +1,9 @@
 const path = require("path");
 const merge = require('webpack-merge');
 const common = require('./webpack.config.js');
+const webpack = require('webpack');
 
 module.exports = merge(common, {
-  mode: "development",
   entry: {
     test: "./src/test.ts"
   },
@@ -17,6 +17,7 @@ module.exports = merge(common, {
         exclude: [
           path.resolve(__dirname, 'src/test/'),
           path.resolve(__dirname, 'src/test.ts'),
+          path.resolve(__dirname, 'src/mochaReporter.ts'),
           path.resolve(__dirname, 'node_modules/'),
         ],
         enforce: "post"
@@ -24,5 +25,10 @@ module.exports = merge(common, {
     ],
     // to supress mocha warnings
     exprContextCritical: false,
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      CI: process.env.CI
+    })
+  ]
 });
