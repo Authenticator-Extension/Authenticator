@@ -15,7 +15,7 @@ chai.use(sinonChai);
 mocha.setup("bdd");
 const localVue = createLocalVue();
 
-describe("EnterPasswordPage", function () {
+describe("EnterPasswordPage", () => {
   before(async () => {
     localVue.prototype.i18n = await loadI18nMessages();
     localVue.use(Vuex);

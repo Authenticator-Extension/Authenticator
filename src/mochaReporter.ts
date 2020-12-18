@@ -2,12 +2,15 @@ import { Runner, Test } from "mocha";
 
 interface MochaTestResults {
   total?: number;
-  tests?: {
-    title: string;
-    duration: number;
-    err?: string;
-    status: "failed" | "passed" | "pending";
-  }[];
+  tests?: StrippedTestResults[];
+}
+
+interface StrippedTestResults {
+  title: string;
+  duration: number;
+  path: string[];
+  err?: string;
+  status: "failed" | "passed" | "pending";
 }
 
 declare global {
@@ -28,7 +31,8 @@ export function MochaReporter(runner: Runner) {
   runner.on("end", () => {
     const strip = (test: Test) => {
       return {
-        title: test.fullTitle(),
+        title: test.title,
+        path: test.titlePath(),
         duration: test.duration,
         err: test.err?.stack || test.err?.message,
         status: test.state,

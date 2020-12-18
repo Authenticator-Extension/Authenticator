@@ -36,8 +36,8 @@ jobs:
       
       - name: Install dependencies
         run: |
-          npm i
-          sudo npm install --only=production -g addons-linter
+          npm ci
+          sudo npm i --only=production -g addons-linter
           
       - name: Build
         run: npm run firefox
@@ -55,13 +55,13 @@ jobs:
         uses: actions/setup-node@v2.1.2
       
       - name: Install dependencies
-        run: npm i
+        run: npm ci
           
       - name: Build
         run: npm run chrome
   run-tests:
     runs-on: ubuntu-latest
-    name: Run tests and code coverage
+    name: Run tests
     needs: [ build-chrome, build-ffx ]
 
     steps:
@@ -71,7 +71,7 @@ jobs:
         uses: actions/setup-node@v2.1.2
 
       - name: Install dependencies
-        run: npm i
+        run: npm ci
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
 

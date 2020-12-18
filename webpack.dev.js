@@ -25,10 +25,5 @@ module.exports = merge(common, {
     ],
     // to supress mocha warnings
     exprContextCritical: false,
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      CI: process.env.CI
-    })
-  ]
+  }
 });
