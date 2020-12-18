@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Hesap ekle",
         "description": "Add account."
     },
     "add_qr": {
@@ -130,7 +130,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemezsiniz. Devam etmeden önce lütfen doğru parolayı girin.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
