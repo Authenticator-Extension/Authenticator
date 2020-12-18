@@ -2,10 +2,10 @@ import { Runner, Test } from "mocha";
 
 interface MochaTestResults {
   total?: number;
-  tests?: Test[];
-  pending?: Test[];
-  failures?: Test[];
-  passes?: Test[];
+  tests?: Record<string, unknown>[];
+  pending?: Record<string, unknown>[];
+  failures?: Record<string, unknown>[];
+  passes?: Record<string, unknown>[];
 }
 
 declare global {
@@ -27,12 +27,19 @@ export function MochaReporter(runner: Runner) {
   });
 
   runner.on("end", () => {
-    window.__mocha_test_results__.tests = tests;
-    window.__mocha_test_results__.pending = pending;
-    window.__mocha_test_results__.failures = failures;
-    window.__mocha_test_results__.passes = passes;
+    const strip = (test: Test) => {
+      return {
+        title: test.fullTitle(),
+        duration: test.duration,
+        err: test.err
+      };
+    };
+    window.__mocha_test_results__.tests = tests.map(strip);
+    window.__mocha_test_results__.pending = pending.map(strip);
+    window.__mocha_test_results__.failures = failures.map(strip);
+    window.__mocha_test_results__.passes = passes.map(strip);
 
-    const event = new Event("testsComplete");
+    const event = new Event("testsComplete", { bubbles: true });
     window.dispatchEvent(event);
   });
 
