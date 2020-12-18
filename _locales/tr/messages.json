@@ -166,7 +166,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Saati Google ile senkronize et",
+        "message": "Saati Google ile eşitle",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -274,7 +274,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manuel Senkronizasyon",
+        "message": "Manuel Eşitleme",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Depolama Yeri",
+        "message": "Depolama Konumu",
         "description": "Storage location"
     },
     "sign_in": {
