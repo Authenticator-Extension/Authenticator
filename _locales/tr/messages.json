@@ -306,7 +306,7 @@
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Verilerinizin nerede saklanacağını seçin. 'local' kullanmak verilerinizi bilgisayarınızda depolar. 'sync' kullanılması, bir senkronizasyon hesabında oturum açtıysanız tarayıcınızın bilgilerinizi buluta senkronize etmesini sağlar.",
+        "message": "Verilerinizin nerede saklanacağını seçin. 'local' kullanmak verilerinizi bilgisayarınızda depolar. 'sync' kullanılması, bir senkronizasyon hesabında oturum açtıysanız tarayıcınızın bilgilerinizi bulut ile eşitlemesine olanak tanır.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
