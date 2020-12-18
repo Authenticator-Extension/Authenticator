@@ -127,7 +127,10 @@ async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
             );
 
             if (jsQrCode && jsQrCode.data) {
-              if (jsQrCode.data.indexOf("otpauth://") !== 0) {
+              if (
+                jsQrCode.data.indexOf("otpauth://") !== 0 &&
+                jsQrCode.data.indexOf("otpauth-migration://") !== 0
+              ) {
                 return resolve(null);
               }
               return resolve(jsQrCode.data);
@@ -137,7 +140,10 @@ async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
           };
           image.src = imageUrl;
         } else {
-          if (text.result.indexOf("otpauth://") !== 0) {
+          if (
+            text.result.indexOf("otpauth://") !== 0 &&
+            text.result.indexOf("otpauth-migration://") !== 0
+          ) {
             return resolve(null);
           }
           return resolve(text.result);

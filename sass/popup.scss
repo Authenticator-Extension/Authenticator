@@ -94,6 +94,7 @@ svg {
   }
 }
 
+#i-plus,
 #i-qr {
   position: absolute;
   right: 45px;
@@ -516,10 +517,13 @@ svg {
 }
 
 .buttons {
+  display: flex;
+  justify-content: center;
   text-align: center;
 
   .button-small {
     display: inline-block;
+    flex-basis: content;
     margin: 10px;
     padding: 5px 20px;
   }

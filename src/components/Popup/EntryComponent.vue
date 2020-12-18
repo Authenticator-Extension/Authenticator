@@ -44,7 +44,7 @@
         timeout: entry.period - (second % entry.period) < 5
       }"
       v-on:click="copyCode(entry)"
-      v-html="style.isEditing ? showBulls(entry.code) : showCode(entry.code)"
+      v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
     <div class="issuer">{{ entry.account }}</div>
     <div class="issuerEdit">
@@ -130,11 +130,18 @@ export default Vue.extend({
         return code;
       }
     },
-    showBulls(code: string) {
-      if (code.startsWith("&bull;")) {
-        return code;
+    showBulls(entry: OTPEntry) {
+      if (entry.code === CodeState.Encrypted) {
+        return this.i18n.encrypted;
+      } else if (entry.code === CodeState.Invalid) {
+        return this.i18n.invalid;
       }
-      return new Array(code.length).fill("&bull;").join("");
+
+      if (entry.code.startsWith("&bull;")) {
+        return entry.code;
+      }
+
+      return new Array(entry.digits).fill("&bull;").join("");
     },
     async removeEntry(entry: OTPEntry) {
       if (
