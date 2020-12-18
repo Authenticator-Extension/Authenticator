@@ -1,8 +1,8 @@
 import { Runner, Test } from "mocha";
 
-export interface MochaTestResults {
+interface MochaTestResults {
   total?: number;
-  tests?: { 
+  tests?: {
     title: string;
     duration: number;
     err?: string;
@@ -34,7 +34,8 @@ export function MochaReporter(runner: Runner) {
         status: test.state,
       };
     };
-    // @ts-expect-error typings are wrong
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore typings are wrong
     window.__mocha_test_results__.tests = tests.map(strip);
 
     const event = new Event("testsComplete", { bubbles: true });

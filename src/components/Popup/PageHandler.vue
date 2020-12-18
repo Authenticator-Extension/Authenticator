@@ -29,14 +29,14 @@ import LoadingPage from "./LoadingPage.vue";
 
 export default Vue.extend({
   computed: {
-    info: function() {
+    info: function () {
       return this.$store.state.currentView.info;
-    }
+    },
   },
   methods: {
     hideInfo() {
       this.$store.commit("style/hideInfo");
-    }
+    },
   },
   components: {
     IconXCircle,
@@ -50,7 +50,7 @@ export default Vue.extend({
     OneDrivePage,
     PreferencesPage,
     StorageSyncConfPage,
-    LoadingPage
-  }
+    LoadingPage,
+  },
 });
 </script>

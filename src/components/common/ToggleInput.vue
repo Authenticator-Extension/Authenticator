@@ -15,11 +15,11 @@ import Vue from "vue";
 export default Vue.extend({
   props: {
     label: String,
-    checked: Boolean
+    checked: Boolean,
   },
   model: {
     prop: "checked",
-    event: "change"
-  }
+    event: "change",
+  },
 });
 </script>

@@ -32,7 +32,7 @@ export default Vue.extend({
   computed: mapState("notification", [
     "message",
     "messageIdle",
-    "confirmMessage"
+    "confirmMessage",
   ]),
   methods: {
     closeAlert() {
@@ -47,7 +47,7 @@ export default Vue.extend({
       const confirmEvent = new CustomEvent("confirm", { detail: false });
       window.dispatchEvent(confirmEvent);
       return;
-    }
-  }
+    },
+  },
 });
 </script>

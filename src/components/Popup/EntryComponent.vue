@@ -15,7 +15,7 @@
           r="4"
           v-bind:style="{
             animationDuration: entry.period + 's',
-            animationDelay: (sectorOffset % entry.period) + 's'
+            animationDelay: (sectorOffset % entry.period) + 's',
           }"
         />
       </svg>
@@ -41,7 +41,7 @@
         code: true,
         hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
         'no-copy': noCopy(entry.code),
-        timeout: entry.period - (second % entry.period) < 5
+        timeout: entry.period - (second % entry.period) < 5,
       }"
       v-on:click="copyCode(entry)"
       v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
@@ -89,9 +89,9 @@ const computedPrototype = [
     "sectorStart",
     "sectorOffset",
     "second",
-    "encryption"
+    "encryption",
   ]),
-  mapState("style", ["style"])
+  mapState("style", ["style"]),
 ];
 
 let computed = {};
@@ -103,7 +103,7 @@ for (const module of computedPrototype) {
 export default Vue.extend({
   computed,
   props: {
-    entry: OTPEntry
+    entry: OTPEntry,
   },
   methods: {
     noCopy(code: string) {
@@ -194,7 +194,7 @@ export default Vue.extend({
 
       chrome.permissions.request(
         { permissions: ["clipboardWrite"] },
-        async granted => {
+        async (granted) => {
           if (granted) {
             const codeClipboard = document.getElementById(
               "codeClipboard"
@@ -208,7 +208,7 @@ export default Vue.extend({
 
               chrome.tabs.query(
                 { active: true, lastFocusedWindow: true },
-                tabs => {
+                (tabs) => {
                   const tab = tabs[0];
                   if (!tab || !tab.id) {
                     return;
@@ -216,7 +216,7 @@ export default Vue.extend({
 
                   chrome.tabs.sendMessage(tab.id, {
                     action: "pastecode",
-                    code: entry.code
+                    code: entry.code,
                   });
                 }
               );
@@ -235,15 +235,15 @@ export default Vue.extend({
       );
 
       return;
-    }
+    },
   },
   components: {
     IconMinusCircle,
     IconRedo,
     IconQr,
     IconBars,
-    IconPin
-  }
+    IconPin,
+  },
 });
 
 // TODO: move most of this to a models file and reuse for backup stuff

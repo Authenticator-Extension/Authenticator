@@ -12,6 +12,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: ["type", "href", "download"]
+  props: ["type", "href", "download"],
 });
 </script>

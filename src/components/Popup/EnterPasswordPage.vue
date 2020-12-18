@@ -17,20 +17,20 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      password: ""
+      password: "",
     };
   },
   computed: {
     wrongPassword() {
       return this.$store.state.accounts.wrongPassword;
-    }
+    },
   },
   methods: {
     applyPassphrase() {
       this.$store.dispatch("accounts/applyPassphrase", this.password);
-    }
-  }
+    },
+  },
 });
 </script>

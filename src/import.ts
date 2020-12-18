@@ -31,7 +31,7 @@ async function init() {
   Vue.prototype.$encryption = encryption;
 
   const instance = new Vue({
-    render: h => h(ImportView)
+    render: (h) => h(ImportView),
   }).$mount("#import");
 
   // Set title
@@ -259,7 +259,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         account = label;
       }
       const parameters = parameterPart.split("&");
-      parameters.forEach(item => {
+      parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
           secret = parameter[1];
@@ -321,7 +321,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
           encrypted: false,
           index: 0,
           counter: 0,
-          pinned: false
+          pinned: false,
         };
         if (period) {
           exportData[hash].period = period;

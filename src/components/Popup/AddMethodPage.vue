@@ -40,13 +40,13 @@ export default Vue.extend({
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
         if (!tab || !tab.id) {
           return;
         }
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
             this.$store.commit("notification/alert", this.i18n.capture_failed);
           } else {
@@ -55,7 +55,7 @@ export default Vue.extend({
         });
       });
       return;
-    }
-  }
+    },
+  },
 });
 </script>

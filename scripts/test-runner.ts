@@ -5,7 +5,6 @@ import * as puppeteer from "puppeteer";
 import * as path from "path";
 import * as fs from "fs";
 import { execSync } from "child_process";
-import { MochaTestResults } from "../src/mochaReporter";
 declare global {
   interface Window {
     __mocha_test_results__: MochaTestResults;
@@ -17,6 +16,16 @@ const colors = {
   reset: "\x1b[0m",
   green: "\x1b[32m",
   red: "\x1b[31m",
+}
+
+interface MochaTestResults {
+  total: number;
+  tests: {
+    title: string;
+    duration: number;
+    err?: string;
+    status: "failed" | "passed" | "pending";
+  }[];
 }
 
 async function runTests() {

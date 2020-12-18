@@ -15,7 +15,7 @@ chai.use(sinonChai);
 mocha.setup("bdd");
 const localVue = createLocalVue();
 
-describe("EnterPasswordPage", function() {
+describe("EnterPasswordPage", function () {
   before(async () => {
     localVue.prototype.i18n = await loadI18nMessages();
     localVue.use(Vuex);
@@ -28,14 +28,14 @@ describe("EnterPasswordPage", function() {
     modules: {
       accounts: {
         actions: {
-          applyPassphrase: sinon.fake()
+          applyPassphrase: sinon.fake(),
         },
         state: {
-          wrongPassword: false
+          wrongPassword: false,
         },
-        namespaced: true
-      }
-    }
+        namespaced: true,
+      },
+    },
   };
   let store: Store<typeof storeOpts>;
 

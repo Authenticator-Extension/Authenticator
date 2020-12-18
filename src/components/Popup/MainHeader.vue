@@ -33,7 +33,7 @@
         class="icon"
         id="i-sync"
         v-bind:style="{
-          left: encryption.getEncryptionStatus() ? '70px' : '45px'
+          left: encryption.getEncryptionStatus() ? '70px' : '45px',
         }"
         v-show="
           (dropboxToken || driveToken || oneDriveToken) && !style.isEditing
@@ -88,7 +88,7 @@ import IconPlus from "../../../svg/plus.svg";
 const computedPrototype = [
   mapState("style", ["style"]),
   mapState("accounts", ["encryption"]),
-  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"])
+  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
 ];
 
 let computed = {};
@@ -115,7 +115,7 @@ export default Vue.extend({
         url: chrome.extension.getURL("view/popup.html?popup=true"),
         type: windowType,
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
       });
       window.close();
     },
@@ -172,13 +172,13 @@ export default Vue.extend({
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
         if (!tab || !tab.id) {
           return;
         }
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
             this.$store.commit("notification/alert", this.i18n.capture_failed);
           } else {
@@ -187,7 +187,7 @@ export default Vue.extend({
         });
       });
       return;
-    }
+    },
   },
   components: {
     IconCog,
@@ -196,7 +196,7 @@ export default Vue.extend({
     IconScan,
     IconPencil,
     IconCheck,
-    IconPlus
-  }
+    IconPlus,
+  },
 });
 </script>
