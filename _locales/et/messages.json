@@ -130,7 +130,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Uut kontot ei saa lisada kuni kõik kontod on dekrüpteeritud. Palun sisestage enne jätkamist õige salasõna.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
