@@ -134,7 +134,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Şifresi çözülemeyen hesaplar bu yedeklemeye dahil edilmeyecektir.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
