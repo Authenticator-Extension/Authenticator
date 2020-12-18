@@ -72,7 +72,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Hata.",
+        "message": "Hatalı.",
         "description": "Update Failure."
     },
     "about": {
