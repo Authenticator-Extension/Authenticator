@@ -60,7 +60,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Kuruluş",
+        "message": "Yayınlayan Kuruluş",
         "description": "Issuer."
     },
     "secret": {
