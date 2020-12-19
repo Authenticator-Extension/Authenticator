@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Ajouter un compte",
         "description": "Add account."
     },
     "add_qr": {
@@ -130,11 +130,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Vous ne pouvez pas ajouter de nouveau compte tant que tous les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Les comptes qui n'ont pas pu être déchiffrés ne seront pas inclus dans cette sauvegarde.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
