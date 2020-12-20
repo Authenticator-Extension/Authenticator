@@ -27,14 +27,11 @@ export class Dropbox implements BackupProvider {
         }
         try {
           const xhr = new XMLHttpRequest();
-          const now = new Date()
-            .toISOString()
-            .slice(0, 10)
-            .replace(/-/g, "");
+          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
           const apiArg = {
             path: `/${now}.json`,
             mode: "add",
-            autorename: true
+            autorename: true,
           };
           xhr.open("POST", url);
           xhr.setRequestHeader("Authorization", "Bearer " + token);
@@ -135,7 +132,7 @@ export class Drive implements BackupProvider {
                       // Clear invalid token from
                       // chrome://identity-internals/
                       await chrome.identity.removeCachedAuthToken({
-                        token: localStorage.driveToken
+                        token: localStorage.driveToken,
                       });
                     }
                     localStorage.driveToken = "";
@@ -170,9 +167,9 @@ export class Drive implements BackupProvider {
         return chrome.identity.getAuthToken(
           {
             interactive: false,
-            scopes: ["https://www.googleapis.com/auth/drive.file"]
+            scopes: ["https://www.googleapis.com/auth/drive.file"],
           },
-          token => {
+          (token) => {
             localStorage.driveToken = token;
             if (!token) {
               localStorage.driveRevoked = true;
@@ -322,7 +319,7 @@ export class Drive implements BackupProvider {
           xhr.send(
             JSON.stringify({
               name: "Authenticator Backups",
-              mimeType: "application/vnd.google-apps.folder"
+              mimeType: "application/vnd.google-apps.folder",
             })
           );
         }
@@ -353,10 +350,7 @@ export class Drive implements BackupProvider {
         }
         try {
           const xhr = new XMLHttpRequest();
-          const now = new Date()
-            .toISOString()
-            .slice(0, 10)
-            .replace(/-/g, "");
+          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
           xhr.open(
             "POST",
             "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart"
@@ -392,17 +386,17 @@ export class Drive implements BackupProvider {
             "",
             JSON.stringify({
               name: `${now}.json`,
-              parents: [localStorage.driveFolder]
+              parents: [localStorage.driveFolder],
             }),
             "",
             "--segment_marker",
             "Content-Type: application/octet-stream",
             "",
             backup,
-            "--segment_marker--"
+            "--segment_marker--",
           ];
           let requestData = "";
-          requestDataPrototype.forEach(line => {
+          requestDataPrototype.forEach((line) => {
             requestData = requestData + line + "\n";
           });
           xhr.send(requestData);
@@ -572,10 +566,7 @@ export class OneDrive implements BackupProvider {
         }
         try {
           const xhr = new XMLHttpRequest();
-          const now = new Date()
-            .toISOString()
-            .slice(0, 10)
-            .replace(/-/g, "");
+          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
           xhr.open(
             "PUT",
             `https://graph.microsoft.com/v1.0/me/drive/special/approot:/${now}.json:/content`

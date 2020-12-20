@@ -14,6 +14,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: ["label", "multiple", "accept"]
+  props: ["label", "multiple", "accept"],
 });
 </script>

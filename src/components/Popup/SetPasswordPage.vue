@@ -25,16 +25,16 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       phrase: "",
-      confirm: ""
+      confirm: "",
     };
   },
   computed: {
-    enforcePassword: function() {
+    enforcePassword: function () {
       return this.$store.state.menu.enforcePassword;
-    }
+    },
   },
   methods: {
     async removePassphrase() {
@@ -59,7 +59,7 @@ export default Vue.extend({
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
       this.$store.commit("style/hideInfo");
       return;
-    }
-  }
+    },
+  },
 });
 </script>

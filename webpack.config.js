@@ -13,9 +13,8 @@ module.exports = {
     import: "./src/import.ts",
     options: "./src/options.ts",
     qrdebug: "./src/qrdebug.ts",
-    test: "./src/test/test.ts"
   },
-  // For argon2-browser
+  // For argon2-browser & mocha
   node: {
     fs: "empty"
   },
@@ -53,7 +52,7 @@ module.exports = {
           }
         ]
       }
-    ]
+    ],
   },
   plugins: [
     new VueLoaderPlugin(),

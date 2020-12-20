@@ -6,7 +6,7 @@ export class BrowserStorage {
   private static async getStorageLocation() {
     const managedLocation = await ManagedStorage.get("storageArea");
     if (managedLocation === "sync" || managedLocation === "local") {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         if (localStorage.storageLocation !== managedLocation) {
           localStorage.storageLocation = managedLocation;
         }
@@ -20,10 +20,10 @@ export class BrowserStorage {
       return new Promise((resolve, reject) => {
         let amountSync: number;
         let amountLocal: number;
-        chrome.storage.local.get(local => {
+        chrome.storage.local.get((local) => {
           amountLocal = Object.keys(local).length;
           try {
-            chrome.storage.sync.get(sync => {
+            chrome.storage.sync.get((sync) => {
               amountSync = Object.keys(sync).length;
               // If storage location can't be found try to auto-detect storage
               // location
@@ -45,7 +45,7 @@ export class BrowserStorage {
         });
       });
     } else {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         resolve(localStorage.storageLocation);
         return;
       });
@@ -57,7 +57,7 @@ export class BrowserStorage {
   static async get(callback: (items: { [key: string]: any }) => void) {
     const storageLocation = await this.getStorageLocation();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const removeKey = function(items: { [key: string]: any }): void {
+    const removeKey = function (items: { [key: string]: any }): void {
       delete items.key;
       callback(items);
     };
@@ -73,9 +73,9 @@ export class BrowserStorage {
   static getKey() {
     return new Promise(
       (resolve: (key: { enc: string; hash: string } | null) => void) => {
-        this.getStorageLocation().then(storageLocation => {
+        this.getStorageLocation().then((storageLocation) => {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const callback = function(items: { [key: string]: any }): void {
+          const callback = function (items: { [key: string]: any }): void {
             if (typeof items.key === "object") {
               resolve(items.key);
             } else {
@@ -124,7 +124,7 @@ export class BrowserStorage {
     const storageLocation = await this.getStorageLocation();
     await new Promise((resolve: () => void) => {
       if (storageLocation === "local") {
-        chrome.storage.local.get(data => {
+        chrome.storage.local.get((data) => {
           chrome.storage.local.clear(() => {
             chrome.storage.local.set(data, () => {
               resolve();
@@ -132,7 +132,7 @@ export class BrowserStorage {
           });
         });
       } else if (storageLocation === "sync") {
-        chrome.storage.sync.get(data => {
+        chrome.storage.sync.get((data) => {
           chrome.storage.sync.clear(() => {
             chrome.storage.sync.set(data, () => {
               resolve();
@@ -172,7 +172,7 @@ export class EntryStorage {
       hash: entry.hash,
       index: entry.index,
       type: OTPType[entry.type],
-      secret
+      secret,
     };
 
     if (entry.pinned) {
@@ -536,7 +536,7 @@ export class EntryStorage {
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-            entries.forEach(entry => {
+            entries.forEach((entry) => {
               const storageItem = this.getOTPStorageFromEntry(entry);
               _data[entry.hash] = storageItem;
             });
@@ -615,7 +615,7 @@ export class EntryStorage {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
                 // @ts-ignore - it's fine if this ends up undefined
                 algorithm: OTPAlgorithm[entryData.algorithm],
-                pinned: entryData.pinned
+                pinned: entryData.pinned,
               });
 
               data.push(entry);
@@ -667,7 +667,7 @@ export class EntryStorage {
 export class ManagedStorage {
   static get(key: string) {
     return new Promise((resolve: (result: boolean | string) => void) => {
-      chrome.storage.managed.get(data => {
+      chrome.storage.managed.get((data) => {
         if (chrome.runtime.lastError) {
           return resolve(false);
         }

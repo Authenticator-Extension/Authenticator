@@ -1,0 +1,69 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_extName__",
+    "short_name": "__MSG_extShortName__",
+    "version": "6.2.1",
+    "default_locale": "en",
+    "description": "__MSG_extDesc__",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "__MSG_extShortName__",
+        "default_popup": "view/popup.html"
+    },
+    "commands": {
+        "_execute_browser_action": {},
+        "scan-qr": {
+            "description": "Scan a QR code"
+        }
+    },
+    "options_ui": {
+        "page": "view/options.html",
+        "chrome_style": true
+    },
+    "storage": {
+        "managed_schema": "schema.json"
+    },
+    "oauth2": {
+        "client_id": "292457304165-u8ve4j79gag5o231n5u2pdtdrbfdo1hh.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/drive.file"
+        ]
+    },
+    "background": {
+        "scripts": [
+            "dist/background.js"
+        ],
+        "persistent": true
+    },
+    "sandbox": {
+        "pages": [
+            "view/argon.html"
+        ],
+        "content_security_policy": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "identity"
+    ],
+    "optional_permissions": [
+        "clipboardWrite",
+        "https://www.google.com/",
+        "https://*.dropboxapi.com/*",
+        "https://www.googleapis.com/*",
+        "https://accounts.google.com/o/oauth2/revoke",
+        "https://graph.microsoft.com/me/*",
+        "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+    ],
+    "offline_enabled": true,
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjo5++7m6mlJGqKOnlYehr9tjIqahMZBJUG7PLa7dSRk6bDUu2pVodO1TQWviHlrDTLP+zfoVbDBS8v8cjloK5Tn90nzC6a957dPzOfyC1WUNYNDlGM0BCmZKVP/MWB3d0ffOmTwaxh0L47aLH5nTW0AUmuwCWCBEEl4Acuyp7rwLNGlazBpaom1Qb5ckn29gCJVVVIZ6wudmcrG/FPTNJXQbg8N6wObGrgGOaxmowbkzJmIfKTyHlYOKLAjZ7aJi0W6jsy47/aV+ojvn4gO+ka6BcRhUeWgoQxqEky119f3OWiVP46SJVbAi0pkknThUjDvX11lATGjB5EvJZGyotwIDAQAB",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
+}

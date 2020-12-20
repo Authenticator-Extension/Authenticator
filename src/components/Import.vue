@@ -46,24 +46,24 @@ import QrImport from "./Import/QrImport.vue";
 import TextImport from "./Import/TextImport.vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       importType: "FileImport",
-      shouldShowPassphrase: shouldShowPassphrase(this.$entries)
+      shouldShowPassphrase: shouldShowPassphrase(this.$entries),
     };
   },
   components: {
     FileImport,
     QrImport,
-    TextImport
+    TextImport,
   },
   mounted() {
-    chrome.runtime.onMessage.addListener(event => {
+    chrome.runtime.onMessage.addListener((event) => {
       if (event.action === "stopImport") {
         this.shouldShowPassphrase = true;
       }
     });
-  }
+  },
 });
 
 function shouldShowPassphrase(entries: OTPEntryInterface[]) {

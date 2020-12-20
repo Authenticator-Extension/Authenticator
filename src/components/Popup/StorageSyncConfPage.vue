@@ -32,11 +32,11 @@ import Vue from "vue";
 import { mapState } from "vuex";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       newStorageLocation: this.$store.state.menu.storageArea
         ? this.$store.state.menu.storageArea
-        : localStorage.storageLocation
+        : localStorage.storageLocation,
     };
   },
   computed: mapState("menu", ["backupDisabled", "storageArea"]),
@@ -44,7 +44,7 @@ export default Vue.extend({
     migrateStorage() {
       this.$store
         .dispatch("accounts/migrateStorage", this.newStorageLocation)
-        .then(m => {
+        .then((m) => {
           this.$store.commit("notification/alert", this.i18n[m]);
         }),
         (r: string) => {
@@ -55,7 +55,7 @@ export default Vue.extend({
       if (tab === "DropboxPage") {
         chrome.permissions.request(
           { origins: ["https://*.dropboxapi.com/*"] },
-          async granted => {
+          async (granted) => {
             if (granted) {
               this.$store.commit("style/showInfo");
               this.$store.commit("currentView/changeView", tab);
@@ -68,10 +68,10 @@ export default Vue.extend({
           {
             origins: [
               "https://www.googleapis.com/*",
-              "https://accounts.google.com/o/oauth2/revoke"
-            ]
+              "https://accounts.google.com/o/oauth2/revoke",
+            ],
           },
-          async granted => {
+          async (granted) => {
             if (granted) {
               this.$store.commit("style/showInfo");
               this.$store.commit("currentView/changeView", tab);
@@ -85,10 +85,10 @@ export default Vue.extend({
           {
             origins: [
               "https://graph.microsoft.com/me/*",
-              "https://login.microsoftonline.com/common/oauth2/v2.0/token"
-            ]
+              "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+            ],
           },
-          async granted => {
+          async (granted) => {
             if (granted) {
               this.$store.commit("style/showInfo");
               this.$store.commit("currentView/changeView", tab);
@@ -98,8 +98,8 @@ export default Vue.extend({
         );
         return;
       }
-    }
-  }
+    },
+  },
 });
 
 //   } else if (tab === 'dropbox') {

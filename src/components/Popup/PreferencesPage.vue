@@ -3,7 +3,7 @@
     <a-select-input
       :label="i18n.theme"
       v-model="theme"
-      style="margin-left: 10px;"
+      style="margin-left: 10px"
     >
       <option value="normal">{{ i18n.theme_light }}</option>
       <option value="dark">{{ i18n.theme_dark }}</option>
@@ -12,7 +12,7 @@
     <a-select-input
       :label="i18n.scale"
       v-model="zoom"
-      style="margin-left: 10px;"
+      style="margin-left: 10px"
     >
       <option value="125">125%</option>
       <option value="100">100%</option>
@@ -34,11 +34,11 @@
         class="input"
         type="number"
         min="0"
-        style="width: 70px; text-align: center;"
+        style="width: 70px; text-align: center"
         v-model="autolock"
         :disabled="Boolean(enforceAutolock)"
       />
-      <span class="combo-label" style="margin-left: 0; margin-right: 20px;">{{
+      <span class="combo-label" style="margin-left: 0; margin-right: 20px">{{
         i18n.minutes
       }}</span>
     </div>
@@ -56,7 +56,7 @@ export default Vue.extend({
       },
       set(zoom: number) {
         this.$store.commit("menu/setZoom", zoom);
-      }
+      },
     },
     useAutofill: {
       get(): boolean {
@@ -64,7 +64,7 @@ export default Vue.extend({
       },
       set(useAutofill: boolean) {
         this.$store.commit("menu/setAutofill", useAutofill);
-      }
+      },
     },
     smartFilter: {
       get(): boolean {
@@ -72,7 +72,7 @@ export default Vue.extend({
       },
       set(smartFilter: boolean) {
         this.$store.commit("menu/setSmartFilter", smartFilter);
-      }
+      },
     },
     theme: {
       get(): string {
@@ -80,7 +80,7 @@ export default Vue.extend({
       },
       set(theme: string) {
         this.$store.commit("menu/setTheme", theme);
-      }
+      },
     },
     encryption(): EncryptionInterface {
       return this.$store.state.accounts.encryption;
@@ -99,8 +99,8 @@ export default Vue.extend({
       set(autolock: number) {
         this.$store.commit("menu/setAutolock", autolock);
         chrome.runtime.sendMessage({ action: "resetAutolock" });
-      }
-    }
+      },
+    },
   },
   methods: {
     popOut() {
@@ -114,9 +114,9 @@ export default Vue.extend({
         url: chrome.extension.getURL("view/popup.html?popup=true"),
         type: windowType,
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
       });
-    }
-  }
+    },
+  },
 });
 </script>

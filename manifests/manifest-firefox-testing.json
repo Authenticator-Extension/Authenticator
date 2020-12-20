@@ -1,0 +1,60 @@
+{
+    "manifest_version": 2,
+    "name": "__MSG_extName__",
+    "short_name": "__MSG_extShortName__",
+    "version": "6.2.1",
+    "default_locale": "en",
+    "description": "__MSG_extDesc__",
+    "applications": {
+        "gecko": {
+            "id": "authenticator@mymindstorm",
+            "strict_min_version": "57.0"
+        }
+    },
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "browser_action": {
+        "browser_style": false,
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "__MSG_extShortName__",
+        "default_popup": "view/popup.html"
+    },
+    "background": {
+        "scripts": [
+            "dist/background.js"
+        ]
+    },
+    "commands": {
+        "_execute_browser_action": {},
+        "scan-qr": {
+            "description": "Scan a QR code"
+        }
+    },
+    "options_ui": {
+        "page": "view/options.html",
+        "browser_style": true
+    },
+    "permissions": [
+        "activeTab",
+        "<all_urls>",
+        "clipboardWrite",
+        "storage",
+        "identity"
+    ],
+    "optional_permissions": [
+        "clipboardWrite",
+        "https://www.google.com/",
+        "https://*.dropboxapi.com/*",
+        "https://www.googleapis.com/*",
+        "https://accounts.google.com/o/oauth2/revoke",
+        "https://graph.microsoft.com/me/*",
+        "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+    ],
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
+}
