@@ -1,28 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <title>Authenticator Tests</title>
-  <style>
-    * {
-      font-family: arial;
-    }
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
 
-    iframe {
-        display: none;
-    }
-  </style>
-</head>
-<body>
-  <h1 style="color:red;">This page is dangerous, if you do not know what this is close this immediately!</h1>
-  <iframe src="about:black" frameborder="0"></iframe>
-  <input type="checkbox" id="lock" /> All data will be destroyed!!! Check box to continue
-  <br></br>
-  <button id="start">Begin Test</button>
-  <hr></hr>
-  <div>
-    <table id="test"></table>
-  </div>
-<script src="../dist/test.js"></script>
-</body>
+    <script src="../dist/test.js"></script>
+  </body>
 </html>

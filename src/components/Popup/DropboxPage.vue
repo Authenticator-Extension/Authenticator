@@ -8,7 +8,7 @@
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word;">
+        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
@@ -39,13 +39,13 @@ import { Dropbox } from "../../models/backup";
 const service = "dropbox";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      email: this.i18n.loading
+      email: this.i18n.loading,
     };
   },
   computed: {
-    encryption: function() {
+    encryption: function () {
       return this.$store.state.accounts.encryption;
     },
     isEncrypted: {
@@ -60,11 +60,11 @@ export default Vue.extend({
       set(newValue: string) {
         localStorage.dropboxEncrypted = newValue;
         this.$store.commit("backup/setEnc", { service, value: newValue });
-      }
+      },
     },
-    backupToken: function() {
+    backupToken: function () {
       return this.$store.state.backup.dropboxToken;
-    }
+    },
   },
   methods: {
     getBackupToken() {
@@ -109,12 +109,12 @@ export default Vue.extend({
     async getUser() {
       const dbox = new Dropbox();
       return await dbox.getUser();
-    }
+    },
   },
-  mounted: async function() {
+  mounted: async function () {
     if (this.backupToken) {
       this.email = await this.getUser();
     }
-  }
+  },
 });
 </script>

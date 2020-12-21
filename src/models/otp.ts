@@ -9,18 +9,18 @@ export enum OTPType {
   battle,
   steam,
   hex,
-  hhex
+  hhex,
 }
 
 export enum CodeState {
   Invalid = "-1",
-  Encrypted = "-2"
+  Encrypted = "-2",
 }
 
 export enum OTPAlgorithm {
   SHA1 = 1,
   SHA256,
-  SHA512
+  SHA512,
 }
 
 export class OTPEntry implements OTPEntryInterface {
@@ -140,7 +140,7 @@ export class OTPEntry implements OTPEntryInterface {
     if (secret) {
       this.secret = encryption.getDecryptedSecret({
         hash: this.hash,
-        secret
+        secret,
       });
       if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
         this.generate();

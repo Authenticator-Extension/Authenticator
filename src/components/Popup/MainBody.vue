@@ -59,9 +59,9 @@ Object.assign(
 );
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      searchText: ""
+      searchText: "",
     };
   },
   computed,
@@ -89,7 +89,7 @@ export default Vue.extend({
     },
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
-    }
+    },
   },
   created() {
     // Don't drag if !isEditing
@@ -100,7 +100,7 @@ export default Vue.extend({
         } else {
           return false;
         }
-      }
+      },
     });
 
     // Update entry index if dragged
@@ -108,14 +108,14 @@ export default Vue.extend({
       "dropModel",
       async ({
         dragIndex,
-        dropIndex
+        dropIndex,
       }: {
         dragIndex: number;
         dropIndex: number;
       }) => {
         this.$store.commit("accounts/moveCode", {
           from: dragIndex,
-          to: dropIndex
+          to: dropIndex,
         });
         await EntryStorage.set(this.$store.state.accounts.entries);
       }
@@ -123,7 +123,7 @@ export default Vue.extend({
   },
   components: {
     EntryComponent,
-    IconPlus
-  }
+    IconPlus,
+  },
 });
 </script>

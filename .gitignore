@@ -11,3 +11,6 @@ cert.pfx
 css
 .license-gen-tmp
 view/licenses.html
+./test
+scripts/authenticator-build-key
+scripts/test-runner.js

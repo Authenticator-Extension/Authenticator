@@ -24,17 +24,17 @@ import * as CryptoJS from "crypto-js";
 import Vue from "vue";
 import {
   decryptBackupData,
-  getEntryDataFromOTPAuthPerLine
+  getEntryDataFromOTPAuthPerLine,
 } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       getFilePassphrase: false,
       readFilePassphrase: false,
-      importFilePassphrase: ""
+      importFilePassphrase: "",
     };
   },
   methods: {
@@ -156,10 +156,10 @@ export default Vue.extend({
             this.readFilePassphrase = false;
           }
         }
-        await new Promise(resolve => setTimeout(resolve, 250));
+        await new Promise((resolve) => setTimeout(resolve, 250));
       }
       return this.importFilePassphrase;
-    }
-  }
+    },
+  },
 });
 </script>

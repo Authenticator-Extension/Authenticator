@@ -55,7 +55,7 @@ function getQr(
   height: number,
   windowWidth: number
 ) {
-  chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" }, dataUrl => {
+  chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" }, (dataUrl) => {
     contentTab = tab;
     const qr = new Image();
     qr.src = dataUrl;
@@ -194,7 +194,7 @@ async function getTotp(text: string, silent = false) {
         account = label;
       }
       const parameters = parameterPart.split("&");
-      parameters.forEach(item => {
+      parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
           secret = parameter[1];
@@ -257,7 +257,7 @@ async function getTotp(text: string, silent = false) {
           encrypted: false,
           index: 0,
           counter: 0,
-          pinned: false
+          pinned: false,
         };
         if (period) {
           entryData[hash].period = period;
@@ -292,9 +292,9 @@ function getBackupToken(service: string) {
     chrome.identity.getAuthToken(
       {
         interactive: true,
-        scopes: ["https://www.googleapis.com/auth/drive.file"]
+        scopes: ["https://www.googleapis.com/auth/drive.file"],
       },
-      value => {
+      (value) => {
         if (!value) {
           return false;
         }
@@ -335,7 +335,7 @@ function getBackupToken(service: string) {
     }
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
-      async url => {
+      async (url) => {
         if (!url) {
           return;
         }
@@ -498,7 +498,7 @@ async function uploadBackup(service: string) {
 }
 
 // Show issue page after first install
-chrome.runtime.onInstalled.addListener(async details => {
+chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason !== "install") {
     return;
   } else if (await ManagedStorage.get("disableInstallHelp")) {
@@ -542,7 +542,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
         if (!tab || !tab.id) {
           return;

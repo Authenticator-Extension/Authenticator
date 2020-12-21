@@ -17,10 +17,10 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       deleteConfirm: false,
-      deleteComplete: false
+      deleteComplete: false,
     };
   },
   methods: {
@@ -35,7 +35,7 @@ export default Vue.extend({
       chrome.runtime.sendMessage({ action: "lock" });
       this.deleteConfirm = false;
       this.deleteComplete = true;
-    }
-  }
+    },
+  },
 });
 </script>

@@ -47,7 +47,7 @@ import { mapState } from "vuex";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 
 export default Vue.extend({
-  data: function(): {
+  data: function (): {
     newAccount: {
       issuer: string;
       account: string;
@@ -66,8 +66,8 @@ export default Vue.extend({
         type: OTPType.totp,
         period: undefined,
         digits: 6,
-        algorithm: OTPAlgorithm.SHA1
-      }
+        algorithm: OTPAlgorithm.SHA1,
+      },
     };
   },
   computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
@@ -124,7 +124,7 @@ export default Vue.extend({
           counter: 0,
           period: this.newAccount.period,
           digits: this.newAccount.digits,
-          algorithm: this.newAccount.algorithm
+          algorithm: this.newAccount.algorithm,
         },
         this.$store.state.accounts.encryption
       );
@@ -142,7 +142,7 @@ export default Vue.extend({
         }, 0);
       }
       return;
-    }
-  }
+    },
+  },
 });
 </script>

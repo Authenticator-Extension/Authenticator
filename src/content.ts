@@ -74,10 +74,10 @@ function showGrayLayout() {
     grayLayout.appendChild(captureBox);
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
-    grayLayout.onmouseup = event => {
+    grayLayout.onmouseup = (event) => {
       grayLayoutUp(event);
     };
-    grayLayout.oncontextmenu = event => {
+    grayLayout.oncontextmenu = (event) => {
       event.preventDefault();
       return;
     };
@@ -199,7 +199,7 @@ function sendPosition(
 ) {
   chrome.runtime.sendMessage({
     action: "position",
-    info: { left, top, width, height, windowWidth: window.innerWidth }
+    info: { left, top, width, height, windowWidth: window.innerWidth },
   });
 }
 
@@ -226,7 +226,7 @@ function pasteCode(code: string) {
     "factor",
     "code",
     "totp",
-    "twoFactorCode"
+    "twoFactorCode",
   ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
@@ -272,7 +272,7 @@ function fireInputEvents(inputBox: HTMLInputElement) {
     new KeyboardEvent("keyup"),
     new KeyboardEvent("keypress"),
     new Event("input", { bubbles: true }),
-    new Event("change", { bubbles: true })
+    new Event("change", { bubbles: true }),
   ];
   for (const event of events) {
     inputBox.dispatchEvent(event);

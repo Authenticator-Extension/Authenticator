@@ -8,7 +8,7 @@
     </div>
     <div id="menuBody">
       <div class="menuList">
-        <a href="licenses.html" target="_blank" style="text-decoration: none;">
+        <a href="licenses.html" target="_blank" style="text-decoration: none">
           <p v-bind:title="i18n.about">
             <span><IconInfo /></span>{{ i18n.about }}
           </p>
@@ -90,12 +90,12 @@ export default Vue.extend({
     IconWrench,
     IconComments,
     IconGlobe,
-    IconCode
+    IconCode,
   },
   computed: {
-    version: function() {
+    version: function () {
       return this.$store.state.menu.version;
-    }
+    },
   },
   methods: {
     hideMenu() {
@@ -135,7 +135,7 @@ export default Vue.extend({
     syncClock() {
       chrome.permissions.request(
         { origins: ["https://www.google.com/"] },
-        async granted => {
+        async (granted) => {
           if (granted) {
             const message = await syncTimeWithGoogle();
             this.$store.commit("notification/alert", this.i18n[message]);
@@ -144,7 +144,7 @@ export default Vue.extend({
         }
       );
       return;
-    }
-  }
+    },
+  },
 });
 </script>

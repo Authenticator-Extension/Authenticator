@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p style="margin: 10px 20px 20px 20px;">
+    <p style="margin: 10px 20px 20px 20px">
       {{ i18n.import_backup_qr_in_batches }}
     </p>
     <a-file-input
@@ -88,12 +88,12 @@ export default Vue.extend({
         }
       }
       return;
-    }
-  }
+    },
+  },
 });
 
 async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = () => {
       const imageUrl = reader.result as string;

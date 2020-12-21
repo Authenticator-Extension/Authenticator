@@ -10,6 +10,6 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: ["type"]
+  props: ["type"],
 });
 </script>

@@ -37,7 +37,7 @@ import { EntryStorage } from "../../models/storage";
 import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     const exportData = this.$store.state.accounts.exportData;
     const exportEncData = this.$store.state.accounts.exportEncData;
     const key = this.$store.state.accounts.key;
@@ -46,20 +46,20 @@ export default Vue.extend({
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
       exportEncryptedFile: getBackupFile(exportEncData, key),
-      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData)
+      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData),
     };
   },
   computed: {
-    encryption: function() {
+    encryption: function () {
       return this.$store.state.accounts.encryption;
     },
-    exportDisabled: function() {
+    exportDisabled: function () {
       return this.$store.state.menu.exportDisabled;
     },
-    currentlyEncrypted: function() {
+    currentlyEncrypted: function () {
       return this.$store.getters["accounts/currentlyEncrypted"];
-    }
-  }
+    },
+  },
 });
 
 function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {

@@ -11,5 +11,5 @@ export default [
   { name: "a-text-input", component: TextInput },
   { name: "a-select-input", component: SelectInput },
   { name: "a-toggle-input", component: ToggleInput },
-  { name: "a-file-input", component: FileInput }
+  { name: "a-file-input", component: FileInput },
 ];

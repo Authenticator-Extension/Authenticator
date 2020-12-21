@@ -8,7 +8,7 @@
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word;">
+        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
@@ -39,13 +39,13 @@ import { OneDrive } from "../../models/backup";
 const service = "onedrive";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      email: this.i18n.loading
+      email: this.i18n.loading,
     };
   },
   computed: {
-    encryption: function() {
+    encryption: function () {
       return this.$store.state.accounts.encryption;
     },
     isEncrypted: {
@@ -60,11 +60,11 @@ export default Vue.extend({
       set(newValue: string) {
         localStorage.driveEncrypted = newValue;
         this.$store.commit("backup/setEnc", { service, value: newValue });
-      }
+      },
     },
-    backupToken: function() {
+    backupToken: function () {
       return this.$store.state.backup.oneDriveToken;
-    }
+    },
   },
   methods: {
     getBackupToken() {
@@ -95,12 +95,12 @@ export default Vue.extend({
     async getUser() {
       const oneDrive = new OneDrive();
       return await oneDrive.getUser();
-    }
+    },
   },
-  mounted: async function() {
+  mounted: async function () {
     if (this.backupToken) {
       this.email = await this.getUser();
     }
-  }
+  },
 });
 </script>
