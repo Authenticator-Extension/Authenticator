@@ -62,7 +62,7 @@ export default Vue.extend({
           try {
             importData = JSON.parse(reader.result as string);
             succeededCount = Object.keys(importData).filter(
-              key => ["key", "enc", "hash"].indexOf(key) === -1
+              (key) => ["key", "enc", "hash"].indexOf(key) === -1
             ).length;
           } catch (e) {
             const result = await getEntryDataFromOTPAuthPerLine(
