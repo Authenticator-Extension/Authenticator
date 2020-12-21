@@ -41,11 +41,17 @@ export default Vue.extend({
           }
         }
 
+        const result = await getEntryDataFromOTPAuthPerLine(
+          otpUrlList.join("\n")
+        );
+
         let importData: {
           // @ts-ignore
           key?: { enc: string; hash: string };
           [hash: string]: OTPStorage;
-        } = await getEntryDataFromOTPAuthPerLine(otpUrlList.join("\n"));
+        } = result.exportData;
+
+        const { failedCount, succeededCount } = result;
 
         let decryptedFileData: { [hash: string]: OTPStorage } = importData;
 
@@ -57,8 +63,12 @@ export default Vue.extend({
 
           if (hasFailedResults) {
             alert(this.i18n.import_backup_qr_partly_failed);
-          } else {
+          } else if (failedCount && succeededCount) {
+            alert(this.i18n.migration_partly_fail);
+          } else if (succeededCount) {
             alert(this.i18n.updateSuccess);
+          } else {
+            alert(this.i18n.migration_fail);
           }
 
           if (closeWindow) {

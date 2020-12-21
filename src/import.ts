@@ -219,6 +219,8 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
 export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split("\n");
   const exportData: { [hash: string]: OTPStorage } = {};
+  let failedCount = 0;
+  let succeededCount = 0;
   for (let item of lines) {
     item = item.trim();
     if (item.startsWith("otpauth-migration:")) {
@@ -238,6 +240,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     let label = uri.split("?")[0];
     const parameterPart = uri.split("?")[1];
     if (!parameterPart) {
+      failedCount++;
       continue;
     } else {
       let secret = "";
@@ -290,11 +293,13 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       });
 
       if (!secret) {
+        failedCount++;
         continue;
       } else if (
         !/^[0-9a-f]+$/i.test(secret) &&
         !/^[2-7a-z]+=*$/i.test(secret)
       ) {
+        failedCount++;
         continue;
       } else {
         const hash = await uuid();
@@ -332,8 +337,11 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         if (algorithm) {
           exportData[hash].algorithm = algorithm;
         }
+
+        succeededCount++;
       }
     }
   }
-  return exportData;
+
+  return { exportData, failedCount, succeededCount };
 }

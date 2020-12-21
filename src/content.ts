@@ -31,7 +31,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
         alert(chrome.i18n.getMessage("migration_partly_fail"));
         break;
       case "migrationsuccess":
-        alert(chrome.i18n.getMessage("migration_success"));
+        alert(chrome.i18n.getMessage("updateSuccess"));
         break;
       case "pastecode":
         pasteCode(message.code);
