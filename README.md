@@ -21,7 +21,7 @@ npm run [chrome, firefox]
 # install development dependencies
 npm install 
 # compiles the Chrome extension to the `./test/chrome` directory
-npm run chrome:dev
+npm run dev:chrome
 # load the unpacked extension from the `./test/chrome/ directory in Chrome
 ```
 
