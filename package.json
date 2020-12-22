@@ -4,6 +4,7 @@
   "description": "Authenticator generates 2-Step Verification codes in your browser.",
   "scripts": {
     "compile": "bash scripts/build.sh firefox",
+    "dev:chrome": "npm run pretest && webpack --config ./webpack.watch.js",
     "chrome": "bash scripts/build.sh chrome",
     "firefox": "bash scripts/build.sh firefox",
     "prod": "bash scripts/build.sh prod",
@@ -55,6 +56,7 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.11",
+    "webpack-extension-reloader": "^1.1.4",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {

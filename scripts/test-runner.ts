@@ -39,6 +39,8 @@ async function runTests() {
     ignoreDefaultArgs: ["--disable-extensions"],
     args: [
       `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
+      // prevents zombie Chromium processes from not terminating during development testing
+      "--single-process",
       // for CI
       "--no-sandbox",
     ],

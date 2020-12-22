@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-       "ecmaVersion": 6
+    "ecmaVersion": 6
   },
   plugins: [
     '@typescript-eslint',
@@ -14,10 +14,10 @@ module.exports = {
   ],
   env: {
     "amd": true,
-    "node": true  
+    "node": true,
   },
   rules: {
     "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
   }
 };
