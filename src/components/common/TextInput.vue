@@ -7,7 +7,7 @@
       :value="value"
       @input="$emit('input', $event.target.value)"
       @keyup.enter="$emit('enter')"
-      autofocus
+      ref="textInput"
     />
   </div>
 </template>
@@ -15,6 +15,15 @@
 import Vue from "vue";
 
 export default Vue.extend({
-  props: ["label", "value", "type"],
+  props: ["label", "value", "type", "autofocus"],
+  mounted() {
+    if (!this.$props.autofocus) {
+      return;
+    }
+    const textInput = this.$refs.textInput;
+    if (textInput instanceof HTMLInputElement) {
+      textInput.focus();
+    }
+  },
 });
 </script>
