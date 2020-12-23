@@ -4,7 +4,9 @@ import * as puppeteer from "puppeteer";
 import * as path from "path";
 import * as fs from "fs";
 import { execSync } from "child_process";
+// @ts-ignore
 import * as merge from "lodash/merge";
+
 interface MochaTestResults {
   total?: number;
   tests?: StrippedTestResults[];
@@ -52,6 +54,12 @@ async function runTests() {
   await mochaPage.goto(
     "chrome-extension://bhghoamapcdpbohphigoooaddinpkbai/view/test.html"
   );
+
+  // by setting this env var, console logging works for both components and testing
+  if (process.env.ENABLE_CONSOLE) {
+    mochaPage.on("console", consoleMessage => console.log(consoleMessage.text()));
+  }
+
   // @ts-expect-error
   const results: {
     coverage: {};
@@ -76,13 +84,16 @@ async function runTests() {
 
   let failedTest = false;
   let display: TestDisplay = {};
-  for (const test of results.testResults.tests) {
-    let tmp: TestDisplay = {};
-    test.path.reduce((acc, current, index) => { 
-      return acc[current] = test.path.length - 1 === index ? test : {}  
-    }, tmp);
-    display = merge(display, tmp);
+  if (results?.testResults.tests) {
+    for (const test of results.testResults.tests) {
+      let tmp: TestDisplay = {};
+      test.path.reduce((acc, current, index) => {
+        return acc[current] = test.path.length - 1 === index ? test : {}
+      }, tmp);
+      display = merge(display, tmp);
+    }
   }
+
   const printDisplayTests = (display: TestDisplay) => {
     for (const key in display) {
       if (typeof display[key].status === "string") {
