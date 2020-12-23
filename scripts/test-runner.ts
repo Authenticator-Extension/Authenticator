@@ -37,15 +37,21 @@ const colors = {
 }
 
 async function runTests() {
+  const puppeteerArgs: string[] = [
+    `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
+    // for CI
+    "--no-sandbox",
+  ];
+
+  if (!process.env.CI) {
+    // run with --single-process to prevent zombie Chromium processes from not terminating during development testing
+    // do not use this in CI as it will not run properly
+    puppeteerArgs.push("--single-process");
+  }
+
   const browser = await puppeteer.launch({
     ignoreDefaultArgs: ["--disable-extensions"],
-    args: [
-      `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
-      // prevents zombie Chromium processes from not terminating during development testing
-      "--single-process",
-      // for CI
-      "--no-sandbox",
-    ],
+    args: puppeteerArgs,
     // chrome extensions don't work in headless
     headless: false,
     executablePath: process.env.PUPPETEER_EXEC_PATH,
