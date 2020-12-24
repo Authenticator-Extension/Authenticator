@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "افزودن حساب",
         "description": "Add account."
     },
     "add_qr": {
@@ -134,7 +134,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "حسابهایی که امکان رمزگشایی ندارند، در این نسخه پشتیبان گنجانده نمی شوند.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
