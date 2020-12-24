@@ -65,12 +65,14 @@ async function runTests() {
     mochaPage.on("console", consoleMessage => console.log(consoleMessage.text()));
   }
 
-  // @ts-expect-error
   const results: {
-    coverage: {};
+    coverage: unknown;
     testResults: MochaTestResults;
   } = await mochaPage.evaluate(() => {
-    return new Promise((resolve) => {
+    return new Promise((resolve: (value: {
+    coverage: unknown;
+    testResults: MochaTestResults;
+  }) => void) => {
       window.addEventListener("testsComplete", () => {
         resolve({
           coverage: window.__coverage__,
@@ -99,7 +101,7 @@ async function runTests() {
     }
   }
 
-  const printDisplayTests = (display: TestDisplay) => {
+  const printDisplayTests = (display: TestDisplay | StrippedTestResults) => {
     for (const key in display) {
       if (typeof display[key].status === "string") {
         const test = display[key];
@@ -121,7 +123,6 @@ async function runTests() {
       } else {
         console.log(key)
         console.group();
-        // @ts-expect-error
         printDisplayTests(display[key]);
       }
     }
@@ -131,4 +132,7 @@ async function runTests() {
   process.exit(failedTest ? 1 : 0);
 }
 
-runTests();
+runTests().catch(e => {
+  console.error(e);
+  process.exit(1);
+});
