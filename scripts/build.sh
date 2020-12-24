@@ -55,7 +55,7 @@ if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
-    ./node_modules/.bin/tsc scripts/test-runner.ts
+    ./node_modules/.bin/tsc scripts/test-runner.ts --esModuleInterop
 else 
     ./node_modules/webpack-cli/bin/cli.js
 fi

@@ -1,11 +1,10 @@
 // Runs tests via puppeteer. Do not compile using webpack.
 
-import * as puppeteer from "puppeteer";
-import * as path from "path";
-import * as fs from "fs";
+import puppeteer from "puppeteer";
+import path from "path";
+import fs from "fs";
 import { execSync } from "child_process";
-// @ts-ignore
-import * as merge from "lodash/merge";
+import merge from "lodash/merge";
 
 interface MochaTestResults {
   total?: number;
