@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "إضافة حساب",
         "description": "Add account."
     },
     "add_qr": {
@@ -130,11 +130,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "لا يمكنك إضافة حساب جديد حتى يتم فك تشفير جميع الحسابات. الرجاء إدخال كلمة المرور الصحيحة قبل المتابعة.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "لن يتم تضمين الحسابات التي لا يمكن فك تشفيرها في هذه النسخة الاحتياطية.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -218,7 +218,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "استيراد نسخة احتياطية لصورة QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
