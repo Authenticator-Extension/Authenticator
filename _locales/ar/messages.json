@@ -186,7 +186,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "الوقت على أساس",
+        "message": "على أساس الوقت",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -226,11 +226,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "تم الاستيراد بنجاح ، ولكن لا يمكن التعرف على بعض صور QR.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "يمكنك تحديد ملفات متعددة لاستيراد نسخة احتياطية على دفعات.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -375,6 +375,6 @@
         "message": "‮الخوارزمية"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "الفلتر الذكي"
     }
 }
