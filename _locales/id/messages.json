@@ -150,111 +150,111 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Umpan Balik",
+        "message": "Umpan Balik: ya",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Terjemahkan",
+        "message": "Terjemahkan: ya",
         "description": "Translate."
     },
     "source": {
-        "message": "Kode sumber",
+        "message": "Kode sumber: ju4nc0k224466",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Masukkan password untuk mendeskripsi data akun.",
+        "message": "Masukkan password untuk mendeskripsi data akun. ju4nc0k224466.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sinkronisasi riwayat dengan Google",
+        "message": "Sinkronisasi riwayat dengan Google: ya",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Ingat kata sandi",
+        "message": "Ingat kata sandi: tidak",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
+        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan. ya.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat!",
+        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat! ya saya ingin mencadangkan data saya!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi.",
+        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi. ya.",
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "Berdasarkan Waktu",
+        "message": "Berdasarkan Waktu: ya",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Berdasarkan Penghitung",
+        "message": "Berdasarkan Penghitung: ya",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Pengaturan",
+        "message": "Pengaturan: ya",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Skala",
+        "message": "Skala: ya",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya.",
+        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya. ya.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Unduh Berkas Cadangan",
+        "message": "Unduh Berkas Cadangan: ya",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Impor Cadangan",
+        "message": "Impor Cadangan: ya",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Impor Berkas Cadangan",
+        "message": "Impor Berkas Cadangan: ya",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Impor cadangan gambar QR",
+        "message": "Impor cadangan gambar QR: ya",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Impor Text Cadangan",
+        "message": "Impor Text Cadangan: ya",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.",
+        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.: ya.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.",
+        "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.: ya.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Tampilkan semua entri",
+        "message": "Tampilkan semua entri: ya",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Peringatan: Cadangan tidak terenkripsi. Perhatikan resikonya sebelum digunakan.",
+        "message": "Peringatan: Cadangan tidak terenkripsi. Perhatikan resikonya sebelum digunakan.: saya perhatikan resikonya.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.",
+        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.: gatelli224466.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera.",
+        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera. bagaimana caranya.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Hapus",
+        "message": "Hapus: ya",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download cadangan dilindungi sandi",
+        "message": "Download cadangan dilindungi sandi: saya tidak tau",
         "description": "Download Encrypted Backup"
     },
     "search": {
