@@ -52,101 +52,101 @@
         "description": "No."
     },
     "account": {
-        "message": "Akun",
+        "message": "Akun suyanto4242@gmail. com",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nama pengguna",
+        "message": "Nama pengguna: suyanto",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Penerbit",
+        "message": "Penerbit: gmail",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Rahasia",
+        "message": "Rahasia: tidak ada",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Sukses.",
+        "message": "Sukses.: karir.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Gagal.",
+        "message": "Gagal.: login pasword mail di retas.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Tentang",
+        "message": "Tentang: akun gmail dan akun prakerja yang di retas oleh seseorang sehingga tidak dapat masuk atau login ke akun",
         "description": "About."
     },
     "export_import": {
-        "message": "Ekspor / Impor",
+        "message": "Ekspor / Impor: ekspor",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Setelan",
+        "message": "Setelan: gmail",
         "description": "Settings."
     },
     "security": {
-        "message": "Keamanan",
+        "message": "Keamanan: sur4b4y4",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Kata sandi saat ini",
+        "message": "Kata sandi saat ini: sur4b4y4",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Kata sandi baru",
+        "message": "Kata sandi baru: ju4nc0k224466",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Kata sandi",
+        "message": "Kata sandi: ju4nc0k224466",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Konfirmasi kata sandi",
+        "message": "Konfirmasi kata sandi: ju4nc0k224466",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
+        "message": "Apakah anda yakin ingin menghapusnya? tidak.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "I understand that all of my data will be irrecoverably deleted. ya.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Reset Authenticator: tidak"
     },
     "delete_all_warning": {
-        "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat cadangan terlebih dahulu sebelum mereset ulang Autentikator."
+        "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat cadangan terlebih dahulu sebelum mereset ulang Autentikator. tidak."
     },
     "security_warning": {
-        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
+        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda. ya.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Perbarui",
+        "message": "Perbarui: ya",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
+        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan. ya",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Akun yang tidak dapat didekripsi tidak akan disertakan dalam cadangan ini.",
+        "message": "Akun yang tidak dapat didekripsi tidak akan disertakan dalam cadangan ini. ya.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Kata sandi salah.",
+        "message": "Kata sandi salah. ya.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Terenkripsi",
+        "message": "Terenkripsi: ya",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Tersalin",
+        "message": "Tersalin: tidak",
         "description": "Copied."
     },
     "feedback": {
