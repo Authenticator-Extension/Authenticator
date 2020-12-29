@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autenticatore",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Aggiungi account",
         "description": "Add account."
     },
     "add_qr": {
