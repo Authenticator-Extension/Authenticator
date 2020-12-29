@@ -4,15 +4,15 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Authenticator: ya",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.: ya.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " telah ditambahkan.",
+        "message": " telah ditambahkan. ya.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -258,51 +258,51 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Cari",
+        "message": "Cari: ya mohon di carikan akun saya serta paswordnya",
         "description": "Search"
     },
     "popout": {
-        "message": "Mode popup",
+        "message": "Mode popup: ya",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Kunci",
+        "message": "Kunci: ya",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Ubah",
+        "message": "Ubah: ubah kunci",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Manual Sync: ya",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "IsiOtomatis",
+        "message": "IsiOtomatis: iya",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Gunakan Kontras yang Tinggi",
+        "message": "Gunakan Kontras yang Tinggi: iya",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Tema",
+        "message": "Tema: ya",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Terang",
+        "message": "Terang: ya",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Gelap",
+        "message": "Gelap: tidak",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Kontras Tinggi",
+        "message": "Kontras Tinggi: tidak",
         "description": "High Contrast theme"
     },
     "storage_menu": {
-        "message": "Penyimpanan & Cadangan",
+        "message": "Penyimpanan & Cadangan: ya",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
