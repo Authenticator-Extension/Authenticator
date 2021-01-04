@@ -16,7 +16,7 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Tanınmayan QR kodu.",
+        "message": "Tanınmayan karekod.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "QR kodunu tara",
+        "message": "Karekodunu tara",
         "description": "Scan QR Code."
     },
     "add_secret": {
