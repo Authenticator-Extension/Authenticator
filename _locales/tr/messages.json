@@ -32,7 +32,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "El ile Giriş",
+        "message": "Elle Giriş",
         "description": "Manual Entry."
     },
     "close": {
@@ -274,7 +274,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manuel Eşitleme",
+        "message": "Elle Eşitleme",
         "description": "Manual sync"
     },
     "use_autofill": {
