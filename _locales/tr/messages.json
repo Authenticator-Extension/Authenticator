@@ -218,15 +218,15 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "QR Kod Yedeklemesini İçe Aktar",
+        "message": "Karekod Yedeklemeden İçe Aktar",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Metin Yedeklemeyi İçe Aktar",
+        "message": "Metin Yedeklemeden İçe Aktar",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "İçe aktarma başarılı, ancak bazı QR kod görüntüleri tanınmıyor.",
+        "message": "İçe aktarma başarılı ancak bazı karekod görüntüleri tanınmıyor.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
