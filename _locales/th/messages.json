@@ -112,11 +112,11 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "ฉันเข้าใจว่าข้อมูลทั้งหมดของฉันจะถูกลบเเละไม่สามารถกู้คืนได้",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
