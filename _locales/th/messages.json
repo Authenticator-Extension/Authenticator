@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "เพิ่มบัญชี",
+        "message": "เพิ่มผู้ใช้งาน",
         "description": "Add account."
     },
     "add_qr": {
@@ -230,7 +230,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "คุณสามารถเลือกไฟล์หลายไฟล์เพื่อนำเข้าข้อมูลสำรองเป็นชุด ๆ",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -286,19 +286,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "ธีม",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "สว่าง",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "มืด",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "ความคมชัดสูง",
         "description": "High Contrast theme"
     },
     "storage_menu": {
@@ -369,12 +369,12 @@
         "message": "ไม่ถูกต้อง"
     },
     "digits": {
-        "message": "หลัก"
+        "message": "จำนวนหลัก"
     },
     "algorithm": {
-        "message": "อัลกอริทึม"
+        "message": "ค่าอัลกอริทึม"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "ตัวกรองอัจฉริยะ"
     }
 }
