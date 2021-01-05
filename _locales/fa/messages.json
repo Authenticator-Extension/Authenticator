@@ -4,19 +4,19 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "کد تایید اعتبار",
+        "message": "احراز هویت",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "کد های تایید اعتبار دو مرحله ای تولید میکند  کدهای تولید شده یکبار مصرف است.",
+        "message": "Authenticator کدهای احراز هویت دو عاملی را در مرورگر شما ایجاد می کند.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " اضافه شده است.",
+        "message": " اضافه شده است!",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "QR code شناسایی نشد.",
+        "message": "QR code شناسایی نشد!",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "افزودن حساب",
+        "message": "اضافه کردن اکانت",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "close": {
-        "message": "بستن",
+        "message": "بستن !",
         "description": "Close."
     },
     "ok": {
