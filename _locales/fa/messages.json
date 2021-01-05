@@ -186,11 +186,11 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "مبتنی بر زمان",
+        "message": "زمان محلی پیش‌فرض",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "مبتنی بر شمارنده",
+        "message": "بر اساس شمارنده",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -202,7 +202,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری شده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
+        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری نشده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -210,11 +210,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "ایمپورت کردن پشتیبان",
+        "message": "وارد کردن پشتیبان",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "ایمپورت کردن فایل پشتیبان",
+        "message": "وارد کردن فایل پشتیبان",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -222,7 +222,7 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "ایمپورت کردن پشتیبان متنی",
+        "message": "وارد کردن پشتیبان متنی",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -238,11 +238,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "هشدار: فایل‌های پشتیبان‌ رمزنگاری نشده‌اند. با مسئولیت خودتان استفاده کنید.",
+        "message": "هشدار: پشتیبان گیری رمزگذاری نشده است. مسئولیت استفاده با خودتان است.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "باید کلمه عبور صحیح را برای ایمپورت کردن فایل‌های پشتیبان ارائه دهید.",
+        "message": "باید کلمه عبور صحیح را برای وارد کردن فایل‌های پشتیبان ارائه دهید.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
