@@ -119,7 +119,7 @@
         "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
     },
     "security_warning": {
         "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",
@@ -130,11 +130,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "คุณไม่สามารถเพิ่มบัญชีใหม่หรือส่งออกข้อมูลจนกว่าบัญชีทั้งหมดจะถูกถอดรหัส กรุณาใส่รหัสผ่านที่ถูกต้องก่อนดำเนินการต่อ",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "บัญชีที่ไม่สามารถถอดรหัสได้จะไม่รวมอยู่ในข้อมูลสำรองนี้",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -218,7 +218,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "นำเข้ารูปQR การสำรองข้อมูล",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -226,7 +226,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ QR บ้างรูปไม่สามารอ่านค่าได้",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
