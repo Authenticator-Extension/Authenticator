@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "เพิ่มผู้ใช้งาน",
+        "message": "เพิ่มบัญชีผู้ใช้งาน",
         "description": "Add account."
     },
     "add_qr": {
