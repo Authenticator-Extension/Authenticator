@@ -4,11 +4,11 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "تأیید اعتبار",
+        "message": "کد تایید اعتبار",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "افزونه Authenticator کدهای تأیید هویت دو مرحله‌ای را در مرورگر شما تولید می‌کند.",
+        "message": "کد های تایید اعتبار دو مرحله ای تولید میکند  کدهای تولید شده یکبار مصرف است.",
         "description": "Extension Description."
     },
     "added": {
