@@ -48,11 +48,11 @@
         "description": "Yes."
     },
     "no": {
-        "message": "خیر",
+        "message": "نه !",
         "description": "No."
     },
     "account": {
-        "message": "حساب",
+        "message": "اکانت",
         "description": "Account."
     },
     "accountName": {
@@ -60,19 +60,19 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "صادرکننده",
+        "message": "نام کاربری / نام سایت",
         "description": "Issuer."
     },
     "secret": {
-        "message": "رمز",
+        "message": "کد امنیتی",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "با موفقیت انجام شد.",
+        "message": "انجام شد !",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "ناموفق بود.",
+        "message": "ناموفق !",
         "description": "Update Failure."
     },
     "about": {
@@ -84,7 +84,7 @@
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "تنظیمات",
         "description": "Settings."
     },
     "security": {
@@ -92,34 +92,34 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "کلمه عبور فعلی",
+        "message": "رمز ورود فعلی",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "کلمه عبور جدید",
+        "message": "رمز ورود جدید",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "کلمه عبور",
+        "message": "رمز ورود",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "تأیید کلمه عبور",
+        "message": "تأیید رمز ورود",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "آیا مطمئن هستید که می‌خواهید این حساب را حذف کنید؟ این عملیات قابل بازگردانی نیست.",
+        "message": "آیا مطمئن هستید که می خواهید این اکانت را حذف کنید؟ این عملیات قابل برگشت نیست !",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "من متوجه هستم که تمام داده‌های من بدون امکان بازیابی حذف خواهند شد.",
+        "message": "من میدانم که تمام داده‌هایم بدون امکان بازیابی حذف خواهند شد.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "بازنشانی Authenticator"
+        "message": "ریست کردن افزونه احراز هویت"
     },
     "delete_all_warning": {
-        "message": "این تمام داده‌های شما را حذف کرده و افزونه Authenticator را به طور کامل بازنشانی می‌کند. شما بعداً قادر نخواهید بود داده‌های حذف شده را بازیابی کنید! شما باید قبل از بازنشانی افزونه Authenticator از داده‌های خود نسخه پشتیبان تهیه کنید."
+        "message": "این ، تمام داده‌های شما را حذف کرده و افزونه احراز هویت را به طور کامل ریست می‌کند. شما بعدا نمیتوانید  داده‌های حذف شده را برگردانید! شما باید قبل از بازنشانی افزونه احراز هویت از داده‌های خود نسخه پشتیبان تهیه کنید."
     },
     "security_warning": {
         "message": "این کلمه عبور برای رمزنگاری حساب‌های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
