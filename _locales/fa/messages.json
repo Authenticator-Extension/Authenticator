@@ -186,7 +186,7 @@
         "description": "Capture Failed"
     },
     "based_on_time": {
-        "message": "زمان محلی پیش‌فرض",
+        "message": "زمان محلی پیش‌ فرض",
         "description": "Time Based"
     },
     "based_on_counter": {
@@ -262,7 +262,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "حالت پاپ آپ",
+        "message": "حالت پنجره",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -274,7 +274,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "همگام‌سازی دستی",
+        "message": "همگام سازی دستی",
         "description": "Manual sync"
     },
     "use_autofill": {
@@ -286,7 +286,7 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "زمینه",
+        "message": "تم",
         "description": "Theme"
     },
     "theme_light": {
@@ -294,7 +294,7 @@
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "تیره",
+        "message": "تاریک",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "محل ذخیره‌سازی",
+        "message": "محل ذخیره سازی",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "خروج",
+        "message": "خروج از حساب",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
@@ -351,7 +351,7 @@
         "message": "درحال بارگذاری..."
     },
     "autolock": {
-        "message": "قفل کردن پس از"
+        "message": "قفل برنامه بعد از"
     },
     "minutes": {
         "message": "دقیقه"
@@ -369,7 +369,7 @@
         "message": "نامعتبر"
     },
     "digits": {
-        "message": "ارقام"
+        "message": "رقم ها :"
     },
     "algorithm": {
         "message": "الگوریتم"
