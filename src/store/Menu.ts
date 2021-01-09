@@ -4,7 +4,7 @@ export class Menu implements Module {
   async getModule() {
     const menuState = {
       state: {
-        version: chrome.runtime.getManifest().version,
+        version: chrome.runtime.getManifest()?.version || "0.0.0",
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
         smartFilter: localStorage.smartFilter !== "false",

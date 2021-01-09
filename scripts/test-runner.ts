@@ -1,10 +1,11 @@
 // Runs tests via puppeteer. Do not compile using webpack.
 
-import * as puppeteer from "puppeteer";
-import * as path from "path";
-import * as fs from "fs";
+import puppeteer from "puppeteer";
+import path from "path";
+import fs from "fs";
 import { execSync } from "child_process";
-import * as merge from "lodash/merge";
+import merge from "lodash/merge";
+
 interface MochaTestResults {
   total?: number;
   tests?: StrippedTestResults[];
@@ -35,15 +36,21 @@ const colors = {
 }
 
 async function runTests() {
+  const puppeteerArgs: string[] = [
+    `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
+    // for CI
+    "--no-sandbox",
+  ];
+
+  if (!process.env.CI) {
+    // run with --single-process to prevent zombie Chromium processes from not terminating during development testing
+    // do not use this in CI as it will not run properly
+    puppeteerArgs.push("--single-process");
+  }
+
   const browser = await puppeteer.launch({
     ignoreDefaultArgs: ["--disable-extensions"],
-    args: [
-      `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
-      // prevents zombie Chromium processes from not terminating during development testing
-      "--single-process",
-      // for CI
-      "--no-sandbox",
-    ],
+    args: puppeteerArgs,
     // chrome extensions don't work in headless
     headless: false,
     executablePath: process.env.PUPPETEER_EXEC_PATH,
@@ -52,12 +59,20 @@ async function runTests() {
   await mochaPage.goto(
     "chrome-extension://bhghoamapcdpbohphigoooaddinpkbai/view/test.html"
   );
-  // @ts-expect-error
+
+  // by setting this env var, console logging works for both components and testing
+  if (process.env.ENABLE_CONSOLE) {
+    mochaPage.on("console", consoleMessage => console.log(consoleMessage.text()));
+  }
+
   const results: {
-    coverage: {};
+    coverage: unknown;
     testResults: MochaTestResults;
   } = await mochaPage.evaluate(() => {
-    return new Promise((resolve) => {
+    return new Promise((resolve: (value: {
+    coverage: unknown;
+    testResults: MochaTestResults;
+  }) => void) => {
       window.addEventListener("testsComplete", () => {
         resolve({
           coverage: window.__coverage__,
@@ -76,14 +91,17 @@ async function runTests() {
 
   let failedTest = false;
   let display: TestDisplay = {};
-  for (const test of results.testResults.tests) {
-    let tmp: TestDisplay = {};
-    test.path.reduce((acc, current, index) => { 
-      return acc[current] = test.path.length - 1 === index ? test : {}  
-    }, tmp);
-    display = merge(display, tmp);
+  if (results?.testResults.tests) {
+    for (const test of results.testResults.tests) {
+      let tmp: TestDisplay = {};
+      test.path.reduce((acc, current, index) => {
+        return acc[current] = test.path.length - 1 === index ? test : {}
+      }, tmp);
+      display = merge(display, tmp);
+    }
   }
-  const printDisplayTests = (display: TestDisplay) => {
+
+  const printDisplayTests = (display: TestDisplay | StrippedTestResults) => {
     for (const key in display) {
       if (typeof display[key].status === "string") {
         const test = display[key];
@@ -105,7 +123,6 @@ async function runTests() {
       } else {
         console.log(key)
         console.group();
-        // @ts-expect-error
         printDisplayTests(display[key]);
       }
     }
@@ -115,4 +132,7 @@ async function runTests() {
   process.exit(failedTest ? 1 : 0);
 }
 
-runTests();
+runTests().catch(e => {
+  console.error(e);
+  process.exit(1);
+});
