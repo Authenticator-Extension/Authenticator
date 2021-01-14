@@ -10,7 +10,7 @@ import CommonComponents from "../../../components/common/index";
 import EnterPasswordPage from "../../../components/Popup/EnterPasswordPage.vue";
 import { loadI18nMessages } from "../../../store/i18n";
 
-chai.should();
+const should = chai.should();
 chai.use(sinonChai);
 mocha.setup("bdd");
 const localVue = createLocalVue();
@@ -41,7 +41,7 @@ describe("EnterPasswordPage", () => {
 
   beforeEach(() => {
     // TODO: find a nicer var
-    storeOpts.modules.accounts.actions.applyPassphrase = sinon.fake();
+    storeOpts.modules.accounts.actions.applyPassphrase.resetHistory();
     store = new Vuex.Store(storeOpts);
   });
 
@@ -70,6 +70,18 @@ describe("EnterPasswordPage", () => {
       sinon.match.any,
       "anotherPassword"
     );
+  });
+
+  it("should autofocus password input", () => {
+    const wrapper = mount(EnterPasswordPage, {
+      store,
+      localVue,
+      attachToDocument: true,
+    });
+
+    const passwordInput = wrapper.find("input");
+
+    passwordInput.element.should.eq(document.activeElement);
   });
 
   it("should not show incorrect password message", () => {

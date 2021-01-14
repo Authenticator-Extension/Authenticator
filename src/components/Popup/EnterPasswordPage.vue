@@ -6,6 +6,7 @@
       v-model="password"
       @enter="applyPassphrase()"
       :class="{ badInput: wrongPassword }"
+      :autofocus="true"
     />
     <label class="warning" v-show="wrongPassword">{{
       i18n.phrase_not_match
