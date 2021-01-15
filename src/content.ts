@@ -225,7 +225,7 @@ function pasteCode(code: string) {
         inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
         inputBox.id.toLowerCase().indexOf(identity) >= 0
       ) {
-        if (!inputBox.value) {
+        if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
           inputBox.value = code;
           fireInputEvents(inputBox);
         }
@@ -240,7 +240,7 @@ function pasteCode(code: string) {
       : null;
   if (activeInputBox) {
     const inputBox = activeInputBox as HTMLInputElement;
-    if (!inputBox.value) {
+    if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
       inputBox.value = code;
       fireInputEvents(inputBox);
     }
@@ -248,7 +248,7 @@ function pasteCode(code: string) {
   }
 
   for (const inputBox of inputBoxes) {
-    if (!inputBox.value && inputBox.type !== "password") {
+    if ((!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) && inputBox.type !== "password") {
       inputBox.value = code;
       fireInputEvents(inputBox);
       return;
