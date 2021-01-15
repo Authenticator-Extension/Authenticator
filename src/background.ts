@@ -138,13 +138,13 @@ async function getTotp(text: string, silent = false) {
         return false;
       }
 
-      let failedCount = 0;
+      const getTotpPromises: Array<Promise<boolean>> = [];
       for (const otpUrl of otpUrls) {
-        const success = await getTotp(otpUrl, true);
-        if (!success) {
-          failedCount++;
-        }
+        getTotpPromises.push(getTotp(otpUrl, true));
       }
+
+      const getTotpResults = await Promise.allSettled(getTotpPromises);
+      const failedCount = getTotpResults.filter((res) => !res).length;
       if (failedCount === otpUrls.length) {
         !silent && chrome.tabs.sendMessage(id, { action: "migrationfail" });
         return false;
