@@ -248,7 +248,10 @@ function pasteCode(code: string) {
   }
 
   for (const inputBox of inputBoxes) {
-    if ((!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) && inputBox.type !== "password") {
+    if (
+      (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) &&
+      inputBox.type !== "password"
+    ) {
       inputBox.value = code;
       fireInputEvents(inputBox);
       return;
