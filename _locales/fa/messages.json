@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "تأیید اعتبار",
+        "message": "احراز هویت کننده",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره ازGoogle Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "برخی داده‌های حساب به طور موفق وارد نشدند.",
         "description": "Some migration data is broken."
     },
     "close": {
