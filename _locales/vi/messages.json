@@ -376,5 +376,13 @@
     "add_code": {
         "message": "Add account",
         "description": "Add account."
+    },
+    "migration_fail": {
+        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Some account data was not imported successfully.",
+        "description": "Some migration data is broken."
     }
 }
