@@ -9,7 +9,7 @@ import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
 
-import { getOTPAuthPerLineFromOPTAuthMigration } from "./import";
+import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 
 let cachedPassphrase = "";
 let autolockTimeout: number;
