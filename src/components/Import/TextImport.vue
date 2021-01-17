@@ -43,11 +43,16 @@ export default Vue.extend({
         key?: { enc: string; hash: string };
         [hash: string]: OTPStorage;
       } = {};
+      let failedCount = 0;
+      let succeededCount = 0;
       try {
         exportData = JSON.parse(this.importCode);
       } catch (error) {
         // Maybe one-otpauth-per line text
-        exportData = await getEntryDataFromOTPAuthPerLine(this.importCode);
+        const result = await getEntryDataFromOTPAuthPerLine(this.importCode);
+        exportData = result.exportData;
+        failedCount = result.failedCount;
+        succeededCount = result.succeededCount;
       }
 
       let key: { enc: string; hash: string } | null = null;
@@ -79,7 +84,13 @@ export default Vue.extend({
             this.$encryption as Encryption,
             decryptedbackupData
           );
-          alert(this.i18n.updateSuccess);
+          if (failedCount === 0) {
+            alert(this.i18n.updateSuccess);
+          } else if (succeededCount) {
+            alert(this.i18n.import_backup_qr_partly_failed);
+          } else {
+            alert(this.i18n.updateFailure);
+          }
           window.close();
         } else {
           alert(this.i18n.updateFailure);
