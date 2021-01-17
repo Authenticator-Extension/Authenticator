@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Importul a eșuat. Dacă migrați date din Google Authenticator, reexportați datele și încercați încă o dată.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Unele date ale contului nu au fost importate corect.",
         "description": "Some migration data is broken."
     },
     "close": {
