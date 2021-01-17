@@ -130,7 +130,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Bạn không thể thêm tài khoản mới hoặc trích xuất dữ liệu cho đến khi tất cả các tài khoản được giải mã. Vui lòng nhập đúng mật khẩu để tiếp tục.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
