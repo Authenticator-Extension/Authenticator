@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Некоторые данные аккаунта не были успешно импортированы.",
+        "message": "Some account data was not imported successfully.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -348,7 +348,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Вы можете импортировать резервные копии из других приложений.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
