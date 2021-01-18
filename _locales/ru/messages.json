@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Некоторые данные аккаунта не были успешно импортированы.",
         "description": "Some migration data is broken."
     },
     "close": {
