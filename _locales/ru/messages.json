@@ -348,7 +348,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Вы можете импортировать резервные копии из других приложений.",
+        "message": "You can import backups from some other applications.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
