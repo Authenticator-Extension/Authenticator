@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek mi istiyorsunuz? Herhangi bir hesabın sağ üst kısmına gidin ve gizli düğmeye basın.",
         "description": "Export menu info text"
     },
     "download_backup": {
