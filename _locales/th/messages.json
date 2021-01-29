@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "การนำเข้าล้มเหลว หากคุณกำลังย้ายข้อมูลจาก Google Authenticator โปรดส่งออกข้อมูลของคุณอีกครั้งจาก Google Authenticator และลองอีกครั้ง",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "บ้างบัญชีไม่สามารถถูกนำเข้าให้สำเร็จได้",
         "description": "Some migration data is broken."
     },
     "close": {
