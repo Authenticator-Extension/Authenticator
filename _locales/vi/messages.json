@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Nhập vào thất bại. Nếu bạn đang kết hợp từ Google Authenticator, hãy thử nhập vào dữ liệu của bạn từ Google Authenticator và thử lại.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Một vài dữ liệu tài khoản không nhập vào thành công.",
         "description": "Some migration data is broken."
     },
     "close": {
