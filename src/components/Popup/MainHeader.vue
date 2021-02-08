@@ -172,20 +172,39 @@ export default Vue.extend({
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const tab = tabs[0];
-        if (!tab || !tab.id) {
-          return;
-        }
-        chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-        chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
-          if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
-          } else {
-            window.close();
+      chrome.tabs.query(
+        { active: true, lastFocusedWindow: true },
+        async (tabs) => {
+          const tab = tabs[0];
+          if (!tab || !tab.id) {
+            return;
           }
-        });
-      });
+
+          if (tab.url?.startsWith("file:")) {
+            if (
+              await this.$store.dispatch(
+                "notification/confirm",
+                this.i18n.capture_local_file_failed
+              )
+            ) {
+              window.open("import.html?QrImport", "_blank");
+              return;
+            }
+          }
+
+          chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
+          chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
+            if (result !== "beginCapture") {
+              this.$store.commit(
+                "notification/alert",
+                this.i18n.capture_failed
+              );
+            } else {
+              window.close();
+            }
+          });
+        }
+      );
       return;
     },
   },

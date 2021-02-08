@@ -47,8 +47,12 @@ import TextImport from "./Import/TextImport.vue";
 
 export default Vue.extend({
   data: function () {
+    const query = location.search ? location.search.substr(1) : "";
+    const importType = ["FileImport", "QrImport", "TextImport"].includes(query)
+      ? query
+      : "FileImport";
     return {
-      importType: "FileImport",
+      importType,
       shouldShowPassphrase: shouldShowPassphrase(this.$entries),
     };
   },
