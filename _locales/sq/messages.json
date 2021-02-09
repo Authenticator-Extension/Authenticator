@@ -68,7 +68,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Lëshuar nga",
         "description": "Issuer."
     },
     "secret": {
@@ -88,11 +88,11 @@
         "description": "About."
     },
     "export_import": {
-        "message": "Export / Import",
+        "message": "Eksporto / Importo",
         "description": "Export and Import."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Cilësimet",
         "description": "Settings."
     },
     "security": {
@@ -142,7 +142,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Llogaritë që nuk mundën të dekriptohen nuk do të përfshihen në këtë backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -150,7 +150,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Enkriptuar",
         "description": "Encrypted."
     },
     "copied": {
@@ -186,7 +186,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "A keni backup për llogaritë tuaja? Mos prit derisa të jetë shumë vonë!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -214,27 +214,27 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Shkarko skedarin Backup",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importo Backup",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importo skedarin Backup",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importo Backup të imazhit QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importo Backup të tekstit",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Importimi i suksesshëm, bur disa imazhe QR nuk mund të njihen.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
