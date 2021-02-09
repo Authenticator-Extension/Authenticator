@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autentifikuesi",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autentifikuesi",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Autentifikuesi gjeneron kode autentifikimi me 2 faktorë në shletuesin tuaj.",
         "description": "Extension Description."
     },
     "added": {
@@ -16,19 +16,19 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "Kod QR i panjohur.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Kodi sekret i llogarisë është i pavlefshëm",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Shto llogari",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Skano kodin QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Përdoruesi",
         "description": "Account Name."
     },
     "issuer": {
@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Kodi sekret",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -96,27 +96,27 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Siguria",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Fjalëkalimi aktual",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Fjalëkalim i ri",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Fjalëkalimi",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Konfirmo fjalëkalimin",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "A jeni i sigurtë qe doni të fshini këtë llogari? Ky veprim nuk mund të zhbëhet.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -134,7 +134,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Përditëso",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -146,7 +146,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Fajlëkalimi nuk përputhet.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -154,7 +154,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopjuar",
         "description": "Copied."
     },
     "feedback": {
@@ -162,7 +162,7 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Përkthe",
         "description": "Translate."
     },
     "source": {
@@ -170,11 +170,11 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Vendos fjalëkalim për të dekriptuar të dhënat e llogarisë.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Sinkronizo Orën me Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -202,7 +202,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Preferencat",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -326,7 +326,7 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Hyr",
+        "message": "Sign in",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
@@ -377,7 +377,7 @@
         "message": "I pavlefshëm"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Numrat"
     },
     "algorithm": {
         "message": "Algoritmi"
