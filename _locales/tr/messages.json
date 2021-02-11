@@ -127,7 +127,7 @@
         "message": "Kimlik Doğrulayıcıyı Sıfırla"
     },
     "delete_all_warning": {
-        "message": "Bu, tüm verilerinizi silecek ve Kimlik Doğrulayıcı'yı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız! Kimlik Doğrulayıcı'yı sıfırlamadan önce bir yedek kaydetmeyi düşünün."
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
         "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
