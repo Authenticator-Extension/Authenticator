@@ -120,7 +120,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "E kuptoj se të gjithë të dhënat e mia do të fshihen dhe do të jenë të parikuperueshme.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
@@ -130,7 +130,7 @@
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Ky fjalëkalim do të përdoret për të kriptuar llogarinë tënde. Askush nuk mund tju ndihmojë ju nëse ju harroni fjalëkalimin.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -178,7 +178,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Kujto fjalëkalimin",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -344,11 +344,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Ju keni një ose më shumë llogari Steam ose Blizzard. Backup-et jo të kriptuar nuk do të përdorin formatin backup të standardizuar.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Ju mund të importoni backup-et nga disa aplikacione të tjerë.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
