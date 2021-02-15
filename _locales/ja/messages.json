@@ -193,6 +193,10 @@
         "message": "キャプチャーできませんでした。再読込してもう一度お試しください。",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "タイム ベース",
         "description": "Time Based"
