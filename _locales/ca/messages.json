@@ -194,7 +194,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Proveu de llegir un codi QR des d'un arxiu local? Enlloc d'això, utilitzeu la importació de còpies de seguretat d'imatges QR.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
