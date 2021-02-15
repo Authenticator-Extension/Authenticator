@@ -193,6 +193,10 @@
         "message": "Fêstlizzen is mislearre, laad de side opnij en probearje it opnij.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Tiidsbûn",
         "description": "Time Based"
