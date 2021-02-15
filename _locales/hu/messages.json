@@ -384,5 +384,9 @@
     "migration_partly_fail": {
         "message": "Some account data was not imported successfully.",
         "description": "Some migration data is broken."
+    },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
     }
 }
