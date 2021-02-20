@@ -194,7 +194,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Karekodu yerel bir dosyadan mı taramaya çalışıyorsunuz? Bunun yerine Karekod Görüntü Yedeklemeyi İçe Aktar seçeneğini kullanın.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
