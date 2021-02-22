@@ -1,22 +1,22 @@
 {
     "extName": {
-        "message": "احراز هویت",
+        "message": "احراز هویت کننده",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "احراز هویت",
+        "message": "احراز هویت کننده",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator کدهای احراز هویت دو عاملی را در مرورگر شما ایجاد می کند.",
+        "message": "افزونه Authenticator کدهای تأیید هویت دو مرحله‌ای را در مرورگر شما تولید می‌کند.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " اضافه شده است!",
+        "message": " اضافه شده است.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "QR code شناسایی نشد!",
+        "message": "رمزینه شناسایی نشد.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -44,7 +44,7 @@
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "بستن !",
+        "message": "بستن",
         "description": "Close."
     },
     "ok": {
@@ -56,11 +56,11 @@
         "description": "Yes."
     },
     "no": {
-        "message": "نه !",
+        "message": "خیر",
         "description": "No."
     },
     "account": {
-        "message": "اکانت",
+        "message": "حساب",
         "description": "Account."
     },
     "accountName": {
@@ -68,19 +68,19 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "نام کاربری / نام سایت",
+        "message": "صادرکننده",
         "description": "Issuer."
     },
     "secret": {
-        "message": "کد امنیتی",
+        "message": "رمز",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "انجام شد !",
+        "message": "با موفقیت انجام شد.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "ناموفق !",
+        "message": "ناموفق بود.",
         "description": "Update Failure."
     },
     "about": {
@@ -100,27 +100,27 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "رمز ورود فعلی",
+        "message": "کلمه عبور فعلی",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "رمز ورود جدید",
+        "message": "کلمه عبور جدید",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "رمز ورود",
+        "message": "کلمه عبور",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "تأیید رمز ورود",
+        "message": "تأیید کلمه عبور",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "آیا مطمئن هستید که می خواهید این اکانت را حذف کنید؟ این عملیات قابل برگشت نیست !",
+        "message": "آیا مطمئن هستید که می‌خواهید این حساب را حذف کنید؟ این عملیات قابل بازگردانی نیست.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "من میدانم که تمام داده‌هایم بدون امکان بازیابی حذف خواهند شد.",
+        "message": "من متوجه هستم که تمام داده‌های من بدون امکان بازیابی حذف خواهند شد.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
