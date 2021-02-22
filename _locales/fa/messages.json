@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره ازGoogle Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
+        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره از Google Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -127,14 +127,14 @@
         "message": "ریست کردن افزونه احراز هویت"
     },
     "delete_all_warning": {
-        "message": "این ، تمام داده‌های شما را حذف کرده و افزونه احراز هویت را به طور کامل ریست می‌کند. شما بعدا نمیتوانید داده‌های حذف شده را برگردانید! شما باید قبل از بازنشانی افزونه احراز هویت از داده‌های خود نسخه پشتیبان تهیه کنید."
+        "message": "این تمام داده‌های شما را حذف کرده و افزونه Authenticator را به طور کامل بازنشانی می‌کند. شما بعداً قادر نخواهید بود داده‌های حذف شده را بازیابی کنید! شما باید قبل از بازنشانی افزونه Authenticator از داده‌های خود نسخه پشتیبان تهیه کنید."
     },
     "security_warning": {
-        "message": "این کلمه عبور برای رمزنگاری اکانت های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
+        "message": "این کلمه عبور برای رمزنگاری حساب‌های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "به روز رسانی",
+        "message": "بروز رسانی",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -142,15 +142,15 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "حسابهایی که امکان رمزگشایی ندارند، مشمول این پشتیبان گیری نمی شوند!",
+        "message": "حسابهایی که امکان رمزگشایی ندارند، در این نسخه پشتیبان گنجانده نمی شوند.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "رمز عبور مطابقت ندارد!",
+        "message": "کلمه عبور منطبق نیست.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "رمزگذاری شده",
+        "message": "رمزنگاری شده",
         "description": "Encrypted."
     },
     "copied": {
@@ -178,7 +178,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "ذخیره کلمه عبور",
+        "message": "به خاطر سپردن کلمه عبور",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -186,7 +186,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "آیا یک نسخه پشتیبان برای حساب‌های خود دارید؟ صبر نکنید تا اینکه خیلی دیر شود!",
+        "message": "آیا یک نسخه پشتیبان برای حساب‌های خود دارید؟ صبر نکنید تا خیلی دیر شود!",
         "description": "Remind Backup"
     },
     "capture_failed": {
