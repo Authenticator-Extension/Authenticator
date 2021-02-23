@@ -1,14 +1,14 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "සත්‍යාපකය",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "සත්‍යාපකය",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "සත්‍යාපකය ඔබගේ බ්‍රව්සරයේ සාධක දෙකක සත්‍යාපන කේත ජනනය කරයි.",
         "description": "Extension Description."
     },
     "added": {
