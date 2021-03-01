@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "สำรองข้อมูลของคุณลงในไฟล์"
+    },
+    "password": {
+        "message": "password"
     }
 }

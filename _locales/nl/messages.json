@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Back-up uw gegevens naar een bestand."
+    },
+    "password": {
+        "message": "password"
     }
 }

@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Cadangkan data Anda ke file."
+    },
+    "password": {
+        "message": "password"
     }
 }

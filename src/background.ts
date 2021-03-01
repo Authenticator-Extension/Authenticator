@@ -177,6 +177,7 @@ async function getTotp(text: string, silent = false) {
     } else {
       let secret = "";
       let account: string | undefined;
+      let password: string | undefined;
       let issuer: string | undefined;
       let algorithm: string | undefined;
       let period: number | undefined;
@@ -250,6 +251,7 @@ async function getTotp(text: string, silent = false) {
         const entryData: { [hash: string]: OTPStorage } = {};
         entryData[hash] = {
           account,
+          password,
           hash,
           issuer,
           secret,

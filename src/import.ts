@@ -121,6 +121,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     } else {
       let secret = "";
       let account: string | undefined;
+      let password: string | undefined;
       let issuer: string | undefined;
       let algorithm: string | undefined;
       let period: number | undefined;
@@ -195,6 +196,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
 
         exportData[hash] = {
           account,
+          password,
           hash,
           issuer,
           secret,

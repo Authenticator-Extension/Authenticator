@@ -5,6 +5,7 @@ interface OTPEntryInterface {
   encSecret: string | null;
   secret: string | null;
   account: string;
+  password: string;
   hash: string;
   counter: number;
   code: string;
@@ -31,6 +32,7 @@ interface EncryptionInterface {
 
 interface OTPStorage {
   account?: string;
+  password?: string;
   encrypted: boolean;
   hash: string;
   index: number;

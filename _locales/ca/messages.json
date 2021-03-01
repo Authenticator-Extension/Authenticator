@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Fes una còpia de les dades a un fitxer."
+    },
+    "password": {
+        "message": "password"
     }
 }

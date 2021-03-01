@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Verilerinizi bir dosyaya yedekleyin."
+    },
+    "password": {
+        "message": "password"
     }
 }

@@ -195,6 +195,10 @@ export class EntryStorage {
       storageItem.account = entry.account;
     }
 
+    if (entry.password) {
+      storageItem.password = entry.password;
+    }
+
     if (entry.digits && entry.digits !== 6) {
       storageItem.digits = entry.digits;
     }
@@ -340,6 +344,10 @@ export class EntryStorage {
                 delete _data[hash].account;
               }
 
+              if (!_data[hash].password) {
+                delete _data[hash].password;
+              }
+
               if (_data[hash].digits === 6) {
                 delete _data[hash].digits;
               }
@@ -397,6 +405,7 @@ export class EntryStorage {
 
               data[hash].hash = data[hash].hash || hash;
               data[hash].account = data[hash].account || "";
+              data[hash].password = data[hash].password || "";
               data[hash].encrypted = encryption.getEncryptionStatus();
               data[hash].index = data[hash].index || 0;
               data[hash].issuer = data[hash].issuer || "";
@@ -603,6 +612,7 @@ export class EntryStorage {
 
               const entry = new OTPEntry({
                 account: entryData.account,
+                password: entryData.password,
                 encrypted: entryData.encrypted,
                 hash: entryData.hash,
                 index: entryData.index,

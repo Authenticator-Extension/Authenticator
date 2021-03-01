@@ -30,6 +30,7 @@ export class OTPEntry implements OTPEntryInterface {
   secret: string | null;
   encSecret: string | null;
   account: string;
+  password: string;
   hash: string;
   counter: number;
   period: number;
@@ -41,6 +42,7 @@ export class OTPEntry implements OTPEntryInterface {
   constructor(
     entry: {
       account?: string;
+      password?: string;
       encrypted: boolean;
       index: number;
       issuer?: string;
@@ -66,6 +68,11 @@ export class OTPEntry implements OTPEntryInterface {
       this.account = entry.account;
     } else {
       this.account = "";
+    }
+    if (entry.password) {
+      this.password = entry.password;
+    } else {
+      this.password = "";
     }
     if (entry.encrypted) {
       this.encSecret = entry.secret;

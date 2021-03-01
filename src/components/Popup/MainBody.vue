@@ -80,7 +80,8 @@ export default Vue.extend({
       }
       if (
         entry.issuer.toLowerCase().includes(this.searchText.toLowerCase()) ||
-        entry.account.toLowerCase().includes(this.searchText.toLowerCase())
+        entry.account.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        entry.password.toLowerCase().includes(this.searchText.toLowerCase())
       ) {
         return true;
       } else {

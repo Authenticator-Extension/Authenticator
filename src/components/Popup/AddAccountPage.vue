@@ -51,6 +51,7 @@ export default Vue.extend({
     newAccount: {
       issuer: string;
       account: string;
+      password: string;
       secret: string;
       type: OTPType;
       period: number | undefined;
@@ -62,6 +63,7 @@ export default Vue.extend({
       newAccount: {
         issuer: "",
         account: "",
+        password: "",
         secret: "",
         type: OTPType.totp,
         period: undefined,
@@ -119,6 +121,7 @@ export default Vue.extend({
           index: 0,
           issuer: this.newAccount.issuer,
           account: this.newAccount.account,
+          password: this.newAccount.password,
           encrypted: false,
           secret: this.newAccount.secret,
           counter: 0,

@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Utwórz kopię zapasową danych w pliku."
+    },
+    "password": {
+        "message": "password"
     }
 }

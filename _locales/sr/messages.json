@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Спреми податке у резервну копију."
+    },
+    "password": {
+        "message": "password"
     }
 }

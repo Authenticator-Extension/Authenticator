@@ -168,6 +168,9 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
     if (otpStorage.account) {
       otpStorage.account = removeUnsafeData(otpStorage.account);
     }
+    if (otpStorage.password) {
+      otpStorage.password = removeUnsafeData(otpStorage.password);
+    }
     const label = otpStorage.issuer
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";

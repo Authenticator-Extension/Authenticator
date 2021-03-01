@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Meitsje in reservekopy fan jo gegevens nei in bestân."
+    },
+    "password": {
+        "message": "password"
     }
 }
