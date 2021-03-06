@@ -28,6 +28,12 @@
     </a-select-input>
     <a-toggle-input :label="i18n.use_autofill" v-model="useAutofill" />
     <a-toggle-input :label="i18n.smart_filter" v-model="smartFilter" />
+    <a-toggle-input
+      :label="i18n.browser_sync"
+      v-model="browserSync"
+      :disabled="storageArea"
+      @change="migrateStorage()"
+    />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
@@ -101,6 +107,23 @@ export default Vue.extend({
         chrome.runtime.sendMessage({ action: "resetAutolock" });
       },
     },
+    storageArea() {
+      return this.$store.state.menu.storageArea;
+    },
+    browserSync: {
+      get(): boolean {
+        return this.newStorageLocation === "sync";
+      },
+      set(value) {
+        this.newStorageLocation = value ? "sync" : "local";
+      },
+    },
+  },
+  data() {
+    return {
+      newStorageLocation:
+        this.$store.state.menu.storageArea || localStorage.storageLocation,
+    };
   },
   methods: {
     popOut() {
@@ -116,6 +139,19 @@ export default Vue.extend({
         height: window.innerHeight,
         width: window.innerWidth,
       });
+    },
+    migrateStorage() {
+      this.$store.commit("currentView/changeView", "LoadingPage");
+      this.$store
+        .dispatch("accounts/migrateStorage", this.newStorageLocation)
+        .then((m) => {
+          this.$store.commit("notification/alert", this.i18n[m]);
+          this.$store.commit("currentView/changeView", "PreferencesPage");
+        }),
+        (r: string) => {
+          this.$store.commit("notification/alert", this.i18n.updateFailure + r);
+          this.$store.commit("currentView/changeView", "PreferencesPage");
+        };
     },
   },
 });
