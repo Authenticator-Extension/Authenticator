@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Автентифікатор",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
+        "message": "Автентифікатор генерує коди двофакторної автентифікації у вашому браузері.",
         "description": "Extension Description."
     },
     "added": {
@@ -23,6 +23,10 @@
         "message": "Неприпустимий ідентифікатор аккаунта.",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Add account",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Сканувати QR-код",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Ручне введення",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Some account data was not imported successfully.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Закрити",
@@ -108,14 +120,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Я розумію, що всі мої дані буде невиправно видалено.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Скинути автентифікатор"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Це призведе до видалення всіх Ваших даних і повного скидання автентифікатора. Ви не зможете відновити втрачені дані! Вам слід розглянути можливість збереження резервної копії перед скиданням автентифікатора."
     },
     "security_warning": {
         "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не може допомогти вам, якщо ви забудете пароль.",
@@ -126,8 +138,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Ви не можете додати новий обліковий запис чи експортні дані, поки всі облікові записи не будуть розшифровані. Будь ласка, введіть правильний пароль перед продовженням.",
+        "message": "Ви не можете додати новий обліковий запис, поки всі облікові записи не будуть розшифровані. Будь ласка, введіть правильний пароль перед продовженням.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Облікові записи, які не змогли розшифруватися, не будуть включені до цієї резервної копії.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Пароль не підходить.",
@@ -146,7 +162,7 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Перекласти",
+        "message": "Переклад",
         "description": "Translate."
     },
     "source": {
@@ -176,6 +192,10 @@
     "capture_failed": {
         "message": "Помилка захоплення, будь ласка, оновіть сторінку та спробуйте знову.",
         "description": "Capture Failed"
+    },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
         "message": "На підставі часу",
@@ -209,9 +229,21 @@
         "message": "Імпортувати файл резервної копії",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Імпортувати резервну копію QR-зображення",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Імпорт та резервні копії з тексту",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Імпорт успішний, але деяке QR-зображення не може бути розпізнано.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Ви можете вибрати декілька файлів для імпорту резервних копій групами.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Показати всі записи",
@@ -234,7 +266,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Завантажити захищену паролем резервну копію",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -258,43 +290,43 @@
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Використовувати автозаповнення",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Використовувати високу контрастність",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Тема",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Світла",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Темна",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Висока контрастність",
         "description": "High Contrast theme"
     },
     "storage_menu": {
-        "message": "Storage & Backup",
+        "message": "Сховище і резервне копіювання",
         "description": "Storage and sync menu title"
     },
     "storage_location_info": {
-        "message": "Choose where your data is stored. Using 'local' stores your data on your PC. Using 'sync' lets your browser sync your data to the cloud if you are signed into a sync account.",
+        "message": "Виберіть місце зберігання даних. Використовуючи 'local', Ваші дані зберігаються на ПК. Використовуючи 'sync', Ви дозволяє браузеру синхронізувати ваші дані з хмарою, якщо Ви увійшли за допомогою синхронізованого облікового запису.",
         "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Автоматично створювати резервні копії Ваших даних у сторонніх сервісах-сховищах.",
         "description": "3rd party backup info"
     },
     "storage_location": {
-        "message": "Storage Location",
+        "message": "Місце зберігання",
         "description": "Storage location"
     },
     "sign_in": {
@@ -306,7 +338,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Виникла проблема з підключенням до вашого облікового запису $SERVICE$, будь ласка, увійдіть знову.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -316,11 +348,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "У вас є один або кілька облікових записів Steam або Blizzard. Незашифровані резервні копії не будуть використовувати стандартизований формат.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Ви можете імпортувати резервні копії з деяких інших програм.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -331,62 +363,30 @@
         "message": "Завантаження..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Блокувати після"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "хвилин"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Додатково"
     },
     "period": {
-        "message": "Period"
+        "message": "Період"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Невірний"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифри"
     },
     "algorithm": {
-        "message": "Algorithm"
-    },
-    "import_backup_qr": {
-        "message": "Import QR Image Backup",
-        "description": "Import qr image backup."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
-        "description": "You can select multiple image files to import backup in batches."
+        "message": "Алгоритм"
     },
     "smart_filter": {
-        "message": "Smart Filter"
-    },
-    "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "add_code": {
-        "message": "Add account",
-        "description": "Add account."
-    },
-    "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
-        "description": "Some migration data is broken."
-    },
-    "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
-        "description": "Import QR image backup instead of scan local image"
+        "message": "Розумний фільтр"
     }
 }

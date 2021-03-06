@@ -23,6 +23,10 @@
         "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "添加账号",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "扫描QR码",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "手动输入",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "导入失败。 如果您要从Google Authenticator迁移数据，请从Google Authenticator重新导出数据，然后重试。",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "某些帐户数据未成功导入。",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "关闭",
@@ -126,8 +138,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
+        "message": "部分账户与密码不匹配，您无法添加新账户或者更改密码。请提供正确的密码后重试。",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "备份文件不会包含无法解密的账号。",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "密码不匹配。",
@@ -177,6 +193,10 @@
         "message": "捕捉失败，请重载您正在浏览的页面后重试。",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "您是否正在尝试从本地文件扫描QR码？ 改为使用导入QR图像备份。",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "基于时间",
         "description": "Time Based"
@@ -209,9 +229,21 @@
         "message": "导入备份文件",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "导入 QR 图片备份",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "导入备份文本",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "导入成功，但部分二维码无法识别。",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "您可以同时选择多个文件进行批量导入",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "显示全部条目",
@@ -354,39 +386,7 @@
     "algorithm": {
         "message": "算法"
     },
-    "import_backup_qr": {
-        "message": "Import QR Image Backup",
-        "description": "Import qr image backup."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
     "smart_filter": {
-        "message": "Smart Filter"
-    },
-    "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "add_code": {
-        "message": "Add account",
-        "description": "Add account."
-    },
-    "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
-        "description": "Some migration data is broken."
-    },
-    "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
-        "description": "Import QR image backup instead of scan local image"
+        "message": "智能过滤器"
     }
 }
