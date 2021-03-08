@@ -388,5 +388,15 @@
     },
     "smart_filter": {
         "message": "智能过滤器"
+    },
+    "browser_sync": {
+        "message": "Browser Sync",
+        "description": "Storage location"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }
