@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "ブラウザ間で同期",
         "description": "Storage location"
     },
     "sign_in": {
@@ -378,9 +378,9 @@
         "message": "スマートフィルター"
     },
     "backup": {
-        "message": "Backup"
+        "message": "バックアップ"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "データをファイルにバックアップします。"
     }
 }
