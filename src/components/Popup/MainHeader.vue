@@ -151,9 +151,21 @@ export default Vue.extend({
         this.$store.commit("currentView/changeView", "SetPasswordPage");
         return;
       }
+      // Request permissions
+      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        await new Promise((resolve: (value: void) => void) => {
+          chrome.permissions.request(
+            { origins: ["<all_urls>"] },
+            async (granted) => {
+              resolve();
+            }
+          );
+        });
+      }
+
       // Insert content script
       await new Promise(
-        (resolve: () => void, reject: (reason: Error) => void) => {
+        (resolve: (value: void) => void, reject: (reason: Error) => void) => {
           try {
             return chrome.tabs.executeScript(
               { file: "/dist/content.js" },
