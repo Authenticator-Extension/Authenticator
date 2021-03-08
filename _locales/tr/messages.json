@@ -378,9 +378,9 @@
         "message": "Akıllı Filtre"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Yedekleme"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Verilerinizi bir dosyaya yedekleyin."
     }
 }
