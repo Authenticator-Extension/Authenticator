@@ -15,17 +15,8 @@
         </a>
       </div>
       <div class="menuList">
-        <p
-          v-bind:title="i18n.export_import"
-          v-on:click="showInfo('ExportPage')"
-        >
-          <span><IconExchange /></span>{{ i18n.export_import }}
-        </p>
-        <p
-          v-bind:title="i18n.storage_menu"
-          v-on:click="showInfo('StorageSyncConfPage')"
-        >
-          <span><IconDatabase /></span>{{ i18n.storage_menu }}
+        <p v-bind:title="i18n.backup" v-on:click="showInfo('BackupPage')">
+          <span><IconExchange /></span>{{ i18n.backup }}
         </p>
         <p
           v-bind:title="i18n.security"
