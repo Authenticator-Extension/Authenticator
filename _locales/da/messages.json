@@ -87,10 +87,6 @@
         "message": "Om",
         "description": "About."
     },
-    "export_import": {
-        "message": "Eksporter / importer",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "Settings",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "High Contrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Opbevaring og sikkerhedskopi",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Vælg hvor dine data er gemt. Brug af 'lokal' gemmer dine data på din pc. Brug af 'synkronisering' lader din browser synkronisere dine data til skyen, hvis du er logget på en synkroniserings-konto.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Sikkerhedskopier automatisk dine data til tredjepartslagertjenester.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Lagerpladsplacering",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,5 +376,11 @@
     },
     "smart_filter": {
         "message": "Smart Filter"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }
