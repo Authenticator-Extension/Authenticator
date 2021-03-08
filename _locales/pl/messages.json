@@ -87,10 +87,6 @@
         "message": "O aplikacji",
         "description": "About."
     },
-    "export_import": {
-        "message": "Eksport / Import",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "Ustawienia",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "Wysoki kontrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Przechowywanie i kopie zapasowe",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Wybierz miejsce przechowywania danych. Używanie \"local\" zapisuje twoje dane na twoim komputerze. Korzystanie z opcji \"sync\" pozwala przeglądarce synchronizować dane z chmurą, jeśli jesteś zalogowany na koncie synchronizacji.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatycznie twórz kopie zapasowe danych w usługach przechowywania innych firm.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Miejsce przechowywania",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,5 +376,11 @@
     },
     "smart_filter": {
         "message": "Inteligentny filtr"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }
