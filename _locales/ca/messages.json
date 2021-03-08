@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Sincronització amb el Navegador",
         "description": "Storage location"
     },
     "sign_in": {
@@ -378,9 +378,9 @@
         "message": "Filtre intel·ligent"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Còpia de seguretat"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Fes una còpia de les dades a un fitxer."
     }
 }
