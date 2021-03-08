@@ -41,13 +41,11 @@
         "browser_style": true
     },
     "permissions": [
-        "activeTab",
-        "<all_urls>",
-        "clipboardWrite",
         "storage",
         "identity"
     ],
     "optional_permissions": [
+        "<all_urls>",
         "clipboardWrite",
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
