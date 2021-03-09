@@ -326,7 +326,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Дошло је до грешке код спанјања на ваш $SERVICE$ налог. Молимо пријавите се поново.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -336,7 +336,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Имате један или више Steam или Blizzard налога. Нешифроване сигурносне копије неће користити стандардизовани формат.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
