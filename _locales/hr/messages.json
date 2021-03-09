@@ -123,70 +123,70 @@
         "message": "Resetiranje Autentifikatora"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Ovo će obrisati sve vaše podatke i potpuno resetirati Autentifikator. Nećete moći vratiti obrisane podatke! Razmislite o spremanju sigurnosne kopije prije resetiranja Autentifikatora."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Ovom će se lozinkom šifrirati vaš račun. Nitko vam neće moći pomoći ako ju zaboravite.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Ažuriranje",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Ne možete dodati novi račun, dok svi računi nisu dešifrirani. Za nastavak, molimo unesite ispravnu lozinku.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Računi koji nisu mogli biti dešifrirani neće biti uključeni u ovoj sigurnosnoj kopiji.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Lozinka se ne podudara.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Šifrirano",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Kopirano",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Povratne informacije",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Prevedi",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Izvorni kȏd",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Unesite lozinku za dešifriranje podataka računa.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Sinkroniziraj sat s Google-om",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Zapamti lozinku",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Pažnja! Vaš lokalni sat nije usklađen. Za nastavak, molimo najmjestite ga.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Imate li sigurnosne kopije vaših računa? Ne odgađajte dok još nije kasno!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Zahvat nije uspio. Molimo ponovno učitajte stranicu i pokušajte ponovno.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
