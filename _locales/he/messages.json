@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "לא ניתן להוסיף חשבון חדש עד שכל החשבונות יפוענחו. נא להכניס סיסמא נכונה כדי להמשיך.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "חשבונות שהפענוח שלהם נכשל לא יכללו בגיבוי זה.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
