@@ -214,115 +214,115 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Преузми резервну копију",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Увези резервну копију",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Увези резервну копију",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Увези слику QR кода",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Увези текстуалну копију",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Увоз успешан, али неке QR слике не могу да буду препознате.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Можете да одаберете више датотека за серијски увоз.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Покажи све уносе",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Упозорење: резервне копије нису шифроване. Користите на властиту одговорност.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "За увоз, морате упиати точну лозинку.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Ваше лозинке су спремљене локално. Молимо одмах их промените у менију Безбедност.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Уклони",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Преузмите сигурносну копију заштићену лозинком",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Претрага",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Поп-уп прозор",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Закључај",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Измени",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync",
+        "message": "Ручна синхронизација",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Користите аутоматско попуњавање",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Користи високи контраст",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Тема",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Светла",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Тамна",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Велики контраст",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Аутоматски спреми резервну копију на услугу складиштења.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Синхронизација прегледача",
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "Пријавите се",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Logout",
+        "message": "Одјавите се",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
@@ -340,47 +340,47 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Можете да увезете резервне копију из других апликација.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Сазнајте више",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Учитавање..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Закључај након"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "минута"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Напредно"
     },
     "period": {
-        "message": "Period"
+        "message": "Интервал"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Неважећи"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифре"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Алгоритам"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Паметни филтр"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Резервна копија"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Спреми податке у резервну копију."
     }
 }
