@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "浏览器数据同步",
         "description": "Storage location"
     },
     "sign_in": {
