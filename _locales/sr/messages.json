@@ -36,15 +36,15 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Увоз није успео. Ако мигрирате податке из Google Authenticatorа, молимо поновно извезите и покушајте опет.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Неки подаци о налуги нису успешно увезени.",
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "Close",
+        "message": "Затвори",
         "description": "Close."
     },
     "ok": {
@@ -52,93 +52,93 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Да",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Не",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Налог",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Корисничко име",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Издавач",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "Тајна",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Успело.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Неуспело.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "О програму",
         "description": "About."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Подешавања",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Безбедност",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Актуелна лозинка",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Нова лозинка",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Лозинка",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Потврди лозинку",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Да ли сте сигурни да желите да обришете овај налог? Ову радњу није могуће опозвати.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Разумем да ће сви моји подаци бити бесповратно обрисани.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Ресетуј аутентификатор"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Ово че обрисати све ваше податке и потпуно ресетовати Атентификатор. Нећете моћи вратити обрисане податке. Сачувајте копију података прије ресетовања аутентификатора."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Овом ће се лозинком шифрирати ваш налог. Нитко вам неће моћи помоћи ако је заборавите.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Ажурирање",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Не можете да додате нови налог док су сви налози дешифрирани. Молимо унесите точну лозинку пре наставка.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Налози које се није могло дешифровати, неће бити укључени у овај бекап.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
