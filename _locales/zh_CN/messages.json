@@ -378,9 +378,9 @@
         "message": "智能过滤器"
     },
     "backup": {
-        "message": "Backup"
+        "message": "备份"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "备份数据到文件。"
     }
 }
