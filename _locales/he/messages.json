@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "הוספת חשבון",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "היבוא נכשל. אם מדובר ביבוא מהמאמת של גוגל, יש ליצא את המידע מהיישומון של גוגל ולנסות שוב.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "חלק ממידע החשבון לא יובא בהצלחה.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "ברור לי כי כל המידע שלי ימחק ללא יכולת שחזור.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "איפוס מאמת"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "פעולה זו תמחוק את כל המידע שלך ותאפס את המאמת. שחזור המידע האישי לא יהיה אפשרי! מומלץ לשמור גיבוי לפני איפוס המאמת."
     },
     "security_warning": {
         "message": "סיסמה זו תשמש להצפנת חשבונותיך. אף אחד לא יכול לעזור לך אם תשכח את הסיסמה.",
