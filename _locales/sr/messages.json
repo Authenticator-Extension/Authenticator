@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Неважећа тајна",
         "description": "Secret Error."
     },
     "add_code": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Неки подаци о налуги нису успешно увезени.",
+        "message": "Неки подаци о налоги нису успешно увезени.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -142,75 +142,75 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Лозинке се не поклапају.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Шифровано",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Копирано",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Повратне информације",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Преведи",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Изворни код",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Унесите лозинку за дешифроваље података.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Синхронизуј часовник са Гуглом",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Запамти лозинку",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Позоир! Ваш локални часовник је превише неусклађен. Молимо подесите га пре наставка.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Имате ли копију ваших налога? Немојте чекати да буде касно!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Хватање није успело, молимо освежите и покушајте поновно.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Покушавате да скенирате QR код из локалне датотеке? Радије користите увоз QR слике.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Zasnovan на времену",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Заснован на бројачу",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Подешавања",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Размера",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Упозорење: Све резервне копије су дешифроване. Хоћете да додате налог у дгугу апликацију? Лебдите изнад горњег десног дела било којег налога и притисните дугме Скривено.",
         "description": "Export menu info text"
     },
     "download_backup": {
