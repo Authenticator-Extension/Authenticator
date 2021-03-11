@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Sincronizare date browser",
         "description": "Storage location"
     },
     "sign_in": {
@@ -378,9 +378,9 @@
         "message": "Filtru inteligent"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Copie de rezervă"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Salvați datele într-un fișier."
     }
 }
