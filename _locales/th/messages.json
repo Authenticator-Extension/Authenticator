@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "ความคมชัดสูง",
+        "message": "ค่าคอนทราสต์สูง",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
