@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "本次備份不包含無法解密的帳號",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -351,7 +351,7 @@
         "message": "載入中..."
     },
     "autolock": {
-        "message": "鎖定後"
+        "message": "鎖定於"
     },
     "minutes": {
         "message": "分鐘"
