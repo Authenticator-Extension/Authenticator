@@ -15,7 +15,7 @@
           r="4"
           v-bind:style="{
             animationDuration: entry.period + 's',
-            animationDelay: (sectorOffset % entry.period) + 's'
+            animationDelay: (sectorOffset % entry.period) + 's',
           }"
         />
       </svg>
@@ -41,10 +41,10 @@
         code: true,
         hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
         'no-copy': noCopy(entry.code),
-        timeout: entry.period - (second % entry.period) < 5
+        timeout: entry.period - (second % entry.period) < 5,
       }"
       v-on:click="copyCode(entry)"
-      v-html="style.isEditing ? showBulls(entry.code) : showCode(entry.code)"
+      v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
     <div class="issuer">{{ entry.account }}</div>
     <div class="issuerEdit">
@@ -62,6 +62,9 @@
     >
       <IconQr />
     </div>
+    <div class="pin" v-on:click="pin(entry)">
+      <IconPin />
+    </div>
     <div class="movehandle">
       <IconBars />
     </div>
@@ -72,11 +75,13 @@ import Vue from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
+import { EntryStorage } from "../../models/storage";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
 import IconQr from "../../../svg/qrcode.svg";
 import IconBars from "../../../svg/bars.svg";
+import IconPin from "../../../svg/pin.svg";
 
 const computedPrototype = [
   mapState("accounts", [
@@ -84,9 +89,9 @@ const computedPrototype = [
     "sectorStart",
     "sectorOffset",
     "second",
-    "encryption"
+    "encryption",
   ]),
-  mapState("style", ["style"])
+  mapState("style", ["style"]),
 ];
 
 let computed = {};
@@ -98,7 +103,7 @@ for (const module of computedPrototype) {
 export default Vue.extend({
   computed,
   props: {
-    entry: OTPEntry
+    entry: OTPEntry,
   },
   methods: {
     noCopy(code: string) {
@@ -125,11 +130,18 @@ export default Vue.extend({
         return code;
       }
     },
-    showBulls(code: string) {
-      if (code.startsWith("&bull;")) {
-        return code;
+    showBulls(entry: OTPEntry) {
+      if (entry.code === CodeState.Encrypted) {
+        return this.i18n.encrypted;
+      } else if (entry.code === CodeState.Invalid) {
+        return this.i18n.invalid;
       }
-      return new Array(code.length).fill("&bull;").join("");
+
+      if (entry.code.startsWith("&bull;")) {
+        return entry.code;
+      }
+
+      return new Array(entry.digits).fill("&bull;").join("");
     },
     async removeEntry(entry: OTPEntry) {
       if (
@@ -142,6 +154,12 @@ export default Vue.extend({
         await this.$store.dispatch("accounts/deleteCode", entry.hash);
       }
       return;
+    },
+    async pin(entry: OTPEntry) {
+      this.$store.commit("accounts/pinEntry", entry);
+      await EntryStorage.set(this.$store.state.accounts.entries);
+      const codesEl = document.getElementById("codes") as HTMLDivElement;
+      codesEl.scrollTop = 0;
     },
     showQr(entry: OTPEntry) {
       this.$store.commit("qr/setQr", getQrUrl(entry));
@@ -176,7 +194,7 @@ export default Vue.extend({
 
       chrome.permissions.request(
         { permissions: ["clipboardWrite"] },
-        async granted => {
+        async (granted) => {
           if (granted) {
             const codeClipboard = document.getElementById(
               "codeClipboard"
@@ -190,7 +208,7 @@ export default Vue.extend({
 
               chrome.tabs.query(
                 { active: true, lastFocusedWindow: true },
-                tabs => {
+                (tabs) => {
                   const tab = tabs[0];
                   if (!tab || !tab.id) {
                     return;
@@ -198,7 +216,7 @@ export default Vue.extend({
 
                   chrome.tabs.sendMessage(tab.id, {
                     action: "pastecode",
-                    code: entry.code
+                    code: entry.code,
                   });
                 }
               );
@@ -217,14 +235,15 @@ export default Vue.extend({
       );
 
       return;
-    }
+    },
   },
   components: {
     IconMinusCircle,
     IconRedo,
     IconQr,
-    IconBars
-  }
+    IconBars,
+    IconPin,
+  },
 });
 
 // TODO: move most of this to a models file and reuse for backup stuff
@@ -242,10 +261,12 @@ function getQrUrl(entry: OTPEntry) {
     "otpauth://" +
     type +
     "/" +
-    label +
+    encodeURIComponent(label) +
     "?secret=" +
     entry.secret +
-    (entry.issuer ? "&issuer=" + entry.issuer.split("::")[0] : "") +
+    (entry.issuer
+      ? "&issuer=" + encodeURIComponent(entry.issuer.split("::")[0])
+      : "") +
     (entry.type === OTPType.hotp || entry.type === OTPType.hhex
       ? "&counter=" + entry.counter
       : "") +

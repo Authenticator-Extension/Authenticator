@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "אימות",
+        "message": "מאמת",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -16,12 +16,16 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "ברקוד בלתי מזוהה.",
+        "message": "קוד QR בלתי מזוהה.",
         "description": "QR Error."
     },
     "errorsecret": {
         "message": "קוד סודי שגוי",
         "description": "Secret Error."
+    },
+    "add_code": {
+        "message": "הוספת חשבון",
+        "description": "Add account."
     },
     "add_qr": {
         "message": "סרוק ברקוד",
@@ -31,8 +35,16 @@
         "message": "הזנה ידנית",
         "description": "Manual Entry."
     },
+    "migration_fail": {
+        "message": "היבוא נכשל. אם מדובר ביבוא מהמאמת של גוגל, יש ליצא את המידע מהיישומון של גוגל ולנסות שוב.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "חלק ממידע החשבון לא יובא בהצלחה.",
+        "description": "Some migration data is broken."
+    },
     "close": {
-        "message": "סגור",
+        "message": "סגירה",
         "description": "Close."
     },
     "ok": {
@@ -60,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "סודי",
+        "message": "סוד",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -68,16 +80,12 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "שגיאה.",
+        "message": "כישלון.",
         "description": "Update Failure."
     },
     "about": {
         "message": "אודות",
         "description": "About."
-    },
-    "export_import": {
-        "message": "ייצוא/ייבוא",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "הגדרות",
@@ -104,33 +112,37 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "האם אתה בטוח שברצונך למחוק את החשבון הזה? לא ניתן לבטל פעולה זו.",
+        "message": "האם באמת ברצונך למחוק את החשבון הזה? לא ניתן לבטל פעולה זו.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "ברור לי כי כל המידע שלי ימחק ללא יכולת שחזור.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "איפוס מאמת"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "פעולה זו תמחוק את כל המידע שלך ותאפס את המאמת. שחזור המידע האישי לא יהיה אפשרי! מומלץ לשמור גיבוי לפני איפוס המאמת."
     },
     "security_warning": {
-        "message": "סיסמה זו תשמש להצפנת חשבונותיך. אף אחד לא יכול לעזור לך אם תשכח את הסיסמה.",
+        "message": "סיסמה זו תשמש להצפנת חשבונותיך. אין דרך לשחזר את הסיסמה אם היא תשכח.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "עדכן",
+        "message": "עדכון",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "אינך יכול להוסיף חשבון חדש או לייצא נתונים עד שכל החשבונות מפוענחים. אנא הזן את הסיסמה הנכונה לפני שתמשיך.",
+        "message": "לא ניתן להוסיף חשבון חדש עד שכל החשבונות יפוענחו. נא להכניס סיסמא נכונה כדי להמשיך.",
         "description": "Passphrase Incorrect."
     },
+    "phrase_incorrect_export": {
+        "message": "חשבונות שהפענוח שלהם נכשל לא יכללו בגיבוי זה.",
+        "description": "Skip Unable-decripted Data."
+    },
     "phrase_not_match": {
-        "message": "הסיסמאות אינן תואמות.",
+        "message": "הסיסמה אינה תואמת.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -154,28 +166,32 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "הזן סיסמה לפענוח נתוני חשבון.",
+        "message": "יש להזין סיסמה לצורך לפענוח נתוני חשבון.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "סינכרון היסטוריה עם גוגל",
+        "message": "סינכרון שעון עם גוגל",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "זכור את הסיסמה שלי",
+        "message": "זכור את הסיסמה",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "זהירות! השעון המקומי שלך רחוק מדי, אנא תקן אותו לפני שתמשיך.",
+        "message": "זהירות! השעון המקומי שלך רחוק מדי, יש לתקן אותו לפני שנמשיך.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "האם יש לך גיבוי לחשבונות שלך? אל תחכה עד שיהיה מאוחר מדי!",
+        "message": "האם יש לך גיבוי לחשבונות שלך? לא לחכות עד שיהיה מאוחר מדי!",
         "description": "Remind Backup"
     },
     "capture_failed": {
         "message": "הצילום נכשל, נא לרענן את הדף ולנסות שנית.",
         "description": "Capture Failed"
+    },
+    "capture_local_file_failed": {
+        "message": "האם ניסית לסרוק קוד QR מקובץ מקומי? יש להשתמש בתמונת גיבוי QR במקום זאת.",
+        "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
         "message": "מבוסס זמן",
@@ -209,9 +225,21 @@
         "message": "ייבא קובץ גיבוי",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "יבוא תמונת גיבוי QR",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "ייבא גיבוי כטקסט",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "היבוא הצליח, אך חלק מתמונת קוד ה-QR לא זוהה.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "ניתן לבחור מספר קבצים כדי לייבא גיבויים באצוות.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "הצג את כל הערכים",
@@ -266,35 +294,27 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "עיצוב",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "בהיר",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "כהה",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "ניגודיות גבוהה",
         "description": "High Contrast theme"
-    },
-    "storage_menu": {
-        "message": "אחסון וגיבוי",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "בחר היכן הנתונים שלך יאוחסנו. השימוש ב'מקומי 'מאחסן את הנתונים שלך במחשב האישי שלך. השימוש בסנכרון מאפשר לדפדפן שלך לסנכרן את הנתונים שלך לענן אם אתה מחובר לחשבון סינכרון.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
         "message": "גבה אוטומטית את הנתונים שלך לשירותי אחסון של צד ג '.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "מיקום האחסון",
+    "browser_sync": {
+        "message": "סינכרון דפדפן",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "אלגוריתם"
+    },
+    "smart_filter": {
+        "message": "מסנן חכם"
+    },
+    "backup": {
+        "message": "גיבוי"
+    },
+    "backup_file_info": {
+        "message": "גיבוי הנתונים שלך לקובץ."
     }
 }

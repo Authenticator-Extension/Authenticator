@@ -9,18 +9,18 @@ export enum OTPType {
   battle,
   steam,
   hex,
-  hhex
+  hhex,
 }
 
 export enum CodeState {
   Invalid = "-1",
-  Encrypted = "-2"
+  Encrypted = "-2",
 }
 
 export enum OTPAlgorithm {
   SHA1 = 1,
   SHA256,
-  SHA512
+  SHA512,
 }
 
 export class OTPEntry implements OTPEntryInterface {
@@ -35,6 +35,7 @@ export class OTPEntry implements OTPEntryInterface {
   period: number;
   digits: number;
   algorithm: OTPAlgorithm;
+  pinned: boolean;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
@@ -50,6 +51,7 @@ export class OTPEntry implements OTPEntryInterface {
       hash?: string;
       digits?: number;
       algorithm?: OTPAlgorithm;
+      pinned?: boolean;
     },
     encryption?: Encryption
   ) {
@@ -95,6 +97,11 @@ export class OTPEntry implements OTPEntryInterface {
     } else {
       this.algorithm = OTPAlgorithm.SHA1;
     }
+    if (entry.pinned) {
+      this.pinned = entry.pinned;
+    } else {
+      this.pinned = false;
+    }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;
     } else {
@@ -133,7 +140,7 @@ export class OTPEntry implements OTPEntryInterface {
     if (secret) {
       this.secret = encryption.getDecryptedSecret({
         hash: this.hash,
-        secret
+        secret,
       });
       if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
         this.generate();

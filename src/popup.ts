@@ -5,6 +5,7 @@ import { Vue2Dragula } from "vue2-dragula";
 
 // Components
 import Popup from "./components/Popup.vue";
+import CommonComponents from "./components/common/index";
 
 // Other
 import { loadI18nMessages } from "./store/i18n";
@@ -26,6 +27,11 @@ async function init() {
   Vue.use(Vuex);
   Vue.use(Vue2Dragula);
 
+  // Load common components globally
+  for (const component of CommonComponents) {
+    Vue.component(component.name, component.component);
+  }
+
   // State
   const store = new Vuex.Store({
     modules: {
@@ -35,13 +41,13 @@ async function init() {
       menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
       qr: new Qr().getModule(),
-      style: new Style().getModule()
-    }
+      style: new Style().getModule(),
+    },
   });
 
   // Render
   const instance = new Vue({
-    render: h => h(Popup),
+    render: (h) => h(Popup),
     store,
     mounted() {
       // Update time based entries' codes
@@ -49,7 +55,7 @@ async function init() {
       setInterval(() => {
         this.$store.commit("accounts/updateCodes");
       }, 1000);
-    }
+    },
   }).$mount("#authenticator");
 
   // Prompt for password if needed
@@ -114,7 +120,7 @@ async function init() {
   // Open search if '/' is pressed
   document.addEventListener(
     "keyup",
-    e => {
+    (e) => {
       if (e.key === "/") {
         if (instance.$store.getters["style/isMenuShown"]) {
           return;
@@ -161,7 +167,7 @@ async function init() {
         correctWidth + (window.outerWidth - window.innerWidth);
       chrome.windows.update(chrome.windows.WINDOW_ID_CURRENT, {
         height: adjustedHeight,
-        width: adjustedWidth
+        width: adjustedWidth,
       });
     }
   }
@@ -169,7 +175,7 @@ async function init() {
   // TODO: give an option for this
   chrome.permissions.contains(
     { origins: ["https://www.google.com/"] },
-    hasPermission => {
+    (hasPermission) => {
       if (hasPermission) {
         syncTimeWithGoogle();
       }
@@ -183,7 +189,7 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
   if (instance.$store.state.backup.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },
-      async hasPermission => {
+      async (hasPermission) => {
         if (hasPermission) {
           try {
             const dropbox = new Dropbox();
@@ -219,10 +225,10 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
       {
         origins: [
           "https://www.googleapis.com/*",
-          "https://accounts.google.com/o/oauth2/revoke"
-        ]
+          "https://accounts.google.com/o/oauth2/revoke",
+        ],
       },
-      async hasPermission => {
+      async (hasPermission) => {
         if (hasPermission) {
           try {
             const drive = new Drive();
@@ -256,10 +262,10 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
       {
         origins: [
           "https://graph.microsoft.com/me/*",
-          "https://login.microsoftonline.com/common/oauth2/v2.0/token"
-        ]
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+        ],
       },
-      async hasPermission => {
+      async (hasPermission) => {
         if (hasPermission) {
           try {
             const onedrive = new OneDrive();

@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Accesso",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -20,16 +20,28 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Account segreto invalido",
+        "message": "Chiave segreta dell'account non valida",
         "description": "Secret Error."
+    },
+    "add_code": {
+        "message": "Aggiungi account",
+        "description": "Add account."
     },
     "add_qr": {
         "message": "Scansiona il codice QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Inserire manualmente",
+        "message": "Inserisci manualmente",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Importazione non riuscita. Se stai portando dati da Google Authenticator, riesporta i dati da Google Authenticator e prova di nuovo.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Alcuni dati dell'account non sono stati importati con successo.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Chiudere",
@@ -56,11 +68,11 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emittente",
+        "message": "Emittente del codice",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Segreto",
+        "message": "Chiave segreta",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -74,10 +86,6 @@
     "about": {
         "message": "Informazioni",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Esporta / Importa",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Impostazioni",
@@ -108,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Comprendo che tutti i miei dati saranno eliminati irrimediabilmente.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Resetta Autenticatore"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente l'Authenticator. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup, prima di ripristinare l'Authenticator."
     },
     "security_warning": {
         "message": "Questa password verrà usata per cifrare i tuoi account. Se dimentichi la password non ti potrà aiutare nessuno.",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Non è possibile aggiungere un nuovo account o esportare i dati fino a quando tutti gli account vengono decrittografati. Si prega di inserire la password corretta prima di continuare.",
+        "message": "Non è possibile aggiungere un nuovo account fino a quando tutti gli account non saranno decrittografati. Si prega di inserire la password corretta prima di continuare.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Gli account che non è stato possibile decrittografare non verranno inclusi in questo backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "La password non corrisponde.",
@@ -166,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Attenzione! Il vostro orologio locale è troppo lontano, si prega di risolvere prima di continuare.",
+        "message": "Attenzione! C'è una differenza troppo grande con il vostro orologio locale, si prega di risolvere prima di continuare.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -177,12 +189,16 @@
         "message": "Acquisizione non riuscita, si prega di ricaricare la pagina e riprovare.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Stai cercando di scansionare il codice QR da un file locale? Prova invece Importa backup immagine QR.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Basato sul tempo",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Contatore di base",
+        "message": "Basato su un contatore",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -209,9 +225,21 @@
         "message": "Importa il file di Backup",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Importa Backup Immagine Qr",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Importa Backup Dati",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Importazione riuscita, ma alcune immagini QR non possono essere riconosciute.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "È possibile selezionare più file per importare il backup in lotti.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Visualizza tutte le voci",
@@ -278,23 +306,15 @@
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Contrasto Alto",
+        "message": "Contrasto Elevato",
         "description": "High Contrast theme"
-    },
-    "storage_menu": {
-        "message": "Archivio & Backup",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Scegli dove memorizzare i tuoi dati. Usando \"locale\" memorizzerai i dati sul PC. Usando \"sync\" consentirai al tuo browser di sincronizzare i dati sul cloud.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
     },
     "storage_sync_info": {
         "message": "Backup automatico dei tuoi dati su servizi di terze parti.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Posizione Di Memorizzazione",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -316,7 +336,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Hai uno o più account di Steam o Blizzardo. I backup non cifrati non utilizzeranno il formato di backup standard.",
+        "message": "Hai uno o più account di Steam o Blizzard. I backup non cifrati non utilizzeranno il formato di backup standard.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritmo"
+    },
+    "smart_filter": {
+        "message": "Filtro Intelligente"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

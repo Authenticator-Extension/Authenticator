@@ -7,7 +7,7 @@ async function init() {
   Vue.prototype.i18n = await loadI18nMessages();
 
   new Vue({
-    render: h => h(OptionsView)
+    render: (h) => h(OptionsView),
   }).$mount("#options");
 }
 

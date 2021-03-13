@@ -1,27 +1,21 @@
 <template>
   <div>
-    <div class="import_file" v-if="!getFilePassphrase">
-      <label for="import_file">{{ i18n.import_backup_file }}</label>
-      <input
-        id="import_file"
-        type="file"
-        v-on:change="importFile($event, true)"
-        accept="application/json, text/plain"
-      />
-    </div>
+    <a-file-input
+      button-type="file"
+      accept="application/json, text/plain"
+      v-if="!getFilePassphrase"
+      @change="importFile($event, true)"
+      :label="i18n.import_backup_file"
+    />
     <div class="import_file_passphrase" v-else>
       <p class="error_password">{{ i18n.passphrase_info }}</p>
-      <div class="import_file_passphrase_input">
-        <label style="text-align: left;">{{ i18n.phrase }}</label>
-        <!-- trigger here -->
-        <input
-          type="password"
-          v-on:keyup.enter="readFilePassphrase = true"
-          v-model="importFilePassphrase"
-        />
-      </div>
-      <!-- trigger here -->
-      <button v-on:click="readFilePassphrase = true">{{ i18n.ok }}</button>
+      <a-text-input
+        :label="i18n.phrase"
+        type="password"
+        @enter="readFilePassphrase = true"
+        v-model="importFilePassphrase"
+      />
+      <a-button @click="readFilePassphrase = true">{{ i18n.ok }}</a-button>
     </div>
   </div>
 </template>
@@ -30,17 +24,17 @@ import * as CryptoJS from "crypto-js";
 import Vue from "vue";
 import {
   decryptBackupData,
-  getEntryDataFromOTPAuthPerLine
+  getEntryDataFromOTPAuthPerLine,
 } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       getFilePassphrase: false,
       readFilePassphrase: false,
-      importFilePassphrase: ""
+      importFilePassphrase: "",
     };
   },
   methods: {
@@ -57,13 +51,26 @@ export default Vue.extend({
             // @ts-ignore
             key?: { enc: string; hash: string };
             [hash: string]: OTPStorage;
+            // Bug #557, uploaded backups were missing `key`
+            // @ts-ignore
+            enc?: string;
+            // @ts-ignore
+            hash?: string;
           } = {};
+          let failedCount = 0;
+          let succeededCount = 0;
           try {
             importData = JSON.parse(reader.result as string);
+            succeededCount = Object.keys(importData).filter(
+              (key) => ["key", "enc", "hash"].indexOf(key) === -1
+            ).length;
           } catch (e) {
-            importData = await getEntryDataFromOTPAuthPerLine(
+            const result = await getEntryDataFromOTPAuthPerLine(
               reader.result as string
             );
+            importData = result.exportData;
+            failedCount = result.failedCount;
+            succeededCount = result.succeededCount;
           }
 
           let key: { enc: string; hash: string } | null = null;
@@ -71,6 +78,10 @@ export default Vue.extend({
           if (importData.key) {
             key = importData.key;
             delete importData.key;
+          } else if (importData.enc && importData.hash) {
+            key = { enc: importData.enc, hash: importData.hash };
+            delete importData.hash;
+            delete importData.enc;
           }
 
           let encrypted = false;
@@ -108,21 +119,27 @@ export default Vue.extend({
               this.$encryption as Encryption,
               decryptedFileData
             );
-            alert(this.i18n.updateSuccess);
+            if (failedCount === 0) {
+              alert(this.i18n.updateSuccess);
+            } else if (succeededCount) {
+              alert(this.i18n.migration_partly_fail);
+            } else {
+              alert(this.i18n.migration_fail);
+            }
+
             if (closeWindow) {
               window.close();
             }
           } else {
-            alert(this.i18n.updateFailure);
+            alert(this.i18n.migration_fail);
             this.getFilePassphrase = false;
             this.importFilePassphrase = "";
           }
         };
         reader.readAsText(target.files[0], "utf8");
       } else {
-        alert(this.i18n.updateFailure);
+        alert(this.i18n.migration_fail);
         if (closeWindow) {
-          window.alert(this.i18n.updateFailure);
           window.close();
         }
       }
@@ -139,10 +156,10 @@ export default Vue.extend({
             this.readFilePassphrase = false;
           }
         }
-        await new Promise(resolve => setTimeout(resolve, 250));
+        await new Promise((resolve) => setTimeout(resolve, 250));
       }
       return this.importFilePassphrase;
-    }
-  }
+    },
+  },
 });
 </script>

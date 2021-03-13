@@ -23,6 +23,10 @@
         "message": "Invalid account secret",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Fiók hozzáadása",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "QR kód beolvasása",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Kézi bevitel",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Some account data was not imported successfully.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Bezár",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Rólunk",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Exportálás / Importálás",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Beállítások",
@@ -129,6 +137,10 @@
         "message": "Nem adhat hozzá új fiókot vagy exportálhat adatot míg az összes fiók titkosítva van. Kérjük, írja be a helyes jelszót a folytatáshoz.",
         "description": "Passphrase Incorrect."
     },
+    "phrase_incorrect_export": {
+        "message": "Azok a fiókok, amelyeket nem sikerült visszafejteni, nem lesznek benne a biztonsági mentésben.",
+        "description": "Skip Unable-decripted Data."
+    },
     "phrase_not_match": {
         "message": "A jelszók nem egyeznek.",
         "description": "Passphrase Not Match."
@@ -177,6 +189,10 @@
         "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Idő alapú",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Biztonsági mentés importálása",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "QR kód biztonsági mentés importálása",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Szöveges biztonsági mentés importálása",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Sikeresen importálva, de néhány QR kód nem ismerhető fel.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Kijelölhet több képfájlt is a biztonsági mentés folyamatos importálásához.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Minden bejegyzés mutatása",
@@ -281,20 +309,12 @@
         "message": "Nagy kontrasztú",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Tárolás és biztonsági mentés",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Válassza ki hol tárolódjanak az adatai. A \"helyi\" tárolás a számítógépén tárolja az adatokat. A \"szinkronizálás\" engedélyezi a böngészőt hogy a felhőben tárolja az adatokat, ha bejelentkezett egy fiókkal.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Tárolás helye",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritmus"
+    },
+    "smart_filter": {
+        "message": "Okos szűrő"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

@@ -4,9 +4,10 @@ export class Menu implements Module {
   async getModule() {
     const menuState = {
       state: {
-        version: chrome.runtime.getManifest().version,
+        version: chrome.runtime.getManifest()?.version || "0.0.0",
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
+        smartFilter: localStorage.smartFilter !== "false",
         theme:
           localStorage.theme ||
           (localStorage.highContrast === "true" ? "accessibility" : "normal"),
@@ -16,7 +17,7 @@ export class Menu implements Module {
         enforcePassword: await ManagedStorage.get("enforcePassword"),
         enforceAutolock: await ManagedStorage.get("enforceAutolock"),
         storageArea: await ManagedStorage.get("storageArea"),
-        feedbackURL: await ManagedStorage.get("feedbackURL")
+        feedbackURL: await ManagedStorage.get("feedbackURL"),
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
@@ -28,6 +29,10 @@ export class Menu implements Module {
           state.useAutofill = useAutofill;
           localStorage.autofill = useAutofill;
         },
+        setSmartFilter(state: MenuState, smartFilter: boolean) {
+          state.smartFilter = smartFilter;
+          localStorage.smartFilter = smartFilter;
+        },
         setTheme(state: MenuState, theme: string) {
           state.theme = theme;
           localStorage.theme = theme;
@@ -36,9 +41,9 @@ export class Menu implements Module {
         setAutolock(state: MenuState, autolock: number) {
           state.autolock = autolock;
           localStorage.autolock = autolock;
-        }
+        },
       },
-      namespaced: true
+      namespaced: true,
     };
 
     this.resize(menuState.state.zoom);

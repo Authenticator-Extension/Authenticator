@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Аутентификатор",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -23,6 +23,10 @@
         "message": "Недопустимый номер учётной записи",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Добавить учётную запись",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Отсканировать QR-код",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Ручной ввод",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Импорт не удался. Если вы переносите данные из Google Authenticator, пожалуйста, повторно экспортируйте данные из Google Authenticator и повторите попытку.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Не удалось импортировать часть данных аккаунта.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Закрыть",
@@ -52,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Имя пользователя",
+        "message": "Username",
         "description": "Account Name."
     },
     "issuer": {
@@ -60,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Секретный ключ",
+        "message": "Секрет",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -74,10 +86,6 @@
     "about": {
         "message": "О расширении",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Экспорт / Импорт",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Настройки",
@@ -112,13 +120,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Сбросить аутентификатор"
+        "message": "Reset Authenticator"
     },
     "delete_all_warning": {
         "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
     },
     "security_warning": {
-        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не сможет помочь вам, если вы забудете его.",
+        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить новую учетную запись или экспортировать данные, пока все учетные записи не будут расшифрованы. Пожалуйста, введите правильный пароль, прежде чем продолжить.",
+        "message": "Вы не можете добавить аккаунт, пока все акканты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Учетные записи, которые не были расшифрованы, не будут включены в резервную копию.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Пароль не совпадает.",
@@ -177,6 +189,10 @@
         "message": "Захват не выполнен, перезагрузите страницу и повторите попытку.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Сканируете QR-код из файла? Используйте команду Импортировать QR из резервного файла.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Время",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Восстановить резервную копию из файла",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Импортировать резервную копию QR-изображений",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Восстановить резервную копию из текста",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Импортирование прошло успешно, но некоторые QR-коды не были быть распознаны.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Вы можете выбрать несколько файлов изображения для импорта резервных копий в пакетном режиме.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Показать все записи",
@@ -281,20 +309,12 @@
         "message": "Высокая контрастность",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Хранение и резервное копирование",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Выберите, где хранятся ваши данные. Выбрав «local», Ваши данные будут храниться на Вашем ПК. Использование «sync» позволяет Вашему браузеру синхронизировать Ваши данные с облачным хранилищем, при условии, что Вы вошли в свою учетную запись.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Автоматическое резервное копирование данных в сторонние службы хранения.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Место хранения",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Алгоритм"
+    },
+    "smart_filter": {
+        "message": "\"Умный\" фильтр"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

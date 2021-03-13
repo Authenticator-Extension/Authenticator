@@ -1,55 +1,44 @@
 <template>
   <div>
-    <label>{{ i18n.issuer }}</label>
-    <input type="text" class="input" v-model="newAccount.issuer" />
-    <label>{{ i18n.secret }}</label>
-    <input type="text" class="input" v-model="newAccount.secret" />
+    <a-text-input
+      :label="i18n.issuer"
+      v-model="newAccount.issuer"
+    ></a-text-input>
+    <a-text-input
+      :label="i18n.secret"
+      v-model="newAccount.secret"
+    ></a-text-input>
     <details>
       <summary>{{ i18n.advanced }}</summary>
-      <label>{{ i18n.accountName }}</label>
-      <input type="text" class="input" v-model="newAccount.account" />
+      <a-text-input
+        :label="i18n.accountName"
+        v-model="newAccount.account"
+      ></a-text-input>
       <label>{{ i18n.period }}</label>
       <input
         type="number"
         min="1"
         class="input"
         v-model.number="newAccount.period"
-        v-bind:disabled="newAccount.type === OTPType.hotp"
+        :disabled="newAccount.type === OTPType.hotp"
       />
-      <div class="control-group">
-        <label class="combo-label" style="margin: 20px 10px;">{{
-          i18n.digits
-        }}</label>
-        <select style="margin: 20px 10px;" v-model="newAccount.digits">
-          <option value="6">6</option>
-          <option value="8">8</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <label class="combo-label" style="margin: 20px 10px;">{{
-          i18n.algorithm
-        }}</label>
-        <select style="margin: 20px 10px;" v-model="newAccount.algorithm">
-          <option v-bind:value="OTPAlgorithm.SHA1">SHA-1</option>
-          <option v-bind:value="OTPAlgorithm.SHA256">SHA-256</option>
-          <option v-bind:value="OTPAlgorithm.SHA512">SHA-512</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <label class="combo-label" style="margin: 20px 10px;">{{
-          i18n.type
-        }}</label>
-        <select style="margin: 20px 10px;" v-model="newAccount.type">
-          <option v-bind:value="OTPType.totp">{{ i18n.based_on_time }}</option>
-          <option v-bind:value="OTPType.hotp">{{
-            i18n.based_on_counter
-          }}</option>
-          <option v-bind:value="OTPType.battle">Battle.net</option>
-          <option v-bind:value="OTPType.steam">Steam</option>
-        </select>
-      </div>
+      <a-select-input :label="i18n.digits" v-model="newAccount.digits">
+        <option value="6">6</option>
+        <option value="8">8</option>
+      </a-select-input>
+      <a-select-input :label="i18n.algorithm" v-model="newAccount.algorithm">
+        <option :value="OTPAlgorithm.SHA1">SHA-1</option>
+        <option :value="OTPAlgorithm.SHA256">SHA-256</option>
+        <option :value="OTPAlgorithm.SHA512">SHA-512</option>
+      </a-select-input>
+      <a-select-input :label="i18n.type" v-model="newAccount.type">
+        <option :value="OTPType.totp">{{ i18n.based_on_time }}</option>
+        <option :value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
+        <option :value="OTPType.battle">Battle.net</option>
+        <option :value="OTPType.steam">Steam</option>
+      </a-select-input>
     </details>
-    <div class="button-small" v-on:click="addNewAccount()">{{ i18n.ok }}</div>
+    <a-button type="small" @click="addNewAccount()">{{ i18n.ok }}</a-button>
   </div>
 </template>
 <script lang="ts">
@@ -58,7 +47,7 @@ import { mapState } from "vuex";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 
 export default Vue.extend({
-  data: function(): {
+  data: function (): {
     newAccount: {
       issuer: string;
       account: string;
@@ -77,8 +66,8 @@ export default Vue.extend({
         type: OTPType.totp,
         period: undefined,
         digits: 6,
-        algorithm: OTPAlgorithm.SHA1
-      }
+        algorithm: OTPAlgorithm.SHA1,
+      },
     };
   },
   computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
@@ -135,7 +124,7 @@ export default Vue.extend({
           counter: 0,
           period: this.newAccount.period,
           digits: this.newAccount.digits,
-          algorithm: this.newAccount.algorithm
+          algorithm: this.newAccount.algorithm,
         },
         this.$store.state.accounts.encryption
       );
@@ -153,7 +142,7 @@ export default Vue.extend({
         }, 0);
       }
       return;
-    }
-  }
+    },
+  },
 });
 </script>

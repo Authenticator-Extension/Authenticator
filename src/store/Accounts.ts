@@ -36,14 +36,17 @@ export class Accounts implements Module {
         exportData: await EntryStorage.getExport(entries),
         exportEncData: await EntryStorage.getExport(entries, true),
         key: await BrowserStorage.getKey(),
-        wrongPassword: false
+        wrongPassword: false,
       },
       getters: {
         shouldFilter(
           state: AccountsState,
           getters: { matchedEntries: string[] }
         ) {
-          return getters.matchedEntries.length;
+          return (
+            localStorage.smartFilter !== "false" &&
+            getters.matchedEntries.length
+          );
         },
         matchedEntries: (state: AccountsState) => {
           return this.matchedEntries(state.siteName, state.entries);
@@ -55,7 +58,13 @@ export class Accounts implements Module {
             }
           }
           return false;
-        }
+        },
+        pinnedEntries(state: AccountsState) {
+          return state.entries.filter((entry) => entry.pinned);
+        },
+        unpinnedEntries(state: AccountsState) {
+          return state.entries.filter((entry) => !entry.pinned);
+        },
       },
       mutations: {
         stopFilter(state: AccountsState) {
@@ -131,6 +140,9 @@ export class Accounts implements Module {
             }
           }
         },
+        pinEntry(state: AccountsState, entry: OTPEntryInterface) {
+          state.entries[entry.index].pinned = !entry.pinned;
+        },
         updateExport(
           state: AccountsState,
           exportData: { [k: string]: OTPEntryInterface }
@@ -151,7 +163,7 @@ export class Accounts implements Module {
         },
         wrongPassword(state: AccountsState) {
           state.wrongPassword = true;
-        }
+        },
       },
       actions: {
         deleteCode: async (
@@ -159,7 +171,7 @@ export class Accounts implements Module {
           hash: string
         ) => {
           const index = state.state.entries.findIndex(
-            entry => entry.hash === hash
+            (entry) => entry.hash === hash
           );
           if (index > -1) {
             state.state.entries.splice(index, 1);
@@ -216,10 +228,10 @@ export class Accounts implements Module {
                 const iframe = document.getElementById("argon-sandbox");
                 const message = {
                   action: "hash",
-                  value: wordArray.toString()
+                  value: wordArray.toString(),
                 };
                 if (iframe) {
-                  window.addEventListener("message", response => {
+                  window.addEventListener("message", (response) => {
                     resolve(response.data.response);
                   });
                   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -246,10 +258,10 @@ export class Accounts implements Module {
 
             // store key
             await BrowserStorage.set({
-              key: { enc: encKey, hash: encKeyHash }
+              key: { enc: encKey, hash: encKeyHash },
             });
             await EntryStorage.set(state.state.entries);
-            await new Promise(resolve => {
+            await new Promise((resolve) => {
               BrowserStorage.remove(oldKeys, () => {
                 resolve();
               });
@@ -268,10 +280,10 @@ export class Accounts implements Module {
                 const message = {
                   action: "verify",
                   value: key,
-                  hash: encKey.hash
+                  hash: encKey.hash,
                 };
                 if (iframe) {
-                  window.addEventListener("message", response => {
+                  window.addEventListener("message", (response) => {
                     resolve(response.data.response);
                   });
                   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -284,7 +296,7 @@ export class Accounts implements Module {
             if (!isCorrectPassword) {
               state.commit("wrongPassword");
               state.commit("currentView/changeView", "EnterPasswordPage", {
-                root: true
+                root: true,
               });
               return;
             }
@@ -295,7 +307,7 @@ export class Accounts implements Module {
             if (!state.getters.currentlyEncrypted) {
               chrome.runtime.sendMessage({
                 action: "cachePassphrase",
-                value: key
+                value: key,
               });
             }
           }
@@ -314,10 +326,10 @@ export class Accounts implements Module {
                 const iframe = document.getElementById("argon-sandbox");
                 const message = {
                   action: "hash",
-                  value: wordArray.toString()
+                  value: wordArray.toString(),
                 };
                 if (iframe) {
-                  window.addEventListener("message", response => {
+                  window.addEventListener("message", (response) => {
                     resolve(response.data.response);
                   });
                   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
@@ -350,11 +362,11 @@ export class Accounts implements Module {
 
             // store key
             await BrowserStorage.set({
-              key: { enc: encKey, hash: encKeyHash }
+              key: { enc: encKey, hash: encKeyHash },
             });
             await EntryStorage.set(state.state.entries);
             if (removeHashes.length) {
-              await new Promise(resolve => {
+              await new Promise((resolve) => {
                 BrowserStorage.remove(removeHashes, () => {
                   resolve();
                 });
@@ -374,7 +386,7 @@ export class Accounts implements Module {
 
             chrome.runtime.sendMessage({
               action: "cachePassphrase",
-              value: wordArray.toString()
+              value: wordArray.toString(),
             });
           } else {
             for (const entry of state.state.entries) {
@@ -389,7 +401,7 @@ export class Accounts implements Module {
             await state.dispatch("updateEntries");
 
             chrome.runtime.sendMessage({
-              action: "lock"
+              action: "lock",
             });
           }
 
@@ -434,13 +446,13 @@ export class Accounts implements Module {
             newStorageLocation === "local"
           ) {
             return new Promise((resolve, reject) => {
-              chrome.storage.sync.get(syncData => {
+              chrome.storage.sync.get((syncData) => {
                 chrome.storage.local.set(syncData, () => {
-                  chrome.storage.local.get(localData => {
+                  chrome.storage.local.get((localData) => {
                     // Double check if data was set
                     if (
                       Object.keys(syncData).every(
-                        value => Object.keys(localData).indexOf(value) >= 0
+                        (value) => Object.keys(localData).indexOf(value) >= 0
                       )
                     ) {
                       localStorage.storageLocation = "local";
@@ -461,13 +473,13 @@ export class Accounts implements Module {
             newStorageLocation === "sync"
           ) {
             return new Promise((resolve, reject) => {
-              chrome.storage.local.get(localData => {
+              chrome.storage.local.get((localData) => {
                 chrome.storage.sync.set(localData, () => {
-                  chrome.storage.sync.get(syncData => {
+                  chrome.storage.sync.get((syncData) => {
                     // Double check if data was set
                     if (
                       Object.keys(localData).every(
-                        value => Object.keys(syncData).indexOf(value) >= 0
+                        (value) => Object.keys(syncData).indexOf(value) >= 0
                       )
                     ) {
                       localStorage.storageLocation = "sync";
@@ -483,15 +495,15 @@ export class Accounts implements Module {
               });
             });
           }
-        }
+        },
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 
   private async getSiteName() {
     return new Promise((resolve: (value: Array<string | null>) => void) => {
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
         if (!tab) {
           return resolve([null, null]);

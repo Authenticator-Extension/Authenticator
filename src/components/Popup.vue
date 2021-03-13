@@ -4,14 +4,14 @@
     v-bind:class="{
       'theme-normal': theme !== 'accessibility' && theme !== 'dark',
       'theme-accessibility': theme === 'accessibility',
-      'theme-dark': theme === 'dark'
+      'theme-dark': theme === 'dark',
     }"
   >
     <MainHeader />
     <MainBody
       v-bind:class="{
         timeout: style.timeout && !style.isEditing,
-        edit: style.isEditing
+        edit: style.isEditing,
       }"
     />
 
@@ -25,7 +25,7 @@
       v-bind:class="{
         fadein: style.fadein,
         fadeout: style.fadeout,
-        show: style.show
+        show: style.show,
       }"
     />
 
@@ -36,7 +36,7 @@
       id="notification"
       v-bind:class="{
         fadein: style.notificationFadein,
-        fadeout: style.notificationFadeout
+        fadeout: style.notificationFadeout,
       }"
     >
       {{ notification }}
@@ -68,7 +68,7 @@ const computedPrototype = [
   mapState("style", ["style"]),
   mapState("menu", ["theme"]),
   mapState("qr", ["qr"]),
-  mapState("notification", ["notification"])
+  mapState("notification", ["notification"]),
 ];
 
 let computed = {};
@@ -82,14 +82,14 @@ export default Vue.extend({
   methods: {
     hideQr() {
       this.$store.commit("style/hideQr");
-    }
+    },
   },
   components: {
     MainHeader,
     MainBody,
     MenuPage,
     PageHandler,
-    NotificationHandler
-  }
+    NotificationHandler,
+  },
 });
 </script>

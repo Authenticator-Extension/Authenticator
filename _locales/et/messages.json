@@ -23,6 +23,10 @@
         "message": "Kehtetu konto saladus",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Lisa konto",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skaneeri QR kood",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Sisesta käsitsi",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Some account data was not imported successfully.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Sulge",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Teave",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Eksport / Import",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Seaded",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Uut kontot ei saa lisada ega andmeid eksportida enne, kui kõik kontod on dekrüpteeritud. Enne jätkamist sisestage õige salasõna.",
+        "message": "Uut kontot ei saa lisada kuni kõik kontod on dekrüpteeritud. Palun sisestage enne jätkamist õige salasõna.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Salasõna ei kattu.",
@@ -177,6 +189,10 @@
         "message": "Jäädvustus ebaõnnestus, laadige leht uuesti ja proovige uuesti.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Ajapõhine",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Impordi varukoopia fail",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Import QR Image Backup",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Impordi tekst varukoopia",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Importimine õnnestus, kuid mõnda QR'i pilti ei suudetud tuvastada.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "You can select multiple files to import backup in batches.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Kuva kõik kirjed",
@@ -281,20 +309,12 @@
         "message": "Kõrge kontrastsus",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Hoiustamine & varundamine",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Valige, kus teie andmeid hoiustatakse. „Kohaliku” kasutamine salvestab teie andmed arvutisse. Sünkroonimisfunktsiooni kasutamine võimaldab brauseril sünkroonida teie andmeid pilvega, kui olete sünkroonimiskontole sisse logitud.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Varundage oma andmed automaatselt kolmanda osapoole salvestusteenustesse.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Talletuskoht",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritm"
+    },
+    "smart_filter": {
+        "message": "Nutikas filter"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

@@ -7,7 +7,7 @@ export class Backup implements Module {
         oneDriveEncrypted: localStorage.oneDriveEncrypted === "true",
         dropboxToken: Boolean(localStorage.dropboxToken),
         driveToken: Boolean(localStorage.driveToken),
-        oneDriveToken: Boolean(localStorage.oneDriveToken)
+        oneDriveToken: Boolean(localStorage.oneDriveToken),
       },
       mutations: {
         setToken(
@@ -48,9 +48,9 @@ export class Backup implements Module {
             default:
               break;
           }
-        }
+        },
       },
-      namespaced: true
+      namespaced: true,
     };
   }
 }

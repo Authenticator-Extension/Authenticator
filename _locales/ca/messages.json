@@ -23,6 +23,10 @@
         "message": "Invalid account secret",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Afegeix compte",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Escaneja codi QR",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Entrada manual",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "La importació ha fallat. Si esteu migrant dades de Google Authenticator, torneu a exportar les dades i proveu-ho de nou.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Algunes dades del compte no s'han importat correctament.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Tanca",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Quant a",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Exporta / Importa",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Preferències",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "No podeu afegir un nou compte o exportar dades fins que s'hagin desxifrat tots els comptes. Escriviu la contrasenya correcta abans de continuar.",
+        "message": "No podeu afegir un nou compte fins que s'hagin desxifrat tots els comptes. Escriviu la contrasenya correcta abans de continuar.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Els comptes que no s'han pogut desxifrar no s'inclouran en aquesta còpia de seguretat.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "La contrasenya no concorda.",
@@ -177,6 +189,10 @@
         "message": "La captura ha fallat, recarregueu la pàgina i torneu-ho a provar.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Proveu de llegir un codi QR des d'un arxiu local? Enlloc d'això, utilitzeu la importació de còpies de seguretat d'imatges QR.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "En base al temps",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Importa fitxer de còpia de seguretat",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Importa còpia d'imatge QR",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Importa còpia de seguretat com a text pla",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Importació exitosa, però algunes imatges QR no es poden reconèixer.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Podeu seleccionar diversos fitxers per importar la còpia en lots.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Mostra totes les entrades",
@@ -281,20 +309,12 @@
         "message": "Alt contrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Emmagatzematge i còpies de seguretat",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Trieu on s'emmagatzemen les vostres dades. Amb 'local' s'emmagatzemen al vostre PC. Utilitzant 'sync' es permet al navegador sincronitzar les vostres dades al núvol si heu iniciat la sessió en un compte de sincronització.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Fes una còpia de seguretat automàtica de les dades a un servei d'emmagatzematge de tercers.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Ubicació de l'emmagatzematge",
+    "browser_sync": {
+        "message": "Sincronització amb el Navegador",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algorisme"
+    },
+    "smart_filter": {
+        "message": "Filtre intel·ligent"
+    },
+    "backup": {
+        "message": "Còpia de seguretat"
+    },
+    "backup_file_info": {
+        "message": "Fes una còpia de les dades a un fitxer."
     }
 }

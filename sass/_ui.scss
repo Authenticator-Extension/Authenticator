@@ -21,7 +21,7 @@ $themes: (
     black-search: #2a2a2e,
     white-search: #f9f9fa,
     grey-search: #b1b1b3,
-    blue-menu: #f4fcff
+    blue-menu: #f4fcff,
   ),
   accessibility: (
     black-1: white,
@@ -40,7 +40,7 @@ $themes: (
     black-search: white,
     white-search: black,
     grey-search: white,
-    blue-menu: cyan
+    blue-menu: cyan,
   ),
   dark: (
     black-1: #ccc,
@@ -59,8 +59,8 @@ $themes: (
     black-search: white,
     white-search: #202020,
     grey-search: rgba(255, 255, 255, 0.35),
-    blue-menu: #2a2d2e
-  )
+    blue-menu: #2a2d2e,
+  ),
 );
 
 $theme-map: null;
@@ -74,7 +74,7 @@ $theme-map: null;
         $theme-map: map-merge(
           $theme-map,
           (
-            $key: $value
+            $key: $value,
           )
         ) !global;
       }
@@ -116,6 +116,8 @@ $theme-map: null;
   position: relative;
   text-align: center;
   font-size: 16px;
+  width: -moz-available;
+  width: -webkit-fill-available;
   @include themify($themes) {
     background: themed("white-1");
     border: themed("grey-2") 1px solid;

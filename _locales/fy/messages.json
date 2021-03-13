@@ -23,6 +23,10 @@
         "message": "Net krekt accountgeheim",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Account tafoegje",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Skan QR-koade",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Hânmjittige ynfier",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Ymportearjen mislearre. As jo gegevens fan Google Authenticator migrearje, eksportearje dan opnij jo gegevens út Google Authenticator en probearje it opnij.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Guon accountgegevens binne net ymportearre.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Slute",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Oer",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Eksportearje / Ymportearje",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Ynstellingen",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Jo kinne net in nij account tafoegje of gegevens eksportearje oant alle accounts ûntsifere binne. Fier it krekte wachtwurd yn eardat jo fierder gean.",
+        "message": "Jo kinne net in nij account tafoegje oant alle accounts ûntsifere binne. Fier it krekte wachtwurd yn eardat jo fierder gean.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts dy't net ûntsifere wurde kinne, wurde net yn dizze reservekopy opnommen.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Wachtwurd komt net oerien.",
@@ -177,6 +189,10 @@
         "message": "Fêstlizzen is mislearre, laad de side opnij en probearje it opnij.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Probearje jo fan in lokaal bestân út de QR-koade te scannen? Brûk yn stee dêrfan de QR-reservekopy ymportearje.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Tiidsbûn",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Reservekopybestân ymportearje",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "QR-ôfbyldingsreservekopy ymportearje",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Tekstreservekopy ymportearje",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Ymport suksesfol, mar guon QR-ôfbyldingen kinne net werkend wurde.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Jo kinne mear bestannen selektearje om reservekopy yn batches te ymportearjen.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Lit alle ynfier sjen",
@@ -281,20 +309,12 @@
         "message": "Heech kontrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Unthâld & reservekopy",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Kies wêr't jo gegevens bewarre wurde. Mei ‘lokale’ wurden de gegevens bewarre op jo PC. Mei ‘sync’ wurde uw gegevens syngronisearre nei de cloud as jo oanmeld binne by in account.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatysk in reservekopy meitsje fan jo gegevens nei opslachtsjinsten fan tredden.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Unthâldlokaasje",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritme"
+    },
+    "smart_filter": {
+        "message": "Tûk filter"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

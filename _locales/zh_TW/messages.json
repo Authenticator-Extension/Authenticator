@@ -23,6 +23,10 @@
         "message": "帳號金鑰無效",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "新增帳戶",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "掃描QR碼",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "手動輸入",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "匯入失敗。若您要從Google Authenticator搬遷資料，請重新從Google Autenticator匯出資料後重試",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "部分帳號資料未被成功匯入",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "關閉",
@@ -74,10 +86,6 @@
     "about": {
         "message": "關於",
         "description": "About."
-    },
-    "export_import": {
-        "message": "匯出 / 匯入",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "設定",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分帳戶密碼輸入錯誤，您無法新增帳戶、匯出帳戶資料或更改密碼。請在輸入正確的密碼後重試。",
+        "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "本次備份不包含無法解密的帳號",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "密碼錯誤。",
@@ -177,6 +189,10 @@
         "message": "讀取失敗，請於重新載入頁面後重試。",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "您是否試著從本地檔案掃描QR碼? 請改用 匯入QR碼圖片備份。",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "驗證碼",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "以檔案匯入",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "导入 QR 图片备份",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "以文字匯入",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "匯入成功，但部份QR碼無法辨識",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "您可以選擇多個檔案進行批量匯入",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "顯示全部條目",
@@ -281,20 +309,12 @@
         "message": "高對比",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "存儲及備份",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "選擇您資料除存的位置。使用\"本機\"儲存您得資料於您的電腦。如果您登入至同步帳號使用\"同步\"讓您的瀏覽器同步您的數據至雲端。",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatically備份您的資料至第三方儲存服務。",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "儲存位置",
+    "browser_sync": {
+        "message": "瀏覽器同步",
         "description": "Storage location"
     },
     "sign_in": {
@@ -331,7 +351,7 @@
         "message": "載入中..."
     },
     "autolock": {
-        "message": "鎖定後"
+        "message": "鎖定於"
     },
     "minutes": {
         "message": "分鐘"
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "演算法"
+    },
+    "smart_filter": {
+        "message": "智慧過濾"
+    },
+    "backup": {
+        "message": "備份"
+    },
+    "backup_file_info": {
+        "message": "備份至檔案"
     }
 }

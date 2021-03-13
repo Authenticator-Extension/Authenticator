@@ -7,17 +7,15 @@
       <input type="checkbox" id="encryptedCode" v-model="importEncrypted" />
       <label for="encryptedCode">{{ i18n.encrypted }}</label>
     </div>
-    <div class="import_passphrase" v-show="importEncrypted">
-      <label for="import_passphrase">{{ i18n.phrase }}</label>
-      <input
-        id="import_passphrase"
-        type="password"
-        v-model="importPassphrase"
-      />
-    </div>
-    <button v-on:click="importBackupCode()">
+    <a-text-input
+      :label="i18n.phrase"
+      v-model="importPassphrase"
+      type="password"
+      v-show="importEncrypted"
+    />
+    <a-button @click="importBackupCode()">
       {{ i18n.import_backup_code }}
-    </button>
+    </a-button>
   </div>
 </template>
 <script lang="ts">
@@ -25,17 +23,17 @@ import * as CryptoJS from "crypto-js";
 import Vue from "vue";
 import {
   decryptBackupData,
-  getEntryDataFromOTPAuthPerLine
+  getEntryDataFromOTPAuthPerLine,
 } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       importCode: "",
       importEncrypted: false,
-      importPassphrase: ""
+      importPassphrase: "",
     };
   },
   methods: {
@@ -45,11 +43,16 @@ export default Vue.extend({
         key?: { enc: string; hash: string };
         [hash: string]: OTPStorage;
       } = {};
+      let failedCount = 0;
+      let succeededCount = 0;
       try {
         exportData = JSON.parse(this.importCode);
       } catch (error) {
         // Maybe one-otpauth-per line text
-        exportData = await getEntryDataFromOTPAuthPerLine(this.importCode);
+        const result = await getEntryDataFromOTPAuthPerLine(this.importCode);
+        exportData = result.exportData;
+        failedCount = result.failedCount;
+        succeededCount = result.succeededCount;
       }
 
       let key: { enc: string; hash: string } | null = null;
@@ -81,7 +84,13 @@ export default Vue.extend({
             this.$encryption as Encryption,
             decryptedbackupData
           );
-          alert(this.i18n.updateSuccess);
+          if (failedCount === 0) {
+            alert(this.i18n.updateSuccess);
+          } else if (succeededCount) {
+            alert(this.i18n.import_backup_qr_partly_failed);
+          } else {
+            alert(this.i18n.updateFailure);
+          }
           window.close();
         } else {
           alert(this.i18n.updateFailure);
@@ -90,7 +99,7 @@ export default Vue.extend({
       } catch (error) {
         throw error;
       }
-    }
-  }
+    },
+  },
 });
 </script>

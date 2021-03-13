@@ -23,6 +23,10 @@
         "message": "Niepoprawny sekretny kod konta",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Dodaj konto",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Zeskanuj kod QR",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Ręczne wprowadzanie",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Importowanie nie powiodło się. Jeśli przenosisz dane z Google Authenticator, ponownie wyeksportuj swoje dane z Google Authenticator i spróbuj ponownie.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Niektóre dane konta nie zostały pomyślnie zaimportowane.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Zamknij",
@@ -74,10 +86,6 @@
     "about": {
         "message": "O aplikacji",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Eksport / Import",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Ustawienia",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Nie można dodać nowego konta lub eksportować danych, dopóki wszystkie konta nie zostaną odszyfrowane. Wprowadź poprawne hasło przed kontynuowaniem.",
+        "message": "Nie możesz dodać nowego konta, dopóki wszystkie konta nie zostaną odszyfrowane. Przed kontynuowaniem podaj prawidłowe hasło.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Konta, których nie udało się odszyfrować, nie zostaną uwzględnione w tej kopii zapasowej.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Hasło się nie zgadza.",
@@ -177,6 +189,10 @@
         "message": "Przechwytywanie nie powiodło się, proszę odświeżyć stronę i spróbować ponownie.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Czy próbujesz zeskanować kod QR z lokalnego pliku? Zamiast tego użyj funkcji Importuj kopię zapasową obrazu QR.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Oparte na czasie",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Importuj plik kopii zapasowej",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Importuj kopię zapasową obrazu QR",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Importuj tekstową kopię zapasową",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Importowanie zakończone pomyślnie, ale pewien obraz QR nie może być rozpoznany.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Możesz wybrać wiele plików, aby importować kopie zapasowe w partiach.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Pokaż wszystkie wpisy",
@@ -281,20 +309,12 @@
         "message": "Wysoki kontrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Przechowywanie i kopie zapasowe",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Wybierz miejsce przechowywania danych. Używanie \"local\" zapisuje twoje dane na twoim komputerze. Korzystanie z opcji \"sync\" pozwala przeglądarce synchronizować dane z chmurą, jeśli jesteś zalogowany na koncie synchronizacji.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatycznie twórz kopie zapasowe danych w usługach przechowywania innych firm.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Miejsce przechowywania",
+    "browser_sync": {
+        "message": "Synchronizacja przeglądarki",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algorytm"
+    },
+    "smart_filter": {
+        "message": "Inteligentny filtr"
+    },
+    "backup": {
+        "message": "Kopia zapasowa"
+    },
+    "backup_file_info": {
+        "message": "Utwórz kopię zapasową danych w pliku."
     }
 }

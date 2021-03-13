@@ -1,5 +1,5 @@
 <template>
-  <div id="import">
+  <div id="import" class="theme-normal">
     <div v-if="!shouldShowPassphrase">
       <div class="import_tab">
         <input
@@ -11,6 +11,13 @@
         <label for="import_file_radio">{{ i18n.import_backup_file }}</label>
         <input
           type="radio"
+          id="import_qr_radio"
+          value="QrImport"
+          v-model="importType"
+        />
+        <label for="import_qr_radio">{{ i18n.import_backup_qr }}</label>
+        <input
+          type="radio"
           id="import_code_radio"
           value="TextImport"
           v-model="importType"
@@ -20,11 +27,9 @@
       <div>
         <p id="import_info">
           {{ i18n.otp_backup_inform }}
-          <a
-            href="https://authenticator.cc/docs/en/otp-backup"
-            target="_blank"
-            >{{ i18n.otp_backup_learn }}</a
-          >
+          <a href="https://otp.ee/otpbackup" target="_blank">{{
+            i18n.otp_backup_learn
+          }}</a>
         </p>
       </div>
       <component v-bind:is="importType" />
@@ -37,26 +42,32 @@
 <script lang="ts">
 import Vue from "vue";
 import FileImport from "./Import/FileImport.vue";
+import QrImport from "./Import/QrImport.vue";
 import TextImport from "./Import/TextImport.vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
+    const query = location.search ? location.search.substr(1) : "";
+    const importType = ["FileImport", "QrImport", "TextImport"].includes(query)
+      ? query
+      : "FileImport";
     return {
-      importType: "FileImport",
-      shouldShowPassphrase: shouldShowPassphrase(this.$entries)
+      importType,
+      shouldShowPassphrase: shouldShowPassphrase(this.$entries),
     };
   },
   components: {
     FileImport,
-    TextImport
+    QrImport,
+    TextImport,
   },
   mounted() {
-    chrome.runtime.onMessage.addListener(event => {
+    chrome.runtime.onMessage.addListener((event) => {
       if (event.action === "stopImport") {
         this.shouldShowPassphrase = true;
       }
     });
-  }
+  },
 });
 
 function shouldShowPassphrase(entries: OTPEntryInterface[]) {

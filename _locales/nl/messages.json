@@ -23,6 +23,10 @@
         "message": "Ongeldig accountgeheim",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Account toevoegen",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Scan QR-code",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Handmatige invoer",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Importeren mislukt. Als u gegevens van Google Authenticator migreert, exporteer dan opnieuw uw gegevens uit Google Authenticator en probeer het opnieuw.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Sommige accountgegevens zijn niet geïmporteerd.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Sluiten",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Over",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Exporteren / Importeren",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Instellingen",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "U kunt niet een nieuw account toevoegen of gegevens exporteren tot alle accounts zijn ontcijferd. Voer het juiste wachtwoord in voordat u verder gaat.",
+        "message": "U kunt niet een nieuw account toevoegen tot alle accounts zijn ontcijferd. Voer het juiste wachtwoord in voordat u verder gaat.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Accounts die niet kunnen worden ontcijferd, worden niet in deze back-up opgenomen.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Wachtwoord komt niet overeen.",
@@ -177,6 +189,10 @@
         "message": "Vastleggen is mislukt, herlaad de pagina en probeer het opnieuw.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Probeert u vanuit een lokaal bestand de QR-code te scannen? Gebruik in plaats daarvan de QR-back-up importeren.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Tijdgebonden",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Back-up importeren",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "QR-afbeeldingsback-up importeren",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Tekstback-up importeren ",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Import succesvol, maar sommige QR-afbeeldingen kunnen niet worden herkend.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "U kunt meerdere bestanden selecteren om back-up in batches te importeren.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Laat alle invoer zien",
@@ -281,20 +309,12 @@
         "message": "Hoog contrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Opslag & back-up",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Kies waar uw gegevens worden opgeslagen. Met ‘lokale’ worden de gegevens opgeslagen op uw PC. Met ‘sync’ worden uw gegevens gesynchroniseerd naar de cloud als u bent aangemeld bij een account.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatisch een back-up maken van uw gegevens naar opslagdiensten van derden.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Opslaglocatie",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritme"
+    },
+    "smart_filter": {
+        "message": "Slim filter"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Backup your data to a file."
     }
 }

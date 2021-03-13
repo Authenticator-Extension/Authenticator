@@ -1,40 +1,47 @@
 <template>
   <div>
+    <!-- File Backup -->
     <div v-show="!exportDisabled">
       <div class="text warning" v-if="!encryption.getEncryptionStatus()">
         {{ i18n.export_info }}
       </div>
+      <div class="text">
+        {{ i18n.backup_file_info }}
+      </div>
       <div class="text warning" v-if="unsupportedAccounts">
         {{ i18n.otp_unsupported_warn }}
       </div>
-      <a
+      <div class="text warning" v-if="currentlyEncrypted">
+        {{ i18n.phrase_incorrect_export }}
+      </div>
+      <a-button-link
         download="authenticator.txt"
-        v-bind:href="exportOneLineOtpAuthFile"
+        :href="exportOneLineOtpAuthFile"
         v-if="!unsupportedAccounts"
-        class="button"
-        target="_blank"
-        >{{ i18n.download_backup }}</a
+        >{{ i18n.download_backup }}</a-button-link
       >
-      <a
+      <a-button-link download="authenticator.json" :href="exportFile" v-else>{{
+        i18n.download_backup
+      }}</a-button-link>
+      <a-button-link
         download="authenticator.json"
-        v-bind:href="exportFile"
-        class="button"
-        target="_blank"
-        v-else
-        >{{ i18n.download_backup }}</a
-      >
-      <a
-        download="authenticator.json"
-        v-bind:href="exportEncryptedFile"
+        :href="exportEncryptedFile"
         v-if="encryption.getEncryptionStatus()"
-        class="button"
-        target="_blank"
-        >{{ i18n.download_enc_backup }}</a
+        >{{ i18n.download_enc_backup }}</a-button-link
       >
     </div>
-    <a class="button" href="import.html" target="_blank">{{
-      i18n.import_backup
-    }}</a>
+    <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
+    <br />
+    <!-- 3rd Party Backup Services -->
+    <div v-show="!backupDisabled">
+      <div class="text">
+        {{ i18n.storage_sync_info }}
+      </div>
+      <p></p>
+      <a-button @click="showInfo('DrivePage')"> Google Drive </a-button>
+      <a-button @click="showInfo('OneDrivePage')"> OneDrive </a-button>
+      <a-button @click="showInfo('DropboxPage')"> Dropbox </a-button>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -45,7 +52,7 @@ import { EntryStorage } from "../../models/storage";
 import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     const exportData = this.$store.state.accounts.exportData;
     const exportEncData = this.$store.state.accounts.exportEncData;
     const key = this.$store.state.accounts.key;
@@ -54,17 +61,73 @@ export default Vue.extend({
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
       exportEncryptedFile: getBackupFile(exportEncData, key),
-      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData)
+      exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData),
     };
   },
   computed: {
-    encryption: function() {
+    encryption: function () {
       return this.$store.state.accounts.encryption;
     },
-    exportDisabled: function() {
+    exportDisabled: function () {
       return this.$store.state.menu.exportDisabled;
-    }
-  }
+    },
+    currentlyEncrypted: function () {
+      return this.$store.getters["accounts/currentlyEncrypted"];
+    },
+    backupDisabled: function () {
+      return this.$store.getters["menu/storageArea"];
+    },
+  },
+  methods: {
+    showInfo(tab: string) {
+      if (tab === "DropboxPage") {
+        chrome.permissions.request(
+          { origins: ["https://*.dropboxapi.com/*"] },
+          async (granted) => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+          }
+        );
+        return;
+      } else if (tab === "DrivePage") {
+        chrome.permissions.request(
+          {
+            origins: [
+              "https://www.googleapis.com/*",
+              "https://accounts.google.com/o/oauth2/revoke",
+            ],
+          },
+          async (granted) => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+            return;
+          }
+        );
+        return;
+      } else if (tab === "OneDrivePage") {
+        chrome.permissions.request(
+          {
+            origins: [
+              "https://graph.microsoft.com/me/*",
+              "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+            ],
+          },
+          async (granted) => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+            return;
+          }
+        );
+        return;
+      }
+    },
+  },
 });
 
 function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {

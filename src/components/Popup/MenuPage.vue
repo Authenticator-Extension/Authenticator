@@ -8,24 +8,15 @@
     </div>
     <div id="menuBody">
       <div class="menuList">
-        <a href="licenses.html" target="_blank" style="text-decoration: none;">
+        <a href="licenses.html" target="_blank" style="text-decoration: none">
           <p v-bind:title="i18n.about">
             <span><IconInfo /></span>{{ i18n.about }}
           </p>
         </a>
       </div>
       <div class="menuList">
-        <p
-          v-bind:title="i18n.export_import"
-          v-on:click="showInfo('ExportPage')"
-        >
-          <span><IconExchange /></span>{{ i18n.export_import }}
-        </p>
-        <p
-          v-bind:title="i18n.storage_menu"
-          v-on:click="showInfo('StorageSyncConfPage')"
-        >
-          <span><IconDatabase /></span>{{ i18n.storage_menu }}
+        <p v-bind:title="i18n.backup" v-on:click="showInfo('BackupPage')">
+          <span><IconExchange /></span>{{ i18n.backup }}
         </p>
         <p
           v-bind:title="i18n.security"
@@ -38,7 +29,7 @@
         </p>
         <p
           v-bind:title="i18n.resize_popup_page"
-          v-on:click="showInfo('PrefrencesPage')"
+          v-on:click="showInfo('PreferencesPage')"
         >
           <span><IconWrench /></span>{{ i18n.resize_popup_page }}
         </p>
@@ -49,15 +40,13 @@
         </p>
         <p
           v-bind:title="i18n.translate"
-          v-on:click="openLink('https://crwd.in/authenticator-firefox')"
+          v-on:click="openLink('https://otp.ee/translate')"
         >
           <span><IconGlobe /></span>{{ i18n.translate }}
         </p>
         <p
           v-bind:title="i18n.source"
-          v-on:click="
-            openLink('https://github.com/Authenticator-Extension/Authenticator')
-          "
+          v-on:click="openLink('https://otp.ee/sourcecode')"
         >
           <span><IconCode /></span>{{ i18n.source }}
         </p>
@@ -92,24 +81,24 @@ export default Vue.extend({
     IconWrench,
     IconComments,
     IconGlobe,
-    IconCode
+    IconCode,
   },
   computed: {
-    version: function() {
+    version: function () {
       return this.$store.state.menu.version;
-    }
+    },
   },
   methods: {
     hideMenu() {
       this.$store.commit("style/hideMenu");
     },
     openHelp() {
-      let url = "https://authenticator.cc/docs/en/chrome-issues";
+      let url = "https://otp.ee/chromeissues";
 
       if (navigator.userAgent.indexOf("Firefox") !== -1) {
-        url = "https://authenticator.cc/docs/en/firefox-issues";
+        url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
-        url = "https://authenticator.cc/docs/en/edge-issues";
+        url = "https://otp.ee/edgeissues";
       }
 
       const feedbackURL = this.$store.state.menu.feedbackURL;
@@ -124,8 +113,8 @@ export default Vue.extend({
       return;
     },
     showInfo(tab: string) {
-      if (tab === "SetPasswordPage" || tab === "ExportPage") {
-        if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+        if (tab === "SetPasswordPage") {
           this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
           return;
         }
@@ -137,7 +126,7 @@ export default Vue.extend({
     syncClock() {
       chrome.permissions.request(
         { origins: ["https://www.google.com/"] },
-        async granted => {
+        async (granted) => {
           if (granted) {
             const message = await syncTimeWithGoogle();
             this.$store.commit("notification/alert", this.i18n[message]);
@@ -146,7 +135,7 @@ export default Vue.extend({
         }
       );
       return;
-    }
-  }
+    },
+  },
 });
 </script>

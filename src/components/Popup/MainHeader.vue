@@ -13,6 +13,15 @@
       </div>
       <div
         class="icon"
+        id="i-plus"
+        v-bind:title="i18n.add_code"
+        v-on:click="showInfo('AddMethodPage')"
+        v-show="style.isEditing"
+      >
+        <IconPlus />
+      </div>
+      <div
+        class="icon"
         id="i-lock"
         v-bind:title="i18n.lock"
         v-on:click="lock()"
@@ -24,7 +33,7 @@
         class="icon"
         id="i-sync"
         v-bind:style="{
-          left: encryption.getEncryptionStatus() ? '70px' : '45px'
+          left: encryption.getEncryptionStatus() ? '70px' : '45px',
         }"
         v-show="
           (dropboxToken || driveToken || oneDriveToken) && !style.isEditing
@@ -74,11 +83,12 @@ import IconSync from "../../../svg/sync.svg";
 import IconScan from "../../../svg/scan.svg";
 import IconPencil from "../../../svg/pencil.svg";
 import IconCheck from "../../../svg/check.svg";
+import IconPlus from "../../../svg/plus.svg";
 
 const computedPrototype = [
   mapState("style", ["style"]),
   mapState("accounts", ["encryption"]),
-  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"])
+  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
 ];
 
 let computed = {};
@@ -105,12 +115,24 @@ export default Vue.extend({
         url: chrome.extension.getURL("view/popup.html?popup=true"),
         type: windowType,
         height: window.innerHeight,
-        width: window.innerWidth
+        width: window.innerWidth,
       });
       window.close();
     },
     showMenu() {
       this.$store.commit("style/showMenu");
+    },
+    showInfo(page: string) {
+      if (page === "AddMethodPage") {
+        if (
+          this.$store.state.menu.enforcePassword &&
+          !this.$store.state.accounts.encryption.getEncryptionStatus()
+        ) {
+          page = "SetPasswordPage";
+        }
+      }
+      this.$store.commit("style/showInfo");
+      this.$store.commit("currentView/changeView", page);
     },
     editEntry() {
       this.$store.commit("style/toggleEdit");
@@ -129,9 +151,21 @@ export default Vue.extend({
         this.$store.commit("currentView/changeView", "SetPasswordPage");
         return;
       }
+      // Request permissions
+      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+        await new Promise((resolve: (value: void) => void) => {
+          chrome.permissions.request(
+            { origins: ["<all_urls>"] },
+            async (granted) => {
+              resolve();
+            }
+          );
+        });
+      }
+
       // Insert content script
       await new Promise(
-        (resolve: () => void, reject: (reason: Error) => void) => {
+        (resolve: (value: void) => void, reject: (reason: Error) => void) => {
           try {
             return chrome.tabs.executeScript(
               { file: "/dist/content.js" },
@@ -150,22 +184,41 @@ export default Vue.extend({
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
-        const tab = tabs[0];
-        if (!tab || !tab.id) {
-          return;
-        }
-        chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
-          if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
-          } else {
-            window.close();
+      chrome.tabs.query(
+        { active: true, lastFocusedWindow: true },
+        async (tabs) => {
+          const tab = tabs[0];
+          if (!tab || !tab.id) {
+            return;
           }
-        });
-      });
+
+          if (tab.url?.startsWith("file:")) {
+            if (
+              await this.$store.dispatch(
+                "notification/confirm",
+                this.i18n.capture_local_file_failed
+              )
+            ) {
+              window.open("import.html?QrImport", "_blank");
+              return;
+            }
+          }
+
+          chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
+          chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
+            if (result !== "beginCapture") {
+              this.$store.commit(
+                "notification/alert",
+                this.i18n.capture_failed
+              );
+            } else {
+              window.close();
+            }
+          });
+        }
+      );
       return;
-    }
+    },
   },
   components: {
     IconCog,
@@ -173,7 +226,8 @@ export default Vue.extend({
     IconSync,
     IconScan,
     IconPencil,
-    IconCheck
-  }
+    IconCheck,
+    IconPlus,
+  },
 });
 </script>

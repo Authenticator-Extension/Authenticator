@@ -149,7 +149,7 @@ export class KeyUtilities {
       }
     }
 
-    let hmacObj: CryptoJS.WordArray;
+    let hmacObj: CryptoJS.lib.WordArray;
     switch (algorithm) {
       case OTPAlgorithm.SHA256:
         hmacObj = CryptoJS.HmacSHA256(

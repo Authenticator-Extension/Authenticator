@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " à été ajouté.",
+        "message": " a été ajouté.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -23,6 +23,10 @@
         "message": "Secret du compte invalide",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Ajouter un compte",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Acquisition du code QR",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Saisie manuelle",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Échec de l'importation. Si vous migrez des données depuis Google Authenticator, veuillez ré-exporter vos données depuis Google Authenticator et réessayer.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Certaines données de compte n'ont pas été importées correctement.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Fermer",
@@ -56,7 +68,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Emetteur",
+        "message": "Émetteur",
         "description": "Issuer."
     },
     "secret": {
@@ -68,16 +80,12 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Echec.",
+        "message": "Échec.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "A Propos",
+        "message": "À propos",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Exporter / Importer",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Paramètres",
@@ -104,7 +112,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Etes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
+        "message": "Êtes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -122,12 +130,16 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Mise à Jour",
+        "message": "Mise à jour",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Vous ne pouvez pas ajouter de nouveaux comptes ou exporter les données avant que le déchiffrement de tous les comptes ne soit terminé. Veuillez saisir le mot de passe avant de pouvoir continuer.",
+        "message": "Vous ne pouvez pas ajouter de nouveau compte tant que tous les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Les comptes qui n'ont pas pu être déchiffrés ne seront pas inclus dans cette sauvegarde.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "Le mot de passe ne correspond pas.",
@@ -150,7 +162,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Code Source",
+        "message": "Code source",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -176,6 +188,10 @@
     "capture_failed": {
         "message": "Échec de la capture, rechargez la page et essayez à nouveau.",
         "description": "Capture Failed"
+    },
+    "capture_local_file_failed": {
+        "message": "Essayez-vous de scanner le code QR à partir d'un fichier local ? Utilisez plutôt l'importation de sauvegarde d'images QR.",
+        "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
         "message": "Basé sur le temps",
@@ -209,16 +225,28 @@
         "message": "Importer un fichier de sauvegarde",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Importer une sauvegarde de l'image QR",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Importer sauvegarde en texte",
         "description": "Import backup code."
     },
+    "import_backup_qr_partly_failed": {
+        "message": "Import réussi, mais certaines images QR ne peuvent pas être reconnues.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Vous pouvez sélectionner plusieurs fichiers pour importer les sauvegardes en lots.",
+        "description": "You can select multiple image files to import backup in batches."
+    },
     "show_all_entries": {
-        "message": "Afficher Toutes les Entrées",
+        "message": "Afficher toutes les entrées",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez les à vos propres risques.",
+        "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez-les à vos propres risques.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -246,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Vérouiller",
+        "message": "Verrouiller",
         "description": "Lock accounts"
     },
     "edit": {
@@ -281,20 +309,12 @@
         "message": "Contraste élevé",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Stockage et sauvegarde",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Choisissez où vos données sont stockées. L'utilisation de 'local' stocke vos données sur votre PC. L'utilisation de 'sync' permet à votre navigateur de synchroniser vos données sur le cloud si vous êtes connecté à un compte synchronisé.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Sauvegardez automatiquement vos données vers des services de stockage tiers.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Emplacement de Stockage",
+    "browser_sync": {
+        "message": "Synchronisation du navigateur",
         "description": "Storage location"
     },
     "sign_in": {
@@ -328,7 +348,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Chargement ..."
+        "message": "Chargement..."
     },
     "autolock": {
         "message": "Verrouiller après"
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algorithme"
+    },
+    "smart_filter": {
+        "message": "Filtre Intelligent"
+    },
+    "backup": {
+        "message": "Sauvegarde"
+    },
+    "backup_file_info": {
+        "message": "Sauvegardez vos données dans un fichier."
     }
 }

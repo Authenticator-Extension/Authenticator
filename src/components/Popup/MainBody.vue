@@ -24,16 +24,20 @@
     <!-- Entries -->
     <div v-dragula drake="entryDrake">
       <EntryComponent
+        class="entry pinnedEntry"
+        v-for="entry in pinnedEntries"
+        :key="entry.hash"
+        v-bind:notSearched="!isSearchedEntry(entry)"
+        v-bind:entry="entry"
+      />
+      <EntryComponent
         class="entry"
-        v-for="entry in entries"
+        v-for="entry in unpinnedEntries"
         :key="entry.hash"
         v-bind:filtered="!isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
         v-bind:entry="entry"
       />
-    </div>
-    <div class="icon" id="add" v-on:click="showInfo('AddMethodPage')">
-      <IconPlus />
     </div>
   </div>
 </template>
@@ -49,29 +53,19 @@ import IconPlus from "../../../svg/plus.svg";
 
 let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
 
-Object.assign(computed, mapGetters("accounts", ["shouldFilter"]));
+Object.assign(
+  computed,
+  mapGetters("accounts", ["shouldFilter", "pinnedEntries", "unpinnedEntries"])
+);
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      searchText: ""
+      searchText: "",
     };
   },
   computed,
   methods: {
-    showInfo(page: string) {
-      if (page === "AddMethodPage") {
-        if (
-          this.$store.state.menu.enforcePassword &&
-          !this.$store.state.accounts.encryption.getEncryptionStatus()
-        ) {
-          page = "SetPasswordPage";
-        }
-      }
-
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
-    },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
         if (entry.hash === hash) {
@@ -95,7 +89,7 @@ export default Vue.extend({
     },
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
-    }
+    },
   },
   created() {
     // Don't drag if !isEditing
@@ -106,7 +100,7 @@ export default Vue.extend({
         } else {
           return false;
         }
-      }
+      },
     });
 
     // Update entry index if dragged
@@ -114,14 +108,14 @@ export default Vue.extend({
       "dropModel",
       async ({
         dragIndex,
-        dropIndex
+        dropIndex,
       }: {
         dragIndex: number;
         dropIndex: number;
       }) => {
         this.$store.commit("accounts/moveCode", {
           from: dragIndex,
-          to: dropIndex
+          to: dropIndex,
         });
         await EntryStorage.set(this.$store.state.accounts.entries);
       }
@@ -129,7 +123,7 @@ export default Vue.extend({
   },
   components: {
     EntryComponent,
-    IconPlus
-  }
+    IconPlus,
+  },
 });
 </script>

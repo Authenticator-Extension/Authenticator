@@ -23,6 +23,10 @@
         "message": "Segredo da conta inválido",
         "description": "Secret Error."
     },
+    "add_code": {
+        "message": "Adicionar conta",
+        "description": "Add account."
+    },
     "add_qr": {
         "message": "Escanear código QR",
         "description": "Scan QR Code."
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "Inserir Manualmente",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "Falha na importação. Se você está migrando dados do Google Authenticator, por favor re-exporte seus dados do Google Authenticator e tente novamente.",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "Alguns dados da conta não foram importados com sucesso.",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "Fechar",
@@ -74,10 +86,6 @@
     "about": {
         "message": "Sobre",
         "description": "About."
-    },
-    "export_import": {
-        "message": "Exportar / Importar",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "Configurações",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Você não pode adicionar uma nova conta ou exportar os dados até que todas as contas estejam descriptografadas. Por favor digite a senha correta antes de continuar.",
+        "message": "Você não pode adicionar uma nova conta até que todas as contas estejam descriptografadas. Por favor digite a senha correta antes de continuar.",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "Contas que não puderam ser descriptografadas não serão incluídas nesse backup.",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "As senhas não correspondem.",
@@ -177,6 +189,10 @@
         "message": "A captura falhou, por favor recarregue a página e tente novamente.",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "Você está tentando escanear o código QR de um arquivo local? Use Importar Backup de Imagem QR em vez disso.",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "Baseado no Tempo",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "Importar arquivo de Backup",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "Importar backup da imagem QR",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "Importar backup em texto",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "Importação bem sucedida, porém algumas imagens QR não foram reconhecidas.",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "Você pode selecionar vários arquivos para importar backups em lotes.",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "Mostrar todas as entradas",
@@ -281,20 +309,12 @@
         "message": "Alto contraste",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Armazenamento e Backup",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Escolha onde seus dados são armazenados. Usar 'local' armazena seus dados no seu PC. Usando 'sincronizar' permite seu navegador sincronizar seus dados na nuvem, caso você esteja conectado a uma conta de sincronização.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automaticamente fazer backup dos seus dados para serviços de armazenamento de terceiros.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Local de Armazenamento",
+    "browser_sync": {
+        "message": "Sincronização do Navegador",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "Algoritmo"
+    },
+    "smart_filter": {
+        "message": "Filtro inteligente"
+    },
+    "backup": {
+        "message": "Backup"
+    },
+    "backup_file_info": {
+        "message": "Faça backup dos seus dados para um arquivo."
     }
 }

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="button" v-on:click="beginCapture()">{{ i18n.add_qr }}</div>
-    <div class="button" v-on:click="showInfo('AddAccountPage')">
+    <a-button @click="beginCapture()">{{ i18n.add_qr }}</a-button>
+    <a-button @click="showInfo('AddAccountPage')">
       {{ i18n.add_secret }}
-    </div>
+    </a-button>
   </div>
 </template>
 <script lang="ts">
@@ -40,13 +40,13 @@ export default Vue.extend({
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
         if (!tab || !tab.id) {
           return;
         }
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-        chrome.tabs.sendMessage(tab.id, { action: "capture" }, result => {
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
             this.$store.commit("notification/alert", this.i18n.capture_failed);
           } else {
@@ -55,7 +55,7 @@ export default Vue.extend({
         });
       });
       return;
-    }
-  }
+    },
+  },
 });
 </script>

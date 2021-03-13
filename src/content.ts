@@ -24,6 +24,15 @@ if (!document.getElementById("__ga_grayLayout__")) {
       case "text":
         alert(message.text);
         break;
+      case "migrationfail":
+        alert(chrome.i18n.getMessage("migration_fail"));
+        break;
+      case "migrationpartlyfail":
+        alert(chrome.i18n.getMessage("migration_partly_fail"));
+        break;
+      case "migrationsuccess":
+        alert(chrome.i18n.getMessage("updateSuccess"));
+        break;
       case "pastecode":
         pasteCode(message.code);
         break;
@@ -65,10 +74,10 @@ function showGrayLayout() {
     grayLayout.appendChild(captureBox);
     grayLayout.onmousedown = grayLayoutDown;
     grayLayout.onmousemove = grayLayoutMove;
-    grayLayout.onmouseup = event => {
+    grayLayout.onmouseup = (event) => {
       grayLayoutUp(event);
     };
-    grayLayout.oncontextmenu = event => {
+    grayLayout.oncontextmenu = (event) => {
       event.preventDefault();
       return;
     };
@@ -190,7 +199,7 @@ function sendPosition(
 ) {
   chrome.runtime.sendMessage({
     action: "position",
-    info: { left, top, width, height, windowWidth: window.innerWidth }
+    info: { left, top, width, height, windowWidth: window.innerWidth },
   });
 }
 
@@ -217,7 +226,7 @@ function pasteCode(code: string) {
     "factor",
     "code",
     "totp",
-    "twoFactorCode"
+    "twoFactorCode",
   ];
   for (const inputBox of inputBoxes) {
     for (const identity of identities) {
@@ -225,7 +234,7 @@ function pasteCode(code: string) {
         inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
         inputBox.id.toLowerCase().indexOf(identity) >= 0
       ) {
-        if (!inputBox.value) {
+        if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
           inputBox.value = code;
           fireInputEvents(inputBox);
         }
@@ -240,7 +249,7 @@ function pasteCode(code: string) {
       : null;
   if (activeInputBox) {
     const inputBox = activeInputBox as HTMLInputElement;
-    if (!inputBox.value) {
+    if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
       inputBox.value = code;
       fireInputEvents(inputBox);
     }
@@ -248,7 +257,10 @@ function pasteCode(code: string) {
   }
 
   for (const inputBox of inputBoxes) {
-    if (!inputBox.value && inputBox.type !== "password") {
+    if (
+      (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) &&
+      inputBox.type !== "password"
+    ) {
       inputBox.value = code;
       fireInputEvents(inputBox);
       return;
@@ -263,7 +275,7 @@ function fireInputEvents(inputBox: HTMLInputElement) {
     new KeyboardEvent("keyup"),
     new KeyboardEvent("keypress"),
     new Event("input", { bubbles: true }),
-    new Event("change", { bubbles: true })
+    new Event("change", { bubbles: true }),
   ];
   for (const event of events) {
     inputBox.dispatchEvent(event);

@@ -1,46 +1,40 @@
 <template>
   <div>
     <div class="text warning">{{ i18n.security_warning }}</div>
-    <label>{{ i18n.phrase }}</label>
-    <input class="input" type="password" v-model="phrase" />
-    <label>{{ i18n.confirm_phrase }}</label>
-    <input
-      class="input"
+    <a-text-input :label="i18n.phrase" type="password" v-model="phrase" />
+    <a-text-input
+      :label="i18n.confirm_phrase"
       type="password"
       v-model="confirm"
-      v-on:keyup.enter="changePassphrase()"
+      @enter="changePassphrase()"
     />
     <div v-show="!enforcePassword">
-      <div id="security-save" v-on:click="changePassphrase()">
+      <a-button id="security-save" @click="changePassphrase()">
         {{ i18n.ok }}
-      </div>
-      <div id="security-remove" v-on:click="removePassphrase()">
+      </a-button>
+      <a-button id="security-remove" @click="removePassphrase()">
         {{ i18n.remove }}
-      </div>
+      </a-button>
     </div>
-    <div
-      class="button-small"
-      v-show="enforcePassword"
-      v-on:click="changePassphrase()"
-    >
+    <a-button type="small" v-show="enforcePassword" @click="changePassphrase()">
       {{ i18n.ok }}
-    </div>
+    </a-button>
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
       phrase: "",
-      confirm: ""
+      confirm: "",
     };
   },
   computed: {
-    enforcePassword: function() {
+    enforcePassword: function () {
       return this.$store.state.menu.enforcePassword;
-    }
+    },
   },
   methods: {
     async removePassphrase() {
@@ -65,7 +59,7 @@ export default Vue.extend({
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
       this.$store.commit("style/hideInfo");
       return;
-    }
-  }
+    },
+  },
 });
 </script>

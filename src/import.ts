@@ -1,15 +1,22 @@
 import Vue from "vue";
 import ImportView from "./components/Import.vue";
+import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
 
 import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
+import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import * as CryptoJS from "crypto-js";
 import * as uuid from "uuid/v4";
 
 async function init() {
   // i18n
   Vue.prototype.i18n = await loadI18nMessages();
+
+  // Load common components globally
+  for (const component of CommonComponents) {
+    Vue.component(component.name, component.component);
+  }
 
   // Load entries to global
   const encryption = new Encryption(await getCachedPassphrase());
@@ -25,7 +32,7 @@ async function init() {
   Vue.prototype.$encryption = encryption;
 
   const instance = new Vue({
-    render: h => h(ImportView)
+    render: (h) => h(ImportView),
   }).$mount("#import");
 
   // Set title
@@ -88,8 +95,17 @@ export function decryptBackupData(
 export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split("\n");
   const exportData: { [hash: string]: OTPStorage } = {};
+  let failedCount = 0;
+  let succeededCount = 0;
   for (let item of lines) {
     item = item.trim();
+    if (item.startsWith("otpauth-migration:")) {
+      const migrationData = getOTPAuthPerLineFromOPTAuthMigration(item);
+      for (const line of migrationData) {
+        lines.push(line);
+      }
+      continue;
+    }
     if (!item.startsWith("otpauth:")) {
       continue;
     }
@@ -100,6 +116,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     let label = uri.split("?")[0];
     const parameterPart = uri.split("?")[1];
     if (!parameterPart) {
+      failedCount++;
       continue;
     } else {
       let secret = "";
@@ -121,7 +138,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         account = label;
       }
       const parameters = parameterPart.split("&");
-      parameters.forEach(item => {
+      parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
           secret = parameter[1];
@@ -152,11 +169,13 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       });
 
       if (!secret) {
+        failedCount++;
         continue;
       } else if (
         !/^[0-9a-f]+$/i.test(secret) &&
         !/^[2-7a-z]+=*$/i.test(secret)
       ) {
+        failedCount++;
         continue;
       } else {
         const hash = await uuid();
@@ -182,7 +201,8 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
           type,
           encrypted: false,
           index: 0,
-          counter: 0
+          counter: 0,
+          pinned: false,
         };
         if (period) {
           exportData[hash].period = period;
@@ -193,8 +213,11 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         if (algorithm) {
           exportData[hash].algorithm = algorithm;
         }
+
+        succeededCount++;
       }
     }
   }
-  return exportData;
+
+  return { exportData, failedCount, succeededCount };
 }

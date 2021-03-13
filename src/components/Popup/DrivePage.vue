@@ -8,29 +8,27 @@
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word;">
+        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
-      <div
-        class="control-group"
+      <a-select-input
         v-show="encryption.getEncryptionStatus() && backupToken"
+        :label="i18n.encrypted"
+        v-model="isEncrypted"
       >
-        <label class="combo-label">{{ i18n.encrypted }}</label>
-        <select style="margin: 20px 10px;" v-model="isEncrypted">
-          <option value="true">{{ i18n.yes }}</option>
-          <option value="false">{{ i18n.no }}</option>
-        </select>
-      </div>
-      <div class="button" v-show="backupToken" v-on:click="backupLogout()">
+        <option value="true">{{ i18n.yes }}</option>
+        <option value="false">{{ i18n.no }}</option>
+      </a-select-input>
+      <a-button v-show="backupToken" @click="backupLogout()">
         {{ i18n.log_out }}
-      </div>
-      <div class="button" v-show="!backupToken" v-on:click="getBackupToken()">
+      </a-button>
+      <a-button v-show="!backupToken" @click="getBackupToken()">
         {{ i18n.sign_in }}
-      </div>
-      <div class="button" v-show="backupToken" v-on:click="backupUpload()">
+      </a-button>
+      <a-button v-show="backupToken" @click="backupUpload()">
         {{ i18n.manual_dropbox }}
-      </div>
+      </a-button>
     </div>
   </div>
 </template>
@@ -41,13 +39,13 @@ import { Drive } from "../../models/backup";
 const service = "drive";
 
 export default Vue.extend({
-  data: function() {
+  data: function () {
     return {
-      email: this.i18n.loading
+      email: this.i18n.loading,
     };
   },
   computed: {
-    encryption: function() {
+    encryption: function () {
       return this.$store.state.accounts.encryption;
     },
     isEncrypted: {
@@ -62,11 +60,11 @@ export default Vue.extend({
       set(newValue: string) {
         localStorage.driveEncrypted = newValue;
         this.$store.commit("backup/setEnc", { service, value: newValue });
-      }
+      },
     },
-    backupToken: function() {
+    backupToken: function () {
       return this.$store.state.backup.driveToken;
-    }
+    },
   },
   methods: {
     getBackupToken() {
@@ -123,12 +121,12 @@ export default Vue.extend({
     async getUser() {
       const drive = new Drive();
       return await drive.getUser();
-    }
+    },
   },
-  mounted: async function() {
+  mounted: async function () {
     if (this.backupToken) {
       this.email = await this.getUser();
     }
-  }
+  },
 });
 </script>

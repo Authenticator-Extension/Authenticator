@@ -20,8 +20,12 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "密钥错误，仅支持Base32（A-Z，2-7及=）和HEX（0-9及A-F）格式，然而您的密钥是：",
+        "message": "无效的密钥",
         "description": "Secret Error."
+    },
+    "add_code": {
+        "message": "添加账号",
+        "description": "Add account."
     },
     "add_qr": {
         "message": "扫描QR码",
@@ -30,6 +34,14 @@
     "add_secret": {
         "message": "手动输入",
         "description": "Manual Entry."
+    },
+    "migration_fail": {
+        "message": "导入失败。 如果您要从Google Authenticator迁移数据，请从Google Authenticator重新导出数据，然后重试。",
+        "description": "Import migration data failed."
+    },
+    "migration_partly_fail": {
+        "message": "某些帐户数据未成功导入。",
+        "description": "Some migration data is broken."
     },
     "close": {
         "message": "关闭",
@@ -74,10 +86,6 @@
     "about": {
         "message": "关于",
         "description": "About."
-    },
-    "export_import": {
-        "message": "导出 / 导入",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "设置",
@@ -126,8 +134,12 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "部分账户与密码不匹配，您无法添加新账户、导出账户数据或者更改密码。请提供正确的密码后重试。",
+        "message": "部分账户与密码不匹配，您无法添加新账户或者更改密码。请提供正确的密码后重试。",
         "description": "Passphrase Incorrect."
+    },
+    "phrase_incorrect_export": {
+        "message": "备份文件不会包含无法解密的账号。",
+        "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
         "message": "密码不匹配。",
@@ -177,6 +189,10 @@
         "message": "捕捉失败，请重载您正在浏览的页面后重试。",
         "description": "Capture Failed"
     },
+    "capture_local_file_failed": {
+        "message": "您是否正在尝试从本地文件扫描QR码？ 改为使用导入QR图像备份。",
+        "description": "Import QR image backup instead of scan local image"
+    },
     "based_on_time": {
         "message": "基于时间",
         "description": "Time Based"
@@ -209,9 +225,21 @@
         "message": "导入备份文件",
         "description": "Import backup file."
     },
+    "import_backup_qr": {
+        "message": "导入 QR 图片备份",
+        "description": "Import qr image backup."
+    },
     "import_backup_code": {
         "message": "导入备份文本",
         "description": "Import backup code."
+    },
+    "import_backup_qr_partly_failed": {
+        "message": "导入成功，但部分二维码无法识别。",
+        "description": "Import successfuly, but some QR image cannot be recognized."
+    },
+    "import_backup_qr_in_batches": {
+        "message": "您可以同时选择多个文件进行批量导入",
+        "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
         "message": "显示全部条目",
@@ -281,20 +309,12 @@
         "message": "高对比度",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "存储及备份",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "选择数据存储位置。local为仅在本地存储，sync为云端同步存储。",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "自动备份您的数据至第三方服务。",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "存储位置",
+    "browser_sync": {
+        "message": "浏览器数据同步",
         "description": "Storage location"
     },
     "sign_in": {
@@ -353,5 +373,14 @@
     },
     "algorithm": {
         "message": "算法"
+    },
+    "smart_filter": {
+        "message": "智能过滤器"
+    },
+    "backup": {
+        "message": "备份"
+    },
+    "backup_file_info": {
+        "message": "备份数据到文件。"
     }
 }
