@@ -12,7 +12,7 @@ eval `ssh-agent -s` &> /dev/null
 ssh-add $GITHUB_WORKSPACE/scripts/deploy-key &> /dev/null
 
 # Create and push tag
-export GIT_TAG=v$(grep -m 1 "\"version\"" $GITHUB_WORKSPACE/manifest-chrome.json | sed -r 's/^ *//;s/.*: *"//;s/",?//')
+export GIT_TAG=v$(grep -m 1 "\"version\"" $GITHUB_WORKSPACE/manifests/manifest-chrome.json | sed -r 's/^ *//;s/.*: *"//;s/",?//')
 git checkout ${GITHUB_REF##*/}
 git tag $GIT_TAG -a -m "Automatic tag from run $GITHUB_RUN_ID"
 git push origin $GIT_TAG
