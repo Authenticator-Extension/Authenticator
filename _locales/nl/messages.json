@@ -87,10 +87,6 @@
         "message": "Over",
         "description": "About."
     },
-    "export_import": {
-        "message": "Exporteren / Importeren",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "Instellingen",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "Hoog contrast",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Opslag & back-up",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Kies waar uw gegevens worden opgeslagen. Met ‘lokale’ worden de gegevens opgeslagen op uw PC. Met ‘sync’ worden uw gegevens gesynchroniseerd naar de cloud als u bent aangemeld bij een account.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatisch een back-up maken van uw gegevens naar opslagdiensten van derden.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Opslaglocatie",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,10 +376,6 @@
     },
     "smart_filter": {
         "message": "Slim filter"
-    },
-    "browser_sync": {
-        "message": "Browser Sync",
-        "description": "Storage location"
     },
     "backup": {
         "message": "Backup"

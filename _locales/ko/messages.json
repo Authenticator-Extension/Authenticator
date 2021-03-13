@@ -87,10 +87,6 @@
         "message": "정보",
         "description": "About."
     },
-    "export_import": {
-        "message": "내보내기/가져오기",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "설정",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "고대비",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "저장 & 백업",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "데이터 저장 위치를 선택하세요. '로컬'을 사용하면 데이터를 귀하의 PC에 저장합니다. '동기화'를 사용하면 동기화 계정에 로그인한 경우, 브라우저가 데이터를 클라우드에 동기화합니다.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "제3자 저장 서비스에 데이터를 자동으로 백업하세요.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "저장 위치",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,10 +376,6 @@
     },
     "smart_filter": {
         "message": "스마트 필터"
-    },
-    "browser_sync": {
-        "message": "Browser Sync",
-        "description": "Storage location"
     },
     "backup": {
         "message": "Backup"

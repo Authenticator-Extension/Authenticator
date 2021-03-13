@@ -87,10 +87,6 @@
         "message": "О расширении",
         "description": "About."
     },
-    "export_import": {
-        "message": "Export / Import",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "Настройки",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "Высокая контрастность",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Хранение и резервное копирование",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Выберите, где хранятся ваши данные. Выбрав «local», Ваши данные будут храниться на Вашем ПК. Использование «sync» позволяет Вашему браузеру синхронизировать Ваши данные с облачным хранилищем, при условии, что Вы вошли в свою учетную запись.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Автоматическое резервное копирование данных в сторонние службы хранения.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Место хранения",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,10 +376,6 @@
     },
     "smart_filter": {
         "message": "\"Умный\" фильтр"
-    },
-    "browser_sync": {
-        "message": "Browser Sync",
-        "description": "Storage location"
     },
     "backup": {
         "message": "Backup"

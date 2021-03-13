@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "匯入失敗。若您要從Google Authenticator搬遷資料，請重新從Google Autenticator匯出資料後重試",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "部分帳號資料未被成功匯入",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -86,10 +86,6 @@
     "about": {
         "message": "關於",
         "description": "About."
-    },
-    "export_import": {
-        "message": "匯出 / 匯入",
-        "description": "Export and Import."
     },
     "settings": {
         "message": "設定",
@@ -138,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "本次備份不包含無法解密的帳號",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -194,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "您是否試著從本地檔案掃描QR碼? 請改用 匯入QR碼圖片備份。",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -238,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "匯入成功，但部份QR碼無法辨識",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "您可以選擇多個檔案進行批量匯入",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -313,20 +309,12 @@
         "message": "高對比",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "存儲及備份",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "選擇您資料除存的位置。使用\"本機\"儲存您得資料於您的電腦。如果您登入至同步帳號使用\"同步\"讓您的瀏覽器同步您的數據至雲端。",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatically備份您的資料至第三方儲存服務。",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "儲存位置",
+    "browser_sync": {
+        "message": "瀏覽器同步",
         "description": "Storage location"
     },
     "sign_in": {
@@ -363,7 +351,7 @@
         "message": "載入中..."
     },
     "autolock": {
-        "message": "鎖定後"
+        "message": "鎖定於"
     },
     "minutes": {
         "message": "分鐘"
@@ -387,16 +375,12 @@
         "message": "演算法"
     },
     "smart_filter": {
-        "message": "Smart Filter"
-    },
-    "browser_sync": {
-        "message": "Browser Sync",
-        "description": "Storage location"
+        "message": "智慧過濾"
     },
     "backup": {
-        "message": "Backup"
+        "message": "備份"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "備份至檔案"
     }
 }

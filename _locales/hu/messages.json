@@ -87,10 +87,6 @@
         "message": "Rólunk",
         "description": "About."
     },
-    "export_import": {
-        "message": "Exportálás / Importálás",
-        "description": "Export and Import."
-    },
     "settings": {
         "message": "Beállítások",
         "description": "Settings."
@@ -313,20 +309,12 @@
         "message": "Nagy kontrasztú",
         "description": "High Contrast theme"
     },
-    "storage_menu": {
-        "message": "Tárolás és biztonsági mentés",
-        "description": "Storage and sync menu title"
-    },
-    "storage_location_info": {
-        "message": "Válassza ki hol tárolódjanak az adatai. A \"helyi\" tárolás a számítógépén tárolja az adatokat. A \"szinkronizálás\" engedélyezi a böngészőt hogy a felhőben tárolja az adatokat, ha bejelentkezett egy fiókkal.",
-        "description": "Message explaning the diffrences between sync and local storage spaces."
-    },
     "storage_sync_info": {
         "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
         "description": "3rd party backup info"
     },
-    "storage_location": {
-        "message": "Tárolás helye",
+    "browser_sync": {
+        "message": "Browser Sync",
         "description": "Storage location"
     },
     "sign_in": {
@@ -388,10 +376,6 @@
     },
     "smart_filter": {
         "message": "Okos szűrő"
-    },
-    "browser_sync": {
-        "message": "Browser Sync",
-        "description": "Storage location"
     },
     "backup": {
         "message": "Backup"

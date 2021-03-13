@@ -1,296 +1,296 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autentifikuesi",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autentifikuesi",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generearret 2-stapsferifikaasjekoades yn jo browser.",
+        "message": "Autentifikuesi gjeneron kode autentifikimi me 2 faktorë në shletuesin tuaj.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " is tafoege.",
+        "message": " është shtuar.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Net-werkende QR-koade.",
+        "message": "Kod QR i panjohur.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Net krekt accountgeheim",
+        "message": "Kodi sekret i llogarisë është i pavlefshëm",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Account tafoegje",
+        "message": "Shto llogari",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Skan QR-koade",
+        "message": "Skano kodin QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Hânmjittige ynfier",
+        "message": "Manual Entry",
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Ymportearjen mislearre. As jo gegevens fan Google Authenticator migrearje, eksportearje dan opnij jo gegevens út Google Authenticator en probearje it opnij.",
+        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Guon accountgegevens binne net ymportearre.",
+        "message": "Some account data was not imported successfully.",
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "Slute",
+        "message": "Mbyll",
         "description": "Close."
     },
     "ok": {
-        "message": "OK",
+        "message": "Në rregull",
         "description": "OK."
     },
     "yes": {
-        "message": "Ja",
+        "message": "Po",
         "description": "Yes."
     },
     "no": {
-        "message": "Nee",
+        "message": "Jo",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Llogaria",
         "description": "Account."
     },
     "accountName": {
-        "message": "Brûkersnamme",
+        "message": "Përdoruesi",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Utjouwer",
+        "message": "Lëshuar nga",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Geheim",
+        "message": "Kodi sekret",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Slagge.",
+        "message": "Sukses.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Mislearre.",
+        "message": "Dështim.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Oer",
+        "message": "Rreth",
         "description": "About."
     },
     "settings": {
-        "message": "Ynstellingen",
+        "message": "Cilësimet",
         "description": "Settings."
     },
     "security": {
-        "message": "Befeiliging",
+        "message": "Siguria",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Aktueel ​​wachtwurd",
+        "message": "Fjalëkalimi aktual",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Nij wachtwurd",
+        "message": "Fjalëkalim i ri",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Wachtwurd",
+        "message": "Fjalëkalimi",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Wachtwurd befêstigje",
+        "message": "Konfirmo fjalëkalimin",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Binne jo wis dat jo dit account fuortsmite wolle? Dit kin net ûngedien makke wurde.",
+        "message": "A jeni i sigurtë qe doni të fshini këtë llogari? Ky veprim nuk mund të zhbëhet.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "Ik begryp dat al myn gegevens sûnder te werstellen fuortsmiten wurde sille.",
+        "message": "E kuptoj se të gjithë të dhënat e mia do të fshihen dhe do të jenë të parikuperueshme.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Authenticator opnij inisjalisearje"
+        "message": "Reset Authenticator"
     },
     "delete_all_warning": {
-        "message": "Dit sil al jo gegevens fuortsmite en de Authenticator folslein opnij inisjalisearje. Jo binne net yn steat om fuortsmiten gegevens te werstellen! Oerwaagje om in reservekopy te bewarjen eardat jo de Authenticator opnij inisjalisearje."
+        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
-        "message": "Dit wachtwurd wurdt brûkt foar it fersiferjen fan jo accounts. Net ien kin jo helpe as jo it wachtwurd ferjitte.",
+        "message": "Ky fjalëkalim do të përdoret për të kriptuar llogarinë tënde. Askush nuk mund tju ndihmojë ju nëse ju harroni fjalëkalimin.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Fernije",
+        "message": "Përditëso",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Jo kinne net in nij account tafoegje oant alle accounts ûntsifere binne. Fier it krekte wachtwurd yn eardat jo fierder gean.",
+        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts dy't net ûntsifere wurde kinne, wurde net yn dizze reservekopy opnommen.",
+        "message": "Llogaritë që nuk mundën të dekriptohen nuk do të përfshihen në këtë backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Wachtwurd komt net oerien.",
+        "message": "Fajlëkalimi nuk përputhet.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Fersifere",
+        "message": "Enkriptuar",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Kopiearre",
+        "message": "Kopjuar",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Kommentaar",
+        "message": "Feedback",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Oersette",
+        "message": "Përkthe",
         "description": "Translate."
     },
     "source": {
-        "message": "Boarnekoade",
+        "message": "Source Code",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Fier it wachtwurd yn om de accountgegevens te ûntsiferjen.",
+        "message": "Vendos fjalëkalim për të dekriptuar të dhënat e llogarisë.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Klok syngronisearje mei Google",
+        "message": "Sinkronizo Orën me Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Wachtwurd ûnthâlde",
+        "message": "Kujto fjalëkalimin",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Let op! De klok fan jo lokale kompjûter is te fier foar/efter, werstel dit eardat jo trochgean.",
+        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Hawwe jo in reservekopy foar jo accounts? Wachtsje net oant it te let is!",
+        "message": "A keni backup për llogaritë tuaja? Mos prit derisa të jetë shumë vonë!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Fêstlizzen is mislearre, laad de side opnij en probearje it opnij.",
+        "message": "Capture failed, please reload the page and try again.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Probearje jo fan in lokaal bestân út de QR-koade te scannen? Brûk yn stee dêrfan de QR-reservekopy ymportearje.",
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Tiidsbûn",
+        "message": "Bazuar në kohë",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Teller bûn",
+        "message": "Counter Based",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Foarkarren",
+        "message": "Preferencat",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Skeal",
+        "message": "Scale",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warskôging: alle reservekopyen binne net fersifere. Wolle jo in account tafoegje oan in oare app? Beweegje oer de rjochterboppekant fan in account en druk op de ferstoppe knop.",
+        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Reservekopy downloade",
+        "message": "Shkarko skedarin Backup",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Reservekopy ymportearje",
+        "message": "Importo Backup",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Reservekopybestân ymportearje",
+        "message": "Importo skedarin Backup",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "QR-ôfbyldingsreservekopy ymportearje",
+        "message": "Importo Backup të imazhit QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Tekstreservekopy ymportearje",
+        "message": "Importo Backup të tekstit",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Ymport suksesfol, mar guon QR-ôfbyldingen kinne net werkend wurde.",
+        "message": "Importimi i suksesshëm, bur disa imazhe QR nuk mund të njihen.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Jo kinne mear bestannen selektearje om reservekopy yn batches te ymportearjen.",
+        "message": "You can select multiple files to import backup in batches.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Lit alle ynfier sjen",
+        "message": "Show all entries",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warskôging: reservekopyen binne net fersifere. Brûk op eigen risiko.",
+        "message": "Warning: backups are unencrypted. Use at your own risk.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Jo moatte it krekte wachtwurd opjaan om reservekopyen te ymportearjen.",
+        "message": "You must provide correct password to import backups.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Jo wachtwurd is lokaal bewarre, wizigje dizze daliks yn it menu befeiliging.",
+        "message": "Your password is stored locally, please change it in the security menu immediately.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Fuortsmite",
+        "message": "Hiq",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Wachtwurd-befeilige reservekopy downloade",
+        "message": "Download Password-Protected Backup",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Sykje",
+        "message": "Kërko",
         "description": "Search"
     },
     "popout": {
-        "message": "Pop-upmodus",
+        "message": "Popup mode",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Beskoattelje",
+        "message": "Kyç",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Bewurkje",
+        "message": "Ndrysho",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Hânmjittige syngronisaasje",
+        "message": "Sinkronizim Manual",
         "description": "Manual sync"
     },
     "use_autofill": {
-        "message": "Automatysk oanfolje brûke",
+        "message": "Përdor Autofill",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Heech kontrast brûke",
+        "message": "Përdor kontrast të lartë",
         "description": "Use High Contrast"
     },
     "theme": {
@@ -298,19 +298,19 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Ljocht",
+        "message": "Light",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Donker",
+        "message": "E errët",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Heech kontrast",
+        "message": "Kontrast i lartë",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
-        "message": "Automatysk in reservekopy meitsje fan jo gegevens nei opslachtsjinsten fan tredden.",
+        "message": "Automatically backup your data to 3rd party storage services.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -318,15 +318,15 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Oanmelde",
+        "message": "Sign in",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
-        "message": "Ofmelde",
+        "message": "Dil",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Der wie in probleem mei de ferbining nei jo $SERVICE$-account, meld jo opnij oan.",
+        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -336,46 +336,46 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Jo hawwe ien of mear Steam- of Blizzard-accounts. Net-fersifere reservekopyen sille gjin standerdisearre reservekopy-yndieling brûke.",
+        "message": "Ju keni një ose më shumë llogari Steam ose Blizzard. Backup-et jo të kriptuar nuk do të përdorin formatin backup të standardizuar.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Jo kinne reservekopyen fan inkelde andere tapassingen ymportearje.",
+        "message": "Ju mund të importoni backup-et nga disa aplikacione të tjerë.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Mear ynfo",
+        "message": "Mëso më shumë",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Lade…"
+        "message": "Duke u ngarkuar..."
     },
     "autolock": {
-        "message": "Beskoattelje nei"
+        "message": "Kyç pas"
     },
     "minutes": {
-        "message": "minuten"
+        "message": "minuta"
     },
     "advanced": {
-        "message": "Avansearre"
+        "message": "E Avancuar"
     },
     "period": {
-        "message": "Perioade"
+        "message": "Periudha"
     },
     "type": {
-        "message": "Type"
+        "message": "Lloji"
     },
     "invalid": {
-        "message": "Unjildich"
+        "message": "I pavlefshëm"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Numrat"
     },
     "algorithm": {
-        "message": "Algoritme"
+        "message": "Algoritmi"
     },
     "smart_filter": {
-        "message": "Tûk filter"
+        "message": "Filtri inteligjent"
     },
     "backup": {
         "message": "Backup"
