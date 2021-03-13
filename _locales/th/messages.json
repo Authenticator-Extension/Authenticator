@@ -150,7 +150,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "คัดลอก",
+        "message": "คัดลอกแล้ว",
         "description": "Copied."
     },
     "feedback": {
