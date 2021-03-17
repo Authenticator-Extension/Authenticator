@@ -138,11 +138,11 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Учетные записи, которые не были расшифрованы, не будут включены в резервную копию.",
+        "message": "Учетные записи, которые не были расшифрованы, не будут включены в эту резервную копию.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Пароль не совпадает.",
+        "message": "Пароль не совпадает. как решь проблему.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
