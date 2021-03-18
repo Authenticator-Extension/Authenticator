@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "계정 추가",
         "description": "Add account."
     },
     "add_qr": {
@@ -378,7 +378,7 @@
         "message": "스마트 필터"
     },
     "backup": {
-        "message": "Backup"
+        "message": "백업"
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
