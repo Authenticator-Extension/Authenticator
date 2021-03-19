@@ -116,7 +116,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini anlıyorum.",
+        "message": "I understand that all of my data will be irrecoverably deleted.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
