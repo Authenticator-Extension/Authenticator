@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "İçe aktarma başarılı ancak bazı karekod görüntüleri tanınmıyor.",
+        "message": "İçe aktarma başarılı ancak bazı karekod görüntüleri tanınamıyor.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -336,7 +336,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler, standartlaştırılmış yedekleme formatını kullanmayacaktır.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standart yedekleme formatını kullanmayacaktır.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
