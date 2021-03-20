@@ -340,7 +340,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Yedekleri diğer bazı uygulamalardan içe aktarabilirsiniz.",
+        "message": "You can import backups from some other applications.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
