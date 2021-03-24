@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Přidat účet",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Import se nezdařil. Pokud migrujete data z Google Authenticator, prosím znovu exportujte svá data z Google Authenticator a zkuste to znovu.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Některá data účtu nebyla úspěšně importována.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -372,7 +372,7 @@
         "message": "Digits"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritmus"
     },
     "smart_filter": {
         "message": "Smart Filter"
