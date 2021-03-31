@@ -375,12 +375,12 @@
         "message": "Algoritme"
     },
     "smart_filter": {
-        "message": "Slim filter"
+        "message": "Slimme filter"
     },
     "backup": {
         "message": "Backup"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Backup uw gegevens naar een bestand."
     }
 }

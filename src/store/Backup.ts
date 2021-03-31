@@ -5,9 +5,12 @@ export class Backup implements Module {
         dropboxEncrypted: localStorage.dropboxEncrypted === "true",
         driveEncrypted: localStorage.driveEncrypted === "true",
         oneDriveEncrypted: localStorage.oneDriveEncrypted === "true",
+        oneDriveBusinessEncrypted:
+          localStorage.oneDriveBusinessEncrypted === "true",
         dropboxToken: Boolean(localStorage.dropboxToken),
         driveToken: Boolean(localStorage.driveToken),
         oneDriveToken: Boolean(localStorage.oneDriveToken),
+        oneDriveBusinessToken: Boolean(localStorage.oneDriveBusinessToken),
       },
       mutations: {
         setToken(
@@ -24,7 +27,11 @@ export class Backup implements Module {
               break;
 
             case "onedrive":
-              state.driveToken = args.value;
+              state.oneDriveToken = args.value;
+              break;
+
+            case "onedrivebusiness":
+              state.oneDriveBusinessToken = args.value;
               break;
 
             default:
@@ -43,6 +50,10 @@ export class Backup implements Module {
 
             case "onedrive":
               state.oneDriveEncrypted = args.value;
+              break;
+
+            case "onedrivebusiness":
+              state.oneDriveBusinessEncrypted = args.value;
               break;
 
             default:

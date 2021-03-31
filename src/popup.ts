@@ -16,7 +16,7 @@ import { CurrentView } from "./store/CurrentView";
 import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
-import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { Dropbox, Drive, OneDrive, OneDriveBusiness } from "./models/backup";
 import { EntryStorage } from "./models/storage";
 
 async function init() {
@@ -294,10 +294,48 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
       }
     );
   }
+  if (instance.$store.state.backup.oneDriveBusinessToken) {
+    chrome.permissions.contains(
+      {
+        origins: [
+          "https://graph.microsoft.com/me/*",
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+        ],
+      },
+      async (hasPermission) => {
+        if (hasPermission) {
+          try {
+            const onedrivebusiness = new OneDriveBusiness();
+            const res = await onedrivebusiness.upload(
+              instance.$store.state.accounts.encryption
+            );
+            if (res) {
+              localStorage.lastRemindingBackupTime = clientTime;
+              return;
+            } else if (localStorage.oneDriveBusinessRevoked === "true") {
+              instance.$store.commit(
+                "notification/alert",
+                chrome.i18n.getMessage("token_revoked", ["OneDriveBusiness"])
+              );
+              localStorage.removeItem("oneDriveBusinessRevoked");
+            }
+          } catch (error) {
+            // ignore
+          }
+        }
+        instance.$store.commit(
+          "notification/alert",
+          instance.i18n.remind_backup
+        );
+        localStorage.lastRemindingBackupTime = clientTime;
+      }
+    );
+  }
   if (
     !instance.$store.state.backup.driveToken &&
     !instance.$store.state.backup.dropboxToken &&
-    !instance.$store.state.backup.oneDriveToken
+    !instance.$store.state.backup.oneDriveToken &&
+    !instance.$store.state.backup.oneDriveBusinessToken
   ) {
     instance.$store.commit("notification/alert", instance.i18n.remind_backup);
     localStorage.lastRemindingBackupTime = clientTime;

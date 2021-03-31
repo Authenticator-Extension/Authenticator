@@ -6,7 +6,7 @@ import jsQR from "jsqr";
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
-import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { Dropbox, Drive, OneDrive, OneDriveBusiness } from "./models/backup";
 import * as uuid from "uuid/v4";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
@@ -34,7 +34,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     setAutolock();
   } else if (message.action === "passphrase") {
     sendResponse(cachedPassphrase);
-  } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
+  } else if (
+    ["dropbox", "drive", "onedrive", "onedrivebusiness"].indexOf(
+      message.action
+    ) > -1
+  ) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
@@ -332,6 +336,11 @@ function getBackupToken(service: string) {
       authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
         getCredentials().onedrive.client_id
       }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
+    } else if (service === "onedrivebusiness") {
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
+      authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
+        getCredentials().onedrivebusiness.client_id
+      }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.All%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
@@ -343,6 +352,8 @@ function getBackupToken(service: string) {
         if (service === "drive") {
           hashMatches = url.slice(0, -1).split("?");
         } else if (service === "onedrive") {
+          hashMatches = url.split("?");
+        } else if (service === "onedrivebusiness") {
           hashMatches = url.split("?");
         }
 
@@ -466,6 +477,55 @@ function getBackupToken(service: string) {
                   }
                 );
                 uploadBackup("onedrive");
+              } else if (service === "onedrivebusiness") {
+                const xhr = new XMLHttpRequest();
+                // Need to trade code we got from launchWebAuthFlow for a
+                // token & refresh token
+                await new Promise(
+                  (
+                    resolve: (value: boolean) => void,
+                    reject: (reason: Error) => void
+                  ) => {
+                    xhr.open(
+                      "POST",
+                      "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+                    );
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader(
+                      "Content-Type",
+                      "application/x-www-form-urlencoded"
+                    );
+                    xhr.onreadystatechange = () => {
+                      if (xhr.readyState === 4) {
+                        try {
+                          const res = JSON.parse(xhr.responseText);
+                          if (res.error) {
+                            console.error(res.error_description);
+                            resolve(false);
+                          } else {
+                            localStorage.oneDriveBusinessToken =
+                              res.access_token;
+                            localStorage.oneDriveBusinessRefreshToken =
+                              res.refresh_token;
+                            resolve(true);
+                          }
+                        } catch (error) {
+                          console.error(error);
+                          reject(error);
+                        }
+                      }
+                      return;
+                    };
+                    xhr.send(
+                      `client_id=${
+                        getCredentials().onedrivebusiness.client_id
+                      }&grant_type=authorization_code&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.All%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&code=${value}&redirect_uri=${redirUrl}&client_secret=${encodeURIComponent(
+                        getCredentials().onedrivebusiness.client_secret
+                      )}`
+                    );
+                  }
+                );
+                uploadBackup("onedrivebusiness");
               }
             }
           }
@@ -490,6 +550,10 @@ async function uploadBackup(service: string) {
 
     case "onedrive":
       await new OneDrive().upload(encryption);
+      break;
+
+    case "onedrivebusiness":
+      await new OneDriveBusiness().upload(encryption);
       break;
 
     default:

@@ -11,5 +11,9 @@ export function getCredentials() {
       client_id: "", // Microsoft Identity client ID
       client_secret: "", // Microsoft Identity client secret
     },
+    onedrivebusiness: {
+      client_id: "", // Microsoft Identity client ID
+      client_secret: "", // Microsoft Identity client secret
+    },
   };
 }

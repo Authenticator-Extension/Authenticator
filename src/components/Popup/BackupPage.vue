@@ -40,6 +40,9 @@
       <p></p>
       <a-button @click="showInfo('DrivePage')"> Google Drive </a-button>
       <a-button @click="showInfo('OneDrivePage')"> OneDrive </a-button>
+      <a-button @click="showInfo('OneDriveBusinessPage')">
+        OneDrive Business</a-button
+      >
       <a-button @click="showInfo('DropboxPage')"> Dropbox </a-button>
     </div>
   </div>
@@ -109,6 +112,23 @@ export default Vue.extend({
         );
         return;
       } else if (tab === "OneDrivePage") {
+        chrome.permissions.request(
+          {
+            origins: [
+              "https://graph.microsoft.com/me/*",
+              "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+            ],
+          },
+          async (granted) => {
+            if (granted) {
+              this.$store.commit("style/showInfo");
+              this.$store.commit("currentView/changeView", tab);
+            }
+            return;
+          }
+        );
+        return;
+      } else if (tab === "OneDriveBusinessPage") {
         chrome.permissions.request(
           {
             origins: [

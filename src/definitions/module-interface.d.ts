@@ -85,7 +85,9 @@ interface BackupState {
   dropboxEncrypted: boolean;
   driveEncrypted: boolean;
   oneDriveEncrypted: boolean;
+  oneDriveBusinessEncrypted: boolean;
   dropboxToken: boolean;
   driveToken: boolean;
   oneDriveToken: boolean;
+  oneDriveBusinessToken: boolean;
 }

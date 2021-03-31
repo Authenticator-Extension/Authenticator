@@ -36,7 +36,11 @@
           left: encryption.getEncryptionStatus() ? '70px' : '45px',
         }"
         v-show="
-          (dropboxToken || driveToken || oneDriveToken) && !style.isEditing
+          (dropboxToken ||
+            driveToken ||
+            oneDriveToken ||
+            oneDriveBusinessToken) &&
+          !style.isEditing
         "
       >
         <IconSync />
@@ -88,7 +92,12 @@ import IconPlus from "../../../svg/plus.svg";
 const computedPrototype = [
   mapState("style", ["style"]),
   mapState("accounts", ["encryption"]),
-  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
+  mapState("backup", [
+    "driveToken",
+    "dropboxToken",
+    "oneDriveToken",
+    "oneDriveBusinessToken",
+  ]),
 ];
 
 let computed = {};

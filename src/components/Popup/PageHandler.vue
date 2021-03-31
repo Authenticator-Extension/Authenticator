@@ -23,6 +23,7 @@ import BackupPage from "./BackupPage.vue";
 import DropboxPage from "./DropboxPage.vue";
 import DrivePage from "./DrivePage.vue";
 import OneDrivePage from "./OneDrivePage.vue";
+import OneDriveBusinessPage from "./OneDriveBusinessPage.vue";
 import PreferencesPage from "./PreferencesPage.vue";
 import LoadingPage from "./LoadingPage.vue";
 
@@ -47,6 +48,7 @@ export default Vue.extend({
     DropboxPage,
     DrivePage,
     OneDrivePage,
+    OneDriveBusinessPage,
     PreferencesPage,
     LoadingPage,
   },

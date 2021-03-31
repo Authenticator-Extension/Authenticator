@@ -638,3 +638,196 @@ export class OneDrive implements BackupProvider {
     });
   }
 }
+
+export class OneDriveBusiness implements BackupProvider {
+  private async getToken() {
+    if (
+      !localStorage.oneDriveBusinessToken ||
+      (await new Promise(
+        (
+          resolve: (value: boolean) => void,
+          reject: (reason: Error) => void
+        ) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open(
+            "GET",
+            "https://graph.microsoft.com/v1.0/me/drive/special/approot"
+          );
+          xhr.setRequestHeader(
+            "Authorization",
+            "Bearer " + localStorage.oneDriveBusinessToken
+          );
+          xhr.onreadystatechange = async () => {
+            if (xhr.readyState === 4) {
+              try {
+                const res = JSON.parse(xhr.responseText);
+                if (res.error) {
+                  if (res.error.code === 401) {
+                    localStorage.oneDriveBusinessToken = "";
+                    resolve(true);
+                  }
+                } else {
+                  resolve(false);
+                }
+              } catch (error) {
+                console.error(error);
+                reject(error);
+              }
+            }
+            return;
+          };
+          xhr.send();
+        }
+      ))
+    ) {
+      await this.refreshToken();
+    }
+    return localStorage.oneDriveBusinessToken;
+  }
+
+  private async refreshToken() {
+    return new Promise(
+      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(
+          "POST",
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        );
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 401) {
+              localStorage.removeItem("oneDriveBusinessRefreshToken");
+              localStorage.oneDriveBusinessRevoked = true;
+              return resolve(false);
+            }
+            try {
+              const res = JSON.parse(xhr.responseText);
+              if (res.error) {
+                if (res.error === "invalid_grant") {
+                  localStorage.removeItem("oneDriveBusinessRefreshToken");
+                  localStorage.oneDriveBusinessRevoked = true;
+                }
+                console.error(res.error_description);
+                resolve(false);
+              } else {
+                localStorage.oneDriveBusinessToken = res.access_token;
+                resolve(true);
+              }
+            } catch (error) {
+              console.error(error);
+              reject(error);
+            }
+          }
+          return;
+        };
+        xhr.send(
+          `client_id=${
+            getCredentials().onedrivebusiness.client_id
+          }&refresh_token=${
+            localStorage.oneDriveBusinessRefreshToken
+          }&client_secret=${encodeURIComponent(
+            getCredentials().onedrivebusiness.client_secret
+          )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.All%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
+        );
+      }
+    );
+  }
+
+  async upload(encryption: Encryption) {
+    if (localStorage.oneDriveBusinessEncrypted === undefined) {
+      localStorage.oneDriveBusinessEncrypted = "true";
+    }
+    const exportData = await EntryStorage.backupGetExport(
+      encryption,
+      localStorage.oneDriveBusinessEncrypted === "true"
+    );
+    const backup = JSON.stringify(exportData, null, 2);
+
+    const token = await this.getToken();
+    if (!token) {
+      return false;
+    }
+
+    return new Promise(
+      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
+        if (!token) {
+          return resolve(false);
+        }
+        try {
+          const xhr = new XMLHttpRequest();
+          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+          xhr.open(
+            "PUT",
+            `https://graph.microsoft.com/v1.0/me/drive/special/approot:/${now}.json:/content`
+          );
+          xhr.setRequestHeader("Authorization", "Bearer " + token);
+          xhr.setRequestHeader("Content-type", "application/octet-stream");
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status === 401) {
+                localStorage.removeItem("oneDriveBusinessToken");
+                return resolve(false);
+              }
+              try {
+                const res = JSON.parse(xhr.responseText);
+                if (!res.error) {
+                  resolve(true);
+                } else {
+                  console.error(res.error.message);
+                  resolve(false);
+                }
+              } catch (error) {
+                reject(error);
+              }
+            }
+            return;
+          };
+          xhr.send(backup);
+        } catch (error) {
+          return reject(error);
+        }
+      }
+    );
+  }
+
+  async getUser() {
+    const token = await this.getToken();
+    if (!token) {
+      return "Error: Access revoked or expired.";
+    }
+
+    return new Promise((resolve: (value: string) => void) => {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://graph.microsoft.com/v1.0/me/");
+      xhr.setRequestHeader("Authorization", "Bearer " + token);
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 401) {
+            localStorage.removeItem("oneDriveBusinessToken");
+            resolve(
+              "Error: Response was 401. You will be logged out the next time you open Authenticator."
+            );
+          }
+          try {
+            const res = JSON.parse(xhr.responseText);
+            if (!res.error) {
+              resolve(res.userPrincipalName);
+            } else {
+              console.error(res.error.message);
+              resolve("Error");
+            }
+          } catch (e) {
+            console.error(e);
+            resolve("Error");
+          }
+        }
+        return;
+      };
+      xhr.send();
+    });
+  }
+}
