@@ -1,4 +1,5 @@
-# Authenticator [![Build Status](https://travis-ci.com/Authenticator-Extension/Authenticator.svg?branch=dev)](https://travis-ci.com/Authenticator-Extension/Authenticator) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/authenticator-firefox/localized.svg)](https://crowdin.com/project/authenticator-firefox) <img align="right" width="100" height="100" src="https://github.com/Authenticator-Extension/Authenticator/raw/dev/images/icon.svg">
+# Authenticator [![Build Status](https://travis-ci.com/Authenticator-Extension/Authenticator.svg?branch=dev)](https://travis-ci.com/Authenticator-Extension/Authenticator) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/authenticator-firefox/localized.svg)](https://crowdin.com/project/authenticator-firefox) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAuthenticator-Extension%2FAuthenticator.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FAuthenticator-Extension%2FAuthenticator?ref=badge_shield)
+<img align="right" width="100" height="100" src="https://github.com/Authenticator-Extension/Authenticator/raw/dev/images/icon.svg">
 
 > Authenticator generates 2-Step Verification codes in your browser.
 
@@ -26,3 +27,7 @@ npm run dev:chrome
 ```
 
 Note that Windows users should download a tool like [Git Bash](https://git-scm.com/download/win) or [Cygwin](http://cygwin.com/) to build.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FAuthenticator-Extension%2FAuthenticator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FAuthenticator-Extension%2FAuthenticator?ref=badge_large)
