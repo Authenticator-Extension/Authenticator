@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Hoiatus: kõik varukoopiad on krüpteerimata. Kas soovite konto lisada mõnele teisele rakendusele? Suunake kursor paremas ülaservas mis tahes kontole ja klõpsake peidetud nupule.",
+        "message": "Hoiatus: Kõik varukoopiad on krüpteerimata. Kas soovite lisada konto mõnda teise rakendusse? Suunake kursor mis tahes paremal ülaosas asuvale kontole ja vajutage peidetud nupule.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -340,7 +340,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Saate importida varukoopiaid mõnest teisest rakendusest.",
+        "message": "Varukoopiaid saate importida ka mõnedest teisest rakendustest.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -381,6 +381,6 @@
         "message": "Varundus"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Varundage enda andmed failiks."
     }
 }
