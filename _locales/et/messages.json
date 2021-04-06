@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Impordi QR pildi varukoopia",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Impordi tekst varukoopia",
+        "message": "Impordi tekst-varukoopia",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -238,7 +238,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Saate importida varukoopiaid partiidena, valides mitu faili.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
