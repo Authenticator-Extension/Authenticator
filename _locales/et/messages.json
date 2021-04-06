@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Importimine ebaõnnestus. Kui migreerite andmeid Google Authenticator'ist, eksportige andmed sealt uuesti ning proovige uuesti.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Osa konto andmeid ei õnnestunud importida.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Kontosid, mida ei olnud võimalik lahti krüpteerida, ei kaasata käesolevasse varukoopiasse.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
