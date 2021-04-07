@@ -186,11 +186,11 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Rregjistrimi i imazhit dështoi, ju lutem ringarkoni faqen dhe provoni përsëri.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "A jeni duke provuar skanimin e kodit QR nga një skedar lokal? Në vënd të kësaj përdor importimin e kopjes rezervë të imazhit QR.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -198,7 +198,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Bazuar në numërim",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -238,11 +238,11 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Ju mund të selektoni shumë skedarë për të importuar në sasi kopjet rezervë.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Shfaq të gjitha hyrjet",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -250,11 +250,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Ju duhet të ofroni fjalëkalimin korrekt për importimin e kopjeve rezervë.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Fjalëkalimi juaj është ruajtur në mënyrë lokale, ju lutem menjëherë ndryshoni atë në menu-ja e sigurisë.",
         "description": "localStorage password warning."
     },
     "remove": {
