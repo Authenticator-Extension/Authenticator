@@ -32,7 +32,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Hyrje manuale",
         "description": "Manual Entry."
     },
     "migration_fail": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Disa të dhëna të llogarisë nuk janë importuar në mënyrë të sukseshme.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -120,10 +120,10 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Kthe në gjendje fillestare Authenticator-in"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Kjo do të fshijë të gjithë plotësisht të dhënat tuaja dhe kthejë Authenticator në gjendje fillestare. Ju nuk do të jeni në gjendje të riktheni të dhënat e fshira! Ju duhet të konsideroni ruajtjen e një kopje rezervë përpara rikthimit në gjëndje fillestare të Authenticator-it."
     },
     "security_warning": {
         "message": "Ky fjalëkalim do të përdoret për të kriptuar llogarinë tënde. Askush nuk mund tju ndihmojë ju nëse ju harroni fjalëkalimin.",
@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Ju nuk mund të shtoni një llogari të re derisa të gjitha llogaritë janë të dekriptuara. Ju lutem vendosni fjalkalimin korrekt përpara se të vazhdoni.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -154,7 +154,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Reagime",
         "description": "Feedback."
     },
     "translate": {
@@ -162,7 +162,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Kodi burimor",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -178,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Kujdes! Ora juaj lokale është mbrapa, ju lutem rregullojeni përpara se të vazhdoni.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -206,7 +206,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Shkalla",
         "description": "Scale"
     },
     "export_info": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Shkarko një kopje rezervë të mbrojtur me fjalëkalim",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Modalitet Popup",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -298,7 +298,7 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "E çelur",
         "description": "Light theme"
     },
     "theme_dark": {
@@ -310,7 +310,7 @@
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Ruaj në mënyrë automatike një kopje rezervë të të dhënave tuaja në shërbimet me palë të 3ta të magazinimit.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -318,7 +318,7 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "Identifikohu",
         "description": "Sign in to 3rd party storage services"
     },
     "log_out": {
@@ -326,7 +326,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Është një problem në lidhjen me të dhënat e llogarise suaj $SERVICE$, ju lutem kyçuni përsëri.",
+        "message": "Është një problem në lidhjen me të dhënat e llogarise suaj $SERVICE$, ju identikohuni përsëri.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
