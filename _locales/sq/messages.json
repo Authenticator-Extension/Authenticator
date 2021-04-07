@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Lajmërim: të gjitha kopjet rezervë nuk janë të kriptura. Kërkoni të shtoni një llogari në një app tjetër? Shkoni në krye në anën e djathtë të cdo llogarie dhe shtyp butonin 'hidden'.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -246,7 +246,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Lajmërim: kopjet rezervë nuk janë të kriptuara. Përdorni duke marrë vetë rrezikun.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
