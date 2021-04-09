@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Bạn có thử quét mã QR từ file trên máy của bạn? Sử dụng ảnh chứa mã QR để thay thế.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Đồng bộ trình duyệt",
         "description": "Storage location"
     },
     "sign_in": {
@@ -381,6 +381,6 @@
         "message": "Sao lưu"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Sao chép dữ liệu thành 1 tệp tin."
     }
 }
