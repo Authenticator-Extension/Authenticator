@@ -318,15 +318,15 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Zaloguj",
+        "message": "Zaloguj się",
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Zaloguj się (biznesowe)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Dlaczego konta biznesowe wymagają więcej uprawnień?"
     },
     "log_out": {
         "message": "Wyloguj",
