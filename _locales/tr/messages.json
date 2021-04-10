@@ -382,5 +382,12 @@
     },
     "backup_file_info": {
         "message": "Verilerinizi bir dosyaya yedekleyin."
+    },
+    "sign_in_business": {
+        "message": "Sign in (Business)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Why do business accounts require more permissions?"
     }
 }
