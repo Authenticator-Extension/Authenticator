@@ -24,7 +24,7 @@ export class Backup implements Module {
               break;
 
             case "onedrive":
-              state.driveToken = args.value;
+              state.oneDriveToken = args.value;
               break;
 
             default:
