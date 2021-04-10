@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Войти (бизнес)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
