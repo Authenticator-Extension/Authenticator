@@ -538,7 +538,9 @@ export class OneDrive implements BackupProvider {
             localStorage.oneDriveRefreshToken
           }&client_secret=${encodeURIComponent(
             getCredentials().onedrive.client_secret
-          )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite.AppFolder%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
+          )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
+            localStorage.oneDriveBusiness !== "true" ? ".AppFolder" : ""
+          }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
         );
       }
     );
