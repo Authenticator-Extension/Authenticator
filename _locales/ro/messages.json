@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Autentificare (firmă)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "De ce conturile de firmă necesită mai multe permisiuni?"
     },
     "log_out": {
         "message": "Ieșire din cont",
