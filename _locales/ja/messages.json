@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "サインイン (ビジネス)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "なぜビジネスアカウントにはより多くの権限が必要なのですか?"
     },
     "log_out": {
         "message": "ログアウト",
