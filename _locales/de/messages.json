@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentifizierung",
+        "message": "Authentifikator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Konten, die nicht entschlüsselt werden konnten, werden nicht in dieses Backup aufgenommen.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Wollen Sie QR-Codes von einer lokalen Datei scannen? Verwenden Sie stattdessen QR-Code-Sicherung.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "QR-Code importieren",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import erfolgreich, aber ein QR-Bild kann nicht erkannt werden.",
+        "message": "Import erfolgreich, aber ein QR-Code kann nicht erkannt werden.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Browser-Synchronisation",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Anmelden (Geschäftskonto)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Warum benötigen Geschäftskonten mehr Berechtigungen?"
     },
     "log_out": {
         "message": "Abmelden",
@@ -382,12 +382,12 @@
         "message": "Algorithmus"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Intelligente Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Sicherung"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Sichern Sie Ihre Daten in eine Datei."
     }
 }
