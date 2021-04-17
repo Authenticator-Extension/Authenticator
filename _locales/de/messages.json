@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Konto hinzufügen",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Import fehlgeschlagen. Wenn Sie Daten von Google Authenticator migrieren, exportieren Sie bitte Ihre Daten erneut aus dem Google Authenticator und versuchen Sie es erneut.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Einige Kontodaten wurden nicht erfolgreich importiert.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -120,10 +120,10 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Authenticator zurücksetzen"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Dies wird alle Ihre Daten löschen und den Authenticator komplett zurücksetzen. Sie werden keine gelöschten Daten wiederherstellen können! Sie sollten erwägen, ein Backup zu speichern, bevor Sie den Authenticator zurücksetzen."
     },
     "security_warning": {
         "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Sie können kein neues Konto hinzufügen, bis alle Konten entschlüsselt sind. Bitte geben Sie das richtige Passwort ein, bevor Sie fortfahren.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Import erfolgreich, aber ein QR-Bild kann nicht erkannt werden.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Sie können mehrere Dateien auswählen, um die Sicherung in Stapeln zu importieren.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -294,11 +294,11 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Farbschema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Hell",
         "description": "Light theme"
     },
     "theme_dark": {
