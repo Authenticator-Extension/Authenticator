@@ -65,4 +65,4 @@ jobs:
           args: npm test
 
       - name: Codecov
-        uses: codecov/codecov-action@v1.1.0
+        uses: codecov/codecov-action@v1.4.1
