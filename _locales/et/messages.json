@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Importimine ebaõnnestus. Kui migreerite andmeid Google Authenticator'ist, eksportige andmed sealt uuesti ning proovige uuesti.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Osa konto andmeid ei õnnestunud importida.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Kontosid, mida ei olnud võimalik lahti krüpteerida, ei kaasata käesolevasse varukoopiasse.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Hoiatus: kõik varukoopiad on krüpteerimata. Kas soovite konto lisada mõnele teisele rakendusele? Suunake kursor paremas ülaservas mis tahes kontole ja klõpsake peidetud nupule.",
+        "message": "Hoiatus: Kõik varukoopiad on krüpteerimata. Kas soovite lisada konto mõnda teise rakendusse? Suunake kursor mis tahes paremal ülaosas asuvale kontole ja vajutage peidetud nupule.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Impordi QR pildi varukoopia",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Impordi tekst varukoopia",
+        "message": "Impordi tekst-varukoopia",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -238,7 +238,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Saate importida varukoopiaid partiidena, valides mitu faili.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -321,6 +321,13 @@
         "message": "Logi sisse",
         "description": "Sign in to 3rd party storage services"
     },
+    "sign_in_business": {
+        "message": "Sign in (Business)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Why do business accounts require more permissions?"
+    },
     "log_out": {
         "message": "Logi välja",
         "description": "Sign out of 3rd party storage services"
@@ -340,7 +347,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Saate importida varukoopiaid mõnest teisest rakendusest.",
+        "message": "Varukoopiaid saate importida ka mõnedest teisest rakendustest.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -378,16 +385,9 @@
         "message": "Nutikas filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Varundus"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Varundage enda andmed failiks."
     }
 }

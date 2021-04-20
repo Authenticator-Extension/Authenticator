@@ -314,12 +314,19 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Browsersynchronisatie",
         "description": "Storage location"
     },
     "sign_in": {
         "message": "Aanmelden",
         "description": "Sign in to 3rd party storage services"
+    },
+    "sign_in_business": {
+        "message": "Aanmelden (Zakelijk)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Waarom hebben zakelijke accounts meer toestemmingen nodig?"
     },
     "log_out": {
         "message": "Afmelden",
@@ -375,19 +382,12 @@
         "message": "Algoritme"
     },
     "smart_filter": {
-        "message": "Slim filter"
+        "message": "Slimme filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Back-up"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Back-up uw gegevens naar een bestand."
     }
 }

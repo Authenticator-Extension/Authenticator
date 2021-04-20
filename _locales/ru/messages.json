@@ -138,11 +138,11 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Учетные записи, которые не были расшифрованы, не будут включены в резервную копию.",
+        "message": "Учетные записи, которые не были расшифрованы, не будут включены в эту резервную копию.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Пароль не совпадает.",
+        "message": "Пароль не совпадает. как решь проблему.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -321,6 +321,13 @@
         "message": "Войти",
         "description": "Sign in to 3rd party storage services"
     },
+    "sign_in_business": {
+        "message": "Войти (бизнес)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Why do business accounts require more permissions?"
+    },
     "log_out": {
         "message": "Выйти",
         "description": "Sign out of 3rd party storage services"
@@ -382,12 +389,5 @@
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
     }
 }

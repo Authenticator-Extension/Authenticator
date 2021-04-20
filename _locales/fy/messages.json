@@ -314,12 +314,19 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Browsersyngronisaasje",
         "description": "Storage location"
     },
     "sign_in": {
         "message": "Oanmelde",
         "description": "Sign in to 3rd party storage services"
+    },
+    "sign_in_business": {
+        "message": "Oanmelde (Saaklik)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Wêrom hawwe saaklike accounts mear tastimming nedich?"
     },
     "log_out": {
         "message": "Ofmelde",
@@ -378,16 +385,9 @@
         "message": "Tûk filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Reservekopy"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Meitsje in reservekopy fan jo gegevens nei in bestân."
     }
 }

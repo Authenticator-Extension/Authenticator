@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "İçe aktarma başarısız oldu. Eğer Google Authenticator'dan veri taşıyorsanız lütfen verilerinizi Google Authenticator'dan yeniden dışa aktarın ve tekrar deneyin.",
+        "message": "İçe aktarma başarısız oldu. Eğer Google Authenticator'dan veri aktarıyorsanız lütfen verilerinizi Google Authenticator'dan yeniden dışa aktarın ve tekrar deneyin.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini anlıyorum.",
+        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini onaylıyorum.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Kimlik Doğrulayıcıyı Sıfırla"
     },
     "delete_all_warning": {
-        "message": "Bu tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız! Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedek kaydetmeyi düşünün."
+        "message": "Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydetmeyi düşünün."
     },
     "security_warning": {
         "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: tüm yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek mi istiyorsunuz? Herhangi bir hesabın sağ üst kısmına gidin ve gizli düğmeye basın.",
+        "message": "Uyarı: Tüm yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli düğmeye tıklayın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "İçe aktarma başarılı ancak bazı karekod görüntüleri tanınmıyor.",
+        "message": "İçe aktarma başarılı ancak bazı karekod görüntüleri tanınamıyor.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -321,6 +321,13 @@
         "message": "Oturum aç",
         "description": "Sign in to 3rd party storage services"
     },
+    "sign_in_business": {
+        "message": "Sign in (Business)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Why do business accounts require more permissions?"
+    },
     "log_out": {
         "message": "Çıkış",
         "description": "Sign out of 3rd party storage services"
@@ -336,11 +343,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler, standartlaştırılmış yedekleme formatını kullanmayacaktır.",
+        "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standart yedekleme formatını kullanmayacaktır.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Yedekleri diğer bazı uygulamalardan içe aktarabilirsiniz.",
+        "message": "Yedekleri bazı uygulamalardan içe aktarabilirsiniz.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -382,12 +389,5 @@
     },
     "backup_file_info": {
         "message": "Verilerinizi bir dosyaya yedekleyin."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
     }
 }
