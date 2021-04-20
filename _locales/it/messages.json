@@ -314,12 +314,19 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Sincronizzazione Browser",
         "description": "Storage location"
     },
     "sign_in": {
         "message": "Accedi",
         "description": "Sign in to 3rd party storage services"
+    },
+    "sign_in_business": {
+        "message": "Accedi (Business)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "Perché i profili business richiedono più permessi?"
     },
     "log_out": {
         "message": "Esci",
@@ -381,13 +388,6 @@
         "message": "Backup"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Fai il backup dei tuoi dati su un file."
     }
 }

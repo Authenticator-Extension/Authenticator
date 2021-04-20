@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Autenticador",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Añadir cuenta",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Error al importar. Si intentas migrar datos desde el Autenticador de Google, exporta de nuevo los datos y vuelve a intentarlo.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Los datos de algunas cuentas no se importaron correctamente.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "¿Quieres escanear un código QR desde un archivo local? Usa la opción «Importar copia de seguridad de imagen QR».",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Importar Imagen de Respaldo QR",
+        "message": "Importar copia de seguridad de imagen QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Puede seleccionar varios archivos para importar un respaldo en lotes.",
+        "message": "Puedes seleccionar varios archivos para importar copias de seguridad por lotes.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -314,12 +314,19 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Sincronización con el navegador",
         "description": "Storage location"
     },
     "sign_in": {
         "message": "Iniciar sesión",
         "description": "Sign in to 3rd party storage services"
+    },
+    "sign_in_business": {
+        "message": "Iniciar sesión (cuenta empresarial)",
+        "description": "Sign in to 3rd party storage services"
+    },
+    "onedrive_business_perms": {
+        "message": "¿Por qué las cuentas empresariales necesitan más permisos?"
     },
     "log_out": {
         "message": "Cerrar sesión",
@@ -378,16 +385,9 @@
         "message": "Filtro inteligente"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Copia de seguridad"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Guarda en un archivo una copia de seguridad de tus datos."
     }
 }
