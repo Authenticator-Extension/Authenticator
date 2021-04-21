@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download cadangan dilindungi sandi",
+        "message": "Download cadangan terenkripsi",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -294,19 +294,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Tema: ya",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Terang: ya",
+        "message": "Terang",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Gelap: tidak",
+        "message": "Gelap",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Kontras Tinggi: tidak",
+        "message": "Kontras Tinggi",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Masuk (Business)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
