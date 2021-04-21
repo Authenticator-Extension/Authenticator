@@ -326,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Mengapa bisnis akun membutuhkan lebih banyak permission?"
     },
     "log_out": {
         "message": "Keluar",
