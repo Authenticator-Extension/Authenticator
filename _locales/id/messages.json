@@ -4,15 +4,15 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator: ya",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.: ya.",
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " telah ditambahkan. ya.",
+        "message": " telah ditambahkan.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -116,7 +116,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted. ya.",
+        "message": "Saya mengerti bahwa semua data saya tidak dapat dikembalikan setelah dihapus.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
