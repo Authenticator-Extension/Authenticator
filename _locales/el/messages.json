@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Προσθήκη λογαριασμού",
         "description": "Add account."
     },
     "add_qr": {
@@ -294,15 +294,15 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Θέμα",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Φωτεινό",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Σκούρο",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
@@ -385,9 +385,9 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Αντίγραφο Ασφαλείας"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
     }
 }
