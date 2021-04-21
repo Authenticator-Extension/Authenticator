@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manuális szinkronizálás",
-        "description": "Manual sync"
+        "message": "Manual Backup",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Automatikus kitöltés használata",
