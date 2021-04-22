@@ -30,9 +30,11 @@
         {{ i18n.sign_in_business }}
       </a-button>
       <div class="text" v-show="!backupToken">
-        <a href="https://authenticator.cc/docs/en/onedrive-perms">{{
-          i18n.onedrive_business_perms
-        }}</a>
+        <a
+          v-on:click="openLink('https://otp.ee/onedriveperms')"
+          href="https://otp.ee/onedriveperms"
+          >{{ i18n.onedrive_business_perms }}</a
+        >
       </div>
       <a-button v-show="backupToken" @click="backupUpload()">
         {{ i18n.manual_dropbox }}
@@ -75,6 +77,10 @@ export default Vue.extend({
     },
   },
   methods: {
+    openLink(url: string) {
+      window.open(url, "_blank");
+      return;
+    },
     getBackupToken(business?: boolean) {
       localStorage.oneDriveBusiness = Boolean(business);
       chrome.runtime.sendMessage({ action: service });
