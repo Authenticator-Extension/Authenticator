@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Резервное копирование вручную",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -326,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Почему для бизнес-аккаунтов требуется больше разрешений?"
     },
     "log_out": {
         "message": "Выйти",
