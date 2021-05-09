@@ -13,7 +13,7 @@ CREDREGEX='^.*".+".*".+".*".+".*".+".*".+".*$'
 STYLEFILES="./src/* ./src/**/* ./src/**/**/* ./src/**/**/**/* ./sass/*.scss"
 set -e
 
-if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "prod" ]] && [[ $PLATFORM != "test" ]]; then
+if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]] && [[ $PLATFORM != "prod" ]] && [[ $PLATFORM != "test" ]]; then
     echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', 'test', and 'prod'"
     exit 1
 fi
@@ -80,7 +80,7 @@ postCompile () {
         cp manifests/manifest-$1.json $1/manifest.json
     fi
 
-    if [[ $1 = "chrome" ]]; then
+    if [[ $1 = "chrome" ]] || [[ $1 = "edge" ]]; then
         cp manifests/schema-chrome.json $1/schema.json
     fi
 }
@@ -88,6 +88,7 @@ postCompile () {
 if [[ $PLATFORM = "prod" ]]; then
     postCompile "chrome"
     postCompile "firefox"
+    postCompile "edge"
     mkdir release
     mv chrome firefox release
 elif [[ $PLATFORM = "test" ]]; then
