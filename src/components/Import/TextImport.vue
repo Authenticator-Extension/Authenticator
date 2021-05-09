@@ -48,6 +48,7 @@ export default Vue.extend({
       try {
         exportData = JSON.parse(this.importCode);
       } catch (error) {
+        console.warn(error);
         // Maybe one-otpauth-per line text
         const result = await getEntryDataFromOTPAuthPerLine(this.importCode);
         exportData = result.exportData;
@@ -57,8 +58,10 @@ export default Vue.extend({
 
       let key: { enc: string; hash: string } | null = null;
 
-      if (exportData.key) {
-        key = exportData.key;
+      if (exportData.hasOwnProperty("key")) {
+        if (exportData.key) {
+          key = exportData.key;
+        }
         delete exportData.key;
       }
 
