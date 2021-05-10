@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Pencere biçimi",
+        "message": "Pencere modu",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
