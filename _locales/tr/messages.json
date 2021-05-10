@@ -80,7 +80,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Hatalı.",
+        "message": "Başarısız.",
         "description": "Update Failure."
     },
     "about": {
