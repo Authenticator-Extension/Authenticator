@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentifikator",
+        "message": "Authentifizierung",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuelles Backup",
         "description": "Manual backup"
     },
     "use_autofill": {
