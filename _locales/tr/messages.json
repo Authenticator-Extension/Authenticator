@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Hesap bilgilerinin şifrelemesini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -218,7 +218,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedeklemeyi İçe Aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Metin Yedeklemeden İçe Aktar",
+        "message": "Metin yedeklemeden içe aktar",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
