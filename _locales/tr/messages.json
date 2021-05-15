@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Tüm hesapların şifresi çözülene kadar yeni bir hesap ekleyemezsiniz. Devam etmeden önce lütfen doğru parolayı girin.",
+        "message": "Tüm hesapların şifrelemesi çözülene kadar yeni bir hesap ekleyemezsiniz. Devam etmeden önce lütfen doğru parolayı girin.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap verilerinin şifresini çözmek için parolanızı girin.",
+        "message": "Enter password to decrypt account data.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -347,7 +347,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Yedekleri bazı uygulamalardan içe aktarabilirsiniz.",
+        "message": "Farklı uygulamalardan da yedekleri içe aktarabilirsiniz.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
