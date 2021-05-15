@@ -218,15 +218,15 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedeklemeyi içe aktar",
+        "message": "Yedeklemeyi İçe Aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Yedekleme Dosyasını İçe Aktar",
+        "message": "Yedekleme dosyasını içe aktar",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Karekod Yedeklemeden İçe Aktar",
+        "message": "Karekod yedeklemeden içe aktar",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Parola Korumalı Yedeklemeyi İndirin",
+        "message": "Download Password-Protected Backup",
         "description": "Download Encrypted Backup"
     },
     "search": {
