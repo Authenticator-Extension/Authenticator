@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "認証",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -170,11 +170,11 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Google と時刻を同期",
+        "message": "Google と時刻を同期\n",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "パスワードを記憶します。",
+        "message": "パスワードを記憶させる",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "手動で同期",
-        "description": "Manual sync"
+        "message": "手動バックアップ",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "自動入力を使用する",
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "サインイン (ビジネス)",
+        "message": "Sign in (Business)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {

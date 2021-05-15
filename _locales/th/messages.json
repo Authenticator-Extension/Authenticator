@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "ซิงค์ด้วยตนเอง",
-        "description": "Manual sync"
+        "message": "เรียกใช้การสำรองข้อมูลด้วยตนเอง",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "ใช้งานการป้อนอัตโนมัติ",
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Https://www. bitkub. com/login",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Https://www.bitkub.com/login"
     },
     "log_out": {
         "message": "ออกจากระบบ",

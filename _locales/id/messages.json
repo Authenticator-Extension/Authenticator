@@ -4,15 +4,15 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator: ya",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.: ya.",
+        "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " telah ditambahkan. ya.",
+        "message": " telah ditambahkan.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -60,133 +60,133 @@
         "description": "No."
     },
     "account": {
-        "message": "Akun suyanto4242@gmail. com",
+        "message": "Akun",
         "description": "Account."
     },
     "accountName": {
-        "message": "Nama pengguna: suyanto",
+        "message": "Nama pengguna",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Penerbit: gmail",
+        "message": "Penerbit",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Rahasia: tidak ada",
+        "message": "Rahasia",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Sukses.: karir.",
+        "message": "Sukses.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Gagal.: login pasword mail di retas.",
+        "message": "Gagal.",
         "description": "Update Failure."
     },
     "about": {
-        "message": "Tentang: akun gmail dan akun prakerja yang di retas oleh seseorang sehingga tidak dapat masuk atau login ke akun",
+        "message": "Tentang",
         "description": "About."
     },
     "settings": {
-        "message": "Setelan: gmail",
+        "message": "Setelan",
         "description": "Settings."
     },
     "security": {
-        "message": "Keamanan: sur4b4y4",
+        "message": "Keamanan",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Kata sandi saat ini: sur4b4y4",
+        "message": "Kata sandi saat ini",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Kata sandi baru: ju4nc0k224466",
+        "message": "Kata sandi baru",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Kata sandi: ju4nc0k224466",
+        "message": "Kata sandi",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Konfirmasi kata sandi: ju4nc0k224466",
+        "message": "Konfirmasi kata sandi",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Apakah anda yakin ingin menghapusnya? tidak.",
+        "message": "Apakah anda yakin ingin menghapusnya? Tindakan ini tidak dapat dibatalkan.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted. ya.",
+        "message": "Saya mengerti bahwa semua data saya tidak dapat dikembalikan setelah dihapus.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator: tidak"
+        "message": "Reset Authenticator"
     },
     "delete_all_warning": {
-        "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat cadangan terlebih dahulu sebelum mereset ulang Autentikator. tidak."
+        "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat Backup terlebih dahulu sebelum mereset ulang Authentikator."
     },
     "security_warning": {
-        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda. ya.",
+        "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Perbarui: ya",
+        "message": "Perbaharui",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienskripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan. ya",
+        "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienkripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Akun yang tidak dapat didekripsi tidak akan disertakan dalam cadangan ini. ya.",
+        "message": "Akun yang tidak dapat di dekripsi tidak akan disertakan dalam cadangan ini.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Kata sandi salah. ya.",
+        "message": "Kata sandi salah.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Terenkripsi: ya",
+        "message": "Terenkripsi",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Tersalin: tidak",
+        "message": "Tersalin",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Umpan Balik: ya",
+        "message": "Umpan Balik",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Terjemahkan: ya",
+        "message": "Terjemahkan",
         "description": "Translate."
     },
     "source": {
-        "message": "Kode sumber: ju4nc0k224466",
+        "message": "Kode sumber",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Masukkan password untuk mendeskripsi data akun. ju4nc0k224466.",
+        "message": "Masukkan password untuk men-dekripsi data akun.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sinkronisasi riwayat dengan Google: ya",
+        "message": "Sinkronisasi riwayat dengan Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Ingat kata sandi: tidak",
+        "message": "Ingat kata sandi",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan. ya.",
+        "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat! ya saya ingin mencadangkan data saya!",
+        "message": "Apakah anda ingin mencadangkan data anda? Jangan menunggu hingga terlambat!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi. ya.",
+        "message": "Gagal ditangkap, silakan muat ulang halaman dan coba lagi.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -194,119 +194,119 @@
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Berdasarkan Waktu: ya",
+        "message": "Berdasarkan Waktu",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Berdasarkan Penghitung: ya",
+        "message": "Berdasarkan Penghitung",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Pengaturan: ya",
+        "message": "Pengaturan",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Skala: ya",
+        "message": "Skala",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya. ya.",
+        "message": "Peringatan: Semua cadangan tidak dienkripsi. Ingin menambahkan akun ke aplikasi lain? Arahkan ke bagian kanan atas dari akun apa pun dan tekan tombol tersembunyinya.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Unduh Berkas Cadangan: ya",
+        "message": "Unduh Berkas Cadangan",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Impor Cadangan: ya",
+        "message": "Impor Cadangan",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Impor Berkas Cadangan: ya",
+        "message": "Impor Berkas Cadangan",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Impor cadangan gambar QR: ya",
+        "message": "Impor cadangan gambar QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Impor Text Cadangan: ya",
+        "message": "Impor Text Cadangan",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.: ya.",
+        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.: ya.",
+        "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Tampilkan semua entri: ya",
+        "message": "Tampilkan semua entri",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Peringatan: Cadangan tidak terenkripsi. Perhatikan resikonya sebelum digunakan.: saya perhatikan resikonya.",
+        "message": "Peringatan: Cadangan tidak terenkripsi. Perhatikan resikonya sebelum digunakan.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.: gatelli224466.",
+        "message": "Masukkan kata sandi yang tepat untuk mengimpor cadangan.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera. bagaimana caranya.",
+        "message": "Kata sandi anda disimpan secara lokal, tolong ubah kedalam menu keamanan segera.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Hapus: ya",
+        "message": "Hapus",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download cadangan dilindungi sandi: saya tidak tau",
+        "message": "Download cadangan terenkripsi",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Cari: ya mohon di carikan akun saya serta paswordnya",
+        "message": "Cari",
         "description": "Search"
     },
     "popout": {
-        "message": "Mode popup: ya",
+        "message": "Mode popup",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Kunci: ya",
+        "message": "Kunci",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Ubah: ubah kunci",
+        "message": "Ubah",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Sync: ya",
-        "description": "Manual sync"
+        "message": "Manual Backup",
+        "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "IsiOtomatis: iya",
+        "message": "IsiOtomatis",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Gunakan Kontras yang Tinggi: iya",
+        "message": "Gunakan Kontras yang Tinggi",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Tema: ya",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Terang: ya",
+        "message": "Terang",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Gelap: tidak",
+        "message": "Gelap",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "Kontras Tinggi: tidak",
+        "message": "Kontras Tinggi",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Masuk (Business)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Mengapa bisnis akun membutuhkan lebih banyak permission?"
     },
     "log_out": {
         "message": "Keluar",
