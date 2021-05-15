@@ -329,7 +329,7 @@
         "message": "Kurumsal hesaplar neden daha fazla izin gerektirir?"
     },
     "log_out": {
-        "message": "Çıkış",
+        "message": "Oturumu kapat",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
