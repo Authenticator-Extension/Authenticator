@@ -65,6 +65,7 @@ export default Vue.extend({
               (key) => ["key", "enc", "hash"].indexOf(key) === -1
             ).length;
           } catch (e) {
+            console.warn(e);
             const result = await getEntryDataFromOTPAuthPerLine(
               reader.result as string
             );
@@ -75,8 +76,10 @@ export default Vue.extend({
 
           let key: { enc: string; hash: string } | null = null;
 
-          if (importData.key) {
-            key = importData.key;
+          if (importData.hasOwnProperty("key")) {
+            if (importData.key) {
+              key = importData.key;
+            }
             delete importData.key;
           } else if (importData.enc && importData.hash) {
             key = { enc: importData.enc, hash: importData.hash };
