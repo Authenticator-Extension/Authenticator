@@ -56,7 +56,7 @@ if [[ $PLATFORM = "prod" ]]; then
 elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
     ./node_modules/.bin/tsc scripts/test-runner.ts --esModuleInterop
-else 
+else
     ./node_modules/webpack-cli/bin/cli.js
 fi
 ./node_modules/sass/sass.js sass:css
@@ -90,7 +90,7 @@ if [[ $PLATFORM = "prod" ]]; then
     postCompile "firefox"
     postCompile "edge"
     mkdir release
-    mv chrome firefox release
+    mv chrome firefox edge release
 elif [[ $PLATFORM = "test" ]]; then
     postCompile "chrome"
     postCompile "firefox"
