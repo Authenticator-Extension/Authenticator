@@ -71,6 +71,13 @@ async function init() {
         "accounts/updateExport",
         await EntryStorage.getExport(instance.$store.state.accounts.entries)
       );
+      instance.$store.commit(
+        "accounts/updateEncExport",
+        await EntryStorage.getExport(
+          instance.$store.state.accounts.entries,
+          true
+        )
+      );
       instance.$store.commit("accounts/updateCodes");
       instance.$store.commit("style/hideInfo", true);
     } else {

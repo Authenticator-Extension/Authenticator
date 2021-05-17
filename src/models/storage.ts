@@ -371,7 +371,9 @@ export class EntryStorage {
                 }
               }
             }
-            Object.assign(_data, { key: await BrowserStorage.getKey() });
+            if (encryption.getEncryptionStatus()) {
+              Object.assign(_data, { key: await BrowserStorage.getKey() });
+            }
             return resolve(_data);
           });
           return;

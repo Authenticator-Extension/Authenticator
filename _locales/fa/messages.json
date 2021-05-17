@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "همگام‌سازی دستی",
-        "description": "Manual sync"
+        "message": "پشتیبان گیری دستی",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "استفاده از قابلیت تکمیل خودکار",

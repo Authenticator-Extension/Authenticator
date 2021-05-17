@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Sincronització manual",
-        "description": "Manual sync"
+        "message": "Còpia de seguretat manual",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Utilitza l'emplenament automàtic",

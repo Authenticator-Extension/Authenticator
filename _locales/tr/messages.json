@@ -32,7 +32,7 @@
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Elle Giriş",
+        "message": "Elle Kayıt",
         "description": "Manual Entry."
     },
     "migration_fail": {
@@ -80,7 +80,7 @@
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Hatalı.",
+        "message": "Başarısız.",
         "description": "Update Failure."
     },
     "about": {
@@ -158,7 +158,7 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Çeviri",
+        "message": "Tercüme et",
         "description": "Translate."
     },
     "source": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: Tüm yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli düğmeye tıklayın.",
+        "message": "Uyarı: Yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli düğmeye tıklayın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Açılır pencere modu",
+        "message": "Pencere modu",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Elle Eşitleme",
-        "description": "Manual sync"
+        "message": "Elle Yedekle",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Otomatik Doldurmayı Kullanın",
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Oturum aç (Kurumsal)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Kurumsal hesaplar neden daha fazla izin gerektirir?"
     },
     "log_out": {
         "message": "Çıkış",

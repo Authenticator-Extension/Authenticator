@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Sincronizzazione Manuale",
-        "description": "Manual sync"
+        "message": "Backup Manuale",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Usa Autocompletamento",

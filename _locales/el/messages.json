@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Προσθήκη λογαριασμού",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Η εισαγωγή απέτυχε. Αν μεταφέρετε δεδομένα από το Google Authenticator, παρακαλούμε επανεξάγετε τα δεδομένα σας από το Google Authenticator και προσπαθήστε ξανά.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Ορισμένα δεδομένα λογαριασμού δεν εισήχθησαν με επιτυχία.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Καταλαβαίνω ότι όλα τα δεδομένα μου θα διαγραφούν οριστικά.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Επαναφορά Πιστοποιητή"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Αυτό θα διαγράψει όλα τα δεδομένα σας και θα επαναφέρετε πλήρως τον έλεγχο ταυτοποίησης. Δεν θα μπορείτε να ανακτήσετε τυχόν διαγραμμένα δεδομένα! Θα πρέπει να αποθηκεύσετε ένα αντίγραφο ασφαλείας πριν από την επαναφορά του ελέγχου ταυτοποίησης."
     },
     "security_warning": {
         "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει στη περίπτωση που ξεχάσετε τον κωδικό πρόσβασης.",
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Δεν μπορείτε να προσθέσετε ένα νέο λογαριασμό μέχρι όλοι οι λογαριασμοί να έχουν αποκρυπτογραφηθεί. Παρακαλώ εισάγετε τον σωστό κωδικό πρόσβασης πριν συνεχίσετε.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Οι λογαριασμοί που δεν μπόρεσαν να αποκρυπτογραφηθούν δεν θα συμπεριληφθούν σε αυτό το αντίγραφο ασφαλείας.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Προσπαθείτε να σαρώσετε τον κωδικό QR από ένα τοπικό αρχείο; Χρησιμοποιήστε την εισαγωγή αντιγράφου ασφαλείας εικόνας QR.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Εισαγωγή Αντιγράφου Ασφαλείας Εικόνας QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "Εισαγωγή με επιτυχία, αλλά κάποια εικόνα QR δεν μπορεί να αναγνωριστεί.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Μπορείτε να επιλέξετε πολλαπλά αρχεία για την εισαγωγή αντιγράφων ασφαλείας σε ομάδες.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Χειροκίνητος συγχρονισμός",
-        "description": "Manual sync"
+        "message": "Manual Backup",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Χρήση της αυτόματης συμπλήρωσης",
@@ -294,19 +294,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Θέμα",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Φωτεινό",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Σκούρο",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Υψηλή αντίθεση",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Συγχρονισμός δεδομένων",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Σύνδεση (Επιχείρηση)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Γιατί οι λογαριασμοί των επιχειρήσεων απαιτούν περισσότερες άδειες;"
     },
     "log_out": {
         "message": "Αποσύνδεση",
@@ -385,9 +385,9 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Αντίγραφο Ασφαλείας"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
     }
 }

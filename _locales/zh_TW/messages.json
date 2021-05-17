@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "手動同步",
-        "description": "Manual sync"
+        "message": "Manual Backup",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "啟用自動填充",

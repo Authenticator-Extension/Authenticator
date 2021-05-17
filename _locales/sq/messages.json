@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Sinkronizim Manual",
-        "description": "Manual sync"
+        "message": "Krijo kopje rezervë",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Përdor Autofill",
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Identifikohu (Llogari Biznesi)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Pse llogaria e biznesit kërkon më shumë leje?"
     },
     "log_out": {
         "message": "Dil",

@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "수동 동기화",
-        "description": "Manual sync"
+        "message": "Manual Backup",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "자동 입력 사용",

@@ -5,30 +5,18 @@
     "version": "6.3.2",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
-    "applications": {
-        "gecko": {
-            "id": "authenticator@mymindstorm",
-            "strict_min_version": "57.0"
-        }
-    },
     "icons": {
         "16": "images/icon16.png",
         "48": "images/icon48.png",
         "128": "images/icon128.png"
     },
     "browser_action": {
-        "browser_style": false,
         "default_icon": {
             "19": "images/icon19.png",
             "38": "images/icon38.png"
         },
         "default_title": "__MSG_extShortName__",
         "default_popup": "view/popup.html"
-    },
-    "background": {
-        "scripts": [
-            "dist/background.js"
-        ]
     },
     "commands": {
         "_execute_browser_action": {},
@@ -38,14 +26,35 @@
     },
     "options_ui": {
         "page": "view/options.html",
-        "browser_style": true
+        "chrome_style": true
+    },
+    "storage": {
+        "managed_schema": "schema.json"
+    },
+    "oauth2": {
+        "client_id": "292457304165-u8ve4j79gag5o231n5u2pdtdrbfdo1hh.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/drive.file"
+        ]
+    },
+    "background": {
+        "scripts": [
+            "dist/background.js"
+        ],
+        "persistent": true
+    },
+    "sandbox": {
+        "pages": [
+            "view/argon.html"
+        ],
+        "content_security_policy": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
     },
     "permissions": [
+        "activeTab",
         "storage",
         "identity"
     ],
     "optional_permissions": [
-        "<all_urls>",
         "clipboardWrite",
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
@@ -54,5 +63,6 @@
         "https://graph.microsoft.com/me/*",
         "https://login.microsoftonline.com/common/oauth2/v2.0/token"
     ],
+    "offline_enabled": true,
     "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
 }

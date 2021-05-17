@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Reset Authenticator\n"
     },
     "delete_all_warning": {
         "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
@@ -282,8 +282,8 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Ручная синхронизация",
-        "description": "Manual sync"
+        "message": "Резервное копирование вручную",
+        "description": "Manual backup"
     },
     "use_autofill": {
         "message": "Автозаполнение",
@@ -326,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Почему для бизнес-аккаунтов требуется больше разрешений?"
     },
     "log_out": {
         "message": "Выйти",
