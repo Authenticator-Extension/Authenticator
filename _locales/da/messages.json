@@ -52,7 +52,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Ja",
         "description": "Yes."
     },
     "no": {
@@ -88,7 +88,7 @@
         "description": "About."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Indstillinger",
         "description": "Settings."
     },
     "security": {
@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Nulstil Autentificering"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -294,19 +294,19 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Tema",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Lys",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Mørk",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Høj Kontrast",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Browser Synkronisering",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Log ind (Buisness)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Hvorfor kræver forretningskonti flere tilladelser?"
     },
     "log_out": {
         "message": "Log af",
@@ -385,9 +385,9 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Sikkerhedskopi"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Sikkerhedskopier dine data til en fil."
     }
 }
