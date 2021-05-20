@@ -100,7 +100,7 @@
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "HAYSI202050",
+        "message": "كلمة السرّ الجديدة",
         "description": "New Passphrase."
     },
     "phrase": {
