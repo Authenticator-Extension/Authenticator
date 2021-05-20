@@ -112,21 +112,21 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Opravdu chcete tento účet smazat? Tuto akci nelze vrátit zpět.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Chápu, že všechna moje data budou nenávratně smazána.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Resetovat autentifikátor"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Tímto smažete všechna vaše data a kompletně obnovíte autentifikátor. Nebudete moci obnovit žádná odstraněná data! Před resetováním autentifikátoru byste měli zvážit uložení zálohy."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Toto heslo bude použito k šifrování vašich účtů. Nikdo vám nemůže pomoci, pokud zapomenete heslo.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Nelze přidat nový účet, dokud nejsou všechny účty dešifrovány. Před pokračováním zadejte prosím správné heslo.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
