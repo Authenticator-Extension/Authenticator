@@ -16,6 +16,7 @@ import { CurrentView } from "./store/CurrentView";
 import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
+import { Advisor } from "./store/Advisor";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import { EntryStorage } from "./models/storage";
 
@@ -36,6 +37,7 @@ async function init() {
   const store = new Vuex.Store({
     modules: {
       accounts: await new Accounts().getModule(),
+      advisor: await new Advisor().getModule(),
       backup: new Backup().getModule(),
       currentView: new CurrentView().getModule(),
       menu: await new Menu().getModule(),

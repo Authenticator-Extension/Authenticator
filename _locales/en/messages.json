@@ -389,5 +389,53 @@
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
+    },
+    "advisor": {
+        "message": "Advisor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Password should be set to protect your data."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Auto lock should be set to protect your data."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browser sync should be enabled to sync data across browsers."
+    },
+    "advisor_insight_zoom_not_set_normal": {
+        "message": "Zoom should be set to 100% unless you expect scaling."
+    },
+    "advisor_insight_3rd_party_storage_not_enabled": {
+        "message": "3rd party storage services should be enabled to backup data."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Auto fill should be enabled to quickly fill code."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Smart filter should be enabled to quickly filter best-matched code."
+    },
+    "advisor_insight_high_contrast_enabled": {
+        "message": "High contrast should be disabled unless you need it."
+    },
+    "show_all_insights": {
+        "message": "Show all insights."
+    },
+    "no_insight_available": {
+        "message": "There's no insight available. Everything is good."
+    },
+    "critical": {
+        "message": "Critical"
+    },
+    "warning": {
+        "message": "Warning"
+    },
+    "info": {
+        "message": "Info"
+    },
+    "dismiss": {
+        "message": "Dismiss"
+    },
+    "learn_more": {
+        "message": "Learn more"
     }
 }
