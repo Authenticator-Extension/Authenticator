@@ -238,23 +238,23 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Μπορείτε να επιλέξετε πολλαπλά αρχεία για την εισαγωγή αντιγράφων ασφαλείας σε ομάδες.",
+        "message": "Μπορείτε να επιλέξετε περισσότερα από ένα αρχεία αντιγράφων ασφαλείας.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Εμφάνισε όλες τις καταχωρήσεις",
+        "message": "Να εμφανιστούν όλες οι καταχωρήσεις",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Προσοχή: τα αντίγραφα ασφαλείας δεν είναι κρυπτογραφημένα. Χρησιμοποιήστε το με δική σας ευθύνη.",
+        "message": "Προσοχή: τα αντίγραφα ασφαλείας δεν είναι κρυπτογραφημένα. Χρησιμοποιήστε τα με δική σας ευθύνη.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Πρέπει να παρέχετε το σωστό κωδικό πρόσβασης για να εισαγάγετε τα αντίγραφα ασφαλείας.",
+        "message": "Ο κωδικός πρόσβασης πρέπει να είναι σωστός για να εισαχθούν τα αντίγραφα ασφαλείας.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Τον κωδικό πρόσβασής σας είναι αποθηκευμένη τοπικά, παρακαλούμε αμέσως να το αλλάξετε από το μενού ασφάλεια.",
+        "message": "Ο κωδικός πρόσβασης είναι αποθηκευμένος τοπικά στον υπολογιστή σας. Σας συνιστούμε να τον αλλάξετε από το μενού ασφαλείας αμέσως.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Λήψη αντιγράφων ασφαλείας που προστατεύεται με κωδικό πρόσβασης",
+        "message": "Λήψη αντιγράφων ασφαλείας που προστατεύονται με κωδικό",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Αναδυόμενο παράθυρο λειτουργίας",
+        "message": "Λειτουργία αναδυόμενου παραθύρου",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Χειροκίνητη δημιουργία αντιγράφων ασφαλείας",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -326,14 +326,14 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Γιατί οι λογαριασμοί των επιχειρήσεων απαιτούν περισσότερες άδειες;"
+        "message": "Γιατί οι λογαριασμοί των επιχειρήσεων χρειάζονται περισσότερα δικαιώματα για να λειτουργήσουν σωστά;"
     },
     "log_out": {
         "message": "Αποσύνδεση",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Υπήρξε ένα πρόβλημα στην σύνδεση με τον $SERVICE$ λογαριασμό σας, παρακαλώ συνδεθείτε ξανά.",
+        "message": "Υπήρξε ένα πρόβλημα στην σύνδεση με τον λογαριασμό σας $SERVICE$. Προσπαθήστε να συνδεθείτε ξανά.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -343,7 +343,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Μη κρυπτογραφημένα αντίγραφα ασφαλείας δεν θα χρησιμοποιήσουν τυποποιημένη μορφή αντιγράφου ασφαλείας.",
+        "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Τα αντίγραφα ασφαλείας που δεν έχουν κρυπτογραφηθεί δε θα ακολουθήσουν τη συνηθισμένη μορφή των άλλων αντιγράφων.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -355,7 +355,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Φόρτωση σε εξέλιξη..."
+        "message": "Φόρτωση..."
     },
     "autolock": {
         "message": "Κλείδωμα μετά από"
@@ -382,7 +382,7 @@
         "message": "Αλγόριθμος"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Έξυπνο φίλτρο"
     },
     "backup": {
         "message": "Αντίγραφο Ασφαλείας"
