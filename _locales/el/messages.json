@@ -8,15 +8,15 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Ο επαληθευτής αναπαράγει κωδικούς επαλήθευσης ταυτότητας δυο παραγόντων, στο πρόγραμμα περιήγησής σας.",
+        "message": "Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
         "description": "Extension Description."
     },
     "added": {
-        "message": "έχει προστεθεί.",
+        "message": " έχει προστεθεί.",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Μη αναγνωρισμένος κώδικας QR.",
+        "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Σάρωση QR κωδικού",
+        "message": "Σάρωση κώδικα QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -76,11 +76,11 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Επιτυχία",
+        "message": "Επιτυχία.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Αποτυχία",
+        "message": "Αποτυχία.",
         "description": "Update Failure."
     },
     "about": {
@@ -96,7 +96,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Τρέχον Κωδικός",
+        "message": "Παλιός κωδικός πρόσβασης",
         "description": "Current Passphrase."
     },
     "new_phrase": {
