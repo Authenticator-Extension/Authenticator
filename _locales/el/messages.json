@@ -108,7 +108,7 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Επιβεβαίωση Κωδικού Πρόσβασης",
+        "message": "Επιβεβαίωση κωδικού πρόσβασης",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Εισάγετε κωδικό πρόσβασης για να αποκρυπτογραφήσει τα δεδομένα του λογαριασμού.",
+        "message": "Εισάγετε τον κωδικό πρόσβασης για να αποκρυπτογραφήσετε τα δεδομένα του λογαριασμού.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -178,19 +178,19 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "ΠΡΟΣΟΧΗ! Τοπικό ρολόι σας είναι πάρα πολύ μακριά, παρακαλώ διορθώστε το πριν να συνεχίσετε.",
+        "message": "Προσοχή! Τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Έχετε ένα αντίγραφο ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
+        "message": "Έχετε δημιουργήσει αντίγραφα ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Η καταγραφή απέτυχε, επαναλάβετε τη φόρτωση της σελίδας και προσπαθήστε ξανά.",
+        "message": "Η καταγραφή απέτυχε, επαναφορτώστε τη σελίδα και προσπαθήστε ξανά.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Προσπαθείτε να σαρώσετε τον κωδικό QR από ένα τοπικό αρχείο; Χρησιμοποιήστε την εισαγωγή αντιγράφου ασφαλείας εικόνας QR.",
+        "message": "Προσπαθείτε να σαρώσετε τον κωδικό QR από ένα τοπικό αρχείο; Κάντε κλικ στο \"Εισαγωγή αντιγράφου ασφαλείας εικόνας QR\".",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Προειδοποίηση: όλα τα αντίγραφα ασφαλείας είναι κρυπτογραφημένη. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Καταδείξτε επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και πάτα το κουμπί κρυφό.",
+        "message": "Προσοχή: κανένα από τα αντίγραφα ασφαλείας σας δεν είναι κρυπτογραφημένα. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Σύρετε το ποντίκι στο επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και κάντε κλικ στο κρυφό κουμπί.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -226,15 +226,15 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Εισαγωγή Αντιγράφου Ασφαλείας Εικόνας QR",
+        "message": "Εισαγωγή αντιγράφου ασφαλείας εικόνας QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Αντίγραφο ασφαλείας εισαγώμενου κειμένου",
+        "message": "Εισαγωγή αντιγράφου ασφαλείας κειμένου",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Εισαγωγή με επιτυχία, αλλά κάποια εικόνα QR δεν μπορεί να αναγνωριστεί.",
+        "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά κάποια εικόνα QR δεν αναγνωρίστηκε.",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
