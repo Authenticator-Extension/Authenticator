@@ -147,6 +147,41 @@ async function init() {
     false
   );
 
+  document.body.addEventListener("keydown", (e) => {
+    if (
+      document.activeElement?.nodeName === "INPUT" ||
+      document.activeElement?.nodeName === "TEXTAREA"
+    ) {
+      return;
+    }
+
+    const index = Number(e.key);
+    if (Number.isNaN(index)) {
+      return;
+    }
+
+    const numEntries = instance.$store.state.accounts.entries.length;
+
+    if (index > numEntries) {
+      return;
+    }
+
+    const codeClipboard = document.querySelector<HTMLInputElement>(
+      "#codeClipboard"
+    );
+
+    if (!codeClipboard) {
+      return;
+    }
+
+    codeClipboard.value =
+      instance.$store.state.accounts.entries[index - 1].code;
+    codeClipboard.focus();
+    codeClipboard.select();
+    document.execCommand("Copy");
+    window.close();
+  });
+
   // Show search box if more than 10 entries
   if (
     instance.$store.state.accounts.entries.length >= 10 &&
