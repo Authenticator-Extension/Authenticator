@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "手動備份",
         "description": "Manual backup"
     },
     "use_autofill": {
