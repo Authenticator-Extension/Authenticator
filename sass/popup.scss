@@ -21,6 +21,14 @@ body {
   font-size: 16px;
   cursor: default;
   user-select: none;
+
+  :focus {
+    outline: auto;
+  }
+}
+
+.hideoutline * {
+  outline: none !important;
 }
 
 svg {
@@ -282,6 +290,8 @@ svg {
   }
   border-radius: 2px;
   position: relative;
+  display: block;
+  cursor: pointer;
 
   .issuer {
     font-size: 12px;
@@ -301,7 +311,6 @@ svg {
     width: 80%;
     user-select: text;
     font-family: "Droid Sans Mono";
-    cursor: pointer;
   }
 
   .sector,

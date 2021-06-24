@@ -1,5 +1,16 @@
 <template>
-  <div>
+  <a
+    role="button"
+    data-x-role="entry"
+    v-bind:tabindex="tabindex"
+    v-bind:class="{
+      entry: true,
+      pinnedEntry: entry.pinned,
+      'no-copy': noCopy(entry.code),
+    }"
+    v-on:click="copyCode(entry)"
+    v-on:keydown.enter="copyCode(entry)"
+  >
     <div class="deleteAction" v-on:click="removeEntry(entry)">
       <IconMinusCircle />
     </div>
@@ -40,10 +51,8 @@
       v-bind:class="{
         code: true,
         hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
-        'no-copy': noCopy(entry.code),
         timeout: entry.period - (second % entry.period) < 5,
       }"
-      v-on:click="copyCode(entry)"
       v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
     <div class="issuer">{{ entry.account }}</div>
@@ -58,17 +67,17 @@
     <div
       class="showqr"
       v-if="shouldShowQrIcon(entry)"
-      v-on:click="showQr(entry)"
+      v-on:click.stop="showQr(entry)"
     >
       <IconQr />
     </div>
-    <div class="pin" v-on:click="pin(entry)">
+    <div class="pin" v-on:click.stop="pin(entry)">
       <IconPin />
     </div>
     <div class="movehandle">
       <IconBars />
     </div>
-  </div>
+  </a>
 </template>
 <script lang="ts">
 import Vue from "vue";
@@ -104,6 +113,7 @@ export default Vue.extend({
   computed,
   props: {
     entry: OTPEntry,
+    tabindex: Number,
   },
   methods: {
     noCopy(code: string) {

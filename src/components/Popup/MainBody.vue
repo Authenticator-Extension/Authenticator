@@ -22,21 +22,21 @@
       </div>
     </div>
     <!-- Entries -->
-    <div v-dragula drake="entryDrake">
+    <div
+      v-dragula
+      drake="entryDrake"
+      v-on:keydown.down="focusNextEntry(entries, shouldFilter, filter)"
+      v-on:keydown.right="focusNextEntry(entries, shouldFilter, filter)"
+      v-on:keydown.up="focusLastEntry(entries, shouldFilter, filter)"
+      v-on:keydown.left="focusLastEntry(entries, shouldFilter, filter)"
+    >
       <EntryComponent
-        class="entry pinnedEntry"
-        v-for="entry in pinnedEntries"
+        v-for="entry in entries"
         :key="entry.hash"
+        v-bind:filtered="!entry.pinned && !isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
         v-bind:entry="entry"
-      />
-      <EntryComponent
-        class="entry"
-        v-for="entry in unpinnedEntries"
-        :key="entry.hash"
-        v-bind:filtered="!isMatchedEntry(entry)"
-        v-bind:notSearched="!isSearchedEntry(entry)"
-        v-bind:entry="entry"
+        v-bind:tabindex="getTabindex(entry, entries, shouldFilter, filter)"
       />
     </div>
   </div>
@@ -53,10 +53,7 @@ import IconPlus from "../../../svg/plus.svg";
 
 let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
 
-Object.assign(
-  computed,
-  mapGetters("accounts", ["shouldFilter", "pinnedEntries", "unpinnedEntries"])
-);
+Object.assign(computed, mapGetters("accounts", ["shouldFilter", "entries"]));
 
 export default Vue.extend({
   data: function () {
@@ -65,6 +62,9 @@ export default Vue.extend({
     };
   },
   computed,
+  mounted: function () {
+    document.querySelector<HTMLLinkElement>(".entry[tabindex='0']")?.focus();
+  },
   methods: {
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
@@ -89,6 +89,87 @@ export default Vue.extend({
     },
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
+    },
+    isEntryVisible(entry: OTPEntry, shouldFilter: boolean, filter: boolean) {
+      return (
+        this.isSearchedEntry(entry) &&
+        (entry.pinned || !shouldFilter || !filter || this.isMatchedEntry(entry))
+      );
+    },
+    getTabindex(
+      entry: OTPEntry,
+      entries: OTPEntry[],
+      shouldFilter: boolean,
+      filter: boolean
+    ) {
+      const firstEntry = entries.find((entry) =>
+        this.isEntryVisible(entry, shouldFilter, filter)
+      );
+
+      return entry === firstEntry ? 0 : -1;
+    },
+    findNextEntryIndex(
+      entries: OTPEntry[],
+      shouldFilter: boolean,
+      filter: boolean,
+      reverse: boolean
+    ) {
+      if (document.activeElement?.getAttribute("data-x-role") !== "entry") {
+        return -1;
+      }
+
+      const activeIndex = Array.prototype.indexOf.call(
+        document.querySelectorAll(".entry"),
+        document.activeElement
+      );
+      if (activeIndex === -1) {
+        return -1;
+      }
+
+      // reverse modify origin array, and use slice() to make a clone first
+      const _entries = reverse ? entries.slice().reverse() : entries;
+
+      let nextIndex = _entries.findIndex(
+        (entry, index) =>
+          index > (reverse ? entries.length - 1 - activeIndex : activeIndex) &&
+          this.isEntryVisible(entry, shouldFilter, filter)
+      );
+
+      if (nextIndex === -1) {
+        nextIndex = _entries.findIndex((entry) =>
+          this.isEntryVisible(entry, shouldFilter, filter)
+        );
+      }
+
+      return nextIndex;
+    },
+    focusNextEntry(
+      entries: OTPEntry[],
+      shouldFilter: boolean,
+      filter: boolean
+    ) {
+      const nextIndex = this.findNextEntryIndex(
+        entries,
+        shouldFilter,
+        filter,
+        false
+      );
+      document
+        .querySelector<HTMLLinkElement>(`.entry:nth-child(${nextIndex + 1})`)
+        ?.focus();
+    },
+    focusLastEntry(
+      entries: OTPEntry[],
+      shouldFilter: boolean,
+      filter: boolean
+    ) {
+      const lastIndex =
+        entries.length -
+        1 -
+        this.findNextEntryIndex(entries, shouldFilter, filter, true);
+      document
+        .querySelector<HTMLLinkElement>(`.entry:nth-child(${lastIndex + 1})`)
+        ?.focus();
     },
   },
   created() {
