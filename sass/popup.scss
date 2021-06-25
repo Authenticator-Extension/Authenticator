@@ -1071,6 +1071,11 @@ svg {
     }
   }
 
+  #info {
+    border: 1px solid white;
+    box-shadow: none;
+  }
+
   #info .control-group input[type="checkbox"]::before {
     background: none;
     border: 2px solid white;
@@ -1089,5 +1094,26 @@ svg {
 
   .input {
     color: black;
+  }
+
+  #notification {
+    &.fadein {
+      opacity: 1;
+      animation: none;
+    }
+
+    &.fadeout {
+      opacity: 0;
+      animation: none;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    background: black !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: white !important;
+    border: 2px solid black !important;
   }
 }
