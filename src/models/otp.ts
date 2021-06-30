@@ -21,6 +21,8 @@ export enum OTPAlgorithm {
   SHA1 = 1,
   SHA256,
   SHA512,
+  GOST3411_2012_256,
+  GOST3411_2012_512,
 }
 
 export class OTPEntry implements OTPEntryInterface {
