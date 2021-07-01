@@ -589,7 +589,7 @@ export class Accounts implements Module {
       return false;
     }
 
-    const matched: string[] = [];
+    const matched = [];
 
     for (const entry of entries) {
       if (this.isMatchedEntry(siteName, entry)) {

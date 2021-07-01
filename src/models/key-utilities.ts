@@ -215,7 +215,7 @@ export class KeyUtilities {
 
     const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
 
-    let offset = this.hex2dec(hmac.substring(hmac.length - 1));
+    const offset = this.hex2dec(hmac.substring(hmac.length - 1));
 
     let otp =
       (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +
