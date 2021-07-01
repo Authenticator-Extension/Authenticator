@@ -92,23 +92,23 @@ export class KeyUtilities {
     return output;
   }
 
-  static CryptoJsWordArrayToUint8Array(wordArray: CryptoJS.lib.WordArray) {
+  private static cryptoJsWordArrayToUint8Array(
+    wordArray: CryptoJS.lib.WordArray
+  ) {
     const l = wordArray.sigBytes;
     const words = wordArray.words;
     const result = new Uint8Array(l);
     let i = 0 /*dst*/,
       j = 0; /*src*/
-    // eslint-disable-next-line no-constant-condition
-    while (true) {
+    while (i < l) {
       // here i is a multiple of 4
-      if (i == l) break;
       const w = words[j++];
       result[i++] = (w & 0xff000000) >>> 24;
-      if (i == l) break;
+      if (i === l) break;
       result[i++] = (w & 0x00ff0000) >>> 16;
-      if (i == l) break;
+      if (i === l) break;
       result[i++] = (w & 0x0000ff00) >>> 8;
-      if (i == l) break;
+      if (i === l) break;
       result[i++] = w & 0x000000ff;
     }
     return result;
@@ -189,16 +189,16 @@ export class KeyUtilities {
       case OTPAlgorithm.GOST3411_2012_256:
       case OTPAlgorithm.GOST3411_2012_512:
         GostUtilities.GostDigestHMAC(
-          algorithm == OTPAlgorithm.GOST3411_2012_256
+          algorithm === OTPAlgorithm.GOST3411_2012_256
             ? 256
-            : algorithm == OTPAlgorithm.GOST3411_2012_512
+            : algorithm === OTPAlgorithm.GOST3411_2012_512
             ? 512
             : 0
         );
         hmacObj = CryptoJS.lib.WordArray.create(
           GostUtilities.sign(
-            this.CryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(key)),
-            this.CryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(time))
+            this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(key)),
+            this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(time))
           )
         );
         break;

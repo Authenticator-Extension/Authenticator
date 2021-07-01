@@ -1,13 +1,13 @@
 /**
- * @file GOST R 34.11-94 / GOST R 34.11-12 implementation
- * @version 1.76
- * @copyright 2014-2016, Rudolf Nickolaev. All rights reserved.
+ * @file GOST R 34.11-12 implementation for GostOTP
+ * @version 2.02
+ * @copyright 2021, Dmitrii Katenko. N-KRAFT LLC. All rights reserved.
  */
 
 /**
- * @file GOST R 34.11-12 implementation for GostOTP
- * @version 2.01
- * @copyright 2021, Dmitrii Katenko. N-KRAFT. All rights reserved.
+ * @file GOST R 34.11-94 / GOST R 34.11-12 implementation
+ * @version 1.76
+ * @copyright 2014-2016, Rudolf Nickolaev. All rights reserved.
  */
 
 /*
