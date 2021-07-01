@@ -1,6 +1,6 @@
 import { OTPType, OTPAlgorithm } from "./otp";
 import * as CryptoJS from "crypto-js";
-import { GostUtilities } from "./gost";
+import { GostEngine, GostDigest, AlgorithmIndentifier } from "crypto-gost";
 
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
@@ -172,6 +172,9 @@ export class KeyUtilities {
       }
     }
 
+    let alg: AlgorithmIndentifier;
+    let gostCipher: GostDigest;
+
     let hmacObj: CryptoJS.lib.WordArray;
     switch (algorithm) {
       case OTPAlgorithm.SHA256:
@@ -188,15 +191,19 @@ export class KeyUtilities {
         break;
       case OTPAlgorithm.GOST3411_2012_256:
       case OTPAlgorithm.GOST3411_2012_512:
-        GostUtilities.GostDigestHMAC(
-          algorithm === OTPAlgorithm.GOST3411_2012_256
+        alg = {
+          mode: "HMAC",
+          name: "GOST R 34.11",
+          version: 2012,
+          length: OTPAlgorithm.GOST3411_2012_256
             ? 256
             : algorithm === OTPAlgorithm.GOST3411_2012_512
             ? 512
-            : 0
-        );
+            : 0,
+        };
+        gostCipher = GostEngine.getGostDigest(alg);
         hmacObj = CryptoJS.lib.WordArray.create(
-          GostUtilities.sign(
+          gostCipher.sign(
             this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(key)),
             this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(time))
           )
