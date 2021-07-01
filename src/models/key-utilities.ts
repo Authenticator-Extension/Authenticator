@@ -1,4 +1,4 @@
-import { OTPType, OTPAlgorithm } from "./otp";
+import { OTPType, OTPAlgorithm, OTPUtil } from "./otp";
 import * as CryptoJS from "crypto-js";
 import { GostEngine, GostDigest, AlgorithmIndentifier } from "crypto-gost";
 
@@ -195,11 +195,7 @@ export class KeyUtilities {
           mode: "HMAC",
           name: "GOST R 34.11",
           version: 2012,
-          length: OTPAlgorithm.GOST3411_2012_256
-            ? 256
-            : algorithm === OTPAlgorithm.GOST3411_2012_512
-            ? 512
-            : 0,
+          length: OTPUtil.getOTPAlgorithmSpec(algorithm).length,
         };
         gostCipher = GostEngine.getGostDigest(alg);
         hmacObj = CryptoJS.lib.WordArray.create(
@@ -219,8 +215,7 @@ export class KeyUtilities {
 
     const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
 
-    let offset = 0;
-    offset = this.hex2dec(hmac.substring(hmac.length - 1));
+    let offset = this.hex2dec(hmac.substring(hmac.length - 1));
 
     let otp =
       (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +
