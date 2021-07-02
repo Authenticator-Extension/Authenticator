@@ -10,5 +10,6 @@ declare module "crypto-gost" {
   }
   interface GostDigest {
     sign(key: Uint8Array, data: Uint8Array): number[];
+    verify(key: Uint8Array, signature: Uint8Array, data: Uint8Array): boolean;
   }
 }
