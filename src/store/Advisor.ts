@@ -35,35 +35,13 @@ const insightsData: AdvisorInsightInterface[] = [
   },
   {
     id: "browserSyncNotEnabled",
-    level: InsightLevel.warning,
+    level: InsightLevel.info,
     description: chrome.i18n.getMessage(
       "advisor_insight_browser_sync_not_enabled"
     ),
     validation: async () => {
       const storageArea = localStorage.storageLocation;
       return storageArea !== "sync";
-    },
-  },
-  {
-    id: "zoomNotSetNormal",
-    level: InsightLevel.warning,
-    description: chrome.i18n.getMessage("advisor_insight_zoom_not_set_normal"),
-    validation: async () => {
-      return localStorage.zoom && localStorage.zoom !== "100";
-    },
-  },
-  {
-    id: "3rdPartyStorageNotEnabled",
-    level: InsightLevel.warning,
-    description: chrome.i18n.getMessage(
-      "advisor_insight_3rd_party_storage_not_enabled"
-    ),
-    validation: async () => {
-      return (
-        !localStorage.driveToke &&
-        !localStorage.dropboxToken &&
-        !localStorage.oneDriveToken
-      );
     },
   },
   {
@@ -84,16 +62,6 @@ const insightsData: AdvisorInsightInterface[] = [
     ),
     validation: async () => {
       return localStorage.smartFilter === "false";
-    },
-  },
-  {
-    id: "highContrastEnabled",
-    level: InsightLevel.info,
-    description: chrome.i18n.getMessage(
-      "advisor_insight_high_contrast_enabled"
-    ),
-    validation: async () => {
-      return localStorage.highContrast === "true";
     },
   },
 ];
