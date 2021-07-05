@@ -1,17 +1,26 @@
-import { GostEngine, GostDigest, AlgorithmIndentifier } from "crypto-gost";
-
+import { AlgorithmIndentifier, GostDigest, GostEngine } from "crypto-gost";
 import { expect } from "chai";
+import { KeyUtilities } from "../models/key-utilities";
+import { OTPAlgorithm, OTPType, OTPUtil } from "../models/otp";
 
-describe("Test Gost Hash", () => {
+describe("Test GOST 2012", () => {
   const secret: string = getRandomHEXString(32);
-  const epoch: number = Math.round(Date.now() / 1000.0);
-  const period: number = 30;
-  const counter: number = Math.floor(epoch / period);
-  testGostHash(secret, counter, 256);
-  testGostHash(secret, counter, 512);
+  const counter: number = calculateCounter(new Date());
+  testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_256);
+  testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_512);
 });
 
-function testGostHash(secret: string, counter: number, length: number) {
+function calculateCounter(date: Date) {
+  const epoch: number = Math.round(date.getTime() / 1000.0);
+  const period: number = 30;
+  return Math.floor(epoch / period);
+}
+
+function testAlgorithm(
+  secret: string,
+  counter: number,
+  algorithm: OTPAlgorithm
+) {
   const previousCounter = counter - 1;
   let alg: AlgorithmIndentifier;
   let cipher: GostDigest;
@@ -19,7 +28,7 @@ function testGostHash(secret: string, counter: number, length: number) {
     mode: "HMAC",
     name: "GOST R 34.11",
     version: 2012,
-    length: length,
+    length: OTPUtil.getOTPAlgorithmSpec(algorithm).length,
   };
   cipher = GostEngine.getGostDigest(alg);
   //current counter
@@ -53,7 +62,7 @@ function testGostHash(secret: string, counter: number, length: number) {
   //check hash algorithm
   it(
     "(" +
-      length +
+      OTPAlgorithm[algorithm] +
       ") " +
       "hash from secret '" +
       secret +
@@ -61,7 +70,7 @@ function testGostHash(secret: string, counter: number, length: number) {
       counter +
       "' = '" +
       signature +
-      "', verifying hash",
+      "', verifying",
     () => {
       expect(isSignatureOk).to.eq(true);
     }
@@ -69,7 +78,7 @@ function testGostHash(secret: string, counter: number, length: number) {
   //check previous hash algorithm
   it(
     "(" +
-      length +
+      OTPAlgorithm[algorithm] +
       ") " +
       "hash from secret '" +
       secret +
@@ -77,20 +86,57 @@ function testGostHash(secret: string, counter: number, length: number) {
       previousCounter +
       "' = '" +
       prevSignature +
-      "', verifying hash",
+      "', verifying",
     () => {
       expect(isPrevSignatureOk).to.eq(true);
     }
   );
   //check otp is different from previous one
   it(
-    "current otp = '" +
+    "(" +
+      OTPAlgorithm[algorithm] +
+      ") " +
+      "current otp = '" +
       otp +
       "', previous otp = '" +
       previousOtp +
       "', verifying otp codes are different",
     () => {
       expect(otp).to.not.eq(previousOtp);
+    }
+  );
+  //check otp generated is valid
+  const _secret = "B1B0AE0E5ADFBF89A5F7DF440592A3AE"; //measuring 'secret'
+  const _date = new Date("2021-01-01T00:00:00.000Z"); //measuring 'date'
+  const _counter = calculateCounter(_date);
+  const _otp = KeyUtilities.generate(
+    OTPType.hotp,
+    _secret,
+    _counter,
+    30,
+    6,
+    algorithm
+  );
+  let _validOtp = "";
+  if (algorithm === OTPAlgorithm.GOST3411_2012_256) {
+    _validOtp = "982313"; //measuring 'otp'
+  }
+  if (algorithm === OTPAlgorithm.GOST3411_2012_512) {
+    _validOtp = "733980"; //measuring 'otp'
+  }
+  it(
+    "(" +
+      OTPAlgorithm[algorithm] +
+      ") " +
+      "valid otp for secret '" +
+      _secret +
+      "' and date '" +
+      _date +
+      "' is '" +
+      _validOtp +
+      "', verifying",
+    () => {
+      expect(_otp).to.eq(_validOtp);
     }
   );
 }
