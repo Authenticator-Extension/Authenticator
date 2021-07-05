@@ -414,8 +414,8 @@
     "no_insight_available": {
         "message": "No insights found, everything looks good!"
     },
-    "critical": {
-        "message": "Critical"
+    "danger": {
+        "message": "Danger"
     },
     "warning": {
         "message": "Warning"

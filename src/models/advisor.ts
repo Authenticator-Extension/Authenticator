@@ -1,5 +1,5 @@
 export enum InsightLevel {
-  critical = "critical",
+  danger = "danger",
   warning = "warning",
   info = "info",
 }
@@ -14,8 +14,8 @@ export class AdvisorInsight implements AdvisorInsightInterface {
 
   constructor(insight: AdvisorInsightInterface) {
     switch (insight.level as InsightLevel) {
-      case InsightLevel.critical:
-        this.levelText = chrome.i18n.getMessage("critical");
+      case InsightLevel.danger:
+        this.levelText = chrome.i18n.getMessage("danger");
         break;
       case InsightLevel.warning:
         this.levelText = chrome.i18n.getMessage("warning");

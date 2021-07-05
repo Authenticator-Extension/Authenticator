@@ -22,6 +22,9 @@ import Vue from "vue";
 import AdvisorInsight from "./AdvisorInsight.vue";
 
 export default Vue.extend({
+  mounted: function () {
+    this.$store.commit("advisor/updateInsight");
+  },
   computed: {
     insights: function () {
       return this.$store.state.advisor.insights;

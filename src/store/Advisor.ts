@@ -1,20 +1,14 @@
+import { EntryStorage } from "../models/storage";
 import { InsightLevel, AdvisorInsight } from "../models/advisor";
 
 const insightsData: AdvisorInsightInterface[] = [
   {
     id: "passwordNotSet",
-    level: InsightLevel.critical,
+    level: InsightLevel.danger,
     description: chrome.i18n.getMessage("advisor_insight_password_not_set"),
     validation: async () => {
-      const storageArea = localStorage.storageLocation;
-      const storage =
-        storageArea === "sync" ? chrome.storage.sync : chrome.storage.local;
-
-      return new Promise((resolve) => {
-        storage.get((items) => {
-          return resolve(!items.key?.enc);
-        });
-      });
+      const hasEncryptedEntry = await EntryStorage.hasEncryptedEntry();
+      return !hasEncryptedEntry;
     },
   },
   {
@@ -22,15 +16,8 @@ const insightsData: AdvisorInsightInterface[] = [
     level: InsightLevel.warning,
     description: chrome.i18n.getMessage("advisor_insight_auto_lock_not_set"),
     validation: async () => {
-      const storageArea = localStorage.storageLocation;
-      const storage =
-        storageArea === "sync" ? chrome.storage.sync : chrome.storage.local;
-
-      return new Promise((resolve) => {
-        storage.get((items) => {
-          return resolve(items.key?.enc && !Number(localStorage.autolock));
-        });
-      });
+      const hasEncryptedEntry = await EntryStorage.hasEncryptedEntry();
+      return hasEncryptedEntry && !Number(localStorage.autolock);
     },
   },
   {
@@ -85,6 +72,10 @@ export class Advisor implements Module {
           localStorage.removeItem("advisorIgnoreList");
 
           state.insights = await this.getInsights();
+        },
+        updateInsight: async (state: AdvisorState) => {
+          state.insights = await this.getInsights();
+          state.ignoreList = JSON.parse(localStorage.advisorIgnoreList || "[]");
         },
       },
       namespaced: true,
