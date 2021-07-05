@@ -14,6 +14,7 @@
         v-model="searchText"
         v-bind:placeholder="i18n.search"
         type="text"
+        tabindex="-1"
       />
       <div id="searchHint" v-if="searchText === ''">
         <div></div>
@@ -25,10 +26,10 @@
     <div
       v-dragula
       drake="entryDrake"
-      v-on:keydown.down="focusNextEntry(entries, shouldFilter, filter)"
-      v-on:keydown.right="focusNextEntry(entries, shouldFilter, filter)"
-      v-on:keydown.up="focusLastEntry(entries, shouldFilter, filter)"
-      v-on:keydown.left="focusLastEntry(entries, shouldFilter, filter)"
+      v-on:keydown.down="focusNextEntry()"
+      v-on:keydown.right="focusNextEntry()"
+      v-on:keydown.up="focusLastEntry()"
+      v-on:keydown.left="focusLastEntry()"
     >
       <EntryComponent
         v-for="entry in entries"
@@ -36,7 +37,7 @@
         v-bind:filtered="!entry.pinned && !isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
         v-bind:entry="entry"
-        v-bind:tabindex="getTabindex(entry, entries, shouldFilter, filter)"
+        v-bind:tabindex="getTabindex(entry)"
       />
     </div>
   </div>
@@ -51,9 +52,15 @@ import EntryComponent from "./EntryComponent.vue";
 
 import IconPlus from "../../../svg/plus.svg";
 
-let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
-
-Object.assign(computed, mapGetters("accounts", ["shouldFilter", "entries"]));
+const computed: {
+  filter: () => boolean;
+  showSearch: () => boolean;
+  shouldFilter: () => boolean;
+  entries: () => OTPEntry[];
+} = {
+  ...mapState("accounts", ["filter", "showSearch"]),
+  ...mapGetters("accounts", ["shouldFilter", "entries"]),
+};
 
 export default Vue.extend({
   data: function () {
@@ -90,30 +97,23 @@ export default Vue.extend({
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
     },
-    isEntryVisible(entry: OTPEntry, shouldFilter: boolean, filter: boolean) {
+    isEntryVisible(entry: OTPEntry) {
       return (
         this.isSearchedEntry(entry) &&
-        (entry.pinned || !shouldFilter || !filter || this.isMatchedEntry(entry))
+        (entry.pinned ||
+          !this.shouldFilter ||
+          !this.filter ||
+          this.isMatchedEntry(entry))
       );
     },
-    getTabindex(
-      entry: OTPEntry,
-      entries: OTPEntry[],
-      shouldFilter: boolean,
-      filter: boolean
-    ) {
-      const firstEntry = entries.find((entry) =>
-        this.isEntryVisible(entry, shouldFilter, filter)
+    getTabindex(entry: OTPEntry) {
+      const firstEntry = this.entries.find((entry) =>
+        this.isEntryVisible(entry)
       );
 
       return entry === firstEntry ? 0 : -1;
     },
-    findNextEntryIndex(
-      entries: OTPEntry[],
-      shouldFilter: boolean,
-      filter: boolean,
-      reverse: boolean
-    ) {
+    findNextEntryIndex(reverse: boolean) {
       if (document.activeElement?.getAttribute("data-x-role") !== "entry") {
         return -1;
       }
@@ -127,46 +127,29 @@ export default Vue.extend({
       }
 
       // reverse modify origin array, and use slice() to make a clone first
-      const _entries = reverse ? entries.slice().reverse() : entries;
+      const _entries = reverse ? this.entries.slice().reverse() : this.entries;
 
       let nextIndex = _entries.findIndex(
         (entry, index) =>
-          index > (reverse ? entries.length - 1 - activeIndex : activeIndex) &&
-          this.isEntryVisible(entry, shouldFilter, filter)
+          index >
+            (reverse ? this.entries.length - 1 - activeIndex : activeIndex) &&
+          this.isEntryVisible(entry)
       );
 
       if (nextIndex === -1) {
-        nextIndex = _entries.findIndex((entry) =>
-          this.isEntryVisible(entry, shouldFilter, filter)
-        );
+        nextIndex = _entries.findIndex((entry) => this.isEntryVisible(entry));
       }
 
       return nextIndex;
     },
-    focusNextEntry(
-      entries: OTPEntry[],
-      shouldFilter: boolean,
-      filter: boolean
-    ) {
-      const nextIndex = this.findNextEntryIndex(
-        entries,
-        shouldFilter,
-        filter,
-        false
-      );
+    focusNextEntry() {
+      const nextIndex = this.findNextEntryIndex(false);
       document
         .querySelector<HTMLLinkElement>(`.entry:nth-child(${nextIndex + 1})`)
         ?.focus();
     },
-    focusLastEntry(
-      entries: OTPEntry[],
-      shouldFilter: boolean,
-      filter: boolean
-    ) {
-      const lastIndex =
-        entries.length -
-        1 -
-        this.findNextEntryIndex(entries, shouldFilter, filter, true);
+    focusLastEntry() {
+      const lastIndex = this.entries.length - 1 - this.findNextEntryIndex(true);
       document
         .querySelector<HTMLLinkElement>(`.entry:nth-child(${lastIndex + 1})`)
         ?.focus();

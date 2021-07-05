@@ -232,10 +232,12 @@ export default Vue.extend({
               );
             }
 
+            const lastActiveElement = document.activeElement as HTMLElement;
             codeClipboard.value = entry.code;
             codeClipboard.focus();
             codeClipboard.select();
             document.execCommand("Copy");
+            lastActiveElement.focus();
             this.$store.dispatch(
               "notification/ephermalMessage",
               this.i18n.copied
