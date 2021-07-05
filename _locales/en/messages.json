@@ -421,7 +421,7 @@
         "message": "Show all insights."
     },
     "no_insight_available": {
-        "message": "There's no insight available. Everything is good."
+        "message": "No insights found, everything looks good!"
     },
     "critical": {
         "message": "Critical"
