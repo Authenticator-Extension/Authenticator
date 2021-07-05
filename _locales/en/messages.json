@@ -397,7 +397,7 @@
         "message": "Set a password to protect your data."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Auto lock should be set to protect your data."
+        "message": "Enable auto-lock to protect your data."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync should be enabled to sync data across browsers."
