@@ -394,7 +394,7 @@
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Password should be set to protect your data."
+        "message": "Set a password to protect your data."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Auto lock should be set to protect your data."
