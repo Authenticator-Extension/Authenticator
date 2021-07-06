@@ -5,7 +5,10 @@
       'theme-normal': theme !== 'accessibility' && theme !== 'dark',
       'theme-accessibility': theme === 'accessibility',
       'theme-dark': theme === 'dark',
+      hideoutline,
     }"
+    v-on:mousedown="hideoutline = true"
+    v-on:keydown="hideoutline = false"
   >
     <MainHeader />
     <MainBody
@@ -51,7 +54,7 @@
     ></div>
 
     <!-- CLIPBOARD -->
-    <input type="text" id="codeClipboard" />
+    <input type="text" id="codeClipboard" tabindex="-1" />
   </div>
 </template>
 <script lang="ts">
@@ -78,6 +81,11 @@ for (const module of computedPrototype) {
 }
 
 export default Vue.extend({
+  data: function () {
+    return {
+      hideoutline: true,
+    };
+  },
   computed,
   methods: {
     hideQr() {

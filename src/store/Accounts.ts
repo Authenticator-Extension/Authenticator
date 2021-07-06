@@ -59,11 +59,12 @@ export class Accounts implements Module {
           }
           return false;
         },
-        pinnedEntries(state: AccountsState) {
-          return state.entries.filter((entry) => entry.pinned);
-        },
-        unpinnedEntries(state: AccountsState) {
-          return state.entries.filter((entry) => !entry.pinned);
+        entries(state: AccountsState) {
+          const pinnedEntries = state.entries.filter((entry) => entry.pinned);
+          const unpinnedEntries = state.entries.filter(
+            (entry) => !entry.pinned
+          );
+          return [...pinnedEntries, ...unpinnedEntries];
         },
       },
       mutations: {
