@@ -389,5 +389,8 @@
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
+    },
+    "password_policy_default_hint": {
+        "message": "The password doesn't meet the security requirements. Contact with your administrator."
     }
 }
