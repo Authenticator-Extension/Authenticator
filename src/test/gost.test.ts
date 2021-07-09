@@ -1,4 +1,8 @@
-import { AlgorithmIndentifier, GostDigest, GostEngine } from "crypto-gost";
+import {
+  AlgorithmIndentifier,
+  GostDigest,
+  gostEngine as GostEngine,
+} from "node-gost-crypto";
 import { expect } from "chai";
 import { KeyUtilities } from "../models/key-utilities";
 import { OTPAlgorithm, OTPType, OTPUtil } from "../models/otp";
