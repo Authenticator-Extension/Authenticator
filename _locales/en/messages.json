@@ -406,7 +406,7 @@
         "message": "Autofill can be enabled to automatically fill codes into websites."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Smart filter should be enabled to quickly filter best-matched code."
+        "message": "Enabling smart filter allows for quick access to accounts."
     },
     "show_all_insights": {
         "message": "Show all insights."
