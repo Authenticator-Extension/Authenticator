@@ -6,8 +6,10 @@ function byteArray2Base32(bytes: number[]) {
   let result = "";
   let high = 0,
     low = 0,
-    sh = 0;
+    sh = 0,
+    hasDataInLow = false;
   for (let i = 0; i < len; i += 5) {
+    hasDataInLow = true;
     high = 0xf8 & bytes[i];
     result += chars.charAt(high >> 3);
     low = 0x07 & bytes[i];
@@ -37,6 +39,7 @@ function byteArray2Base32(bytes: number[]) {
     }
 
     if (i + 4 < len) {
+      hasDataInLow = false;
       high = 0xe0 & bytes[i + 4];
       result += chars.charAt((low << 3) + (high >> 5));
       result += chars.charAt(0x1f & bytes[i + 4]);
@@ -45,7 +48,7 @@ function byteArray2Base32(bytes: number[]) {
     }
   }
 
-  if (low != 0) {
+  if (hasDataInLow) {
     result += chars.charAt(low << sh);
   }
 
