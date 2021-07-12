@@ -66,12 +66,12 @@
     "argon2-browser": "^1.15.1",
     "crypto-js": "^4.0.0",
     "jsqr": "^1.3.1",
+    "node-gost-crypto": "^1.0.2",
     "qrcode-generator": "^1.4.4",
     "qrcode-reader": "^1.0.4",
     "uuid": "^3.4.0",
     "vue": "^2.6.12",
     "vue2-dragula": "^2.5.4",
-    "vuex": "^3.4.0",
-    "crypto-gost": "^1.0.14"
+    "vuex": "^3.4.0"
   }
 }
