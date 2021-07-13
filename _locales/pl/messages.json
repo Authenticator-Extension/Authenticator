@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Zresetuj Authenticator"
+        "message": "Zresetuj Authenticatora"
     },
     "delete_all_warning": {
         "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie Authenticatora. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem Authenticatora należy rozważyć zapisanie kopii zapasowej."
@@ -388,7 +388,7 @@
         "message": "Kopia zapasowa"
     },
     "backup_file_info": {
-        "message": "Utwórz kopię zapasową danych w pliku."
+        "message": "Zapisz kopię zapasową danych do pliku."
     },
     "advisor": {
         "message": "Doradca"
