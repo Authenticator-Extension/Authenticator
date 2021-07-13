@@ -391,7 +391,7 @@
         "message": "データをファイルにバックアップします。"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "アドバイザー"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
