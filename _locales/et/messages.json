@@ -418,7 +418,7 @@
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Hoiatus"
     },
     "info": {
         "message": "Info"
@@ -427,6 +427,6 @@
         "message": "Dismiss"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Lisateave"
     }
 }
