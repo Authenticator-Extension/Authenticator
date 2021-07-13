@@ -403,30 +403,30 @@
         "message": "La sincronització està desactivada. Habilitar-la permet que els comptes es sincronitzin entre navegadors."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Podeu activar l'emplenament automàtic per omplir els codis a les pàgines web."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Activar el filtre intel·ligent permet l'accés ràpid als comptes."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Mostra tots els punts de vista."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "No s'han trobat punts de vista, tot sembla correcte!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Perill"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Advertència"
     },
     "info": {
-        "message": "Info"
+        "message": "Informació"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Descarta"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Saber-ne més"
     }
 }
