@@ -391,13 +391,13 @@
         "message": "备份数据到文件。"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "顾问"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "请设置一个密码来保护您的数据。"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "启用自动锁定以保护您的数据。"
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
@@ -415,18 +415,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "危险"
     },
     "warning": {
-        "message": "Warning"
+        "message": "警告"
     },
     "info": {
-        "message": "Info"
+        "message": "信息"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "忽略"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "了解更多"
     }
 }
