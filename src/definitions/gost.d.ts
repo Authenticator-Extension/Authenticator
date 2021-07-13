@@ -1,11 +1,12 @@
-declare module "crypto-gost" {
+declare module "node-gost-crypto" {
   export class AlgorithmIndentifier {
     mode: string;
     name: string;
     version: number;
     length: number;
   }
-  export class GostEngine {
+  // eslint-disable-next-line @typescript-eslint/class-name-casing
+  export class gostEngine {
     static getGostDigest(alg: AlgorithmIndentifier): GostDigest;
   }
   interface GostDigest {

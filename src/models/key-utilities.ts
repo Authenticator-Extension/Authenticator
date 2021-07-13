@@ -1,6 +1,10 @@
 import { OTPType, OTPAlgorithm, OTPUtil } from "./otp";
 import * as CryptoJS from "crypto-js";
-import { GostEngine, GostDigest, AlgorithmIndentifier } from "crypto-gost";
+import {
+  gostEngine as GostEngine,
+  GostDigest,
+  AlgorithmIndentifier,
+} from "node-gost-crypto";
 
 // Originally based on the JavaScript implementation as provided by Russell
 // Sayers on his Tin Isles blog:
