@@ -89,3 +89,8 @@ interface BackupState {
   driveToken: boolean;
   oneDriveToken: boolean;
 }
+
+interface AdvisorState {
+  insights: AdvisorInsightInterface[];
+  ignoreList: string[];
+}
