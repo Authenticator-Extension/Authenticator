@@ -400,19 +400,19 @@
         "message": "启用自动锁定以保护您的数据。"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "浏览器同步已禁用。启用它允许在不同浏览器间同步帐户。"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "启用自动填充可以自动填充代码到网站中。"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "启用智能过滤允许快速访问账户。"
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "显示所有见解。"
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "无可供参考的见解，看起来一切安好！"
     },
     "danger": {
         "message": "危险"
