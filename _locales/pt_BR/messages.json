@@ -391,10 +391,10 @@
         "message": "Faça backup dos seus dados para um arquivo."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Consultor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Defina uma senha para proteger seus dados."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
