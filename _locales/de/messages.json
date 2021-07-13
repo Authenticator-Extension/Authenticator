@@ -415,18 +415,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Achtung"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Warnung"
     },
     "info": {
         "message": "Info"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Verwerfen"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Weitere Informationen"
     }
 }
