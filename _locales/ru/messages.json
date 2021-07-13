@@ -391,16 +391,16 @@
         "message": "Backup your data to a file."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Советник"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Установите пароль для защиты своих данных."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Включите автоблокировку для защиты своих данных."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Браузерная синхронизация отключена. Её включение позволит синхронизировать аккаунты в разных браузерах."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
@@ -415,13 +415,13 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Опасность"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Предупреждение"
     },
     "info": {
-        "message": "Info"
+        "message": "Инфо"
     },
     "dismiss": {
         "message": "Dismiss"
