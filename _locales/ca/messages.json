@@ -391,16 +391,16 @@
         "message": "Fes una còpia de les dades a un fitxer."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Assessor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Establiu una contrasenya per protegir les vostres dades."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Activeu el bloqueig automàtic per protegir les vostres dades."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "La sincronització està desactivada. Habilitar-la permet que els comptes es sincronitzin entre navegadors."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
