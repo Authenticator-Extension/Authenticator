@@ -48,7 +48,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "OK",
         "description": "OK."
     },
     "yes": {
@@ -421,7 +421,7 @@
         "message": "Ostrzeżenie"
     },
     "info": {
-        "message": "Informacje"
+        "message": "Informacja"
     },
     "dismiss": {
         "message": "Odrzuć"
