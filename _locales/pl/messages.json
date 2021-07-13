@@ -394,10 +394,10 @@
         "message": "Doradca"
     },
     "advisor_insight_password_not_set": {
-        "message": "Ustaw hasło, aby chronić swoje dane."
+        "message": "Ustaw hasło, aby chronić twoje dane."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Włącz automatyczne blokowanie, aby chronić swoje dane."
+        "message": "Włącz automatyczne blokowanie, aby chronić twoje dane."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej pozwala na synchronizację kont pomiędzy przeglądarkami."
@@ -406,27 +406,27 @@
         "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Włączenie inteligentnego filtra umożliwia szybki dostęp do kont."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Pokaż wszystkie spostrzeżenia."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Nie znaleziono żadnych spostrzeżeń, wszystko wygląda dobrze!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Niebezpieczeństwo"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Ostrzeżenie"
     },
     "info": {
-        "message": "Info"
+        "message": "Informacje"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Odrzuć"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Dowiedz się więcej"
     }
 }
