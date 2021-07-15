@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Účty které nebylo možno dešifrovat nebudou zahrnuty v této záloze.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Máte zálohu vašich účtů? Nečekejte než je příliš pozdě!",
         "description": "Remind Backup"
     },
     "capture_failed": {
