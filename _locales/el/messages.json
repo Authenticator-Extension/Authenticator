@@ -397,36 +397,36 @@
         "message": "Δημιουργήστε έναν κωδικό για να ασφαλίσετε τα δεδομένα σας."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Ενεργοποιήστε το αυτόματο κλείδωμα για να προστατεύσετε τα δεδομένα σας."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Ο συγχρονισμός είναι απενεργοποιημένος. Εάν τον ενεργοποιήσετε, θα μπορείτε να συγχρονίσετε τους λογαριασμούς σας σε περισσότερα από ένα προγράμματα περιήγησης."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Ενεργοποιήστε την αυτόματη συμπλήρωση έτσι ώστε οι κωδικοί σας να εισάγονται αυτόματα στις ιστοσελίδες."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Ενεργοποιήστε το «έξυπνο» φίλτρο για να έχετε γρήγορη πρόσβαση στους λογαριασμούς που χρειάζεστε."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Εμφάνιση όλων των συμβουλών."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Δεν βρέθηκαν συμβουλές, όλα είναι μια χαρά!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Κίνδυνος"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Προσοχή"
     },
     "info": {
-        "message": "Info"
+        "message": "Πληροφορία"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Κλείσιμο"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Μάθετε περισσότερα"
     }
 }
