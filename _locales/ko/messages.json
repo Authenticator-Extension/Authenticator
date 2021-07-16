@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "수동 백업",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "브라우저 동기화",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "로그인 (비즈니스)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -388,16 +388,16 @@
         "message": "백업"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "데이터를 파일로 백업"
     },
     "advisor": {
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "데이터 보호를 위해 암호를 설정하십시오."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "데이터 보호를 위해 자동 잠금을 활성화하십시오."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
@@ -415,18 +415,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "위험"
     },
     "warning": {
-        "message": "Warning"
+        "message": "경고"
     },
     "info": {
-        "message": "Info"
+        "message": "정보"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "닫기"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "더 보기"
     }
 }
