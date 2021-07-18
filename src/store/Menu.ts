@@ -18,6 +18,8 @@ export class Menu implements Module {
         enforceAutolock: await ManagedStorage.get("enforceAutolock"),
         storageArea: await ManagedStorage.get("storageArea"),
         feedbackURL: await ManagedStorage.get("feedbackURL"),
+        passwordPolicy: await ManagedStorage.get("passwordPolicy"),
+        passwordPolicyHint: await ManagedStorage.get("passwordPolicyHint"),
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
