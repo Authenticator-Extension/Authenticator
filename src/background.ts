@@ -269,8 +269,8 @@ async function getTotp(text: string, silent = false) {
           entryData[hash].algorithm = algorithm;
         }
         if (
-          (await EntryStorage.hasEncryptedEntry()) !==
-          encryption.getEncryptionStatus()
+          (await EntryStorage.hasEncryptedEntry()) &&
+          !encryption.getEncryptionStatus()
         ) {
           !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });
           return false;
