@@ -1,0 +1,38 @@
+name: Bug Report
+description: Report a bug in Authenticator
+labels:
+  - bug
+  - unconfirmed
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not use this form to ask about lost codes or accounts!
+        Read more [here](https://authenticator.cc/docs/en/lost-codes).
+  - type: textarea
+    attributes:
+      label: Describe the issue
+      description: Include detailed steps to reproduce the issue if appropriate.
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Firefox
+        - Edge
+        - Other
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Browser Version
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Extension Version
+      description: The extension version is found by clicking the cog at the top left and looking at the bottom of the page.
+    validations:
+      required: true
