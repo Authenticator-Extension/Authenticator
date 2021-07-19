@@ -391,13 +391,13 @@
         "message": "Fai il backup dei tuoi dati su un file."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Consulente"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Imposta una password per proteggere i tuoi dati."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Abilita il blocco automatico per proteggere i tuoi dati."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
