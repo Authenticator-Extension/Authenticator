@@ -406,7 +406,7 @@
         "message": "Autofill can be enabled to automatically fill codes into websites."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Akıllı filtreyi etkinleştirmek hesaplara hızlı erişim sağlar."
     },
     "show_all_insights": {
         "message": "Show all insights."
@@ -427,6 +427,6 @@
         "message": "Dismiss"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Daha fazla bilgi edinin"
     }
 }
