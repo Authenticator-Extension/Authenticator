@@ -391,7 +391,7 @@
         "message": "Verilerinizi bir dosyaya yedekleyin."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Rehber"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
@@ -403,7 +403,7 @@
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Kodları web sitelerine otomatik olarak doldurmak için otomatik doldurma etkinleştirilebilir."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "Akıllı filtreyi etkinleştirmek hesaplara hızlı erişim sağlar."
