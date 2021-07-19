@@ -394,13 +394,13 @@
         "message": "Rehber"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Verilerinizi korumak için bir parola ayarlayın."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Tarayıcı eşitlemesi kapalı. Etkinleştirerek hesapların tarayıcılar arasında eşitlenmesini sağlayabilirsiniz."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Kodları web sitelerine otomatik olarak doldurmak için otomatik doldurma etkinleştirilebilir."
