@@ -391,16 +391,16 @@
         "message": "Back-up uw gegevens naar een bestand."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Adviseur"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Stel een wachtwoord in om uw gegevens te beveiligen."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Schakel automatisch vergrendelen in om uw gegevens te beschermen."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Browsersynchronisatie is uitgeschakeld. Schakel dit in om accounts in verschillende browsers te synchroniseren."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
