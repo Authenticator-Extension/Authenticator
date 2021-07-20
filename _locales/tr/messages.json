@@ -418,10 +418,10 @@
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Uyarı"
     },
     "info": {
-        "message": "Info"
+        "message": "Bilgi"
     },
     "dismiss": {
         "message": "Reddet"
