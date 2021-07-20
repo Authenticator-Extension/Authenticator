@@ -394,7 +394,7 @@
         "message": "Rehber"
     },
     "advisor_insight_password_not_set": {
-        "message": "Verilerinizi korumak için bir parola ayarlayın."
+        "message": "Verilerinizi korumak için bir parola oluşturun."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
@@ -424,7 +424,7 @@
         "message": "Info"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Reddet"
     },
     "learn_more": {
         "message": "Daha fazla bilgi edinin"
