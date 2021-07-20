@@ -397,7 +397,7 @@
         "message": "Verilerinizi korumak için bir parola oluşturun."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Verilerinizi korumak için otomatik kilitlemeyi etkinleştirin."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Tarayıcı eşitlemesi kapalı. Etkinleştirerek hesapların tarayıcılar arasında eşitlenmesini sağlayabilirsiniz."
@@ -412,10 +412,10 @@
         "message": "Tüm önerileri göster."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Öneri bulunamadı. Her şey yolunda gözüküyor."
     },
     "danger": {
-        "message": "Danger"
+        "message": "Tehlike"
     },
     "warning": {
         "message": "Uyarı"
