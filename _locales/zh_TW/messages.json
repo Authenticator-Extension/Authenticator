@@ -202,7 +202,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Préférences",
+        "message": "偏好設定",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -326,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "为何企业版账户需要更高权限？"
+        "message": "Why do business accounts require more permissions?"
     },
     "log_out": {
         "message": "登出",
@@ -391,10 +391,10 @@
         "message": "備份至檔案"
     },
     "advisor": {
-        "message": "顾问"
+        "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "設定密碼保護您的媒體。"
+        "message": "Set a password to protect your data."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
