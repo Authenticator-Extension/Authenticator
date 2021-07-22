@@ -202,7 +202,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "偏好設定",
+        "message": "Préférences",
         "description": "Popup Page Settings"
     },
     "scale": {
