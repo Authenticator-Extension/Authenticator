@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Автентифікатор генерує коди двофакторної автентифікації у вашому браузері.",
+        "message": "https://github.com/atom/atom.git.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " був доданий.",
+        "message": " chrome://resources/roboto/roboto-bold.woff2",
         "description": "Added Account."
     },
     "errorqr": {
