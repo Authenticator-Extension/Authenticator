@@ -382,10 +382,10 @@
         "message": "Algoritmus"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Chytrý filtr"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Záloha"
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
@@ -394,7 +394,7 @@
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Nastavte si heslo pro ochranu vašich dat."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
