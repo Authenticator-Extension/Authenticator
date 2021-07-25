@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Ruční zálohování",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -290,19 +290,19 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Použít vysoký kontrast",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Motiv",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Světlý",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Tmavý",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
