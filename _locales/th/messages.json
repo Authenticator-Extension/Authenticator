@@ -394,10 +394,10 @@
         "message": "ที่ปรึกษา"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "เปิดใช้งาน ล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
