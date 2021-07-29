@@ -400,33 +400,33 @@
         "message": "เปิดใช้งาน ล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "การซิงค์เบราว์เซอร์ปิดใช้งาน. การเปิดใช้งานเพื่อยึนยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "แสดงข้อมูลเชิงลึกทั้งหมด."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "ไม่พบข้อมูลเชิงลึก, ทุกอย่างยังดูดี!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "อันตราย"
     },
     "warning": {
-        "message": "Warning"
+        "message": "คำเตือน"
     },
     "info": {
-        "message": "Info"
+        "message": "ข้อมูล"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "ยกเลิก"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "เพิ่มเติม"
     }
 }
