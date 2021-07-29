@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "ลงทะเบียน (ธุรกิจ)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "เพราะเหตุใดบัญชีธุรกิจต้องการขออนุญาตเพิ่มเติม?"
     },
     "log_out": {
         "message": "ออกจากระบบ",
@@ -391,7 +391,7 @@
         "message": "สำรองข้อมูลของคุณลงในไฟล์"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "ที่ปรึกษา"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
