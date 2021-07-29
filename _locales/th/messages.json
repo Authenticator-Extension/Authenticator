@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "ซิงค์เวลาผ่านระบบของ Google",
+        "message": "ซิงค์เวลาผ่าน Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
