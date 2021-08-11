@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "ගිණුමක් එකතු කරන්න",
         "description": "Add account."
     },
     "add_qr": {
@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "රහස",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -258,7 +258,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "ඉවත් කරන්න",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -364,13 +364,13 @@
         "message": "විනාඩි"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "වැඩිදුර"
     },
     "period": {
         "message": "Period"
     },
     "type": {
-        "message": "Type"
+        "message": "වර්ගය"
     },
     "invalid": {
         "message": "Invalid"
@@ -385,10 +385,10 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "උපස්ථය"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "ඔබගේ දත්ත ගොනුවකට උපස්ථ කරන්න."
     },
     "advisor": {
         "message": "Advisor"
@@ -418,10 +418,10 @@
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "අවවාදයයි"
     },
     "info": {
-        "message": "Info"
+        "message": "තොරතුරු"
     },
     "dismiss": {
         "message": "Dismiss"
