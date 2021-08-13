@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Tajný klíč",
+        "message": "Secret",
         "description": "Secret."
     },
     "updateSuccess": {
