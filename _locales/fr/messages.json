@@ -391,42 +391,42 @@
         "message": "Sauvegardez vos données dans un fichier."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Conseiller"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Définir un mot de passe pour protéger vos données."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Activer le verrouillage automatique pour protéger vos données."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "La synchronisation avec le navigateur est désactivée. Activez-la pour autoriser cette synchronisation."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Le remplissage automatique peut être activé pour remplir automatiquement les codes dans les sites web."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Activer le filtre intelligent permet un accès rapide aux comptes."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Afficher tous les aperçus."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Aucun aperçu trouvé, tout semble bien!"
     },
     "danger": {
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Attention"
     },
     "info": {
-        "message": "Info"
+        "message": "Information"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Fermer"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "En savoir plus"
     }
 }
