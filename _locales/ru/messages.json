@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Аутентификатор",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлен.",
+        "message": " добавлено.",
         "description": "Added Account."
     },
     "errorqr": {
