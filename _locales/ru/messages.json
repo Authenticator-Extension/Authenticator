@@ -409,10 +409,10 @@
         "message": "Enabling smart filter allows for quick access to accounts."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Показать все действия."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Никаких действий не найдено, всё хорошо!"
     },
     "danger": {
         "message": "Опасность"
