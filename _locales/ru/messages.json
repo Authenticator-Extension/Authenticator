@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Имя пользователя",
         "description": "Account Name."
     },
     "issuer": {
