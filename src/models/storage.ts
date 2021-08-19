@@ -260,21 +260,8 @@ export class EntryStorage {
     }
   }
 
-  static hasEncryptedEntry() {
-    return new Promise((resolve: (value: boolean) => void) => {
-      BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-        for (const hash of Object.keys(_data)) {
-          if (!this.isValidEntry(_data, hash)) {
-            continue;
-          }
-          if (_data[hash].encrypted) {
-            return resolve(true);
-          }
-        }
-        return resolve(false);
-      });
-      return;
-    });
+  static async hasEncryptionKey(): Promise<boolean> {
+    return Boolean(await BrowserStorage.getKey());
   }
 
   static getExport(data: OTPEntryInterface[], encrypted?: boolean) {

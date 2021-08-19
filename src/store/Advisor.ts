@@ -7,7 +7,7 @@ const insightsData: AdvisorInsightInterface[] = [
     level: InsightLevel.danger,
     description: chrome.i18n.getMessage("advisor_insight_password_not_set"),
     validation: async () => {
-      const hasEncryptedEntry = await EntryStorage.hasEncryptedEntry();
+      const hasEncryptedEntry = await EntryStorage.hasEncryptionKey();
       return !hasEncryptedEntry;
     },
   },
@@ -16,7 +16,7 @@ const insightsData: AdvisorInsightInterface[] = [
     level: InsightLevel.warning,
     description: chrome.i18n.getMessage("advisor_insight_auto_lock_not_set"),
     validation: async () => {
-      const hasEncryptedEntry = await EntryStorage.hasEncryptedEntry();
+      const hasEncryptedEntry = await EntryStorage.hasEncryptionKey();
       return hasEncryptedEntry && !Number(localStorage.autolock);
     },
   },
