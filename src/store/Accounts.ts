@@ -8,9 +8,7 @@ export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
-    const shouldShowPassphrase = cachedPassphrase
-      ? false
-      : await EntryStorage.hasEncryptionKey();
+    const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
 
     return {

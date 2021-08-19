@@ -18,7 +18,6 @@ import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
 import { Advisor } from "./store/Advisor";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
-import { EntryStorage } from "./models/storage";
 
 async function init() {
   // Add globals
@@ -62,27 +61,12 @@ async function init() {
 
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
-    instance.$store.commit("style/showInfo", true);
     // If we have cached password, use that
     if (instance.$store.state.accounts.encryption.getEncryptionStatus()) {
       instance.$store.commit("currentView/changeView", "LoadingPage");
-      for (const entry of instance.$store.state.accounts.entries) {
-        await entry.applyEncryption(instance.$store.state.accounts.encryption);
-      }
-      instance.$store.commit(
-        "accounts/updateExport",
-        await EntryStorage.getExport(instance.$store.state.accounts.entries)
-      );
-      instance.$store.commit(
-        "accounts/updateEncExport",
-        await EntryStorage.getExport(
-          instance.$store.state.accounts.entries,
-          true
-        )
-      );
-      instance.$store.commit("accounts/updateCodes");
-      instance.$store.commit("style/hideInfo", true);
+      await instance.$store.dispatch("accounts/updateEntries");
     } else {
+      instance.$store.commit("style/showInfo", true);
       instance.$store.commit("currentView/changeView", "EnterPasswordPage");
     }
   }
