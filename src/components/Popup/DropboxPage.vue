@@ -92,7 +92,7 @@ export default Vue.extend({
     },
     async backupUpload() {
       const dbox = new Dropbox();
-      const response = await dbox.upload(this.$store.state.encryption);
+      const response = await dbox.upload(this.$store.state.accounts.encryption);
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (localStorage.dropboxRevoked === "true") {
