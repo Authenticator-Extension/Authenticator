@@ -391,7 +391,7 @@
         "message": "Varundage enda andmed failiks."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Teie salasõna ei vasta teie organisatsiooni turvanõuetele. Lisateabe saamiseks kontakteeruge oma administraatoriga."
     },
     "advisor": {
         "message": "Advisor"
