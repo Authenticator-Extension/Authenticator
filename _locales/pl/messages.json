@@ -391,7 +391,7 @@
         "message": "Zapisz kopię zapasową danych do pliku."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Twoje hasło nie spełnia wymogów bezpieczeństwa Twojej organizacji. Aby uzyskać więcej informacji, skontaktuj się z administratorem."
     },
     "advisor": {
         "message": "Doradca"
