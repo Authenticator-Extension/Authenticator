@@ -391,7 +391,7 @@
         "message": "Backup your data to a file."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Vaše heslo nesplňuje bezpečnostní požadavky vaší organizace. Pro více informací kontaktujte svého správce."
     },
     "advisor": {
         "message": "Advisor"
