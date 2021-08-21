@@ -38,12 +38,12 @@
     },
     "passwordPolicy": {
       "title": "Password policy",
-      "description": "A regular expression to test if the password meets the security requirements",
+      "description": "A regular expression to test if the password meets the security requirements. No slashes are needed (e.g. use [A-Z]+, but not use /[A-Z]+/).",
       "type": "string"
     },
     "passwordPolicyHint": {
       "title": "Password policy hint",
-      "description": "Hint to show if the password doesn't meet the security requirements",
+      "description": "Hint to show if the password doesn't meet the security requirements.",
       "type": "string"
     }
   }
