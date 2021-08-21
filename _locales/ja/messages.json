@@ -391,7 +391,7 @@
         "message": "データをファイルにバックアップします。"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "パスワードが組織のセキュリティ要件を満たしていません。詳しくは管理者にお問い合わせください。"
     },
     "advisor": {
         "message": "アドバイザー"
