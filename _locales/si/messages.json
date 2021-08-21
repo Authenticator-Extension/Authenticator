@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "ඔබගේ දත්ත ගොනුවකට උපස්ථ කරන්න."
     },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
     "advisor": {
         "message": "Advisor"
     },
