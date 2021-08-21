@@ -104,7 +104,9 @@ export default Vue.extend({
     },
     async backupUpload() {
       const drive = new Drive();
-      const response = await drive.upload(this.$store.state.encryption);
+      const response = await drive.upload(
+        this.$store.state.accounts.encryption
+      );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (localStorage.driveRevoked === "true") {

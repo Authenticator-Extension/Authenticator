@@ -269,7 +269,8 @@ async function getTotp(text: string, silent = false) {
           entryData[hash].algorithm = algorithm;
         }
         if (
-          (await EntryStorage.hasEncryptedEntry()) !==
+          // If the entries are encrypted and we aren't unlocked, error.
+          (await EntryStorage.hasEncryptionKey()) !==
           encryption.getEncryptionStatus()
         ) {
           !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });

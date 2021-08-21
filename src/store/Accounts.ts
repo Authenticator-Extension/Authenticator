@@ -1,24 +1,15 @@
 import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
-import { OTPType, OTPAlgorithm, CodeState } from "../models/otp";
+import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
 
 export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
-    let shouldShowPassphrase = cachedPassphrase
-      ? false
-      : await EntryStorage.hasEncryptedEntry();
+    const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
-
-    for (let i = 0; i < entries.length; i++) {
-      if (entries[i].code === CodeState.Encrypted) {
-        shouldShowPassphrase = true;
-        break;
-      }
-    }
 
     return {
       state: {
