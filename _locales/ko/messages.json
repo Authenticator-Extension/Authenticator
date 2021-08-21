@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "데이터를 파일로 백업"
     },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
     "advisor": {
         "message": "어드바이저"
     },
