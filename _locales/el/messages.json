@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
     },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
     "advisor": {
         "message": "Σύμβουλος"
     },
