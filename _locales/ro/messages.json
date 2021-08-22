@@ -391,7 +391,7 @@
         "message": "Salvați datele într-un fișier."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Parola dvs. nu îndeplinește cerințele de securitate ale organizației. Contactați administratorul pentru mai multe informații."
     },
     "advisor": {
         "message": "Advisor"
