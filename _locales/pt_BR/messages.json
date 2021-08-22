@@ -391,10 +391,10 @@
         "message": "Faça backup dos seus dados para um arquivo."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Sua senha não atende aos requisitos de segurança de sua organização. Contate seu administrador para mais informações."
     },
     "advisor": {
-        "message": "Consultor"
+        "message": "Assessor"
     },
     "advisor_insight_password_not_set": {
         "message": "Defina uma senha para proteger seus dados."
