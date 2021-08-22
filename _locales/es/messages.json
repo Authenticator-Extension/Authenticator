@@ -391,7 +391,7 @@
         "message": "Guarda en un archivo una copia de seguridad de tus datos."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "La contraseña no cumple los requisitos de seguridad de tu organización. Para obtener más información, ponte en contacto con el administrador."
     },
     "advisor": {
         "message": "Recomendaciones"
