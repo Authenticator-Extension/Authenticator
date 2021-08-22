@@ -391,7 +391,7 @@
         "message": "Fes una còpia de les dades a un fitxer."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "La contrasenya no acompleix els requeriments de seguretat de la vostra organització. Contacteu amb el vostre administrador per a més informació."
     },
     "advisor": {
         "message": "Assessor"
