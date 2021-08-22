@@ -412,10 +412,10 @@
         "message": "Habilitar o filtro inteligente permite acesso rápido às contas."
     },
     "show_all_insights": {
-        "message": "Mostrar todos os entendimentos."
+        "message": "Mostrar todas as recomendações."
     },
     "no_insight_available": {
-        "message": "Nenhum entendimento encontrado, tudo parece bom!"
+        "message": "Nenhuma recomendação encontrada, tudo parece bom!"
     },
     "danger": {
         "message": "Perigo"
