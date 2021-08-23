@@ -68,7 +68,6 @@ export default Vue.extend({
       }
 
       if (this.passwordPolicy && !this.passwordPolicy.test(this.phrase)) {
-        console.log(this.passwordPolicy);
         const hint =
           this.passwordPolicyHint || this.i18n.password_policy_default_hint;
         this.$store.commit("notification/alert", hint);
