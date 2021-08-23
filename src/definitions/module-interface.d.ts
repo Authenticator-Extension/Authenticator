@@ -36,7 +36,7 @@ interface MenuState {
   smartFilter: boolean;
   theme: string;
   backupDisabled: boolean;
-  storageArea: string;
+  storageArea: "sync" | "local";
 }
 
 interface StyleState {

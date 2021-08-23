@@ -508,7 +508,7 @@ async function uploadBackup(service: string) {
 chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason !== "install") {
     return;
-  } else if (await ManagedStorage.get("disableInstallHelp")) {
+  } else if (await ManagedStorage.get("disableInstallHelp", false)) {
     return;
   }
 
@@ -565,7 +565,9 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 });
 
 async function setAutolock() {
-  const enforcedAutolock = Number(await ManagedStorage.get("enforceAutolock"));
+  const enforcedAutolock = Number(
+    await ManagedStorage.get("enforceAutolock", false)
+  );
 
   if (enforcedAutolock && enforcedAutolock > 0) {
     autolockTimeout = window.setTimeout(() => {

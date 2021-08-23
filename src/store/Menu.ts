@@ -12,14 +12,16 @@ export class Menu implements Module {
           localStorage.theme ||
           (localStorage.highContrast === "true" ? "accessibility" : "normal"),
         autolock: Number(localStorage.autolock) || 0,
-        backupDisabled: await ManagedStorage.get("disableBackup"),
-        exportDisabled: await ManagedStorage.get("disableExport"),
-        enforcePassword: await ManagedStorage.get("enforcePassword"),
-        enforceAutolock: await ManagedStorage.get("enforceAutolock"),
-        storageArea: await ManagedStorage.get("storageArea"),
-        feedbackURL: await ManagedStorage.get("feedbackURL"),
-        passwordPolicy: await ManagedStorage.get("passwordPolicy"),
-        passwordPolicyHint: await ManagedStorage.get("passwordPolicyHint"),
+        backupDisabled: await ManagedStorage.get("disableBackup", false),
+        exportDisabled: await ManagedStorage.get("disableExport", false),
+        enforcePassword: await ManagedStorage.get("enforcePassword", false),
+        enforceAutolock: await ManagedStorage.get("enforceAutolock", false),
+        storageArea: await ManagedStorage.get<"sync" | "local">("storageArea"),
+        feedbackURL: await ManagedStorage.get<string>("feedbackURL"),
+        passwordPolicy: await ManagedStorage.get<string>("passwordPolicy"),
+        passwordPolicyHint: await ManagedStorage.get<string>(
+          "passwordPolicyHint"
+        ),
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {

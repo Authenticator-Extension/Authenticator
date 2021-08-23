@@ -4,7 +4,9 @@ import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
   private static async getStorageLocation() {
-    const managedLocation = await ManagedStorage.get("storageArea");
+    const managedLocation = await ManagedStorage.get<"sync" | "local">(
+      "storageArea"
+    );
     if (managedLocation === "sync" || managedLocation === "local") {
       return new Promise((resolve) => {
         if (localStorage.storageLocation !== managedLocation) {
@@ -654,18 +656,20 @@ export class EntryStorage {
 }
 
 export class ManagedStorage {
-  static get(key: string) {
-    return new Promise((resolve: (result: boolean | string) => void) => {
+  static get<T>(key: string): T | undefined;
+  static get<T>(key: string, defaultValue: T): T;
+  static get<T>(key: string, defaultValue?: T) {
+    return new Promise((resolve: (result: T | undefined) => void) => {
       chrome.storage.managed.get((data) => {
         if (chrome.runtime.lastError) {
-          return resolve(false);
+          return resolve(defaultValue);
         }
         if (data) {
           if (data[key]) {
             return resolve(data[key]);
           }
         }
-        return resolve(false);
+        return resolve(defaultValue);
       });
     });
   }
