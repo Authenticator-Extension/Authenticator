@@ -391,10 +391,10 @@
         "message": "Cadangkan data Anda ke file."
     },
     "password_policy_default_hint": {
-        "message": "Hckl Aejd 7APM 5VD2 V4KF 4WLH Srb5 D3K3."
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
     },
     "advisor": {
-        "message": "Hckl Aejd 7APM 5VD2 V4KF 4WLH Srb5 D3K3"
+        "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
