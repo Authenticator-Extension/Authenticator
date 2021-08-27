@@ -431,5 +431,8 @@
     },
     "learn_more": {
         "message": "Learn more"
+    },
+    "no_entires": {
+        "message": "No entries to display. Add your first account now."
     }
 }
