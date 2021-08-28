@@ -391,7 +391,7 @@
         "message": "Verilerinizi bir dosyaya yedekleyin."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Parolanız kuruluşunuzun güvenlik gereksinimlerini karşılamıyor. Daha fazla bilgi için yöneticinize başvurun."
     },
     "advisor": {
         "message": "Rehber"
