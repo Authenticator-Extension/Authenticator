@@ -391,19 +391,19 @@
         "message": "Cadangkan data Anda ke file."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Kata sandi tidak memenuhi persyaratan keamanan organisasi anda. Hubungi administrator untuk informasi lebih lanjut."
     },
     "advisor": {
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Masukkan kata sandi untuk melindungi data anda."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Aktifkan auto-lock untuk melindungi data anda."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Sinkronisasi browser nonaktif. Mengaktifkannya membuat akun sinkron di semua browser."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
@@ -418,18 +418,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Perhatian"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Peringatan"
     },
     "info": {
-        "message": "Info"
+        "message": "Informasi"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Abaikan"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Selengkapnya"
     }
 }
