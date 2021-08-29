@@ -394,7 +394,7 @@
         "message": "Kata sandi tidak memenuhi persyaratan keamanan organisasi anda. Hubungi administrator untuk informasi lebih lanjut."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Penasehat"
     },
     "advisor_insight_password_not_set": {
         "message": "Masukkan kata sandi untuk melindungi data anda."
