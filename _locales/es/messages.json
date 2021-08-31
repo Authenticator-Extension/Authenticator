@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Autenticación L5EB AQAN KIZV 4N22 FQIL SJ4J RDXL VCKS",
+        "message": "Autenticación ",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -12,11 +12,11 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " L5EB AQAN KIZV 4N22 FQIL SJ4J RDXL VCKS",
+        "message": " has been added.\n",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Código QR no reconocido.",
+        "message": "Código QR no reconocido. ",
         "description": "QR Error."
     },
     "errorsecret": {
@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Restablecer auntenticador"
+        "message": "Restablecer auntenticador "
     },
     "delete_all_warning": {
         "message": "Esto eliminará todos tus datos y restablecerá completamente Authenticator. ¡No podrás recuperar ningún dato eliminado! Deberías considerar guardar una copia de seguridad antes de resetear Authenticator."
