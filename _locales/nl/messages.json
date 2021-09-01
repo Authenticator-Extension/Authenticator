@@ -391,7 +391,7 @@
         "message": "Back-up uw gegevens naar een bestand."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Uw wachtwoord voldoet niet aan de beveiligingseisen van uw organisatie. Neem contact op met uw beheerder voor meer informatie."
     },
     "advisor": {
         "message": "Adviseur"
