@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Резервное копирование вручную",
+        "message": "Ручне резервне копіювання",
         "description": "Manual backup"
     },
     "use_autofill": {
