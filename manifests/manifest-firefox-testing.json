@@ -49,6 +49,7 @@
     ],
     "optional_permissions": [
         "clipboardWrite",
+        "contextMenus",
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",

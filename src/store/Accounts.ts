@@ -497,20 +497,33 @@ export class Accounts implements Module {
     return new Promise((resolve: (value: Array<string | null>) => void) => {
       chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
-        if (!tab) {
-          return resolve([null, null]);
+        const query = new URLSearchParams(
+          document.location.search.substring(1)
+        );
+
+        let title: string | null;
+        let url: string | null;
+        const titleFromQuery = query.get("url");
+        const urlFromQuery = query.get("title");
+
+        if (titleFromQuery && urlFromQuery) {
+          title = decodeURIComponent(titleFromQuery);
+          url = decodeURIComponent(urlFromQuery);
+        } else {
+          if (!tab) {
+            return resolve([null, null]);
+          }
+
+          title = tab.title?.replace(/[^a-z0-9]/gi, "").toLowerCase() ?? null;
+          url = tab.url ?? null;
         }
 
-        const title = tab.title
-          ? tab.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
-          : null;
-
-        if (!tab.url) {
+        if (!url) {
           return resolve([title, null]);
         }
 
         const urlParser = document.createElement("a");
-        urlParser.href = tab.url;
+        urlParser.href = url;
         const hostname = urlParser.hostname.toLowerCase();
 
         // try to parse name from hostname
