@@ -418,18 +418,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Загроза"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Попередження"
     },
     "info": {
-        "message": "Info"
+        "message": "Інформація"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Відхилити"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Дізнатись більше"
     }
 }
