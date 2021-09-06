@@ -326,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "為什麼企業賬戶需要更多權限？"
     },
     "log_out": {
         "message": "登出",
@@ -391,10 +391,10 @@
         "message": "備份至檔案"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "您的密碼不符合您組織的安全要求。 有關詳細信息，請聯繫您的管理員。"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "顧問"
     },
     "advisor_insight_password_not_set": {
         "message": "設定密碼保護您的資料。"
@@ -409,10 +409,10 @@
         "message": "Autofill can be enabled to automatically fill codes into websites."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "啟用智能過濾器可以快速訪問帳戶。"
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "顯示所有見解。"
     },
     "no_insight_available": {
         "message": "No insights found, everything looks good!"
