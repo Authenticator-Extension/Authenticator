@@ -178,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Увага! Ваш місцевий годинник налаштованно невірно, будь ласка, виправте його, перш ніж продовжити.",
+        "message": "Увага! Ваш місцевий годинник налаштовано неправильно. Будь ласка, виправте його, перш ніж продовжити.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
