@@ -397,7 +397,7 @@
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "設定密碼保護您的資料。"
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
@@ -418,18 +418,18 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "危險"
     },
     "warning": {
-        "message": "Warning"
+        "message": "警告"
     },
     "info": {
-        "message": "Info"
+        "message": "資訊"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "關閉"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "了解更多"
     }
 }
