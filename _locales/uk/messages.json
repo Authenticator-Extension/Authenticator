@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Увійти (Бізнес)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -394,16 +394,16 @@
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Порадник"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Встановіть пароль для захисту ваших даних."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Увімкніть автоблокування для захисту ваших даних."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Синхронізацію браузера вимкнено. Увімкнення дозволяє синхронізувати облікові записи між браузерами."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
@@ -412,10 +412,10 @@
         "message": "Enabling smart filter allows for quick access to accounts."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Показати всі деталі."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Не знайдено жодних відомостей, все виглядає добре!"
     },
     "danger": {
         "message": "Загроза"
