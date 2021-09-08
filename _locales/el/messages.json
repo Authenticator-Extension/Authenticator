@@ -391,7 +391,7 @@
         "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τοn διαχειριστή σας για περισσότερες πληροφορίες."
     },
     "advisor": {
         "message": "Σύμβουλος"
