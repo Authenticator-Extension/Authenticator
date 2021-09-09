@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Пароль не совпадает. как решать проблему.",
+        "message": "Не совпадает парольная фраза.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
