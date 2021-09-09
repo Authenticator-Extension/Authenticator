@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuaalne varundus",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Brauseri sünk",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Logi sisse (ettevõte)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -427,7 +427,7 @@
         "message": "Info"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Sulge"
     },
     "learn_more": {
         "message": "Lisateave"
