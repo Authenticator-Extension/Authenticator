@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить аккаунт, пока все акканты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
+        "message": "Вы не можете добавить аккаунт, пока все аккаунты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Пароль не совпадает. как решь проблему.",
+        "message": "Пароль не совпадает. как решать проблему.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
