@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Недопустимое имя учётной записи",
+        "message": "Недопустимое имя учётной записи.",
         "description": "Secret Error."
     },
     "add_code": {
