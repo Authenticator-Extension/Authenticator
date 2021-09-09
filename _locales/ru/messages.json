@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Недопустимый номер учётной записи",
+        "message": "Недопустимое имя учётной записи",
         "description": "Secret Error."
     },
     "add_code": {
@@ -120,13 +120,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Сбросить ключ идентификации"
+        "message": "Сбросить ключ идентификации."
     },
     "delete_all_warning": {
         "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не может помочь вам, если вы забыли пароль.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с Qr   кодом.",
+        "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с QR кодом",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -218,11 +218,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Восстановить резервную копию",
+        "message": "Восстановить копию.",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Восстановить резервную копию из файла",
+        "message": "Восстановить из файла",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Восстановить резервную копию из текста",
+        "message": "Восстановить  из текста.",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
