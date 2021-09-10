@@ -391,7 +391,7 @@
         "message": "Fai il backup dei tuoi dati su un file."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "La tua password non soddisfa i requisiti di sicurezza della tua organizzazione. Contatta l'amministratore per maggiori informazioni."
     },
     "advisor": {
         "message": "Consulente"
