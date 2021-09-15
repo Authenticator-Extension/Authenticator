@@ -433,6 +433,6 @@
         "message": "続きを読む"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
     }
 }
