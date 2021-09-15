@@ -503,8 +503,8 @@ export class Accounts implements Module {
 
         let title: string | null;
         let url: string | null;
-        const titleFromQuery = query.get("url");
-        const urlFromQuery = query.get("title");
+        const titleFromQuery = query.get("title");
+        const urlFromQuery = query.get("url");
 
         if (titleFromQuery && urlFromQuery) {
           title = decodeURIComponent(titleFromQuery);
