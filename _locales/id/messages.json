@@ -431,5 +431,8 @@
     },
     "learn_more": {
         "message": "Selengkapnya"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }
