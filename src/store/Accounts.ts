@@ -522,9 +522,8 @@ export class Accounts implements Module {
           return resolve([title, null]);
         }
 
-        const urlParser = document.createElement("a");
-        urlParser.href = url;
-        const hostname = urlParser.hostname.toLowerCase();
+        const urlParser = new URL(url);
+        const hostname = urlParser.hostname; // it's always lower case
 
         // try to parse name from hostname
         // i.e. hostname is www.example.com
