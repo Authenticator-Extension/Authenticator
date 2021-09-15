@@ -69,9 +69,6 @@ export default Vue.extend({
     };
   },
   computed,
-  mounted: function () {
-    document.querySelector<HTMLLinkElement>(".entry[tabindex='0']")?.focus();
-  },
   methods: {
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {

@@ -71,6 +71,9 @@ async function init() {
     }
   }
 
+  // Auto focus on first entry
+  document.querySelector<HTMLAnchorElement>("a.entry[tabindex='0']")?.focus();
+
   // Set document title
   try {
     document.title = instance.i18n.extName;
