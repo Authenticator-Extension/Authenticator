@@ -431,5 +431,8 @@
     },
     "learn_more": {
         "message": "Дізнатись більше"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }
