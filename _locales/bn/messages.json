@@ -138,47 +138,47 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "যেগুলো অ্যাকাউন্ট ডিক্রিপ্ট হতে সক্ষম নয়, সেগুলো আর ব্যাকআপে আসবে না।",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "পাসওয়ার্ড মিলছে না",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "এনক্রিপ্ট করা হয়েছে",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "অনুলিপি করা হয়েছে",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "মতামত",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "অনুবাদ",
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "সোর্স কোড",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "অ্যাকাউন্ট ডেটা ডিক্রিপ্ট করতে (খুলতে) পাসওয়ার্ড প্রবেশ করান।",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "গুগলের সাথে ক্লক সুসংগত করুন",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "পাসওয়ার্ড মনে রাখুন",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "সাবধান! আপনার স্থানীয় ঘড়ি অনেক আগে গিয়েছে, অনুগ্রহ করে চালিয়ে যেতে সংশোধন করুন।",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
