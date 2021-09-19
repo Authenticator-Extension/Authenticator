@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "Brak kont do wyświetlenia. Dodaj teraz swoje pierwsze konto."
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }

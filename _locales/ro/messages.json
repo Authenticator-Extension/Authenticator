@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "Niciun cont de afișat. Adaugă primul tău cont acum."
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }

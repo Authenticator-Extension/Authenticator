@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "Sense comptes per mostrar. Afegiu un compte ara."
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }

@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }

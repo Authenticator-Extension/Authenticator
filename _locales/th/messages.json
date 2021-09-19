@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณ"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }

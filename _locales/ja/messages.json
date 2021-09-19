@@ -434,5 +434,8 @@
     },
     "no_entires": {
         "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
     }
 }
