@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successfuly, but some QR image cannot be recognized.",
+        "message": "সফলভাবে আমদানি করা হয়েছে, কিন্তু কিছু কিউ-আর ইমেজ চেনা যাচ্ছে না।",
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "ব্যাকআপ আমদানি ব্যাচে করতে আপনি একাধিক ফাইল নির্বাচন করতে পারবেন।",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -246,15 +246,15 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "সাবধানঃ ব্যাকআপগুলো এনক্রিপ্টেড নয়। নিজের ঝুঁকিতে ব্যবহার করুন।",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "ব্যাকআপগুলো আমদানি করতে আপনাকে সঠিক পাসওয়ার্ড প্রবেশ করাতে হবে।",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "আপনার পাসওয়ার্ড স্থানীয়ভাবে সংরক্ষণ করা হয়েছে, অনুগ্রহ করে নিরাপত্তা মেনুতে অবিলম্বে পরিবর্তন করুন।",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -310,7 +310,7 @@
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "তৃতীয় পক্ষের স্টোরেজ সেবাসমূহে আপনার ডেটা স্বয়ংক্রিয়ভাবে ব্যাকআপ করুন।",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -391,7 +391,7 @@
         "message": "একটি ফাইলে আপনার ডেটা ব্যাকআপ করুন।"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "আপনার পাসওয়ার্ড আপনার প্রতিষ্ঠানের নিরাপত্তা প্রয়োজনীয়তায় মিলছে না। আরো তথ্য জানতে আপনার পরিচালকের সাথে যোগাযোগ করুন।"
     },
     "advisor": {
         "message": "উপদেষ্টা"
