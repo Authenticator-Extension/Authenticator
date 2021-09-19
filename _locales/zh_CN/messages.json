@@ -432,6 +432,9 @@
     "learn_more": {
         "message": "了解更多"
     },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
     "no_entires": {
         "message": "没有可显示的账户。现在添加您的第一个账户。"
     }
