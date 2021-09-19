@@ -210,11 +210,11 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "সতর্কতাঃ সকল ব্যাকআপগুলো এনক্রিপ্টেড নয়। অন্য আরেকটি অ্যাপে একটি অ্যাকাউন্ট যোগ করতে চান? যেকোনো একাউন্টের উপর-ডান অংশে যান আর গোপন বাটনে চাপ দিন।",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "ব্যাকআপ ফাইল ডাউনলোড করুন",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -258,55 +258,55 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "অপসারণ করুন",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "পাসওয়ার্ড-সংরক্ষিত ব্যাকআপ ডাউনলোড করুন",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "অনুসন্ধান",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "পপ-আপ মোড",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "লক করুন",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "সম্পাদন করুন",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "ম্যানুয়াল ব্যাকআপ",
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "অটোফিল ব্যবহার করুন",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "উচ্চ কন্ট্র্যাস্ট ব্যবহার করুন",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "থিম",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "লাইট",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "ডার্ক",
         "description": "Dark theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "উচ্চ কন্ট্র্যাস্ট",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
