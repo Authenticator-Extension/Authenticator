@@ -182,31 +182,31 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "আপনার অ্যাকাউন্টগুলোর জন্য ব্যাকআপ আছে? দেরি হওয়ার আগে আর অপেক্ষা নয়!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "ক্যাপচার করতে ব্যর্থ, অনুগ্রহ করে পেজ রিলোড করুন আর আবার চেষ্টা করুন।",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "আপনি একটি স্থানীয় ফাইল থেকে কিউ-আর কোড স্ক্যান করতে চেষ্টা করছেন কি? এর বদলে ইম্পোর্ট কিউ-আর ইমেজ ব্যাকআপ ব্যবহার করুন।",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "সময় ভিত্তিক",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "কাউন্টার ভিত্তিক",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "পছন্দসমূহ",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "স্কেল",
         "description": "Scale"
     },
     "export_info": {
