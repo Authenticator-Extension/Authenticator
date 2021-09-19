@@ -432,6 +432,9 @@
     "learn_more": {
         "message": "Selengkapnya"
     },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
     }
