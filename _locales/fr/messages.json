@@ -433,9 +433,9 @@
         "message": "En savoir plus"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Ajouter au menu contextuel"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
     }
 }
