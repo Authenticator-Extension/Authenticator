@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "সকল এন্ট্রি দেখান",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -364,31 +364,31 @@
         "message": "মিনিটের পরে"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "উন্নত"
     },
     "period": {
-        "message": "Period"
+        "message": "সময়সীমা"
     },
     "type": {
-        "message": "Type"
+        "message": "ধরন"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "অবৈধ"
     },
     "digits": {
-        "message": "Digits"
+        "message": "ডিজিটস"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "অ্যালগরিদম"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "স্মার্ট ফিল্টার"
     },
     "backup": {
-        "message": "Backup"
+        "message": "ব্যাকআপ"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "একটি ফাইলে আপনার ডেটা ব্যাকআপ করুন।"
     },
     "password_policy_default_hint": {
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
@@ -400,42 +400,42 @@
         "message": "আপনার ডেটা সুরক্ষিত করতে একটি পাসওয়ার্ড সেট করুন।"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "আপনার ডেটা সুরক্ষিত রাখতে অটো-লক চালু করুন।"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "ব্রাউজার সিঙ্ক অচল। চালু করলে আপনার অ্যাকাউন্টগুলো ব্রাউজারজুড়ে সিঙ্ক হবে, যেখানে আপনার ব্রাউজারে এই এক্সটেনশন চালু করা আছে।"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "ওয়েবসাইটে কোড স্বয়ংক্রিয়ভাবে পূরণ করতে অটোফিল চালু করা যাবে"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "স্মার্ট ফিল্টার চালু করার ফলে অ্যাকাউন্টে কুইক এক্সেস পাওয়া যাবে।"
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "সকল অন্তর্দৃষ্টি দেখান।"
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "কোন অন্তর্দৃষ্টি পাওয়া যায়নি, সবকিছু ভালো দেখা যাচ্ছে!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "বিপজ্জনক"
     },
     "warning": {
-        "message": "Warning"
+        "message": "সাবধান"
     },
     "info": {
-        "message": "Info"
+        "message": "তথ্য"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "খারিজ করুন"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "আরো জানুন"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "কন্টেক্সট মেনুতে যোগ করুন"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "কোন অ্যাকাউন্ট দেখা যাচ্ছে না। আপনার প্রথম অ্যাকাউন্ট যোগ করুন।"
     }
 }
