@@ -432,6 +432,9 @@
     "learn_more": {
         "message": "Μάθετε περισσότερα"
     },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
     "no_entires": {
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
     }
