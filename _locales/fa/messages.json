@@ -146,7 +146,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "رمزنگاری شده",
+        "message": "رمزگذاری شده",
         "description": "Encrypted."
     },
     "copied": {
@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "ایمپورت کردن فایل پشتیبان",
+        "message": "وارد کردن فایل پشتیبان",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "قفل کردن",
+        "message": "قفل",
         "description": "Lock accounts"
     },
     "edit": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "ورود (تجاری)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "چرا حساب تجاری نیاز به مجوزهای امنیتی بیشتری دارد ؟"
     },
     "log_out": {
         "message": "خروج از حساب",
@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "ایجاد فایل پشتیبان از داده‌های شما"
     },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
     "advisor": {
         "message": "Advisor"
     },
@@ -429,7 +432,7 @@
     "learn_more": {
         "message": "Learn more"
     },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

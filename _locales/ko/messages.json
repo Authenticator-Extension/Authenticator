@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "가져오기에 실패함. 구글 OTP로부터 데이터를 가져온 경우, 구글 OTP에서 데이터를 다시 내보내기 한 후에 다시 시도해주십시오.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "일부 계정 데이터를 성공적으로 가져오지 못했습니다.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "모든 데이터가 복구 불가능한 상태로 삭제됨을 이해합니다.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "인증 도구 초기화"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "이 작업은 모든 데이터를 삭제하고 인증 도구를 완전 초기화합니다. 삭제된 모든 데이터를 복구할 수 없습니다! 인증 도구를 초기화하기 전에 백업을 저장하는 것을 고려하십시오."
     },
     "security_warning": {
         "message": "이 비밀번호는 귀하의 계정을 암호화합니다. 분실 시 아무런 도움을 받을 수 없습니다.",
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "모든 계정이 복호화될 때까지 새 계정을 추가할 수 없습니다. 계속하기 전에 올바른 암호를 입력해주세요.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "복호화가 불가능한 계정은 이 백업에 포함되지 않습니다.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "로컬 파일로부터 QR 코드 스캔을 시도하고 계십니까? QR 이미지 백업 가져오기를 대신 사용하십시오.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -238,7 +238,7 @@
         "description": "Import successfuly, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "배치로 백업을 가져오기 위해 다중 파일을 선택할 수 있습니다.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "수동 백업",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "브라우저 동기화",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +322,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "로그인 (비즈니스)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "왜 비즈니스 계정은 더많은 권한을 요청하는 건가요?"
     },
     "log_out": {
         "message": "로그아웃",
@@ -388,48 +388,51 @@
         "message": "백업"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
-    },
-    "advisor": {
-        "message": "Advisor"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
-    },
-    "show_all_insights": {
-        "message": "Show all insights."
-    },
-    "no_insight_available": {
-        "message": "No insights found, everything looks good!"
-    },
-    "danger": {
-        "message": "Danger"
-    },
-    "warning": {
-        "message": "Warning"
-    },
-    "info": {
-        "message": "Info"
-    },
-    "dismiss": {
-        "message": "Dismiss"
-    },
-    "learn_more": {
-        "message": "Learn more"
+        "message": "데이터를 파일로 백업"
     },
     "password_policy_default_hint": {
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
+    "advisor": {
+        "message": "어드바이저"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "데이터 보호를 위해 암호를 설정하십시오."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "데이터 보호를 위해 자동 잠금을 활성화하십시오."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "브라우저 동기화가 비활성화되었습니다. 활성화하면 브라우저 간 계정을 동기화할 수 있습니다."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "웹사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 활성화할 수 있습니다."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "스마트 필터를 활성화하면 계정에 대한 빠른 액세스를 허용합니다."
+    },
+    "show_all_insights": {
+        "message": "모든 인사이트를 표시합니다."
+    },
+    "no_insight_available": {
+        "message": "인사이트가 발견되지 않았습니다, 모든 것이 양호해보입니다!"
+    },
+    "danger": {
+        "message": "위험"
+    },
+    "warning": {
+        "message": "경고"
+    },
+    "info": {
+        "message": "정보"
+    },
+    "dismiss": {
+        "message": "닫기"
+    },
+    "learn_more": {
+        "message": "더 보기"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "גיבוי הנתונים שלך לקובץ."
     },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
     "advisor": {
         "message": "Advisor"
     },
@@ -429,7 +432,7 @@
     "learn_more": {
         "message": "Learn more"
     },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }
