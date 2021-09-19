@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "অবৈধ একাউন্ট সিক্রেট",
+        "message": "অবৈধ অ্যাকাউন্ট সিক্রেট",
         "description": "Secret Error."
     },
     "add_code": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "কিছু একাউন্ট ডেটা সফলভাবে আমদানি করা হয়নি।",
+        "message": "কিছু অ্যাকাউন্ট ডেটা সফলভাবে আমদানি করা হয়নি।",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -123,18 +123,18 @@
         "message": "অথেন্টিকেটর রিসেট করুন"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "এই কাজের ফলে আপনার সকল ডেটা মুছে ফেলা হবে এবং সম্পূর্ণভাবে অথেন্টিকেটর রিসেট করা হবে। আপনি কোনোভাবেই যেকোনো মুছে ফেলা ডেটা পুনরুদ্ধার করতে পারবেন না! অথেন্টিকেটর রিসেট করার পূর্বে ব্যাকআপ ডেটা সংরক্ষণ করার ব্যাপারে আপনার বিবেচনা করা উচিত।"
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "এই পাসওয়ার্ড আপনার অ্যাকাউন্টকে এনক্রিপ্ট করতে কাজে লাগবে। কেউ আপনাকে সাহায্য করবে না যদি আপনি পাসওয়ার্ড ভুলে যান।",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "আপডেট",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "যতক্ষণ না পর্যন্ত আপনার অ্যাকাউন্টগুলো ডিক্রিপ্ট (খোলা) হবে ততক্ষণ পর্যন্ত আপনি আর নতুন অ্যাকাউন্ট যোগ করতে পারবেন না। অনুগ্রহ করে চালিয়ে যাওয়ার আগে সঠিক পাসওয়ার্ড প্রবেশ করান।",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
