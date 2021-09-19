@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuaalne varundus",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -314,7 +314,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Brauseri sünk",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,7 +322,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Logi sisse (ettevõte)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -390,6 +390,9 @@
     "backup_file_info": {
         "message": "Varundage enda andmed failiks."
     },
+    "password_policy_default_hint": {
+        "message": "Teie salasõna ei vasta teie organisatsiooni turvanõuetele. Lisateabe saamiseks kontakteeruge oma administraatoriga."
+    },
     "advisor": {
         "message": "Advisor"
     },
@@ -418,19 +421,16 @@
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Hoiatus"
     },
     "info": {
         "message": "Info"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Sulge"
     },
     "learn_more": {
-        "message": "Learn more"
-    },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Lisateave"
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."

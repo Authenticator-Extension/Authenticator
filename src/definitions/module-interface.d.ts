@@ -34,6 +34,7 @@ interface MenuState {
   autolock: number;
   useAutofill: boolean;
   smartFilter: boolean;
+  enableContextMenu: boolean;
   theme: string;
   backupDisabled: boolean;
   storageArea: "sync" | "local";

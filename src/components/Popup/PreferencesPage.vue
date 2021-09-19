@@ -27,12 +27,18 @@
       <option value="20">20%</option>
     </a-select-input>
     <a-toggle-input :label="i18n.use_autofill" v-model="useAutofill" />
-    <a-toggle-input :label="i18n.smart_filter" v-model="smartFilter" />
     <a-toggle-input
       :label="i18n.browser_sync"
       v-model="browserSync"
       :disabled="storageArea"
       @change="migrateStorage()"
+    />
+    <a-toggle-input :label="i18n.smart_filter" v-model="smartFilter" />
+    <a-toggle-input
+      :label="i18n.enable_context_menu"
+      v-model="enableContextMenu"
+      @change="requireContextMenuPermission()"
+      v-if="!isFirefox"
     />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
@@ -80,6 +86,14 @@ export default Vue.extend({
         this.$store.commit("menu/setSmartFilter", smartFilter);
       },
     },
+    enableContextMenu: {
+      get(): boolean {
+        return this.$store.state.menu.enableContextMenu;
+      },
+      set(enableContextMenu: boolean) {
+        this.$store.commit("menu/setEnableContextMenu", enableContextMenu);
+      },
+    },
     theme: {
       get(): string {
         return this.$store.state.menu.theme;
@@ -118,6 +132,11 @@ export default Vue.extend({
         this.newStorageLocation = value ? "sync" : "local";
       },
     },
+    isFirefox: {
+      get(): boolean {
+        return navigator.userAgent.indexOf("Firefox") !== -1;
+      },
+    },
   },
   data() {
     return {
@@ -152,6 +171,22 @@ export default Vue.extend({
           this.$store.commit("notification/alert", this.i18n.updateFailure + r);
           this.$store.commit("currentView/changeView", "PreferencesPage");
         };
+    },
+    requireContextMenuPermission() {
+      chrome.permissions.request(
+        {
+          permissions: ["contextMenus"],
+        },
+        (granted) => {
+          if (!granted) {
+            this.enableContextMenu = false;
+            return;
+          }
+          chrome.runtime.sendMessage({
+            action: "updateContextMenu",
+          });
+        }
+      );
     },
   },
 });

@@ -390,49 +390,49 @@
     "backup_file_info": {
         "message": "Faça backup dos seus dados para um arquivo."
     },
+    "password_policy_default_hint": {
+        "message": "Sua senha não atende aos requisitos de segurança de sua organização. Contate seu administrador para mais informações."
+    },
     "advisor": {
-        "message": "Advisor"
+        "message": "Assessor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Defina uma senha para proteger seus dados."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Ativar bloqueio automático para proteger seus dados."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "A sincronização do navegador está desativada. Ativá-lo permite que as contas sejam sincronizadas entre os navegadores."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "O preenchimento automático pode ser ativado para preencher automaticamente os códigos nos sites."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Habilitar o filtro inteligente permite acesso rápido às contas."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Mostrar todas as recomendações."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Nenhuma recomendação encontrada, tudo parece bom!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Perigo"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Aviso"
     },
     "info": {
-        "message": "Info"
+        "message": "Informação"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Dispensar"
     },
     "learn_more": {
-        "message": "Learn more"
-    },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Saiba mais"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Não há contas para exibir. Adicione sua primeira conta agora."
     }
 }

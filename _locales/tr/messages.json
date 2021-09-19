@@ -390,47 +390,47 @@
     "backup_file_info": {
         "message": "Verilerinizi bir dosyaya yedekleyin."
     },
+    "password_policy_default_hint": {
+        "message": "Parolanız kuruluşunuzun güvenlik gereksinimlerini karşılamıyor. Daha fazla bilgi için yöneticinize başvurun."
+    },
     "advisor": {
-        "message": "Advisor"
+        "message": "Rehber"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Verilerinizi korumak için bir parola oluşturun."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Verilerinizi korumak için otomatik kilitlemeyi etkinleştirin."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Tarayıcı eşitlemesi kapalı. Etkinleştirerek hesapların tarayıcılar arasında eşitlenmesini sağlayabilirsiniz."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Kodları web sitelerine otomatik olarak doldurmak için otomatik doldurma etkinleştirilebilir."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Akıllı filtreyi etkinleştirmek hesaplara hızlı erişim sağlar."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Tüm önerileri göster."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Öneri bulunamadı. Her şey yolunda gözüküyor."
     },
     "danger": {
-        "message": "Danger"
+        "message": "Tehlike"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Uyarı"
     },
     "info": {
-        "message": "Info"
+        "message": "Bilgi"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Reddet"
     },
     "learn_more": {
-        "message": "Learn more"
-    },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Daha fazla bilgi edinin"
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."

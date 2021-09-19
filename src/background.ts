@@ -44,6 +44,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     setAutolock();
   } else if (message.action === "updateContentTab") {
     contentTab = message.data;
+  } else if (message.action === "updateContextMenu") {
+    updateContextMenu();
   }
 });
 
@@ -590,3 +592,47 @@ async function setAutolock() {
     }, Number(localStorage.autolock) * 60000);
   }
 }
+
+function updateContextMenu() {
+  chrome.permissions.contains(
+    {
+      permissions: ["contextMenus"],
+    },
+    (result) => {
+      if (result) {
+        if (localStorage.enableContextMenu === "true") {
+          chrome.contextMenus.create({
+            title: chrome.i18n.getMessage("extName"),
+            contexts: ["all"],
+            onclick: (_, tab) => {
+              let popupUrl = "view/popup.html?popup=true";
+              if (tab.url && tab.title) {
+                popupUrl +=
+                  "&url=" +
+                  encodeURIComponent(tab.url) +
+                  "&title=" +
+                  encodeURIComponent(tab.title);
+              }
+              let windowType;
+              if (navigator.userAgent.indexOf("Firefox") !== -1) {
+                windowType = "detached_panel";
+              } else {
+                windowType = "panel";
+              }
+              chrome.windows.create({
+                url: chrome.extension.getURL(popupUrl),
+                type: windowType,
+                height: 400,
+                width: 320,
+              });
+            },
+          });
+        } else {
+          chrome.contextMenus.removeAll();
+        }
+      }
+    }
+  );
+}
+
+updateContextMenu();

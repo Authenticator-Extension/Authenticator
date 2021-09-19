@@ -147,8 +147,9 @@ async function init() {
     instance.$store.commit("accounts/showSearch");
   }
 
+  const query = new URLSearchParams(document.location.search.substring(1));
   // Resize window to proper size if popup
-  if (new URLSearchParams(document.location.search.substring(1)).get("popup")) {
+  if (query.get("popup")) {
     const zoom = Number(localStorage.zoom) / 100 || 1;
     const correctHeight = 480 * zoom;
     const correctWidth = 320 * zoom;

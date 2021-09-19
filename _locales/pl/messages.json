@@ -48,7 +48,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "OK",
         "description": "OK."
     },
     "yes": {
@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Zresetuj Authenticator"
+        "message": "Zresetuj Authenticatora"
     },
     "delete_all_warning": {
         "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie Authenticatora. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem Authenticatora należy rozważyć zapisanie kopii zapasowej."
@@ -388,51 +388,51 @@
         "message": "Kopia zapasowa"
     },
     "backup_file_info": {
-        "message": "Utwórz kopię zapasową danych w pliku."
-    },
-    "advisor": {
-        "message": "Advisor"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
-    },
-    "show_all_insights": {
-        "message": "Show all insights."
-    },
-    "no_insight_available": {
-        "message": "No insights found, everything looks good!"
-    },
-    "danger": {
-        "message": "Danger"
-    },
-    "warning": {
-        "message": "Warning"
-    },
-    "info": {
-        "message": "Info"
-    },
-    "dismiss": {
-        "message": "Dismiss"
-    },
-    "learn_more": {
-        "message": "Learn more"
+        "message": "Zapisz kopię zapasową danych do pliku."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Twoje hasło nie spełnia wymogów bezpieczeństwa Twojej organizacji. Aby uzyskać więcej informacji, skontaktuj się z administratorem."
+    },
+    "advisor": {
+        "message": "Doradca"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Ustaw hasło, aby chronić twoje dane."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Włącz automatyczne blokowanie, aby chronić twoje dane."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej pozwala na synchronizację kont pomiędzy przeglądarkami."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Włączenie inteligentnego filtra umożliwia szybki dostęp do kont."
+    },
+    "show_all_insights": {
+        "message": "Pokaż wszystkie spostrzeżenia."
+    },
+    "no_insight_available": {
+        "message": "Nie znaleziono żadnych spostrzeżeń, wszystko wygląda dobrze!"
+    },
+    "danger": {
+        "message": "Niebezpieczeństwo"
+    },
+    "warning": {
+        "message": "Ostrzeżenie"
+    },
+    "info": {
+        "message": "Informacja"
+    },
+    "dismiss": {
+        "message": "Odrzuć"
+    },
+    "learn_more": {
+        "message": "Dowiedz się więcej"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Brak kont do wyświetlenia. Dodaj teraz swoje pierwsze konto."
     }
 }
