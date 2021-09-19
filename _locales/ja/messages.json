@@ -432,6 +432,9 @@
     "learn_more": {
         "message": "続きを読む"
     },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
     "no_entires": {
         "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
     }
