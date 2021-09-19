@@ -1,126 +1,126 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "অথেন্টিকেটর",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "অথেন্টিকেটর",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "অথেন্টিকেটর আপনার ব্রাউজারে টু-ফ্যাক্টর অথেন্টিকেশন কোড উৎপন্ন করে।",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": "যোগ করা হয়েছে।",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "অস্বীকৃত কিউ-আর কোড।",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "অবৈধ একাউন্ট সিক্রেট",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "অ্যাকাউন্ট যোগ করুন",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "কিউ-আর কোড স্ক্যান করুন",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "ম্যানুয়াল এন্ট্রি",
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "আমদানি করতে ব্যর্থ। যদি আপনি গুগল অথেন্টিকেটর থেকে ডেটা স্থানান্তরিত করে থাকেন, অনুগ্রহ করে গুগল অথেন্টিকেটর থেকে আপনার ডেটা পুনঃআমদানি করুন এবং আবার চেষ্টা করুন।",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "কিছু একাউন্ট ডেটা সফলভাবে আমদানি করা হয়নি।",
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "Close",
+        "message": "বন্ধ করুন",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "ঠিক আছে",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "হ্যাঁ",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "না",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "অ্যাকাউন্ট",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "ব্যবহারকারীর নাম",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "প্রদানকারী",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "সিক্রেট",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "সফল।",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "ব্যর্থ।",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "সম্বন্ধে",
         "description": "About."
     },
     "settings": {
-        "message": "Settings",
+        "message": "সেটিংস",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "নিরাপত্তা",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "চলতি পাসওয়ার্ড",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "নতুন পাসওয়ার্ড",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "পাসওয়ার্ড",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "পাসওয়ার্ড নিশ্চিত করুন",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "আপনি কি সত্যিই এই অ্যাকাউন্টটি মুছে ফেলতে চান? এই কাজের ফলে আর ফিরে পাওয়া যাবে না।",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "আমি বুঝতে পেরেছি যে আমার সকল ডেটা অপূরণীয়ভাবে মুছে ফেলা হবে।",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "অথেন্টিকেটর রিসেট করুন"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
