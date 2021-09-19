@@ -296,6 +296,21 @@ export class Accounts implements Module {
             state.state.encryption.updateEncryptionPassword(key);
             await state.dispatch("updateEntries");
 
+            // Encrypt any unencrypted entries.
+            // Browser sync can cause unencrypted entries to show up.
+            let needUpdateStorage = false;
+            for (const entry of state.state.entries) {
+              if (!entry.encSecret) {
+                await entry.changeEncryption(state.state.encryption);
+                needUpdateStorage = true;
+              }
+            }
+
+            if (needUpdateStorage) {
+              await EntryStorage.set(state.state.entries);
+              await state.dispatch("updateEntries");
+            }
+
             if (!state.getters.currentlyEncrypted) {
               chrome.runtime.sendMessage({
                 action: "cachePassphrase",

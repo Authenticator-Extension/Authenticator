@@ -39,6 +39,15 @@
         v-bind:entry="entry"
         v-bind:tabindex="getTabindex(entry)"
       />
+      <div class="no-entry" v-if="entries.length === 0">
+        <IconKey />
+        <p>
+          {{ i18n.no_entires }}
+          <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
+            i18n.learn_more
+          }}</a>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -50,7 +59,8 @@ import { EntryStorage } from "../../models/storage";
 
 import EntryComponent from "./EntryComponent.vue";
 
-import IconPlus from "../../../svg/plus.svg";
+// import IconPlus from "../../../svg/plus.svg";
+import IconKey from "../../../svg/key-solid.svg";
 
 const computed: {
   filter: () => boolean;
@@ -69,10 +79,11 @@ export default Vue.extend({
     };
   },
   computed,
-  mounted: function () {
-    document.querySelector<HTMLLinkElement>(".entry[tabindex='0']")?.focus();
-  },
   methods: {
+    openLink(url: string) {
+      window.open(url, "_blank");
+      return;
+    },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
         if (entry.hash === hash) {
@@ -187,7 +198,8 @@ export default Vue.extend({
   },
   components: {
     EntryComponent,
-    IconPlus,
+    // IconPlus,
+    IconKey,
   },
 });
 </script>
