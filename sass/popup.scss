@@ -1078,6 +1078,74 @@ svg {
   }
 }
 
+// Simple overrides
+.theme-simple {
+  .header {
+    border-bottom: white 1px solid !important;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 0 20px -1px 20px;
+      border-bottom: #eee 1px solid;
+    }
+  }
+
+  #search {
+    border-color: white !important;
+  }
+
+  .entry {
+    border-color: white !important;
+  }
+
+  &:not(.edit) {
+    .entry:hover {
+      background: #f8f8f8;
+    }
+  }
+
+  .control-group select {
+    border-color: white !important;
+  }
+
+  .menuList {
+    border-color: white !important;
+
+    p {
+      border-color: white !important;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    background-color: white !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid white !important;
+  }
+
+  .button {
+    background: #f2f2f2 !important;
+    border: #f2f2f2 1px solid !important;
+    color: black !important;
+
+    &:hover {
+      background: #f8f8f8 !important;
+      border: #f8f8f8 1px solid !important;
+    }
+  }
+
+  #info {
+    box-shadow: none !important;
+  }
+
+  .message-box {
+    border: #ccc 1px solid;
+    box-shadow: none !important;
+  }
+}
+
 // Accessibility overrides
 .theme-accessibility {
   select {
