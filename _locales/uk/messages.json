@@ -437,5 +437,9 @@
     },
     "enable_context_menu": {
         "message": "Add to context menu"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     }
 }
