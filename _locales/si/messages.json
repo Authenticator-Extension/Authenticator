@@ -305,6 +305,10 @@
         "message": "අඳුරු",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "High Contrast",
         "description": "High Contrast theme"
