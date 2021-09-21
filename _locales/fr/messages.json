@@ -305,6 +305,10 @@
         "message": "Sombre",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Contraste élevé",
         "description": "High Contrast theme"
