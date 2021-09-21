@@ -305,6 +305,10 @@
         "message": "Gelap",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Kontras Tinggi",
         "description": "High Contrast theme"
