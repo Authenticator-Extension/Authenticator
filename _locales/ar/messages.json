@@ -305,6 +305,10 @@
         "message": "غامق",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "تباين عالي",
         "description": "High Contrast theme"
