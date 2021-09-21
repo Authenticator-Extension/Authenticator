@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "ساده",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -395,22 +395,22 @@
         "message": "ایجاد فایل پشتیبان از داده‌های شما"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "گذرواژه شما با الزامات امنیتی سازمان شما مطابقت ندارد. برای اطلاعات بیشتر با سرپرست خود تماس بگیرید."
     },
     "advisor": {
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "برای تکمیل خودکار کدها در وب سایت ها ، می توان تکمیل خودکار را فعال کرد."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "Enabling smart filter allows for quick access to accounts."
