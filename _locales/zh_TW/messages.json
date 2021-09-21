@@ -305,6 +305,10 @@
         "message": "暗色",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "高對比",
         "description": "High Contrast theme"
