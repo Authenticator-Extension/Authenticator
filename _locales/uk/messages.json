@@ -305,6 +305,10 @@
         "message": "Темна",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Висока контрастність",
         "description": "High Contrast theme"
