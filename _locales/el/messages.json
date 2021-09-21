@@ -305,6 +305,10 @@
         "message": "Σκούρο",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Υψηλή αντίθεση",
         "description": "High Contrast theme"
