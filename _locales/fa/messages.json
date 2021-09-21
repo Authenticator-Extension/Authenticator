@@ -305,6 +305,10 @@
         "message": "تیره",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "کنتراست بالا",
         "description": "High Contrast theme"
