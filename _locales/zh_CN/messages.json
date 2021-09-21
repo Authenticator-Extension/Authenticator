@@ -305,6 +305,10 @@
         "message": "深色",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "高对比度",
         "description": "High Contrast theme"
@@ -433,7 +437,7 @@
         "message": "了解更多"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "添加到右键菜单"
     },
     "no_entires": {
         "message": "没有可显示的账户。现在添加您的第一个账户。"
