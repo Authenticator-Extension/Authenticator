@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Eenvoudig",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -437,9 +437,9 @@
         "message": "Meer info"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Aan contextmenu toevoegen"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
     }
 }
