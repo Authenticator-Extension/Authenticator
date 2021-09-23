@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Lihtne",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -330,7 +330,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Miks ettevõtte kontod nõuavad rohkem õiguseid?"
     },
     "log_out": {
         "message": "Logi välja",
