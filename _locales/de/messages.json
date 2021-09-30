@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Ungültiges Passwort",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_code": {
@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Passwort",
+        "message": "Schlüssel",
         "description": "Secret."
     },
     "updateSuccess": {
