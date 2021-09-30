@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importimi i suksesshëm, bur disa imazhe QR nuk mund të njihen.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Ju mund të selektoni shumë skedarë për të importuar në sasi kopjet rezervë.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "E errët",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Kontrast i lartë",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Learn more"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

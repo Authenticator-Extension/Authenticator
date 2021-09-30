@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import succesvol, maar sommige QR-afbeeldingen kunnen niet worden herkend.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "U kunt meerdere bestanden selecteren om back-up in batches te importeren.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Donker",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Eenvoudig",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Hoog contrast",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Meer info"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Aan contextmenu toevoegen"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
     }
 }

@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importação bem sucedida mas algum código QR não foi reconhecido.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Pode selecionar vários ficheiros para importar cópias de segurança em lotes.",
@@ -305,6 +305,10 @@
         "message": "Escuro",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Alto Contraste",
         "description": "High Contrast theme"
@@ -333,7 +337,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Erro ao autenticar no serviço de backup. $ SERVICE $ será substituído por um nome próprio (por exemplo: 'Google Drive' ou 'Dropbox')\n\nUm valor de amostra para a variável $ service $: Google Drive",
+        "message": "Houve um problema na conexão com sua conta do $SERVICE$, por favor faça o login novamente.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Learn more"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

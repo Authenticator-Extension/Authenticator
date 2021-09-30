@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "認証",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "インポートに成功しましたが、QR画像の一部が認識できませんでした。",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "バッチでバックアップをインポートするファイルを複数選択できます。",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "ダーク",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "シンプル",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "高コントラスト",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "続きを読む"
     },
+    "enable_context_menu": {
+        "message": "コンテキストメニューに追加"
+    },
     "no_entires": {
         "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
-    },
-    "enable_context_menu": {
-        "message": "Add to context menu"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
     }
 }

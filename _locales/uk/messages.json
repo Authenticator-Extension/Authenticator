@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "https://github.com/atom/atom.git.",
+        "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " chrome://resources/roboto/roboto-bold.woff2",
+        "message": " був доданий.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Імпорт успішний, але деяке QR-зображення не може бути розпізнано.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Ви можете вибрати декілька файлів для імпорту резервних копій групами.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Темна",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Висока контрастність",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Дізнатись більше"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

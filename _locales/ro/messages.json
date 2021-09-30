@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import reușit, dar unele imagini QR nu au putut fi recunoscute.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Puteți selecta mai multe fișiere pentru a importa calupuri de copii de rezervă.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Întunecată",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Contrast sporit",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Learn more"
     },
+    "enable_context_menu": {
+        "message": "Adaugă la meniul contextual"
+    },
     "no_entires": {
         "message": "Niciun cont de afișat. Adaugă primul tău cont acum."
-    },
-    "enable_context_menu": {
-        "message": "Add to context menu"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
     }
 }

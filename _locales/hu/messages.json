@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Sikeresen importálva, de néhány QR kód nem ismerhető fel.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Kijelölhet több képfájlt is a biztonsági mentés folyamatos importálásához.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Sötét",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Nagy kontrasztú",
@@ -430,16 +434,12 @@
         "message": "Dismiss"
     },
     "learn_more": {
-        "message": "Learn more"
-    },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Tudj meg többet"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Kontextus menühöz adás"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
     }
 }

@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "phrase_incorrect_export",
+        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Nhập thành công, nhưng không thể nhận dạng một số hình ảnh QR.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Bạn có thể chọn nhiều tệp để nhập sao lưu hàng loạt.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Tối",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Tương phản cao",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Learn more"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά κάποια εικόνα QR δεν αναγνωρίστηκε.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Μπορείτε να επιλέξετε περισσότερα από ένα αρχεία αντιγράφων ασφαλείας.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Σκούρο",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Απλό",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Υψηλή αντίθεση",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Μάθετε περισσότερα"
     },
+    "enable_context_menu": {
+        "message": "Προσθήκη στο μενού περιβάλλοντος"
+    },
     "no_entires": {
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
-    },
-    "enable_context_menu": {
-        "message": "Add to context menu"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
     }
 }

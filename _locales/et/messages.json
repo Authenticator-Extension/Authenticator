@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importimine õnnestus, kuid mõnda QR'i pilti ei suudetud tuvastada.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Saate importida varukoopiaid partiidena, valides mitu faili.",
@@ -305,6 +305,10 @@
         "message": "Tume",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Lihtne",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Kõrge kontrastsus",
         "description": "High Contrast theme"
@@ -326,7 +330,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Miks ettevõtte kontod nõuavad rohkem õiguseid?"
     },
     "log_out": {
         "message": "Logi välja",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Lisateave"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

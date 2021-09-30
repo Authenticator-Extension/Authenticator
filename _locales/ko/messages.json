@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "성공적으로 가져왔지만, 일부 QR 이미지를 인식하지 못했습니다.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "배치로 백업을 가져오기 위해 다중 파일을 선택할 수 있습니다.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "어두운",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "심플",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "고대비",
@@ -391,7 +395,7 @@
         "message": "데이터를 파일로 백업"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "비밀번호가 조직의 보안 요구 사항을 충족하지 않습니다. 자세한 내용은 관리자에게 문의하십시오."
     },
     "advisor": {
         "message": "어드바이저"
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "더 보기"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "컨텍스트에 메뉴 추가"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "표시할 계정이 없습니다. 첫 번째 계정을 추가하세요."
     }
 }

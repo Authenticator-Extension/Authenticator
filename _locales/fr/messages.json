@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import réussi, mais certaines images QR ne peuvent pas être reconnues.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Vous pouvez sélectionner plusieurs fichiers pour importer les sauvegardes en lots.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Sombre",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Contraste élevé",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "En savoir plus"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Ajouter au menu contextuel"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
     }
 }

@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Ymport suksesfol, mar guon QR-ôfbyldingen kinne net werkend wurde.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Jo kinne mear bestannen selektearje om reservekopy yn batches te ymportearjen.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Donker",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Ienfâldich",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Heech kontrast",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "Mear ynfo"
     },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Oan kontekstmenu tafoegje"
     },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
+    "no_entires": {
+        "message": "Gjin accounts om te toanen. Foegje jo earste account no ta."
     }
 }

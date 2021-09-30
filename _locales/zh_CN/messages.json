@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "导入成功，但部分二维码无法识别。",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "您可以同时选择多个文件进行批量导入",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "深色",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "简约",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "高对比度",
@@ -432,14 +436,10 @@
     "learn_more": {
         "message": "了解更多"
     },
+    "enable_context_menu": {
+        "message": "添加到右键菜单"
+    },
     "no_entires": {
         "message": "没有可显示的账户。现在添加您的第一个账户。"
-    },
-    "enable_context_menu": {
-        "message": "Add to context menu"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
     }
 }
