@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import reușit, dar unele imagini QR nu au putut fi recunoscute.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Puteți selecta mai multe fișiere pentru a importa calupuri de copii de rezervă.",
