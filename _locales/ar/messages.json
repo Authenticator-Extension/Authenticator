@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "مزامنة سجل التصفح مع جوجل",
+        "message": "Sync Clock with Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
