@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "ข้อมูลบัญชีไม่ถูกต้อง",
+        "message": "ค่าลับของข้อมูลบัญชีไม่ถูกต้อง",
         "description": "Secret Error."
     },
     "add_code": {
