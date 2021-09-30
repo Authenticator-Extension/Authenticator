@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ QR บ้างรูปไม่สามารอ่านค่าได้",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "คุณสามารถเลือกไฟล์หลายไฟล์เพื่อนำเข้าข้อมูลสำรองเป็นชุด ๆ",
