@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "성공적으로 가져왔지만, 일부 QR 이미지를 인식하지 못했습니다.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "배치로 백업을 가져오기 위해 다중 파일을 선택할 수 있습니다.",
