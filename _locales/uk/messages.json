@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Імпорт успішний, але деяке QR-зображення не може бути розпізнано.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Ви можете вибрати декілька файлів для імпорту резервних копій групами.",
