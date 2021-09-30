@@ -40,6 +40,7 @@ async function runTests() {
     `--load-extension=${path.resolve(__dirname, "../test/chrome")}`,
     // for CI
     "--no-sandbox",
+    "--lang=en-US,en"
   ];
 
   if (!process.env.CI) {
