@@ -39,7 +39,7 @@
         v-bind:entry="entry"
         v-bind:tabindex="getTabindex(entry)"
       />
-      <div class="no-entry" v-if="entries.length === 0">
+      <div class="no-entry" v-if="entries.length === 0 && initComplete">
         <IconKey />
         <p>
           {{ i18n.no_entires }}
@@ -68,7 +68,7 @@ const computed: {
   shouldFilter: () => boolean;
   entries: () => OTPEntry[];
 } = {
-  ...mapState("accounts", ["filter", "showSearch"]),
+  ...mapState("accounts", ["filter", "showSearch", "initComplete"]),
   ...mapGetters("accounts", ["shouldFilter", "entries"]),
 };
 

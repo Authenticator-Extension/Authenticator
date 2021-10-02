@@ -69,6 +69,9 @@ async function init() {
       instance.$store.commit("style/showInfo", true);
       instance.$store.commit("currentView/changeView", "EnterPasswordPage");
     }
+  } else {
+    // Set init complete if no encryption is present, otherwise this will be set in updateEntries.
+    instance.$store.commit("accounts/initComplete");
   }
 
   // Auto focus on first entry

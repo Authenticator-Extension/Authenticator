@@ -28,6 +28,7 @@ export class Accounts implements Module {
         exportEncData: await EntryStorage.getExport(entries, true),
         key: await BrowserStorage.getKey(),
         wrongPassword: false,
+        initComplete: false,
       },
       getters: {
         shouldFilter(
@@ -155,6 +156,9 @@ export class Accounts implements Module {
         },
         wrongPassword(state: AccountsState) {
           state.wrongPassword = true;
+        },
+        initComplete(state: AccountsState) {
+          state.initComplete = true;
         },
       },
       actions: {
@@ -435,6 +439,7 @@ export class Accounts implements Module {
             await EntryStorage.getExport(state.state.entries, true)
           );
           state.commit("updateKeyExport", await BrowserStorage.getKey());
+          state.commit("initComplete");
           return;
         },
         clearFilter: (state: ActionContext<AccountsState, {}>) => {
