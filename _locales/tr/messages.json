@@ -437,9 +437,9 @@
         "message": "Daha fazla bilgi edinin"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "İçerik menüsüne ekle"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
     }
 }
