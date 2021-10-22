@@ -73,6 +73,7 @@ interface AccountsState {
   exportEncData: { [k: string]: OTPEntryInterface };
   key: { enc: string; hash: string } | null;
   wrongPassword: boolean;
+  initComplete: boolean;
 }
 
 interface NotificationState {
