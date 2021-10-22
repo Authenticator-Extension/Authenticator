@@ -146,7 +146,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "رمزنگاری شده",
+        "message": "رمزگذاری شده",
         "description": "Encrypted."
     },
     "copied": {
@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "ایمپورت کردن فایل پشتیبان",
+        "message": "وارد کردن فایل پشتیبان",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "وارد کردن با موفقیت انجام شد، اما برخی تصاویر QR شناسایی نشدند.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "درون ریزی با موفقیت انجام شد، اما تعدادی از تصاویر QR شناسایی نشد.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "شما می‌توانید چندین فایل تصویر را انتخاب کنید تا نسخه‌های پشتیبان به صورت دسته‌ای وارد شوند.",
@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "قفل کردن",
+        "message": "قفل",
         "description": "Lock accounts"
     },
     "edit": {
@@ -305,6 +305,10 @@
         "message": "تیره",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "ساده",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "کنتراست بالا",
         "description": "High Contrast theme"
@@ -322,11 +326,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "ورود (تجاری)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "چرا حساب تجاری نیاز به مجوزهای امنیتی بیشتری دارد ؟"
     },
     "log_out": {
         "message": "خروج از حساب",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "ایجاد فایل پشتیبان از داده‌های شما"
+    },
+    "password_policy_default_hint": {
+        "message": "گذرواژه شما با الزامات امنیتی سازمان شما مطابقت ندارد. برای اطلاعات بیشتر با سرپرست خود تماس بگیرید."
+    },
+    "advisor": {
+        "message": "Advisor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "برای تکمیل خودکار کدها در وب سایت ها ، می توان تکمیل خودکار را فعال کرد."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "فعال کردن فیلتر هوشمند اجازه دسترسی سریع به حساب ها را می دهد."
+    },
+    "show_all_insights": {
+        "message": "نمایش همه بینش ها"
+    },
+    "no_insight_available": {
+        "message": "بینشی یافت نشد ، همه چیز خوب به نظر می رسد!"
+    },
+    "danger": {
+        "message": "خطر"
+    },
+    "warning": {
+        "message": "Warning"
+    },
+    "info": {
+        "message": "اطلاعات"
+    },
+    "dismiss": {
+        "message": "رد"
+    },
+    "learn_more": {
+        "message": "Learn more"
+    },
+    "enable_context_menu": {
+        "message": "افزودن به منوی زمینه"
+    },
+    "no_entires": {
+        "message": "هیچ حساب برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
     }
 }

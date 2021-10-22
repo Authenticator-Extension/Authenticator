@@ -34,9 +34,10 @@ interface MenuState {
   autolock: number;
   useAutofill: boolean;
   smartFilter: boolean;
+  enableContextMenu: boolean;
   theme: string;
   backupDisabled: boolean;
-  storageArea: string;
+  storageArea: "sync" | "local";
 }
 
 interface StyleState {
@@ -72,6 +73,7 @@ interface AccountsState {
   exportEncData: { [k: string]: OTPEntryInterface };
   key: { enc: string; hash: string } | null;
   wrongPassword: boolean;
+  initComplete: boolean;
 }
 
 interface NotificationState {
@@ -88,4 +90,9 @@ interface BackupState {
   dropboxToken: boolean;
   driveToken: boolean;
   oneDriveToken: boolean;
+}
+
+interface AdvisorState {
+  insights: AdvisorInsightInterface[];
+  ignoreList: string[];
 }

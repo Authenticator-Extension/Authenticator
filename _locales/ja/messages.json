@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "認証",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -235,7 +235,7 @@
     },
     "import_backup_qr_partly_failed": {
         "message": "インポートに成功しましたが、QR画像の一部が認識できませんでした。",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "バッチでバックアップをインポートするファイルを複数選択できます。",
@@ -305,6 +305,10 @@
         "message": "ダーク",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "シンプル",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "高コントラスト",
         "description": "High Contrast theme"
@@ -322,7 +326,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "サインイン (ビジネス)",
+        "message": "Sign in (Business)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "データをファイルにバックアップします。"
+    },
+    "password_policy_default_hint": {
+        "message": "パスワードが組織のセキュリティ要件を満たしていません。詳しくは管理者にお問い合わせください。"
+    },
+    "advisor": {
+        "message": "アドバイザー"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "データを保護するためにパスワードを設定します。"
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "自動ロックを有効にしてデータを保護します。"
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "ブラウザの同期が無効になっています。アカウントを有効にするとブラウザ間で同期することができます。"
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "自動入力を有効にすると、ウェブサイトで自動的にコードを入力できます。"
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "スマートフィルタを有効にすると、アカウントへ素早くアクセスできます。"
+    },
+    "show_all_insights": {
+        "message": "すべてのインサイトを表示します。"
+    },
+    "no_insight_available": {
+        "message": "インサイトが見つかりませんでした。すべて問題ないようです！"
+    },
+    "danger": {
+        "message": "危険"
+    },
+    "warning": {
+        "message": "注意"
+    },
+    "info": {
+        "message": "お知らせ"
+    },
+    "dismiss": {
+        "message": "消去する"
+    },
+    "learn_more": {
+        "message": "続きを読む"
+    },
+    "enable_context_menu": {
+        "message": "コンテキストメニューに追加"
+    },
+    "no_entires": {
+        "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
     }
 }

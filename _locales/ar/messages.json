@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "فشل الاستيراد. إذا كنت تقوم بترحيل البيانات من Google Authenticator، الرجاء إعادة تصدير بياناتك من Google Authenticator وحاول مرة أخرى.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "مزامنة سجل التصفح مع جوجل",
+        "message": "Sync Clock with Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "هل تحاول مسح رمز QR من ملف محلي؟ استخدم استيراد نسخة احتياطية لصورة QR بدلاً من ذلك.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "تم الاستيراد بنجاح ، ولكن لا يمكن التعرف على بعض صور QR.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "يمكنك تحديد ملفات متعددة لاستيراد نسخة احتياطية على دفعات.",
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "النسخ الاحتياطي اليدوي",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -305,6 +305,10 @@
         "message": "غامق",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "تباين عالي",
         "description": "High Contrast theme"
@@ -314,7 +318,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "مزامنة المتصفح",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +326,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "تسجيل الدخول (الأعمال التجارية)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "لماذا تتطلب حسابات الأعمال المزيد من الصلاحيات؟"
     },
     "log_out": {
         "message": "تسجيل خروج",
@@ -385,9 +389,57 @@
         "message": "الفلتر الذكي"
     },
     "backup": {
-        "message": "Backup"
+        "message": "نسخ احتياطي"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "قم بالنسخ الاحتياطي لبياناتك إلى ملف."
+    },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
+    "advisor": {
+        "message": "Advisor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Set a password to protect your data."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Enable auto-lock to protect your data."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autofill can be enabled to automatically fill codes into websites."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Enabling smart filter allows for quick access to accounts."
+    },
+    "show_all_insights": {
+        "message": "Show all insights."
+    },
+    "no_insight_available": {
+        "message": "No insights found, everything looks good!"
+    },
+    "danger": {
+        "message": "Danger"
+    },
+    "warning": {
+        "message": "Warning"
+    },
+    "info": {
+        "message": "Info"
+    },
+    "dismiss": {
+        "message": "Dismiss"
+    },
+    "learn_more": {
+        "message": "Learn more"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

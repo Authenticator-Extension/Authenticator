@@ -35,6 +35,11 @@
         </p>
       </div>
       <div class="menuList">
+        <p v-bind:title="i18n.advisor" v-on:click="showInfo('AdvisorPage')">
+          <span><IconAdvisor /></span>{{ i18n.advisor }}
+        </p>
+      </div>
+      <div class="menuList">
         <p v-bind:title="i18n.feedback" v-on:click="openHelp()">
           <span><IconComments /></span>{{ i18n.feedback }}
         </p>
@@ -66,6 +71,7 @@ import IconDatabase from "../../../svg/database.svg";
 import IconLock from "../../../svg/lock.svg";
 import IconSync from "../../../svg/sync.svg";
 import IconWrench from "../../../svg/wrench.svg";
+import IconAdvisor from "../../../svg/lightbulb.svg";
 import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
@@ -79,6 +85,7 @@ export default Vue.extend({
     IconLock,
     IconSync,
     IconWrench,
+    IconAdvisor,
     IconComments,
     IconGlobe,
     IconCode,

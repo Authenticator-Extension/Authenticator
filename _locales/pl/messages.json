@@ -48,7 +48,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "OK",
         "description": "OK."
     },
     "yes": {
@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Zresetuj Authenticator"
+        "message": "Zresetuj Authenticatora"
     },
     "delete_all_warning": {
         "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie Authenticatora. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem Authenticatora należy rozważyć zapisanie kopii zapasowej."
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importowanie zakończone pomyślnie, ale pewien obraz QR nie może być rozpoznany.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Importowanie powiodło się, ale niektóre kody QR nie zostały rozpoznane.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Możesz wybrać wiele plików, aby importować kopie zapasowe w partiach.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Ciemny",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Prosty",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Wysoki kontrast",
@@ -388,6 +392,54 @@
         "message": "Kopia zapasowa"
     },
     "backup_file_info": {
-        "message": "Utwórz kopię zapasową danych w pliku."
+        "message": "Zapisz kopię zapasową danych do pliku."
+    },
+    "password_policy_default_hint": {
+        "message": "Twoje hasło nie spełnia wymogów bezpieczeństwa Twojej organizacji. Aby uzyskać więcej informacji, skontaktuj się z administratorem."
+    },
+    "advisor": {
+        "message": "Doradca"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Ustaw hasło, aby chronić twoje dane."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Włącz automatyczne blokowanie, aby chronić twoje dane."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej pozwala na synchronizację kont pomiędzy przeglądarkami."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Włączenie inteligentnego filtra umożliwia szybki dostęp do kont."
+    },
+    "show_all_insights": {
+        "message": "Pokaż wszystkie spostrzeżenia."
+    },
+    "no_insight_available": {
+        "message": "Nie znaleziono żadnych spostrzeżeń, wszystko wygląda dobrze!"
+    },
+    "danger": {
+        "message": "Niebezpieczeństwo"
+    },
+    "warning": {
+        "message": "Ostrzeżenie"
+    },
+    "info": {
+        "message": "Informacja"
+    },
+    "dismiss": {
+        "message": "Odrzuć"
+    },
+    "learn_more": {
+        "message": "Dowiedz się więcej"
+    },
+    "enable_context_menu": {
+        "message": "Dodaj do menu kontekstowego"
+    },
+    "no_entires": {
+        "message": "Brak kont do wyświetlenia. Dodaj teraz swoje pierwsze konto."
     }
 }

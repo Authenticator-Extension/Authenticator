@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Автентифікатор",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Автентифікатор генерує коди двофакторної автентифікації у вашому браузері.",
+        "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
         "description": "Extension Description."
     },
     "added": {
@@ -178,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Увага! Ваш місцевий годинник налаштованно невірно, будь ласка, виправте його, перш ніж продовжити.",
+        "message": "Увага! Ваш місцевий годинник налаштовано неправильно. Будь ласка, виправте його, перш ніж продовжити.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Імпорт успішний, але деяке QR-зображення не може бути розпізнано.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Ви можете вибрати декілька файлів для імпорту резервних копій групами.",
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Ручне резервне копіювання",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -305,6 +305,10 @@
         "message": "Темна",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Висока контрастність",
         "description": "High Contrast theme"
@@ -322,11 +326,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Увійти (Бізнес)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Чому бізнес-акаунти потребують більше дозволів?"
     },
     "log_out": {
         "message": "Вийти",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
+    },
+    "password_policy_default_hint": {
+        "message": "Ваш пароль не відповідає вимогам безпеки вашої організації. Для отримання додаткової інформації зверніться до адміністратора."
+    },
+    "advisor": {
+        "message": "Порадник"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Встановіть пароль для захисту ваших даних."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Увімкніть автоблокування для захисту ваших даних."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Синхронізацію браузера вимкнено. Увімкнення дозволяє синхронізувати облікові записи між браузерами."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Увімкнути автозаповнення для автоматичного заповнення кодів на веб-сайтах."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Увімкнення розумного фільтра дозволяє отримати швидкий доступ до облікових записів."
+    },
+    "show_all_insights": {
+        "message": "Показати всі деталі."
+    },
+    "no_insight_available": {
+        "message": "Не знайдено жодних відомостей, все виглядає добре!"
+    },
+    "danger": {
+        "message": "Загроза"
+    },
+    "warning": {
+        "message": "Попередження"
+    },
+    "info": {
+        "message": "Інформація"
+    },
+    "dismiss": {
+        "message": "Відхилити"
+    },
+    "learn_more": {
+        "message": "Дізнатись більше"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

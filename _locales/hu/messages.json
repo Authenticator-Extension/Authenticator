@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Sikeresen importálva, de néhány QR kód nem ismerhető fel.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Kijelölhet több képfájlt is a biztonsági mentés folyamatos importálásához.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Sötét",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Nagy kontrasztú",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
+    },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
+    "advisor": {
+        "message": "Advisor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Set a password to protect your data."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Enable auto-lock to protect your data."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autofill can be enabled to automatically fill codes into websites."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Enabling smart filter allows for quick access to accounts."
+    },
+    "show_all_insights": {
+        "message": "Show all insights."
+    },
+    "no_insight_available": {
+        "message": "No insights found, everything looks good!"
+    },
+    "danger": {
+        "message": "Danger"
+    },
+    "warning": {
+        "message": "Warning"
+    },
+    "info": {
+        "message": "Info"
+    },
+    "dismiss": {
+        "message": "Dismiss"
+    },
+    "learn_more": {
+        "message": "Tudj meg többet"
+    },
+    "enable_context_menu": {
+        "message": "Kontextus menühöz adás"
+    },
+    "no_entires": {
+        "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
     }
 }

@@ -21,6 +21,14 @@ body {
   font-size: 16px;
   cursor: default;
   user-select: none;
+
+  :focus {
+    outline: auto;
+  }
+}
+
+.hideoutline * {
+  outline: none !important;
 }
 
 svg {
@@ -221,7 +229,8 @@ svg {
     .issuer,
     .showqr,
     .showqr.hidden,
-    .pin {
+    .pin,
+    .no-entry {
       display: none;
     }
 
@@ -270,6 +279,21 @@ svg {
       animation: twinkling 1s infinite ease-in-out;
     }
   }
+
+  .no-entry {
+    @include themify($themes) {
+      color: themed("grey-1");
+    }
+
+    margin: 20px;
+    text-align: center;
+
+    svg {
+      width: 48px;
+      height: 48px;
+      margin: 20px;
+    }
+  }
 }
 
 .entry {
@@ -282,6 +306,8 @@ svg {
   }
   border-radius: 2px;
   position: relative;
+  display: block;
+  cursor: pointer;
 
   .issuer {
     font-size: 12px;
@@ -301,7 +327,6 @@ svg {
     width: 80%;
     user-select: text;
     font-family: "Droid Sans Mono";
-    cursor: pointer;
   }
 
   .sector,
@@ -703,6 +728,64 @@ svg {
     }
   }
 
+  // Advisor
+  .advisor {
+    .show-all-insights {
+      text-align: right;
+      margin: 5px;
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
+
+    .no-insight {
+      @include themify($themes) {
+        color: themed("grey-1");
+      }
+
+      margin: 20px;
+    }
+
+    .insight {
+      font-size: 14px;
+      border-left: 5px solid;
+      padding-left: 5px;
+      margin: 20px 5px 20px 0;
+
+      h3 {
+        margin-bottom: 5px;
+      }
+
+      p {
+        margin-bottom: 5px !important;
+      }
+
+      .link {
+        text-align: right;
+        font-size: 12px;
+
+        a:not(:first-child) {
+          @include themify($themes) {
+            border-left: 1px solid themed("grey-1");
+          }
+          margin-left: 10px;
+          padding-left: 10px;
+        }
+      }
+    }
+
+    [level="danger"] {
+      border-left-color: firebrick;
+    }
+
+    [level="warning"] {
+      border-left-color: darkorange;
+    }
+
+    [level="info"] {
+      border-left-color: #08c;
+    }
+  }
+
   // Security
   @mixin security-button($margin-left) {
     @extend .button-small;
@@ -995,6 +1078,74 @@ svg {
   }
 }
 
+// Simple overrides
+.theme-simple {
+  .header {
+    border-bottom: white 1px solid !important;
+
+    &::after {
+      content: "";
+      display: block;
+      margin: 0 20px -1px 20px;
+      border-bottom: #eee 1px solid;
+    }
+  }
+
+  #search {
+    border-color: white !important;
+  }
+
+  .entry {
+    border-color: white !important;
+  }
+
+  &:not(.edit) {
+    .entry:hover {
+      background: #f8f8f8;
+    }
+  }
+
+  .control-group select {
+    border-color: white !important;
+  }
+
+  .menuList {
+    border-color: white !important;
+
+    p {
+      border-color: white !important;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    background-color: white !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid white !important;
+  }
+
+  .button {
+    background: #f2f2f2 !important;
+    border: #f2f2f2 1px solid !important;
+    color: black !important;
+
+    &:hover {
+      background: #f8f8f8 !important;
+      border: #f8f8f8 1px solid !important;
+    }
+  }
+
+  #info {
+    box-shadow: none !important;
+  }
+
+  .message-box {
+    border: #ccc 1px solid;
+    box-shadow: none !important;
+  }
+}
+
 // Accessibility overrides
 .theme-accessibility {
   select {
@@ -1071,6 +1222,11 @@ svg {
     }
   }
 
+  #info {
+    border: 1px solid white;
+    box-shadow: none;
+  }
+
   #info .control-group input[type="checkbox"]::before {
     background: none;
     border: 2px solid white;
@@ -1089,5 +1245,26 @@ svg {
 
   .input {
     color: black;
+  }
+
+  #notification {
+    &.fadein {
+      opacity: 1;
+      animation: none;
+    }
+
+    &.fadeout {
+      opacity: 0;
+      animation: none;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    background: black !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: white !important;
+    border: 2px solid black !important;
   }
 }

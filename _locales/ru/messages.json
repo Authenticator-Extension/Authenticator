@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Аутентификатор",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлен.",
+        "message": " добавлено.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Недопустимый номер учётной записи",
+        "message": "Недопустимое имя учётной записи.",
         "description": "Secret Error."
     },
     "add_code": {
@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Имя пользователя",
         "description": "Account Name."
     },
     "issuer": {
@@ -120,13 +120,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator\n"
+        "message": "Сбросить ключ идентификации."
     },
     "delete_all_warning": {
         "message": "Это удалит все ваши данные и полностью сбросит Authenticator. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не может помочь вам, если вы забыли пароль.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "Вы не можете добавить аккаунт, пока все акканты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
+        "message": "Вы не можете добавить аккаунт, пока все аккаунты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Пароль не совпадает. как решь проблему.",
+        "message": "Не совпадает парольная фраза.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Сканируете QR-код из файла? Используйте команду Импортировать QR из резервного файла.",
+        "message": "Сканируете QR код из файла? Используйте команду Импортировать QR из резервного файла.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с QR-кодом.",
+        "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с QR кодом",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -218,24 +218,24 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Восстановить резервную копию",
+        "message": "Восстановить копию.",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Восстановить резервную копию из файла",
+        "message": "Восстановить из файла",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Импортировать резервную копию QR-изображений",
+        "message": "Импортировать резервную копию QR изображений",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Восстановить резервную копию из текста",
+        "message": "Восстановить  из текста.",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Импортирование прошло успешно, но некоторые QR-коды не были быть распознаны.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Вы можете выбрать несколько файлов изображения для импорта резервных копий в пакетном режиме.",
@@ -305,6 +305,10 @@
         "message": "Тёмная",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Высокая контрастность",
         "description": "High Contrast theme"
@@ -343,7 +347,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "У вас есть один или несколько аккаунтов Steam или Blizzard. Незашифрованные резервные копии не будут использовать стандартный формат резервного копирования.",
+        "message": "У вас есть один или несколько аккаунтов Steam или Blizzard. Не зашифрованные резервные копии не будут использовать стандартный формат резервного копирования.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -355,10 +359,10 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "wird geladen..."
+        "message": "Загрузка..."
     },
     "autolock": {
-        "message": "Lock Owner"
+        "message": "Заблокировать после"
     },
     "minutes": {
         "message": "минут"
@@ -385,9 +389,57 @@
         "message": "\"Умный\" фильтр"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Резервное копирование"
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
+    },
+    "password_policy_default_hint": {
+        "message": "Ваш пароль не соответствует требованием безопасности вашей организации. Свяжитесь с вашим администратором для получение дополнительной информации."
+    },
+    "advisor": {
+        "message": "Советник"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Установите пароль для защиты своих данных."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Включите автоблокировку для защиты своих данных."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Синхронизация браузера отключена. Включение этой опции позволяет синхронизировать учетные записи между браузерами."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "автозаполнение может быть включено для автоматического заполнения кодов на веб-сайтах."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Включение смарт фильтра позволяет быстро получить доступ к аккаунтам."
+    },
+    "show_all_insights": {
+        "message": "Показать все действия."
+    },
+    "no_insight_available": {
+        "message": "Никаких действий не найдено, всё хорошо!"
+    },
+    "danger": {
+        "message": "Опасность"
+    },
+    "warning": {
+        "message": "Предупреждение"
+    },
+    "info": {
+        "message": "ℹ️ Информация"
+    },
+    "dismiss": {
+        "message": "Пропустить"
+    },
+    "learn_more": {
+        "message": "Узнать больше"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authentifikator",
+        "message": "Authentifizierung",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Ungültiges Passwort",
+        "message": "Ungültiges Kontogeheimnis",
         "description": "Secret Error."
     },
     "add_code": {
@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Passwort",
+        "message": "Schlüssel",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import erfolgreich, aber ein QR-Code kann nicht erkannt werden.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import erfolgreich, aber mancher QR-Code konnte nicht erkannt werden.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Sie können mehrere Dateien auswählen, um die Sicherung in Stapeln zu importieren.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Dunkel",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Einfach",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Hoher Kontrast",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Sichern Sie Ihre Daten in eine Datei."
+    },
+    "password_policy_default_hint": {
+        "message": "Ihr Passwort entspricht nicht den Sicherheitsanforderungen Ihrer Organisation. Kontaktieren Sie Ihren Administrator für weitere Informationen."
+    },
+    "advisor": {
+        "message": "Ratgeber"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Lege ein Passwort zum Schutz deiner Daten fest."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Erlaube automatisches Sperren, um deine Daten zu schützen."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Erlaube Browser-Synchronisation, damit Accounts zwischen verschiedenen Browsern synchronisiert werden können."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autofill erlauben, um Passwortfelder in Websites automatisch auszufüllen."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Das Aktivieren des intelligenten Filters ermöglicht schnellen Zugriff auf Konten."
+    },
+    "show_all_insights": {
+        "message": "Alle Warnungen anzeigen."
+    },
+    "no_insight_available": {
+        "message": "Keine Warnungen, alle Einstellungen entsprechen den Empfehlungen!"
+    },
+    "danger": {
+        "message": "Risiko"
+    },
+    "warning": {
+        "message": "Warnung"
+    },
+    "info": {
+        "message": "Info"
+    },
+    "dismiss": {
+        "message": "Verwerfen"
+    },
+    "learn_more": {
+        "message": "Weitere Informationen"
+    },
+    "enable_context_menu": {
+        "message": "Zum Kontextmenü hinzufügen"
+    },
+    "no_entires": {
+        "message": "Keine Konten zum Anzeigen. Erstes Konto jetzt hinzufügen."
     }
 }

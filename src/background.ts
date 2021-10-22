@@ -44,6 +44,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     setAutolock();
   } else if (message.action === "updateContentTab") {
     contentTab = message.data;
+  } else if (message.action === "updateContextMenu") {
+    updateContextMenu();
   }
 });
 
@@ -269,7 +271,8 @@ async function getTotp(text: string, silent = false) {
           entryData[hash].algorithm = algorithm;
         }
         if (
-          (await EntryStorage.hasEncryptedEntry()) !==
+          // If the entries are encrypted and we aren't unlocked, error.
+          (await EntryStorage.hasEncryptionKey()) !==
           encryption.getEncryptionStatus()
         ) {
           !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });
@@ -507,7 +510,7 @@ async function uploadBackup(service: string) {
 chrome.runtime.onInstalled.addListener(async (details) => {
   if (details.reason !== "install") {
     return;
-  } else if (await ManagedStorage.get("disableInstallHelp")) {
+  } else if (await ManagedStorage.get("disableInstallHelp", false)) {
     return;
   }
 
@@ -564,7 +567,9 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 });
 
 async function setAutolock() {
-  const enforcedAutolock = Number(await ManagedStorage.get("enforceAutolock"));
+  const enforcedAutolock = Number(
+    await ManagedStorage.get("enforceAutolock", false)
+  );
 
   if (enforcedAutolock && enforcedAutolock > 0) {
     autolockTimeout = window.setTimeout(() => {
@@ -587,3 +592,47 @@ async function setAutolock() {
     }, Number(localStorage.autolock) * 60000);
   }
 }
+
+function updateContextMenu() {
+  chrome.permissions.contains(
+    {
+      permissions: ["contextMenus"],
+    },
+    (result) => {
+      if (result) {
+        if (localStorage.enableContextMenu === "true") {
+          chrome.contextMenus.create({
+            title: chrome.i18n.getMessage("extName"),
+            contexts: ["all"],
+            onclick: (_, tab) => {
+              let popupUrl = "view/popup.html?popup=true";
+              if (tab.url && tab.title) {
+                popupUrl +=
+                  "&url=" +
+                  encodeURIComponent(tab.url) +
+                  "&title=" +
+                  encodeURIComponent(tab.title);
+              }
+              let windowType;
+              if (navigator.userAgent.indexOf("Firefox") !== -1) {
+                windowType = "detached_panel";
+              } else {
+                windowType = "panel";
+              }
+              chrome.windows.create({
+                url: chrome.extension.getURL(popupUrl),
+                type: windowType,
+                height: 400,
+                width: 320,
+              });
+            },
+          });
+        } else {
+          chrome.contextMenus.removeAll();
+        }
+      }
+    }
+  );
+}
+
+updateContextMenu();

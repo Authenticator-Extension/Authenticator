@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-on:keydown.stop>
     <div class="text">{{ i18n.passphrase_info }}</div>
     <a-text-input
       type="password"
@@ -29,8 +29,12 @@ export default Vue.extend({
     },
   },
   methods: {
-    applyPassphrase() {
-      this.$store.dispatch("accounts/applyPassphrase", this.password);
+    async applyPassphrase() {
+      await this.$store.dispatch("accounts/applyPassphrase", this.password);
+      const firstEntry = document.querySelector(
+        ".entry[tabindex='0']"
+      ) as HTMLElement;
+      firstEntry?.focus();
     },
   },
 });

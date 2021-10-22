@@ -1,24 +1,15 @@
 import { EntryStorage, BrowserStorage } from "../models/storage";
 import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
-import { OTPType, OTPAlgorithm, CodeState } from "../models/otp";
+import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
 
 export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
-    let shouldShowPassphrase = cachedPassphrase
-      ? false
-      : await EntryStorage.hasEncryptedEntry();
+    const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
-
-    for (let i = 0; i < entries.length; i++) {
-      if (entries[i].code === CodeState.Encrypted) {
-        shouldShowPassphrase = true;
-        break;
-      }
-    }
 
     return {
       state: {
@@ -37,6 +28,7 @@ export class Accounts implements Module {
         exportEncData: await EntryStorage.getExport(entries, true),
         key: await BrowserStorage.getKey(),
         wrongPassword: false,
+        initComplete: false,
       },
       getters: {
         shouldFilter(
@@ -59,11 +51,12 @@ export class Accounts implements Module {
           }
           return false;
         },
-        pinnedEntries(state: AccountsState) {
-          return state.entries.filter((entry) => entry.pinned);
-        },
-        unpinnedEntries(state: AccountsState) {
-          return state.entries.filter((entry) => !entry.pinned);
+        entries(state: AccountsState) {
+          const pinnedEntries = state.entries.filter((entry) => entry.pinned);
+          const unpinnedEntries = state.entries.filter(
+            (entry) => !entry.pinned
+          );
+          return [...pinnedEntries, ...unpinnedEntries];
         },
       },
       mutations: {
@@ -163,6 +156,9 @@ export class Accounts implements Module {
         },
         wrongPassword(state: AccountsState) {
           state.wrongPassword = true;
+        },
+        initComplete(state: AccountsState) {
+          state.initComplete = true;
         },
       },
       actions: {
@@ -304,6 +300,21 @@ export class Accounts implements Module {
             state.state.encryption.updateEncryptionPassword(key);
             await state.dispatch("updateEntries");
 
+            // Encrypt any unencrypted entries.
+            // Browser sync can cause unencrypted entries to show up.
+            let needUpdateStorage = false;
+            for (const entry of state.state.entries) {
+              if (!entry.encSecret) {
+                await entry.changeEncryption(state.state.encryption);
+                needUpdateStorage = true;
+              }
+            }
+
+            if (needUpdateStorage) {
+              await EntryStorage.set(state.state.entries);
+              await state.dispatch("updateEntries");
+            }
+
             if (!state.getters.currentlyEncrypted) {
               chrome.runtime.sendMessage({
                 action: "cachePassphrase",
@@ -428,6 +439,7 @@ export class Accounts implements Module {
             await EntryStorage.getExport(state.state.entries, true)
           );
           state.commit("updateKeyExport", await BrowserStorage.getKey());
+          state.commit("initComplete");
           return;
         },
         clearFilter: (state: ActionContext<AccountsState, {}>) => {
@@ -505,21 +517,33 @@ export class Accounts implements Module {
     return new Promise((resolve: (value: Array<string | null>) => void) => {
       chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         const tab = tabs[0];
-        if (!tab) {
-          return resolve([null, null]);
+        const query = new URLSearchParams(
+          document.location.search.substring(1)
+        );
+
+        let title: string | null;
+        let url: string | null;
+        const titleFromQuery = query.get("title");
+        const urlFromQuery = query.get("url");
+
+        if (titleFromQuery && urlFromQuery) {
+          title = decodeURIComponent(titleFromQuery);
+          url = decodeURIComponent(urlFromQuery);
+        } else {
+          if (!tab) {
+            return resolve([null, null]);
+          }
+
+          title = tab.title?.replace(/[^a-z0-9]/gi, "").toLowerCase() ?? null;
+          url = tab.url ?? null;
         }
 
-        const title = tab.title
-          ? tab.title.replace(/[^a-z0-9]/gi, "").toLowerCase()
-          : null;
-
-        if (!tab.url) {
+        if (!url) {
           return resolve([title, null]);
         }
 
-        const urlParser = document.createElement("a");
-        urlParser.href = tab.url;
-        const hostname = urlParser.hostname.toLowerCase();
+        const urlParser = new URL(url);
+        const hostname = urlParser.hostname; // it's always lower case
 
         // try to parse name from hostname
         // i.e. hostname is www.example.com

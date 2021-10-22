@@ -88,7 +88,7 @@
         "description": "About."
     },
     "settings": {
-        "message": "Setelan",
+        "message": "Konfigurasi",
         "description": "Settings."
     },
     "security": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Impor berhasil, tapi beberapa gambar QR tak dapat dikenali.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import successful, but some QR codes could not be recognized.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Anda bisa memilih beberapa berkas untuk cadangan impor di batch.",
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Backup manual",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Gelap",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Kontras Tinggi",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Cadangkan data Anda ke file."
+    },
+    "password_policy_default_hint": {
+        "message": "Kata sandi tidak memenuhi persyaratan keamanan organisasi anda. Hubungi administrator untuk informasi lebih lanjut."
+    },
+    "advisor": {
+        "message": "Penasehat"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Masukkan kata sandi untuk melindungi data anda."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Aktifkan auto-lock untuk melindungi data anda."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Sinkronisasi browser nonaktif. Mengaktifkannya membuat akun sinkron di semua browser."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autofill dapat diaktifkan untuk mengisi kode secara otomatis ke situs web."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Mengaktifkan filter cerdas memungkinkan akses cepat ke akun."
+    },
+    "show_all_insights": {
+        "message": "Melihat semua pengumuman."
+    },
+    "no_insight_available": {
+        "message": "Pengumuman kosong, semua normal!"
+    },
+    "danger": {
+        "message": "Perhatian"
+    },
+    "warning": {
+        "message": "Peringatan"
+    },
+    "info": {
+        "message": "Informasi"
+    },
+    "dismiss": {
+        "message": "Abaikan"
+    },
+    "learn_more": {
+        "message": "Selengkapnya"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

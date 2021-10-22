@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "6.3.2",
+    "version": "6.3.3",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -56,6 +56,7 @@
     ],
     "optional_permissions": [
         "clipboardWrite",
+        "contextMenus",
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",

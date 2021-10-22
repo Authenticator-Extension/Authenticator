@@ -4,7 +4,9 @@ import * as uuid from "uuid/v4";
 
 export class BrowserStorage {
   private static async getStorageLocation() {
-    const managedLocation = await ManagedStorage.get("storageArea");
+    const managedLocation = await ManagedStorage.get<"sync" | "local">(
+      "storageArea"
+    );
     if (managedLocation === "sync" || managedLocation === "local") {
       return new Promise((resolve) => {
         if (localStorage.storageLocation !== managedLocation) {
@@ -260,21 +262,8 @@ export class EntryStorage {
     }
   }
 
-  static hasEncryptedEntry() {
-    return new Promise((resolve: (value: boolean) => void) => {
-      BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
-        for (const hash of Object.keys(_data)) {
-          if (!this.isValidEntry(_data, hash)) {
-            continue;
-          }
-          if (_data[hash].encrypted) {
-            return resolve(true);
-          }
-        }
-        return resolve(false);
-      });
-      return;
-    });
+  static async hasEncryptionKey(): Promise<boolean> {
+    return Boolean(await BrowserStorage.getKey());
   }
 
   static getExport(data: OTPEntryInterface[], encrypted?: boolean) {
@@ -667,18 +656,20 @@ export class EntryStorage {
 }
 
 export class ManagedStorage {
-  static get(key: string) {
-    return new Promise((resolve: (result: boolean | string) => void) => {
+  static get<T>(key: string): T | undefined;
+  static get<T>(key: string, defaultValue: T): T;
+  static get<T>(key: string, defaultValue?: T) {
+    return new Promise((resolve: (result: T | undefined) => void) => {
       chrome.storage.managed.get((data) => {
         if (chrome.runtime.lastError) {
-          return resolve(false);
+          return resolve(defaultValue);
         }
         if (data) {
           if (data[key]) {
             return resolve(data[key]);
           }
         }
-        return resolve(false);
+        return resolve(defaultValue);
       });
     });
   }

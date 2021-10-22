@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import succesvol, maar sommige QR-afbeeldingen kunnen niet worden herkend.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Import succesvol, maar sommige QR-codes kunnen niet worden herkend.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "U kunt meerdere bestanden selecteren om back-up in batches te importeren.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Donker",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Eenvoudig",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Hoog contrast",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Back-up uw gegevens naar een bestand."
+    },
+    "password_policy_default_hint": {
+        "message": "Uw wachtwoord voldoet niet aan de beveiligingseisen van uw organisatie. Neem contact op met uw beheerder voor meer informatie."
+    },
+    "advisor": {
+        "message": "Adviseur"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Stel een wachtwoord in om uw gegevens te beveiligen."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Schakel automatisch vergrendelen in om uw gegevens te beschermen."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browsersynchronisatie is uitgeschakeld. Schakel dit in om accounts in verschillende browsers te synchroniseren."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Automatisch invullen kan worden ingeschakeld om automatisch codes op websites in te vullen."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Het inschakelen van een slim filter zorgt voor snelle toegang tot accounts."
+    },
+    "show_all_insights": {
+        "message": "Alle inzichten tonen."
+    },
+    "no_insight_available": {
+        "message": "Geen inzichten gevonden, alles ziet er goed uit!"
+    },
+    "danger": {
+        "message": "Gevaar"
+    },
+    "warning": {
+        "message": "Waarschuwing"
+    },
+    "info": {
+        "message": "Informatie"
+    },
+    "dismiss": {
+        "message": "Negeren"
+    },
+    "learn_more": {
+        "message": "Meer info"
+    },
+    "enable_context_menu": {
+        "message": "Aan contextmenu toevoegen"
+    },
+    "no_entires": {
+        "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
     }
 }

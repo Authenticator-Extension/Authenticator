@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Clau secreta del compte no vàlida",
         "description": "Secret Error."
     },
     "add_code": {
@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importació exitosa, però algunes imatges QR no es poden reconèixer.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Importat correctament, però alguns codis QR no s'han reconegut.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Podeu seleccionar diversos fitxers per importar la còpia en lots.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Fosc",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Senzill",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Alt contrast",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Fes una còpia de les dades a un fitxer."
+    },
+    "password_policy_default_hint": {
+        "message": "La contrasenya no compleix els requeriments de seguretat de la teva companyia. Contacta amb el teu administrador per a més informació."
+    },
+    "advisor": {
+        "message": "Assessor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Establiu una contrasenya per protegir les vostres dades."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Activeu el bloqueig automàtic per protegir les vostres dades."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "La sincronització està desactivada. Habilitar-la permet que els comptes es sincronitzin entre navegadors."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Podeu activar l'emplenament automàtic per omplir els codis a les pàgines web."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Activar el filtre intel·ligent permet l'accés ràpid als comptes."
+    },
+    "show_all_insights": {
+        "message": "Mostra tots els punts de vista."
+    },
+    "no_insight_available": {
+        "message": "No s'han trobat punts de vista, tot sembla correcte!"
+    },
+    "danger": {
+        "message": "Perill"
+    },
+    "warning": {
+        "message": "Advertència"
+    },
+    "info": {
+        "message": "Informació"
+    },
+    "dismiss": {
+        "message": "Descarta"
+    },
+    "learn_more": {
+        "message": "Saber-ne més"
+    },
+    "enable_context_menu": {
+        "message": "Afegeix al menú contextual"
+    },
+    "no_entires": {
+        "message": "Sense comptes per mostrar. Afegiu un compte ara."
     }
 }

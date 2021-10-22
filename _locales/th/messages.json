@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "ข้อมูลบัญชีไม่ถูกต้อง",
+        "message": "ค่าลับของข้อมูลบัญชีไม่ถูกต้อง",
         "description": "Secret Error."
     },
     "add_code": {
@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "ซิงค์เวลาผ่านระบบของ Google",
+        "message": "ซิงค์เวลาผ่าน Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -235,7 +235,7 @@
     },
     "import_backup_qr_partly_failed": {
         "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ QR บ้างรูปไม่สามารอ่านค่าได้",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "คุณสามารถเลือกไฟล์หลายไฟล์เพื่อนำเข้าข้อมูลสำรองเป็นชุด ๆ",
@@ -305,6 +305,10 @@
         "message": "มืด",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "เรียบง่าย (Automatic Translation)",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "ค่าคอนทราสต์สูง",
         "description": "High Contrast theme"
@@ -322,11 +326,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "ลงทะเบียน (ธุรกิจ)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "เพราะเหตุใดบัญชีธุรกิจต้องการขออนุญาตเพิ่มเติม?"
     },
     "log_out": {
         "message": "ออกจากระบบ",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "สำรองข้อมูลของคุณลงในไฟล์"
+    },
+    "password_policy_default_hint": {
+        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+    },
+    "advisor": {
+        "message": "ที่ปรึกษา"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "เปิดใช้งาน ล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "การซิงค์เบราว์เซอร์ปิดใช้งาน. การเปิดใช้งานเพื่อยึนยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
+    },
+    "show_all_insights": {
+        "message": "แสดงข้อมูลเชิงลึกทั้งหมด."
+    },
+    "no_insight_available": {
+        "message": "ไม่พบข้อมูลเชิงลึก, ทุกอย่างยังดูดี!"
+    },
+    "danger": {
+        "message": "อันตราย"
+    },
+    "warning": {
+        "message": "คำเตือน"
+    },
+    "info": {
+        "message": "ข้อมูล"
+    },
+    "dismiss": {
+        "message": "ยกเลิก"
+    },
+    "learn_more": {
+        "message": "เพิ่มเติม"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณ"
     }
 }

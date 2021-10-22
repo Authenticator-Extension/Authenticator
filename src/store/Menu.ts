@@ -8,16 +8,21 @@ export class Menu implements Module {
         zoom: Number(localStorage.zoom) || 100,
         useAutofill: localStorage.autofill === "true",
         smartFilter: localStorage.smartFilter !== "false",
+        enableContextMenu: localStorage.enableContextMenu === "true",
         theme:
           localStorage.theme ||
           (localStorage.highContrast === "true" ? "accessibility" : "normal"),
         autolock: Number(localStorage.autolock) || 0,
-        backupDisabled: await ManagedStorage.get("disableBackup"),
-        exportDisabled: await ManagedStorage.get("disableExport"),
-        enforcePassword: await ManagedStorage.get("enforcePassword"),
-        enforceAutolock: await ManagedStorage.get("enforceAutolock"),
-        storageArea: await ManagedStorage.get("storageArea"),
-        feedbackURL: await ManagedStorage.get("feedbackURL"),
+        backupDisabled: await ManagedStorage.get("disableBackup", false),
+        exportDisabled: await ManagedStorage.get("disableExport", false),
+        enforcePassword: await ManagedStorage.get("enforcePassword", false),
+        enforceAutolock: await ManagedStorage.get("enforceAutolock", false),
+        storageArea: await ManagedStorage.get<"sync" | "local">("storageArea"),
+        feedbackURL: await ManagedStorage.get<string>("feedbackURL"),
+        passwordPolicy: await ManagedStorage.get<string>("passwordPolicy"),
+        passwordPolicyHint: await ManagedStorage.get<string>(
+          "passwordPolicyHint"
+        ),
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
@@ -32,6 +37,10 @@ export class Menu implements Module {
         setSmartFilter(state: MenuState, smartFilter: boolean) {
           state.smartFilter = smartFilter;
           localStorage.smartFilter = smartFilter;
+        },
+        setEnableContextMenu(state: MenuState, enableContextMenu: boolean) {
+          state.enableContextMenu = enableContextMenu;
+          localStorage.enableContextMenu = enableContextMenu;
         },
         setTheme(state: MenuState, theme: string) {
           state.theme = theme;

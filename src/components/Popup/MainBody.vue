@@ -14,6 +14,7 @@
         v-model="searchText"
         v-bind:placeholder="i18n.search"
         type="text"
+        tabindex="-1"
       />
       <div id="searchHint" v-if="searchText === ''">
         <div></div>
@@ -22,22 +23,31 @@
       </div>
     </div>
     <!-- Entries -->
-    <div v-dragula drake="entryDrake">
+    <div
+      v-dragula
+      drake="entryDrake"
+      v-on:keydown.down="focusNextEntry()"
+      v-on:keydown.right="focusNextEntry()"
+      v-on:keydown.up="focusLastEntry()"
+      v-on:keydown.left="focusLastEntry()"
+    >
       <EntryComponent
-        class="entry pinnedEntry"
-        v-for="entry in pinnedEntries"
+        v-for="entry in entries"
         :key="entry.hash"
+        v-bind:filtered="!entry.pinned && !isMatchedEntry(entry)"
         v-bind:notSearched="!isSearchedEntry(entry)"
         v-bind:entry="entry"
+        v-bind:tabindex="getTabindex(entry)"
       />
-      <EntryComponent
-        class="entry"
-        v-for="entry in unpinnedEntries"
-        :key="entry.hash"
-        v-bind:filtered="!isMatchedEntry(entry)"
-        v-bind:notSearched="!isSearchedEntry(entry)"
-        v-bind:entry="entry"
-      />
+      <div class="no-entry" v-if="entries.length === 0 && initComplete">
+        <IconKey />
+        <p>
+          {{ i18n.no_entires }}
+          <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
+            i18n.learn_more
+          }}</a>
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -49,14 +59,18 @@ import { EntryStorage } from "../../models/storage";
 
 import EntryComponent from "./EntryComponent.vue";
 
-import IconPlus from "../../../svg/plus.svg";
+// import IconPlus from "../../../svg/plus.svg";
+import IconKey from "../../../svg/key-solid.svg";
 
-let computed = mapState("accounts", ["entries", "filter", "showSearch"]);
-
-Object.assign(
-  computed,
-  mapGetters("accounts", ["shouldFilter", "pinnedEntries", "unpinnedEntries"])
-);
+const computed: {
+  filter: () => boolean;
+  showSearch: () => boolean;
+  shouldFilter: () => boolean;
+  entries: () => OTPEntry[];
+} = {
+  ...mapState("accounts", ["filter", "showSearch", "initComplete"]),
+  ...mapGetters("accounts", ["shouldFilter", "entries"]),
+};
 
 export default Vue.extend({
   data: function () {
@@ -66,6 +80,10 @@ export default Vue.extend({
   },
   computed,
   methods: {
+    openLink(url: string) {
+      window.open(url, "_blank");
+      return;
+    },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
         if (entry.hash === hash) {
@@ -89,6 +107,63 @@ export default Vue.extend({
     },
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
+    },
+    isEntryVisible(entry: OTPEntry) {
+      return (
+        this.isSearchedEntry(entry) &&
+        (entry.pinned ||
+          !this.shouldFilter ||
+          !this.filter ||
+          this.isMatchedEntry(entry))
+      );
+    },
+    getTabindex(entry: OTPEntry) {
+      const firstEntry = this.entries.find((entry) =>
+        this.isEntryVisible(entry)
+      );
+
+      return entry === firstEntry ? 0 : -1;
+    },
+    findNextEntryIndex(reverse: boolean) {
+      if (document.activeElement?.getAttribute("data-x-role") !== "entry") {
+        return -1;
+      }
+
+      const activeIndex = Array.prototype.indexOf.call(
+        document.querySelectorAll(".entry"),
+        document.activeElement
+      );
+      if (activeIndex === -1) {
+        return -1;
+      }
+
+      // reverse modify origin array, and use slice() to make a clone first
+      const _entries = reverse ? this.entries.slice().reverse() : this.entries;
+
+      let nextIndex = _entries.findIndex(
+        (entry, index) =>
+          index >
+            (reverse ? this.entries.length - 1 - activeIndex : activeIndex) &&
+          this.isEntryVisible(entry)
+      );
+
+      if (nextIndex === -1) {
+        nextIndex = _entries.findIndex((entry) => this.isEntryVisible(entry));
+      }
+
+      return nextIndex;
+    },
+    focusNextEntry() {
+      const nextIndex = this.findNextEntryIndex(false);
+      document
+        .querySelector<HTMLLinkElement>(`.entry:nth-child(${nextIndex + 1})`)
+        ?.focus();
+    },
+    focusLastEntry() {
+      const lastIndex = this.entries.length - 1 - this.findNextEntryIndex(true);
+      document
+        .querySelector<HTMLLinkElement>(`.entry:nth-child(${lastIndex + 1})`)
+        ?.focus();
     },
   },
   created() {
@@ -123,7 +198,8 @@ export default Vue.extend({
   },
   components: {
     EntryComponent,
-    IconPlus,
+    // IconPlus,
+    IconKey,
   },
 });
 </script>

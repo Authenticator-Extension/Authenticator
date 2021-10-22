@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importimine õnnestus, kuid mõnda QR'i pilti ei suudetud tuvastada.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Importimine õnnestus, kuid mõnesid QR'i koode ei suudetud tuvastada.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Saate importida varukoopiaid partiidena, valides mitu faili.",
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuaalne varundus",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -305,6 +305,10 @@
         "message": "Tume",
         "description": "Dark theme"
     },
+    "theme_simple": {
+        "message": "Lihtne",
+        "description": "Simple theme"
+    },
     "theme_high_contrast": {
         "message": "Kõrge kontrastsus",
         "description": "High Contrast theme"
@@ -314,7 +318,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Brauseri sünk",
         "description": "Storage location"
     },
     "sign_in": {
@@ -322,11 +326,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Logi sisse (ettevõte)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Miks ettevõtte kontod nõuavad rohkem õiguseid?"
     },
     "log_out": {
         "message": "Logi välja",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Varundage enda andmed failiks."
+    },
+    "password_policy_default_hint": {
+        "message": "Teie salasõna ei vasta teie organisatsiooni turvanõuetele. Lisateabe saamiseks kontakteeruge oma administraatoriga."
+    },
+    "advisor": {
+        "message": "Advisor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Set a password to protect your data."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Enable auto-lock to protect your data."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Autofill can be enabled to automatically fill codes into websites."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Enabling smart filter allows for quick access to accounts."
+    },
+    "show_all_insights": {
+        "message": "Show all insights."
+    },
+    "no_insight_available": {
+        "message": "No insights found, everything looks good!"
+    },
+    "danger": {
+        "message": "Danger"
+    },
+    "warning": {
+        "message": "Hoiatus"
+    },
+    "info": {
+        "message": "Info"
+    },
+    "dismiss": {
+        "message": "Sulge"
+    },
+    "learn_more": {
+        "message": "Lisateave"
+    },
+    "enable_context_menu": {
+        "message": "Add to context menu"
+    },
+    "no_entires": {
+        "message": "No accounts to display. Add your first account now."
     }
 }

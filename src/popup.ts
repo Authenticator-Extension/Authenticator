@@ -16,8 +16,8 @@ import { CurrentView } from "./store/CurrentView";
 import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
+import { Advisor } from "./store/Advisor";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
-import { EntryStorage } from "./models/storage";
 
 async function init() {
   // Add globals
@@ -36,6 +36,7 @@ async function init() {
   const store = new Vuex.Store({
     modules: {
       accounts: await new Accounts().getModule(),
+      advisor: await new Advisor().getModule(),
       backup: new Backup().getModule(),
       currentView: new CurrentView().getModule(),
       menu: await new Menu().getModule(),
@@ -60,30 +61,21 @@ async function init() {
 
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
-    instance.$store.commit("style/showInfo", true);
     // If we have cached password, use that
     if (instance.$store.state.accounts.encryption.getEncryptionStatus()) {
       instance.$store.commit("currentView/changeView", "LoadingPage");
-      for (const entry of instance.$store.state.accounts.entries) {
-        await entry.applyEncryption(instance.$store.state.accounts.encryption);
-      }
-      instance.$store.commit(
-        "accounts/updateExport",
-        await EntryStorage.getExport(instance.$store.state.accounts.entries)
-      );
-      instance.$store.commit(
-        "accounts/updateEncExport",
-        await EntryStorage.getExport(
-          instance.$store.state.accounts.entries,
-          true
-        )
-      );
-      instance.$store.commit("accounts/updateCodes");
-      instance.$store.commit("style/hideInfo", true);
+      await instance.$store.dispatch("accounts/updateEntries");
     } else {
+      instance.$store.commit("style/showInfo", true);
       instance.$store.commit("currentView/changeView", "EnterPasswordPage");
     }
+  } else {
+    // Set init complete if no encryption is present, otherwise this will be set in updateEntries.
+    instance.$store.commit("accounts/initComplete");
   }
+
+  // Auto focus on first entry
+  document.querySelector<HTMLAnchorElement>("a.entry[tabindex='0']")?.focus();
 
   // Set document title
   try {
@@ -158,8 +150,9 @@ async function init() {
     instance.$store.commit("accounts/showSearch");
   }
 
+  const query = new URLSearchParams(document.location.search.substring(1));
   // Resize window to proper size if popup
-  if (new URLSearchParams(document.location.search.substring(1)).get("popup")) {
+  if (query.get("popup")) {
     const zoom = Number(localStorage.zoom) / 100 || 1;
     const correctHeight = 480 * zoom;
     const correctWidth = 320 * zoom;

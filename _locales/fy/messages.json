@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Ymport suksesfol, mar guon QR-ôfbyldingen kinne net werkend wurde.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Ymport suksesfol, mar guon QR-koaden kinne net werkend wurde.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Jo kinne mear bestannen selektearje om reservekopy yn batches te ymportearjen.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Donker",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Ienfâldich",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Heech kontrast",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Meitsje in reservekopy fan jo gegevens nei in bestân."
+    },
+    "password_policy_default_hint": {
+        "message": "Jo wachtwurd foldocht net oan de befeiligingseasken fan jo organisaasje. Nim kontakt op mei jo behearder foar mear ynformaasje."
+    },
+    "advisor": {
+        "message": "Adviseur"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Stel in wachtwurd yn om jo gegevens te befeiligjen."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Skeakel automatysk beskoatteljen yn om jo gegevens te beskermjen."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "Browsersyngronisaasje is útskeakele. Skeakel dit yn om accounts yn ferskate browsers te syngronisearjen."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Automatysk ynfolje kin ynskeakele wurde om automatysk koaden op websites yn te foljen."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "It ynskeakeljen fan in tûk filter soarget foar snelle tagong ta accounts."
+    },
+    "show_all_insights": {
+        "message": "Alle ynsichten toane."
+    },
+    "no_insight_available": {
+        "message": "Gjin ynsichten fûn, alles sjocht der goed út!"
+    },
+    "danger": {
+        "message": "Gefaar"
+    },
+    "warning": {
+        "message": "Warskôging"
+    },
+    "info": {
+        "message": "Ynformaasje"
+    },
+    "dismiss": {
+        "message": "Negearje"
+    },
+    "learn_more": {
+        "message": "Mear ynfo"
+    },
+    "enable_context_menu": {
+        "message": "Oan kontekstmenu tafoegje"
+    },
+    "no_entires": {
+        "message": "Gjin accounts om te toanen. Foegje jo earste account no ta."
     }
 }

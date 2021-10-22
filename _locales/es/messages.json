@@ -235,7 +235,7 @@
     },
     "import_backup_qr_partly_failed": {
         "message": "Se importó correctamente, sin embargo, algunas imágenes QR no pudieron ser reconocidas.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Puedes seleccionar varios archivos para importar copias de seguridad por lotes.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Oscuro",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Alto contraste",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Guarda en un archivo una copia de seguridad de tus datos."
+    },
+    "password_policy_default_hint": {
+        "message": "La contraseña no cumple los requisitos de seguridad de tu organización. Para obtener más información, ponte en contacto con el administrador."
+    },
+    "advisor": {
+        "message": "Recomendaciones"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Crea una contraseña para proteger tus datos."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Habilita el bloqueo automático para proteger tus datos."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "La sincronización del navegador está deshabilitada. Si la habilitas, podrás sincronizar tus cuentas entre distintos navegadores."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "La función Autocompletar permite rellenar automáticamente códigos en sitios web."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Al activar el filtro inteligente, podrás acceder rápidamente a las cuentas."
+    },
+    "show_all_insights": {
+        "message": "Mostrar todas las recomendaciones."
+    },
+    "no_insight_available": {
+        "message": "No se encontraron recomendaciones, ¡parece que todo está bien!"
+    },
+    "danger": {
+        "message": "Peligro"
+    },
+    "warning": {
+        "message": "Advertencia"
+    },
+    "info": {
+        "message": "Información"
+    },
+    "dismiss": {
+        "message": "Descartar"
+    },
+    "learn_more": {
+        "message": "Más información"
+    },
+    "enable_context_menu": {
+        "message": "http://192.168.0.1/"
+    },
+    "no_entires": {
+        "message": "No hay cuentas para mostrar. Añade tu primera cuenta ahora."
     }
 }

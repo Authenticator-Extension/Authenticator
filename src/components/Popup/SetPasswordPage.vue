@@ -35,6 +35,24 @@ export default Vue.extend({
     enforcePassword: function () {
       return this.$store.state.menu.enforcePassword;
     },
+    passwordPolicy: function () {
+      if (!this.$store.state.menu.passwordPolicy) {
+        return null;
+      }
+
+      try {
+        return new RegExp(this.$store.state.menu.passwordPolicy);
+      } catch {
+        console.warn(
+          "Invalid password policy. The password policy is not a valid regular expression.",
+          this.$store.state.menu.passwordPolicy
+        );
+        return null;
+      }
+    },
+    passwordPolicyHint: function () {
+      return this.$store.state.menu.passwordPolicyHint;
+    },
   },
   methods: {
     async removePassphrase() {
@@ -46,6 +64,13 @@ export default Vue.extend({
     },
     async changePassphrase() {
       if (this.phrase === "") {
+        return;
+      }
+
+      if (this.passwordPolicy && !this.passwordPolicy.test(this.phrase)) {
+        const hint =
+          this.passwordPolicyHint || this.i18n.password_policy_default_hint;
+        this.$store.commit("notification/alert", hint);
         return;
       }
 

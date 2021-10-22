@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import réussi, mais certaines images QR ne peuvent pas être reconnues.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Importation réussie, mais certains codes QR n'ont pas pu être reconnus.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Vous pouvez sélectionner plusieurs fichiers pour importer les sauvegardes en lots.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Sombre",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simple",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Contraste élevé",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Sauvegardez vos données dans un fichier."
+    },
+    "password_policy_default_hint": {
+        "message": "Votre mot de passe ne répond pas aux exigences de sécurité de votre organisation. Contactez votre administrateur pour plus d'informations."
+    },
+    "advisor": {
+        "message": "Conseiller"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Définir un mot de passe pour protéger vos données."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Activer le verrouillage automatique pour protéger vos données."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "La synchronisation avec le navigateur est désactivée. Activez-la pour autoriser cette synchronisation."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "Le remplissage automatique peut être activé pour remplir automatiquement les codes dans les sites web."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Activer le filtre intelligent permet un accès rapide aux comptes."
+    },
+    "show_all_insights": {
+        "message": "Afficher tous les aperçus."
+    },
+    "no_insight_available": {
+        "message": "Aucun aperçu trouvé, tout semble bien!"
+    },
+    "danger": {
+        "message": "Danger"
+    },
+    "warning": {
+        "message": "Attention"
+    },
+    "info": {
+        "message": "Information"
+    },
+    "dismiss": {
+        "message": "Fermer"
+    },
+    "learn_more": {
+        "message": "En savoir plus"
+    },
+    "enable_context_menu": {
+        "message": "Ajouter au menu contextuel"
+    },
+    "no_entires": {
+        "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
     }
 }

@@ -234,8 +234,8 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importação bem sucedida, porém algumas imagens QR não foram reconhecidas.",
-        "description": "Import successfuly, but some QR image cannot be recognized."
+        "message": "Importado com sucesso, mas alguns códigos QR não puderam ser reconhecidos.",
+        "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
         "message": "Você pode selecionar vários arquivos para importar backups em lotes.",
@@ -304,6 +304,10 @@
     "theme_dark": {
         "message": "Escuro",
         "description": "Dark theme"
+    },
+    "theme_simple": {
+        "message": "Simples",
+        "description": "Simple theme"
     },
     "theme_high_contrast": {
         "message": "Alto contraste",
@@ -389,5 +393,53 @@
     },
     "backup_file_info": {
         "message": "Faça backup dos seus dados para um arquivo."
+    },
+    "password_policy_default_hint": {
+        "message": "Sua senha não atende aos requisitos de segurança de sua organização. Contate seu administrador para mais informações."
+    },
+    "advisor": {
+        "message": "Assessor"
+    },
+    "advisor_insight_password_not_set": {
+        "message": "Defina uma senha para proteger seus dados."
+    },
+    "advisor_insight_auto_lock_not_set": {
+        "message": "Ativar bloqueio automático para proteger seus dados."
+    },
+    "advisor_insight_browser_sync_not_enabled": {
+        "message": "A sincronização do navegador está desativada. Ativá-lo permite que as contas sejam sincronizadas entre os navegadores."
+    },
+    "advisor_insight_auto_fill_not_enabled": {
+        "message": "O preenchimento automático pode ser ativado para preencher automaticamente os códigos nos sites."
+    },
+    "advisor_insight_smart_filter_not_enabled": {
+        "message": "Habilitar o filtro inteligente permite acesso rápido às contas."
+    },
+    "show_all_insights": {
+        "message": "Mostrar todas as recomendações."
+    },
+    "no_insight_available": {
+        "message": "Nenhuma recomendação encontrada, tudo parece bom!"
+    },
+    "danger": {
+        "message": "Perigo"
+    },
+    "warning": {
+        "message": "Aviso"
+    },
+    "info": {
+        "message": "Informação"
+    },
+    "dismiss": {
+        "message": "Dispensar"
+    },
+    "learn_more": {
+        "message": "Saiba mais"
+    },
+    "enable_context_menu": {
+        "message": "Adicionar ao menu de contexto"
+    },
+    "no_entires": {
+        "message": "Não há contas para exibir. Adicione sua primeira conta agora."
     }
 }
