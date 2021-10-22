@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "İçe aktarma başarılı ancak bazı karekodlar tanınamıyor.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Temel",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -437,9 +437,9 @@
         "message": "Daha fazla bilgi edinin"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "İçerik menüsüne ekle"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
     }
 }

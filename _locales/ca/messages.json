@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importat correctament, però alguns codis QR no s'han reconegut.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Senzill",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -395,7 +395,7 @@
         "message": "Fes una còpia de les dades a un fitxer."
     },
     "password_policy_default_hint": {
-        "message": "La contrasenya no acompleix els requeriments de seguretat de la vostra organització. Contacteu amb el vostre administrador per a més informació."
+        "message": "La contrasenya no compleix els requeriments de seguretat de la teva companyia. Contacta amb el teu administrador per a més informació."
     },
     "advisor": {
         "message": "Assessor"
