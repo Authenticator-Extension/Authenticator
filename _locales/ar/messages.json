@@ -16,11 +16,11 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "رمز الاستجابة السريع غير معترف به.",
+        "message": "رمز QR غير معروف.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "بيانات الحساب غير صالحة",
+        "message": "سرية الحساب غير صالحة",
         "description": "Secret Error."
     },
     "add_code": {
@@ -416,30 +416,30 @@
         "message": "تفعيل الفلتر الذكي يسمح بالوصول السريع إلى الحسابات."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "إظهار جميع الرؤى."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "لم يتم العثور على رؤية، كل شيء يبدو جيدًا!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "خطر"
     },
     "warning": {
-        "message": "Warning"
+        "message": "تحذير"
     },
     "info": {
-        "message": "Info"
+        "message": "معلومات"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "تجاهل"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "لمعرفة المزيد"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "إضافة إلى قائمة السياق"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "لا توجد حسابات لعرضها. أضف حسابك الأول الآن."
     }
 }
