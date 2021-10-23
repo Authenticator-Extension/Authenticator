@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "مزامنة الساعة مع جوجل",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "تم الاستيراد بنجاح، ولكن لم يتم التعرف على بعض رموز QR.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "بسيط",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -395,13 +395,13 @@
         "message": "قم بالنسخ الاحتياطي لبياناتك إلى ملف."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "كلمة المرور الخاصة بك لا تفي بمتطلبات أمان مؤسستك. اتصل بالمسؤول للحصول على مزيد من المعلومات."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "مستشار"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "تعيين كلمة مرور لحماية بياناتك."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
