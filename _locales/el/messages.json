@@ -214,7 +214,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Λήψη αντιγράφου ασφαλείας",
+        "message": "Λήψη αρχείου",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Εισαγωγή αντιγράφου ασφαλείας",
+        "message": "Εισαγωγή από αρχείο",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Να εμφανιστούν όλες οι καταχωρήσεις",
+        "message": "Εμφάνιση όλων των λογαριασμών",
         "description": "Show all entries."
     },
     "dropbox_risk": {
