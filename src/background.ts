@@ -38,7 +38,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
     cachedPassphrase = "";
-    document.cookie = 'passphrase=";expires=Thu, 01 Jan 1970 00:00:00 GMT"';
   } else if (message.action === "resetAutolock") {
     clearTimeout(autolockTimeout);
     setAutolock();

@@ -12,14 +12,21 @@
 # install development dependencies
 npm install
 # compile
-npm run [chrome, firefox]
+npm run [chrome, firefox, prod]
+```
+
+To reproduce a build:
+
+``` bash
+npm ci
+npm run prod
 ```
 
 ## Development (Chrome)
 
 ``` bash
 # install development dependencies
-npm install 
+npm install
 # compiles the Chrome extension to the `./test/chrome` directory
 npm run dev:chrome
 # load the unpacked extension from the `./test/chrome/ directory in Chrome
