@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Εισαγωγή από αρχείο",
+        "message": "Import Backup File",
         "description": "Import backup file."
     },
     "import_backup_qr": {
