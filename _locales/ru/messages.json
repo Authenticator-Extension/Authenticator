@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Простая",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -437,7 +437,7 @@
         "message": "Узнать больше"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Добавить в контекстное меню"
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
