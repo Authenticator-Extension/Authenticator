@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Неприпустимий ідентифікатор аккаунта.",
+        "message": "Неприпустимий ідентифікатор аккаунта",
         "description": "Secret Error."
     },
     "add_code": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Імпорт завершено, але деякі QR-коди не вдалося розпізнати.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,7 +306,7 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Проста",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
@@ -437,9 +437,9 @@
         "message": "Дізнатись більше"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Додати до контекстного меню"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Немає аккаунтів, щоб їх показати. Додайте свій перший аккаунт зараз."
     }
 }
