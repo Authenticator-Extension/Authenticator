@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ QR บ้างรูปไม่สามารอ่านค่าได้",
+        "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ คิวอาร์โค้ด บางรูปไม่สามารอ่านค่าได้",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,11 +306,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "เรียบง่าย (Automatic Translation)",
+        "message": "เรียบง่าย",
         "description": "Simple theme"
     },
     "theme_high_contrast": {
-        "message": "ค่าคอนทราสต์สูง",
+        "message": "ความคมชัดสูง",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -392,22 +392,22 @@
         "message": "สำรองข้อมูล"
     },
     "backup_file_info": {
-        "message": "สำรองข้อมูลของคุณลงในไฟล์"
+        "message": "สำรองข้อมูลของคุณเป็นไฟล์"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "รหัสผ่านของคุณไม่ตรงตามความปลอดภัยขององค์กรของคุณที่กำหนดไว้ สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบของคุณ"
     },
     "advisor": {
-        "message": "ที่ปรึกษา"
+        "message": "คำแนะนำ"
     },
     "advisor_insight_password_not_set": {
         "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "เปิดใช้งาน ล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
+        "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "การซิงค์เบราว์เซอร์ปิดใช้งาน. การเปิดใช้งานเพื่อยึนยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
+        "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีต่างๆซิงค์ข้ามเบราว์เซอร์."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
