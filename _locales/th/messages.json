@@ -20,11 +20,11 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "ค่าลับของข้อมูลบัญชีไม่ถูกต้อง",
+        "message": "รหัสลับของบัญชีไม่ถูกต้อง",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "เพิ่มบัญชี",
         "description": "Add account."
     },
     "add_qr": {
@@ -407,7 +407,7 @@
         "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีต่างๆซิงค์ข้ามเบราว์เซอร์."
+        "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
@@ -434,12 +434,12 @@
         "message": "ยกเลิก"
     },
     "learn_more": {
-        "message": "เพิ่มเติม"
+        "message": "เรียนรู้เพิ่มเติม"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "เพิ่มไปยังเมนู"
     },
     "no_entires": {
-        "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณ"
+        "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณเลยตอนนี้"
     }
 }
