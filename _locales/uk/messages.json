@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Додати обліковий запис",
         "description": "Add account."
     },
     "add_qr": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Не вдалося виконати імпорт. Якщо ви переносите дані з Google Authenticator, будь ласка, повторно експортуйте свої дані з Google Authenticator і спробуйте знову.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Частина данних облікового запису не була імпортована.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Логін",
+        "message": "Ім'я користувача",
         "description": "Account Name."
     },
     "issuer": {
@@ -92,7 +92,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "Захист",
+        "message": "Безпека",
         "description": "Security."
     },
     "current_phrase": {
@@ -112,7 +112,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Ви впевнені, що хочете видалити цей обліковий запис? Цю дію не можна скасувати.",
+        "message": "Ви впевнені, що хочете видалити цей обліковий запис? Цю дію не можливо буде скасувати.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -126,7 +126,7 @@
         "message": "Це призведе до видалення всіх Ваших даних і повного скидання автентифікатора. Ви не зможете відновити втрачені дані! Вам слід розглянути можливість збереження резервної копії перед скиданням автентифікатора."
     },
     "security_warning": {
-        "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не може допомогти вам, якщо ви забудете пароль.",
+        "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не зможе допомогти вам, якщо ви забудете пароль.",
         "description": "Passphrase Warning."
     },
     "update": {
