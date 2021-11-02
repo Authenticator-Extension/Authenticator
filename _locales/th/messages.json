@@ -383,7 +383,7 @@
         "message": "จำนวนหลัก"
     },
     "algorithm": {
-        "message": "ค่าอัลกอริทึม"
+        "message": "อัลกอริทึม"
     },
     "smart_filter": {
         "message": "ตัวกรองอัจฉริยะ"
