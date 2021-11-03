@@ -123,7 +123,7 @@
         "message": "重設Authenticator"
     },
     "delete_all_warning": {
-        "message": "這將會刪除您所有的資料且重設Authenticator。您將無法復原任何以刪除的資料！在重設Authenticator之前您應備份您的資料。"
+        "message": "這會刪除您所有的資料並重設Authenticator。您將無法復原任何已刪除的資料！在重設Authenticator之前您應備份您的資料。"
     },
     "security_warning": {
         "message": "您的金鑰將使用此密碼進行加密。請妥善保管，將無法取回遺失的密碼。",
