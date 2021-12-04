@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Şifresi çözülemeyen hesaplar bu yedeklemeye dahil edilmeyecektir.",
+        "message": "Şifrelemesi çözülemeyen hesaplar bu yedeklemeye dahil edilmeyecektir.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
