@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap bilgilerinin şifrelemesini çözmek için parolanızı girin.",
+        "message": "Verilerin şifrelemesini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -250,7 +250,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Yedekleri içe aktarmak için doğru parolayı sağlamalısınız.",
+        "message": "Yedeklemeyi içe aktarmak için parolanızı girin.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
