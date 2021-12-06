@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authentificateur",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Acquisition du code QR",
+        "message": "Scanner le code QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -104,7 +104,7 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Phrase Secrète",
+        "message": "Mot de passe",
         "description": "Passphrase."
     },
     "confirm_phrase": {
