@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "قفل",
+        "message": "قفل کردن",
         "description": "Lock accounts"
     },
     "edit": {
