@@ -309,6 +309,10 @@
         "message": "Eenvoudig",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Hoog contrast",
         "description": "High Contrast theme"
