@@ -309,6 +309,10 @@
         "message": "بسيط",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "تباين عالي",
         "description": "High Contrast theme"
