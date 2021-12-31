@@ -46,10 +46,6 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
-import { Encryption } from "../../models/encryption";
-import { EntryStorage } from "../../models/storage";
-import * as CryptoJS from "crypto-js";
 
 export default Vue.extend({
   data: function () {
@@ -152,10 +148,7 @@ function getBackupFile(
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, "\r\n");
-  const base64Data = CryptoJS.enc.Base64.stringify(
-    CryptoJS.enc.Utf8.parse(json)
-  );
-  return `data:application/octet-stream;base64,${base64Data}`;
+  return downloadFileUrlBuilder(json);
 }
 
 function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
@@ -198,10 +191,12 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
     otpAuthLines.push(otpAuthLine);
   }
 
-  const base64Data = CryptoJS.enc.Base64.stringify(
-    CryptoJS.enc.Utf8.parse(otpAuthLines.join("\r\n"))
-  );
-  return `data:application/octet-stream;base64,${base64Data}`;
+  return downloadFileUrlBuilder(otpAuthLines.join("\r\n"));
+}
+
+function downloadFileUrlBuilder(content: string) {
+  const blob = new Blob([content], { type: "application/octet-stream" });
+  return URL.createObjectURL(blob);
 }
 
 function removeUnsafeData(data: string) {
