@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Keine Konten zum Anzeigen. Erstes Konto jetzt hinzufügen."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

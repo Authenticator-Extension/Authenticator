@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณ"
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

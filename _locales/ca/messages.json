@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Sense comptes per mostrar. Afegiu un compte ara."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

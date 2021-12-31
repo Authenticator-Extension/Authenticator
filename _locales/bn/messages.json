@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "কোন অ্যাকাউন্ট দেখা যাচ্ছে না। আপনার প্রথম অ্যাকাউন্ট যোগ করুন।"
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

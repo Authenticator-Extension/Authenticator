@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Não há contas para exibir. Adicione sua primeira conta agora."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

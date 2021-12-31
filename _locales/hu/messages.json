@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

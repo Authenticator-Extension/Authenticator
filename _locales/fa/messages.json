@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "هیچ حساب برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

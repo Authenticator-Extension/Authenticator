@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Gjin accounts om te toanen. Foegje jo earste account no ta."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

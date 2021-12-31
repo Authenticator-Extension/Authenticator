@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }

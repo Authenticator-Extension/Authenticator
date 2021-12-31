@@ -441,5 +441,9 @@
     },
     "no_entires": {
         "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     }
 }
