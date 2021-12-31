@@ -309,6 +309,10 @@
         "message": "সিম্পল",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "উচ্চ কন্ট্র্যাস্ট",
         "description": "High Contrast theme"
