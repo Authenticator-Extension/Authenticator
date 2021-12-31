@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "导入成功，但部分二维码无法识别。",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "紧凑",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
