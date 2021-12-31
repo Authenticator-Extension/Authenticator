@@ -3,10 +3,14 @@
     v-cloak
     v-bind:class="{
       'theme-normal':
-        theme !== 'accessibility' && theme !== 'dark' && theme !== 'simple',
+        theme !== 'accessibility' &&
+        theme !== 'dark' &&
+        theme !== 'simple' &&
+        theme !== 'compact',
       'theme-accessibility': theme === 'accessibility',
       'theme-dark': theme === 'dark',
       'theme-simple': theme === 'simple',
+      'theme-compact': theme === 'compact',
       hideoutline,
     }"
     v-on:mousedown="hideoutline = true"

@@ -1078,8 +1078,9 @@ svg {
   }
 }
 
-// Simple overrides
-.theme-simple {
+// Simple & Compact overrides
+.theme-simple,
+.theme-compact {
   .header {
     border-bottom: white 1px solid !important;
 
@@ -1143,6 +1144,43 @@ svg {
   .message-box {
     border: #ccc 1px solid;
     box-shadow: none !important;
+  }
+}
+
+// Compact overrides
+.theme-compact {
+  #codes {
+    &:not(.edit) {
+      .entry {
+        padding: 0 10px;
+        margin: 0 0 0 10px;
+      }
+    }
+  }
+
+  .entry {
+    .sector {
+      bottom: 0;
+    }
+
+    .showqr,
+    .pin {
+      top: 0;
+    }
+
+    .code {
+      font-size: 32px;
+      margin-top: -5px;
+      letter-spacing: 0.5rem;
+    }
+  }
+
+  a.entry {
+    border-bottom: #eee 1px solid !important;
+  }
+
+  .issuer.account {
+    display: none;
   }
 }
 

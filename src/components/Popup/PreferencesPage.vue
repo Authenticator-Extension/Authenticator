@@ -8,6 +8,7 @@
       <option value="normal">{{ i18n.theme_light }}</option>
       <option value="dark">{{ i18n.theme_dark }}</option>
       <option value="simple">{{ i18n.theme_simple }}</option>
+      <option value="compact">{{ i18n.theme_compact }}</option>
       <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
     </a-select-input>
     <a-select-input
