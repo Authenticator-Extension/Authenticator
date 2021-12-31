@@ -309,6 +309,10 @@
         "message": "Простая",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Высокая контрастность",
         "description": "High Contrast theme"
