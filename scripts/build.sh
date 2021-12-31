@@ -83,6 +83,8 @@ postCompile () {
     if [[ $1 = "chrome" ]] || [[ $1 = "edge" ]]; then
         cp manifests/schema-chrome.json $1/schema.json
     fi
+
+    cp manifests/manifest-pwa.json $1/manifest-pwa.json
 }
 
 if [[ $PLATFORM = "prod" ]]; then
