@@ -124,7 +124,7 @@ export class BrowserStorage {
   // https://github.com/Authenticator-Extension/Authenticator/issues/412
   static async clearLogs() {
     const storageLocation = await this.getStorageLocation();
-    await new Promise((resolve: () => void) => {
+    await new Promise<void>((resolve: () => void) => {
       if (storageLocation === "local") {
         chrome.storage.local.get((data) => {
           chrome.storage.local.clear(() => {
@@ -366,7 +366,7 @@ export class EntryStorage {
             return resolve(_data);
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           return reject(error);
         }
       }
@@ -374,7 +374,7 @@ export class EntryStorage {
   }
 
   static import(encryption: Encryption, data: { [hash: string]: OTPStorage }) {
-    return new Promise(
+    return new Promise<void>(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get(async (_data: { [hash: string]: OTPStorage }) => {
@@ -479,7 +479,7 @@ export class EntryStorage {
             BrowserStorage.set(_data, resolve);
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           return reject(error);
         }
       }
@@ -487,14 +487,14 @@ export class EntryStorage {
   }
 
   static add(entry: OTPEntry) {
-    return new Promise(
+    return new Promise<void>(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.set(
             { [entry.hash]: this.getOTPStorageFromEntry(entry) },
             resolve
           );
-        } catch (error) {
+        } catch (error: any) {
           reject(error);
         }
       }
@@ -502,7 +502,7 @@ export class EntryStorage {
   }
 
   static update(entry: OTPEntry) {
-    return new Promise(
+    return new Promise<void>(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
@@ -515,7 +515,7 @@ export class EntryStorage {
             BrowserStorage.set(_data, resolve);
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           return reject(error);
         }
       }
@@ -523,7 +523,7 @@ export class EntryStorage {
   }
 
   static set(entries: OTPEntry[]) {
-    return new Promise(
+    return new Promise<void>(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
@@ -535,7 +535,7 @@ export class EntryStorage {
             BrowserStorage.set(_data, resolve);
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           reject(error);
         }
       }
@@ -619,7 +619,7 @@ export class EntryStorage {
             return resolve(data);
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           return reject(error);
         }
       }
@@ -627,13 +627,13 @@ export class EntryStorage {
   }
 
   static remove(hash: string) {
-    return new Promise((resolve: () => void) => {
+    return new Promise<void>((resolve: () => void) => {
       return BrowserStorage.remove(hash, resolve);
     });
   }
 
   static delete(entry: OTPEntry) {
-    return new Promise(
+    return new Promise<void>(
       (resolve: () => void, reject: (reason: Error) => void) => {
         try {
           BrowserStorage.get((_data: { [hash: string]: OTPStorage }) => {
@@ -647,7 +647,7 @@ export class EntryStorage {
             return;
           });
           return;
-        } catch (error) {
+        } catch (error: any) {
           return reject(error);
         }
       }

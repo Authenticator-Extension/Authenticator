@@ -257,7 +257,7 @@ export class Accounts implements Module {
               key: { enc: encKey, hash: encKeyHash },
             });
             await EntryStorage.set(state.state.entries);
-            await new Promise((resolve) => {
+            await new Promise<void>((resolve) => {
               BrowserStorage.remove(oldKeys, () => {
                 resolve();
               });
@@ -377,7 +377,7 @@ export class Accounts implements Module {
             });
             await EntryStorage.set(state.state.entries);
             if (removeHashes.length) {
-              await new Promise((resolve) => {
+              await new Promise<void>((resolve) => {
                 BrowserStorage.remove(removeHashes, () => {
                   resolve();
                 });

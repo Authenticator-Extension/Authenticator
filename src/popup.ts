@@ -339,7 +339,7 @@ export function syncTimeWithGoogle() {
           }
         };
         xhr.send();
-      } catch (error) {
+      } catch (error: any) {
         return reject(error);
       }
     }

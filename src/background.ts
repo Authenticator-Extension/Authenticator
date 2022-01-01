@@ -185,7 +185,7 @@ async function getTotp(text: string, silent = false) {
 
       try {
         label = decodeURIComponent(label);
-      } catch (error) {
+      } catch (error: any) {
         console.error(error);
       }
       if (label.indexOf(":") !== -1) {
@@ -411,7 +411,7 @@ function getBackupToken(service: string) {
                             localStorage.driveRefreshToken = res.refresh_token;
                             resolve(true);
                           }
-                        } catch (error) {
+                        } catch (error: any) {
                           console.error(error);
                           reject(error);
                         }
@@ -453,7 +453,7 @@ function getBackupToken(service: string) {
                               res.refresh_token;
                             resolve(true);
                           }
-                        } catch (error) {
+                        } catch (error: any) {
                           console.error(error);
                           reject(error);
                         }
@@ -530,7 +530,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 chrome.commands.onCommand.addListener(async (command: string) => {
   switch (command) {
     case "scan-qr":
-      await new Promise(
+      await new Promise<void>(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
             return chrome.tabs.executeScript(
@@ -539,7 +539,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
                 chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
               }
             );
-          } catch (error) {
+          } catch (error: any) {
             console.error(error);
             return reject(error);
           }
