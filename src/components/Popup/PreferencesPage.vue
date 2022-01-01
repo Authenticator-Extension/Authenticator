@@ -61,6 +61,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { isFirefox } from "../../browser";
 
 export default Vue.extend({
   computed: {
@@ -136,7 +137,7 @@ export default Vue.extend({
     },
     isFirefox: {
       get(): boolean {
-        return navigator.userAgent.indexOf("Firefox") !== -1;
+        return isFirefox;
       },
     },
   },
@@ -149,7 +150,7 @@ export default Vue.extend({
   methods: {
     popOut() {
       let windowType;
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         windowType = "detached_panel";
       } else {
         windowType = "panel";

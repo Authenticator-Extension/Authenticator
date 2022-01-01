@@ -83,6 +83,7 @@ import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
+import { isFirefox } from "../../browser";
 
 export default Vue.extend({
   components: {
@@ -111,7 +112,7 @@ export default Vue.extend({
     openHelp() {
       let url = "https://otp.ee/chromeissues";
 
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
         url = "https://otp.ee/edgeissues";

@@ -12,7 +12,7 @@ import { getSiteName, getMatchedEntries } from "./utils";
 import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
-import { isChrome } from "./browser";
+import { isChrome, isFirefox } from "./browser";
 
 let cachedPassphrase = "";
 let autolockTimeout: number;
@@ -319,7 +319,7 @@ function getBackupToken(service: string) {
     } else if (service === "drive") {
       if (navigator.userAgent.indexOf("Edg") !== -1) {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
-      } else if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      } else if (isFirefox) {
         redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
       } else {
         redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
@@ -660,7 +660,7 @@ function updateContextMenu() {
                   encodeURIComponent(tab.title);
               }
               let windowType;
-              if (navigator.userAgent.indexOf("Firefox") !== -1) {
+              if (isFirefox) {
                 windowType = "detached_panel";
               } else {
                 windowType = "panel";
