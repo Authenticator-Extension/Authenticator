@@ -445,5 +445,50 @@
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
+    },
+    "permissions": {
+        "message": "Permissions"
+    },
+    "permission_active_tab": {
+        "message": "Read current tab content for adding new accounts by scanning QR codes."
+    },
+    "permission_storage": {
+        "message": "Store your data in your browser's local storage and sync your data with browser sync."
+    },
+    "permission_identity": {
+        "message": "Get OAuth2 access token to sign in to your 3rd party storage accounts."
+    },
+    "permission_clipboard_write": {
+        "message": "Copy 2FA codes to clipboard when you click the account."
+    },
+    "permission_context_menus": {
+        "message": "Add a Authenticator to context menu."
+    },
+    "permission_all_urls": {
+        "message": "Allow Authenticator to access all URLs for adding new accounts by scanning QR codes."
+    },
+    "permission_sync_clock": {
+        "message": "Sync clock with Google."
+    },
+    "permission_dropbox": {
+        "message": "Backup your data to Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "You must disable Dropbox backup first."
+    },
+    "permission_drive": {
+        "message": "Backup your data to Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "You must disable Google Drive backup first."
+    },
+    "permission_onedrive": {
+        "message": "Backup your data to OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "You must disable OneDrive backup first."
+    },
+    "permission_unknown_permission": {
+        "message": "Unknown permission. If you have questions about this permission, please send us feedback."
     }
 }
