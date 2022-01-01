@@ -12,6 +12,7 @@ import { getSiteName, getMatchedEntries } from "./utils";
 import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
+import { isChrome } from "./browser";
 
 let cachedPassphrase = "";
 let autolockTimeout: number;
@@ -289,9 +290,7 @@ async function getTotp(text: string, silent = false) {
 
 function getBackupToken(service: string) {
   if (
-    navigator.userAgent.indexOf("Chrome") !== -1 &&
-    navigator.userAgent.indexOf("Edg") === -1 &&
-    service === "drive"
+    isChrome && service === "drive"
   ) {
     chrome.identity.getAuthToken(
       {
@@ -517,10 +516,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 
   let url: string | null = null;
 
-  if (
-    navigator.userAgent.indexOf("Chrome") !== -1 &&
-    navigator.userAgent.indexOf("Edg") === -1
-  ) {
+  if (isChrome) {
     url = "https://otp.ee/chromeissues";
   }
 
