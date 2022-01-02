@@ -174,7 +174,7 @@ export default Vue.extend({
                 chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
               }
             );
-          } catch (error) {
+          } catch (error: any) {
             return reject(error);
           }
         }
