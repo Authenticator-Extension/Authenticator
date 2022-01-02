@@ -20,7 +20,7 @@ export default Vue.extend({
     },
     async beginCapture() {
       // Insert content script
-      await new Promise(
+      await new Promise<void>(
         (resolve: () => void, reject: (reason: Error) => void) => {
           try {
             return chrome.tabs.executeScript(
