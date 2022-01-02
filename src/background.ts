@@ -289,9 +289,7 @@ async function getTotp(text: string, silent = false) {
 }
 
 function getBackupToken(service: string) {
-  if (
-    isChrome && service === "drive"
-  ) {
+  if (isChrome && service === "drive") {
     chrome.identity.getAuthToken(
       {
         interactive: true,
@@ -414,7 +412,7 @@ function getBackupToken(service: string) {
                           }
                         } catch (error) {
                           console.error(error);
-                          reject(error);
+                          reject(error as Error);
                         }
                       }
                       return;
@@ -456,7 +454,7 @@ function getBackupToken(service: string) {
                           }
                         } catch (error) {
                           console.error(error);
-                          reject(error);
+                          reject(error as Error);
                         }
                       }
                       return;
@@ -539,7 +537,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
             );
           } catch (error) {
             console.error(error);
-            return reject(error);
+            return reject(error as Error);
           }
         }
       );

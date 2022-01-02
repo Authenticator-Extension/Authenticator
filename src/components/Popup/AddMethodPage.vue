@@ -30,7 +30,7 @@ export default Vue.extend({
               }
             );
           } catch (error) {
-            return reject(error);
+            return reject(error as Error);
           }
         }
       );

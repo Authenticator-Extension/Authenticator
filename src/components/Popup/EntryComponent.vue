@@ -308,7 +308,7 @@ function insertContentScript() {
         chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
       });
     } catch (error) {
-      return reject(error);
+      return reject(error as Error);
     }
   });
 }

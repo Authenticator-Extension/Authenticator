@@ -340,7 +340,7 @@ export function syncTimeWithGoogle() {
         };
         xhr.send();
       } catch (error) {
-        return reject(error);
+        return reject(error as Error);
       }
     }
   );
