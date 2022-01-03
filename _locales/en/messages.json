@@ -459,22 +459,22 @@
         "message": "This is a required permission and cannot be revoked."
     },
     "permission_active_tab": {
-        "message": "Read current tab content for adding new accounts by scanning QR codes."
+        "message": "Access to the site you are on for adding new accounts by scanning QR codes."
     },
     "permission_storage": {
-        "message": "Store your data in your browser's local storage and sync your data with browser sync."
+        "message": "Store your data in browser's local storage and sync your data with browser sync."
     },
     "permission_identity": {
-        "message": "Get OAuth2 access token to sign in to your 3rd party storage accounts."
+        "message": "Get access token to sign in to 3rd party storage services."
     },
     "permission_clipboard_write": {
         "message": "Copy 2FA codes to clipboard when you click the account."
     },
     "permission_context_menus": {
-        "message": "Add a Authenticator to context menu."
+        "message": "Add Authenticator to context menu."
     },
     "permission_all_urls": {
-        "message": "Allow Authenticator to access all URLs for adding new accounts by scanning QR codes."
+        "message": "Access to all websites for adding new accounts by scanning QR codes."
     },
     "permission_sync_clock": {
         "message": "Sync clock with Google."
