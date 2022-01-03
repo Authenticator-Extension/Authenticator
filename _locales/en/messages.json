@@ -449,6 +449,15 @@
     "permissions": {
         "message": "Permissions"
     },
+    "permission_revoke": {
+        "message": "Revoke"
+    },
+    "permission_show_required_permissions": {
+        "message": "Show non-revocable permissions."
+    },
+    "permission_required": {
+        "message": "This is a required permission and cannot be revoked."
+    },
     "permission_active_tab": {
         "message": "Read current tab content for adding new accounts by scanning QR codes."
     },
