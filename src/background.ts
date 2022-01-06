@@ -8,6 +8,8 @@ import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
+import { getSiteName, getMatchedEntries } from "./utils";
+import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 
@@ -558,6 +560,59 @@ chrome.commands.onCommand.addListener(async (command: string) => {
         contentTab = tab;
         chrome.tabs.sendMessage(tab.id, { action: "capture" });
       });
+      break;
+
+    case "autofill":
+      await new Promise(
+        (resolve: () => void, reject: (reason: Error) => void) => {
+          try {
+            return chrome.tabs.executeScript(
+              { file: "/dist/content.js" },
+              () => {
+                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
+              }
+            );
+          } catch (error) {
+            console.error(error);
+            return reject(error);
+          }
+        }
+      );
+
+      if (cachedPassphrase === "") {
+        return;
+      }
+
+      chrome.tabs.query(
+        { active: true, lastFocusedWindow: true },
+        async (tabs) => {
+          const tab = tabs[0];
+          if (!tab || !tab.id) {
+            return;
+          }
+          contentTab = tab;
+
+          const siteName = await getSiteName();
+          const entries = await EntryStorage.get();
+          const matchedEntries = getMatchedEntries(siteName, entries);
+
+          if (matchedEntries && matchedEntries.length === 1) {
+            const entry = matchedEntries[0];
+            const encryption = new Encryption(cachedPassphrase);
+            entry.applyEncryption(encryption);
+
+            if (
+              entry.code !== CodeState.Encrypted &&
+              entry.code !== CodeState.Invalid
+            ) {
+              chrome.tabs.sendMessage(tab.id, {
+                action: "pastecode",
+                code: matchedEntries[0].code,
+              });
+            }
+          }
+        }
+      );
       break;
 
     default:
