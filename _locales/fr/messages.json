@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authentificateur",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Acquisition du code QR",
+        "message": "Scanner le code QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -104,7 +104,7 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Phrase Secrète",
+        "message": "Mot de passe",
         "description": "Passphrase."
     },
     "confirm_phrase": {
@@ -309,6 +309,10 @@
         "message": "Simple",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Contraste élevé",
         "description": "High Contrast theme"
@@ -398,7 +402,7 @@
         "message": "Votre mot de passe ne répond pas aux exigences de sécurité de votre organisation. Contactez votre administrateur pour plus d'informations."
     },
     "advisor": {
-        "message": "Conseiller"
+        "message": "Conseils"
     },
     "advisor_insight_password_not_set": {
         "message": "Définir un mot de passe pour protéger vos données."
@@ -441,9 +445,5 @@
     },
     "no_entires": {
         "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
     }
 }
