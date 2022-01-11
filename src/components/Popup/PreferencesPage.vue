@@ -40,7 +40,7 @@
       :label="i18n.enable_context_menu"
       v-model="enableContextMenu"
       @change="requireContextMenuPermission()"
-      v-if="!isFirefox"
+      v-if="isSupported"
     />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
@@ -61,7 +61,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { isFirefox } from "../../browser";
+import { isFirefox, isSafari } from "../../browser";
 
 export default Vue.extend({
   computed: {
@@ -135,9 +135,9 @@ export default Vue.extend({
         this.newStorageLocation = value ? "sync" : "local";
       },
     },
-    isFirefox: {
+    isSupported: {
       get(): boolean {
-        return isFirefox;
+        return !isFirefox && !isSafari;
       },
     },
   },

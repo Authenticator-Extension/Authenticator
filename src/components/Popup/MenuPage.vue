@@ -22,7 +22,11 @@
         </a>
       </div>
       <div class="menuList">
-        <p v-bind:title="i18n.backup" v-on:click="showInfo('BackupPage')">
+        <p
+          v-bind:title="i18n.backup"
+          v-on:click="showInfo('BackupPage')"
+          v-if="isSupported"
+        >
           <span><IconExchange /></span>{{ i18n.backup }}
         </p>
         <p
@@ -31,7 +35,11 @@
         >
           <span><IconLock /></span>{{ i18n.security }}
         </p>
-        <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()">
+        <p
+          v-bind:title="i18n.sync_clock"
+          v-on:click="syncClock()"
+          v-if="isSupported"
+        >
           <span><IconSync /></span>{{ i18n.sync_clock }}
         </p>
         <p
@@ -83,7 +91,7 @@ import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
-import { isFirefox } from "../../browser";
+import { isFirefox, isSafari } from "../../browser";
 
 export default Vue.extend({
   components: {
@@ -103,6 +111,11 @@ export default Vue.extend({
   computed: {
     version: function () {
       return this.$store.state.menu.version;
+    },
+    isSupported: {
+      get(): boolean {
+        return !isSafari;
+      },
     },
   },
   methods: {

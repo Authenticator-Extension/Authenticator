@@ -302,14 +302,16 @@ function getQrUrl(entry: OTPEntry) {
 }
 
 function insertContentScript() {
-  return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
-    try {
-      return chrome.tabs.executeScript({ file: "/dist/content.js" }, () => {
-        chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-      });
-    } catch (error) {
-      return reject(error as Error);
+  return new Promise<void>(
+    (resolve: () => void, reject: (reason: Error) => void) => {
+      try {
+        return chrome.tabs.executeScript({ file: "/dist/content.js" }, () => {
+          chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
+        });
+      } catch (error) {
+        return reject(error as Error);
+      }
     }
-  });
+  );
 }
 </script>
