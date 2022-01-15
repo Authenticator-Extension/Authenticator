@@ -453,51 +453,51 @@
         "message": "Revoke"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions."
+        "message": "Show non-revocable permissions"
     },
     "permission_required": {
         "message": "This is a required permission and cannot be revoked."
     },
     "permission_active_tab": {
-        "message": "Access to the site you are on for adding new accounts by scanning QR codes."
+        "message": "Access to the current tab to scan QR codes."
     },
     "permission_storage": {
-        "message": "Store your data in browser's local storage and sync your data with browser sync."
+        "message": "Access to browser storage to store account data."
     },
     "permission_identity": {
-        "message": "Get access token to sign in to 3rd party storage services."
+        "message": "Allows sign in to 3rd party storage services."
     },
     "permission_clipboard_write": {
-        "message": "Copy 2FA codes to clipboard when you click the account."
+        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
     },
     "permission_context_menus": {
-        "message": "Add Authenticator to context menu."
+        "message": "Adds Authenticator to context menu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites for adding new accounts by scanning QR codes."
+        "message": "Access to all websites to scan QR codes."
     },
     "permission_sync_clock": {
-        "message": "Sync clock with Google."
+        "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
-        "message": "Backup your data to Dropbox."
+        "message": "Allows backup to Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "You must disable Dropbox backup first."
     },
     "permission_drive": {
-        "message": "Backup your data to Google Drive."
+        "message": "Allows backup to Google Drive."
     },
     "permission_drive_cannot_revoke": {
         "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "Backup your data to OneDrive."
+        "message": "Allows backup to OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
         "message": "You must disable OneDrive backup first."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If you have questions about this permission, please send us feedback."
+        "message": "Unknown permission. If see this message, please send a bug report."
     }
 }
