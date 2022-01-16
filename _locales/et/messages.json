@@ -447,10 +447,10 @@
         "message": "No accounts to display. Add your first account now."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Õigused"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Võta tagasi"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
