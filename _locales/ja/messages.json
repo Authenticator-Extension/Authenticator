@@ -447,52 +447,52 @@
         "message": "表示するアカウントがありません。今すぐ最初のアカウントを追加してください。"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "権限"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "取り消す"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "取消不可能な権限を表示"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "これは必須の権限であり、取り消すことはできません。"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "現在のタブにアクセスしてQRコードをスキャンします。"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "ブラウザのストレージにアクセスしてアカウントデータを保存します。"
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "サードパーティのストレージサービスへのサインインを許可します。"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "コンテキストメニューに認証システムを追加します。"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "すべてのウェブサイトにアクセスしてQRコードをスキャンします。"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Google との時刻の同期を許可します。"
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Dropboxへのバックアップを許可します。"
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "最初にDropboxのバックアップを無効にする必要があります。"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Google ドライブへのバックアップを許可します。"
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "まず、Google ドライブのバックアップを無効にする必要があります。"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "OneDriveへのバックアップを行います。"
     },
     "permission_onedrive_cannot_revoke": {
         "message": "You must disable OneDrive backup first."
