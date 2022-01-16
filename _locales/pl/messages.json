@@ -447,40 +447,40 @@
         "message": "Brak kont do wyświetlenia. Dodaj teraz swoje pierwsze konto."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Uprawnienia"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Unieważnij"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Pokaż nieodwołalne uprawnienia"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Jest to uprawnienie wymagane i nie może zostać unieważnione."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Dostęp do bieżącej karty w celu zeskanowania kodów QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Dostęp do pamięci masowej przeglądarki w celu przechowywania danych konta."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Umożliwia logowanie się do usług pamięci masowej innych dostawców."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Przyznaje dostęp tylko do zapisu do schowka w celu skopiowania kodów do schowka po kliknięciu konta."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Dodaje dodatek Authenticator do menu kontekstowego."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Dostęp do wszystkich stron internetowych w celu skanowania kodów QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Umożliwia synchronizację zegara z Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Umożliwia tworzenie kopii zapasowej w usłudze Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "You must disable Dropbox backup first."
