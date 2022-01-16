@@ -120,13 +120,13 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Zresetuj Authenticatora"
+        "message": "Zresetuj dodatek Authenticator"
     },
     "delete_all_warning": {
-        "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie Authenticatora. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem Authenticatora należy rozważyć zapisanie kopii zapasowej."
+        "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie dodatku Authenticator. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem dodatku Authenticator należy rozważyć zapisanie kopii zapasowej."
     },
     "security_warning": {
-        "message": "To hasło będzie służyć szyfrowaniu twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
+        "message": "To hasło będzie służyć szyfrowaniu Twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Czy masz kopię zapasową twoich kont? Nie czekaj, aż będzie za późno!",
+        "message": "Czy masz kopię zapasową swoich kont? Nie czekaj, aż będzie za późno!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -246,7 +246,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Ostrzeżenie: kopie zapasowe nie są szyfrowane. Używaj na własne ryzyko.",
+        "message": "Ostrzeżenie: kopie zapasowe są niezaszyfrowane. Używaj na własne ryzyko.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -341,7 +341,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "Wystąpił problem z połączeniem z twoim kontem $SERVICE$, zaloguj się ponownie.",
+        "message": "Wystąpił problem z połączeniem z kontem $SERVICE$, zaloguj się ponownie.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -405,10 +405,10 @@
         "message": "Doradca"
     },
     "advisor_insight_password_not_set": {
-        "message": "Ustaw hasło, aby chronić twoje dane."
+        "message": "Ustaw hasło, aby chronić swoje dane."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Włącz automatyczne blokowanie, aby chronić twoje dane."
+        "message": "Włącz automatyczne blokowanie, aby chronić swoje dane."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej umożliwia synchronizację kont pomiędzy przeglądarkami."
