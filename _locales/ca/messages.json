@@ -447,16 +447,16 @@
         "message": "Sense comptes per mostrar. Afegiu un compte ara."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permisos"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revoca"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostra els permisos no revocables"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Aquest és un permís obligatori i no es pot revocar."
     },
     "permission_active_tab": {
         "message": "Access to the current tab to scan QR codes."
