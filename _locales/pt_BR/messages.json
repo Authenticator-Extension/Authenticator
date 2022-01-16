@@ -465,39 +465,39 @@
         "message": "Acesso ao armazenamento do navegador para armazenar os dados da conta."
     },
     "permission_identity": {
-        "message": "Permite o login em serviços de armazenamento de terceiros."
+        "message": "Permite iniciar sessão em serviços de armazenamento de terceiros."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Concede acesso somente de escrita à área de transferência para copiar códigos para a área de transferência quando você clicar na conta."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Adiciona o Autenticador ao menu de contexto."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Acesso a todos os sites para escanear códigos QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Permite a sincronização de relógio com o Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Permite backup para o Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Você deve desativar o backup do Dropbox primeiro."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Permite backup para o Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Você deve desativar o backup do Google Drive primeiro."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Permite backup para o OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Você deve desativar o backup do OneDrive primeiro."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
     }
 }
