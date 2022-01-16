@@ -411,7 +411,7 @@
         "message": "Włącz automatyczne blokowanie, aby chronić twoje dane."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej pozwala na synchronizację kont pomiędzy przeglądarkami."
+        "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej umożliwia synchronizację kont pomiędzy przeglądarkami."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
@@ -480,24 +480,24 @@
         "message": "Umożliwia synchronizację zegara z Google."
     },
     "permission_dropbox": {
-        "message": "Umożliwia tworzenie kopii zapasowej w usłudze Dropbox."
+        "message": "Umożliwia tworzenie kopii zapasowej w Dropboksie."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Musisz najpierw wyłączyć kopię zapasową Dropboksa."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Umożliwia tworzenie kopii zapasowej na Dysku Google."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Musisz najpierw wyłączyć kopię zapasową Dysku Google."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Umożliwia tworzenie kopii zapasowej w OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Musisz najpierw wyłączyć kopię zapasową OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Nieznane uprawnienie. Jeśli widzisz ten komunikat, wyślij raport o błędzie."
     }
 }
