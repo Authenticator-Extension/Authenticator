@@ -447,25 +447,25 @@
         "message": "Não há contas para exibir. Adicione sua primeira conta agora."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permissões"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revogar"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostrar permissões não revogáveis"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Esta é uma permissão necessária e não pode ser revogada."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Acesso à aba atual para escanear códigos QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Acesso ao armazenamento do navegador para armazenar os dados da conta."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permite o login em serviços de armazenamento de terceiros."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
