@@ -480,24 +480,24 @@
         "message": "Google との時刻の同期を許可します。"
     },
     "permission_dropbox": {
-        "message": "Dropboxへのバックアップを許可します。"
+        "message": "Dropboxへバックアップを行います。"
     },
     "permission_dropbox_cannot_revoke": {
         "message": "最初にDropboxのバックアップを無効にする必要があります。"
     },
     "permission_drive": {
-        "message": "Google ドライブへのバックアップを許可します。"
+        "message": "Google ドライブへバックアップを行います。"
     },
     "permission_drive_cannot_revoke": {
         "message": "まず、Google ドライブのバックアップを無効にする必要があります。"
     },
     "permission_onedrive": {
-        "message": "OneDriveへのバックアップを行います。"
+        "message": "OneDriveへバックアップを行います。"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "最初にOneDriveへのバックアップを無効にする必要があります。"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
     }
 }
