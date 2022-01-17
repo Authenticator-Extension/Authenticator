@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری نشده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
+        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری شده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -322,7 +322,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "همگام‌سازی مرورگر",
+        "message": "همسانسازی داده های مرورگر",
         "description": "Storage location"
     },
     "sign_in": {
@@ -366,7 +366,7 @@
         "message": "درحال بارگذاری..."
     },
     "autolock": {
-        "message": "قفل کردن برنامه بعد از "
+        "message": "قفل کردن پس از"
     },
     "minutes": {
         "message": "دقیقه"
@@ -393,25 +393,25 @@
         "message": "فیلتر هوشمند"
     },
     "backup": {
-        "message": "پشتیبان"
+        "message": "پشتیبان گیری"
     },
     "backup_file_info": {
         "message": "ایجاد فایل پشتیبان از داده‌های شما"
     },
     "password_policy_default_hint": {
-        "message": "گذرواژه شما با الزامات امنیتی سازمان شما مطابقت ندارد. برای اطلاعات بیشتر با سرپرست خود تماس بگیرید."
+        "message": "رمز عبور شما شرایط امنیتی سازمان شما را برآورده نمی کند. برای کسب اطلاعات بیشتر با سرپرست خود تماس بگیرید."
     },
     "advisor": {
         "message": "مشاور"
     },
     "advisor_insight_password_not_set": {
-        "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
+        "message": "یک گذرواژه تنظیم کنید تا از برنامه‌های شما محافظت کند."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "همگام سازی مرورگر غیرفعال شده است. فعال کردن آن اجازه می دهد تا حساب ها در سراسر مرورگرها همگام سازی شوند."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "برای تکمیل خودکار کدها در وب سایت ها ، می توان تکمیل خودکار را فعال کرد."
@@ -420,16 +420,16 @@
         "message": "فعال کردن فیلتر هوشمند اجازه دسترسی سریع به حساب ها را می دهد."
     },
     "show_all_insights": {
-        "message": "نمایش همه بینش ها"
+        "message": "نمایش همه اطلاعات آماری."
     },
     "no_insight_available": {
-        "message": "بینشی یافت نشد ، همه چیز خوب به نظر می رسد!"
+        "message": "اطلاعات آماریی یافت نشد ، همه چیز خوب به نظر می رسد!"
     },
     "danger": {
         "message": "خطر"
     },
     "warning": {
-        "message": "Warning"
+        "message": "هشدار"
     },
     "info": {
         "message": "اطلاعات"
