@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "تأیید اعتبار",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -435,16 +435,16 @@
         "message": "اطلاعات"
     },
     "dismiss": {
-        "message": "رد"
+        "message": "رد کردن"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "بیشتر بدانید"
     },
     "enable_context_menu": {
         "message": "افزودن به منوی زمینه"
     },
     "no_entires": {
-        "message": "هیچ حساب برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
+        "message": "هیچ حسابی برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
     },
     "permissions": {
         "message": "دسترسي ها"
