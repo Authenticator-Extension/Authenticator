@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Compatto",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -447,57 +447,57 @@
         "message": "Nessun account da visualizzare. Aggiungi il tuo primo account ora."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Autorizzazioni"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revoca"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostra autorizzazioni non revocabili"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Questa è un'autorizzazione necessaria e non revocabile."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Accedi alla scheda corrente per scansionare i codici QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Accedi all'archiviazione del browser per memorizzare i dati del profilo."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Consenti l'accesso a servizi d'archiviazione di terze parti."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Aggiungi Authenticatori al menu contestuale."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Accedi a tutti i siti web per scansionare i codici QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Consenti la sincronizzazione dell'orario con Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Consenti il backup su Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Devi prima disabilitare il backup di Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Consenti il backup a Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Devi prima disabilitare il backup di Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Consenti il backup su OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Devi prima disabilitare il backup su OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Autorizzazione sconosciuta. Se vedi questo messaggio, sei pregato di inviare una segnalazione di bug."
     }
 }
