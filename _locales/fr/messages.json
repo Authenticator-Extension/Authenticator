@@ -450,22 +450,22 @@
         "message": "Permissions"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Révoquer"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Afficher les permissions non révocables"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Il s'agit d'une autorisation nécessaire et ne peut pas être révoquée."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Accéder à l'onglet actuel pour scanner le code QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Accès au stockage du navigateur pour y stocker les données du compte."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
