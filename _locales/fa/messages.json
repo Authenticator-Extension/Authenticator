@@ -468,36 +468,36 @@
         "message": "اجازه ورود به سرویس‌های ذخیره‌سازی شخص ثالث."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "وقتی روی حساب کلیک می‌کنید، به کلیپ‌بورد دسترسی فقط نوشتنی برای کپی کردن کدها در کلیپ‌بورد می‌دهد."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Authenticator را به منوی context اضافه می کند."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "دسترسی به تمام وب سایت ها برای اسکن کدهای QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "اجازه همگام سازی ساعت با Google را می دهد."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "امکان پشتیبان گیری در Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "ابتدا باید نسخه پشتیبان Dropbox را غیرفعال کنید."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "امکان تهیه نسخه پشتیبان در Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "ابتدا باید پشتیبان‌گیری Google Drive را غیرفعال کنید."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "امکان تهیه نسخه پشتیبان در OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "ابتدا باید پشتیبان گیری OneDrive را غیرفعال کنید."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "مجوز نامعلوم. در صورت مشاهده این پیام، لطفاً گزارش اشکال ارسال کنید."
     }
 }
