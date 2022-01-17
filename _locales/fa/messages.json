@@ -24,11 +24,11 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "اضافه کردن اکانت",
+        "message": "افزودن حساب کاربری",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "اسکن رمزینه",
+        "message": "اسکن QR Code",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره از Google Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
+        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره ازGoogle Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "بروز رسانی",
+        "message": "به‌روز رسانی",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -294,7 +294,7 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "زمینه",
+        "message": "تم",
         "description": "Theme"
     },
     "theme_light": {
