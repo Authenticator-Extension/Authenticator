@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompakt",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -447,25 +447,25 @@
         "message": "Keine Konten zum Anzeigen. Erstes Konto jetzt hinzufügen."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Berechtigungen"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Widerrufen"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Nicht widerrufbare Berechtigungen anzeigen"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Dies ist eine erforderliche Erlaubnis und kann nicht widerrufen werden."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Zugriff auf die aktuelle Registerkarte, um QR-Codes zu scannen."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Zugriff auf Browserspeicher, um Kontodaten zu speichern."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Ermöglicht das Einloggen bei externen Speicherdiensten."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
