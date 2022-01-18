@@ -411,7 +411,7 @@
         "message": "Erlaube automatisches Sperren, um deine Daten zu schützen."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Erlaube Browser-Synchronisation, damit Accounts zwischen verschiedenen Browsern synchronisiert werden können."
+        "message": "Browser-Synchronisation ist deaktiviert. Aktivieren ermöglicht die Synchronisierung von Konten in Browsern."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill erlauben, um Passwortfelder in Websites automatisch auszufüllen."
@@ -465,7 +465,7 @@
         "message": "Zugriff auf Browserspeicher, um Kontodaten zu speichern."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Einloggen bei externen Speicherdiensten zulassen."
     },
     "permission_clipboard_write": {
         "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
@@ -477,27 +477,27 @@
         "message": "Zugriff auf alle Webseiten, um QR-Codes zu scannen."
     },
     "permission_sync_clock": {
-        "message": "Erlaubt die Synchronisierung mit Google."
+        "message": "Synchronisierung mit Google zulassen."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Sicherung auf Dropbox zulassen."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Sie müssen zuerst die Dropbox-Sicherung deaktivieren."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Backup auf OneDrive zulassen."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Sie müssen zuerst die Dropbox-Sicherung deaktivieren."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Backup auf OneDrive zulassen."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Sie müssen zuerst die OneDrive-Sicherung deaktivieren."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Unbekannte Berechtigung. Wenn Sie diese Nachricht sehen, senden Sie bitte einen Fehlerbericht."
     }
 }
