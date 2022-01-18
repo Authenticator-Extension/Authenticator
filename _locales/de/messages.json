@@ -468,7 +468,7 @@
         "message": "Ermöglicht das Einloggen bei externen Speicherdiensten."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
     },
     "permission_context_menus": {
         "message": "Adds Authenticator to context menu."
