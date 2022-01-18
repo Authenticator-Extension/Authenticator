@@ -226,19 +226,19 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "QR-Code importieren",
+        "message": "QR-Bildsicherung importieren",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Text-Sicherungsdatei importieren",
+        "message": "Text-Sicherung importieren",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import erfolgreich, aber mancher QR-Code konnte nicht erkannt werden.",
+        "message": "Import erfolgreich, aber einige QR-Codes konnten nicht erkannt werden.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Sie können mehrere Dateien auswählen, um die Sicherung in Stapeln zu importieren.",
+        "message": "Zum Importieren können Sie mehrere Sicherungsdateien zur Stapelverarbeitung auswählen.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -480,22 +480,22 @@
         "message": "Synchronisierung mit Google zulassen."
     },
     "permission_dropbox": {
-        "message": "Sicherung auf Dropbox zulassen."
+        "message": "Backup auf Dropbox zulassen."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "Sie müssen zuerst die Dropbox-Sicherung deaktivieren."
+        "message": "Sie müssen zuerst das Dropbox-Backup deaktivieren."
     },
     "permission_drive": {
         "message": "Backup auf OneDrive zulassen."
     },
     "permission_drive_cannot_revoke": {
-        "message": "Sie müssen zuerst die Dropbox-Sicherung deaktivieren."
+        "message": "Sie müssen zuerst das Google-Backup deaktivieren."
     },
     "permission_onedrive": {
         "message": "Backup auf OneDrive zulassen."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "Sie müssen zuerst die OneDrive-Sicherung deaktivieren."
+        "message": "Sie müssen zuerst das OneDrive-Backup deaktivieren."
     },
     "permission_unknown_permission": {
         "message": "Unbekannte Berechtigung. Wenn Sie diese Nachricht sehen, senden Sie bitte einen Fehlerbericht."
