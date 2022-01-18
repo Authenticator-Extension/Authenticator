@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator erzeugt zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
+        "message": "Authenticator erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -411,13 +411,13 @@
         "message": "Erlaube automatisches Sperren, um deine Daten zu schützen."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser-Synchronisation ist deaktiviert. Aktivieren ermöglicht die Synchronisierung von Konten in Browsern."
+        "message": "Browser-Synchronisation ist deaktiviert. Aktivieren erlaubt die Synchronisierung von Konten in Browsern."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill erlauben, um Passwortfelder in Websites automatisch auszufüllen."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Das Aktivieren des intelligenten Filters ermöglicht schnellen Zugriff auf Konten."
+        "message": "Das Aktivieren von Smart Filter erlaubt schnellen Zugriff auf Konten."
     },
     "show_all_insights": {
         "message": "Alle Warnungen anzeigen."
