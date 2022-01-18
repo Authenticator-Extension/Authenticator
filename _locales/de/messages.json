@@ -465,19 +465,19 @@
         "message": "Zugriff auf Browserspeicher, um Kontodaten zu speichern."
     },
     "permission_identity": {
-        "message": "Ermöglicht das Einloggen bei externen Speicherdiensten."
+        "message": "Allows sign in to 3rd party storage services."
     },
     "permission_clipboard_write": {
         "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Fügt Authenticator dem Kontextmenü hinzu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Zugriff auf alle Webseiten, um QR-Codes zu scannen."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Erlaubt die Synchronisierung mit Google."
     },
     "permission_dropbox": {
         "message": "Allows backup to Dropbox."
