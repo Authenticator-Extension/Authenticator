@@ -462,7 +462,7 @@
         "message": "Zugriff auf die aktuelle Registerkarte, um QR-Codes zu scannen."
     },
     "permission_storage": {
-        "message": "Zugriff auf Browserspeicher, um Kontodaten zu speichern."
+        "message": "Zugriff auf Browserspeicherung, um Kontodaten zu speichern."
     },
     "permission_identity": {
         "message": "Einloggen bei externen Speicherdiensten zulassen."
