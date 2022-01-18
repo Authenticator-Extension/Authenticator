@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Sicherungsdatei importieren",
+        "message": "Backup-Datei importieren",
         "description": "Import backup file."
     },
     "import_backup_qr": {
