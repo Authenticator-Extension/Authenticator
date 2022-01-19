@@ -477,7 +477,7 @@
         "message": "Доступ ко всем сайтам для сканирования QR-кодов."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Позволяет синхронизировать часы с Google."
     },
     "permission_dropbox": {
         "message": "Позволяет делать резервную копию в Dropbox."
