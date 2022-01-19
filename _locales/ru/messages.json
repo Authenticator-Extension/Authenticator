@@ -468,36 +468,36 @@
         "message": "Позволяет войти в сторонние службы хранения."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Добавляет аутентификатор в меню контекста."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Доступ ко всем сайтам для сканирования QR-кодов."
     },
     "permission_sync_clock": {
         "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Позволяет делать резервную копию в Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Сначала необходимо отключить резервную копию Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Позволяет делать резервную копию на Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Сначала необходимо отключить резервную копию Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Позволяет делать резервную копию в OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Сначала необходимо отключить резервную копию OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
     }
 }
