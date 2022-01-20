@@ -447,57 +447,57 @@
         "message": "Gjin accounts om te toanen. Foegje jo earste account no ta."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Tastimmingen"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Ynlûke"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Net-werropbere tastimmingen werjaan"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Dit is in fereaske tastimming dy’t net fuort te smiten is."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Tagong ta it aktuele ljepblêd om QR-koaden te scannen."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Tagong ta browserûnthâld om accountgegevens te bewarjen."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Oanmelden by ûnthâldtsjinsten fan tredden tastean."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Jout allinnich-skriuwrjochttagong ta it klamboerd om koaden nei it klamboerd te kopiearjen wannear’t jo op de account klikke."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Foeget Authenticator ta oan kontekstmenu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Tagong ta alle websites om QR-koaden te scannen."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Tiidssyngronisaasje mei Google tastean."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Reservekopy nei Dropbox tastean."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Jo moatte earst reservekopy nei Dropbox útskeakelje."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Reservekopy nei Google Drive tastean."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Jo moatte earst reservekopy nei Google Drive útskeakelje."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Reservekopy nei OneDrive tastean."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Jo moatte earst reservekopy nei OneDrive útskeakelje."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Unbekende tastimming. As dit bericht werjûn wurdt, stjoer dan in bugrapport."
     }
 }
