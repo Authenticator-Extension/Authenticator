@@ -1,106 +1,106 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "प्रमाणक",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "सत्यापन",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "ऑथेंटिकेटर आपके ब्राउज़र में \"टू-फैक्टर ऑथेंटिकेशन\" कोड जेनरेट करता है।",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " जोड़ दिया गया है।",
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "Unrecognized QR code.",
+        "message": "अपरिचित \"क्यूआर कोड\"।",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "अमान्य \"खाता गुप्त\"",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "खाता जोड़ो",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "स्कैन \"क्यू-आर कोड\"",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "हस्त प्रविष्टि",
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "आयात विफल. यदि आप Google Authenticator से डेटा माइग्रेट कर रहे हैं, तो कृपया Google प्रमाणक से अपना डेटा पुनः निर्यात करें और पुनः प्रयास करें।",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "कुछ खाता डेटा सफलतापूर्वक आयात नहीं किया गया था।",
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "Close",
+        "message": "बंद",
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "ठीक",
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "हां",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "नहीं",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "खाता",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "उपयोगकर्ता नाम",
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "ज़ारीकर्ता",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "रहस्य",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "सफलता",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "विफलता",
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "अबाउट",
         "description": "About."
     },
     "settings": {
-        "message": "Settings",
+        "message": "सेटिंग्स",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "सुरक्षा",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "वर्तमान पासवर्ड",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "नया पासवर्ड",
         "description": "New Passphrase."
     },
     "phrase": {
