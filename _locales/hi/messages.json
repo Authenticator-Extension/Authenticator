@@ -390,70 +390,70 @@
         "message": "Algorithm"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "स्मार्ट फ़िल्टर"
     },
     "backup": {
-        "message": "Backup"
+        "message": "बैकअप"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "एक फ़ाइल में अपने डेटा का बैकअप लें।"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "आपका पासवर्ड आपके संगठन की सुरक्षा आवश्यकताओं को पूरा नहीं करता है। अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें।"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "सलाहकार"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "अपने डेटा की सुरक्षा के लिए एक पासवर्ड सेट करें।"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "अपने डेटा की सुरक्षा के लिए ऑटो-लॉक सक्षम करें।"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "ब्राउज़र सिंक अक्षम है। इसे सक्षम करने से खातों को सभी ब्राउज़रों में समन्वयित किया जा सकता है।"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "वेबसाइटों में स्वचालित रूप से कोड भरने के लिए स्वतः भरण को सक्षम किया जा सकता है।"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "स्मार्ट फ़िल्टर को सक्षम करने से खातों तक त्वरित पहुँच की अनुमति मिलती है।"
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "सभी अंतर्दृष्टि दिखाएं।"
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "कोई अंतर्दृष्टि नहीं मिली, सब कुछ अच्छा लग रहा है!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "खतरा"
     },
     "warning": {
-        "message": "Warning"
+        "message": "चेतावनी"
     },
     "info": {
-        "message": "Info"
+        "message": "जानकारी"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "खारिज"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "और अधिक जानें"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "प्रसंग मेनू में जोड़ें"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "प्रदर्शित करने के लिए कोई खाता नहीं है। अपना पहला खाता अभी जोड़ें।"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "अनुमतियां"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "रद्द करना"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "गैर-प्रतिसंहरणीय अनुमतियां दिखाएं"
     },
     "permission_required": {
         "message": "This is a required permission and cannot be revoked."
