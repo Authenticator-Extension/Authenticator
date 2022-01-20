@@ -447,25 +447,25 @@
         "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Machtigingen"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Intrekken"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Niet-herroepbare machtigingen weergeven"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Dit is een vereiste machtiging die niet is te verwijderen."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Toegang tot het huidige tabblad om QR-codes te scannen."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Toegang tot browseropslag om accountgegevens op te slaan."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Aanmelden bij opslagdiensten van derden toestaan."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
