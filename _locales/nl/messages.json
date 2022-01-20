@@ -447,16 +447,16 @@
         "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
     },
     "permissions": {
-        "message": "Machtigingen"
+        "message": "Toestemmingen"
     },
     "permission_revoke": {
         "message": "Intrekken"
     },
     "permission_show_required_permissions": {
-        "message": "Niet-herroepbare machtigingen weergeven"
+        "message": "Niet-herroepbare toestemmingen weergeven"
     },
     "permission_required": {
-        "message": "Dit is een vereiste machtiging die niet is te verwijderen."
+        "message": "Dit is een vereiste toestemming die niet is te verwijderen."
     },
     "permission_active_tab": {
         "message": "Toegang tot het huidige tabblad om QR-codes te scannen."
@@ -468,36 +468,36 @@
         "message": "Aanmelden bij opslagdiensten van derden toestaan."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Geeft alleen-schrijventoegang tot het klembord om codes naar het klembord te kopiëren wanneer u op de account klikt."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Voegt Authenticator toe aan contextmenu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Toegang tot alle websites om QR-codes te scannen."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Tijdssynchronisatie met Google toestaan."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Back-up naar Dropbox toestaan."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "U moet eerst back-up naar Dropbox uitschakelen."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Back-up naar Google Drive toestaan."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "U moet eerst back-up naar Google Drive uitschakelen."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Back-up naar OneDrive toestaan."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "U moet eerst back-up naar OneDrive uitschakelen."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
     }
 }
