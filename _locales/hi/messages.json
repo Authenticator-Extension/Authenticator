@@ -194,127 +194,127 @@
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "समय पर आधारित",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "काउंटर पर आधारित",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "प्राथमिकताएं",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "परिमाण",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "चेतावनी: सभी बैकअप अनएन्क्रिप्टेड हैं। किसी अन्य ऐप में एक खाता जोड़ना चाहते हैं? किसी भी खाते के ऊपरी दाएं भाग पर होवर करें और छिपे हुए बटन को दबाएं।",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "बैकअप डाउनलोड करें",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "बैकअप आयात करें",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "बैकअप फ़ाइल आयात करें",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "क्यूआर छवि बैकअप आयात करें",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "टेक्स्ट बैकअप आयात करें",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "आयात सफल रहा, लेकिन कुछ क्यूआर कोड पहचाने नहीं जा सके।",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "आप बैचों में बैकअप आयात करने के लिए एकाधिक फ़ाइलों का चयन कर सकते हैं।",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "सभी प्रविष्टियाँ दिखाएँ",
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "चेतावनी: बैकअप अनएन्क्रिप्टेड हैं। अपने जोखिम पार इस्तेमाल करें।",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "बैकअप आयात करने के लिए आपको सही पासवर्ड प्रदान करना होगा।",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "आपका पासवर्ड स्थानीय रूप से संग्रहीत है, कृपया इसे तुरंत सुरक्षा मेनू में बदलें।",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "हटाएं",
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "पासवर्ड से सुरक्षित बैकअप डाउनलोड करें",
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "खोजें",
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "पॉप अप मोड",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "लॉक करें",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "संपादित",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "मैनुअल बैकअप I",
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "स्वतः भरण का उपयोग करें",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "अधिक कंट्रास्ट",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "थीम",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "हल्की",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "डार्क",
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "सरल",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "सघन",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "अधिक कंट्रास्ट",
         "description": "High Contrast theme"
     },
     "storage_sync_info": {
@@ -456,48 +456,48 @@
         "message": "गैर-प्रतिसंहरणीय अनुमतियां दिखाएं"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "यह एक आवश्यक अनुमति है और इसे निरस्त नहीं किया जा सकता है।"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "क्यूआर कोड स्कैन करने के लिए वर्तमान टैब तक पहुंचें।"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "खाता डेटा संग्रहीत करने के लिए ब्राउज़र संग्रहण तक पहुंच।"
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "तृतीय पक्ष संग्रहण सेवाओं में साइन इन करने की अनुमति देता है।"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "जब आप खाते पर क्लिक करते हैं तो कोड को क्लिपबोर्ड पर कॉपी करने के लिए क्लिपबोर्ड पर केवल-लिखने की पहुंच प्रदान करता है।"
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "संदर्भ मेनू में प्रमाणक जोड़ता है।"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "क्यूआर कोड स्कैन करने के लिए सभी वेबसाइटों तक पहुंच।"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "घड़ी को Google के साथ सिंक करने की अनुमति देता है।"
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Dropbox बैकअप की अनुमति देता है"
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "आपको पहले Dropbox बैकअप को अक्षम करना होगा।"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Google Drive पर बैकअप की अनुमति देता है।"
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "आपको पहले Google Drive बैकअप को अक्षम करना होगा।"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "OneDrive पर बैकअप की अनुमति देता है।"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "आपको पहले OneDrive बैकअप को अक्षम करना होगा।"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "अज्ञात अनुमति। यदि आप यह संदेश देखते हैं, तो कृपया एक बग रिपोर्ट भेजें।"
     }
 }
