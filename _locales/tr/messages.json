@@ -447,10 +447,10 @@
         "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Yetkiler"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "İptal et"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
@@ -471,7 +471,7 @@
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
     },
     "permission_all_urls": {
         "message": "Access to all websites to scan QR codes."
@@ -498,6 +498,6 @@
         "message": "You must disable OneDrive backup first."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
     }
 }
