@@ -456,31 +456,31 @@
         "message": "Mostrar permisos no revocables"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Este es un permiso requerido y no puede ser revocado."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Acceder a la pestaña actual para escanear códigos QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Acceder al almacenamiento del navegador para guardar los datos de la cuenta."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permitir iniciar sesión en servicios para almacenamiento de terceros."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Otorga acceso de sólo escritura al portapapeles para copiar codigos al portapapeles cuando haga clic en la cuenta."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Agregar Authenticator al menú contextual."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Acceder a los sitios web para poder escanear códigos QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Habilitar sincronización del reloj con Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Habilitar copias de seguridad con Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "You must disable Dropbox backup first."
