@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Compacto",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -441,19 +441,19 @@
         "message": "Más información"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Agregar al menú contextual"
     },
     "no_entires": {
         "message": "No hay cuentas para mostrar. Añade tu primera cuenta ahora."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permisos"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revocar"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostrar permisos no revocables"
     },
     "permission_required": {
         "message": "This is a required permission and cannot be revoked."
