@@ -1337,6 +1337,10 @@ svg {
         p {
           color: #727272;
 
+          &:not(:last-child) {
+            border-bottom: #f5f4f7 1px solid;
+          }
+
           span svg {
             fill: #727272;
           }

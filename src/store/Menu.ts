@@ -1,3 +1,4 @@
+import { isSafari } from "../browser";
 import { ManagedStorage } from "../models/storage";
 
 export class Menu implements Module {
@@ -11,7 +12,11 @@ export class Menu implements Module {
         enableContextMenu: localStorage.enableContextMenu === "true",
         theme:
           localStorage.theme ||
-          (localStorage.highContrast === "true" ? "accessibility" : "normal"),
+          (localStorage.highContrast === "true"
+            ? "accessibility"
+            : isSafari
+            ? "flat"
+            : "normal"),
         autolock: Number(localStorage.autolock) || 0,
         backupDisabled: await ManagedStorage.get("disableBackup", false),
         exportDisabled: await ManagedStorage.get("disableExport", false),
