@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Компактне",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -447,7 +447,7 @@
         "message": "Немає аккаунтів, щоб їх показати. Додайте свій перший аккаунт зараз."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Дозволи"
     },
     "permission_revoke": {
         "message": "Revoke"
