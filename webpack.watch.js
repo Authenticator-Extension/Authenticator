@@ -22,7 +22,7 @@ const runTestsAfterBuild = () => {
 module.exports = merge(dev, {
   mode: 'development',
   plugins: [
-    new ExtensionReloader(),
+    // new ExtensionReloader(),
     runTestsAfterBuild(),
   ],
   watch: true,

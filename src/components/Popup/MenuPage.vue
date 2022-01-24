@@ -25,7 +25,6 @@
         <p
           v-bind:title="i18n.backup"
           v-on:click="showInfo('BackupPage')"
-          v-if="isSupported"
         >
           <span><IconExchange /></span>{{ i18n.backup }}
         </p>
