@@ -399,7 +399,7 @@
         "message": "Krijo një kopje rezervë të të dhënave tuaja në një skedar."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Fjalkalusi juaj nuk i pershtatet ligjeve te sigurise te organizates juaj. Ju lutemi kontaktoni administratorin per informata me te hollsishme."
     },
     "advisor": {
         "message": "Advisor"
