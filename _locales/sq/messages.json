@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importimi i suksesshëm, por disa fotografi QR nuk mund të njihen.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,11 +306,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "E thjeshtë",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompakte",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
