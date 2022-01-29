@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Սկանավորել QR Կոդը",
         "description": "Scan QR Code."
     },
     "add_secret": {
