@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Az importálás sikertelen. Ha a Google Hitelesítőből történt az adatok mozgatása, akkor próbálkozzon a Google Hitelesítőből az adatok újra exportálásával!",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -429,10 +429,10 @@
         "message": "Danger"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Figyelmeztetés"
     },
     "info": {
-        "message": "Info"
+        "message": "Információ"
     },
     "dismiss": {
         "message": "Dismiss"
@@ -492,12 +492,12 @@
         "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Először tiltsa le a OneDrive-ra történő biztonsági adatmentést!"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
     }
 }
