@@ -306,11 +306,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Egyszerű téma",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompakt téma",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -322,7 +322,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Böngésző szinronizálása",
         "description": "Storage location"
     },
     "sign_in": {
@@ -393,10 +393,10 @@
         "message": "Okos szűrő"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Biztonsági mentés"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Mentse el adatait egy fájlba!"
     },
     "password_policy_default_hint": {
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
@@ -426,7 +426,7 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Veszély"
     },
     "warning": {
         "message": "Figyelmeztetés"
@@ -435,7 +435,7 @@
         "message": "Információ"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Elvet"
     },
     "learn_more": {
         "message": "Tudj meg többet"
@@ -447,10 +447,10 @@
         "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Engedélyek"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Visszavon"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
@@ -486,10 +486,10 @@
         "message": "You must disable Dropbox backup first."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Biztonsági adatmentés Google Drive-ra."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Először tiltsa le a Google Drive-ra történő biztonsági adatmentést!"
     },
     "permission_onedrive": {
         "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
