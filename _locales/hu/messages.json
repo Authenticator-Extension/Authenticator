@@ -399,7 +399,7 @@
         "message": "Mentse el adatait egy fájlba!"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "A jelszava nem fele meg az előírt biztonsági követelményeknek. Vegye fel a kapcsolatot a rendszergazdával további információk érdekében!"
     },
     "advisor": {
         "message": "Tanácsadó"
@@ -408,16 +408,16 @@
         "message": "Állítson be jelszót az adatai biztonsága érdekében!"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Automatikus lezárás engedélyezése adatai védelmének érdekében."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "A böngésző szinkronizálás le van tiltva. Az engedélyezés a fiókok böngészők közötti szinkronizálást teszi lehetővé."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Az automatikus kitöltés engedélyezésével a kódok az internet oldalak mezőiben automatikusan kitültésre kerülnek."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Az okos szűrő engedélyezésével a fiókok gyors elérése válik lehetővé."
     },
     "show_all_insights": {
         "message": "Összes tipp mutatása."
@@ -456,10 +456,10 @@
         "message": "Nem visszavonható engedélyek megjelenítése"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Ez egy szükséges engedély és nem visszavonható."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Az aktuális fül elérése a QR kódok beolvasásához."
     },
     "permission_storage": {
         "message": "Access to browser storage to store account data."
