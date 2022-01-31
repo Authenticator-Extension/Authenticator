@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Sikeresen importálva, de néhány QR kód nem ismerhető fel.",
+        "message": "Sikeresen importálva, de néhány QR-kód nem ismerhető fel.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -459,7 +459,7 @@
         "message": "Ez egy szükséges engedély és nem visszavonható."
     },
     "permission_active_tab": {
-        "message": "Az aktuális fül elérése a QR kódok beolvasásához."
+        "message": "Az aktuális fül elérése a QR-kódok beolvasásához."
     },
     "permission_storage": {
         "message": "Böngésző tárhely elérése fiók adatok tárolásához."
@@ -468,13 +468,13 @@
         "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
     },
     "permission_context_menus": {
         "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
     },
     "permission_all_urls": {
-        "message": "Minden internet oldal elérése QR kód beolvasáshoz."
+        "message": "Minden internet oldal elérése QR-kód beolvasáshoz."
     },
     "permission_sync_clock": {
         "message": "Óra szinkronizálás engedélyezése Google által."
