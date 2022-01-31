@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "A fiók adatok importálása csak részben volt sikeres.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -402,7 +402,7 @@
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Tanácsadó"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
@@ -480,10 +480,10 @@
         "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Biztonsági mentés engedélyezése DropBox-ra."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Először tiltsa le a DropBox-ra történő biztonsági adatmentést!"
     },
     "permission_drive": {
         "message": "Biztonsági adatmentés Google Drive-ra."
