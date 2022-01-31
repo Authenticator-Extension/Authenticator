@@ -462,19 +462,19 @@
         "message": "Az aktuális fül elérése a QR kódok beolvasásához."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Böngésző tárhely elérése fiók adatok tárolásához."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Minden internet oldal elérése QR kód beolvasáshoz."
     },
     "permission_sync_clock": {
         "message": "Óra szinkronizálás engedélyezése Google által."
