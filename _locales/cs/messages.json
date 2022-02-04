@@ -465,39 +465,39 @@
         "message": "Přístup k úložišti prohlížeče pro ukládání dat účtu."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Umožňuje přihlášení ke službám úložiště třetích stran."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Po kliknutí na účet udělí právo na přístup ke schránce (pouze pro zápis do schránky)."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Přidá autentifikátor do kontextového menu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Přístup ke všem webům pro skenování QR kódů."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Umožňit synchronizaci hodin s Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Umožňuje zálohování na Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Nejdříve musíte zakázat zálohu Dropboxu."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Umožňuje zálohování na Disk Google."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Nejdříve musíte zakázat zálohu Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Umožňuje zálohu do OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Nejdříve musíte zakázat zálohu OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Neznámé oprávnění. Pokud uvidíte tuto zprávu, pošlete prosím hlášení o chybě."
     }
 }
