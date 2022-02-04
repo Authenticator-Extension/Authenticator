@@ -447,22 +447,22 @@
         "message": "Žádné účty k zobrazení. Přidejte svůj první účet nyní."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Oprávnění"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Odvoláno"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Zobrazit neodvolatelná oprávnění"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Tato složka je vyžadována systémem, proto nemůže být odstraněna."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Přístup k aktuální záložce pro skenování QR kódů."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Přístup k úložišti prohlížeče pro ukládání dat účtu."
     },
     "permission_identity": {
         "message": "Allows sign in to 3rd party storage services."
