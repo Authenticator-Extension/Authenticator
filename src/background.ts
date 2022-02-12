@@ -579,10 +579,6 @@ chrome.commands.onCommand.addListener(async (command: string) => {
         }
       );
 
-      if (cachedPassphrase === "") {
-        return;
-      }
-
       chrome.tabs.query(
         { active: true, lastFocusedWindow: true },
         async (tabs) => {
