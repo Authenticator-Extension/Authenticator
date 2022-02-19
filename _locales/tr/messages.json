@@ -453,13 +453,13 @@
         "message": "İptal et"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Geri alınamayan izinleri göster"
     },
     "permission_required": {
         "message": "Bu gerekli bir yetkidir ve iptal edilemez."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "QR kodlarını taramak için geçerli sekmeye erişin."
     },
     "permission_storage": {
         "message": "Access to browser storage to store account data."
