@@ -462,10 +462,10 @@
         "message": "QR kodlarını taramak için geçerli sekmeye erişin."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Hesap verilerini depolamak için tarayıcı depolama alanına erişim."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "3. şahıs depolama hizmetlerinde oturum açmaya izin verir."
     },
     "permission_clipboard_write": {
         "message": "Hesaba tıkladığınızda kodları panoya kopyalamak için panoya yalnızca yazma erişimi verir."
@@ -474,28 +474,28 @@
         "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "QR kodlarını taramak için tüm web sitelerine erişin."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Google ile saat senkronizasyonuna izin verir."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Dropbox'ta otomatik yedeklemeye izin verir."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Google Drive'a yedeklemeye izin verir."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Önce Google Drive yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "OneDrive'a yedeklemeye izin verir."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Önce OneDrive yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_unknown_permission": {
         "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
