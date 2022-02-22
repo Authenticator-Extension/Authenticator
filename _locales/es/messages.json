@@ -483,13 +483,13 @@
         "message": "Habilitar copias de seguridad con Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Primero debe deshabilitar la copia de seguridad de Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Permitir copias de seguridad de Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Primero debes desactivar la copia de seguridad de Google Drive."
     },
     "permission_onedrive": {
         "message": "Allows backup to OneDrive."
