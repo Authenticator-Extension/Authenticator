@@ -492,12 +492,12 @@
         "message": "Primero debes desactivar la copia de seguridad de Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Permite la copia de seguridad a OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Primero debes desactivar la copia de seguridad de OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Permiso desconocido. Si ve este mensaje, por favor envíe un informe de error."
     }
 }
