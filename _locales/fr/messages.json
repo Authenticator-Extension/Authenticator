@@ -471,31 +471,31 @@
         "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Ajoute Authenticator au menu contextuel."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Accès à tous les sites web pour scanner les codes QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Autoriser la synchronisation de l'horloge avec Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Autoriser la sauvegarde vers Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Vous devez d'abord désactiver la sauvegarde Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Autoriser la sauvegarde vers Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Vous devez d'abord désactiver la sauvegarde de Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Autoriser la sauvegarde vers OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Vous devez d'abord désactiver la sauvegarde OneDrive."
     },
     "permission_unknown_permission": {
         "message": "Unknown permission. If see this message, please send a bug report."
