@@ -186,7 +186,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Échec de la capture, rechargez la page et essayez à nouveau.",
+        "message": "La capture a échouée, veuillez recharger la page et réessayer.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Importer une sauvegarde de l'image QR",
+        "message": "Importer une image d'un code QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Importer sauvegarde en texte",
+        "message": "Importer une sauvegarde textuelle",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Télécharger le backup de mot de passe protégé",
+        "message": "Télécharger une sauvegarde protégée par mot de passe",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Utiliser Autofill",
+        "message": "Utiliser le remplissage automatique",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
