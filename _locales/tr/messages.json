@@ -447,10 +447,10 @@
         "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
     },
     "permissions": {
-        "message": "Yetkiler"
+        "message": "İzinler"
     },
     "permission_revoke": {
-        "message": "İptal et"
+        "message": "Vazgeç"
     },
     "permission_show_required_permissions": {
         "message": "Geri alınamayan izinleri göster"
@@ -459,7 +459,7 @@
         "message": "Bu gerekli bir yetkidir ve iptal edilemez."
     },
     "permission_active_tab": {
-        "message": "QR kodlarını taramak için geçerli sekmeye erişin."
+        "message": "QR kodlarını taramak için geçerli sekmeye geçin."
     },
     "permission_storage": {
         "message": "Hesap verilerini depolamak için tarayıcı depolama alanına erişim."
