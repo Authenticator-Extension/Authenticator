@@ -52,7 +52,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "نعم!",
+        "message": "نعم",
         "description": "Yes."
     },
     "no": {
@@ -84,7 +84,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "حول التطبيق",
+        "message": "عن البرنامج",
         "description": "About."
     },
     "settings": {
@@ -92,7 +92,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "الوظائف الأمنية",
+        "message": "الحماية",
         "description": "Security."
     },
     "current_phrase": {
@@ -112,7 +112,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع عن هذا الإجراء.",
+        "message": "هل أنت متأكد من حذف هذا الحساب؟ لا يمكن التراجع عن هذا الإجراء.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -120,17 +120,17 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "إعادة تعيين أداة المصادقة"
+        "message": "إعادة تعيين Authenticator"
     },
     "delete_all_warning": {
-        "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين أداة المصادقة بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين أداة المصادقة."
+        "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين Authenticator بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين Authenticator."
     },
     "security_warning": {
-        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا يمكن أن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
+        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "التحديث",
+        "message": "حدِّث",
         "description": "Update."
     },
     "phrase_incorrect": {
