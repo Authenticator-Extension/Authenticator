@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "مصادقة",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "المصادقة",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "بعض بيانات الحساب لم يتم استيرادها بنجاح.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -471,33 +471,33 @@
         "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "يضيف Authenticator إلى القائمة."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "الوصول إلى جميع المواقع لمسح رموز QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "يسمح بمزامنة الساعة مع جوجل."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "يسمح بالنسخ الاحتياطي إلى Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Dropbox أولاً."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "يسمح بالنسخ الاحتياطي لGoogle Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Google Drive أولاً."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "يسمح بالنسخ الاحتياطي لـ OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ OneDrive أولاً."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
     }
 }
