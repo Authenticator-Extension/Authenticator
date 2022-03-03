@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "مبسط",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -447,28 +447,28 @@
         "message": "لا توجد حسابات لعرضها. أضف حسابك الأول الآن."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "الصلاحيات"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "تعطيل"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "إظهار الأذونات غير القابلة للتعطيل"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "هذه الصلاحية اساسية و لا يمكن تعطيلها."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "الوصول إلى علامة التبويب الحالية لمسح رموز QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "الوصول إلى تخزين المتصفح لتخزين بيانات الحساب."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "يسمح بتسجيل الدخول إلى خدمات تخزين طرف ثالث."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
     },
     "permission_context_menus": {
         "message": "Adds Authenticator to context menu."
