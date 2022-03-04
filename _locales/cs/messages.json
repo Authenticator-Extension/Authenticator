@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Ukaž všechny záznamy",
+        "message": "Show all entries",
         "description": "Show all entries."
     },
     "dropbox_risk": {
