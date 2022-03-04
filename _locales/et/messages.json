@@ -426,7 +426,7 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Oht"
     },
     "warning": {
         "message": "Hoiatus"
