@@ -498,6 +498,6 @@
         "message": "Önce OneDrive yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_unknown_permission": {
-        "message": "Bilinmeyen yetki izni. Bu mesajı görürseniz bir hata raporu gönderin."
+        "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
     }
 }
