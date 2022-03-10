@@ -447,7 +447,7 @@
         "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
     },
     "permissions": {
-        "message": "İzinler"
+        "message": "Yetkiler"
     },
     "permission_revoke": {
         "message": "Vazgeç"
