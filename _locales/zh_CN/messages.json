@@ -456,10 +456,10 @@
         "message": "Show non-revocable permissions"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "这是必需的权限，不能撤销。"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "访问当前标签页以扫描二维码。"
     },
     "permission_storage": {
         "message": "Access to browser storage to store account data."
