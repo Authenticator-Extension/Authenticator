@@ -450,7 +450,7 @@
         "message": "Yetkiler"
     },
     "permission_revoke": {
-        "message": "Vazgeç"
+        "message": "Vazgeç\n"
     },
     "permission_show_required_permissions": {
         "message": "Geri alınamayan izinleri göster"
