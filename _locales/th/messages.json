@@ -447,10 +447,10 @@
         "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณเลยตอนนี้"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "การอนุญาต"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "เพิกถอน"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
