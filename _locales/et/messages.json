@@ -402,10 +402,10 @@
         "message": "Teie salasõna ei vasta teie organisatsiooni turvanõuetele. Lisateabe saamiseks kontakteeruge oma administraatoriga."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Nõuandja"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Määrake enda andmete kaitsmiseks salasõna."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
