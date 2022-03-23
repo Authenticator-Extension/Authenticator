@@ -447,13 +447,13 @@
         "message": "没有可显示的账户。现在添加您的第一个账户。"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "权限管理"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "撤销"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "显示不可撤销的权限"
     },
     "permission_required": {
         "message": "这是必需的权限，不能撤销。"
@@ -462,42 +462,42 @@
         "message": "访问当前标签页以扫描二维码。"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "访问浏览器存储以存储帐户数据。"
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "用以登录第三方存储服务。"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "剪贴板只写权限以当您点击该帐户时复制代码到剪贴板。"
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "将身份验证器添加到右键菜单。"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "访问所有网站以扫描二维码。"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "允许与 Google 同步时钟。"
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "允许备份到 Dropbox。"
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "您必须先停用 Dropbox 备份。"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "允许备份到 Google Drive。"
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "您必须先停用 Google Drive 备份。"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "允许备份到 OneDrive。"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "您必须先停用 OneDrive 备份。"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "未知权限。如果看到此信息请发送报告反馈。"
     }
 }
