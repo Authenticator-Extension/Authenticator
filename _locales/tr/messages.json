@@ -465,7 +465,7 @@
         "message": "Hesap verilerini depolamak için tarayıcı depolama alanına erişim."
     },
     "permission_identity": {
-        "message": "3. şahıs depolama hizmetlerinde oturum açmaya izin verir."
+        "message": "Üçüncü taraf depolama hizmetlerinde oturum açmaya izin verir."
     },
     "permission_clipboard_write": {
         "message": "Hesaba tıkladığınızda kodları panoya kopyalama ve yazma erişimi verir."
@@ -477,19 +477,19 @@
         "message": "QR kodlarını taramak için tüm web sitelerine erişin."
     },
     "permission_sync_clock": {
-        "message": "Google ile saat senkronizasyonuna izin verir."
+        "message": "Google ile saat eşitlemesine izin verir."
     },
     "permission_dropbox": {
         "message": "Dropbox'a yedeklemeye izin verir."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
+        "message": "Önce Dropbox yedeklemeyi devre dışı bırakmalısınız."
     },
     "permission_drive": {
         "message": "Google Drive'a yedeklemeye izin verir."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Önce Google Drive yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_onedrive": {
         "message": "OneDrive'a yedeklemeye izin verir."
