@@ -450,7 +450,7 @@
         "message": "Yetkiler"
     },
     "permission_revoke": {
-        "message": "Vazgeç\n"
+        "message": "İptal et"
     },
     "permission_show_required_permissions": {
         "message": "Geri alınamayan izinleri göster"
@@ -480,7 +480,7 @@
         "message": "Google ile saat senkronizasyonuna izin verir."
     },
     "permission_dropbox": {
-        "message": "Dropbox  yedeklememesine izin verir."
+        "message": "Dropbox'a yedeklemeye izin verir."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
@@ -489,10 +489,10 @@
         "message": "Google Drive'a yedeklemeye izin verir."
     },
     "permission_drive_cannot_revoke": {
-        "message": "Önce Google Drive yedeklemesini devre dışı bırakmalısınız."
+        "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "OneDrive yedeklemesne izin verir."
+        "message": "OneDrive'a yedeklemeye izin verir."
     },
     "permission_onedrive_cannot_revoke": {
         "message": "Önce OneDrive yedeklemesini devre dışı bırakmalısınız."
