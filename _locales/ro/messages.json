@@ -447,10 +447,10 @@
         "message": "Niciun cont de afișat. Adaugă primul tău cont acum."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permisiuni"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revocare"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
