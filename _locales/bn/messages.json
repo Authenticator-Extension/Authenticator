@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "কমপ্যাক্ট",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -447,19 +447,19 @@
         "message": "কোন অ্যাকাউন্ট দেখা যাচ্ছে না। আপনার প্রথম অ্যাকাউন্ট যোগ করুন।"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "অনুমতিসমূহ"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "অনুমতি প্রত্যাহার"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "প্রয়োজনীয় অনুমতি দেখান"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "এই অনুমতি জরুরি এবং এটা বন্ধ করা যাবে না।."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "কিউআর কোডটি স্ক্যান করার জন্য বর্তমান ট্যাব এর অ্যাক্সেস প্রয়োজন।"
     },
     "permission_storage": {
         "message": "Access to browser storage to store account data."
@@ -492,12 +492,12 @@
         "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "ওয়ানড্রাইভ এর ব্যাকআপ চালু করুন।"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "আপনাকে অবশ্যই ওয়ানড্রাইভ এর ব্যাকআপ বন্ধ করতে হবে."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "অনুমতি অজানা। আপনি যদি এই লেখাটি দেখে থাকেন, তাহলে দয়া করে বাগ রিপোর্ট পাঠান"
     }
 }
