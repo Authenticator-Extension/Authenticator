@@ -22,6 +22,9 @@
         "_execute_browser_action": {},
         "scan-qr": {
             "description": "Scan a QR code"
+        },
+        "autofill": {
+            "description": "Autofill the matched code"
         }
     },
     "options_ui": {
