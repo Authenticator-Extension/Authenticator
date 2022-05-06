@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Har du en säkerhetskopia på dina konton? Vänta inte tills det är för sent!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -405,7 +405,7 @@
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Ställ in ett lösenord för att skydda din data."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
@@ -444,7 +444,7 @@
         "message": "Add to context menu"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Inga konton att visa. Lägg till ditt första konto nu."
     },
     "permissions": {
         "message": "Behörigheter"
@@ -456,7 +456,7 @@
         "message": "Show non-revocable permissions"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Detta är en obligatorisk behörighet och kan inte återkallas."
     },
     "permission_active_tab": {
         "message": "Access to the current tab to scan QR codes."
@@ -480,19 +480,19 @@
         "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Tillåter säkerhetskopiering till Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "You must disable Dropbox backup first."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Tillåter säkerhetskopiering till Google Drive."
     },
     "permission_drive_cannot_revoke": {
         "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Tillåter säkerhetskopiering till OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
         "message": "You must disable OneDrive backup first."
