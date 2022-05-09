@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Ogiltig kontohemlighet",
         "description": "Secret Error."
     },
     "add_code": {
