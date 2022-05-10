@@ -206,7 +206,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "스케일",
+        "message": "화면 배율",
         "description": "Scale"
     },
     "export_info": {
