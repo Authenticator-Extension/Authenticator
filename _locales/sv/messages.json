@@ -393,16 +393,16 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Säkerhetskopiera"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Säkerhetskopiera dina data till en fil."
     },
     "password_policy_default_hint": {
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Rådgivare"
     },
     "advisor_insight_password_not_set": {
         "message": "Ställ in ett lösenord för att skydda din data."
