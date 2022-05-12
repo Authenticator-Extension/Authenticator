@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Import lyckades men vissa QR-koder kunde inte kännas igen.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -246,7 +246,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Varning: säkerhetskopior är okrypterade. Använd på egen risk.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -341,7 +341,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Det var ett problem att ansluta till ditt $SERVICE$-konto, logga in igen.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -399,7 +399,7 @@
         "message": "Säkerhetskopiera dina data till en fil."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Ditt lösenord uppfyller inte din organisations säkerhetskrav. Kontakta din administratör för mer information."
     },
     "advisor": {
         "message": "Rådgivare"
@@ -453,7 +453,7 @@
         "message": "Återkalla"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Visa icke återkallbara behörigheter"
     },
     "permission_required": {
         "message": "Detta är en obligatorisk behörighet och kan inte återkallas."
