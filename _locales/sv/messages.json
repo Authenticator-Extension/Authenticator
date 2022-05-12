@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Vissa kontodata importerades inte.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,7 +116,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Jag förstår att all min data kommer att tas bort oåterkalleligt.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
@@ -126,7 +126,7 @@
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Detta lösenord kommer att användas för att kryptera dina konton. Ingen kan hjälpa dig om du glömmer lösenordet.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -334,7 +334,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Varför kräver företagskonton fler behörigheter?"
     },
     "log_out": {
         "message": "Logga ut",
@@ -355,7 +355,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Du kan importera säkerhetskopior från vissa andra applikationer.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -408,7 +408,7 @@
         "message": "Ställ in ett lösenord för att skydda din data."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Aktivera automatisk låsning för att skydda dina data."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
@@ -423,7 +423,7 @@
         "message": "Visa alla insikter."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Inga insikter hittades, allt ser bra ut!"
     },
     "danger": {
         "message": "Fara"
