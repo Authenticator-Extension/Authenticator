@@ -450,54 +450,54 @@
         "message": "Дозволи"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Відкликати"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Показати дозволи, які не можна відкликати"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Це є обов'язковим дозволом і не може бути відкликано."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Доступ до поточної вкладки для сканування QR-кодів."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Доступ до сховища браузера для зберігання даних облікового запису."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Дозволяє вхід до сервісів сторонніх сховищ."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Надає доступ лише до запису до буфера обміну для копіювання кодів в буфер обміну, коли ви клацаєте на нього в обліковому записі."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Додає автентифікатор до контекстного меню."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Доступ до всіх вебсайтів для сканування QR-кодів."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Дозволяє синхронізувати годинник з Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Дозволяє створювати резервні копії на Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Спочатку необхідно вимкнути резервне копіювання Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Дозволяє створювати резервні копії на Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Спочатку необхідно вимкнути резервне копіювання Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Дозволяє створювати резервні копії на OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Спочатку необхідно вимкнути резервне копіювання OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Невідомий дозвіл. Якщо ви бачите це повідомлення, будь ласка, надішліть повідомлення про помилку."
     }
 }
