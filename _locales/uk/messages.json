@@ -450,7 +450,7 @@
         "message": "Дозволи"
     },
     "permission_revoke": {
-        "message": "Відкликати"
+        "message": "Revoke"
     },
     "permission_show_required_permissions": {
         "message": "Показати дозволи, які не можна відкликати"
