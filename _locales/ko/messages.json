@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "사용자명",
+        "message": "사용자 이름",
         "description": "Account Name."
     },
     "issuer": {
