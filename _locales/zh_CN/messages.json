@@ -498,6 +498,6 @@
         "message": "您必须先停用 OneDrive 备份。"
     },
     "permission_unknown_permission": {
-        "message": "未知权限。如果看到此信息请发送报告反馈。"
+        "message": "未知权限。如果看到此消息，请发送错误报告。"
     }
 }
