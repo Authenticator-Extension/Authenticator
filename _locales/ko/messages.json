@@ -174,15 +174,15 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "암호 기억",
+        "message": "비밀번호 저장",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "주의! 로컬 시간이 오차가 너무 큽니다. 계속하기 전에 고쳐주세요.",
+        "message": "경고! 로컬 시간이 오차가 너무 큽니다. 계속하기 전에 고쳐주세요.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 생성하세요.",
+        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 빨리 생성하세요!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "자동 입력 사용",
+        "message": "자동 완성 사용",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -330,7 +330,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "로그인 (비즈니스)",
+        "message": "로그인 (업무)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -363,7 +363,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "로딩 중…"
+        "message": "불러오는 중…"
     },
     "autolock": {
         "message": "다음 시간 이후 잠금"
@@ -405,10 +405,10 @@
         "message": "어드바이저"
     },
     "advisor_insight_password_not_set": {
-        "message": "데이터 보호를 위해 암호를 설정하십시오."
+        "message": "데이터를 보호하기 위해 암호를 설정하세요."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "데이터 보호를 위해 자동 잠금을 활성화하십시오."
+        "message": "데이터를 보호하기 위해 자동 잠금을 사용하세요."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "브라우저 동기화가 비활성화되었습니다. 활성화하면 브라우저 간 계정을 동기화할 수 있습니다."
@@ -477,27 +477,27 @@
         "message": "QR 코드를 스캔하기 위해 모든 웹 사이트에 액세스 할 수 있습니다."
     },
     "permission_sync_clock": {
-        "message": "구글과 시계 동기화를 허용합니다."
+        "message": "Google과 시계 동기화를 허용합니다."
     },
     "permission_dropbox": {
-        "message": "드롭박스에 백업을 허용합니다."
+        "message": "Dropbox 백업을 허용합니다."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "먼저 Dropbox 백업을 사용하지 않도록 설정해야 합니다."
     },
     "permission_drive": {
-        "message": "Google Drive에 백업을 허용합니다."
+        "message": "Google Drive 백업을 허용합니다."
     },
     "permission_drive_cannot_revoke": {
         "message": "먼저 Google Drive 백업을 사용하지 않도록 설정해야 합니다."
     },
     "permission_onedrive": {
-        "message": "OneDrive에 백업을 허용합니다."
+        "message": "OneDrive 백업을 허용합니다."
     },
     "permission_onedrive_cannot_revoke": {
         "message": "먼저 OneDrive 백업을 사용하지 않도록 설정해야 합니다."
     },
     "permission_unknown_permission": {
-        "message": "알 수 없는 권한. 이 메시지가 표시되면 버그 보고서를 보내주십시오."
+        "message": "알 수 없는 권한입니다. 이 메시지가 표시되면 버그 보고서를 보내주십시오."
     }
 }
