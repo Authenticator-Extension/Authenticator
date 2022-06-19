@@ -334,7 +334,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "왜 비즈니스 계정은 더많은 권한을 요청하는 건가요?"
+        "message": "왜 비즈니스 계정은 더 많은 권한을 요청하는 건가요?"
     },
     "log_out": {
         "message": "로그아웃",
