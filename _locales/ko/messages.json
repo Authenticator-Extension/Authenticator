@@ -178,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "경고! 로컬 시간이 오차가 너무 큽니다. 계속하기 전에 고쳐주세요.",
+        "message": "경고! 로컬 시간과의 오차가 너무 큽니다. 문제가 계속되기 전에 고쳐주세요.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "로컬 파일로부터 QR 코드 스캔을 시도하고 계십니까? QR 이미지 백업 가져오기를 대신 사용하십시오.",
+        "message": "기기에 있는 파일로부터 QR 코드 스캔을 시도하고 계십니까? QR 이미지 백업 가져오기를 대신 사용하십시오.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -246,11 +246,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "경고: 백업이 암호화되지 않았습니다. 사용시 모든 위험은 사용자에게 있습니다.",
+        "message": "경고: 백업이 암호화되지 않았습니다. 사용 시 모든 위험은 저희가 책임지지 않습니다.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "백업을 가져오려면 올바른 비밀번호를 제공해야 합니다.",
+        "message": "백업을 가져오려면 올바른 비밀번호를 입력해야 합니다.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
