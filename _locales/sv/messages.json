@@ -120,7 +120,7 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Återställ autentiserare"
     },
     "delete_all_warning": {
         "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Du kan inte lägga till ett nytt konto förrän alla konton har dekrypterats. Ange rätt lösenord innan du fortsätter.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Konton som inte kunde dekrypteras kommer inte att inkluderas i denna säkerhetskopia.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -477,7 +477,7 @@
         "message": "Access to all websites to scan QR codes."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Tillåter klocksynkronisering med Google."
     },
     "permission_dropbox": {
         "message": "Tillåter säkerhetskopiering till Dropbox."
