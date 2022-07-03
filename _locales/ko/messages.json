@@ -150,7 +150,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "복사됨",
+        "message": "복사 완료",
         "description": "Copied."
     },
     "feedback": {
@@ -194,11 +194,11 @@
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "시간 기반",
+        "message": "시간 기준",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "카운터 기반",
+        "message": "횟수 기준",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -359,7 +359,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "더 알아보기",
+        "message": "자세히 알아보기",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
