@@ -248,7 +248,7 @@ async function clear() {
     try {
       chrome.storage.sync.clear(resolve);
     } catch (error) {
-      reject(error as Error);
+      reject(error);
     }
   });
 }
@@ -262,7 +262,7 @@ async function get<T>() {
       try {
         chrome.storage.sync.get(resolve);
       } catch (error) {
-        reject(error as Error);
+        reject(error);
       }
     }
   );
@@ -274,7 +274,7 @@ async function set(items: { [key: string]: {} }) {
     try {
       chrome.storage.sync.set(items, resolve);
     } catch (error) {
-      reject(error as Error);
+      reject(error);
     }
   });
 }

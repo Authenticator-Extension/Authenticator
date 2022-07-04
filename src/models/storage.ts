@@ -41,7 +41,7 @@ export class BrowserStorage {
               return;
             });
           } catch (error) {
-            reject(error as Error);
+            reject(error);
             return;
           }
         });
@@ -648,7 +648,7 @@ export class EntryStorage {
           });
           return;
         } catch (error) {
-          return reject(error as Error);
+          return reject(error);
         }
       }
     );

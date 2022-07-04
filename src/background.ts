@@ -454,7 +454,7 @@ function getBackupToken(service: string) {
                           }
                         } catch (error) {
                           console.error(error);
-                          reject(error as Error);
+                          reject(error);
                         }
                       }
                       return;
@@ -537,7 +537,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
             );
           } catch (error) {
             console.error(error);
-            return reject(error as Error);
+            return reject(error);
           }
         }
       );
