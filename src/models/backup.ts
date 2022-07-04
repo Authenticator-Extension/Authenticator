@@ -51,14 +51,14 @@ export class Dropbox implements BackupProvider {
                 } else {
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 reject(error);
               }
             }
             return;
           };
           xhr.send(backup);
-        } catch (error: any) {
+        } catch (error) {
           return reject(error);
         }
       }
@@ -141,7 +141,7 @@ export class Drive implements BackupProvider {
                 } else {
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 console.error(error);
                 reject(error);
               }
@@ -216,7 +216,7 @@ export class Drive implements BackupProvider {
                   localStorage.driveToken = res.access_token;
                   resolve(true);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 console.error(error);
                 reject(error);
               }
@@ -271,7 +271,7 @@ export class Drive implements BackupProvider {
                 } else {
                   resolve(true);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 console.error(error);
                 reject(error);
               }
@@ -309,7 +309,7 @@ export class Drive implements BackupProvider {
                   console.error(res.error.message);
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 console.error(error);
                 reject(error);
               }
@@ -374,7 +374,7 @@ export class Drive implements BackupProvider {
                   console.error(res.error.message);
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 reject(error);
               }
             }
@@ -400,7 +400,7 @@ export class Drive implements BackupProvider {
             requestData = requestData + line + "\n";
           });
           xhr.send(requestData);
-        } catch (error: any) {
+        } catch (error) {
           return reject(error);
         }
       }
@@ -478,7 +478,7 @@ export class OneDrive implements BackupProvider {
                 } else {
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 console.error(error);
                 reject(error);
               }
@@ -526,7 +526,7 @@ export class OneDrive implements BackupProvider {
                 localStorage.oneDriveToken = res.access_token;
                 resolve(true);
               }
-            } catch (error: any) {
+            } catch (error) {
               console.error(error);
               reject(error);
             }
@@ -589,14 +589,14 @@ export class OneDrive implements BackupProvider {
                   console.error(res.error.message);
                   resolve(false);
                 }
-              } catch (error: any) {
+              } catch (error) {
                 reject(error);
               }
             }
             return;
           };
           xhr.send(backup);
-        } catch (error: any) {
+        } catch (error) {
           return reject(error);
         }
       }

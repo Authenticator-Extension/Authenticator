@@ -20,7 +20,7 @@ export async function loadI18nMessages() {
         };
         xhr.open("GET", chrome.extension.getURL("/_locales/en/messages.json"));
         xhr.send();
-      } catch (error: any) {
+      } catch (error) {
         return reject(error);
       }
     }
