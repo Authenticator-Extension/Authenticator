@@ -108,11 +108,6 @@ export default Vue.extend({
     version: function () {
       return this.$store.state.menu.version;
     },
-    license: function () {
-      return isSafari
-        ? "https://authenticator.cc/docs/en/overview"
-        : "licenses.html";
-    },
     isSupported: {
       get(): boolean {
         return !isSafari;

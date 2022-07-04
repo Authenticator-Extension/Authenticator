@@ -175,7 +175,7 @@ export default Vue.extend({
               }
             );
           } catch (error) {
-            return reject(error as Error);
+            return reject(error);
           }
         }
       );
