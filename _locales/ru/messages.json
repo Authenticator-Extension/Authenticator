@@ -475,8 +475,8 @@
     },
     "permission_all_urls": {
         "message": "Access to all websites to scan QR codes."
-    }
-}    "permission_sync_clock": {
+    },
+    "permission_sync_clock": {
         "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
