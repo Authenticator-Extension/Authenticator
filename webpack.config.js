@@ -13,6 +13,7 @@ module.exports = {
     import: "./src/import.ts",
     options: "./src/options.ts",
     qrdebug: "./src/qrdebug.ts",
+    permissions: "./src/permissions.ts",
   },
   // For argon2-browser & mocha
   node: {

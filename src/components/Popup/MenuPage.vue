@@ -8,9 +8,16 @@
     </div>
     <div id="menuBody">
       <div class="menuList">
-        <a href="licenses.html" target="_blank" style="text-decoration: none">
-          <p v-bind:title="i18n.about">
-            <span><IconInfo /></span>{{ i18n.about }}
+        <p v-bind:title="i18n.advisor" v-on:click="showInfo('AdvisorPage')">
+          <span><IconAdvisor /></span>{{ i18n.advisor }}
+        </p>
+        <a
+          href="permissions.html"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <p v-bind:title="i18n.permissions">
+            <span><IconClipboardCheck /></span>{{ i18n.permissions }}
           </p>
         </a>
       </div>
@@ -35,11 +42,6 @@
         </p>
       </div>
       <div class="menuList">
-        <p v-bind:title="i18n.advisor" v-on:click="showInfo('AdvisorPage')">
-          <span><IconAdvisor /></span>{{ i18n.advisor }}
-        </p>
-      </div>
-      <div class="menuList">
         <p v-bind:title="i18n.feedback" v-on:click="openHelp()">
           <span><IconComments /></span>{{ i18n.feedback }}
         </p>
@@ -55,6 +57,11 @@
         >
           <span><IconCode /></span>{{ i18n.source }}
         </p>
+        <a href="licenses.html" target="_blank" style="text-decoration: none">
+          <p v-bind:title="i18n.about">
+            <span><IconInfo /></span>{{ i18n.about }}
+          </p>
+        </a>
       </div>
       <div id="version">Version {{ version }}</div>
     </div>
@@ -75,6 +82,7 @@ import IconAdvisor from "../../../svg/lightbulb.svg";
 import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
+import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 
 export default Vue.extend({
   components: {
@@ -89,6 +97,7 @@ export default Vue.extend({
     IconComments,
     IconGlobe,
     IconCode,
+    IconClipboardCheck,
   },
   computed: {
     version: function () {
