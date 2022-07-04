@@ -6,10 +6,12 @@
       style="margin-left: 10px"
     >
       <option value="normal">{{ i18n.theme_light }}</option>
+      <option value="normal">{{ i18n.theme_light }}</option>
       <option value="dark">{{ i18n.theme_dark }}</option>
       <option value="simple">{{ i18n.theme_simple }}</option>
       <option value="compact">{{ i18n.theme_compact }}</option>
       <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
+      <option value="flat">{{ i18n.theme_flat }}</option>
     </a-select-input>
     <a-select-input
       :label="i18n.scale"

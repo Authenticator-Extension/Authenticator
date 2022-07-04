@@ -22,10 +22,7 @@
         </a>
       </div>
       <div class="menuList">
-        <p
-          v-bind:title="i18n.backup"
-          v-on:click="showInfo('BackupPage')"
-        >
+        <p v-bind:title="i18n.backup" v-on:click="showInfo('BackupPage')">
           <span><IconExchange /></span>{{ i18n.backup }}
         </p>
         <p
@@ -110,6 +107,11 @@ export default Vue.extend({
   computed: {
     version: function () {
       return this.$store.state.menu.version;
+    },
+    license: function () {
+      return isSafari
+        ? "https://authenticator.cc/docs/en/overview"
+        : "licenses.html";
     },
     isSupported: {
       get(): boolean {

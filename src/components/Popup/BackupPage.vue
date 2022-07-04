@@ -20,22 +20,37 @@
         v-if="!unsupportedAccounts & isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
       >
-      <button v-on:click="downloadBackUpOneLineOtpAuthFile()" v-if="!unsupportedAccounts & !isDataLinkSupported" class="button">
-      {{ i18n.download_backup }}
+      <button
+        v-on:click="downloadBackUpOneLineOtpAuthFile()"
+        v-if="!unsupportedAccounts & !isDataLinkSupported"
+        class="button"
+      >
+        {{ i18n.download_backup }}
       </button>
-      <a-button-link download="authenticator.json" :href="exportFile" v-if="unsupportedAccounts & isDataLinkSupported">{{
-        i18n.download_backup
-      }}</a-button-link>
-      <button v-on:click="downloadBackUpExportFile()" v-if="unsupportedAccounts & !isDataLinkSupported" class="button">{{
-        i18n.download_backup
-      }}</button>
+      <a-button-link
+        download="authenticator.json"
+        :href="exportFile"
+        v-if="unsupportedAccounts & isDataLinkSupported"
+        >{{ i18n.download_backup }}</a-button-link
+      >
+      <button
+        v-on:click="downloadBackUpExportFile()"
+        v-if="unsupportedAccounts & !isDataLinkSupported"
+        class="button"
+      >
+        {{ i18n.download_backup }}
+      </button>
       <a-button-link
         download="authenticator.json"
         :href="exportEncryptedFile"
         v-if="encryption.getEncryptionStatus() & isDataLinkSupported"
         >{{ i18n.download_enc_backup }}</a-button-link
       >
-      <button v-on:click="downloadBackUpExportEncryptedFile()" v-if="encryption.getEncryptionStatus() & !isDataLinkSupported" class="button">
+      <button
+        v-on:click="downloadBackUpExportEncryptedFile()"
+        v-if="encryption.getEncryptionStatus() & !isDataLinkSupported"
+        class="button"
+      >
         {{ i18n.download_enc_backup }}
       </button>
     </div>
@@ -84,11 +99,11 @@ export default Vue.extend({
       return this.$store.getters["menu/storageArea"];
     },
     isDataLinkSupported: function () {
-      return !isSafari; 
+      return !isSafari;
     },
     isBackupServiceSupported: function () {
       return !isSafari;
-    }
+    },
   },
   methods: {
     showInfo(tab: string) {
@@ -154,7 +169,7 @@ export default Vue.extend({
       const key = this.$store.state.accounts.key;
       const t = getBackupFile(exportEncData, key);
       window.open(t);
-    }
+    },
   },
 });
 
