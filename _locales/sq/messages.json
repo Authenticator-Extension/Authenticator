@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importimi i suksesshëm, por disa fotografi QR nuk mund të njihen.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "E thjeshtë",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Kompakte",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Kontrast i lartë",
@@ -395,7 +399,7 @@
         "message": "Krijo një kopje rezervë të të dhënave tuaja në një skedar."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Fjalkalusi juaj nuk i pershtatet ligjeve te sigurise te organizates juaj. Ju lutemi kontaktoni administratorin per informata me te hollsishme."
     },
     "advisor": {
         "message": "Advisor"
@@ -441,10 +445,6 @@
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
     },
     "permissions": {
         "message": "Permissions"

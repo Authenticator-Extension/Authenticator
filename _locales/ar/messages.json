@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "مصادقة",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "المصادقة",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -16,11 +16,11 @@
         "description": "Added Account."
     },
     "errorqr": {
-        "message": "رمز الاستجابة السريع غير معترف به.",
+        "message": "رمز QR غير معروف.",
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "بيانات الحساب غير صالحة",
+        "message": "سرية الحساب غير صالحة",
         "description": "Secret Error."
     },
     "add_code": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "بعض بيانات الحساب لم يتم استيرادها بنجاح.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -52,7 +52,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "نعم!",
+        "message": "نعم",
         "description": "Yes."
     },
     "no": {
@@ -84,7 +84,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "حول التطبيق",
+        "message": "عن",
         "description": "About."
     },
     "settings": {
@@ -92,7 +92,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "الوظائف الأمنية",
+        "message": "الحماية",
         "description": "Security."
     },
     "current_phrase": {
@@ -112,7 +112,7 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع عن هذا الإجراء.",
+        "message": "هل أنت متأكد من حذف هذا الحساب؟ لا يمكن التراجع عن هذا الإجراء.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -120,17 +120,17 @@
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "إعادة تعيين أداة المصادقة"
+        "message": "إعادة تعيين Authenticator"
     },
     "delete_all_warning": {
-        "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين أداة المصادقة بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين أداة المصادقة."
+        "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين Authenticator بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين Authenticator."
     },
     "security_warning": {
-        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لا يمكن أن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
+        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "التحديث",
+        "message": "حدِّث",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "مزامنة الساعة مع جوجل",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "هل تحاول مسح رمز QR من ملف محلي؟ استخدم استيراد نسخة احتياطية لصورة QR بدلاً من ذلك.",
+        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -198,7 +198,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "قائم على العداد",
+        "message": "Counter Based",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "تم الاستيراد بنجاح، ولكن لم يتم التعرف على بعض رموز QR.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "بسيط",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "مبسط",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "تباين عالي",
@@ -395,109 +399,105 @@
         "message": "قم بالنسخ الاحتياطي لبياناتك إلى ملف."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "كلمة المرور الخاصة بك لا تفي بمتطلبات أمان مؤسستك. اتصل بالمسؤول للحصول على مزيد من المعلومات."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "مستشار"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "تعيين كلمة مرور لحماية بياناتك."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "تفعيل القفل التلقائي لحماية بياناتك."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "مزامنة المتصفح معطلة. تمكينه يسمح للمزامنة بين الحسابات عبر المتصفحات."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "يمكن تمكين التعبئة التلقائية لملء الرموز تلقائياً في مواقع الويب."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "تفعيل الفلتر الذكي يسمح بالوصول السريع إلى الحسابات."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "إظهار جميع الرؤى."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "لم يتم العثور على رؤية، كل شيء يبدو جيدًا!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "خطر"
     },
     "warning": {
-        "message": "Warning"
+        "message": "تحذير"
     },
     "info": {
-        "message": "Info"
+        "message": "معلومات"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "تجاهل"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "لمعرفة المزيد"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "إضافة إلى قائمة السياق"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
+        "message": "لا توجد حسابات لعرضها. أضف حسابك الأول الآن."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "الصلاحيات"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "تعطيل"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "إظهار الأذونات غير القابلة للتعطيل"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "هذه الصلاحية اساسية و لا يمكن تعطيلها."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "الوصول إلى علامة التبويب الحالية لمسح رموز QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "الوصول إلى تخزين المتصفح لتخزين بيانات الحساب."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "يسمح بتسجيل الدخول إلى خدمات تخزين طرف ثالث."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "يضيف Authenticator إلى القائمة."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "الوصول إلى جميع المواقع لمسح رموز QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "يسمح بمزامنة الساعة مع جوجل."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "يسمح بالنسخ الاحتياطي إلى Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Dropbox أولاً."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "يسمح بالنسخ الاحتياطي لGoogle Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Google Drive أولاً."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "يسمح بالنسخ الاحتياطي لـ OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "يجب عليك تعطيل النسخ الاحتياطي لـ OneDrive أولاً."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
     }
 }

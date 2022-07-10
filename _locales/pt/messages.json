@@ -309,6 +309,10 @@
         "message": "Simple",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Alto Contraste",
         "description": "High Contrast theme"
@@ -441,10 +445,6 @@
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
     },
     "permissions": {
         "message": "Permissions"

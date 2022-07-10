@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Impor berhasil, tapi beberapa gambar QR tidak dapat dikenali.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Sederhana",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Sederhana",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Kontras Tinggi",
@@ -437,14 +441,10 @@
         "message": "Selengkapnya"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Tambahkan ke menu konteks"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
+        "message": "Tidak ada akun untuk ditampilkan. Tambahkan akun pertamamu sekarang."
     },
     "permissions": {
         "message": "Permissions"

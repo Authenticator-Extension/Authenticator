@@ -309,6 +309,10 @@
         "message": "Simples",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compacto",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Alto contraste",
         "description": "High Contrast theme"
@@ -442,62 +446,58 @@
     "no_entires": {
         "message": "Não há contas para exibir. Adicione sua primeira conta agora."
     },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permissões"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revogar"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostrar permissões não revogáveis"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Esta é uma permissão necessária e não pode ser revogada."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Acesso à aba atual para escanear códigos QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Acesso ao armazenamento do navegador para armazenar os dados da conta."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permite iniciar sessão em serviços de armazenamento de terceiros."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Concede acesso somente de escrita à área de transferência para copiar códigos para a área de transferência quando você clicar na conta."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
-    }
-}    "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Adiciona o Autenticador ao menu de contexto."
+    },
+    "permission_all_urls": {
+        "message": "Acesso a todos os sites para escanear códigos QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Permite a sincronização de relógio com o Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Permite backup para o Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Você deve desativar o backup do Dropbox primeiro."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Permite backup para o Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Você deve desativar o backup do Google Drive primeiro."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Permite backup para o OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Você deve desativar o backup do OneDrive primeiro."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
     }
 }
