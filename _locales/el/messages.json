@@ -214,7 +214,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Λήψη αντιγράφου ασφαλείας",
+        "message": "Λήψη αρχείου",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -222,7 +222,7 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Εισαγωγή αντιγράφου ασφαλείας",
+        "message": "Import Backup File",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Να εμφανιστούν όλες οι καταχωρήσεις",
+        "message": "Εμφάνιση όλων των λογαριασμών",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Λειτουργία αναδυόμενου παραθύρου",
+        "message": "Αναδυόμενο παράθυρο",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Χρήση της αυτόματης συμπλήρωσης",
+        "message": "Αυτόματη συμπλήρωση",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -308,6 +308,10 @@
     "theme_simple": {
         "message": "Απλό",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Συμπαγές",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Υψηλή αντίθεση",
@@ -401,7 +405,7 @@
         "message": "Σύμβουλος"
     },
     "advisor_insight_password_not_set": {
-        "message": "Δημιουργήστε έναν κωδικό για να ασφαλίσετε τα δεδομένα σας."
+        "message": "Δημιουργήστε έναν κωδικό για να προστατέψετε τα δεδομένα σας."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Ενεργοποιήστε το αυτόματο κλείδωμα για να προστατεύσετε τα δεδομένα σας."
@@ -419,7 +423,7 @@
         "message": "Εμφάνιση όλων των συμβουλών."
     },
     "no_insight_available": {
-        "message": "Δεν βρέθηκαν συμβουλές, όλα είναι μια χαρά!"
+        "message": "Δε βρήκαμε καμία συμβουλή για εσάς, όλα φαίνονται τέλεια!"
     },
     "danger": {
         "message": "Κίνδυνος"
@@ -441,10 +445,6 @@
     },
     "no_entires": {
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
     },
     "permissions": {
         "message": "Permissions"

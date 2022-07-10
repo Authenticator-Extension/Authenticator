@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Az importálás sikertelen. Ha a Google Hitelesítőből történt az adatok mozgatása, akkor próbálkozzon a Google Hitelesítőből az adatok újra exportálásával!",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "A fiók adatok importálása csak részben volt sikeres.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Helyben tárolt fájlból próbálja beolvasni a QR-kódot? Inkább importálja a mentett QR képet!",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Sikeresen importálva, de néhány QR-kód nem ismerhető fel.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Egyszerű téma",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Kompakt téma",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Nagy kontrasztú",
@@ -318,7 +322,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Böngésző szinronizálása",
         "description": "Storage location"
     },
     "sign_in": {
@@ -326,11 +330,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Bejelentkezés (üzleti)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Miért igényel az üzleti fiók több engedélyt?"
     },
     "log_out": {
         "message": "Kijelentkezés",
@@ -389,49 +393,49 @@
         "message": "Okos szűrő"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Biztonsági mentés"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Mentse el adatait egy fájlba!"
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "A jelszava nem fele meg az előírt biztonsági követelményeknek. Vegye fel a kapcsolatot a rendszergazdával további információk érdekében!"
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Tanácsadó"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Állítson be jelszót az adatai biztonsága érdekében!"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Automatikus lezárás engedélyezése adatai védelmének érdekében."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "A böngésző szinkronizálás le van tiltva. Az engedélyezés a fiókok böngészők közötti szinkronizálást teszi lehetővé."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Az automatikus kitöltés engedélyezésével a kódok az internet oldalak mezőiben automatikusan kitültésre kerülnek."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Az okos szűrő engedélyezésével a fiókok gyors elérése válik lehetővé."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Összes tipp mutatása."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Nem található tipp, úgy tűnik minden rendben!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Veszély"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Figyelmeztetés"
     },
     "info": {
-        "message": "Info"
+        "message": "Információ"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Elvet"
     },
     "learn_more": {
         "message": "Tudj meg többet"
@@ -442,62 +446,58 @@
     "no_entires": {
         "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
     },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
     "permissions": {
-        "message": "Permissions"
+        "message": "Engedélyek"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Visszavon"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Nem visszavonható engedélyek megjelenítése"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Ez egy szükséges engedély és nem visszavonható."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Az aktuális fül elérése a QR-kódok beolvasásához."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Böngésző tárhely elérése fiók adatok tárolásához."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Minden internet oldal elérése QR-kód beolvasáshoz."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Óra szinkronizálás engedélyezése Google által."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Biztonsági mentés engedélyezése DropBox-ra."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Először tiltsa le a DropBox-ra történő biztonsági adatmentést!"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Biztonsági adatmentés Google Drive-ra."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Először tiltsa le a Google Drive-ra történő biztonsági adatmentést!"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Először tiltsa le a OneDrive-ra történő biztonsági adatmentést!"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
     }
 }

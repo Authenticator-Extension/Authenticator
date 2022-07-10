@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importul a reușit, dar unele coduri QR nu au putut fi recunoscute.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "simplă",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Contrast sporit",
@@ -398,43 +402,43 @@
         "message": "Parola dvs. nu îndeplinește cerințele de securitate ale organizației. Contactați administratorul pentru mai multe informații."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Consilier"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Setați o parolă pentru a vă proteja datele."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Activați blocarea automată pentru a vă proteja datele."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Sincronizarea browserului este dezactivată. Activarea acesteia permite sincronizarea conturilor între browsere."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Se poate activa funcția de autocompletare pentru a introduce automat coduri în site-urile web."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Activarea filtrului inteligent permite accesul rapid la conturi."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Afișați toate informațiile."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Nu s-au găsit perspective, totul arată bine!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Pericol"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Avertisment"
     },
     "info": {
-        "message": "Info"
+        "message": "Informații"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Renunță"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Aflați mai multe"
     },
     "enable_context_menu": {
         "message": "Adaugă la meniul contextual"
@@ -442,15 +446,11 @@
     "no_entires": {
         "message": "Niciun cont de afișat. Adaugă primul tău cont acum."
     },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permisiuni"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revocare"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"

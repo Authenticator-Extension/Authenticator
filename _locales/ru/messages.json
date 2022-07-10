@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлено.",
+        "message": " Был добавлен.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Импорт успешный, но некоторые QR-коды не могут быть распознаны.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Простая",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Компактный",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Высокая контрастность",
@@ -437,67 +441,63 @@
         "message": "Узнать больше"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Добавить в контекстное меню"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
+        "message": "Нет аккаунтов для отображения. Добавьте свой первый аккаунт сейчас."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Разрешения"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Отменить"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Показать неотменимые разрешения"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Это требуемое разрешение и не может быть отменено."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Доступ к текущей вкладке для сканирования QR-кодов."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Доступ к хранилищу браузера для хранения данных учетной записи."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Позволяет войти в сторонние службы хранения."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Добавляет аутентификатор в меню контекста."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
-    }
-}    "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Доступ ко всем сайтам для сканирования QR-кодов."
+    },
+    "permission_sync_clock": {
+        "message": "Позволяет синхронизировать часы с Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Позволяет делать резервную копию в Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Сначала необходимо отключить резервную копию Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Позволяет делать резервную копию на Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Сначала необходимо отключить резервную копию Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Позволяет делать резервную копию в OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Сначала необходимо отключить резервную копию OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
     }
 }

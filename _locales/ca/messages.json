@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importat correctament, però alguns codis QR no s'han reconegut.",
+        "message": "S'ha importat correctament, però alguns codis QR no s'han reconegut.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -308,6 +308,10 @@
     "theme_simple": {
         "message": "Senzill",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Compacte",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Alt contrast",
@@ -442,62 +446,58 @@
     "no_entires": {
         "message": "Sense comptes per mostrar. Afegiu un compte ara."
     },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
     "permissions": {
-        "message": "Permissions"
+        "message": "Permisos"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Revoca"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Mostra els permisos no revocables"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Aquest és un permís obligatori i no es pot revocar."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Accés a la pestanya actual per escanejar codis QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Accés a l'emmagatzematge del navegador per emmagatzemar les dades del compte."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permet iniciar sessió en serveis d'emmagatzematge de tercers."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Atorga accés només d'escriptura al porta-retalls per copiar codis al porta-retalls quan feu clic al compte."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Afegeix Authenticator al menú contextual."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Accés a tots els llocs web per escanejar codis QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Permet la sincronització del rellotge amb Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Permet còpies de seguretat a Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Primer heu de desactivar la còpia de seguretat a Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Permet còpies de seguretat a Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Primer heu de desactivar la còpia de seguretat a Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Permet còpies de seguretat a OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Primer heu de desactivar la còpia de seguretat a OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Permís desconegut. Si veieu aquest missatge, envieu un informe d'error."
     }
 }

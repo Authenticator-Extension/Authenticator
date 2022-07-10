@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "تأیید اعتبار",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -24,11 +24,11 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "اضافه کردن اکانت",
+        "message": "افزودن حساب کاربری",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "اسکن رمزینه",
+        "message": "اسکن QR Code",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره از Google Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
+        "message": "وارد کردن انجام نشد. اگر از Google Authenticator مهاجرت می‌کنید، لطفا دوباره ازGoogle Authenticator داده خود را خروجی بگیرید و دوباره تلاش کنید.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "بروز رسانی",
+        "message": "به‌روز رسانی",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری نشده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
+        "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری شده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "قفل",
+        "message": "قفل کردن",
         "description": "Lock accounts"
     },
     "edit": {
@@ -294,7 +294,7 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "زمینه",
+        "message": "تم",
         "description": "Theme"
     },
     "theme_light": {
@@ -309,6 +309,10 @@
         "message": "ساده",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "حالت فشرده",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "کنتراست بالا",
         "description": "High Contrast theme"
@@ -318,7 +322,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "همگام‌سازی مرورگر",
+        "message": "همسانسازی داده های مرورگر",
         "description": "Storage location"
     },
     "sign_in": {
@@ -362,7 +366,7 @@
         "message": "درحال بارگذاری..."
     },
     "autolock": {
-        "message": "قفل کردن برنامه بعد از "
+        "message": "قفل کردن پس از"
     },
     "minutes": {
         "message": "دقیقه"
@@ -389,25 +393,25 @@
         "message": "فیلتر هوشمند"
     },
     "backup": {
-        "message": "پشتیبان"
+        "message": "پشتیبان گیری"
     },
     "backup_file_info": {
         "message": "ایجاد فایل پشتیبان از داده‌های شما"
     },
     "password_policy_default_hint": {
-        "message": "گذرواژه شما با الزامات امنیتی سازمان شما مطابقت ندارد. برای اطلاعات بیشتر با سرپرست خود تماس بگیرید."
+        "message": "رمز عبور شما شرایط امنیتی سازمان شما را برآورده نمی کند. برای کسب اطلاعات بیشتر با سرپرست خود تماس بگیرید."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "مشاور"
     },
     "advisor_insight_password_not_set": {
-        "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
+        "message": "یک گذرواژه تنظیم کنید تا از برنامه‌های شما محافظت کند."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "همگام سازی مرورگر غیرفعال شده است. فعال کردن آن اجازه می دهد تا حساب ها در سراسر مرورگرها همگام سازی شوند."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "برای تکمیل خودکار کدها در وب سایت ها ، می توان تکمیل خودکار را فعال کرد."
@@ -416,88 +420,84 @@
         "message": "فعال کردن فیلتر هوشمند اجازه دسترسی سریع به حساب ها را می دهد."
     },
     "show_all_insights": {
-        "message": "نمایش همه بینش ها"
+        "message": "نمایش همه اطلاعات آماری."
     },
     "no_insight_available": {
-        "message": "بینشی یافت نشد ، همه چیز خوب به نظر می رسد!"
+        "message": "اطلاعات آماریی یافت نشد ، همه چیز خوب به نظر می رسد!"
     },
     "danger": {
         "message": "خطر"
     },
     "warning": {
-        "message": "Warning"
+        "message": "هشدار"
     },
     "info": {
         "message": "اطلاعات"
     },
     "dismiss": {
-        "message": "رد"
+        "message": "رد کردن"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "بیشتر بدانید"
     },
     "enable_context_menu": {
         "message": "افزودن به منوی زمینه"
     },
     "no_entires": {
-        "message": "هیچ حساب برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
+        "message": "هیچ حسابی برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "دسترسي ها"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "ابطال"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "نمایش دسترسی های غیر قابل لغو"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "این یک مجوز الزامی است و قابل ابطال نیست."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "دسترسی به تب فعلی برای اسکن کدهای QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "دسترسی به فضای ذخیره سازی مرورگر برای ذخیره داده های حساب."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "اجازه ورود به سرویس‌های ذخیره‌سازی شخص ثالث."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "وقتی روی حساب کلیک می‌کنید، به کلیپ‌بورد دسترسی فقط نوشتنی برای کپی کردن کدها در کلیپ‌بورد می‌دهد."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Authenticator را به منوی context اضافه می کند."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "دسترسی به تمام وب سایت ها برای اسکن کدهای QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "اجازه همگام سازی ساعت با Google را می دهد."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "امکان پشتیبان گیری در Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "ابتدا باید نسخه پشتیبان Dropbox را غیرفعال کنید."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "امکان تهیه نسخه پشتیبان در Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "ابتدا باید پشتیبان‌گیری Google Drive را غیرفعال کنید."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "امکان تهیه نسخه پشتیبان در OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "ابتدا باید پشتیبان گیری OneDrive را غیرفعال کنید."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "مجوز نامعلوم. در صورت مشاهده این پیام، لطفاً گزارش اشکال ارسال کنید."
     }
 }
