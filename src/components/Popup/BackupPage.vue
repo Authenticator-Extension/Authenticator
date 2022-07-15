@@ -17,12 +17,12 @@
       <a-button-link
         download="authenticator.txt"
         :href="exportOneLineOtpAuthFile"
-        v-if="!unsupportedAccounts & isDataLinkSupported"
+        v-if="!unsupportedAccounts && isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
       >
       <button
         v-on:click="downloadBackUpOneLineOtpAuthFile()"
-        v-if="!unsupportedAccounts & !isDataLinkSupported"
+        v-if="!unsupportedAccounts && !isDataLinkSupported"
         class="button"
       >
         {{ i18n.download_backup }}
@@ -30,12 +30,12 @@
       <a-button-link
         download="authenticator.json"
         :href="exportFile"
-        v-if="unsupportedAccounts & isDataLinkSupported"
+        v-if="unsupportedAccounts && isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
       >
       <button
         v-on:click="downloadBackUpExportFile()"
-        v-if="unsupportedAccounts & !isDataLinkSupported"
+        v-if="unsupportedAccounts && !isDataLinkSupported"
         class="button"
       >
         {{ i18n.download_backup }}
@@ -43,12 +43,12 @@
       <a-button-link
         download="authenticator.json"
         :href="exportEncryptedFile"
-        v-if="encryption.getEncryptionStatus() & isDataLinkSupported"
+        v-if="encryption.getEncryptionStatus() && isDataLinkSupported"
         >{{ i18n.download_enc_backup }}</a-button-link
       >
       <button
         v-on:click="downloadBackUpExportEncryptedFile()"
-        v-if="encryption.getEncryptionStatus() & !isDataLinkSupported"
+        v-if="encryption.getEncryptionStatus() && !isDataLinkSupported"
         class="button"
       >
         {{ i18n.download_enc_backup }}
@@ -57,7 +57,7 @@
     <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
     <br />
     <!-- 3rd Party Backup Services -->
-    <div v-show="!backupDisabled & isBackupServiceSupported">
+    <div v-show="!backupDisabled && isBackupServiceSupported">
       <div class="text">
         {{ i18n.storage_sync_info }}
       </div>
