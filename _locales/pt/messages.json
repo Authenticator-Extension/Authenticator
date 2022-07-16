@@ -317,6 +317,10 @@
         "message": "Alto Contraste",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Automaticamente os seus dados serão exportados para serviços de armazenamento de terceiros.",
         "description": "3rd party backup info"
