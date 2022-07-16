@@ -317,6 +317,10 @@
         "message": "ניגודיות גבוהה",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "גבה אוטומטית את הנתונים שלך לשירותי אחסון של צד ג '.",
         "description": "3rd party backup info"
