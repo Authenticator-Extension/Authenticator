@@ -317,6 +317,10 @@
         "message": "अधिक कंट्रास्ट",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "अपने डेटा को तृतीय पक्ष संग्रहण सेवाओं में स्वचालित रूप से बैकअप लें।",
         "description": "3rd party backup info"
