@@ -317,6 +317,10 @@
         "message": "Hoog contrast",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Automatisch een back-up maken van uw gegevens naar opslagdiensten van derden.",
         "description": "3rd party backup info"
