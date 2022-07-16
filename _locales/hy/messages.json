@@ -134,7 +134,7 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Բոլոր հաշիվները պետք է ապակոդավորվեն՝ նախքան նոր հաշիվ ավելացնելը: Շարունակելուց առաջ՝ նախ մուտքագրեք ճիշտ գաղտնաբառը:",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Գաղտնաբառը չի համապատասխանում",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -178,7 +178,7 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Զգուշացում՝ Ձեր լոկալ ժամացույցը չափազանց սխալ է։ Խնդրում ենք ուղղել այն՝ շարունակելուց առաջ։",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Զգուշացում՝ կրկնօրինակումները չեն գաղտնագրվում։ Ցանկանո՞ւմ եք ավելացնել այլ հավելվածի հաշիվ։ Տեղափոխե՛ք նշորդը ցանկացած հաշվի վերևից՝ աջ և սեղմեք թաքցրած կոճակը։",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -290,7 +290,7 @@
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Բարձր Կոնտրաստ",
         "description": "Use High Contrast"
     },
     "theme": {
@@ -314,11 +314,11 @@
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "Բարձր Հակադրություն",
+        "message": "Բարձր Կոնտրաստ",
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Հարթ",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -469,10 +469,10 @@
         "message": "Access to browser storage to store account data."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Թույլատրում է մուտք գործել հիշողության ծառայություններ"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Թույլատրում է փոփոխություններ կատարել կցատարում՝ հաշիվների կոդերը պատճենելու համար"
     },
     "permission_context_menus": {
         "message": "Ավելացնում է «Authenticator»-ը՝ կոնտեքստ ընտրացանկում"
@@ -481,7 +481,7 @@
         "message": "Մատչում բոլոր կայքէջերին՝ QR-կոդի սկանավորման համար"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Թույլատրում է համաժամեցում՝ «Google»-ից"
     },
     "permission_dropbox": {
         "message": "Թույլատրում է կրկնօրինակել «Dropbox»-ում"
@@ -493,13 +493,13 @@
         "message": "Թույլատրում է կրկնօրինակել «Google Drive»-ում"
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Նախ՝ անջատեք «Google Drive»-ում կրկնօրինակումը։"
     },
     "permission_onedrive": {
         "message": "Թույլատրում է կրկնօրինակել «OneDrive»-ում"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Նախ՝ անջատեք «OneDrive»-ում կրկնօրինակումը։"
     },
     "permission_unknown_permission": {
         "message": "Անհայտ թույլտվություն։ Խնդրում ենք կապնվել ծրագրի մշակողների հետ։"
