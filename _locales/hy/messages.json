@@ -84,7 +84,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Ծառայության Մասին",
         "description": "About."
     },
     "settings": {
@@ -186,7 +186,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Գրանցումը ձախողվեց։ Վերաբեռնեք էջը և կրկին փորձեք։",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -322,7 +322,7 @@
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Ավտոկրկնօրինակեք Ձեր տվյալները՝ հիշողության ծառայություններում։",
         "description": "3rd party backup info"
     },
     "browser_sync": {
