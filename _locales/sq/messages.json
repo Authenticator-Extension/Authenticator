@@ -317,6 +317,10 @@
         "message": "Kontrast i lartë",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Ruaj në mënyrë automatike një kopje rezervë të të dhënave tuaja në shërbimet me palë të 3ta të magazinimit.",
         "description": "3rd party backup info"
