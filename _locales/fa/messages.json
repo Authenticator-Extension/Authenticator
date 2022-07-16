@@ -317,6 +317,10 @@
         "message": "کنتراست بالا",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "گرفتن نسخه پشتیبان خودکار از داده‌های شما توسط سرویس‌های شخص ثالث.",
         "description": "3rd party backup info"
