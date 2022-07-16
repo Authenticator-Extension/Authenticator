@@ -317,6 +317,10 @@
         "message": "উচ্চ কন্ট্র্যাস্ট",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "তৃতীয় পক্ষের স্টোরেজ সেবাসমূহে আপনার ডেটা স্বয়ংক্রিয়ভাবে ব্যাকআপ করুন।",
         "description": "3rd party backup info"
