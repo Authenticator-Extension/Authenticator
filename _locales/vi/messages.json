@@ -317,6 +317,10 @@
         "message": "Tương phản cao",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Tự động sao lưu dữ liệu của bạn với dịch vụ lưu trữ bên thứ 3.",
         "description": "3rd party backup info"
