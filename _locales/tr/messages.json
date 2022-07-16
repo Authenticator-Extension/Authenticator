@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

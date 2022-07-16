@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "未知权限。如果看到此消息，请发送错误报告。"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

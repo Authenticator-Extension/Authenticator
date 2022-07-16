@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

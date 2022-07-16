@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "অনুমতি অজানা। আপনি যদি এই লেখাটি দেখে থাকেন, তাহলে দয়া করে বাগ রিপোর্ট পাঠান"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

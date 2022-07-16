@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "अज्ञात अनुमति। यदि आप यह संदेश देखते हैं, तो कृपया एक बग रिपोर्ट भेजें।"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

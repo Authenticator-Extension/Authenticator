@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Unknown permission. If see this message, please send a bug report."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

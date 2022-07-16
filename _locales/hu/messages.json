@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }
