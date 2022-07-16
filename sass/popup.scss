@@ -1306,3 +1306,64 @@ svg {
     border: 2px solid black !important;
   }
 }
+
+// Flat overrides
+.theme-flat {
+  .header {
+    color: black;
+    background: white;
+    border-bottom: #f5f4f7 1px solid;
+  }
+
+  #codes {
+    background: #fcfbff;
+
+    .entry {
+      border: #f5f4f7 1px solid;
+      border-radius: 8px;
+    }
+  }
+
+  #menu {
+    #menuBody {
+      background: #fcfbff;
+
+      .menuList {
+        margin: 10px;
+        border-radius: 8px;
+        border: #f5f4f7 1px solid;
+        background: white;
+
+        p {
+          color: #727272;
+
+          &:not(:last-child) {
+            border-bottom: #f5f4f7 1px solid;
+          }
+
+          span svg {
+            fill: #727272;
+          }
+        }
+      }
+    }
+
+    #version {
+      bottom: 0px;
+      position: relative;
+      margin: 10px auto;
+      width: 100%;
+      color: #727272;
+      font-size: 0.9em;
+    }
+
+    #info {
+      border-radius: 8px;
+      border: #f5f4f7 1px solid;
+
+      .control-group {
+        border-bottom: #f5f4f7 1px solid;
+      }
+    }
+  }
+}
