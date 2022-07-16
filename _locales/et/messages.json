@@ -317,6 +317,10 @@
         "message": "Kõrge kontrastsus",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Varundage oma andmed automaatselt kolmanda osapoole salvestusteenustesse.",
         "description": "3rd party backup info"
