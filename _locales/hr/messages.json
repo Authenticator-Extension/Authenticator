@@ -317,6 +317,10 @@
         "message": "Visoki kontrast",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Automatski spremi sigurnosnu kopiju na uslugu za pohranu.",
         "description": "3rd party backup info"
