@@ -317,6 +317,10 @@
         "message": "Alt contrast",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Fes una còpia de seguretat automàtica de les dades a un servei d'emmagatzematge de tercers.",
         "description": "3rd party backup info"
