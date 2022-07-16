@@ -317,6 +317,10 @@
         "message": "Yüksek Kontrast",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Verilerinizi otomatik olarak 3. taraf depolama servislerine yedekleyin.",
         "description": "3rd party backup info"
