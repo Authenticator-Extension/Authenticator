@@ -317,6 +317,10 @@
         "message": "고대비",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "제3자 저장 서비스에 데이터를 자동으로 백업하세요.",
         "description": "3rd party backup info"
