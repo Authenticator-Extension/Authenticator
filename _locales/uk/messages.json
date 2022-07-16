@@ -317,6 +317,10 @@
         "message": "Висока контрастність",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Автоматично створювати резервні копії Ваших даних у сторонніх сервісах-сховищах.",
         "description": "3rd party backup info"
