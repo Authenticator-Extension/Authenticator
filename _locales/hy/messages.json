@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Ձեզ պետք է սկանավորել QR-կոդ լոկալ ֆայլի՞ց։ Օգտագործե՛ք «Ներմուծել QR-կոդային Կրկնօրինակում»։",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -238,7 +238,7 @@
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Մեկից ավել ֆայլ ընտրելով՝ հնարավոր է հերթագրել կրկնօրինակումների ներմուծումը։",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -250,11 +250,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Կրկնօրինակումներ ներմուծելու համար անհրաժեշտ է մուտքագրել ճիշտ գաղտնաբառը։",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Ձեր գաղտնաբառը պահվում է լոկալ հիշողության մեջ։ Խնդրում ենք անմիջապես փոխել այն անվտանգության ընտրացանկից։",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Անշարժ պատուհան",
+        "message": "Պատուհանային Կարգ",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -326,7 +326,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Կայքզննարկչի Համաժամեցում",
+        "message": "Կայքզննարկիչի Համաժամեցում",
         "description": "Storage location"
     },
     "sign_in": {
@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Ձեր հաշիվների ցանկի մեջ մտնում է «Steam» կամ «Blizzard» ծառայության հաշիվ։ Ոչ-կոդավորված կրկնօրինակումները չեն օգտագործի ստանդարտ ձևաչափ։",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -412,22 +412,22 @@
         "message": "Սահմանեք գաղտնաբառ՝ Ձեր տվյալները պաշտպանելու համար։"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Ակտիվացրեք ավտոկողպումը՝ Ձեր տվյալները պաշտպանելու համար։"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Կայքզննարկչային համաժամեցումը ապակտիվացված է։ Միացնելով այն՝ կարող եք համաժամեցնել Ձեր հաշիվները տարբեր կայքզննարկիչներում։"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Ավտոմուտքագրումը ակտիվացնելու դեպքում կոդերը ավտոմատ կարգով կմուտքագրվեն վեբկայքերում։"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Խելացի ֆիլտրն ակտիվացնելը թույլատրում է արագ մատչում Ձեր հաշիվներին։"
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Ցույց տալ բոլոր խորհուրդները"
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Ամեն ինչ կարգին է՝ խորհուրդներ չկան։"
     },
     "danger": {
         "message": "Վտանգ"
@@ -448,7 +448,7 @@
         "message": "Կցել «կոնտեքստ» ընտրացանկին"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Հաշիվներ դեռ չկան։ Եկեք սկսենք՝ ավելացնելով Ձեր առաջին հաշիվը։"
     },
     "permissions": {
         "message": "Թույլտվություններ"
@@ -463,10 +463,10 @@
         "message": "Այս թույլտվությունը պարտադիր է։ Դուք չեք կարող մերժել այն։"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Մատչում տվյալ ներդիրին՝ QR-կոդի սկանավորման համար"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Կայքզննարկիչի հիշողության օգտագործում՝ որպես հաշիվների տվյալների պահեստ"
     },
     "permission_identity": {
         "message": "Թույլատրում է մուտք գործել հիշողության ծառայություններ"
