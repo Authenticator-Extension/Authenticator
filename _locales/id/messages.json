@@ -317,6 +317,10 @@
         "message": "Kontras Tinggi",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Otomatis mencadangkan data kamu ke layanan penyimpanan pihak ke-3.",
         "description": "3rd party backup info"
