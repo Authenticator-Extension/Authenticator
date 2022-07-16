@@ -317,6 +317,10 @@
         "message": "高コントラスト",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "サードパーティのストレージサービスへ自動的にデータをバックアップします。",
         "description": "3rd party backup info"
