@@ -317,6 +317,10 @@
         "message": "Nagy kontrasztú",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
         "description": "3rd party backup info"
