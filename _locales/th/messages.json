@@ -317,6 +317,10 @@
         "message": "ความคมชัดสูง",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "สำรองข้อมูลของคุณโดยอัตโนมัติ ไปยังผู้บริการอื่นๆ",
         "description": "3rd party backup info"
