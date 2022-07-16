@@ -317,6 +317,10 @@
         "message": "Contrast sporit",
         "description": "High Contrast theme"
     },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
     "storage_sync_info": {
         "message": "Creează copii de siguranță automate folosind servicii de stocare de la terți.",
         "description": "3rd party backup info"
