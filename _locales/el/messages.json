@@ -96,7 +96,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Παλιός κωδικός πρόσβασης",
+        "message": "Τρέχον Κωδικός",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -451,19 +451,19 @@
         "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Δικαιώματα"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Ανάκληση"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Αυτό είναι ένα δικαίωμα που απαιτείται και δεν μπορεί να ανακληθεί."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Πρόσβαση στην τρέχουσα καρτέλα για σάρωση QR κωδικών."
     },
     "permission_storage": {
         "message": "Access to browser storage to store account data."
@@ -499,7 +499,7 @@
         "message": "Allows backup to OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Πρέπει πρώτα να απενεργοποιήσετε τα αντίγραφα ασφαλείας του OneDrive."
     },
     "permission_unknown_permission": {
         "message": "Unknown permission. If see this message, please send a bug report."
