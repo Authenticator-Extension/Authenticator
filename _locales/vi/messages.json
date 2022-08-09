@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Nhập vào thất bại. Nếu bạn đang kết hợp từ Google Authenticator, hãy thử nhập vào dữ liệu của bạn từ Google Authenticator và thử lại.",
+        "message": "Nhập vào không thành công. Nếu bạn đang thử nhập dữ liệu từ Google Authenticator, hãy thử xuất dữ liệu của bạn từ Google Authenticator rồi thử lại.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "Tên đăng nhập",
+        "message": "Tên người dùng",
         "description": "Account Name."
     },
     "issuer": {
