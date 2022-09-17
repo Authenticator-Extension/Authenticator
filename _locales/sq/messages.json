@@ -478,30 +478,30 @@
         "message": "Adds Authenticator to context menu."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Lejë për të gjitha website-t për të skanuar kodet QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Lejo sinkronizimin e ores me Google-in."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Lejo backup drejt Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Ti duhet të çaktivizosh backup-in e Dropbox si fillim."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Lejon backup drejt Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Ti duhet të çaktivizosh backup-in e Google Drive si fillim."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Lejon backup drejt OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Ti duhet të çaktivizosh backup-in e OneDrive si fillim."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Leje e panjohur. Nëse e sheh këtë mesazh, te lutem dërgo një bug report tek ne."
     }
 }
