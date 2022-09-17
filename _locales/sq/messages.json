@@ -430,10 +430,10 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Rrezik"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Kujdes"
     },
     "info": {
         "message": "Info"
@@ -442,7 +442,7 @@
         "message": "Dismiss"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Mëso më shumë"
     },
     "enable_context_menu": {
         "message": "Add to context menu"
@@ -451,7 +451,7 @@
         "message": "No accounts to display. Add your first account now."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Lejet"
     },
     "permission_revoke": {
         "message": "Revoke"
