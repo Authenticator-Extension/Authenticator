@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "แบน",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -457,51 +457,51 @@
         "message": "เพิกถอน"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "แสดงสิทธิ์ที่เพิกถอนไม่ได้"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "นี่เป็นการอนุญาตที่จำเป็นและไม่สามารถเพิกถอนได้"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "เข้าถึงแท็บปัจจุบันเพื่อสแกนรหัส QR"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "เข้าถึงที่เก็บข้อมูลของเบราว์เซอร์เพื่อเก็บข้อมูลบัญชี"
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "อนุญาตให้ลงชื่อเข้าใช้บริการพื้นที่เก็บข้อมูลของบุคคลที่สาม"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "ให้สิทธิ์การเข้าถึงแบบเขียนอย่างเดียวในคลิปบอร์ดเพื่อคัดลอกรหัสไปยังคลิปบอร์ดเมื่อคุณคลิกที่บัญชี"
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "เพิ่ม Authenticator ให้กับเมนูบริบท"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "เข้าถึงเว็บไซต์ทั้งหมดเพื่อสแกนรหัส QR"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "อนุญาตให้ซิงค์นาฬิกากับ Google"
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "อนุญาตให้สำรองข้อมูลไปยัง Dropbox"
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Dropbox ก่อน"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "อนุญาตให้สำรองข้อมูลไปยัง Google Drive"
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Google ไดรฟ์ก่อน"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "อนุญาตให้สำรองข้อมูลไปยัง OneDrive"
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "คุณต้องปิดใช้งานการสำรองข้อมูล OneDrive ก่อน"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "ไม่ทราบการอนุญาต หากเห็นข้อความนี้ โปรดส่งรายงานข้อบกพร่อง"
     }
 }
