@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Удостоверителя генерира 2-фактурна защита, за вашият браузър.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "Невалиден клон на сметка",
         "description": "Secret Error."
     },
     "add_code": {
