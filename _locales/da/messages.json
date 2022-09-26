@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Import mislykkedes. Hvis du migrerer data fra Google Authenticator, skal du geneksportere dine data fra Google Authenticator og prøve igen.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Nogle kontodata blev ikke importeret.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Jeg forstår, at alle mine data vil blive uopretteligt slettet.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Nulstil Autentificering"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Dette vil slette alle dine data og helt nulstille Authenticator. Du vil ikke være i stand til at gendanne slettede data! Du bør overveje at gemme en sikkerhedskopi, før du nulstiller Authenticator."
     },
     "security_warning": {
         "message": "Denne adgangskode bruges til at kryptere dine konti. Ingen kan hjælpe dig, hvis du glemmer adgangskoden.",
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Du kan ikke tilføje en ny konto før alle konti er dekrypteret. Indtast den korrekte adgangskode, før du fortsætter.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Konti, der ikke var i stand til at blive dekrypteret vil ikke blive inkluderet i denne backup.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Prøver du at scanne QR-koden fra en lokal fil? Brug i stedet Importér QR-billedsikkerhedskopier.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importér QR-billedsikkerhedskopi",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Import lykkedes, men nogle QR-koder kunne ikke genkendes.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Du kan vælge flere filer at importere backup i partier.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuel Sikkerhedskopi",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -306,11 +306,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Simpel",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompakt",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Flad",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -403,105 +403,105 @@
         "message": "Sikkerhedskopier dine data til en fil."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Din adgangskode opfylder ikke din organisations sikkerhedskrav. Kontakt din administrator for mere information."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Rådgiver"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Angiv en adgangskode for at beskytte dine data."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Aktivér auto-lås for at beskytte dine data."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Browsersynkronisering er deaktiveret. Aktivering af det gør det muligt at synkronisere konti på tværs af browsere."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Autoudfyld kan aktiveres for automatisk at udfylde koder på hjemmesider."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Aktivering af smart filter giver hurtig adgang til konti."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Vis al indsigt."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Ingen indsigt fundet, alt ser godt ud!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Fare"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Advarsel"
     },
     "info": {
-        "message": "Info"
+        "message": "Information"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Afvis"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Få mere at vide"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Føj til kontekstmenu"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Ingen konti at vise. Tilføj din første konto nu."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Tilladelser"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Træk tilbage"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Vis ikke-genkaldelige tilladelser"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Dette er en krævet tilladelse og kan ikke tilbagekaldes."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Adgang til den aktuelle fane for at skanne QR-koder."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Adgang til browserlagring for at gemme kontodata."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Tillader at logge ind på 3. parts lagertjenester."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Giver skrivebeskyttet adgang til udklipsholderen for at kopiere koder til udklipsholderen, når du klikker på kontoen."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Tilføjer Authenticator til kontekstmenuen."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Adgang til alle websteder for at scanne QR-koder."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Tillader ur-synkronisering med Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Tillader backup til Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Du skal deaktivere Dropbox backup først."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Tillader backup til Google Drev."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Du skal deaktivere Google Drev backup først."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Tillader backup til OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Du skal deaktivere OneDrive backup først."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Ukendt tilladelse. Hvis du ser denne besked, så send venligst en fejlrapport."
     }
 }
