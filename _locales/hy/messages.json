@@ -174,7 +174,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Հիշել Գաղտնաբառը",
+        "message": "Հիշել գաղտնաբառերը",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
