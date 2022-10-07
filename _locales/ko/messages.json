@@ -52,7 +52,7 @@
         "description": "OK."
     },
     "yes": {
-        "message": "예",
+        "message": "네",
         "description": "Yes."
     },
     "no": {
