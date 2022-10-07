@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "가져오기에 실패함. 구글 OTP로부터 데이터를 가져온 경우, 구글 OTP에서 데이터를 다시 내보내기 한 후에 다시 시도해주십시오.",
+        "message": "가져오지 못했어요. Google 인증 도구로부터 데이터를 이전하셨다면, Google 인증 도구에서 데이터를 다시 내보낸 후에 다시 시도하세요.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -116,7 +116,7 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "내 모든 데이터가 복구 불가능한 상태로 삭제됨을 이해했어요.",
+        "message": "내 모든 데이터가 복구 불가능한 상태로 삭제된다는 점을 이해했어요.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
