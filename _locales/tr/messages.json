@@ -418,7 +418,7 @@
         "message": "Tarayıcı eşitlemesi kapalı. Etkinleştirerek hesapların tarayıcılar arasında eşitlenmesini sağlayabilirsiniz."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Kodları web sitelerine otomatik olarak doldurmak için otomatik doldurma etkinleştirilebilir."
+        "message": "Otomatik doldurma, kodları web sitelerine otomatik olarak doldurmak için etkinleştirilebilir."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "Akıllı filtreyi etkinleştirmek hesaplara hızlı erişim sağlar."
