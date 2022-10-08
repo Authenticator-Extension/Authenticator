@@ -466,13 +466,13 @@
         "message": "QR 코드 스캔을 위해 현재 탭에 접근할 수 있게 해요."
     },
     "permission_storage": {
-        "message": "계정 데이터를 저장하기 위해 브라우저 저장소에 액세스합니다."
+        "message": "계정 데이터를 저장하기 위해 브라우저 저장소에 접근할 수 있게 해요."
     },
     "permission_identity": {
         "message": "제삼자 저장 서비스에 로그인할 수 있게 해요."
     },
     "permission_clipboard_write": {
-        "message": "계정을 클릭할 때 클립보드에 코드를 복사하여 클립보드에 대한 쓰기 전용 액세스 권한을 부여합니다."
+        "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
     },
     "permission_context_menus": {
         "message": "컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
