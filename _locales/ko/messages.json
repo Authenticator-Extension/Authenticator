@@ -130,7 +130,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "업데이트",
+        "message": "갱신",
         "description": "Update."
     },
     "phrase_incorrect": {
