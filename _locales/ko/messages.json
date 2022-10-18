@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "유효하지 않은 계정 비밀번호",
+        "message": "잘못된 계정 비밀번호예요",
         "description": "Secret Error."
     },
     "add_code": {
@@ -174,15 +174,15 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "비밀번호 저장",
+        "message": "비밀번호 기억",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "경고! 로컬 시간과의 오차가 너무 큽니다. 문제가 계속되기 전에 고쳐주세요.",
+        "message": "주의! 내 현지 시각과의 오차가 너무 커요. 계속하기 전 오차를 고쳐주세요.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 빨리 생성하세요!",
+        "message": "내 계정에 대한 백업이 있으신가요? 더 늦기 전에 빨리 생성하세요!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "로컬 파일에서 QR 코드 스캔을 시도하고 계신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
+        "message": "기기 파일에서 QR 코드 스캔을 시도하고 계신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -230,15 +230,15 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "텍스트 백업 가져오기",
+        "message": "문자 백업 가져오기",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "성공적으로 가져왔지만, 일부 QR 이미지를 인식하지 못했습니다.",
+        "message": "가져왔지만, 일부 QR 코드를 인식하지 못했어요.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "배치로 백업을 가져오기 위해 다중 파일을 선택할 수 있습니다.",
+        "message": "일괄적으로 백업을 가져오기 위해서 여러 파일을 선택할 수 있어요.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -433,7 +433,7 @@
         "message": "위험"
     },
     "warning": {
-        "message": "주의"
+        "message": "경고"
     },
     "info": {
         "message": "알림"
