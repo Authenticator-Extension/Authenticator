@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Rata",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -451,7 +451,7 @@
         "message": "Tidak ada akun untuk ditampilkan. Tambahkan akun pertamamu sekarang."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Perizinan"
     },
     "permission_revoke": {
         "message": "Revoke"
