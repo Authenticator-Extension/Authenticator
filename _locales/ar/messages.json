@@ -84,7 +84,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "عن",
+        "message": "حول",
         "description": "About."
     },
     "settings": {
@@ -92,7 +92,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "الحماية",
+        "message": "حماية",
         "description": "Security."
     },
     "current_phrase": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "حدِّث",
+        "message": "تحديث",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "عبارة المرور غير متطابقة.",
+        "message": "كلمة السر غير متطابقة.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -150,11 +150,11 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "تم النسخ!",
+        "message": "تَمَّ النَّسخ",
         "description": "Copied."
     },
     "feedback": {
-        "message": "المشاكل",
+        "message": "التقييم والملاحظات",
         "description": "Feedback."
     },
     "translate": {
@@ -162,7 +162,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "العربية",
+        "message": "المصدر",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -174,7 +174,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "تذكر كلمات المرور",
+        "message": "تذكر كلمة السر",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى فوات الاوان!",
+        "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى تصبح متأخرًا",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -202,7 +202,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "تفضيلات",
+        "message": "التفضيلات",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -210,11 +210,11 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "تحذير: جميع نسخك الاحتياطية غير مشفرة. هل ترغب في إضافة حساب إلى آخر التطبيق؟ مرر فوق الجزء الأيمن العلوي من أي حساب، و اضغط على الزر المخفي.",
+        "message": "تحذير: جميع نسخك الاحتياطية غير مشفرة. هل ترغب في إضافة حساب إلى تطبيق آخر؟ مرر فوق الجزء الأيمن العلوي من أي حساب، و اضغط على الزر المخفي.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "ملف قابل للتنزيل",
+        "message": "تنزيل النسخة الاحتياطية",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "استيراد النسخة الاحتياطية الغير مشفرة",
+        "message": "استيراد نسخة احتياطية نصية",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -254,11 +254,11 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "يتم تخزين كلمة المرور الخاصة بك محلياً، يرجى تغييره في القائمة أمان فورا.",
+        "message": "كلمة المرور الخاصة بك مخزنة محلياً، يرجى تغييرها في قائمة الأمان على الفور.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "احذف",
+        "message": "إزالة",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "الوضع المنبثق",
+        "message": "نمط منبثق",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -278,7 +278,7 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "حرّر",
+        "message": "تحرير",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -286,23 +286,23 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "استخدام ميزة الملء التلقائي",
+        "message": "استخدام الملء التلقائي",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "تباين عالي",
+        "message": "استخدام التباين العالي",
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "المظهر",
+        "message": "السمة",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "فاتح",
+        "message": "مضيء",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "غامق",
+        "message": "مظلم",
         "description": "Dark theme"
     },
     "theme_simple": {
@@ -310,7 +310,7 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "مبسط",
+        "message": "مدمج",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -318,11 +318,11 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "مسطحة",
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "تلقائياً النسخ الاحتياطي البيانات الخاصة بك للتخزين وخدمات الطرف الثالث.",
+        "message": "النسخ الاحتياطي التلقائي لبياناتك إلى خِدْمَات تخزين طرف ثالث.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -341,11 +341,11 @@
         "message": "لماذا تتطلب حسابات الأعمال المزيد من الصلاحيات؟"
     },
     "log_out": {
-        "message": "تسجيل خروج",
+        "message": "تسجيل الخروج",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "كان هناك مشكلة الاتصال بحسابك $SERVICE$ ، الرجاء تسجيل الدخول مرة أخرى.",
+        "message": "كان هناك مشكلة الاتصال بحسابك $SERVICE$، الرجاء تسجيل الدخول مرة أخرى.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "لديك واحد أو أكثر من حسابات البخار أو عاصفة ثلجية. لن النسخ الاحتياطية غير مشفرة باستخدام استمارة موحدة احتياطية.",
+        "message": "لديك حساب أو أكثر من Steam أو Blizzard لن تستخدم النسخ الاحتياطية غير المشفرة تنسيق النسخ الاحتياطي الموحد.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -370,16 +370,16 @@
         "message": "جاري التحميل..."
     },
     "autolock": {
-        "message": "أقفال بعد"
+        "message": "القفْل بعد"
     },
     "minutes": {
         "message": "دقائق"
     },
     "advanced": {
-        "message": "إعدادات متقدمة"
+        "message": "متقدم"
     },
     "period": {
-        "message": "المدة"
+        "message": "الفترة"
     },
     "type": {
         "message": "نوع"
