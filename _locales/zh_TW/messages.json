@@ -412,7 +412,7 @@
         "message": "設定密碼保護您的資料。"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "啟用自動鎖定以保護你的資料"
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
