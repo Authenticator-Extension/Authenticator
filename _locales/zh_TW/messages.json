@@ -415,10 +415,10 @@
         "message": "啟用自動鎖定以保護你的資料"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "已禁用瀏覽器同步。啟用以在不同瀏覽器同步賬號。"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "可以啟動自動填入以自動填入代碼到網站中"
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "啟用智能過濾器可以快速訪問帳戶。"
