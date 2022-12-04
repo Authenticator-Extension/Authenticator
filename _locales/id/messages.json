@@ -454,19 +454,19 @@
         "message": "Perizinan"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Cabut; tarik; batal; batalkan"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Menampilkan ijin yang tidak bisa dibatalkan"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Tindakan yang membutuhkan izin dan tidak bisa dibatalkan."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Akses yang diarahkan ke tab terkait untuk memindai kode QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Akses ke penyimpanan peramban untuk menyimpan data akun."
     },
     "permission_identity": {
         "message": "Allows sign in to 3rd party storage services."
