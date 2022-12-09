@@ -309,6 +309,10 @@
         "message": "Ienfâldich",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Kompakt",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Heech kontrast",
         "description": "High Contrast theme"
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Gjin accounts om te toanen. Foegje jo earste account no ta."
+    },
+    "permissions": {
+        "message": "Tastimmingen"
+    },
+    "permission_revoke": {
+        "message": "Ynlûke"
+    },
+    "permission_show_required_permissions": {
+        "message": "Net-werropbere tastimmingen werjaan"
+    },
+    "permission_required": {
+        "message": "Dit is in fereaske tastimming dy’t net fuort te smiten is."
+    },
+    "permission_active_tab": {
+        "message": "Tagong ta it aktuele ljepblêd om QR-koaden te scannen."
+    },
+    "permission_storage": {
+        "message": "Tagong ta browserûnthâld om accountgegevens te bewarjen."
+    },
+    "permission_identity": {
+        "message": "Oanmelden by ûnthâldtsjinsten fan tredden tastean."
+    },
+    "permission_clipboard_write": {
+        "message": "Jout allinnich-skriuwrjochttagong ta it klamboerd om koaden nei it klamboerd te kopiearjen wannear’t jo op de account klikke."
+    },
+    "permission_context_menus": {
+        "message": "Foeget Authenticator ta oan kontekstmenu."
+    },
+    "permission_all_urls": {
+        "message": "Tagong ta alle websites om QR-koaden te scannen."
+    },
+    "permission_sync_clock": {
+        "message": "Tiidssyngronisaasje mei Google tastean."
+    },
+    "permission_dropbox": {
+        "message": "Reservekopy nei Dropbox tastean."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Jo moatte earst reservekopy nei Dropbox útskeakelje."
+    },
+    "permission_drive": {
+        "message": "Reservekopy nei Google Drive tastean."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Jo moatte earst reservekopy nei Google Drive útskeakelje."
+    },
+    "permission_onedrive": {
+        "message": "Reservekopy nei OneDrive tastean."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Jo moatte earst reservekopy nei OneDrive útskeakelje."
+    },
+    "permission_unknown_permission": {
+        "message": "Unbekende tastimming. As dit bericht werjûn wurdt, stjoer dan in bugrapport."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

@@ -84,6 +84,7 @@ import IconScan from "../../../svg/scan.svg";
 import IconPencil from "../../../svg/pencil.svg";
 import IconCheck from "../../../svg/check.svg";
 import IconPlus from "../../../svg/plus.svg";
+import { isFirefox } from "../../browser";
 
 const computedPrototype = [
   mapState("style", ["style"]),
@@ -106,7 +107,7 @@ export default Vue.extend({
     },
     popOut() {
       let windowType;
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         windowType = "detached_panel";
       } else {
         windowType = "panel";
@@ -152,7 +153,7 @@ export default Vue.extend({
         return;
       }
       // Request permissions
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         await new Promise((resolve: (value: void) => void) => {
           chrome.permissions.request(
             { origins: ["<all_urls>"] },

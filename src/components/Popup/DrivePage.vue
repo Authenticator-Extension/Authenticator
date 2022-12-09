@@ -34,6 +34,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { isChrome } from "../../browser";
 import { Drive } from "../../models/backup";
 
 const service = "drive";
@@ -80,10 +81,7 @@ export default Vue.extend({
         );
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
-            if (
-              navigator.userAgent.indexOf("Chrome") !== -1 &&
-              navigator.userAgent.indexOf("Edg") === -1
-            ) {
+            if (isChrome) {
               chrome.identity.removeCachedAuthToken(
                 { token: localStorage.driveToken },
                 () => {

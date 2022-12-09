@@ -38,7 +38,12 @@
     >
       <IconRedo />
     </div>
-    <div class="issuer">{{ entry.issuer.split("::")[0] }}</div>
+    <div class="issuer">
+      {{
+        entry.issuer.split("::")[0] +
+        (theme === "compact" ? ` (${entry.account})` : "")
+      }}
+    </div>
     <div class="issuerEdit">
       <input
         v-bind:placeholder="i18n.issuer"
@@ -55,7 +60,7 @@
       }"
       v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
-    <div class="issuer">{{ entry.account }}</div>
+    <div class="issuer account">{{ entry.account }}</div>
     <div class="issuerEdit">
       <input
         v-bind:placeholder="i18n.accountName"
@@ -101,6 +106,7 @@ const computedPrototype = [
     "encryption",
   ]),
   mapState("style", ["style"]),
+  mapState("menu", ["theme"]),
 ];
 
 let computed = {};

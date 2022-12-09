@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " добавлено.",
+        "message": " Был добавлен.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Импорт успешный, но некоторые QR-коды не могут быть распознаны.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Простая",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Компактный",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Высокая контрастность",
@@ -437,9 +441,67 @@
         "message": "Узнать больше"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Добавить в контекстное меню"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Нет аккаунтов для отображения. Добавьте свой первый аккаунт сейчас."
+    },
+    "permissions": {
+        "message": "Разрешения"
+    },
+    "permission_revoke": {
+        "message": "Отменить"
+    },
+    "permission_show_required_permissions": {
+        "message": "Показать неотменимые разрешения"
+    },
+    "permission_required": {
+        "message": "Это требуемое разрешение и не может быть отменено."
+    },
+    "permission_active_tab": {
+        "message": "Доступ к текущей вкладке для сканирования QR-кодов."
+    },
+    "permission_storage": {
+        "message": "Доступ к хранилищу браузера для хранения данных учетной записи."
+    },
+    "permission_identity": {
+        "message": "Позволяет войти в сторонние службы хранения."
+    },
+    "permission_clipboard_write": {
+        "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
+    },
+    "permission_context_menus": {
+        "message": "Добавляет аутентификатор в меню контекста."
+    },
+    "permission_all_urls": {
+        "message": "Доступ ко всем сайтам для сканирования QR-кодов."
+    },
+    "permission_sync_clock": {
+        "message": "Позволяет синхронизировать часы с Google."
+    },
+    "permission_dropbox": {
+        "message": "Позволяет делать резервную копию в Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Сначала необходимо отключить резервную копию Dropbox."
+    },
+    "permission_drive": {
+        "message": "Позволяет делать резервную копию на Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Сначала необходимо отключить резервную копию Google Drive."
+    },
+    "permission_onedrive": {
+        "message": "Позволяет делать резервную копию в OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Сначала необходимо отключить резервную копию OneDrive."
+    },
+    "permission_unknown_permission": {
+        "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

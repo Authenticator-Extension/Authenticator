@@ -17,23 +17,47 @@
       <a-button-link
         download="authenticator.txt"
         :href="exportOneLineOtpAuthFile"
-        v-if="!unsupportedAccounts"
+        v-if="!unsupportedAccounts && isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
       >
-      <a-button-link download="authenticator.json" :href="exportFile" v-else>{{
-        i18n.download_backup
-      }}</a-button-link>
+      <button
+        v-on:click="downloadBackUpOneLineOtpAuthFile()"
+        v-if="!unsupportedAccounts && !isDataLinkSupported"
+        class="button"
+      >
+        {{ i18n.download_backup }}
+      </button>
+      <a-button-link
+        download="authenticator.json"
+        :href="exportFile"
+        v-if="unsupportedAccounts && isDataLinkSupported"
+        >{{ i18n.download_backup }}</a-button-link
+      >
+      <button
+        v-on:click="downloadBackUpExportFile()"
+        v-if="unsupportedAccounts && !isDataLinkSupported"
+        class="button"
+      >
+        {{ i18n.download_backup }}
+      </button>
       <a-button-link
         download="authenticator.json"
         :href="exportEncryptedFile"
-        v-if="encryption.getEncryptionStatus()"
+        v-if="encryption.getEncryptionStatus() && isDataLinkSupported"
         >{{ i18n.download_enc_backup }}</a-button-link
       >
+      <button
+        v-on:click="downloadBackUpExportEncryptedFile()"
+        v-if="encryption.getEncryptionStatus() && !isDataLinkSupported"
+        class="button"
+      >
+        {{ i18n.download_enc_backup }}
+      </button>
     </div>
     <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
     <br />
     <!-- 3rd Party Backup Services -->
-    <div v-show="!backupDisabled">
+    <div v-show="!backupDisabled && isBackupServiceSupported">
       <div class="text">
         {{ i18n.storage_sync_info }}
       </div>
@@ -46,10 +70,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { mapState } from "vuex";
-import { Encryption } from "../../models/encryption";
-import { EntryStorage } from "../../models/storage";
-import * as CryptoJS from "crypto-js";
+import { isSafari } from "../../browser";
 
 export default Vue.extend({
   data: function () {
@@ -76,6 +97,12 @@ export default Vue.extend({
     },
     backupDisabled: function () {
       return this.$store.getters["menu/storageArea"];
+    },
+    isDataLinkSupported: function () {
+      return !isSafari;
+    },
+    isBackupServiceSupported: function () {
+      return !isSafari;
     },
   },
   methods: {
@@ -127,6 +154,22 @@ export default Vue.extend({
         return;
       }
     },
+    downloadBackUpOneLineOtpAuthFile() {
+      const exportData = this.$store.state.accounts.exportData;
+      const t = getOneLineOtpBackupFile(exportData);
+      window.open(t);
+    },
+    downloadBackUpExportFile() {
+      const exportData = this.$store.state.accounts.exportData;
+      const t = getBackupFile(exportData);
+      window.open(t);
+    },
+    downloadBackUpExportEncryptedFile() {
+      const exportEncData = this.$store.state.accounts.exportEncData;
+      const key = this.$store.state.accounts.key;
+      const t = getBackupFile(exportEncData, key);
+      window.open(t);
+    },
   },
 });
 
@@ -152,10 +195,7 @@ function getBackupFile(
   let json = JSON.stringify(entryData, null, 2);
   // for windows notepad
   json = json.replace(/\n/g, "\r\n");
-  const base64Data = CryptoJS.enc.Base64.stringify(
-    CryptoJS.enc.Utf8.parse(json)
-  );
-  return `data:application/octet-stream;base64,${base64Data}`;
+  return downloadFileUrlBuilder(json);
 }
 
 function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
@@ -198,10 +238,12 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
     otpAuthLines.push(otpAuthLine);
   }
 
-  const base64Data = CryptoJS.enc.Base64.stringify(
-    CryptoJS.enc.Utf8.parse(otpAuthLines.join("\r\n"))
-  );
-  return `data:application/octet-stream;base64,${base64Data}`;
+  return downloadFileUrlBuilder(otpAuthLines.join("\r\n"));
+}
+
+function downloadFileUrlBuilder(content: string) {
+  const blob = new Blob([content], { type: "application/octet-stream" });
+  return URL.createObjectURL(blob);
 }
 
 function removeUnsafeData(data: string) {

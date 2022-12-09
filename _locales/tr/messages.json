@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Şifresi çözülemeyen hesaplar bu yedeklemeye dahil edilmeyecektir.",
+        "message": "Şifrelemesi çözülemeyen hesaplar bu yedeklemeye dahil edilmeyecektir.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Hesap bilgilerinin şifrelemesini çözmek için parolanızı girin.",
+        "message": "Verilerin şifrelemesini çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: Yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli düğmeye tıklayın.",
+        "message": "Uyarı: Yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli simgeye tıklayın.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -250,7 +250,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Yedekleri içe aktarmak için doğru parolayı sağlamalısınız.",
+        "message": "Yedeklemeyi içe aktarmak için parolanızı girin.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Temel",
+        "message": "Sade",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Yoğun",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Yüksek Kontrast",
@@ -419,7 +423,7 @@
         "message": "Tüm önerileri göster."
     },
     "no_insight_available": {
-        "message": "Öneri bulunamadı. Her şey yolunda gözüküyor."
+        "message": "Öneri bulunmuyor. Her şey yolunda gözüküyor."
     },
     "danger": {
         "message": "Tehlike"
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
+    },
+    "permissions": {
+        "message": "Yetkiler"
+    },
+    "permission_revoke": {
+        "message": "İptal et"
+    },
+    "permission_show_required_permissions": {
+        "message": "Geri alınamayan izinleri göster"
+    },
+    "permission_required": {
+        "message": "Bu gerekli bir yetkidir ve iptal edilemez."
+    },
+    "permission_active_tab": {
+        "message": "QR kodlarını taramak için geçerli sekmeye geçin."
+    },
+    "permission_storage": {
+        "message": "Hesap verilerini depolamak için tarayıcı depolama alanına erişim."
+    },
+    "permission_identity": {
+        "message": "Üçüncü taraf depolama hizmetlerinde oturum açmaya izin verir."
+    },
+    "permission_clipboard_write": {
+        "message": "Hesaba tıkladığınızda kodları panoya kopyalama ve yazma erişimi verir."
+    },
+    "permission_context_menus": {
+        "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
+    },
+    "permission_all_urls": {
+        "message": "QR kodlarını taramak için tüm web sitelerine erişin."
+    },
+    "permission_sync_clock": {
+        "message": "Google ile saat eşitlemesine izin verir."
+    },
+    "permission_dropbox": {
+        "message": "Dropbox'a yedeklemeye izin verir."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Önce Dropbox yedeklemeyi devre dışı bırakmalısınız."
+    },
+    "permission_drive": {
+        "message": "Google Drive'a yedeklemeye izin verir."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Önce Google Drive yedeklemesini devre dışı bırakmalısınız."
+    },
+    "permission_onedrive": {
+        "message": "OneDrive'a yedeklemeye izin verir."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Önce OneDrive yedeklemesini devre dışı bırakmalısınız."
+    },
+    "permission_unknown_permission": {
+        "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

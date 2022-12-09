@@ -309,6 +309,10 @@
         "message": "Simple",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compacto",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Alto contraste",
         "description": "High Contrast theme"
@@ -437,9 +441,67 @@
         "message": "Más información"
     },
     "enable_context_menu": {
-        "message": "http://192.168.0.1/"
+        "message": "Agregar al menú contextual"
     },
     "no_entires": {
         "message": "No hay cuentas para mostrar. Añade tu primera cuenta ahora."
+    },
+    "permissions": {
+        "message": "Permisos"
+    },
+    "permission_revoke": {
+        "message": "Revocar"
+    },
+    "permission_show_required_permissions": {
+        "message": "Mostrar permisos no revocables"
+    },
+    "permission_required": {
+        "message": "Este es un permiso requerido y no puede ser revocado."
+    },
+    "permission_active_tab": {
+        "message": "Acceder a la pestaña actual para escanear códigos QR."
+    },
+    "permission_storage": {
+        "message": "Acceder al almacenamiento del navegador para guardar los datos de la cuenta."
+    },
+    "permission_identity": {
+        "message": "Permitir iniciar sesión en servicios para almacenamiento de terceros."
+    },
+    "permission_clipboard_write": {
+        "message": "Otorga acceso de sólo escritura al portapapeles para copiar codigos al portapapeles cuando haga clic en la cuenta."
+    },
+    "permission_context_menus": {
+        "message": "Agregar Authenticator al menú contextual."
+    },
+    "permission_all_urls": {
+        "message": "Acceder a los sitios web para poder escanear códigos QR."
+    },
+    "permission_sync_clock": {
+        "message": "Habilitar sincronización del reloj con Google."
+    },
+    "permission_dropbox": {
+        "message": "Habilitar copias de seguridad con Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Primero debe deshabilitar la copia de seguridad de Dropbox."
+    },
+    "permission_drive": {
+        "message": "Permitir copias de seguridad de Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Primero debes desactivar la copia de seguridad de Google Drive."
+    },
+    "permission_onedrive": {
+        "message": "Permite la copia de seguridad a OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Primero debes desactivar la copia de seguridad de OneDrive."
+    },
+    "permission_unknown_permission": {
+        "message": "Permiso desconocido. Si ve este mensaje, por favor envíe un informe de error."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

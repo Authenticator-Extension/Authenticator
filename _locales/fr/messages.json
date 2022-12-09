@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authentificateur",
+        "message": "Authenticator",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Acquisition du code QR",
+        "message": "Scanner le QR code",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -104,7 +104,7 @@
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Phrase Secrète",
+        "message": "Mot de passe",
         "description": "Passphrase."
     },
     "confirm_phrase": {
@@ -126,7 +126,7 @@
         "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
     },
     "security_warning": {
-        "message": "Ce mot de passe sera utilisé pour chiffrer vos comptes. Personne ne sera en mesure de vous aider à les retrouver si vous les perdez.",
+        "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Le mot de passe ne correspond pas.",
+        "message": "Le mot de passe est incorrect.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
@@ -174,7 +174,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Mémoriser le Mot de Passe",
+        "message": "Enregistrer le mot de passe",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -186,7 +186,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Échec de la capture, rechargez la page et essayez à nouveau.",
+        "message": "La capture a échouée, veuillez recharger la page et réessayer.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Importer une sauvegarde de l'image QR",
+        "message": "Importer une image d'un code QR",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Importer sauvegarde en texte",
+        "message": "Importer une sauvegarde textuelle",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Télécharger le backup de mot de passe protégé",
+        "message": "Télécharger une sauvegarde protégée par mot de passe",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Utiliser Autofill",
+        "message": "Utiliser le remplissage automatique",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -308,6 +308,10 @@
     "theme_simple": {
         "message": "Simple",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Contraste élevé",
@@ -398,7 +402,7 @@
         "message": "Votre mot de passe ne répond pas aux exigences de sécurité de votre organisation. Contactez votre administrateur pour plus d'informations."
     },
     "advisor": {
-        "message": "Conseiller"
+        "message": "Conseils"
     },
     "advisor_insight_password_not_set": {
         "message": "Définir un mot de passe pour protéger vos données."
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
+    },
+    "permissions": {
+        "message": "Permissions"
+    },
+    "permission_revoke": {
+        "message": "Révoquer"
+    },
+    "permission_show_required_permissions": {
+        "message": "Afficher les permissions non révocables"
+    },
+    "permission_required": {
+        "message": "Il s'agit d'une autorisation nécessaire et ne peut pas être révoquée."
+    },
+    "permission_active_tab": {
+        "message": "Accéder à l'onglet actuel pour scanner le code QR."
+    },
+    "permission_storage": {
+        "message": "Accès au stockage du navigateur pour y stocker les données du compte."
+    },
+    "permission_identity": {
+        "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
+    },
+    "permission_clipboard_write": {
+        "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
+    },
+    "permission_context_menus": {
+        "message": "Ajoute Authenticator au menu contextuel."
+    },
+    "permission_all_urls": {
+        "message": "Accès à tous les sites web pour scanner les codes QR."
+    },
+    "permission_sync_clock": {
+        "message": "Autoriser la synchronisation de l'horloge avec Google."
+    },
+    "permission_dropbox": {
+        "message": "Autoriser la sauvegarde vers Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Vous devez d'abord désactiver la sauvegarde Dropbox."
+    },
+    "permission_drive": {
+        "message": "Autoriser la sauvegarde vers Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Vous devez d'abord désactiver la sauvegarde de Google Drive."
+    },
+    "permission_onedrive": {
+        "message": "Autoriser la sauvegarde vers OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Vous devez d'abord désactiver la sauvegarde OneDrive."
+    },
+    "permission_unknown_permission": {
+        "message": "Autorisation inconnue. Si vous voyez ce message, veuillez envoyer un rapport de bug."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

@@ -96,3 +96,7 @@ interface AdvisorState {
   insights: AdvisorInsightInterface[];
   ignoreList: string[];
 }
+
+interface PermissionsState {
+  permissions: PermissionInterface[];
+}

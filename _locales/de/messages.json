@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator erzeugt zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
+        "message": "Authenticator erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -222,23 +222,23 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Sicherungsdatei importieren",
+        "message": "Backup-Datei importieren",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "QR-Code importieren",
+        "message": "QR-Bildsicherung importieren",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Text-Sicherungsdatei importieren",
+        "message": "Text-Sicherung importieren",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import erfolgreich, aber mancher QR-Code konnte nicht erkannt werden.",
+        "message": "Import erfolgreich, aber einige QR-Codes konnten nicht erkannt werden.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Sie können mehrere Dateien auswählen, um die Sicherung in Stapeln zu importieren.",
+        "message": "Zum Importieren können Sie mehrere Sicherungsdateien zur Stapelverarbeitung auswählen.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -309,6 +309,10 @@
         "message": "Einfach",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Kompakt",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Hoher Kontrast",
         "description": "High Contrast theme"
@@ -359,7 +363,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Ladevorgang..."
+        "message": "Laden..."
     },
     "autolock": {
         "message": "Sperren nach"
@@ -407,13 +411,13 @@
         "message": "Erlaube automatisches Sperren, um deine Daten zu schützen."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Erlaube Browser-Synchronisation, damit Accounts zwischen verschiedenen Browsern synchronisiert werden können."
+        "message": "Browser-Synchronisation ist deaktiviert. Aktivieren erlaubt die Synchronisierung von Konten in Browsern."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill erlauben, um Passwortfelder in Websites automatisch auszufüllen."
+        "message": "Autofill kann aktiviert werden, um automatisch Codes in Webseiten auszufüllen."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Das Aktivieren des intelligenten Filters ermöglicht schnellen Zugriff auf Konten."
+        "message": "Das Aktivieren von Smart Filter erlaubt schnellen Zugriff auf Konten."
     },
     "show_all_insights": {
         "message": "Alle Warnungen anzeigen."
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Keine Konten zum Anzeigen. Erstes Konto jetzt hinzufügen."
+    },
+    "permissions": {
+        "message": "Berechtigungen"
+    },
+    "permission_revoke": {
+        "message": "Widerrufen"
+    },
+    "permission_show_required_permissions": {
+        "message": "Nicht widerrufbare Berechtigungen anzeigen"
+    },
+    "permission_required": {
+        "message": "Dies ist eine erforderliche Erlaubnis und kann nicht widerrufen werden."
+    },
+    "permission_active_tab": {
+        "message": "Zugriff auf die aktuelle Registerkarte, um QR-Codes zu scannen."
+    },
+    "permission_storage": {
+        "message": "Zugriff auf Browserspeicherung, um Kontodaten zu speichern."
+    },
+    "permission_identity": {
+        "message": "Einloggen bei externen Speicherdiensten zulassen."
+    },
+    "permission_clipboard_write": {
+        "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
+    },
+    "permission_context_menus": {
+        "message": "Fügt Authenticator dem Kontextmenü hinzu."
+    },
+    "permission_all_urls": {
+        "message": "Zugriff auf alle Webseiten, um QR-Codes zu scannen."
+    },
+    "permission_sync_clock": {
+        "message": "Synchronisierung mit Google zulassen."
+    },
+    "permission_dropbox": {
+        "message": "Backup auf Dropbox zulassen."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Sie müssen zuerst das Dropbox-Backup deaktivieren."
+    },
+    "permission_drive": {
+        "message": "Backup auf OneDrive zulassen."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Sie müssen zuerst das Google-Backup deaktivieren."
+    },
+    "permission_onedrive": {
+        "message": "Backup auf OneDrive zulassen."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Sie müssen zuerst das OneDrive-Backup deaktivieren."
+    },
+    "permission_unknown_permission": {
+        "message": "Unbekannte Berechtigung. Wenn Sie diese Nachricht sehen, senden Sie bitte einen Fehlerbericht."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

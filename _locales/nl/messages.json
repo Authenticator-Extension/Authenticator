@@ -309,6 +309,10 @@
         "message": "Eenvoudig",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compact",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Hoog contrast",
         "description": "High Contrast theme"
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Geen accounts om te tonen. Voeg uw eerste account nu toe."
+    },
+    "permissions": {
+        "message": "Toestemmingen"
+    },
+    "permission_revoke": {
+        "message": "Intrekken"
+    },
+    "permission_show_required_permissions": {
+        "message": "Niet-herroepbare toestemmingen weergeven"
+    },
+    "permission_required": {
+        "message": "Dit is een vereiste toestemming die niet is te verwijderen."
+    },
+    "permission_active_tab": {
+        "message": "Toegang tot het huidige tabblad om QR-codes te scannen."
+    },
+    "permission_storage": {
+        "message": "Toegang tot browseropslag om accountgegevens op te slaan."
+    },
+    "permission_identity": {
+        "message": "Aanmelden bij opslagdiensten van derden toestaan."
+    },
+    "permission_clipboard_write": {
+        "message": "Geeft alleen-schrijventoegang tot het klembord om codes naar het klembord te kopiëren wanneer u op de account klikt."
+    },
+    "permission_context_menus": {
+        "message": "Voegt Authenticator toe aan contextmenu."
+    },
+    "permission_all_urls": {
+        "message": "Toegang tot alle websites om QR-codes te scannen."
+    },
+    "permission_sync_clock": {
+        "message": "Tijdssynchronisatie met Google toestaan."
+    },
+    "permission_dropbox": {
+        "message": "Back-up naar Dropbox toestaan."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "U moet eerst back-up naar Dropbox uitschakelen."
+    },
+    "permission_drive": {
+        "message": "Back-up naar Google Drive toestaan."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "U moet eerst back-up naar Google Drive uitschakelen."
+    },
+    "permission_onedrive": {
+        "message": "Back-up naar OneDrive toestaan."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "U moet eerst back-up naar OneDrive uitschakelen."
+    },
+    "permission_unknown_permission": {
+        "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

@@ -309,6 +309,10 @@
         "message": "সিম্পল",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "কমপ্যাক্ট",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "উচ্চ কন্ট্র্যাস্ট",
         "description": "High Contrast theme"
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "কোন অ্যাকাউন্ট দেখা যাচ্ছে না। আপনার প্রথম অ্যাকাউন্ট যোগ করুন।"
+    },
+    "permissions": {
+        "message": "অনুমতিসমূহ"
+    },
+    "permission_revoke": {
+        "message": "অনুমতি প্রত্যাহার"
+    },
+    "permission_show_required_permissions": {
+        "message": "প্রয়োজনীয় অনুমতি দেখান"
+    },
+    "permission_required": {
+        "message": "এই অনুমতি জরুরি এবং এটা বন্ধ করা যাবে না।."
+    },
+    "permission_active_tab": {
+        "message": "কিউআর কোডটি স্ক্যান করার জন্য বর্তমান ট্যাব এর অ্যাক্সেস করুন।"
+    },
+    "permission_storage": {
+        "message": "অ্যাকাউন্টের সকল তথ্য সংরক্ষণ এর জন্য ব্রাউজারের স্টোরএজ অ্যাক্সেস করুন।"
+    },
+    "permission_identity": {
+        "message": "তৃতীয় পক্ষের ক্লাউড স্টোরএজ সেবায় যুক্ত হওয়ার অনুমতি। "
+    },
+    "permission_clipboard_write": {
+        "message": "আপনি যখন অ্যাকাউন্টে ক্লিক করেন তখন ক্লিপবোর্ডে কোডটি কপি করতে ক্লিপবোর্ডে শুধুমাত্র লেখার অ্যাক্সেস প্রদান করে।"
+    },
+    "permission_context_menus": {
+        "message": "কনট্যাক্স মেনু তে অথেন্টিকেটর যুক্ত করুন। "
+    },
+    "permission_all_urls": {
+        "message": "কিউআর কোডটি স্ক্যান করার জন্য সকল ওয়েবসাইট অ্যাক্সেস করুন।"
+    },
+    "permission_sync_clock": {
+        "message": "গুগল এর সাথে ঘড়ি সিঙ্ক করুন।"
+    },
+    "permission_dropbox": {
+        "message": "ড্রপবক্সের ব্যাকআপ চালু করুন।"
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "আপনাকে অবশ্যই ড্রপবক্সের ব্যাকআপ বন্ধ করতে হবে"
+    },
+    "permission_drive": {
+        "message": "গুগল ড্রাইভের ব্যাকআপ চালু করুন।"
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "আপনাকে অবশ্যই গুগ্রল ড্রাইভের ব্যাকআপ বন্ধ করতে হবে।"
+    },
+    "permission_onedrive": {
+        "message": "ওয়ানড্রাইভ এর ব্যাকআপ চালু করুন।"
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "আপনাকে অবশ্যই ওয়ানড্রাইভ এর ব্যাকআপ বন্ধ করতে হবে."
+    },
+    "permission_unknown_permission": {
+        "message": "অনুমতি অজানা। আপনি যদি এই লেখাটি দেখে থাকেন, তাহলে দয়া করে বাগ রিপোর্ট পাঠান"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

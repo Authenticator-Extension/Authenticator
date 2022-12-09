@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importazione riuscita, ma alcuni codici QR non possono essere riconosciuti.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -306,8 +306,12 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Semplice",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Compatto",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Contrasto Elevato",
@@ -441,5 +445,63 @@
     },
     "no_entires": {
         "message": "Nessun account da visualizzare. Aggiungi il tuo primo account ora."
+    },
+    "permissions": {
+        "message": "Autorizzazioni"
+    },
+    "permission_revoke": {
+        "message": "Revoca"
+    },
+    "permission_show_required_permissions": {
+        "message": "Mostra autorizzazioni non revocabili"
+    },
+    "permission_required": {
+        "message": "Questa è un'autorizzazione necessaria e non revocabile."
+    },
+    "permission_active_tab": {
+        "message": "Accedi alla scheda corrente per scansionare i codici QR."
+    },
+    "permission_storage": {
+        "message": "Accedi all'archiviazione del browser per memorizzare i dati del profilo."
+    },
+    "permission_identity": {
+        "message": "Consenti l'accesso a servizi d'archiviazione di terze parti."
+    },
+    "permission_clipboard_write": {
+        "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
+    },
+    "permission_context_menus": {
+        "message": "Aggiungi Authenticatori al menu contestuale."
+    },
+    "permission_all_urls": {
+        "message": "Accedi a tutti i siti web per scansionare i codici QR."
+    },
+    "permission_sync_clock": {
+        "message": "Consenti la sincronizzazione dell'orario con Google."
+    },
+    "permission_dropbox": {
+        "message": "Consenti il backup su Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Devi prima disabilitare il backup di Dropbox."
+    },
+    "permission_drive": {
+        "message": "Consenti il backup a Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Devi prima disabilitare il backup di Google Drive."
+    },
+    "permission_onedrive": {
+        "message": "Consenti il backup su OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Devi prima disabilitare il backup su OneDrive."
+    },
+    "permission_unknown_permission": {
+        "message": "Autorizzazione sconosciuta. Se vedi questo messaggio, sei pregato di inviare una segnalazione di bug."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }
