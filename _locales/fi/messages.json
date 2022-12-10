@@ -206,11 +206,11 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Skaala",
+        "message": "Skaalaus",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Varoitus: kaikki varmuuskopiot ovat salaamattomia. Haluatko lisätä tilin toiseen ohjelmaan? Vie kohdistin minkä tahansa tilin oikean yläkulman päälle ja klikkaa esiin tulevaa painiketta.",
+        "message": "Varoitus: kaikki varmuuskopiot ovat salaamattomia. Haluatko lisätä tilin toiseen sovellukseen? Vie kohdistin minkä tahansa tilin oikean yläkulman päälle ja paina esiin tulevaa piilotettua painiketta.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Näytä kaikki tilit",
+        "message": "Näytä kaikki kohteet",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -250,11 +250,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Anna oikea salasana tuodaksesi varmuuskopiot.",
+        "message": "Syötä oikea salasana tuodaksesi varmuuskopiot.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Salasanaasi on säilytetty paikallisessa säilössä. Vaihda salasanasi mahdollisimman pian.",
+        "message": "Salasanasi on tallennettu paikallisesti. Vaihda se suojausvalikosta välittömästi.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Ponnahdusikkuna",
+        "message": "Ponnahdustila",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -322,7 +322,7 @@
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Varmuuskopioi automaattisesti ulkopuoliseen tallennuspalveluun.",
+        "message": "Varmuuskopioi tietosi ulkoisiin tallennuspalveluihin automaattisesti.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -355,15 +355,15 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "Sinulla on vähintään yksi Steam tai Blizzard -tili. Salaamattomat varmuuskopiot eivät ole normaalissa varmuuskopiomuodossa.",
+        "message": "Sinulla on ainakin yksi Steam- tai Blizzard-tili. Salaamattomat varmuuskopiot eivät ole normaalissa varmuuskopiomuodossa.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "Voit tuoda varmuuskopioita muista ohjelmista.",
+        "message": "Voit tuoda myös joidenkin muiden sovellusten varmuuskopioita.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Lisätietoja",
+        "message": "Lue lisää",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
