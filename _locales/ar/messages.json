@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

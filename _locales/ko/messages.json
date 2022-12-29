@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "알 수 없는 권한입니다. 이 메시지가 표시되면 버그 보고서를 보내주십시오."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

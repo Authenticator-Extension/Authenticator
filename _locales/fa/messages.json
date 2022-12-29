@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "مجوز نامعلوم. در صورت مشاهده این پیام، لطفاً گزارش اشکال ارسال کنید."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

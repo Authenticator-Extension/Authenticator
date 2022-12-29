@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

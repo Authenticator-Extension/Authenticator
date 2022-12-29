@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

@@ -31,7 +31,11 @@
         >
           <span><IconLock /></span>{{ i18n.security }}
         </p>
-        <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()">
+        <p
+          v-bind:title="i18n.sync_clock"
+          v-on:click="syncClock()"
+          v-if="isSupported"
+        >
           <span><IconSync /></span>{{ i18n.sync_clock }}
         </p>
         <p
@@ -83,6 +87,7 @@ import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
+import { isFirefox, isSafari } from "../../browser";
 
 export default Vue.extend({
   components: {
@@ -103,6 +108,11 @@ export default Vue.extend({
     version: function () {
       return this.$store.state.menu.version;
     },
+    isSupported: {
+      get(): boolean {
+        return !isSafari;
+      },
+    },
   },
   methods: {
     hideMenu() {
@@ -111,7 +121,7 @@ export default Vue.extend({
     openHelp() {
       let url = "https://otp.ee/chromeissues";
 
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
         url = "https://otp.ee/edgeissues";

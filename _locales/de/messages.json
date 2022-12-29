@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Unbekannte Berechtigung. Wenn Sie diese Nachricht sehen, senden Sie bitte einen Fehlerbericht."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

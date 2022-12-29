@@ -4,7 +4,7 @@ import * as CryptoJS from "crypto-js";
 import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
 import { getSiteName, getMatchedEntriesHash } from "../utils";
-
+import { isChromium } from "../browser";
 export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
@@ -392,7 +392,7 @@ export class Accounts implements Module {
             await state.dispatch("updateEntries");
 
             // https://github.com/Authenticator-Extension/Authenticator/issues/412
-            if (navigator.userAgent.indexOf("Chrome") !== -1) {
+            if (isChromium) {
               await BrowserStorage.clearLogs();
             }
 

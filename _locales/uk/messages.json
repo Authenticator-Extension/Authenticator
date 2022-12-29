@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Невідомий дозвіл. Якщо ви бачите це повідомлення, будь ласка, надішліть повідомлення про помилку."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

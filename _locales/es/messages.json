@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Permiso desconocido. Si ve este mensaje, por favor envíe un informe de error."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

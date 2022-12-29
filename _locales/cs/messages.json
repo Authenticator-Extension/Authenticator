@@ -499,5 +499,9 @@
     },
     "permission_unknown_permission": {
         "message": "Neznámé oprávnění. Pokud uvidíte tuto zprávu, pošlete prosím hlášení o chybě."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
     }
 }

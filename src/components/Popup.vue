@@ -6,11 +6,13 @@
         theme !== 'accessibility' &&
         theme !== 'dark' &&
         theme !== 'simple' &&
-        theme !== 'compact',
+        theme !== 'compact' &&
+        theme !== 'flat',
       'theme-accessibility': theme === 'accessibility',
       'theme-dark': theme === 'dark',
       'theme-simple': theme === 'simple',
       'theme-compact': theme === 'compact',
+      'theme-flat': theme === 'flat',
       hideoutline,
     }"
     v-on:mousedown="hideoutline = true"
