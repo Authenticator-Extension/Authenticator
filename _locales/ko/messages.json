@@ -418,7 +418,7 @@
         "message": "브라우저 동기화를 사용하지 않아요. 사용하면 브라우저 간 계정을 동기화할 수 있게 돼요."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "웹사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 사용할 수 있어요."
+        "message": "웹 사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 사용할 수 있어요."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "스마트 필터를 사용하면 계정에 빠르게 접근할 수 있어요."
