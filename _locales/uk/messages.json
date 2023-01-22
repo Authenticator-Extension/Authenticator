@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Автентифікатор",
         "description": "Extension Name."
     },
     "extShortName": {
@@ -60,7 +60,7 @@
         "description": "No."
     },
     "account": {
-        "message": "Обліковий запис",
+        "message": "Konto",
         "description": "Account."
     },
     "accountName": {
@@ -76,7 +76,7 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Успішно.",
+        "message": "Success.",
         "description": "Update Success."
     },
     "updateFailure": {
