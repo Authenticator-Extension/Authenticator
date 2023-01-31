@@ -1,131 +1,95 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
-import QRCode from "qrcode-reader";
-import jsQR from "jsqr";
-
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
-import { getSiteName, getMatchedEntries } from "./utils";
+import { getSiteName, getMatchedEntries, getCurrentTab } from "./utils";
 import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
 
-let cachedPassphrase = "";
-let autolockTimeout: number;
 let contentTab: chrome.tabs.Tab | undefined;
+let LocalStorage: {
+  [key: string]: any;
+};
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === "position") {
+chrome.runtime.onMessage.addListener(async (message, sender) => {
+  LocalStorage =
+    (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+
+  if (message.action === "getCapture") {
     if (!sender.tab) {
       return;
     }
-    getQr(
-      sender.tab,
-      message.info.left,
-      message.info.top,
-      message.info.width,
-      message.info.height,
-      message.info.windowWidth
-    );
+    const url = await getCapture(sender.tab);
+    if (contentTab && contentTab.id) {
+      message.info.url = url;
+      chrome.tabs.sendMessage(contentTab.id, {
+        action: "sendCaptureUrl",
+        info: message.info,
+      });
+    }
+  } else if (message.action === "getTotp") {
+    getTotp(message.info);
   } else if (message.action === "cachePassphrase") {
-    cachedPassphrase = message.value;
-    clearTimeout(autolockTimeout);
+    chrome.storage.session.set({ cachedPassphrase: message.value });
+    chrome.alarms.clear("autolock");
     setAutolock();
-  } else if (message.action === "passphrase") {
-    sendResponse(cachedPassphrase);
   } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
-    cachedPassphrase = "";
+    chrome.storage.session.set({ cachedPassphrase: null });
   } else if (message.action === "resetAutolock") {
-    clearTimeout(autolockTimeout);
+    chrome.alarms.clear("autolock");
     setAutolock();
   } else if (message.action === "updateContentTab") {
     contentTab = message.data;
   } else if (message.action === "updateContextMenu") {
     updateContextMenu();
   }
+
+  // https://stackoverflow.com/a/56483156
+  return true;
 });
 
-function getQr(
-  tab: chrome.tabs.Tab,
-  left: number,
-  top: number,
-  width: number,
-  height: number,
-  windowWidth: number
-) {
-  chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" }, (dataUrl) => {
-    contentTab = tab;
-    const qr = new Image();
-    qr.src = dataUrl;
-    qr.onload = () => {
-      const devicePixelRatio = qr.width / windowWidth;
-      const captureCanvas = document.createElement("canvas");
-      captureCanvas.width = width * devicePixelRatio;
-      captureCanvas.height = height * devicePixelRatio;
-      const ctx = captureCanvas.getContext("2d");
-      if (!ctx) {
-        return;
-      }
-      ctx.drawImage(
-        qr,
-        left * devicePixelRatio,
-        top * devicePixelRatio,
-        width * devicePixelRatio,
-        height * devicePixelRatio,
-        0,
-        0,
-        width * devicePixelRatio,
-        height * devicePixelRatio
-      );
-      const url = captureCanvas.toDataURL();
-      const qrReader = new QRCode();
-      qrReader.callback = (
-        error: string,
-        text: {
-          result: string;
-          points: Array<{
-            x: number;
-            y: number;
-            count: number;
-            estimatedModuleSize: number;
-          }>;
-        }
-      ) => {
-        if (error) {
-          console.error(error);
-          const qrImageData = ctx.getImageData(
-            0,
-            0,
-            captureCanvas.width,
-            captureCanvas.height
-          );
-          const jsQrCode = jsQR(
-            qrImageData.data,
-            captureCanvas.width,
-            captureCanvas.height
-          );
-          if (jsQrCode) {
-            getTotp(jsQrCode.data);
-          } else {
-            if (!contentTab || !contentTab.id) {
-              return;
-            }
-            const id = contentTab.id;
-            chrome.tabs.sendMessage(id, { action: "errorqr" });
-          }
-        } else {
-          getTotp(text.result);
-        }
-      };
-      qrReader.decode(url);
-    };
+chrome.alarms.onAlarm.addListener(() => {
+  chrome.storage.session.set({ cachedPassphrase: null });
+  if (contentTab && contentTab.id) {
+    chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
+  }
+  chrome.runtime.sendMessage({ action: "stopImport" });
+});
+
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  let popupUrl = "view/popup.html?popup=true";
+  if (tab && tab.url && tab.title) {
+    popupUrl +=
+      "&url=" +
+      encodeURIComponent(tab.url) +
+      "&title=" +
+      encodeURIComponent(tab.title);
+  }
+  let windowType;
+  if (isFirefox) {
+    windowType = "detached_panel";
+  } else {
+    windowType = "panel";
+  }
+  chrome.windows.create({
+    url: chrome.runtime.getURL(popupUrl),
+    type: windowType as chrome.windows.createTypeEnum,
+    height: 400,
+    width: 320,
   });
+});
+
+async function getCapture(tab: chrome.tabs.Tab) {
+  const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, {
+    format: "png",
+  });
+
+  return dataUrl;
 }
 
 async function getTotp(text: string, silent = false) {
@@ -198,6 +162,9 @@ async function getTotp(text: string, silent = false) {
         account = label;
       }
       const parameters = parameterPart.split("&");
+      const { cachedPassphrase } = await chrome.storage.session.get(
+        "cachedPassphrase"
+      );
       parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
@@ -299,7 +266,8 @@ function getBackupToken(service: string) {
         if (!value) {
           return false;
         }
-        localStorage.driveToken = value;
+        LocalStorage.driveToken = value;
+        chrome.storage.local.set({ LocalStorage });
         chrome.runtime.sendMessage({ action: "drivetoken", value });
         return true;
       }
@@ -333,7 +301,7 @@ function getBackupToken(service: string) {
       authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
         getCredentials().onedrive.client_id
       }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-        localStorage.oneDriveBusiness !== "true" ? ".AppFolder" : ""
+        LocalStorage.oneDriveBusiness !== "true" ? ".AppFolder" : ""
       }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(
@@ -367,116 +335,90 @@ function getBackupToken(service: string) {
             const value = kvMatches[2];
             if (key === "access_token") {
               if (service === "dropbox") {
-                localStorage.dropboxToken = value;
+                LocalStorage.dropboxToken = value;
+                chrome.storage.local.set({ LocalStorage });
                 uploadBackup("dropbox");
                 return;
               }
             } else if (key === "code") {
               if (service === "drive") {
-                const xhr = new XMLHttpRequest();
-                // Need to trade code we got from launchWebAuthFlow for a
-                // token & refresh token
-                await new Promise(
-                  (
-                    resolve: (value: boolean) => void,
-                    reject: (reason: Error) => void
-                  ) => {
-                    xhr.open(
-                      "POST",
-                      "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-                        getCredentials().drive.client_id +
-                        "&client_secret=" +
-                        getCredentials().drive.client_secret +
-                        "&code=" +
-                        value +
-                        "&redirect_uri=" +
-                        redirUrl +
-                        "&grant_type=authorization_code"
-                    );
-                    xhr.setRequestHeader("Accept", "application/json");
-                    xhr.setRequestHeader(
-                      "Content-Type",
-                      "application/x-www-form-urlencoded"
-                    );
-                    xhr.onreadystatechange = () => {
-                      if (xhr.readyState === 4) {
-                        try {
-                          const res = JSON.parse(xhr.responseText);
-                          if (res.error) {
-                            console.error(res.error_description);
-                            resolve(false);
-                          } else {
-                            localStorage.driveToken = res.access_token;
-                            localStorage.driveRefreshToken = res.refresh_token;
-                            resolve(true);
-                          }
-                        } catch (error) {
-                          console.error(error);
-                          reject(error as Error);
-                        }
-                      }
-                      return;
-                    };
-                    xhr.send();
+                let success = false;
+
+                const response = await fetch(
+                  "https://www.googleapis.com/oauth2/v4/token?client_id=" +
+                    getCredentials().drive.client_id +
+                    "&client_secret=" +
+                    getCredentials().drive.client_secret +
+                    "&code=" +
+                    value +
+                    "&redirect_uri=" +
+                    redirUrl +
+                    "&grant_type=authorization_code",
+                  {
+                    method: "POST",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/x-www-form-urlencoded",
+                    },
                   }
                 );
+
+                try {
+                  const res = await response.json();
+
+                  if (res.error) {
+                    console.error(res.error_description);
+                  } else {
+                    LocalStorage.driveToken = res.access_token;
+                    LocalStorage.driveRefreshToken = res.refresh_token;
+                    chrome.storage.local.set({ LocalStorage });
+                    success = true;
+                  }
+                } catch (error) {
+                  console.error(error);
+                  throw error;
+                }
+
                 uploadBackup("drive");
+                return success;
               } else if (service === "onedrive") {
-                const xhr = new XMLHttpRequest();
                 // Need to trade code we got from launchWebAuthFlow for a
                 // token & refresh token
-                await new Promise(
-                  (
-                    resolve: (value: boolean) => void,
-                    reject: (reason: Error) => void
-                  ) => {
-                    xhr.open(
-                      "POST",
-                      "https://login.microsoftonline.com/common/oauth2/v2.0/token"
-                    );
-                    xhr.setRequestHeader("Accept", "application/json");
-                    xhr.setRequestHeader(
-                      "Content-Type",
-                      "application/x-www-form-urlencoded"
-                    );
-                    xhr.onreadystatechange = () => {
-                      if (xhr.readyState === 4) {
-                        try {
-                          const res = JSON.parse(xhr.responseText);
-                          if (res.error) {
-                            console.error(res.error_description);
-                            resolve(false);
-                          } else {
-                            localStorage.oneDriveToken = res.access_token;
-                            localStorage.oneDriveRefreshToken =
-                              res.refresh_token;
-                            resolve(true);
-                          }
-                        } catch (error) {
-                          console.error(error);
-                          reject(error);
-                        }
-                      }
-                      return;
-                    };
-                    xhr.send(
-                      `client_id=${
-                        getCredentials().onedrive.client_id
-                      }&grant_type=authorization_code&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-                        localStorage.oneDriveBusiness !== "true"
-                          ? ".AppFolder"
-                          : ""
-                      }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&code=${value}&redirect_uri=${redirUrl}&client_secret=${encodeURIComponent(
-                        getCredentials().onedrive.client_secret
-                      )}`
-                    );
+                let success = false;
+
+                const response = await fetch(
+                  "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+                  {
+                    method: "POST",
+                    headers: {
+                      Accept: "application/json",
+                      "Content-Type": "application/x-www-form-urlencoded",
+                    },
                   }
                 );
+
+                try {
+                  const res = await response.json();
+                  if (res.error) {
+                    console.error(res.error_description);
+                  } else {
+                    LocalStorage.oneDriveToken = res.access_token;
+                    LocalStorage.oneDriveRefreshToken = res.refresh_token;
+                    chrome.storage.local.set({ LocalStorage });
+                    success = true;
+                  }
+                } catch (error) {
+                  console.error(error);
+                  throw error;
+                }
+
                 uploadBackup("onedrive");
+                return success;
               }
             }
           }
         }
+
         return;
       }
     );
@@ -484,6 +426,9 @@ function getBackupToken(service: string) {
 }
 
 async function uploadBackup(service: string) {
+  const { cachedPassphrase } = await chrome.storage.session.get(
+    "cachedPassphrase"
+  );
   const encryption = new Encryption(cachedPassphrase);
 
   switch (service) {
@@ -519,90 +464,73 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   }
 
   if (url) {
-    window.open(url, "_blank");
+    chrome.tabs.create({ url, active: true });
   }
 });
 
 chrome.commands.onCommand.addListener(async (command: string) => {
+  const { cachedPassphrase } = await chrome.storage.session.get(
+    "cachedPassphrase"
+  );
+
+  let tab: chrome.tabs.Tab | undefined;
+
   switch (command) {
     case "scan-qr":
-      await new Promise(
-        (resolve: () => void, reject: (reason: Error) => void) => {
-          try {
-            return chrome.tabs.executeScript(
-              { file: "/dist/content.js" },
-              () => {
-                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-              }
-            );
-          } catch (error) {
-            console.error(error);
-            return reject(error);
-          }
-        }
-      );
-
-      if (cachedPassphrase === "") {
+      if (cachedPassphrase === null || cachedPassphrase === undefined) {
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const tab = tabs[0];
-        if (!tab || !tab.id) {
-          return;
-        }
+      tab = await getCurrentTab();
+      if (tab.id) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["/dist/content.js"],
+        });
+        await chrome.scripting.insertCSS({
+          target: { tabId: tab.id },
+          files: ["/css/content.css"],
+        });
+
         contentTab = tab;
         chrome.tabs.sendMessage(tab.id, { action: "capture" });
-      });
+      }
       break;
 
     case "autofill":
-      await new Promise(
-        (resolve: () => void, reject: (reason: Error) => void) => {
-          try {
-            return chrome.tabs.executeScript(
-              { file: "/dist/content.js" },
-              () => {
-                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-              }
-            );
-          } catch (error) {
-            console.error(error);
-            return reject(error);
+      tab = await getCurrentTab();
+      if (tab.id) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["/dist/content.js"],
+        });
+        await chrome.scripting.insertCSS({
+          target: { tabId: tab.id },
+          files: ["/css/content.css"],
+        });
+
+        contentTab = tab;
+
+        const siteName = await getSiteName();
+        const entries = await EntryStorage.get();
+        const matchedEntries = getMatchedEntries(siteName, entries);
+
+        if (matchedEntries && matchedEntries.length === 1) {
+          const entry = matchedEntries[0];
+          const encryption = new Encryption(cachedPassphrase);
+          entry.applyEncryption(encryption);
+
+          if (
+            entry.code !== CodeState.Encrypted &&
+            entry.code !== CodeState.Invalid
+          ) {
+            chrome.tabs.sendMessage(tab.id, {
+              action: "pastecode",
+              code: matchedEntries[0].code,
+            });
           }
         }
-      );
-
-      chrome.tabs.query(
-        { active: true, lastFocusedWindow: true },
-        async (tabs) => {
-          const tab = tabs[0];
-          if (!tab || !tab.id) {
-            return;
-          }
-          contentTab = tab;
-
-          const siteName = await getSiteName();
-          const entries = await EntryStorage.get();
-          const matchedEntries = getMatchedEntries(siteName, entries);
-
-          if (matchedEntries && matchedEntries.length === 1) {
-            const entry = matchedEntries[0];
-            const encryption = new Encryption(cachedPassphrase);
-            entry.applyEncryption(encryption);
-
-            if (
-              entry.code !== CodeState.Encrypted &&
-              entry.code !== CodeState.Invalid
-            ) {
-              chrome.tabs.sendMessage(tab.id, {
-                action: "pastecode",
-                code: matchedEntries[0].code,
-              });
-            }
-          }
-        }
-      );
+      }
       break;
 
     default:
@@ -616,60 +544,35 @@ async function setAutolock() {
   );
 
   if (enforcedAutolock && enforcedAutolock > 0) {
-    autolockTimeout = window.setTimeout(() => {
-      cachedPassphrase = "";
-      if (contentTab && contentTab.id) {
-        chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
-      }
-      chrome.runtime.sendMessage({ action: "stopImport" });
-    }, enforcedAutolock * 60000);
+    chrome.alarms.create("autolock", { delayInMinutes: enforcedAutolock });
     return;
   }
 
-  if (Number(localStorage.autolock) > 0) {
-    autolockTimeout = window.setTimeout(() => {
-      cachedPassphrase = "";
-      if (contentTab && contentTab.id) {
-        chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
-      }
-      chrome.runtime.sendMessage({ action: "stopImport" });
-    }, Number(localStorage.autolock) * 60000);
+  if (Number(LocalStorage.autolock) > 0) {
+    chrome.alarms.create("autolock", {
+      delayInMinutes: Number(LocalStorage.autolock),
+    });
   }
 }
 
-function updateContextMenu() {
+async function updateContextMenu() {
+  LocalStorage =
+    (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+
   chrome.permissions.contains(
     {
       permissions: ["contextMenus"],
     },
     (result) => {
       if (result) {
-        if (localStorage.enableContextMenu === "true") {
+        if (
+          LocalStorage.enableContextMenu === "true" ||
+          LocalStorage.enableContextMenu === true
+        ) {
           chrome.contextMenus.create({
+            id: "otpContextMenu",
             title: chrome.i18n.getMessage("extName"),
             contexts: ["all"],
-            onclick: (_, tab) => {
-              let popupUrl = "view/popup.html?popup=true";
-              if (tab.url && tab.title) {
-                popupUrl +=
-                  "&url=" +
-                  encodeURIComponent(tab.url) +
-                  "&title=" +
-                  encodeURIComponent(tab.title);
-              }
-              let windowType;
-              if (isFirefox) {
-                windowType = "detached_panel";
-              } else {
-                windowType = "panel";
-              }
-              chrome.windows.create({
-                url: chrome.extension.getURL(popupUrl),
-                type: windowType,
-                height: 400,
-                width: 320,
-              });
-            },
           });
         } else {
           chrome.contextMenus.removeAll();

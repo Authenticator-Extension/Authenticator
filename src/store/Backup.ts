@@ -1,13 +1,21 @@
 export class Backup implements Module {
-  getModule() {
+  async getModule() {
+    const LocalStorage =
+      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     return {
       state: {
-        dropboxEncrypted: localStorage.dropboxEncrypted === "true",
-        driveEncrypted: localStorage.driveEncrypted === "true",
-        oneDriveEncrypted: localStorage.oneDriveEncrypted === "true",
-        dropboxToken: Boolean(localStorage.dropboxToken),
-        driveToken: Boolean(localStorage.driveToken),
-        oneDriveToken: Boolean(localStorage.oneDriveToken),
+        dropboxEncrypted:
+          LocalStorage.dropboxEncrypted === "true" ||
+          LocalStorage.dropboxEncrypted === true,
+        driveEncrypted:
+          LocalStorage.driveEncrypted === "true" ||
+          LocalStorage.driveEncrypted === true,
+        oneDriveEncrypted:
+          LocalStorage.oneDriveEncrypted === "true" ||
+          LocalStorage.oneDriveEncrypted === true,
+        dropboxToken: Boolean(LocalStorage.dropboxToken),
+        driveToken: Boolean(LocalStorage.driveToken),
+        oneDriveToken: Boolean(LocalStorage.oneDriveToken),
       },
       mutations: {
         setToken(

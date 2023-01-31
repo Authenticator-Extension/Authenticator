@@ -177,7 +177,7 @@ export class OTPEntry implements OTPEntryInterface {
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
-    this.generate();
+    await this.generate();
     if (this.secret !== null) {
       this.counter++;
       await this.update();
@@ -189,14 +189,14 @@ export class OTPEntry implements OTPEntryInterface {
     this.hash = uuid();
   }
 
-  generate() {
+  async generate() {
     if (!this.secret && !this.encSecret) {
       this.code = CodeState.Invalid;
     } else if (!this.secret) {
       this.code = CodeState.Encrypted;
     } else {
       try {
-        this.code = KeyUtilities.generate(
+        this.code = await KeyUtilities.generate(
           this.type,
           this.secret,
           this.counter,

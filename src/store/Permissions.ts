@@ -17,6 +17,16 @@ const permissions: Permission[] = [
     revocable: false,
   },
   {
+    id: "alarms",
+    description: chrome.i18n.getMessage("permission_alarms"),
+    revocable: false,
+  },
+  {
+    id: "scripting",
+    description: chrome.i18n.getMessage("permission_scripting"),
+    revocable: false,
+  },
+  {
     id: "clipboardWrite",
     description: chrome.i18n.getMessage("permission_clipboard_write"),
     revocable: true,
@@ -41,8 +51,10 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_dropbox"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.dropboxToken !== undefined) {
+      async () => {
+        const LocalStorage =
+          (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+        if (LocalStorage.dropboxToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_dropbox_cannot_revoke"),
@@ -59,8 +71,10 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_drive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.driveToken !== undefined) {
+      async () => {
+        const LocalStorage =
+          (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+        if (LocalStorage.driveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_drive_cannot_revoke"),
@@ -77,8 +91,10 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_drive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.driveToken !== undefined) {
+      async () => {
+        const LocalStorage =
+          (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+        if (LocalStorage.driveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_drive_cannot_revoke"),
@@ -95,8 +111,10 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_onedrive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.oneDriveToken !== undefined) {
+      async () => {
+        const LocalStorage =
+          (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+        if (LocalStorage.oneDriveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage(
@@ -115,8 +133,10 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_onedrive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.oneDriveToken !== undefined) {
+      async () => {
+        const LocalStorage =
+          (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+        if (LocalStorage.oneDriveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage(
@@ -145,13 +165,17 @@ export class Permissions implements Module {
         ) => {
           const permissionObject = this.getPermissionById(permissionId);
           const validators = permissionObject.validation ?? [];
-          const validationResults = validators
-            .map((validator) => validator())
-            .filter((result) => !result.valid);
+          const validationResults = (
+            await Promise.all(
+              validators.map(async (validator) => await validator())
+            )
+          ).filter((result) => !result.valid);
 
           if (validationResults.length > 0) {
-            const messages = validationResults.map(
-              (result) => "• " + result.message
+            const messages = await Promise.all(
+              validationResults.map(
+                async (result) => "• " + (await result).message
+              )
             );
             alert(messages.join("\n"));
             return;

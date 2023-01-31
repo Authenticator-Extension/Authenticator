@@ -12,6 +12,10 @@ import {
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
+let LocalStorage: {
+  [key: string]: any;
+};
+
 export class KeyUtilities {
   private static dec2hex(s: number): string {
     return (s < 15.5 ? "0" : "") + Math.round(s).toString(16);
@@ -118,7 +122,7 @@ export class KeyUtilities {
     return result;
   }
 
-  static generate(
+  static async generate(
     type: OTPType,
     secret: string,
     counter: number,
@@ -158,10 +162,12 @@ export class KeyUtilities {
       throw new Error("Invalid secret key");
     }
 
+    LocalStorage =
+      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     if (type !== OTPType.hotp && type !== OTPType.hhex) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
-      if (localStorage.offset) {
-        epoch = epoch + Number(localStorage.offset);
+      if (LocalStorage.offset) {
+        epoch = epoch + Number(LocalStorage.offset);
       }
       counter = Math.floor(epoch / period);
     }

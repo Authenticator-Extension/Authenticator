@@ -19,7 +19,22 @@ import { Qr } from "./store/Qr";
 import { Advisor } from "./store/Advisor";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 
+let LocalStorage: {
+  [key: string]: any;
+};
+
+async function migrateLocalStorageToBrowserStorage() {
+  if (localStorage.length > 0) {
+    await chrome.storage.local.set({ LocalStorage: localStorage });
+    localStorage.clear();
+  }
+}
+
 async function init() {
+  await migrateLocalStorageToBrowserStorage();
+  LocalStorage =
+    (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+
   // Add globals
   Vue.prototype.i18n = await loadI18nMessages();
 
@@ -37,7 +52,7 @@ async function init() {
     modules: {
       accounts: await new Accounts().getModule(),
       advisor: await new Advisor().getModule(),
-      backup: new Backup().getModule(),
+      backup: await new Backup().getModule(),
       currentView: new CurrentView().getModule(),
       menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
@@ -85,7 +100,7 @@ async function init() {
   }
 
   // Warn if legacy password is set
-  if (localStorage.encodedPhrase) {
+  if (LocalStorage.encodedPhrase) {
     instance.$store.commit(
       "notification/alert",
       instance.i18n.local_passphrase_warning
@@ -105,11 +120,12 @@ async function init() {
     clearInterval(backupReminder);
 
     const clientTime = Math.floor(new Date().getTime() / 1000 / 3600 / 24);
-    if (!localStorage.lastRemindingBackupTime) {
-      localStorage.lastRemindingBackupTime = clientTime;
+    if (!LocalStorage.lastRemindingBackupTime) {
+      LocalStorage.lastRemindingBackupTime = clientTime;
+      chrome.storage.local.set({ LocalStorage });
     } else if (
-      clientTime - localStorage.lastRemindingBackupTime >= 30 ||
-      clientTime - localStorage.lastRemindingBackupTime < 0
+      clientTime - Number(LocalStorage.lastRemindingBackupTime) >= 30 ||
+      clientTime - Number(LocalStorage.lastRemindingBackupTime) < 0
     ) {
       runScheduledBackup(clientTime, instance);
     }
@@ -153,7 +169,7 @@ async function init() {
   const query = new URLSearchParams(document.location.search.substring(1));
   // Resize window to proper size if popup
   if (query.get("popup")) {
-    const zoom = Number(localStorage.zoom) / 100 || 1;
+    const zoom = Number(LocalStorage.zoom) / 100 || 1;
     const correctHeight = 480 * zoom;
     const correctWidth = 320 * zoom;
     if (
@@ -199,14 +215,19 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
             if (res) {
               // we have uploaded backup to Dropbox
               // no need to remind
-              localStorage.lastRemindingBackupTime = clientTime;
+              LocalStorage.lastRemindingBackupTime = clientTime;
+              chrome.storage.local.set({ LocalStorage });
               return;
-            } else if (localStorage.dropboxRevoked === "true") {
+            } else if (
+              LocalStorage.dropboxRevoked === "true" ||
+              LocalStorage.dropboxRevoked === true
+            ) {
               instance.$store.commit(
                 "notification/alert",
                 chrome.i18n.getMessage("token_revoked", ["Dropbox"])
               );
-              localStorage.removeItem("dropboxRevoked");
+              LocalStorage.dropboxRevoked = undefined;
+              chrome.storage.local.remove("dropboxRevoked");
             }
           } catch (error) {
             // ignore
@@ -216,7 +237,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           "notification/alert",
           instance.i18n.remind_backup
         );
-        localStorage.lastRemindingBackupTime = clientTime;
+        LocalStorage.lastRemindingBackupTime = clientTime;
+        chrome.storage.local.set({ LocalStorage });
       }
     );
   }
@@ -236,14 +258,19 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               instance.$store.state.accounts.encryption
             );
             if (res) {
-              localStorage.lastRemindingBackupTime = clientTime;
+              LocalStorage.lastRemindingBackupTime = clientTime;
+              chrome.storage.local.set({ LocalStorage });
               return;
-            } else if (localStorage.driveRevoked === "true") {
+            } else if (
+              LocalStorage.driveRevoked === "true" ||
+              LocalStorage.driveRevoked === true
+            ) {
               instance.$store.commit(
                 "notification/alert",
                 chrome.i18n.getMessage("token_revoked", ["Google Drive"])
               );
-              localStorage.removeItem("driveRevoked");
+              LocalStorage.driveRevoked = undefined;
+              chrome.storage.local.remove("driveRevoked");
             }
           } catch (error) {
             // ignore
@@ -253,7 +280,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           "notification/alert",
           instance.i18n.remind_backup
         );
-        localStorage.lastRemindingBackupTime = clientTime;
+        LocalStorage.lastRemindingBackupTime = clientTime;
+        chrome.storage.local.set({ LocalStorage });
       }
     );
   }
@@ -273,14 +301,19 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               instance.$store.state.accounts.encryption
             );
             if (res) {
-              localStorage.lastRemindingBackupTime = clientTime;
+              LocalStorage.lastRemindingBackupTime = clientTime;
+              chrome.storage.local.set({ LocalStorage });
               return;
-            } else if (localStorage.oneDriveRevoked === "true") {
+            } else if (
+              LocalStorage.oneDriveRevoked === "true" ||
+              LocalStorage.oneDriveRevoked === true
+            ) {
               instance.$store.commit(
                 "notification/alert",
                 chrome.i18n.getMessage("token_revoked", ["OneDrive"])
               );
-              localStorage.removeItem("oneDriveRevoked");
+              LocalStorage.oneDriveRevoked = undefined;
+              chrome.storage.local.remove("oneDriveRevoked");
             }
           } catch (error) {
             // ignore
@@ -290,7 +323,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           "notification/alert",
           instance.i18n.remind_backup
         );
-        localStorage.lastRemindingBackupTime = clientTime;
+        LocalStorage.lastRemindingBackupTime = clientTime;
+        chrome.storage.local.set({ LocalStorage });
       }
     );
   }
@@ -300,7 +334,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
     !instance.$store.state.backup.oneDriveToken
   ) {
     instance.$store.commit("notification/alert", instance.i18n.remind_backup);
-    localStorage.lastRemindingBackupTime = clientTime;
+    LocalStorage.lastRemindingBackupTime = clientTime;
+    chrome.storage.local.set({ LocalStorage });
   }
 }
 
@@ -329,9 +364,10 @@ export function syncTimeWithGoogle() {
 
             if (Math.abs(offset) <= 300) {
               // within 5 minutes
-              localStorage.offset = Math.round(
+              LocalStorage.offset = Math.round(
                 (serverTime - clientTime) / 1000
               );
+              chrome.storage.local.set({ LocalStorage });
               return resolve("updateSuccess");
             } else {
               return resolve("clock_too_far_off");
@@ -340,7 +376,7 @@ export function syncTimeWithGoogle() {
         };
         xhr.send();
       } catch (error) {
-        return reject(error);
+        return reject(error as Error);
       }
     }
   );
