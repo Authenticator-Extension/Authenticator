@@ -18,7 +18,7 @@ export async function loadI18nMessages() {
           }
           return;
         };
-        xhr.open("GET", chrome.extension.getURL("/_locales/en/messages.json"));
+        xhr.open("GET", chrome.runtime.getURL("/_locales/en/messages.json"));
         xhr.send();
       } catch (error) {
         return reject(error);

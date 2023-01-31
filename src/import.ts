@@ -45,15 +45,12 @@ async function init() {
 
 init();
 
-function getCachedPassphrase() {
-  return new Promise((resolve: (value: string) => void) => {
-    chrome.runtime.sendMessage(
-      { action: "passphrase" },
-      (passphrase: string) => {
-        return resolve(passphrase);
-      }
-    );
-  });
+async function getCachedPassphrase() {
+  const { cachedPassphrase } = await chrome.storage.session.get(
+    "cachedPassphrase"
+  );
+
+  return cachedPassphrase;
 }
 
 export function decryptBackupData(

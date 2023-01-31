@@ -16,8 +16,10 @@ const insightsData: AdvisorInsightInterface[] = [
     level: InsightLevel.warning,
     description: chrome.i18n.getMessage("advisor_insight_auto_lock_not_set"),
     validation: async () => {
+      const LocalStorage =
+        (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
       const hasEncryptedEntry = await EntryStorage.hasEncryptionKey();
-      return hasEncryptedEntry && !Number(localStorage.autolock);
+      return hasEncryptedEntry && !Number(LocalStorage.autolock);
     },
   },
   {
@@ -27,7 +29,9 @@ const insightsData: AdvisorInsightInterface[] = [
       "advisor_insight_browser_sync_not_enabled"
     ),
     validation: async () => {
-      const storageArea = localStorage.storageLocation;
+      const LocalStorage =
+        (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+      const storageArea = LocalStorage.storageLocation;
       return storageArea !== "sync";
     },
   },
@@ -38,7 +42,9 @@ const insightsData: AdvisorInsightInterface[] = [
       "advisor_insight_auto_fill_not_enabled"
     ),
     validation: async () => {
-      return localStorage.autofill !== "true";
+      const LocalStorage =
+        (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+      return LocalStorage.autofill !== "true" && LocalStorage.autofill !== true;
     },
   },
   {
@@ -48,34 +54,46 @@ const insightsData: AdvisorInsightInterface[] = [
       "advisor_insight_smart_filter_not_enabled"
     ),
     validation: async () => {
-      return localStorage.smartFilter === "false";
+      const LocalStorage =
+        (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+      return (
+        LocalStorage.smartFilter === "false" ||
+        LocalStorage.smartFilter === false
+      );
     },
   },
 ];
 
 export class Advisor implements Module {
   async getModule() {
+    const LocalStorage =
+      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     return {
       state: {
         insights: await this.getInsights(),
-        ignoreList: JSON.parse(localStorage.advisorIgnoreList || "[]"),
+        ignoreList: JSON.parse(LocalStorage.advisorIgnoreList || "[]"),
       },
       mutations: {
         dismissInsight: async (state: AdvisorState, insightId: string) => {
           state.ignoreList.push(insightId);
-          localStorage.advisorIgnoreList = JSON.stringify(state.ignoreList);
+          LocalStorage.advisorIgnoreList = state.ignoreList;
+          chrome.storage.local.set({ LocalStorage });
 
           state.insights = await this.getInsights();
         },
         clearIgnoreList: async (state: AdvisorState) => {
           state.ignoreList = [];
-          localStorage.removeItem("advisorIgnoreList");
+          LocalStorage.advisorIgnoreList = undefined;
+          chrome.storage.local.set({ LocalStorage });
 
           state.insights = await this.getInsights();
         },
         updateInsight: async (state: AdvisorState) => {
           state.insights = await this.getInsights();
-          state.ignoreList = JSON.parse(localStorage.advisorIgnoreList || "[]");
+          state.ignoreList =
+            typeof LocalStorage.advisorIgnoreList === "string"
+              ? JSON.parse(LocalStorage.advisorIgnoreList || "[]")
+              : LocalStorage.advisorIgnoreList || [];
         },
       },
       namespaced: true,
@@ -83,9 +101,12 @@ export class Advisor implements Module {
   }
 
   private async getInsights() {
-    const advisorIgnoreList: string[] = JSON.parse(
-      localStorage.advisorIgnoreList || "[]"
-    );
+    const LocalStorage =
+      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+    const advisorIgnoreList: string[] =
+      typeof LocalStorage.advisorIgnoreList === "string"
+        ? JSON.parse(LocalStorage.advisorIgnoreList || "[]")
+        : LocalStorage.advisorIgnoreList || [];
 
     const filteredInsightsData: AdvisorInsightInterface[] = [];
 

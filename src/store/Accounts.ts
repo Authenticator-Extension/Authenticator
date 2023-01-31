@@ -5,12 +5,17 @@ import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
 import { getSiteName, getMatchedEntriesHash } from "../utils";
 import { isChromium } from "../browser";
+
 export class Accounts implements Module {
   async getModule() {
     const cachedPassphrase = await this.getCachedPassphrase();
     const encryption: Encryption = new Encryption(cachedPassphrase);
     const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
+
+    const LocalStorage: {
+      [key: string]: any;
+    } = (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
 
     return {
       state: {
@@ -37,7 +42,7 @@ export class Accounts implements Module {
           getters: { matchedEntries: string[] }
         ) {
           return (
-            localStorage.smartFilter !== "false" &&
+            LocalStorage.smartFilter !== "false" &&
             getters.matchedEntries.length
           );
         },
@@ -69,9 +74,9 @@ export class Accounts implements Module {
         },
         updateCodes(state: AccountsState) {
           let second = new Date().getSeconds();
-          if (localStorage.offset) {
+          if (LocalStorage.offset) {
             // prevent second from negative
-            second += Number(localStorage.offset) + 60;
+            second += Number(LocalStorage.offset) + 60;
           }
 
           second = second % 60;
@@ -258,11 +263,7 @@ export class Accounts implements Module {
               key: { enc: encKey, hash: encKeyHash },
             });
             await EntryStorage.set(state.state.entries);
-            await new Promise((resolve) => {
-              BrowserStorage.remove(oldKeys, () => {
-                resolve();
-              });
-            });
+            await BrowserStorage.remove(oldKeys);
 
             state.state.encryption.updateEncryptionPassword(
               wordArray.toString()
@@ -378,11 +379,7 @@ export class Accounts implements Module {
             });
             await EntryStorage.set(state.state.entries);
             if (removeHashes.length) {
-              await new Promise((resolve) => {
-                BrowserStorage.remove(removeHashes, () => {
-                  resolve();
-                });
-              });
+              await BrowserStorage.remove(removeHashes);
             }
 
             state.state.encryption.updateEncryptionPassword(
@@ -418,7 +415,8 @@ export class Accounts implements Module {
           }
 
           // remove cached passphrase in old version
-          localStorage.removeItem("encodedPhrase");
+          LocalStorage.encodedPhrase = undefined;
+          chrome.storage.local.remove("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
           const entries = await this.getEntries();
@@ -455,74 +453,65 @@ export class Accounts implements Module {
         ) => {
           // sync => local
           if (
-            localStorage.storageLocation === "sync" &&
+            LocalStorage.storageLocation === "sync" &&
             newStorageLocation === "local"
           ) {
-            return new Promise((resolve, reject) => {
-              chrome.storage.sync.get((syncData) => {
-                chrome.storage.local.set(syncData, () => {
-                  chrome.storage.local.get((localData) => {
-                    // Double check if data was set
-                    if (
-                      Object.keys(syncData).every(
-                        (value) => Object.keys(localData).indexOf(value) >= 0
-                      )
-                    ) {
-                      localStorage.storageLocation = "local";
-                      chrome.storage.sync.clear();
-                      resolve("updateSuccess");
-                      return;
-                    } else {
-                      reject(" All data not transferred successfully.");
-                      return;
-                    }
-                  });
-                });
-              });
-            });
+            const syncData = await chrome.storage.sync.get();
+            await chrome.storage.local.set(syncData);
+            const localData = await chrome.storage.local.get();
+
+            // Double check if data was set
+            if (
+              Object.keys(syncData).every(
+                (value) => Object.keys(localData).indexOf(value) >= 0
+              )
+            ) {
+              LocalStorage.storageLocation = "local";
+              await chrome.storage.sync.clear();
+              await chrome.storage.local.set({ LocalStorage });
+              return "updateSuccess";
+            } else {
+              throw " All data not transferred successfully.";
+            }
             // local => sync
           } else if (
-            localStorage.storageLocation === "local" &&
+            LocalStorage.storageLocation === "local" &&
             newStorageLocation === "sync"
           ) {
-            return new Promise((resolve, reject) => {
-              chrome.storage.local.get((localData) => {
-                chrome.storage.sync.set(localData, () => {
-                  chrome.storage.sync.get((syncData) => {
-                    // Double check if data was set
-                    if (
-                      Object.keys(localData).every(
-                        (value) => Object.keys(syncData).indexOf(value) >= 0
-                      )
-                    ) {
-                      localStorage.storageLocation = "sync";
-                      chrome.storage.local.clear();
-                      resolve("updateSuccess");
-                      return;
-                    } else {
-                      reject(" All data not transferred successfully.");
-                      return;
-                    }
-                  });
-                });
-              });
-            });
+            const localData = await chrome.storage.local.get();
+            delete localData.LocalStorage;
+            await chrome.storage.sync.set(localData);
+            const syncData = await chrome.storage.sync.get();
+
+            // Double check if data was set
+            if (
+              Object.keys(localData).every(
+                (value) => Object.keys(syncData).indexOf(value) >= 0
+              )
+            ) {
+              LocalStorage.storageLocation = "sync";
+              await chrome.storage.local.clear();
+              await chrome.storage.local.set({ LocalStorage });
+              return "updateSuccess";
+            } else {
+              throw " All data not transferred successfully.";
+            }
           }
+
+          // No change
+          return "updateSuccess";
         },
       },
       namespaced: true,
     };
   }
 
-  private getCachedPassphrase() {
-    return new Promise((resolve: (value: string) => void) => {
-      chrome.runtime.sendMessage(
-        { action: "passphrase" },
-        (passphrase: string) => {
-          return resolve(passphrase);
-        }
-      );
-    });
+  private async getCachedPassphrase() {
+    const { cachedPassphrase } = await chrome.storage.session.get(
+      "cachedPassphrase"
+    );
+
+    return cachedPassphrase;
   }
 
   private async getEntries() {

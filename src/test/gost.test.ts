@@ -7,11 +7,11 @@ import { expect } from "chai";
 import { KeyUtilities } from "../models/key-utilities";
 import { OTPAlgorithm, OTPType, OTPUtil } from "../models/otp";
 
-describe("Test GOST 2012", () => {
+describe("Test GOST 2012", async () => {
   const secret: string = getRandomHEXString(32);
   const counter: number = calculateCounter(new Date());
-  testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_256);
-  testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_512);
+  await testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_256);
+  await testAlgorithm(secret, counter, OTPAlgorithm.GOST3411_2012_512);
 });
 
 function calculateCounter(date: Date) {
@@ -20,7 +20,7 @@ function calculateCounter(date: Date) {
   return Math.floor(epoch / period);
 }
 
-function testAlgorithm(
+async function testAlgorithm(
   secret: string,
   counter: number,
   algorithm: OTPAlgorithm
@@ -113,7 +113,7 @@ function testAlgorithm(
   const _secret = "B1B0AE0E5ADFBF89A5F7DF440592A3AE"; //measuring 'secret'
   const _date = new Date("2021-01-01T00:00:00.000Z"); //measuring 'date'
   const _counter = calculateCounter(_date);
-  const _otp = KeyUtilities.generate(
+  const _otp = await KeyUtilities.generate(
     OTPType.hotp,
     _secret,
     _counter,

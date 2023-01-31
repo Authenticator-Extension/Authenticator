@@ -8,6 +8,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { getCurrentTab } from "../../utils";
 export default Vue.extend({
   methods: {
     showInfo(page: string) {
@@ -19,32 +20,23 @@ export default Vue.extend({
       this.$store.commit("currentView/changeView", page);
     },
     async beginCapture() {
-      // Insert content script
-      await new Promise(
-        (resolve: () => void, reject: (reason: Error) => void) => {
-          try {
-            return chrome.tabs.executeScript(
-              { file: "/dist/content.js" },
-              () => {
-                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-              }
-            );
-          } catch (error) {
-            return reject(error);
-          }
-        }
-      );
-
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
         this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
         return;
       }
 
-      chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const tab = tabs[0];
-        if (!tab || !tab.id) {
-          return;
-        }
+      // Insert content script
+      const tab = await getCurrentTab();
+      if (tab.id) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["/dist/content.js"],
+        });
+        await chrome.scripting.insertCSS({
+          target: { tabId: tab.id },
+          files: ["/css/content.css"],
+        });
+
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
@@ -53,8 +45,7 @@ export default Vue.extend({
             window.close();
           }
         });
-      });
-      return;
+      }
     },
   },
 });

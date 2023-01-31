@@ -3,21 +3,29 @@ import { ManagedStorage } from "../models/storage";
 
 export class Menu implements Module {
   async getModule() {
+    const LocalStorage =
+      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     const menuState = {
       state: {
         version: chrome.runtime.getManifest()?.version || "0.0.0",
-        zoom: Number(localStorage.zoom) || 100,
-        useAutofill: localStorage.autofill === "true",
-        smartFilter: localStorage.smartFilter !== "false",
-        enableContextMenu: localStorage.enableContextMenu === "true",
+        zoom: Number(LocalStorage.zoom) || 100,
+        useAutofill:
+          LocalStorage.autofill === "true" || LocalStorage.autofill === true,
+        smartFilter:
+          LocalStorage.smartFilter !== "false" &&
+          LocalStorage.smartFilter !== false,
+        enableContextMenu:
+          LocalStorage.enableContextMenu === "true" ||
+          LocalStorage.enableContextMenu === true,
         theme:
-          localStorage.theme ||
-          (localStorage.highContrast === "true"
+          LocalStorage.theme ||
+          (LocalStorage.highContrast === "true" ||
+          LocalStorage.highContrast === true
             ? "accessibility"
             : isSafari
             ? "flat"
             : "normal"),
-        autolock: Number(localStorage.autolock) || 0,
+        autolock: Number(LocalStorage.autolock) || 0,
         backupDisabled: await ManagedStorage.get("disableBackup", false),
         exportDisabled: await ManagedStorage.get("disableExport", false),
         enforcePassword: await ManagedStorage.get("enforcePassword", false),
@@ -32,29 +40,35 @@ export class Menu implements Module {
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
           state.zoom = zoom;
-          localStorage.zoom = zoom;
+          LocalStorage.zoom = zoom;
+          chrome.storage.local.set({ LocalStorage });
           this.resize(zoom);
         },
         setAutofill(state: MenuState, useAutofill: boolean) {
           state.useAutofill = useAutofill;
-          localStorage.autofill = useAutofill;
+          LocalStorage.autofill = useAutofill;
+          chrome.storage.local.set({ LocalStorage });
         },
         setSmartFilter(state: MenuState, smartFilter: boolean) {
           state.smartFilter = smartFilter;
-          localStorage.smartFilter = smartFilter;
+          LocalStorage.smartFilter = smartFilter;
+          chrome.storage.local.set({ LocalStorage });
         },
         setEnableContextMenu(state: MenuState, enableContextMenu: boolean) {
           state.enableContextMenu = enableContextMenu;
-          localStorage.enableContextMenu = enableContextMenu;
+          LocalStorage.enableContextMenu = enableContextMenu;
+          chrome.storage.local.set({ LocalStorage });
         },
         setTheme(state: MenuState, theme: string) {
           state.theme = theme;
-          localStorage.theme = theme;
-          localStorage.removeItem("useHighContrast");
+          LocalStorage.theme = theme;
+          LocalStorage.useHighContrast = undefined;
+          chrome.storage.local.set({ LocalStorage });
         },
         setAutolock(state: MenuState, autolock: number) {
           state.autolock = autolock;
-          localStorage.autolock = autolock;
+          LocalStorage.autolock = autolock;
+          chrome.storage.local.set({ LocalStorage });
         },
       },
       namespaced: true,
