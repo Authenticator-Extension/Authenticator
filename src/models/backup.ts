@@ -582,7 +582,10 @@ export class OneDrive implements BackupProvider {
           }&client_secret=${encodeURIComponent(
             getCredentials().onedrive.client_secret
           )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-            LocalStorage.oneDriveBusiness !== "true" ? ".AppFolder" : ""
+            LocalStorage.oneDriveBusiness !== "true" &&
+            LocalStorage.oneDriveBusiness !== true
+              ? ".AppFolder"
+              : ""
           }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
         );
       }
@@ -593,11 +596,12 @@ export class OneDrive implements BackupProvider {
     const LocalStorage =
       (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     if (LocalStorage.oneDriveEncrypted === undefined) {
-      LocalStorage.oneDriveEncrypted = "true";
+      LocalStorage.oneDriveEncrypted = true;
     }
     const exportData = await EntryStorage.backupGetExport(
       encryption,
-      LocalStorage.oneDriveEncrypted === "true"
+      LocalStorage.oneDriveEncrypted === "true" ||
+        LocalStorage.oneDriveEncrypted === true
     );
     const backup = JSON.stringify(exportData, null, 2);
 

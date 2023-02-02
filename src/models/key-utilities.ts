@@ -122,13 +122,14 @@ export class KeyUtilities {
     return result;
   }
 
-  static async generate(
+  static generate(
     type: OTPType,
     secret: string,
     counter: number,
     period: number,
     len?: number,
-    algorithm?: OTPAlgorithm
+    algorithm?: OTPAlgorithm,
+    clockOffset?: number
   ) {
     secret = secret.replace(/\s/g, "");
     if (!len) {
@@ -162,12 +163,10 @@ export class KeyUtilities {
       throw new Error("Invalid secret key");
     }
 
-    LocalStorage =
-      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
     if (type !== OTPType.hotp && type !== OTPType.hhex) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
-      if (LocalStorage.offset) {
-        epoch = epoch + Number(LocalStorage.offset);
+      if (clockOffset) {
+        epoch = epoch + Number(clockOffset);
       }
       counter = Math.floor(epoch / period);
     }
