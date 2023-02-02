@@ -31,6 +31,9 @@ export class BrowserStorage {
         let amountLocal: number;
         chrome.storage.local.get((local) => {
           amountLocal = Object.keys(local).length;
+          if (local.LocalStorage) {
+            amountLocal--;
+          }
           try {
             chrome.storage.sync.get((sync) => {
               amountSync = Object.keys(sync).length;
