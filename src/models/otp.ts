@@ -29,6 +29,8 @@ export interface OTPAlgorithmSpec {
   length: number;
 }
 
+let LocalStorage: { [key: string]: any };
+
 export class OTPUtil {
   static getOTPAlgorithmSpec(otpAlgorithm: OTPAlgorithm): OTPAlgorithmSpec {
     switch (otpAlgorithm) {
@@ -177,7 +179,7 @@ export class OTPEntry implements OTPEntryInterface {
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       return;
     }
-    await this.generate();
+    this.generate();
     if (this.secret !== null) {
       this.counter++;
       await this.update();
@@ -189,20 +191,33 @@ export class OTPEntry implements OTPEntryInterface {
     this.hash = uuid();
   }
 
-  async generate() {
+  generate() {
+    const offset = LocalStorage ? LocalStorage.offset : 0;
+    if (!LocalStorage) {
+      // browser storage is async, so we need to wait for it to load
+      // and re-generate the code
+      // don't change the code to async, it will break the mutation
+      // for Accounts store to export data
+      chrome.storage.local.get("LocalStorage").then((res) => {
+        LocalStorage = res.LocalStorage || {};
+        this.generate();
+      });
+    }
+
     if (!this.secret && !this.encSecret) {
       this.code = CodeState.Invalid;
     } else if (!this.secret) {
       this.code = CodeState.Encrypted;
     } else {
       try {
-        this.code = await KeyUtilities.generate(
+        this.code = KeyUtilities.generate(
           this.type,
           this.secret,
           this.counter,
           this.period,
           this.digits,
-          this.algorithm
+          this.algorithm,
+          offset
         );
       } catch (error) {
         this.code = CodeState.Invalid;

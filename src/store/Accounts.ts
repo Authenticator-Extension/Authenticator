@@ -43,6 +43,7 @@ export class Accounts implements Module {
         ) {
           return (
             LocalStorage.smartFilter !== "false" &&
+            LocalStorage.smartFilter !== false &&
             getters.matchedEntries.length
           );
         },

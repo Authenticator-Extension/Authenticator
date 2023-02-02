@@ -301,7 +301,10 @@ function getBackupToken(service: string) {
       authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
         getCredentials().onedrive.client_id
       }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-        LocalStorage.oneDriveBusiness !== "true" ? ".AppFolder" : ""
+        LocalStorage.oneDriveBusiness !== "true" &&
+        LocalStorage.oneDriveBusiness !== true
+          ? ".AppFolder"
+          : ""
       }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(

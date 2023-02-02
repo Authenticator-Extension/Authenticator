@@ -151,7 +151,7 @@ export class BrowserStorage {
 
 export class EntryStorage {
   private static getOTPStorageFromEntry(
-    entry: OTPEntryInterface,
+    entry: OTPEntry,
     unencrypted?: boolean
   ): OTPStorage {
     let secret: string;
@@ -477,7 +477,7 @@ export class EntryStorage {
     await BrowserStorage.set(_data);
   }
 
-  static async set(entries: OTPEntryInterface[]) {
+  static async set(entries: OTPEntry[]) {
     let _data = await BrowserStorage.get();
     entries.forEach((entry) => {
       const storageItem = this.getOTPStorageFromEntry(entry);
