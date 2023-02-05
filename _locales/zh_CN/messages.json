@@ -406,7 +406,7 @@
         "message": "您的密码不符合贵单位的安全要求。请联系您的管理员获取更多信息。"
     },
     "advisor": {
-        "message": "顾问"
+        "message": "建议"
     },
     "advisor_insight_password_not_set": {
         "message": "请设置一个密码来保护您的数据。"
