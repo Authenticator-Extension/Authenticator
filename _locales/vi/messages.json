@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator tạo ra mã xác thực 2 yếu tố ngay trong trình duyệt của bạn.",
+        "message": "Authenticator generates two-factor authentication codes in your browser.",
         "description": "Extension Description."
     },
     "added": {
@@ -20,11 +20,11 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Dữ liệu tài khoản không hợp lệ",
+        "message": "Invalid account secret",
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Bohiendq",
+        "message": "Add account",
         "description": "Add account."
     },
     "add_qr": {
