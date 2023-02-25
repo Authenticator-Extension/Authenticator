@@ -1,6 +1,6 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Sasl mechanism",
         "description": "Extension Name."
     },
     "extShortName": {
