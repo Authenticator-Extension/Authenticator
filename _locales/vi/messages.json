@@ -4,11 +4,11 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Trình xác thực",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator tạo mã xác thực hai yếu tố trong trình duyệt của bạn.",
+        "message": "Authenticator tạo mã xác thực hai yếu tố trong trình duyệt của bạn",
         "description": "Extension Description."
     },
     "added": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Secret error",
+        "message": "Lỗi bảo mật không hợp lệ",
         "description": "Secret Error."
     },
     "add_code": {
