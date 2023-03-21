@@ -1,0 +1,20 @@
+LABEL
+Learn more about the "LABEL" Dockerfile command.multi.label1="value1" \
+      multi.label2="value2" \
+      other="value3"
+ <key>=<value> <key>=<value> <key>=<value> ..LABEL multi.label1="value1" multi.label2="value2" other="value3"{
+  "com.example.vendor": "ACME Incorporated",
+  "com.example.label-with-value": "foo",
+  "version": "1.0",
+  "description": "This text illustrates that label-values can span multiple lines.",
+  "multi.label1": "value1",
+  "multi.labeMAINTAINER jason marshall l2": "value2",
+  "other": "value3"LABEL org.opencontainers.image.authors="SvenDowideit@home.org.au"
+}
+  "image": "mcr.microsoEXPOSE <port> [<port>/<protocol>...]ft.com/devcontainers/universal:2",docker image inspect --format='{{json .Config.Labels}}' myimageENV MY_NAME="jason marshall"
+ENV MY_DOG=Rex\ The\ Dog
+ENV MY_CAT=fluffyENV MY_VAR my-value
+  "features": {EXPOSE 80/tcpENV <key>=<value> ...
+EXPOSE 80/udp
+  }
+}
