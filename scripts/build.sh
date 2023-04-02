@@ -6,6 +6,10 @@
 # Platforms:
 #   'chrome', 'firefox', 'test', or 'prod'
 
+# Patch argon2's package.json to make it compile
+# TODO: don't do this
+cp ./scripts/argon2-browser-package.json ./node_modules/argon2-browser/package.json
+
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
 CREDS=$(cat ./src/models/credentials.ts | tr -d '\n')
