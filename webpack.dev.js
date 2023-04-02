@@ -8,9 +8,10 @@ module.exports = merge(common, {
   },
   resolve: {
     fallback: {
-      util: require.resolve("util/")
+      util: require.resolve("util/"),
+      stream: false 
     }
-  }
+  },
   module: {
     rules: [
       {
