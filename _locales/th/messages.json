@@ -418,7 +418,7 @@
         "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
+        "message": "Autofill can be enabled to automatically fill codes into websites."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
