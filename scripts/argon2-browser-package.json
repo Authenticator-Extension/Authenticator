@@ -1,0 +1,38 @@
+{
+    "name": "argon2-browser",
+    "version": "1.18.0",
+    "description": "Argon2 library compiled for browser runtime",
+    "main": "lib/argon2.js",
+    "directories": {
+        "doc": "docs",
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "mocha",
+        "build-bundle": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/antelle/argon2-browser.git"
+    },
+    "author": "Antelle",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/antelle/argon2-browser/issues"
+    },
+    "homepage": "https://github.com/antelle/argon2-browser#readme",
+    "devDependencies": {
+        "base64-loader": "^1.0.0",
+        "chai": "^4.3.4",
+        "http-server": "^0.12.3",
+        "mocha": "^8.4.0",
+        "prettier": "^2.3.0",
+        "puppeteer": "^9.1.1",
+        "webpack": "^5.37.1",
+        "webpack-cli": "^4.7.0"
+    },
+    "browser": {
+        "fs": false,
+        "path": false
+    }
+}

@@ -12,10 +12,6 @@ import {
 
 // Rewrite with TypeScript by Sneezry https://github.com/Sneezry
 
-let LocalStorage: {
-  [key: string]: any;
-};
-
 export class KeyUtilities {
   private static dec2hex(s: number): string {
     return (s < 15.5 ? "0" : "") + Math.round(s).toString(16);
