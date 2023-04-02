@@ -415,7 +415,7 @@
         "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
+        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
