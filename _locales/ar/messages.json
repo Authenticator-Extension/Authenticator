@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "سر",
+        "message": "سري",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -126,19 +126,19 @@
         "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين Authenticator بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين Authenticator."
     },
     "security_warning": {
-        "message": "سيتم استخدام كلمة المرور هذه لتشفير الحسابات الخاصة بك. لن يساعدك أحد إذا كنت قد نسيت كلمة المرور.",
+        "message": "552206",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "تحديث",
+        "message": "تحديث552206",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "لا يمكنك إضافة حساب جديد حتى يتم فك تشفير جميع الحسابات. الرجاء إدخال كلمة المرور الصحيحة قبل المتابعة.",
+        "message": "omaraphg1201002205415",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "لن يتم تضمين الحسابات التي لا يمكن فك تشفيرها في هذه النسخة الاحتياطية.",
+        "message": "facebook\n",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
