@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "QR Code එකක් පිරික්සන්න",
         "description": "Scan QR Code."
     },
     "add_secret": {
