@@ -234,15 +234,15 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "İçe aktarma başarılı ancak bazı karekodlar tanınamıyor.",
+        "message": "İçe aktarma başarılı ancak bazı karekodlar tanınamadı.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "Yedeği toplu olarak içe aktarmak için birden fazla dosya seçebilirsiniz.",
+        "message": "Yedeklemeyi toplu olarak içe aktarmak için birden fazla dosya seçebilirsiniz.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Tüm girdileri göster",
+        "message": "Show all entries",
         "description": "Show all entries."
     },
     "dropbox_risk": {
