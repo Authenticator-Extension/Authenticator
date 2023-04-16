@@ -457,28 +457,28 @@
         "message": "İptal et"
     },
     "permission_show_required_permissions": {
-        "message": "Geri alınamayan izinleri göster"
+        "message": "Geri alınamayan yekileri göster"
     },
     "permission_required": {
         "message": "Bu gerekli bir yetkidir ve iptal edilemez."
     },
     "permission_active_tab": {
-        "message": "QR kodlarını taramak için geçerli sekmeye geçin."
+        "message": "Karekodlarını taramak için geçerli sekmeye erişim."
     },
     "permission_storage": {
-        "message": "Hesap verilerini depolamak için tarayıcı depolama alanına erişim."
+        "message": "Hesap verilerini saklamak için tarayıcı depolama alanına erişim."
     },
     "permission_identity": {
         "message": "Üçüncü taraf depolama hizmetlerinde oturum açmaya izin verir."
     },
     "permission_clipboard_write": {
-        "message": "Hesaba tıkladığınızda kodları panoya kopyalama ve yazma erişimi verir."
+        "message": "Hesaba tıkladığınızda kodları panoya kopyalamak için panoya yalnızca yazma erişimi verir."
     },
     "permission_context_menus": {
         "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
     },
     "permission_all_urls": {
-        "message": "QR kodlarını taramak için tüm web sitelerine erişin."
+        "message": "Karekodlarını taramak için tüm web sitelerine erişim."
     },
     "permission_sync_clock": {
         "message": "Google ile saat eşitlemesine izin verir."
@@ -487,7 +487,7 @@
         "message": "Dropbox'a yedeklemeye izin verir."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "Önce Dropbox yedeklemeyi devre dışı bırakmalısınız."
+        "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
     },
     "permission_drive": {
         "message": "Google Drive'a yedeklemeye izin verir."
