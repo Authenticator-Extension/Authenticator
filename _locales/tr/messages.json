@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Tüm öğeleri göster",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -250,7 +250,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "Yedeklemeyi içe aktarmak için parolanızı girin.",
+        "message": "Yedekleri içe aktarmak için doğru parolayı sağlamalısınız.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Pencere modu",
+        "message": "Açılır pencere modu",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -286,11 +286,11 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Otomatik Doldurmayı Kullanın",
+        "message": "Otomatik doldurmayı kullanın",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Yüksek Kontrast Kullan",
+        "message": "Yüksek kontrast kullan",
         "description": "Use High Contrast"
     },
     "theme": {
@@ -314,7 +314,7 @@
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "Yüksek Kontrast",
+        "message": "Yüksek kontrast",
         "description": "High Contrast theme"
     },
     "theme_flat": {
@@ -326,7 +326,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Tarayıcı Eşitlemesi",
+        "message": "Tarayıcı eşitlemesi",
         "description": "Storage location"
     },
     "sign_in": {
@@ -394,7 +394,7 @@
         "message": "Algoritma"
     },
     "smart_filter": {
-        "message": "Akıllı Filtre"
+        "message": "Akıllı filtre"
     },
     "backup": {
         "message": "Yedekleme"
