@@ -162,7 +162,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Kaynak Kodu",
+        "message": "Kaynak kodu",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -174,7 +174,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Parolayı Hatırla",
+        "message": "Parolayı hatırla",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -206,7 +206,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Genişlet",
+        "message": "Boyut",
         "description": "Scale"
     },
     "export_info": {
@@ -214,11 +214,11 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Yedekleme Dosyasını İndir",
+        "message": "Yedekleme dosyasını indir",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Yedeklemeyi İçe Aktar",
+        "message": "Yedeklemeyi içe aktar",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Şifrelenmiş Yedeklemeyi İndir",
+        "message": "Şifrelenmiş yedeklemeyi indir",
         "description": "Download Encrypted Backup"
     },
     "search": {
