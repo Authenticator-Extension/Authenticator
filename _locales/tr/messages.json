@@ -68,11 +68,11 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Yayınlayan Kuruluş",
+        "message": "Uygulama adı",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Gizli Anahtar",
+        "message": "Gizli anahtar",
         "description": "Secret."
     },
     "updateSuccess": {
@@ -96,11 +96,11 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Mevcut Parola",
+        "message": "Mevcut parola",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "Yeni Parola",
+        "message": "Yeni parola",
         "description": "New Passphrase."
     },
     "phrase": {
@@ -116,14 +116,14 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "Tüm verilerimin kurtarılamaz bir şekilde silineceğini onaylıyorum.",
+        "message": "Tüm verilerimin geri getirilemeyecek şekilde silineceğini anlıyorum.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Kimlik Doğrulayıcıyı Sıfırla"
+        "message": "Kimlik Doğrulayıcıyı sıfırla"
     },
     "delete_all_warning": {
-        "message": "Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydetmeyi düşünün."
+        "message": "Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydedin."
     },
     "security_warning": {
         "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
@@ -146,7 +146,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Şifrele",
+        "message": "Şifrelendi",
         "description": "Encrypted."
     },
     "copied": {
@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Verilerin şifrelemesini çözmek için parolanızı girin.",
+        "message": "Şifrelemeyi çözmek için parolanızı girin.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: Yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli simgeye tıklayın.",
+        "message": "Uyarı: Tüm yedeklemeler şifrelenmemiş. Farklı bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli simgeye tıklayın.",
         "description": "Export menu info text"
     },
     "download_backup": {
