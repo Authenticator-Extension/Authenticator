@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Daži konta dati netika veiksmīgi importēti.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -116,17 +116,17 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Es saprotu, ka visi mani dati tiks neatgriezeniski dzēsti.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
         "message": "Atiestatīt Divpakāpju kodu ģeneratoru"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Tiks dzēsti visi jūsu dati un pilnībā tiks atiestatīts Divpakāpju kodu ģenerators. Jūs nevarēsiet atgūt izdzēstos datus! Pirms Divpakāpju kodu ģeneratora atiestatīšanas apsveriet iespēju veikt rezerves kopiju."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Šī parole tiks izmantota jūsu kontu šifrēšanai. Neviens nevarēs jums palīdzēt, ja aizmirsīsiet paroli.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Jūs nevarat pievienot jaunu kontu, kamēr visi konti nav atšifrēti. Lai turpināt, lūdzu, ievadiet pareizo paroli.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Konti, kurus nevarēja atšifrēt, netiks iekļauti šajā rezerves kopijā.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -178,15 +178,15 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Uzmanību bīstami! Jūsu vietējais laiks ir ar pārāk lielu laika nobīdi. Lūdzu, sinhronizējiet laiku ar kādu laika serveri, pirms turpināt.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Vai jums ir rezerves kopija jūsu kontiem? Negaidiet, kamēr būs par vēlu!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Neizdevās notvert. Lūdzu, atkārtoti ielādējiet lapu un mēģiniet vēlreiz.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -214,7 +214,7 @@
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Saglabāt rezerves kopijas failu",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -250,7 +250,7 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Lai importētu rezerves kopijas, ir jānorāda pareiza parole.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -258,7 +258,7 @@
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "Dzēst",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Uznirstošais režīms",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Manuāla dublēšana",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -306,23 +306,23 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Vienkāršais",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompaktais",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Spilgta kontrasta",
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Plakanais",
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Automātiski veikt datu rezerves kopiju trešās puses krātuves pakalpojumos.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -355,11 +355,11 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Jums ir viens vai vairāki Steam vai Blizzard konti. Nešifrētās rezerves kopijas neizmantos standartizēto rezerves kopijas formātu.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Varat importēt rezerves kopijas no dažām citām programmām.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -412,7 +412,7 @@
         "message": "Iestatīt paroli, lai aizsargātu datus."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Iespējojiet automātisko aizslēgšanu, lai aizsargātu savus datus."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
@@ -424,10 +424,10 @@
         "message": "Enabling smart filter allows for quick access to accounts."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Rādīt visus ieteikumus."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Ieteikumi nav atrasti, viss ir kārtībā!"
     },
     "danger": {
         "message": "Bīstami"
@@ -469,16 +469,16 @@
         "message": "Access to browser storage to store account data."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Ļauj autorizēties trešās puses krātuves pakalpojumos."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Piešķir tikai rakstīšanas piekļuvi starpliktuvei, lai varētu kopēt kodus starpliktuvē, kad noklikšķināt uz konta."
     },
     "permission_context_menus": {
         "message": "Pievieno Divpakāpju kodu ģeneratoru konteksta izvēlnei."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Piekļuve visām vietnēm, lai varētu nolasīt kvadrātkodus (QR kodus)."
     },
     "permission_sync_clock": {
         "message": "Atļauj sinhronizēt laiku ar Google."
