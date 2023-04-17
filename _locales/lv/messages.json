@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": " tika pievienots(a).",
         "description": "Added Account."
     },
     "errorqr": {
@@ -24,11 +24,11 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Pievienot kontu",
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Nolasīt kvadrātkodu (QR kodu)",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -48,7 +48,7 @@
         "description": "Close."
     },
     "ok": {
-        "message": "Ok",
+        "message": "Labi",
         "description": "OK."
     },
     "yes": {
@@ -130,7 +130,7 @@
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "Atjaunināt",
         "description": "Update."
     },
     "phrase_incorrect": {
@@ -146,11 +146,11 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Šifrēts",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Nokopēts",
         "description": "Copied."
     },
     "feedback": {
@@ -170,11 +170,11 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Sinhronizēt laiku ar Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Atcerēties paroli",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -202,7 +202,7 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Iestatījumi",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Importēt teksta rezerves kopiju",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Lejupielādēt rezerves kopiju aizsargātu ar paroli",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Aizslēgt",
         "description": "Lock accounts"
     },
     "edit": {
@@ -294,15 +294,15 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Izskats",
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Gaišais",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Tumšais",
         "description": "Dark theme"
     },
     "theme_simple": {
@@ -367,10 +367,10 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Ielādē..."
     },
     "autolock": {
-        "message": "Bloķēt pēc"
+        "message": "Aizslēgt pēc"
     },
     "minutes": {
         "message": "minūtes(-ēm)"
@@ -382,7 +382,7 @@
         "message": "Period"
     },
     "type": {
-        "message": "Type"
+        "message": "Tips"
     },
     "invalid": {
         "message": "Invalid"
@@ -397,10 +397,10 @@
         "message": "Smart Filter"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Rezerves kopija"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Izveidot datu rezerves kopiju failā."
     },
     "password_policy_default_hint": {
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
@@ -409,7 +409,7 @@
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Iestatīt paroli, lai aizsargātu datus."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "Enable auto-lock to protect your data."
@@ -481,25 +481,25 @@
         "message": "Access to all websites to scan QR codes."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Atļauj sinhronizēt laiku ar Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Atļauj veikt rezerves kopiju Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Jums vispirms ir jāatslēdz Dropbox rezerves kopija."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Atļauj veikt rezerves kopiju Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Jums vispirms ir jāatslēdz Google Drive rezerves kopija."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Atļauj veikt rezerves kopiju OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Jums vispirms ir jāatslēdz OneDrive rezerves kopija."
     },
     "permission_unknown_permission": {
         "message": "Unknown permission. If see this message, please send a bug report."
