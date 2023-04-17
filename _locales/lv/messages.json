@@ -44,7 +44,7 @@
         "description": "Some migration data is broken."
     },
     "close": {
-        "message": "Close",
+        "message": "Aizvērt",
         "description": "Close."
     },
     "ok": {
@@ -52,19 +52,19 @@
         "description": "OK."
     },
     "yes": {
-        "message": "Yes",
+        "message": "Jā",
         "description": "Yes."
     },
     "no": {
-        "message": "No",
+        "message": "Nē",
         "description": "No."
     },
     "account": {
-        "message": "Account",
+        "message": "Konts",
         "description": "Account."
     },
     "accountName": {
-        "message": "Username",
+        "message": "Lietotājvārds",
         "description": "Account Name."
     },
     "issuer": {
@@ -84,35 +84,35 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "About",
+        "message": "Par",
         "description": "About."
     },
     "settings": {
-        "message": "Settings",
+        "message": "Iestatījumi",
         "description": "Settings."
     },
     "security": {
-        "message": "Security",
+        "message": "Drošība",
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Pašreizējā parole",
         "description": "Current Passphrase."
     },
     "new_phrase": {
-        "message": "New Password",
+        "message": "Jaunā parole",
         "description": "New Passphrase."
     },
     "phrase": {
-        "message": "Password",
+        "message": "Parole",
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Apstiprināt paroli",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Vai tiešām vēlaties dzēst šo kontu? Šo darbību nevarēs atsaukt.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -158,7 +158,7 @@
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Tulkot",
         "description": "Translate."
     },
     "source": {
@@ -218,11 +218,11 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Importēt rezerves kopiju",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Importēt rezerves failu",
         "description": "Import backup file."
     },
     "import_backup_qr": {
@@ -266,7 +266,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "Meklēt",
         "description": "Search"
     },
     "popout": {
@@ -278,7 +278,7 @@
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "Rediģēt",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -370,10 +370,10 @@
         "message": "Loading..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Bloķēt pēc"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minūtes(-ēm)"
     },
     "advanced": {
         "message": "Advanced"
@@ -430,13 +430,13 @@
         "message": "No insights found, everything looks good!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Bīstami"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Brīdinājums"
     },
     "info": {
-        "message": "Info"
+        "message": "Informācija"
     },
     "dismiss": {
         "message": "Dismiss"
