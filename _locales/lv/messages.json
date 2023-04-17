@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Neizdevās importēt. Ja migrējat datus no Google Authenticator, lūdzu, atkārtoti eksportējiet datus no Google Authenticator un mēģiniet vēlreiz.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Vai mēģināt nolasīt kvadrātkodu (QR kodu) no lokāla faila? Tā vietā izmantojiet Importēt kvadrātkoda (QR) attēla rezerves kopiju.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Brīdinājums: visas rezerves kopijas ir nešifrētas. Vēlaties pievienot kontu citai programmai? Virziet kursoru virs jebkura konta augšējās labās daļas un nospiediet slēpto pogu.",
         "description": "Export menu info text"
     },
     "download_backup": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importēt kvadrātkoda (QR) attēla rezerves kopiju",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Importēšana bija veiksmīga, taču dažus kvadrātkodus (QR kodus) nevarēja atpazīt.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Variet atlasīt vairākus failus, lai importētu rezerves kopiju vienu pēc otra.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -246,7 +246,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Brīdinājums: rezerves kopijas nav šifrētas. Izmantojiet uz pašu atbildības.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -254,7 +254,7 @@
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Jūsu parole ir saglabāta lokāli, lūdzu, nekavējoties nomainiet to drošības izvēlnē.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -326,7 +326,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Pārlūkprogrammas sinhronizēšana",
         "description": "Storage location"
     },
     "sign_in": {
@@ -345,7 +345,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "Radās problēma, veidojot savienojumu ar jūsu $SERVICE$ kontu. Lūdzu, autorizējieties vēlreiz.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -376,16 +376,16 @@
         "message": "minūtes(-ēm)"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Papildu"
     },
     "period": {
-        "message": "Period"
+        "message": "Laika termiņš"
     },
     "type": {
         "message": "Tips"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Nederīgs"
     },
     "digits": {
         "message": "Cipari"
@@ -415,13 +415,13 @@
         "message": "Iespējojiet automātisko aizslēgšanu, lai aizsargātu savus datus."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Pārlūkprogrammas sinhronizēšana ir atspējota. Iespējojot to, kontus var sinhronizēt dažādās pārlūkprogrammās."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Var iespējot automātisko aizpildīšanu, lai automātiski ievadītu kodus vietnēs."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Viedā filtra iespējošana ļauj ātri piekļūt kontiem."
     },
     "show_all_insights": {
         "message": "Rādīt visus ieteikumus."
@@ -439,7 +439,7 @@
         "message": "Informācija"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Ignorēt"
     },
     "learn_more": {
         "message": "Uzzināt vairāk"
@@ -457,16 +457,16 @@
         "message": "Noņemt"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Rādīt neatsaucamās atļaujas"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Šī atļauja ir nepieciešama, un to nevar atsaukt."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Piekļuve pašreizējai cilnei, lai varētu nolasīt kvadrātkodus (QR kodus)."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Piekļuve pārlūkprogrammas krātuvei, lai varētu saglabāt konta datus."
     },
     "permission_identity": {
         "message": "Ļauj autorizēties trešās puses krātuves pakalpojumos."
