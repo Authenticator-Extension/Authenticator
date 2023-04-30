@@ -403,19 +403,19 @@
         "message": "גיבוי הנתונים שלך לקובץ."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "הסיסמא שסיפקת אינו עומדת בדרישות האבטחה של ארגונך. למידע נוסף, צור קשר עם המנהל."
     },
     "advisor": {
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "הגדר סיסמא כדי לשמור על המידע שלך."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "אפשר נעילה אוטמטית כדי לשמור על המידע שלך."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "סנכרון בין דפדפנים מבוטל. אפשר זאת כדי לאפשר סנכרון חשבונות בין דפדפנים."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
