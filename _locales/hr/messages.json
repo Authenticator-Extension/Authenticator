@@ -12,7 +12,7 @@
         "description": "Extension Description."
     },
     "added": {
-        "message": " dodano.",
+        "message": " je dodan.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -442,13 +442,13 @@
         "message": "Dismiss"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Saznajte više"
     },
     "enable_context_menu": {
         "message": "Add to context menu"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Nema računa za prikaz. Dodajte svoj prvi račun sada."
     },
     "permissions": {
         "message": "Permissions"
@@ -502,6 +502,6 @@
         "message": "You must disable OneDrive backup first."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Nepoznato dopuštenje. Ako vidite ovu poruku, pošaljite izvješće o pogrešci."
     }
 }
