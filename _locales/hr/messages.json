@@ -270,19 +270,19 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Iskočni način",
+        "message": "Skočni prozor",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Zaključavanje",
+        "message": "Zaključaj",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Uređivanje",
+        "message": "Uredi",
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Ručno spremljena sigurnosna kopija",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -306,11 +306,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Jednostavno",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompaktno",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Plošno",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -334,11 +334,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Prijava (poslovno)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Zašto poslovni računi zahtijevaju više dozvola?"
     },
     "log_out": {
         "message": "Odjava",
@@ -403,103 +403,103 @@
         "message": "Spremanje podataka u sigurnosnu kopiju."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Tvoja lozinka ne zadovoljava sigurnosne zahtjeve tvoje organizacije. Kontaktiraj administratora za daljnje informacije."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Savjetnik"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Postavi lozinku za zaštitu tvojih podataka."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Aktiviraj automatsko zaključavanje za zaštitu tvojih podataka."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Sinkronizacija preglednika je deaktivirana. Aktiviranje omogućuje sinkronizaciju računa u svim preglednicima."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Automatsko ispunjavanje se može aktivirati za automatsko ispunjavanje kodova na web stranicama."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Aktiviranje pametnog filtra omogućuje brz pristup računima."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Prikaži sve obavijesti."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Nema obavijesti, sve izgleda dobro!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Opasnost"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Upozorenje"
     },
     "info": {
-        "message": "Info"
+        "message": "Informacije"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Odbaci"
     },
     "learn_more": {
         "message": "Saznajte više"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Dodaj u kontekstni izbornik"
     },
     "no_entires": {
         "message": "Nema računa za prikaz. Dodajte svoj prvi račun sada."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Dozvole"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Opozovi"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Prikaži neopozive dozvole"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Ovo je obavezna dozvola i ne može se opozvati."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Pristup trenutačnoj kartici za skeniranje QR kodova."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Pristup memoriji preglednika za spremanje podataka računa."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Omogućuje prijavu na strane usluge spremanja podataka."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš na račun."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Dodaje Autentifikatora u kontekstni izbornik"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Pristup svim web stranicama za snimanje QR kodova."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Dozvoljava sinkroniziranje sata s Googleom."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Dozvoljava spremanje sigurnosne kopije na Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Najprije moraš deaktivirati Dropbox sigurnosne kopije."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Dozvoljava spremanje sigurnosne kopije na Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Najprije moraš deaktivirati Google Drive sigurnosne kopije."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Dozvoljava spremanje sigurnosne kopije na OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Najprije moraš deaktivirati OneDrive sigurnosne kopije."
     },
     "permission_unknown_permission": {
         "message": "Nepoznato dopuštenje. Ako vidite ovu poruku, pošaljite izvješće o pogrešci."
