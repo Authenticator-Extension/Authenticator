@@ -75,7 +75,7 @@ export default Vue.extend({
       return this.$store.getters["accounts/currentlyEncrypted"];
     },
     backupDisabled: function () {
-      return this.$store.getters["menu/storageArea"];
+      return this.$store.state.menu.backupDisabled;
     },
   },
   methods: {
