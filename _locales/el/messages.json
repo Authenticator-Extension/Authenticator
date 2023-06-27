@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Απλό",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -457,7 +457,7 @@
         "message": "Ανάκληση"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Εμφάνιση αδειών που δεν ανακαλούνται"
     },
     "permission_required": {
         "message": "Αυτό είναι ένα δικαίωμα που απαιτείται και δεν μπορεί να ανακληθεί."
@@ -466,42 +466,42 @@
         "message": "Πρόσβαση στην τρέχουσα καρτέλα για σάρωση QR κωδικών."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Πρόσβαση στον αποθηκευτικό χώρο του προγράμματος περιήγησης για την αποθήκευση δεδομένων του λογαριασμού σας."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Επιτρέπει τη σύνδεση σε υπηρεσίες αποθήκευσης τρίτων."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Πρόσβαση σε όλες τις ιστοσελίδες για σάρωση κωδικών QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Επιτρέπει τον συγχρονισμό ρολογιού με την Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Dropbox."
     },
     "permission_drive": {
         "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
         "message": "Πρέπει πρώτα να απενεργοποιήσετε τα αντίγραφα ασφαλείας του OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Άγνωστο δικαίωμα. Αν δείτε αυτό το μήνυμα, στείλτε μας μια αναφορά σφάλματος."
     }
 }
