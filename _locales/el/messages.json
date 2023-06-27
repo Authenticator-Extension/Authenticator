@@ -490,7 +490,7 @@
         "message": "You must disable Dropbox backup first."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Google Drive."
     },
     "permission_drive_cannot_revoke": {
         "message": "You must disable Google Drive backup first."
