@@ -142,7 +142,7 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Jasırın sóz mas kelmedi.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
