@@ -116,17 +116,17 @@
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Bárshe maǵlıwmatlarım qaytadan tiklenbiytuģın dárejede óshiriliwin túsinemen.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Autentifikatordı dáslepki jaģdayına qaytarıw"
     },
     "delete_all_warning": {
         "message": "Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde Autentifikator tolıqlay qayta tiklenedi. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! Autentifikator-dı qayta tiklewden aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Usı parol esaplarıńızdı shifrlaw ushın qollanıladı. Eger paroldi umıtıp qalsańız hesh kim sizge járdem bere almaydı.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Bárshe esaplar paroli sheshilmegenshe siz jańa esap qosa almaysız. Dawam etiwden aldın durıs paroldi kirgiziń.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Shifrdı ashıw imkáni bolmaģan esaplar, bul qosımshaģa kirgizilmiydi.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -496,12 +496,12 @@
         "message": "You must disable Google Drive backup first."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "OneDrive-qa qosımshalaw imkánin beredi."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Aldı menen OneDrive qosımsha qor nusqasın óshirip qoyıwıńız kerek."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Belgisiz ruxsat. Eger usı xabardı kórseńiz, qátelik haqqında esabat jiberiń."
     }
 }
