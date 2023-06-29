@@ -8,11 +8,11 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Authenticator generates two-factor authentication codes in your browser.",
+        "message": "Autentifikator brauzerińizde eki faktorli autentifikaciya kodlarin payda etedi.",
         "description": "Extension Description."
     },
     "added": {
-        "message": " has been added.",
+        "message": "Qosildi.",
         "description": "Added Account."
     },
     "errorqr": {
