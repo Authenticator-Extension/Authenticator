@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Import ámelge aspadı. Egerde siz Google Autentifikatordan maģlıwmatlardı kóshirip atırģan bolsańız, maģlıwmatlarıńızdı Google Autentifikatordan qaytadan eksport qılıń hám qaytadan háreket etip kóriń.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -68,7 +68,7 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "Emitent",
         "description": "Issuer."
     },
     "secret": {
@@ -76,11 +76,11 @@
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "Tabıslı.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "Tabıssız.",
         "description": "Update Failure."
     },
     "about": {
@@ -96,7 +96,7 @@
         "description": "Security."
     },
     "current_phrase": {
-        "message": "Current Password",
+        "message": "Házirgi Parol",
         "description": "Current Passphrase."
     },
     "new_phrase": {
@@ -108,11 +108,11 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "Paroldi Tasdiyqlań",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Bul akkaunttı óshiriwge isenimińiz kámil me? Bul háreketti biykarlap bolmaydı.",
+        "message": "Bul akkaunttı óshiriwge isenimińiz kámil me? Bul háreketti artqa qaytara almaysız.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
@@ -123,7 +123,7 @@
         "message": "Reset Authenticator"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde Autentifikator tolıqlay qayta tiklenedi. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! Autentifikator-dı qayta tiklewden aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
     },
     "security_warning": {
         "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
@@ -146,7 +146,7 @@
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Shifrlanģan",
         "description": "Encrypted."
     },
     "copied": {
@@ -154,7 +154,7 @@
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Pikir-almasiw",
         "description": "Feedback."
     },
     "translate": {
@@ -162,7 +162,7 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Derek kodı",
         "description": "Source Code."
     },
     "passphrase_info": {
@@ -234,11 +234,11 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Import tabıslı ámelge asırıldı, biraq ayırım QR-kodlardı tanıw múmkin bolmadı.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Qosımsha qor nusqasın toplamlarda import qılıw ushın bir neshe fayllardı saylawińiz múmkin.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -246,7 +246,7 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "Eskeriw: qosımsha qor nusqaları shifrlanbaģan. Ózińizdiń qáwip-qáterińizsiz paydalanıń.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
@@ -359,11 +359,11 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Siz ayırım basqa baģdarlamalardan qosımsha qor nusqaların alıp kiriwińiz múmkin.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Tolıq maģlıwmat",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
@@ -400,34 +400,34 @@
         "message": "Awısıq qor"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Maģlıwmatlarıńızdı faylģa qosıp qoyıń."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Parolińiz shólkemińizdiń qáwipsizlik talaplarına juwap bermiydi. Qosımsha maǵlıwmat alıw ushın adminstratorıńız benen baylanısıń."
     },
     "advisor": {
         "message": "Keńesshi"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Maģlıwmatlarıńızdı qorģaw ushın parol ornatıń."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Maģlıwmatlarıńızdı qorģaw ushın avtomatik qulıplawdi qosıń."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Brauzerdi sinxronlaw óshirilgen. Onı qosıw esaplardı brauzerler menen sinxronlaw imkánin beredi."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Kodlardı web-saytlarģa avtomatik toltırıw ushın avtomatik toltırıwdı qosıw múmkin."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Aqıllı filtrdi qosıw esaplarģa tez kiriw imkániyatın beredi."
     },
     "show_all_insights": {
         "message": "Barlıq túsnidirmelerdi kórsetiw."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Hesh qanday túsinik tabılmadı, hámmesi jaqsi!"
     },
     "danger": {
         "message": "Qáwip"
@@ -442,13 +442,13 @@
         "message": "Ótkizip jiberiw"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Tolıq maģlıwmat"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Konteks menyusına qosıw"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Kórsetiletuģın esaplar joq. Birinshi esabıńızdi házir qosıń."
     },
     "permissions": {
         "message": "Ruxsatlar"
