@@ -1,18 +1,18 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "Autentifikator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "Autentifikator",
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "Autentifikator brauzerińizde eki faktorli autentifikaciya kodlarin payda etedi.",
+        "message": "Autentifikator brauzerińizde eki faktorlı autentifikaciya kodların payda etedi.",
         "description": "Extension Description."
     },
     "added": {
-        "message": "Qosildi.",
+        "message": " qosıldı.",
         "description": "Added Account."
     },
     "errorqr": {
@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Esap siri belgisiz",
+        "message": "Esap sırı belgisiz",
         "description": "Secret Error."
     },
     "add_code": {
@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "QR-kodti skanerlew",
+        "message": "QR-kodtı skanerlew",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Ayırım esap maģliwmatları tabıslı import qılınbadı.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -274,7 +274,7 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "Qulıplaw",
         "description": "Lock accounts"
     },
     "edit": {
@@ -298,11 +298,11 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Nurlı",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Qarańģı",
         "description": "Dark theme"
     },
     "theme_simple": {
@@ -310,11 +310,11 @@
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Kompast",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Joqarı Kontrast",
         "description": "High Contrast theme"
     },
     "theme_flat": {
@@ -379,16 +379,16 @@
         "message": "Qosımsha"
     },
     "period": {
-        "message": "Period"
+        "message": "Dáwir"
     },
     "type": {
         "message": "Túr"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Jaramsız"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Sanlar"
     },
     "algorithm": {
         "message": "Algoritm"
@@ -397,7 +397,7 @@
         "message": "Aqıllı filtr"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Awısıq qor"
     },
     "backup_file_info": {
         "message": "Backup your data to a file."
@@ -406,7 +406,7 @@
         "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Keńesshi"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
@@ -424,7 +424,7 @@
         "message": "Enabling smart filter allows for quick access to accounts."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Barlıq túsnidirmelerdi kórsetiw."
     },
     "no_insight_available": {
         "message": "No insights found, everything looks good!"
@@ -451,10 +451,10 @@
         "message": "No accounts to display. Add your first account now."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Ruxsatlar"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Biykarlaw"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
