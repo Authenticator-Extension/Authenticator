@@ -190,15 +190,15 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "QR-kodtı fayldan skaner qılmaqshısızba? Bunıń ornına Import QR Image Backup-tan paydalanıń.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "Time Based",
+        "message": "Waqıtqa tiykarlanģan",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "Esaplaģıshqa tiykarlanģan",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -206,31 +206,31 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "Masshtab",
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "Eskeriw: barlıq qosımsha qorlar shifrlanbaģan. Esaptı basqa baģdarlamaģa qosıwdı qáliysizbe? Qálegen esaptıń joqarı oń bólegine kursordı alıp barıń hám jasırın túymeni basıń.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "Qosımsha qor faylın júklep alıń",
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "Qosımsha qor nusqasın importlaw",
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "Qosımsha qor faylın importlaw",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "QR súwret qosımsha qor nusqasın import qılıń",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "Tekst qosımshasın import qılıw",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "Barlıq jazıwlardı kórsetiw",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -250,11 +250,11 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "Qosımsha nusqalardı import qılıw ushın durıs parol kirgiziwińiz kerek.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "Sizdiń parolińiz lokal sıpatında saqlanadı, iltimás onı tezde qáwipsizlik menyusıda ózgertiń.",
         "description": "localStorage password warning."
     },
     "remove": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "Parol menen qorģalģan qosımsha nusqasın júklep alıń",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "Qalqıp shıģıwshı ayna rejim",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -282,15 +282,15 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Qolda qosımshalaw",
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Avtomatik toltırıwdan paydalanıń",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "Joqarı Kontrasttan paydalanıń",
         "description": "Use High Contrast"
     },
     "theme": {
@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Jalpaq",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -326,7 +326,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Brauzerdi sinxronlaw",
         "description": "Storage location"
     },
     "sign_in": {
@@ -484,16 +484,16 @@
         "message": "Allows clock sync with Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Dropbox-qa qosımshalaw imkániyatın beredi."
     },
     "permission_dropbox_cannot_revoke": {
         "message": "You must disable Dropbox backup first."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Google Drive-qa qosımshalaw imkániyatın beredi."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Aldı menen Google Drive qosımsha qor nusqasın óshirip qoyıwıńız kerek."
     },
     "permission_onedrive": {
         "message": "OneDrive-qa qosımshalaw imkánin beredi."
