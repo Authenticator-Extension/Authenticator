@@ -472,22 +472,22 @@
         "message": "Úshinshi tárep saqlaw xizmetlerine kiriwge ruxsat beredi."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Esap betin basqanıńızda kodlardı almastırıw buferine nusqalaw ushın tek ģana jazıw ushın buferge ruxsat beredi."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Konteks menyusına Autentifikator qosadı."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "QR-kodlardı skanerlew ushın bárshe web-saytlarģa kiriń."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Google menen saattı sinxronlaw imkániyatın beredi."
     },
     "permission_dropbox": {
         "message": "Dropbox-qa qosımshalaw imkániyatın beredi."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Aldı menen Dropbox qosımsha qor nusqasın óshirip qoyıwıńız kerek."
     },
     "permission_drive": {
         "message": "Google Drive-qa qosımshalaw imkániyatın beredi."
