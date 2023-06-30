@@ -322,7 +322,7 @@
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Maģlıwmatlarıńızdı avtomatik ráwishte úshinshi tárep saqlaw xizmetlerine qosımshalań.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -334,18 +334,18 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Kiriw (Biznes)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Ne sebep biznes esaplar kóbirek ruxsat talap etedi?"
     },
     "log_out": {
         "message": "Shıǵıw",
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "$SERVICE$ esabıńızģa jalģanıwda mashqala júz berdi, qaytadan kiriń.\n",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Sizde bir yáki bir neshe Steam yáki Blizzard esapları bar. Shifrlanbaģan qosımsha nusqaları standartlastırılģan qosımsha formatında paydalanbaydı.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -457,19 +457,19 @@
         "message": "Biykarlaw"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Qaytarılmaytuģın ruxsatlardı kórsetiw"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Bul talap etiletuģın ruxsat hámde onı biykarlaw múmkin emes."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "QR-kodlardı skanerlew ushın usı betke kiriń."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Esap maģlıwmatların saqlaw ushın brauzer yadına kiriw."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Úshinshi tárep saqlaw xizmetlerine kiriwge ruxsat beredi."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
