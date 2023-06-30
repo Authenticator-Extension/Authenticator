@@ -166,27 +166,27 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Esap maģlıwmatlardı shifrlaw ushın paroldi kirgiziń.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Saattı Google menen sinxronlaw",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Paroldi eslep qalıw",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "Dıqqat! Orındaģı saatıńız júdá uzaqta, dawam etiwden aldın onı tuwırlań.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Esaplarıńız ushın qosımsha qorıńız barma? Kesh bolģansha kútpeń!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "Súwretke alıw múmkin bolmadı, betti qaytadan júkleń yáki jáne háreket etip kóriń.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
