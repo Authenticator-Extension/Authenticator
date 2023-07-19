@@ -322,7 +322,7 @@
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically備份您的資料至第三方儲存服務。",
+        "message": "自動備份您的資料至第三方儲存服務。",
         "description": "3rd party backup info"
     },
     "browser_sync": {
@@ -445,63 +445,63 @@
         "message": "了解更多"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "加到右鍵選單"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "帳號不存在，請新增帳號。"
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "使用權限"
     },
     "permission_revoke": {
         "message": "註銷"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "顯示不可註銷的權限。"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "這是必要的權限而且不可以註銷。"
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "存取當前頁面並掃描QR碼"
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "存取瀏覽器空間以便存放帳戶資訊"
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "允許登入第三方儲存服務。"
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "授權點選帳戶時複製驗證碼到剪貼簿。"
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "將驗證器加到右鍵選單"
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "存取所有頁面並掃描QR碼"
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "允許與 Google 連線校時。"
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "允許備份到Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "請先取消 Dropbox 備份"
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "允許備份到Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "請先取消 Google Drive 備份"
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "允許備份到OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "請先取消 OneDrvie 備份"
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "未知的權限。您如果看到這個訊息，請回報程式異常。"
     }
 }
