@@ -454,7 +454,7 @@
         "message": "Permissions"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "註銷"
     },
     "permission_show_required_permissions": {
         "message": "Show non-revocable permissions"
