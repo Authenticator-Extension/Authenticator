@@ -322,11 +322,11 @@
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "Säkerhetskopiera dina data automatiskt till lagringstjänster från tredje part.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Webbläsarsynkronisering",
         "description": "Storage location"
     },
     "sign_in": {
@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Du har ett eller flera konton hos Steam eller Blizzard. Okrypterade säkerhetskopior kommer inte att använda ett standardiserat format för säkerhetskopior.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -394,7 +394,7 @@
         "message": "Algoritm"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Smart filter"
     },
     "backup": {
         "message": "Säkerhetskopiera"
@@ -415,13 +415,13 @@
         "message": "Aktivera automatisk låsning för att skydda dina data."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Webbläsarsynkronisering är inaktiverad. Vid aktivering kan konton synkas mellan webbläsare."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Autofyll kan aktiveras för att automatiskt fylla i koder på webbplatser."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Aktivering av smart filter ger snabb åtkomst till konton."
     },
     "show_all_insights": {
         "message": "Visa alla insikter."
@@ -445,7 +445,7 @@
         "message": "Lär dig mer"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Lägg till i snabbvalsmeny"
     },
     "no_entires": {
         "message": "Inga konton att visa. Lägg till ditt första konto nu."
@@ -463,22 +463,22 @@
         "message": "Detta är en obligatorisk behörighet och kan inte återkallas."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Åtkomst till den nuvarande fliken för att skanna QR-koder."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Åtkomst till webbläsarlagring för att lagra kontodata."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Tillåt inloggning till lagringstjänster från tredje part."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Ger enbart skrivbehörighet till urklipp för att kopiera koder till urklipp när du klickar på kontot."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Lägger till Authenticator till snabbvalsmenyn."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Åtkomst till alla webbplatser för att skanna QR-koder."
     },
     "permission_sync_clock": {
         "message": "Tillåter klocksynkronisering med Google."
@@ -487,19 +487,19 @@
         "message": "Tillåter säkerhetskopiering till Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Du måste inaktivera Dropbox-säkerhetskopiering först."
     },
     "permission_drive": {
         "message": "Tillåter säkerhetskopiering till Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Du måste inaktivera Google Drive-säkerhetskopiering först."
     },
     "permission_onedrive": {
         "message": "Tillåter säkerhetskopiering till OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Du måste inaktivera OneDrive-säkerhetskopiering först."
     },
     "permission_unknown_permission": {
         "message": "Okänd behörighet. Om du ser detta meddelande, skicka en felrapport."
