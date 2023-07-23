@@ -36,7 +36,7 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "Import misslyckades. Om du migrerar från Google Authenticator; exportera dina data från Google Authenticator på nytt och försök igen.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
@@ -123,7 +123,7 @@
         "message": "Återställ autentiserare"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Det här kommer att radera alla dina data och återställa Authenticator helt. Du kommer inte kunna återskapa några raderade data! Du bör överväga att spara en säkerhetskopia innan du återställer Authenticator."
     },
     "security_warning": {
         "message": "Detta lösenord kommer att användas för att kryptera dina konton. Ingen kan hjälpa dig om du glömmer lösenordet.",
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Försöker du skanna en QR-kod från en lokal fil? Använd Importera QR-bildsäkerhetskopia istället.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,7 +226,7 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Importera QR-bildsäkerhetskopia",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Du kan markera flera filer för att importera säkerhetskopia i omgångar.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "Använd autofyll",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
