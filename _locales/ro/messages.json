@@ -457,19 +457,19 @@
         "message": "Revocare"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Afișați permisiunile nerevocabile"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Aceasta este o autorizație obligatorie și nu poate fi revocată."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Acces la fila curentă pentru a scana codurile QR."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Accesul la spațiul de stocare al browserului pentru a stoca datele contului."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Permite conectarea la serviciile de stocare ale unor terțe părți."
     },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
