@@ -39,7 +39,15 @@
       <IconRedo />
     </div>
     <div class="issuer">
-      {{
+      <img
+        class="issuerFavicon"
+        v-if="shouldShowFavicon() && entry.issuer.split('::')[1]"
+        v-bind:src="getFaviconUrl(entry.issuer.split('::')[1])"
+      /><IconMedal
+        class="issuerFavicon"
+        v-if="shouldShowFavicon() && !entry.issuer.split('::')[1]"
+      />
+      {{ 
         entry.issuer.split("::")[0] +
         (theme === "compact" ? ` (${entry.account})` : "")
       }}
@@ -96,6 +104,7 @@ import IconRedo from "../../../svg/redo.svg";
 import IconQr from "../../../svg/qrcode.svg";
 import IconBars from "../../../svg/bars.svg";
 import IconPin from "../../../svg/pin.svg";
+import IconMedal from "../../../svg/medal.svg";
 
 const computedPrototype = [
   mapState("accounts", [
@@ -136,6 +145,20 @@ export default Vue.extend({
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
       );
+    },
+    shouldShowFavicon() {
+      return (
+        navigator.userAgent.indexOf("Firefox") === -1 &&
+        this.$store.state.menu.showFavicon
+      );
+    },
+    getFaviconUrl(u: string) {
+      // for MV3
+      // const url = new URL(chrome.runtime.getURL("/_favicon/"));
+      // url.searchParams.set("pageUrl", "https://" + u);
+      // url.searchParams.set("size", "16");
+      // return url.toString();
+      return "chrome://favicon/https://" + u;
     },
     showCode(code: string) {
       if (code === CodeState.Encrypted) {
@@ -261,6 +284,7 @@ export default Vue.extend({
     IconQr,
     IconBars,
     IconPin,
+    IconMedal,
   },
 });
 

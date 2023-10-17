@@ -10,6 +10,7 @@ export class Menu implements Module {
         useAutofill: localStorage.autofill === "true",
         smartFilter: localStorage.smartFilter !== "false",
         enableContextMenu: localStorage.enableContextMenu === "true",
+        showFavicon: localStorage.showFavicon === "true",
         theme:
           localStorage.theme ||
           (localStorage.highContrast === "true"
@@ -46,6 +47,10 @@ export class Menu implements Module {
         setEnableContextMenu(state: MenuState, enableContextMenu: boolean) {
           state.enableContextMenu = enableContextMenu;
           localStorage.enableContextMenu = enableContextMenu;
+        },
+        setShowFavicon(state: MenuState, showFavicon: boolean) {
+          state.showFavicon = showFavicon;
+          localStorage.showFavicon = showFavicon;
         },
         setTheme(state: MenuState, theme: string) {
           state.theme = theme;

@@ -43,6 +43,11 @@
       @change="requireContextMenuPermission()"
       v-if="isSupported"
     />
+    <a-toggle-input
+      :label="i18n.show_favicon"
+      v-model="showFavicon"
+      v-if="isNotFirefox"
+    />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
@@ -141,11 +146,28 @@ export default Vue.extend({
         return !isFirefox && !isSafari;
       },
     },
+    showFavicon: {
+      get(): boolean {
+        return this.$store.state.menu.showFavicon;
+      },
+      set(showFavicon: boolean) {
+        chrome.permissions.request(
+          { permissions: ["favicon"], origins: ["chrome://favicon/"] },
+          (granted) => {
+            this.$store.commit(
+              "menu/setShowFavicon",
+              granted ? showFavicon : false
+            );
+          }
+        );
+      },
+    },
   },
   data() {
     return {
       newStorageLocation:
         this.$store.state.menu.storageArea || localStorage.storageLocation,
+      isNotFirefox: navigator.userAgent.indexOf("Firefox") === -1,
     };
   },
   methods: {

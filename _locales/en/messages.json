@@ -289,6 +289,10 @@
         "message": "Use Autofill",
         "description": "Use Autofill"
     },
+    "show_favicon": {
+        "message": "Show Issuer Icon",
+        "description": "Show Issuer Icon"
+    },
     "use_high_contrast": {
         "message": "Use High Contrast",
         "description": "Use High Contrast"

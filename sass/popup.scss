@@ -212,6 +212,13 @@ svg {
     display: none;
   }
 
+  .issuerFavicon {
+    vertical-align: bottom;
+    margin-right: 5px;
+    height: 14px;
+    width: 14px;
+  }
+
   &:hover {
     padding-right: 0;
     overflow-y: scroll;
