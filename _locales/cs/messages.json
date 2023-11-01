@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Máte jeden nebo více Steam nebo Blizzard účtů. Nešifrované zálohy nebudou využívat standardní formát.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -363,7 +363,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Číst více",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
@@ -379,16 +379,16 @@
         "message": "Pokročilé"
     },
     "period": {
-        "message": "Period"
+        "message": "Sekunda"
     },
     "type": {
-        "message": "Type"
+        "message": "Typ"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Neplatné"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Klávesa"
     },
     "algorithm": {
         "message": "Algoritmus"
@@ -400,13 +400,13 @@
         "message": "Záloha"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Zálohovat data do souboru."
     },
     "password_policy_default_hint": {
         "message": "Vaše heslo nesplňuje bezpečnostní požadavky vaší organizace. Pro více informací kontaktujte svého správce."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Poradce"
     },
     "advisor_insight_password_not_set": {
         "message": "Nastavte si heslo pro ochranu vašich dat."
@@ -415,7 +415,7 @@
         "message": "Enable auto-lock to protect your data."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Synchronizace prohlížeče je vypnuta. Zapnutím zapnete synchronizaci účtu napříč prohlížeči."
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "Autofill can be enabled to automatically fill codes into websites."
