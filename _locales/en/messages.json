@@ -290,7 +290,7 @@
         "description": "Use Autofill"
     },
     "show_favicon": {
-        "message": "Show Issuer Icon",
+        "message": "Show Website Icon",
         "description": "Show Issuer Icon"
     },
     "use_high_contrast": {
