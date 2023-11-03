@@ -153,7 +153,7 @@ export default Vue.extend({
       );
     },
     getFaviconUrl(u: string) {
-      // for MV3
+      //  TODO: Switch to commented out implementation when MV3
       // const url = new URL(chrome.runtime.getURL("/_favicon/"));
       // url.searchParams.set("pageUrl", "https://" + u);
       // url.searchParams.set("size", "16");
