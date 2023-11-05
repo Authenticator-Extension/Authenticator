@@ -20,7 +20,7 @@
         "description": "QR Error."
     },
     "errorsecret": {
-        "message": "Invalid account secret",
+        "message": "არასწორი გასაღები",
         "description": "Secret Error."
     },
     "add_code": {
@@ -36,11 +36,11 @@
         "description": "Manual Entry."
     },
     "migration_fail": {
-        "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
+        "message": "იმპორტირება ვერ მოხერხდა. თუ თქვენ მონაცემები Google აუთენთიფიკატორიდან გადაგაქვთ, გთხოვთ, ხელახლა მოახდინოთ მონაცემების ექსპორტი და სცადოთ თავიდან.",
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "ანგარიშის ზოგიერთი მონაცემის იმპორტირება წარმატებით ვერ მოხერხდა.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -68,19 +68,19 @@
         "description": "Account Name."
     },
     "issuer": {
-        "message": "Issuer",
+        "message": "მომწოდებელი",
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "გასაღები",
         "description": "Secret."
     },
     "updateSuccess": {
-        "message": "Success.",
+        "message": "წარმატებით.",
         "description": "Update Success."
     },
     "updateFailure": {
-        "message": "Failure.",
+        "message": "წარუმატებლად.",
         "description": "Update Failure."
     },
     "about": {
@@ -108,33 +108,33 @@
         "description": "Passphrase."
     },
     "confirm_phrase": {
-        "message": "Confirm Password",
+        "message": "დაადასტურეთ პაროლი",
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "დარწმუნებული ხართ, რომ გსურთ ამ ანგარიშის წაშლა? ამ მოქმედების გაუქმება შეუძლებელია.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "მე მესმის, რომ ჩემი ყველა მონაცემი სამუდამოდ წაიშლება.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "აუთენთიფიკატორის აღდგენა"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "ეს მოქმედება წაშლის თქვენს ყველა მონაცემს და აღადგენს აუთენთიფიკატორის ყველა პარამეტრს. თქვენ ვერ შეძლებთ წაშლილი მონაცემების აღდგენას! აუთენთიფიკატორის აღდგენამდე, თქვენ უნდა შეინახოთ სარეზერვო ასლი."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "ეს პაროლი გამოყენებული იქნება თქვენი ანგარიშების დაშიფვრისთვის. ვერავინ დაგეხმარებათ, თუ დაგავიწყდათ პაროლი.",
         "description": "Passphrase Warning."
     },
     "update": {
-        "message": "Update",
+        "message": "განახლება",
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "თქვენ ვერ შეძლებთ ახალი ანგარიშის დამატებას, სანამ ყველა ანგარიში არ იქნება გაშიფრული. გაგრძელებამდე, გთხოვთ, შეიყვანოთ სწორი პაროლი.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
@@ -142,15 +142,15 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "პაროლი არ ემთხვევა.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "დაშიფრულია",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "დაკოპირებულია",
         "description": "Copied."
     },
     "feedback": {
@@ -166,7 +166,7 @@
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "შეიყვანეთ პაროლი ანგარიშის მონაცემების გასაშიფრად.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
@@ -174,7 +174,7 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "პაროლის დამახსოვრება",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
@@ -202,11 +202,11 @@
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "პარამეტრები",
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "Scale",
+        "message": "მასშტაბი",
         "description": "Scale"
     },
     "export_info": {
@@ -218,7 +218,7 @@
         "description": "Download backup file."
     },
     "import_backup": {
-        "message": "Import Backup",
+        "message": "სარეზერვო ასლის იმპორტირება",
         "description": "Import backup."
     },
     "import_backup_file": {
@@ -242,7 +242,7 @@
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
-        "message": "Show all entries",
+        "message": "ყველა ჩანაწერის ჩვენება",
         "description": "Show all entries."
     },
     "dropbox_risk": {
@@ -266,7 +266,7 @@
         "description": "Download Encrypted Backup"
     },
     "search": {
-        "message": "Search",
+        "message": "ძიება",
         "description": "Search"
     },
     "popout": {
@@ -274,11 +274,11 @@
         "description": "Make window turn into persistent popup"
     },
     "lock": {
-        "message": "Lock",
+        "message": "დაბლოკვა",
         "description": "Lock accounts"
     },
     "edit": {
-        "message": "Edit",
+        "message": "რედაქტირება",
         "description": "Edit"
     },
     "manual_dropbox": {
@@ -330,7 +330,7 @@
         "description": "Storage location"
     },
     "sign_in": {
-        "message": "Sign in",
+        "message": "შესვლა",
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
@@ -367,7 +367,7 @@
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "იტვირთება..."
     },
     "autolock": {
         "message": "Lock after"
@@ -391,7 +391,7 @@
         "message": "Digits"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "ალგორითმი"
     },
     "smart_filter": {
         "message": "Smart Filter"
