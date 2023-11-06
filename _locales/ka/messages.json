@@ -363,7 +363,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "შეიტყვეთ მეტი",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
