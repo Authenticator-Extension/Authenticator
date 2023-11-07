@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "QR კოდის ლოკალური ფაილიდან დასკანერებას ცდილობთ? QR კოდის ლოკალური ფაილიდან დასკანერების ნაცვლად, გამოიყენეთ სარეზერვო QR სურათის იმპორტირება.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -222,23 +222,23 @@
         "description": "Import backup."
     },
     "import_backup_file": {
-        "message": "Import Backup File",
+        "message": "სარეზერვო ფაილის იმპორტირება",
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "სარეზერვო QR სურათის იმპორტირება",
         "description": "Import qr image backup."
     },
     "import_backup_code": {
-        "message": "Import Text Backup",
+        "message": "ტექსტური სარეზერვო ასლის იმპორტირება",
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "იმპორტირება წარმატებით დასრულდა, მაგრამ ზოგიერთი QR კოდის ამოცნობა ვერ მოხერხდა.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "შეგიძლიათ აირჩიოთ რამდენიმე ფაილი, სარეზერვო ასლების მასობრივი იმპორტირებისთვის.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -250,15 +250,15 @@
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "You must provide correct password to import backups.",
+        "message": "სარეზერვო ასლების სწორი იმპორტირებისთვის, უნდა მიუთითოთ სწორი პაროლი.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
-        "message": "Your password is stored locally, please change it in the security menu immediately.",
+        "message": "თქვენი პაროლი შენახულია ლოკალურად. გთხოვთ, დაუყოვნებლივ შეცვალოთ პაროლის ადგილმდებარეობა უსაფრთხოების მენიუში.",
         "description": "localStorage password warning."
     },
     "remove": {
-        "message": "Remove",
+        "message": "წაშლა",
         "description": "Remove password."
     },
     "download_enc_backup": {
@@ -270,7 +270,7 @@
         "description": "Search"
     },
     "popout": {
-        "message": "Popup mode",
+        "message": "ცალკე ფანჯარა",
         "description": "Make window turn into persistent popup"
     },
     "lock": {
@@ -286,11 +286,11 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "Use Autofill",
+        "message": "ავტომატური შევსების გამოყენება",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
-        "message": "Use High Contrast",
+        "message": "მაღალი კონტრასტის გამოყენება",
         "description": "Use High Contrast"
     },
     "theme": {
@@ -334,11 +334,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "შესვლა (ბიზნესი)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "რატომ მოითხოვს ბიზნეს ანგარიშები მეტ ნებართვას?"
     },
     "log_out": {
         "message": "გამოსვლა",
@@ -359,7 +359,7 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "თქვენ შეგიძლიათ სარეზერვო ასლების იმპორტირება სხვა აპლიკაციიდან.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
@@ -373,22 +373,22 @@
         "message": "Lock after"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "წუთი"
     },
     "advanced": {
         "message": "Advanced"
     },
     "period": {
-        "message": "Period"
+        "message": "პერიოდი"
     },
     "type": {
         "message": "Type"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "არასწორი"
     },
     "digits": {
-        "message": "Digits"
+        "message": "ციფრები"
     },
     "algorithm": {
         "message": "ალგორითმი"
@@ -403,16 +403,16 @@
         "message": "Backup your data to a file."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "თქვენი პაროლი არ აკმაყოფილებს თქვენი ორგანიზაციის უსაფრთხოების მოთხოვნებს. დაუკავშირდით თქვენს ადმინისტრატორს დამატებითი ინფორმაციისთვის."
     },
     "advisor": {
         "message": "Advisor"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "დააყენეთ პაროლი თქვენი მონაცემების დასაცავად."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "ჩართეთ ავტომატური დაბლოკვა თქვენი მონაცემების დასაცავად."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
@@ -451,7 +451,7 @@
         "message": "No accounts to display. Add your first account now."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "ნებართვები"
     },
     "permission_revoke": {
         "message": "Revoke"
@@ -475,7 +475,7 @@
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
     },
     "permission_all_urls": {
         "message": "Access to all websites to scan QR codes."
