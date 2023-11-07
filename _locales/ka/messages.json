@@ -138,7 +138,7 @@
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "ანგარიშები, რომელთა გაშიფრვაც ვერ მოხერხდა, არ იქნება ამ სარეზერვო ასლში ჩართული.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -178,11 +178,11 @@
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "Caution! Your local clock is too far off, please fix it before continuing.",
+        "message": "ყურადღება! თქვენი ადგილობრივი დრო არასწორია. გაგრძელებამდე, გთხოვთ, გაასწოროთ საათი.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "გაქვთ თუ არა ანგარიშებისთვის სარეზერვო ასლი? არ დაელოდოთ, სანამ გვიან იქნება!",
         "description": "Remind Backup"
     },
     "capture_failed": {
