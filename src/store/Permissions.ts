@@ -130,6 +130,16 @@ const permissions: Permission[] = [
       },
     ],
   },
+  {
+    id: "favicon",
+    description: chrome.i18n.getMessage("permission_favicon"),
+    revocable: true,
+  },
+  {
+    id: "chrome://favicon/*",
+    description: chrome.i18n.getMessage("permission_favicon"),
+    revocable: true,
+  },
 ];
 
 export class Permissions implements Module {

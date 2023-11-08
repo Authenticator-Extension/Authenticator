@@ -41,13 +41,13 @@
     <div class="issuer">
       <img
         class="issuerFavicon"
-        v-if="shouldShowFavicon() && entry.issuer.split('::')[1]"
+        v-if="shouldShowFavicon && entry.issuer.split('::')[1]"
         v-bind:src="getFaviconUrl(entry.issuer.split('::')[1])"
       /><IconMedal
         class="issuerFavicon"
-        v-if="shouldShowFavicon() && !entry.issuer.split('::')[1]"
+        v-if="shouldShowFavicon && !entry.issuer.split('::')[1]"
       />
-      {{ 
+      {{
         entry.issuer.split("::")[0] +
         (theme === "compact" ? ` (${entry.account})` : "")
       }}
@@ -98,6 +98,7 @@ import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
+import { isFirefox, isSafari } from "../../browser";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -118,7 +119,10 @@ const computedPrototype = [
   mapState("menu", ["theme"]),
 ];
 
-let computed = {};
+let computed: {} = {
+  shouldShowFavicon:
+    !isFirefox && !isSafari && mapState("menu", ["showFavicon"]).showFavicon,
+};
 
 for (const module of computedPrototype) {
   Object.assign(computed, module);
@@ -144,12 +148,6 @@ export default Vue.extend({
         entry.secret !== null &&
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
-      );
-    },
-    shouldShowFavicon() {
-      return (
-        navigator.userAgent.indexOf("Firefox") === -1 &&
-        this.$store.state.menu.showFavicon
       );
     },
     getFaviconUrl(u: string) {
