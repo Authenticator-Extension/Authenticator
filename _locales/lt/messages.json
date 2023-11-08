@@ -142,23 +142,23 @@
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "Password does not match.",
+        "message": "Slaptažodis nesutampa.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
-        "message": "Encrypted",
+        "message": "Užšifruotas",
         "description": "Encrypted."
     },
     "copied": {
-        "message": "Copied",
+        "message": "Nukopijuota",
         "description": "Copied."
     },
     "feedback": {
-        "message": "Feedback",
+        "message": "Atsiliepimai",
         "description": "Feedback."
     },
     "translate": {
-        "message": "Translate",
+        "message": "Versti",
         "description": "Translate."
     },
     "source": {
