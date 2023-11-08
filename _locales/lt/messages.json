@@ -162,19 +162,19 @@
         "description": "Translate."
     },
     "source": {
-        "message": "Source Code",
+        "message": "Programinis kodas",
         "description": "Source Code."
     },
     "passphrase_info": {
-        "message": "Enter password to decrypt account data.",
+        "message": "Įveskite slaptažodį, kad iššifruotumėte paskyros duomenis.",
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Sync Clock with Google",
+        "message": "Laikrodžio sinchronizavimas su \"Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "Remember Password",
+        "message": "Įsiminti slaptažodį",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
