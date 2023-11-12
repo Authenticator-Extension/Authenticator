@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "Ръчно архивиране",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -298,11 +298,11 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "Light",
+        "message": "Светъл",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "Dark",
+        "message": "Тъмен",
         "description": "Dark theme"
     },
     "theme_simple": {
@@ -334,7 +334,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "Sign in (Business)",
+        "message": "Вписване (Бизнес)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -382,19 +382,19 @@
         "message": "Period"
     },
     "type": {
-        "message": "Type"
+        "message": "Тип"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Невалидно"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Цифри"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Алгоритъм"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Умен филтър"
     },
     "backup": {
         "message": "Backup"
