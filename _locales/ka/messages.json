@@ -182,11 +182,11 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "გაქვთ თუ არა ანგარიშებისთვის სარეზერვო ასლი? არ დაელოდოთ, სანამ გვიან იქნება!",
+        "message": "გაქვთ თუ არა ანგარიშებისთვის სარეზერვო ასლი? არ დაელოდოთ, სანამ დაგვიანებული არაა!",
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "Capture failed, please reload the page and try again.",
+        "message": "გადაღება ვერ მოხერხდა, გთხოვთ, გადატვირთოთ გვერდი და სცადოთ ხელახლა.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -198,7 +198,7 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Counter Based",
+        "message": "მრიცხველზე დაფუძნებული",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -210,11 +210,11 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
+        "message": "გაფრთხილება: ყველა სარეზერვო ასლი დაუშიფრავია. გსურთ ანგარიშის დამატება სხვა აპლიკაციაში? მაუსის კურსორი მიიტანეთ ნებისმიერი ანგარიშის ზედა მარჯვენა კუთხეში და დააჭირეთ დამალულ ღილაკს.",
         "description": "Export menu info text"
     },
     "download_backup": {
-        "message": "Download Backup File",
+        "message": "სარეზერვო ასლის ფაილის ჩამოტვირთვა",
         "description": "Download backup file."
     },
     "import_backup": {
@@ -238,7 +238,7 @@
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "შეგიძლიათ აირჩიოთ რამდენიმე ფაილი, სარეზერვო ასლების მასობრივი იმპორტირებისთვის.",
+        "message": "სარეზერვო ასლების მასობრივი იმპორტირებისთვის, შეგიძლიათ აირჩიოთ რამდენიმე ფაილი.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -246,11 +246,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "Warning: backups are unencrypted. Use at your own risk.",
+        "message": "გაფრთხილება: სარეზერვო ასლები არ არის დაშიფრული. გამოიყენეთ საკუთარი რისკის ქვეშ.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "სარეზერვო ასლების სწორი იმპორტირებისთვის, უნდა მიუთითოთ სწორი პაროლი.",
+        "message": "სარეზერვო ასლების იმპორტირებისთვის, უნდა მიუთითოთ სწორი პაროლი.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -262,7 +262,7 @@
         "description": "Remove password."
     },
     "download_enc_backup": {
-        "message": "Download Password-Protected Backup",
+        "message": "პაროლით დაშიფრული სარეზერვო ასლის ფაილის ჩამოტვირთვა",
         "description": "Download Encrypted Backup"
     },
     "search": {
@@ -282,7 +282,7 @@
         "description": "Edit"
     },
     "manual_dropbox": {
-        "message": "Manual Backup",
+        "message": "მექანიკური სარეზერვო ასლი",
         "description": "Manual backup"
     },
     "use_autofill": {
@@ -318,15 +318,15 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "სწორი",
         "description": "Flat theme"
     },
     "storage_sync_info": {
-        "message": "Automatically backup your data to 3rd party storage services.",
+        "message": "ავტომატურად შექმენით თქვენი მონაცემების სარეზერვო ასლი მესამე მხარის შენახვის სერვისებში.",
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "ბრაუზერის სინქრონიზაცია",
         "description": "Storage location"
     },
     "sign_in": {
@@ -345,7 +345,7 @@
         "description": "Sign out of 3rd party storage services"
     },
     "token_revoked": {
-        "message": "There was an issue connecting to your $SERVICE$ account, please sign in again.",
+        "message": "თქვენს $SERVICE$ ანგარიშთან დაკავშირებისას წარმოიშვა პრობლემა, გთხოვთ, შეხვიდეთ ხელახლა.",
         "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
         "placeholders": {
             "service": {
@@ -355,7 +355,7 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "თქვენ გაქვთ ერთი ან მეტი Steam ან Blizzard ანგარიში. დაუშიფრავი სარეზერვო ასლების შემთხვევაში არ მოხდება სტანდარტიზირებული სარეზერვო ასლის ფორმატის გამოყენება.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
@@ -370,19 +370,19 @@
         "message": "იტვირთება..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "დაბლოკვა"
     },
     "minutes": {
         "message": "წუთი"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "დამატებითი"
     },
     "period": {
         "message": "პერიოდი"
     },
     "type": {
-        "message": "Type"
+        "message": "ტიპი"
     },
     "invalid": {
         "message": "არასწორი"
@@ -394,19 +394,19 @@
         "message": "ალგორითმი"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "ჭკვიანი ფილტრი"
     },
     "backup": {
-        "message": "Backup"
+        "message": "სარეზერვო ასლი"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "შექმენით თქვენი მონაცემების შემცველი სარეზერვო ასლის ფაილი."
     },
     "password_policy_default_hint": {
         "message": "თქვენი პაროლი არ აკმაყოფილებს თქვენი ორგანიზაციის უსაფრთხოების მოთხოვნებს. დაუკავშირდით თქვენს ადმინისტრატორს დამატებითი ინფორმაციისთვის."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "მრჩეველი"
     },
     "advisor_insight_password_not_set": {
         "message": "დააყენეთ პაროლი თქვენი მონაცემების დასაცავად."
@@ -415,22 +415,22 @@
         "message": "ჩართეთ ავტომატური დაბლოკვა თქვენი მონაცემების დასაცავად."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "ბრაუზერის სინქრონიზაცია გამორთულია. მისი ჩართვა საშუალებას იძლევა, მოხდეს ანგარიშების სინქრონიზაცია ბრაუზერებს შორის."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "ავტომატური შევსების ჩართვა შესაძლებელია ვებსაიტებში კოდების ავტომატური შევსებისთვის."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "ჭკვიანი ფილტრის ჩართვა საშუალებას გაძლევთ გქონდეთ სწრაფი წვდომა ანგარიშებზე."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "ყველა მოქმედების ჩვენება."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "მოქმედება ვერ მოიძებნა, ყველაფერი რიგზეა!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "საფრთხე"
     },
     "warning": {
         "message": "გაფრთხილება"
@@ -448,60 +448,60 @@
         "message": "კონტექსტურ მენიუში დამატება"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "საჩვენებელი ანგარიშები არ არის. დაამატეთ თქვენი პირველი ანგარიში."
     },
     "permissions": {
         "message": "ნებართვები"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "ნებართვის გაუქმება"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "გაუქმებადი ნებართვების ჩვენება"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "ეს არის აუცილებელი ნებართვა და მისი გაუქმება შეუძლებელია."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "წვდომა მიმდინარე ჩანართზე QR კოდის დასკანერებისთვის."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "წვდომა ბრაუზერის შენახვის ადგილზე ანგარიშის ინფორმაციის შესანახად."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "საშუალებას გაძლევთ შეხვიდეთ მესამე მხარის შენახვის სერვისებში."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "ანიჭებს მხოლოდ ჩაწერის წვდომას გაცვლის ბუფერზე, რათა დააკოპიროთ კოდები, ანგარიშზე დაჭერის დროს."
     },
     "permission_context_menus": {
         "message": "ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "წვდომა ყველა ვებსაიტზე QR კოდების დასკანერებისთვის."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "საშუალებას გაძლევთ, მოახდინოთ დროის სინქრონიზაცია Google-თან."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "საშუალებას გაძლევთ, შექმნათ სარეზერვო ასლი Dropbox-ში."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "თავდაპირველად, უნდა გამორთოთ Dropbox-ში სარეზერვო ასლის შექმნა."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "საშუალებას გაძლევთ, შექმნათ სარეზერვო ასლი Google Drive-ში."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "თავდაპირველად, უნდა გამორთოთ Google Drive-ში სარეზერვო ასლის შექმნა."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "საშუალებას გაძლევთ, შექმნათ სარეზერვო ასლი OneDrive-ში."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "თავდაპირველად, უნდა გამორთოთ OneDrive-ში სარეზერვო ასლის შექმნა."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "უცნობი ნებართვა. თუ ამ შეტყობინებას ხედავთ, გთხოვთ, შეგვატყობინოთ პრობლემის შესახებ."
     }
 }
