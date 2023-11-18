@@ -439,69 +439,69 @@
         "message": "Informacija"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Atmesti"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Sužinokite daugiau"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Pridėti į kontekstinį meniu"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Nėra rodomų paskyrų. Pridėkite pirmąją paskyrą dabar."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Leidimai"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Atimti"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Rodyti leidimus kurių negalima atšaukti"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Šis leidimas yra privalomas ir negali būti atšauktas."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Prieiga prie dabartinio skirtuko QR kodams nuskaityti."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Prieiga prie naršyklės saugyklos, kurioje saugomi paskyros duomenys."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Leidžia prisijungti prie trečiosios šalies saugojimo paslaugų."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Suteikiama tik rašymo prieiga prie iškarpinės, kad, spustelėjus paskyrą, kodai būtų kopijuojami į iškarpinę."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Į kontekstinį meniu įtraukiamas autentifikatorius."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Prieiga prie visų svetainių, kuriose galima nuskaityti QR kodus."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Leidžia sinchronizuoti laikrodį su \"Google\"."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Leidžia kurti atsarginę kopiją į \"Dropbox\"."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Pirmiausia turite išjungti \"Dropbox\" atsarginę kopiją."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Leidžia kurti atsarginę kopiją \"Google\" diske."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Pirmiausia turite išjungti \"Google Drive\" atsarginę kopiją."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Leidžia kurti atsarginę kopiją \"OneDrive\"."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Pirmiausia turite išjungti \"OneDrive\" atsarginę kopiją."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Nežinomas leidimas. Jei matote šį pranešimą, atsiųskite pranešimą apie klaidą."
     }
 }
