@@ -359,33 +359,33 @@
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Galite importuoti atsargines kopijas iš kai kurių kitų programų.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Sužinokite daugiau",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Kraunasi..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Užrakinti po"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "minučių"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Išplėstiniai nustatymai"
     },
     "period": {
-        "message": "Period"
+        "message": "Laikotarpis"
     },
     "type": {
-        "message": "Type"
+        "message": "Tipas"
     },
     "invalid": {
-        "message": "Invalid"
+        "message": "Neteisingas"
     },
     "digits": {
         "message": "Digits"
