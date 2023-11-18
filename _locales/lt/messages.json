@@ -388,25 +388,25 @@
         "message": "Neteisingas"
     },
     "digits": {
-        "message": "Digits"
+        "message": "Skaičiai"
     },
     "algorithm": {
-        "message": "Algorithm"
+        "message": "Algoritmas"
     },
     "smart_filter": {
-        "message": "Smart Filter"
+        "message": "Išmanusis filtras"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Atsarginė kopija"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Sukurkite atsarginę duomenų kopiją į failą."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Jūsų slaptažodis neatitinka jūsų organizacijos saugumo reikalavimų. Dėl papildomos informacijos kreipkitės į administratorių."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Patarėjas"
     },
     "advisor_insight_password_not_set": {
         "message": "Set a password to protect your data."
