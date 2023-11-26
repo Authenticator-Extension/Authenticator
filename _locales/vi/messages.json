@@ -4,7 +4,7 @@
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Trình xác thực",
+        "message": "Authenticator<div id=\"crowdin_phrase_482\" class=\"crowdin_phrase crowdin_phrase_translated\" title wfd-id=\"50\">…</div>",
         "description": "Extension Short Name."
     },
     "extDesc": {
