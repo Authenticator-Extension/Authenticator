@@ -472,28 +472,28 @@
         "message": "Permite conectarea la serviciile de stocare ale unor terțe părți."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Oferă acces doar la scriere în clipboard pentru a copia coduri în clipboard atunci când faceți clic pe cont."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": ""
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Accés a tots els llocs web per escanejar codis QR."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": ""
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Auto Backup pe Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Lejon backup drejt Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Ti duhet të çaktivizosh backup-in e Google Drive si fillim."
     },
     "permission_onedrive": {
         "message": "Allows backup to OneDrive."
