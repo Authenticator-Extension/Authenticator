@@ -8,7 +8,7 @@
         "description": "Extension Short Name."
     },
     "extDesc": {
-        "message": "A Hitelesítő 2 lépcsős ellenőrző kódokat generál a böngészőben.",
+        "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
         "description": "Extension Description."
     },
     "added": {
@@ -318,7 +318,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "",
         "description": "Flat theme"
     },
     "storage_sync_info": {
