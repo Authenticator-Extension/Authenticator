@@ -418,16 +418,16 @@
         "message": "浏览器同步已被禁用。启用它以允许跨浏览器的帐户同步。"
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "启用自动填充可以自动填充代码到网站中。"
+        "message": "可以启用自动填充以自动将代码填充到网站中。"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "启用智能过滤允许快速访问账户。"
+        "message": "启用智能过滤器允许快速访问帐户。"
     },
     "show_all_insights": {
         "message": "显示所有见解。"
     },
     "no_insight_available": {
-        "message": "无可供参考的见解，看起来一切安好！"
+        "message": "没有可供参考的见解，一切看起来都很好！"
     },
     "danger": {
         "message": "危险"
