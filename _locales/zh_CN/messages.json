@@ -403,19 +403,19 @@
         "message": "备份数据到文件。"
     },
     "password_policy_default_hint": {
-        "message": "您的密码不符合贵单位的安全要求。请联系您的管理员获取更多信息。"
+        "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系您组织的管理员。"
     },
     "advisor": {
         "message": "建议"
     },
     "advisor_insight_password_not_set": {
-        "message": "请设置一个密码来保护您的数据。"
+        "message": "请设置密码以保护您的数据。"
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "启用自动锁定以保护您的数据。"
+        "message": "启用自动锁定来保护您的数据。"
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "浏览器同步已禁用。启用它允许在不同浏览器间同步帐户。"
+        "message": "浏览器同步已被禁用。启用它以允许跨浏览器的帐户同步。"
     },
     "advisor_insight_auto_fill_not_enabled": {
         "message": "启用自动填充可以自动填充代码到网站中。"
