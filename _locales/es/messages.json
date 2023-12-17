@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "¿Tienes una copia de seguridad para tus cuentas? ¡No esperes hasta que sea demasiado tarde!",
+        "message": "¿Tienes una copia de seguridad cuentas¡No esperes hasta que sea demasiado tarde!",
         "description": "Remind Backup"
     },
     "capture_failed": {
