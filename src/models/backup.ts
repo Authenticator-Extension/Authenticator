@@ -88,7 +88,7 @@ export class Dropbox implements BackupProvider {
             if (res.email) {
               resolve(res.email);
             } else {
-              console.error("Could not find email in reponse.", res);
+              console.error("Could not find email in response.", res);
               resolve("Error: res.email was undefined.");
             }
           } catch (e) {
