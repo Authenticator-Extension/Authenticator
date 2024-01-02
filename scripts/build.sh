@@ -57,7 +57,7 @@ elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
     ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution nodenext --module commonjs scripts/test-runner.ts
 else
-    ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
+    ./node_modules/webpack-cli/bin/cli.js
 fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/
