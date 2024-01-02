@@ -73,7 +73,12 @@ module.exports = {
       ".ts",
       ".tsx"
     ],
-    modules: ["node_modules"]
+    modules: ["node_modules"],
+    fallback: {
+      // Stop argon2-browser from trying to bring in node modules
+      fs: false,
+      path: false
+    }
   },
   output: {
     path: path.resolve(__dirname, "dist"),
