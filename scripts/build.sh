@@ -6,10 +6,6 @@
 # Platforms:
 #   'chrome', 'firefox', 'test', or 'prod'
 
-# Patch argon2's package.json to make it compile
-# TODO: don't do this
-cp ./scripts/argon2-browser-package.json ./node_modules/argon2-browser/package.json
-
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
 CREDS=$(cat ./src/models/credentials.ts | tr -d '\n')
@@ -59,9 +55,9 @@ if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
-    ./node_modules/.bin/tsc scripts/test-runner.ts --esModuleInterop
+    ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution nodenext --module commonjs scripts/test-runner.ts
 else
-    ./node_modules/webpack-cli/bin/cli.js
+    ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
 fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/
