@@ -9,6 +9,7 @@ import merge from "lodash/merge";
 interface MochaTestResults {
   total?: number;
   tests?: StrippedTestResults[];
+  completed?: boolean;
 }
 
 interface StrippedTestResults {
@@ -80,6 +81,13 @@ async function runTests() {
           testResults: window.__mocha_test_results__,
         });
       });
+
+      if (window.__mocha_test_results__.completed) {
+        resolve({
+          coverage: window.__coverage__,
+          testResults: window.__mocha_test_results__,
+        });
+      }
     });
   });
 

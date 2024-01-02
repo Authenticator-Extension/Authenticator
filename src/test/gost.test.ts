@@ -1,3 +1,11 @@
+import "mocha";
+import * as chai from "chai";
+import * as sinon from "sinon";
+import * as sinonChai from "sinon-chai";
+
+chai.use(sinonChai);
+mocha.setup("bdd");
+
 import {
   AlgorithmIndentifier,
   GostDigest,
