@@ -67,10 +67,8 @@
       "https://graph.microsoft.com/me/*",
       "https://login.microsoftonline.com/common/oauth2/v2.0/token"
     ],
-    "offline_enabled": true,
     "content_security_policy": {
       "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'",
       "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
-    } 
+    }
   }
-  
