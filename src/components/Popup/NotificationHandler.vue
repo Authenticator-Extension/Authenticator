@@ -6,7 +6,7 @@
       <a-button type="small" @click="closeAlert()">{{ i18n.ok }}</a-button>
     </div>
 
-    <!-- CONFRIM -->
+    <!-- CONFIRM -->
     <div class="message-box" v-show="confirmMessage !== ''">
       <div>{{ confirmMessage }}</div>
       <div class="buttons">
