@@ -403,13 +403,13 @@
         "message": "备份数据到文件。"
     },
     "password_policy_default_hint": {
-        "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系您组织的管理员。"
+        "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系组织管理员。"
     },
     "advisor": {
         "message": "建议"
     },
     "advisor_insight_password_not_set": {
-        "message": "请设置密码以保护您的数据。"
+        "message": "设置密码以保护您的数据。"
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "启用自动锁定来保护您的数据。"
@@ -481,7 +481,7 @@
         "message": "访问所有网站以扫描二维码。"
     },
     "permission_sync_clock": {
-        "message": "允许与 Google 同步时钟。"
+        "message": "允许与 Google 同步时间。"
     },
     "permission_dropbox": {
         "message": "允许备份到 Dropbox。"
@@ -502,6 +502,6 @@
         "message": "您必须先停用 OneDrive 备份。"
     },
     "permission_unknown_permission": {
-        "message": "未知权限。如果看到此消息，请发送错误报告。"
+        "message": "未知权限。如果您看到此消息，请发送错误报告。"
     }
 }
