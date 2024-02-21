@@ -437,7 +437,7 @@
         "message": "Más información"
     },
     "enable_context_menu": {
-        "message": "http://192.168.0.1/"
+        "message": "Agregar al menú contextual"
     },
     "no_entires": {
         "message": "No hay cuentas para mostrar. Añade tu primera cuenta ahora."
