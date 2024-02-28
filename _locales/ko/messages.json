@@ -229,9 +229,17 @@
         "message": "QR 이미지 백업 가져오기",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "문자 백업 가져오기",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "가져왔지만, 일부 QR 코드를 인식하지 못했어요.",
