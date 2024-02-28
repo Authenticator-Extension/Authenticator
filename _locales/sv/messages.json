@@ -229,9 +229,17 @@
         "message": "Importera QR-bildsäkerhetskopia",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "Importera okrypterad säkerhetskopia",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "Import lyckades men vissa QR-koder kunde inte kännas igen.",
