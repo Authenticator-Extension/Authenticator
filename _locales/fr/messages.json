@@ -28,7 +28,7 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scanner le QR code",
+        "message": "Scanner le code QR",
         "description": "Scan QR Code."
     },
     "add_secret": {
@@ -170,7 +170,7 @@
         "description": "Passphrase Info"
     },
     "sync_clock": {
-        "message": "Synchroniser l'horloge avec Google",
+        "message": "Synchroniser l'horloge avec celle de Google",
         "description": "Sync Clock"
     },
     "remember_phrase": {
@@ -186,7 +186,7 @@
         "description": "Remind Backup"
     },
     "capture_failed": {
-        "message": "La capture a échouée, veuillez recharger la page et réessayer.",
+        "message": "La capture a échoué, veuillez recharger la page et réessayer.",
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "Importer des images QR",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "Importer des URL OTP",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
