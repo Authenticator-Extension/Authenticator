@@ -40,7 +40,7 @@
         "description": "Import migration data failed."
     },
     "migration_partly_fail": {
-        "message": "Some account data was not imported successfully.",
+        "message": "Някои данни за акаунта не бяха импортирани успешно.",
         "description": "Some migration data is broken."
     },
     "close": {
@@ -112,21 +112,21 @@
         "description": "Confirm Passphrase."
     },
     "confirm_delete": {
-        "message": "Are you sure you want to delete this account? This action cannot be undone.",
+        "message": "Наистина ли искате да изтриете този акаунт? Това действие не може да бъде отменено.",
         "description": "Remove entry confirmation"
     },
     "confirm_delete_all": {
-        "message": "I understand that all of my data will be irrecoverably deleted.",
+        "message": "Разбирам, че всичките ми данни ще бъдат изтрити необратимо.",
         "description": "Message that user is required to acknowledge before clearing all data."
     },
     "delete_all": {
-        "message": "Reset Authenticator"
+        "message": "Нулирай Удостоверител"
     },
     "delete_all_warning": {
-        "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+        "message": "Това ще изтрие всичките ви данни и изцяло ще изтрие Удостоверителя. Няма да можете да възстановите изтритите данни! Препоръчваме за архивирате, преди да нулирате Удостоверителя."
     },
     "security_warning": {
-        "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
+        "message": "Тази парола ще се използва за кодиране на вашите акаунти. Никой не може да ви помогне, ако си забравите паролата.",
         "description": "Passphrase Warning."
     },
     "update": {
@@ -134,11 +134,11 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+        "message": "Не можете да добавите нов акаунт, докато акаунтът не се декриптира. Въведете правилната парола.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+        "message": "Акаунти, които не могат да се декриптират, няма да бъдат включени в това резервно копие.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
@@ -182,7 +182,7 @@
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+        "message": "Имате ли резервно копие на акаунтите? Не чакайте, докато не стане твърде късно!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+        "message": "Опитвате се да сканирате QR код от локален файл? Use Вместо това импортирайте резервно копие на QR изображението.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -198,11 +198,11 @@
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "Брояч на базата",
+        "message": "На база брояч",
         "description": "Counter Based"
     },
     "resize_popup_page": {
-        "message": "Preferences",
+        "message": "Предпочитания",
         "description": "Popup Page Settings"
     },
     "scale": {
@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Import QR Image Backup",
+        "message": "Импорт на резервно копие на QR изображение",
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "Импорт на QR изображения",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,15 +238,15 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "Импорт на OTP URLs",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "Успешен импорт, но някои QR кодове не бяха разпознати.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
-        "message": "You can select multiple files to import backup in batches.",
+        "message": "Можете да изберете много файлове за импорт на партиди от резервни копия.",
         "description": "You can select multiple image files to import backup in batches."
     },
     "show_all_entries": {
@@ -302,7 +302,7 @@
         "description": "Use High Contrast"
     },
     "theme": {
-        "message": "Theme",
+        "message": "Тема",
         "description": "Theme"
     },
     "theme_light": {
@@ -314,19 +314,19 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "Simple",
+        "message": "Проста",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Compact",
+        "message": "Компактна",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
-        "message": "High Contrast",
+        "message": "Висок контраст",
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "Плоска",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -334,7 +334,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "Browser Sync",
+        "message": "Синхронизация на браузера",
         "description": "Storage location"
     },
     "sign_in": {
@@ -346,7 +346,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
+        "message": "Защо за бизнес акаунтите са задължителни повече разрешения?"
     },
     "log_out": {
         "message": "Изход",
@@ -363,31 +363,31 @@
         }
     },
     "otp_unsupported_warn": {
-        "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
+        "message": "Имате един или повече Steam или Blizzard акаунти. Некриптираните резервни копия няма да използват стандартизиран формат за архивиране.",
         "description": "Warning if using account that is not supported by standard backup format."
     },
     "otp_backup_inform": {
-        "message": "You can import backups from some other applications.",
+        "message": "Можете да импортирате резервни копия от други приложения.",
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "Learn more",
+        "message": "Научете повече",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
-        "message": "Loading..."
+        "message": "Зареждане..."
     },
     "autolock": {
-        "message": "Lock after"
+        "message": "Заключване след"
     },
     "minutes": {
-        "message": "minutes"
+        "message": "минути"
     },
     "advanced": {
-        "message": "Advanced"
+        "message": "Разширени"
     },
     "period": {
-        "message": "Period"
+        "message": "Период"
     },
     "type": {
         "message": "Тип"
@@ -405,111 +405,111 @@
         "message": "Умен филтър"
     },
     "backup": {
-        "message": "Backup"
+        "message": "Резервно копие"
     },
     "backup_file_info": {
-        "message": "Backup your data to a file."
+        "message": "Архивирайте данните си във файл."
     },
     "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
+        "message": "Паролата ви не отговоря на стандартите за сигурност на организацията ви. Свържете сес администратора си за повече информация."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "Съветник"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "Задайте парола, за да защитите данните си."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "Активирайте автоматично заключване, за да защитите данните си."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "Синхронизирането на браузера е деактивирано. Активирането му позволява синхронизиране на акаунтите в различните браузери."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "Можете да активирате автоматично попълване на кодове в уебсайтовете."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "Активирането на смарт филтър позволява бърз достъп до акаунти."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "Покажи всички съвети."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "Не са открити съвети, всичко изглежда наред!"
     },
     "danger": {
-        "message": "Danger"
+        "message": "Опасност"
     },
     "warning": {
-        "message": "Warning"
+        "message": "Внимание"
     },
     "info": {
-        "message": "Info"
+        "message": "Информация"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "Отхвърли"
     },
     "learn_more": {
-        "message": "Learn more"
+        "message": "Научете повече"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "Добави в контектното меню"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "Няма акаунти. Добавете първия си акаунт сега."
     },
     "permissions": {
-        "message": "Permissions"
+        "message": "Разрешения"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "Оттегли"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "Покажи неподлежащи на оттегляне разрешения"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "Това е задължително разрешение и не може да се оттегли."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "Достъп до текущия раздел за сканиране на QR кодове."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "Достъп до памет на браузер за запаметяване на данни за акаунта."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "Позволи вход в услуги за съхранение на 3-ти страни."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "Дава само write-only достъп до клавиатурата с цел копиране на кодове в клипборда, когато кликнете върху акаунта."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "Добавя Удостоверител в контекстното меню."
     },
     "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
+        "message": "Достъп до всички уебсайтове за сканиране на QR кодове."
     },
     "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
+        "message": "Позволява синхронизация на часовника с Google."
     },
     "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
+        "message": "Позволява архивиране в Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
+        "message": "Първо трябва да деактивирате архивирането в Dropbox."
     },
     "permission_drive": {
-        "message": "Allows backup to Google Drive."
+        "message": "Позволява архивиране в Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
+        "message": "Първо трябва да деактивирате архивирането в Google Drive."
     },
     "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
+        "message": "Позволява архивиране в OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
+        "message": "Първо трябва да деактивирате архивирането в OneDrive."
     },
     "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
+        "message": "Неизвестно разрешение. Ако виждате това съобщение, изпратете доклад за грешка."
     }
 }
