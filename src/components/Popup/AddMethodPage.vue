@@ -4,6 +4,12 @@
     <a-button @click="showInfo('AddAccountPage')">
       {{ i18n.add_secret }}
     </a-button>
+    <a-button-link href="import.html?QrImport">{{
+      i18n.import_qr_images
+    }}</a-button-link>
+    <a-button-link href="import.html?TextImport">{{
+      i18n.import_otp_urls
+    }}</a-button-link>
   </div>
 </template>
 <script lang="ts">

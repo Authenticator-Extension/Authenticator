@@ -1,7 +1,14 @@
 <template>
   <div>
     <div class="import_code">
-      <textarea spellcheck="false" v-model="importCode"></textarea>
+      <textarea
+        spellcheck="false"
+        v-model="importCode"
+        placeholder="otpauth://totp/...
+otpauth://totp/...
+otpauth://hotp/...
+..."
+      ></textarea>
     </div>
     <div class="import_encrypted">
       <input type="checkbox" id="encryptedCode" v-model="importEncrypted" />
