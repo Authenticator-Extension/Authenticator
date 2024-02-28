@@ -229,9 +229,17 @@
         "message": "Importa còpia d'imatge QR",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "Importa còpia de seguretat com a text pla",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "S'ha importat correctament, però alguns codis QR no s'han reconegut.",
