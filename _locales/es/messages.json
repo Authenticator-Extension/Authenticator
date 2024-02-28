@@ -229,9 +229,17 @@
         "message": "Importar copia de seguridad de imagen QR",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "Importar el Texto de la Copia de Seguridad",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "Se importó correctamente, sin embargo, algunas imágenes QR no pudieron ser reconocidas.",
