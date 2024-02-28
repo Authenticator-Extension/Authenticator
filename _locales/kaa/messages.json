@@ -229,9 +229,17 @@
         "message": "QR súwret qosımsha qor nusqasın import qılıń",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "Tekst qosımshasın import qılıw",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "Import tabıslı ámelge asırıldı, biraq ayırım QR-kodlardı tanıw múmkin bolmadı.",
