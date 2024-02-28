@@ -311,12 +311,23 @@ svg {
 
   .issuer {
     font-size: 12px;
+    line-height: 16px;
+    height: 16px;
     @include themify($themes) {
       color: themed("black-1");
     }
     width: 80%;
     text-overflow: ellipsis;
     overflow: hidden;
+
+    .issuerFavicon {
+      vertical-align: bottom;
+      margin-right: 5px;
+      height: 16px;
+      width: 16px;
+      border-radius: 3px;
+      border: 1px solid transparent;
+    }
   }
 
   .code {
@@ -1068,6 +1079,11 @@ svg {
     color: #ccc;
   }
 
+  .issuerFavicon {
+    background: white;
+    border: 1px solid white !important;
+  }
+
   ::-webkit-scrollbar {
     background: #1e1e1e !important;
   }
@@ -1198,6 +1214,11 @@ svg {
         background: black;
         border: white 1px solid;
       }
+    }
+
+    .issuerFavicon {
+      background: white;
+      border: 1px solid white !important;
     }
 
     .showqr,
