@@ -229,9 +229,17 @@
         "message": "导入 QR 图片备份",
         "description": "Import qr image backup."
     },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
     "import_backup_code": {
         "message": "导入备份文本",
         "description": "Import backup code."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
         "message": "导入成功，但部分二维码无法识别。",
@@ -421,7 +429,7 @@
         "message": "可以启用自动填充以自动将代码填充到网站中。"
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "启用智能过滤器允许快速访问帐户。"
+        "message": "启用智能过滤允许快速访问账户。"
     },
     "show_all_insights": {
         "message": "显示所有见解。"
