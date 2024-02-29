@@ -134,15 +134,15 @@
         "description": "Update."
     },
     "phrase_incorrect": {
-        "message": "omaraphg1201002205415",
+        "message": "لن تقدر على فتح حساب جديد حتى يتم فك تشفير كل الحسابات. الرجاء إضافة كلمة المرور الصحيحة لاستكمال العملية.",
         "description": "Passphrase Incorrect."
     },
     "phrase_incorrect_export": {
-        "message": "facebook\n",
+        "message": "الحسابات الغير قابله لفك التشفير لان يتم تضمينها إلى النسخة الاحتياطية.",
         "description": "Skip Unable-decripted Data."
     },
     "phrase_not_match": {
-        "message": "كلمة السر غير متطابقة.",
+        "message": "كلمة السر غير صحيحة.",
         "description": "Passphrase Not Match."
     },
     "encrypted": {
