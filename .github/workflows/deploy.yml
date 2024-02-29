@@ -1,0 +1,30 @@
+name: Deploy to Webstore
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build ${{ matrix.platform }}
+
+    strategy:
+      matrix:
+        platform: ["chrome", "firefox"]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run ${{ matrix.platform }}
+
+      - name: Browser Plugin Publish
+        uses: plasmo-corp/bpp@v0.0.0
+        with:
+          keys: ${{ secrets.SUBMIT_KEYS }}
