@@ -84,7 +84,7 @@
         "description": "Update Failure."
     },
     "about": {
-        "message": "حول",
+        "message": "نبذه عن",
         "description": "About."
     },
     "settings": {
@@ -92,7 +92,7 @@
         "description": "Settings."
     },
     "security": {
-        "message": "حماية",
+        "message": "حماية الخصوصية",
         "description": "Security."
     },
     "current_phrase": {
@@ -126,7 +126,7 @@
         "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين Authenticator بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين Authenticator."
     },
     "security_warning": {
-        "message": "552206",
+        "message": "هذا الكود الخاص سوف يستخدم لتشفير حسابك.\nلا نقدر على مساعدتك إذا فقدت هذا الكود الخاص.",
         "description": "Passphrase Warning."
     },
     "update": {
