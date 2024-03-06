@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "QR-afbeeldingen importeren",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "OTP-URL’s importeren",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
