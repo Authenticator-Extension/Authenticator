@@ -210,7 +210,7 @@
         "description": "Scale"
     },
     "export_info": {
-        "message": "Uyarı: Tüm yedeklemeler şifrelenmemiş. Başka bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmında bulunan gizli simgeye tıklayın.",
+        "message": "Uyarı: Tüm yedeklemeler şifrelenmemiştir. Başka bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmındaki gizli karekod simgesine tıklayın.",
         "description": "Export menu info text"
     },
     "download_backup": {
