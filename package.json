@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Authenticator-Extension/Authenticator#readme",
   "devDependencies": {
-    "@jsdevtools/coverage-istanbul-loader": "^3.0.5",
     "@types/argon2-browser": "^1.18.1",
     "@types/chai": "^4.2.14",
     "@types/chrome": "^0.0.210",

@@ -121,7 +121,7 @@ export default Vue.extend({
     openHelp() {
       let url = "https://otp.ee/chromeissues";
 
-      if (isFirefox) {
+      if (navigator.userAgent.indexOf("Firefox") !== -1) {
         url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
         url = "https://otp.ee/edgeissues";

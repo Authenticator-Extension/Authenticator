@@ -45,8 +45,7 @@
     },
     "sandbox": {
         "pages": [
-            "view/argon.html",
-            "view/test.html"
+            "view/argon.html"
         ]
     },
     "permissions": [
@@ -69,8 +68,7 @@
         "https://login.microsoftonline.com/common/oauth2/v2.0/token"
     ],
     "content_security_policy": {
-        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'",
-        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
     },
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjo5++7m6mlJGqKOnlYehr9tjIqahMZBJUG7PLa7dSRk6bDUu2pVodO1TQWviHlrDTLP+zfoVbDBS8v8cjloK5Tn90nzC6a957dPzOfyC1WUNYNDlGM0BCmZKVP/MWB3d0ffOmTwaxh0L47aLH5nTW0AUmuwCWCBEEl4Acuyp7rwLNGlazBpaom1Qb5ckn29gCJVVVIZ6wudmcrG/FPTNJXQbg8N6wObGrgGOaxmowbkzJmIfKTyHlYOKLAjZ7aJi0W6jsy47/aV+ojvn4gO+ka6BcRhUeWgoQxqEky119f3OWiVP46SJVbAi0pkknThUjDvX11lATGjB5EvJZGyotwIDAQAB"
 }
