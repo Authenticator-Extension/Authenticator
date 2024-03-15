@@ -73,7 +73,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { syncTimeWithGoogle } from "../../popup";
+import { syncTimeWithGoogle } from "../../syncTime";
 
 import IconArrowLeft from "../../../svg/arrow-left.svg";
 import IconInfo from "../../../svg/info.svg";
@@ -154,7 +154,10 @@ export default Vue.extend({
         { origins: ["https://www.google.com/"] },
         async (granted) => {
           if (granted) {
-            const message = await syncTimeWithGoogle();
+            let LocalStorage =
+              (await chrome.storage.local.get("LocalStorage")).LocalStorage ||
+              {};
+            const message = await syncTimeWithGoogle(LocalStorage);
             this.$store.commit("notification/alert", this.i18n[message]);
           }
           return;
