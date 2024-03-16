@@ -37,6 +37,7 @@
       @change="migrateStorage()"
     />
     <a-toggle-input :label="i18n.smart_filter" v-model="smartFilter" />
+    <a-toggle-input :label="i18n.hide_codes" v-model="hideCodes" />
     <a-toggle-input
       :label="i18n.enable_context_menu"
       v-model="enableContextMenu"
@@ -139,6 +140,14 @@ export default Vue.extend({
     isSupported: {
       get(): boolean {
         return !isFirefox && !isSafari;
+      },
+    },
+    hideCodes: {
+      get(): boolean {
+        return this.$store.state.menu.hideCodes;
+      },
+      set(hideCodes: boolean) {
+        this.$store.commit("menu/setHideCodes", hideCodes);
       },
     },
   },

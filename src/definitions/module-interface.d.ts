@@ -38,6 +38,7 @@ interface MenuState {
   theme: string;
   backupDisabled: boolean;
   storageArea: "sync" | "local";
+  hideCodes: boolean;
 }
 
 interface StyleState {

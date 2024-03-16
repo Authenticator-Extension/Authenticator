@@ -511,5 +511,9 @@
     },
     "permission_unknown_permission": {
         "message": "Unknown permission. If see this message, please send a bug report."
+    },
+    "hide_codes": {
+        "message": "Hide codes",
+        "description": "Hide codes and show stars in popup. Users need to click the account to copy the code."
     }
 }

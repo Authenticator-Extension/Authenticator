@@ -28,6 +28,7 @@ export class Menu implements Module {
         passwordPolicyHint: await ManagedStorage.get<string>(
           "passwordPolicyHint"
         ),
+        hideCodes: localStorage.hideCodes === "true",
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
@@ -55,6 +56,10 @@ export class Menu implements Module {
         setAutolock(state: MenuState, autolock: number) {
           state.autolock = autolock;
           localStorage.autolock = autolock;
+        },
+        setHideCoes(state: MenuState, hideCodes: boolean) {
+          state.hideCodes = hideCodes;
+          localStorage.hideCodes = hideCodes;
         },
       },
       namespaced: true,

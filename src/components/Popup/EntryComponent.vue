@@ -106,7 +106,7 @@ const computedPrototype = [
     "encryption",
   ]),
   mapState("style", ["style"]),
-  mapState("menu", ["theme"]),
+  mapState("menu", ["theme", "hideCodes"]),
 ];
 
 let computed = {};
@@ -142,6 +142,8 @@ export default Vue.extend({
         return this.i18n.encrypted;
       } else if (code === CodeState.Invalid) {
         return this.i18n.invalid;
+      } else if (this.$store.state.menu.hideCodes) {
+        return code.replace(/\w/g, "*");
       } else {
         return code;
       }
