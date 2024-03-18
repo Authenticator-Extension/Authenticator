@@ -17,7 +17,6 @@ import { Notification } from "../../../store/Notification";
 import { Qr } from "../../../store/Qr";
 
 import chrome from "sinon-chrome";
-import sinon from "sinon";
 
 chai.should();
 chai.use(sinonChai);
@@ -63,10 +62,6 @@ describe("MenuPage", () => {
     wrapper: Wrapper<any>,
     title: string
   ) => wrapper.find(`*[title='${title}']`).trigger("click");
-
-  it("Tests disabled", async () => {
-    return true;
-  });
 
   describe("feedback button", () => {
     // mocks the user agent for testing purposes
@@ -117,7 +112,6 @@ describe("MenuPage", () => {
         "Mozilla/5.0 (Windows NT x.y; rv:10.0) Gecko/20100101 Firefox/10.0"
       );
       await clickMenuPageButtonByTitle(wrapper, "Feedback");
-      console.log("TESTESFDGSDG");
       assert.ok(
         chrome.tabs.create.withArgs({ url: "https://otp.ee/firefoxissues" })
           .calledOnce,
