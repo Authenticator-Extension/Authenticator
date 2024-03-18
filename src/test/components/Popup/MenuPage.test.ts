@@ -138,7 +138,7 @@ describe("MenuPage", () => {
 
           store = new Vuex.Store({
             modules: {
-              backup: new Backup().getModule(),
+              backup: await new Backup().getModule(),
               currentView: new CurrentView().getModule(),
               notification: new Notification().getModule(),
               qr: new Qr().getModule(),

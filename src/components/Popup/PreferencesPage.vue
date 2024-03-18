@@ -144,9 +144,14 @@ export default Vue.extend({
   },
   data() {
     return {
-      newStorageLocation:
-        this.$store.state.menu.storageArea || localStorage.storageLocation,
+      newStorageLocation: "",
     };
+  },
+  created() {
+    chrome.storage.local.get("LocalStorage").then((res) => {
+      this.newStorageLocation =
+        this.$store.state.menu.storageArea || res.LocalStorage?.storageLocation;
+    });
   },
   methods: {
     popOut() {
@@ -157,8 +162,8 @@ export default Vue.extend({
         windowType = "panel";
       }
       chrome.windows.create({
-        url: chrome.extension.getURL("view/popup.html?popup=true"),
-        type: windowType,
+        url: chrome.runtime.getURL("view/popup.html?popup=true"),
+        type: windowType as chrome.windows.createTypeEnum,
         height: window.innerHeight,
         width: window.innerWidth,
       });

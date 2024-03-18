@@ -1,5 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 // @ts-ignore
+import QRCode from "qrcode-reader";
+import jsQR from "jsqr";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import scanGIF from "../images/scan.gif";
 
 if (!document.getElementById("__ga_grayLayout__")) {
@@ -9,11 +14,17 @@ if (!document.getElementById("__ga_grayLayout__")) {
         sendResponse("beginCapture");
         showGrayLayout();
         break;
+      case "sendCaptureUrl":
+        qrDecode(
+          message.info.url,
+          message.info.captureBoxLeft,
+          message.info.captureBoxTop,
+          message.info.captureBoxWidth,
+          message.info.captureBoxHeight
+        );
+        break;
       case "errorsecret":
         alert(chrome.i18n.getMessage("errorsecret") + message.secret);
-        break;
-      case "errorqr":
-        alert(chrome.i18n.getMessage("errorqr"));
         break;
       case "errorenc":
         alert(chrome.i18n.getMessage("phrase_incorrect"));
@@ -60,7 +71,12 @@ sessionStorage.setItem("captureBoxPositionTop", "0");
 
 function showGrayLayout() {
   let grayLayout = document.getElementById("__ga_grayLayout__");
+  let qrCanvas = document.getElementById("__ga_qrCanvas__");
   if (!grayLayout) {
+    qrCanvas = document.createElement("canvas");
+    qrCanvas.id = "__ga_qrCanvas__";
+    qrCanvas.style.display = "none";
+    document.body.appendChild(qrCanvas);
     grayLayout = document.createElement("div");
     grayLayout.id = "__ga_grayLayout__";
     document.body.appendChild(grayLayout);
@@ -181,26 +197,88 @@ function grayLayoutUp(event: MouseEvent) {
 
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
-    sendPosition(
-      captureBoxLeft,
-      captureBoxTop,
-      captureBoxWidth,
-      captureBoxHeight
-    );
+    chrome.runtime.sendMessage({
+      action: "getCapture",
+      info: {
+        captureBoxLeft,
+        captureBoxTop,
+        captureBoxWidth,
+        captureBoxHeight,
+      },
+    });
   }, 200);
   return false;
 }
 
-function sendPosition(
+async function qrDecode(
+  url: string,
   left: number,
   top: number,
   width: number,
   height: number
 ) {
-  chrome.runtime.sendMessage({
-    action: "position",
-    info: { left, top, width, height, windowWidth: window.innerWidth },
-  });
+  const canvas = document.getElementById(
+    "__ga_qrCanvas__"
+  ) as HTMLCanvasElement;
+  const qr = new Image();
+  qr.onload = () => {
+    const devicePixelRatio = qr.width / window.innerWidth;
+    canvas.width = qr.width;
+    canvas.height = qr.height;
+    canvas.getContext("2d")?.drawImage(qr, 0, 0);
+    const imageData = canvas
+      .getContext("2d")
+      ?.getImageData(
+        left * devicePixelRatio,
+        top * devicePixelRatio,
+        width * devicePixelRatio,
+        height * devicePixelRatio
+      );
+    if (imageData) {
+      canvas.width = imageData.width;
+      canvas.height = imageData.height;
+      canvas.getContext("2d")?.putImageData(imageData, 0, 0);
+
+      const qrReader = new QRCode();
+      qrReader.callback = (
+        error: string,
+        text: {
+          result: string;
+          points: Array<{
+            x: number;
+            y: number;
+            count: number;
+            estimatedModuleSize: number;
+          }>;
+        }
+      ) => {
+        let qrRes = "";
+        if (error) {
+          console.error(error);
+          const jsQrCode = jsQR(
+            imageData.data,
+            imageData.width,
+            imageData.height
+          );
+
+          if (jsQrCode) {
+            qrRes = jsQrCode.data;
+          } else {
+            alert(chrome.i18n.getMessage("errorqr"));
+          }
+        } else {
+          qrRes = text.result;
+        }
+
+        chrome.runtime.sendMessage({
+          action: "getTotp",
+          info: qrRes,
+        });
+      };
+      qrReader.decode(imageData);
+    }
+  };
+  qr.src = url;
 }
 
 function pasteCode(code: string) {

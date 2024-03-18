@@ -2,7 +2,7 @@ export class Permission implements PermissionInterface {
   id: string;
   description: string;
   revocable: boolean;
-  validation?: Array<() => ValidationResult>;
+  validation?: Array<() => ValidationResult | Promise<ValidationResult>>;
 
   constructor(permission: PermissionInterface) {
     this.id = permission.id;

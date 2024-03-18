@@ -1,75 +1,71 @@
 export async function getSiteName() {
-  return new Promise((resolve: (value: Array<string | null>) => void) => {
-    chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-      const tab = tabs[0];
-      const query = new URLSearchParams(document.location.search.substring(1));
+  const tab = await getCurrentTab();
+  const query = new URLSearchParams(document.location.search.substring(1));
 
-      let title: string | null;
-      let url: string | null;
-      const titleFromQuery = query.get("title");
-      const urlFromQuery = query.get("url");
+  let title: string | null;
+  let url: string | null;
+  const titleFromQuery = query.get("title");
+  const urlFromQuery = query.get("url");
 
-      if (titleFromQuery && urlFromQuery) {
-        title = decodeURIComponent(titleFromQuery);
-        url = decodeURIComponent(urlFromQuery);
-      } else {
-        if (!tab) {
-          return resolve([null, null]);
-        }
+  if (titleFromQuery && urlFromQuery) {
+    title = decodeURIComponent(titleFromQuery);
+    url = decodeURIComponent(urlFromQuery);
+  } else {
+    if (!tab) {
+      return [null, null];
+    }
 
-        title = tab.title?.replace(/[^a-z0-9]/gi, "").toLowerCase() ?? null;
-        url = tab.url ?? null;
-      }
+    title = tab.title?.replace(/[^a-z0-9]/gi, "").toLowerCase() ?? null;
+    url = tab.url ?? null;
+  }
 
-      if (!url) {
-        return resolve([title, null]);
-      }
+  if (!url) {
+    return [title, null];
+  }
 
-      const urlParser = new URL(url);
-      const hostname = urlParser.hostname; // it's always lower case
+  const urlParser = new URL(url);
+  const hostname = urlParser.hostname; // it's always lower case
 
-      // try to parse name from hostname
-      // i.e. hostname is www.example.com
-      // name should be example
-      let nameFromDomain = "";
+  // try to parse name from hostname
+  // i.e. hostname is www.example.com
+  // name should be example
+  let nameFromDomain = "";
 
-      // ip address
-      if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
-        nameFromDomain = hostname;
-      }
+  // ip address
+  if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
+    nameFromDomain = hostname;
+  }
 
-      // local network
-      if (hostname.indexOf(".") === -1) {
-        nameFromDomain = hostname;
-      }
+  // local network
+  if (hostname.indexOf(".") === -1) {
+    nameFromDomain = hostname;
+  }
 
-      const hostLevelUnits = hostname.split(".");
+  const hostLevelUnits = hostname.split(".");
 
-      if (hostLevelUnits.length === 2) {
-        nameFromDomain = hostLevelUnits[0];
-      }
+  if (hostLevelUnits.length === 2) {
+    nameFromDomain = hostLevelUnits[0];
+  }
 
+  // www.example.com
+  // example.com.cn
+  if (hostLevelUnits.length > 2) {
+    // example.com.cn
+    if (
+      ["com", "net", "org", "edu", "gov", "co"].indexOf(
+        hostLevelUnits[hostLevelUnits.length - 2]
+      ) !== -1
+    ) {
+      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
+    } else {
       // www.example.com
-      // example.com.cn
-      if (hostLevelUnits.length > 2) {
-        // example.com.cn
-        if (
-          ["com", "net", "org", "edu", "gov", "co"].indexOf(
-            hostLevelUnits[hostLevelUnits.length - 2]
-          ) !== -1
-        ) {
-          nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
-        } else {
-          // www.example.com
-          nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
-        }
-      }
+      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
+    }
+  }
 
-      nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
+  nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
 
-      return resolve([title, nameFromDomain, hostname]);
-    });
-  });
+  return [title, nameFromDomain, hostname];
 }
 
 export function getMatchedEntries(
@@ -138,4 +134,12 @@ function isMatchedEntry(
   }
 
   return false;
+}
+
+export async function getCurrentTab() {
+  const currentWindow = await chrome.windows.getCurrent();
+  const queryOptions = { active: true, windowId: currentWindow.id };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  const [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
 }

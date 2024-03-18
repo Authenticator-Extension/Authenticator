@@ -1,3 +1,5 @@
+// TODO: this is broken because webpack-extension-reloader does not support webpack 5. 
+
 const path = require('path');
 const merge = require('webpack-merge');
 const dev = require('./webpack.dev.js');

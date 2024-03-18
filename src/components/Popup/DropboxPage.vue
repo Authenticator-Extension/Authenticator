@@ -42,7 +42,13 @@ export default Vue.extend({
   data: function () {
     return {
       email: this.i18n.loading,
+      LocalStorage: {} as { [key: string]: any },
     };
+  },
+  created() {
+    chrome.storage.local.get("LocalStorage").then((res) => {
+      this.LocalStorage = res.LocalStorage || {};
+    });
   },
   computed: {
     encryption: function () {
@@ -50,15 +56,17 @@ export default Vue.extend({
     },
     isEncrypted: {
       get(): boolean {
-        if (localStorage.getItem(`${service}Encrypted`) === null) {
+        if (this.LocalStorage[`${service}Encrypted`] === null) {
           this.$store.commit("backup/setEnc", { service, value: true });
-          localStorage[`${service}Encrypted`] = true;
+          this.LocalStorage[`${service}Encrypted`] = true;
+          chrome.storage.local.set({ LocalStorage: this.LocalStorage });
           return true;
         }
         return this.$store.state.backup.dropboxEncrypted;
       },
       set(newValue: string) {
-        localStorage.dropboxEncrypted = newValue;
+        this.LocalStorage.dropboxEncrypted = newValue;
+        chrome.storage.local.set({ LocalStorage: this.LocalStorage });
         this.$store.commit("backup/setEnc", { service, value: newValue });
       },
     },
@@ -76,7 +84,7 @@ export default Vue.extend({
         xhr.open("POST", "https://api.dropboxapi.com/2/auth/token/revoke");
         xhr.setRequestHeader(
           "Authorization",
-          "Bearer " + localStorage.dropboxToken
+          "Bearer " + this.LocalStorage.dropboxToken
         );
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
@@ -86,7 +94,8 @@ export default Vue.extend({
         };
         xhr.send();
       });
-      localStorage.removeItem(`${service}Token`);
+      this.LocalStorage[`${service}Token`] = undefined;
+      chrome.storage.local.set({ LocalStorage: this.LocalStorage });
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
@@ -95,12 +104,16 @@ export default Vue.extend({
       const response = await dbox.upload(this.$store.state.accounts.encryption);
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      } else if (localStorage.dropboxRevoked === "true") {
+      } else if (
+        this.LocalStorage.dropboxRevoked === "true" ||
+        this.LocalStorage.dropboxRevoked === true
+      ) {
         this.$store.commit(
           "notification/alert",
           chrome.i18n.getMessage("token_revoked", ["Dropbox"])
         );
-        localStorage.removeItem("dropboxRevoked");
+        this.LocalStorage.dropboxToken = undefined;
+        chrome.storage.local.set({ LocalStorage: this.LocalStorage });
         this.$store.commit("backup/setToken", { service, value: false });
       } else {
         this.$store.commit("notification/alert", this.i18n.updateFailure);

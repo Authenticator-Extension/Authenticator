@@ -1,5 +1,5 @@
 const path = require("path");
-const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = {
@@ -15,11 +15,8 @@ module.exports = {
     qrdebug: "./src/qrdebug.ts",
     permissions: "./src/permissions.ts",
   },
-  // For argon2-browser & mocha
-  node: {
-    fs: "empty"
-  },
   module: {
+    noParse: /\.wasm$/,
     rules: [
       {
         // argon2-browser overrides
@@ -58,7 +55,11 @@ module.exports = {
   plugins: [
     new VueLoaderPlugin(),
     new ForkTsCheckerWebpackPlugin({
-      vue: true
+      typescript: {
+        extensions: {
+          vue: true
+        }
+      }
     })
   ],
   resolve: {
@@ -72,7 +73,12 @@ module.exports = {
       ".ts",
       ".tsx"
     ],
-    modules: ["node_modules"]
+    modules: ["node_modules"],
+    fallback: {
+      // Stop argon2-browser from trying to bring in node modules
+      fs: false,
+      path: false
+    }
   },
   output: {
     path: path.resolve(__dirname, "dist"),

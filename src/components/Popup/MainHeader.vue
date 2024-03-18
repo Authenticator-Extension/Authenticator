@@ -74,7 +74,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import { OTPEntry } from "../../models/otp";
+import { getCurrentTab } from "../../utils";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -113,8 +113,8 @@ export default Vue.extend({
         windowType = "panel";
       }
       chrome.windows.create({
-        url: chrome.extension.getURL("view/popup.html?popup=true"),
-        type: windowType,
+        url: chrome.runtime.getURL("view/popup.html?popup=true"),
+        type: windowType as chrome.windows.createTypeEnum,
         height: window.innerHeight,
         width: window.innerWidth,
       });
@@ -164,61 +164,44 @@ export default Vue.extend({
         });
       }
 
-      // Insert content script
-      await new Promise(
-        (resolve: (value: void) => void, reject: (reason: Error) => void) => {
-          try {
-            return chrome.tabs.executeScript(
-              { file: "/dist/content.js" },
-              () => {
-                chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-              }
-            );
-          } catch (error) {
-            return reject(error);
-          }
-        }
-      );
-
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
         this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
         return;
       }
 
-      chrome.tabs.query(
-        { active: true, lastFocusedWindow: true },
-        async (tabs) => {
-          const tab = tabs[0];
-          if (!tab || !tab.id) {
+      const tab = await getCurrentTab();
+      // Insert content script
+      if (tab.id) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          files: ["/dist/content.js"],
+        });
+        await chrome.scripting.insertCSS({
+          target: { tabId: tab.id },
+          files: ["/css/content.css"],
+        });
+
+        if (tab.url?.startsWith("file:")) {
+          if (
+            await this.$store.dispatch(
+              "notification/confirm",
+              this.i18n.capture_local_file_failed
+            )
+          ) {
+            window.open("import.html?QrImport", "_blank");
             return;
           }
-
-          if (tab.url?.startsWith("file:")) {
-            if (
-              await this.$store.dispatch(
-                "notification/confirm",
-                this.i18n.capture_local_file_failed
-              )
-            ) {
-              window.open("import.html?QrImport", "_blank");
-              return;
-            }
-          }
-
-          chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
-          chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
-            if (result !== "beginCapture") {
-              this.$store.commit(
-                "notification/alert",
-                this.i18n.capture_failed
-              );
-            } else {
-              window.close();
-            }
-          });
         }
-      );
-      return;
+
+        chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
+        chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
+          if (result !== "beginCapture") {
+            this.$store.commit("notification/alert", this.i18n.capture_failed);
+          } else {
+            window.close();
+          }
+        });
+      }
     },
   },
   components: {

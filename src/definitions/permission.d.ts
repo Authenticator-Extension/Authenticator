@@ -7,5 +7,5 @@ interface PermissionInterface {
   id: string;
   description: string;
   revocable: boolean;
-  validation?: Array<() => ValidationResult>;
+  validation?: Array<() => ValidationResult | Promise<ValidationResult>>;
 }
