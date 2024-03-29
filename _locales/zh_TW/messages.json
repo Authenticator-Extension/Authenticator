@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "匯入QRcode圖片",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
