@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "导入QR图片",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "导入OTP链接",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -471,7 +471,7 @@
         "message": "这是必需的权限，不能撤销。"
     },
     "permission_active_tab": {
-        "message": "访问当前标签页以扫描二维码。"
+        "message": "访问当前标签页以扫描QR码。"
     },
     "permission_storage": {
         "message": "访问浏览器存储以存储帐户数据。"
@@ -486,7 +486,7 @@
         "message": "将身份验证器添加到右键菜单。"
     },
     "permission_all_urls": {
-        "message": "访问所有网站以扫描二维码。"
+        "message": "访问所有网站以扫描QR码。"
     },
     "permission_sync_clock": {
         "message": "允许与 Google 同步时间。"
