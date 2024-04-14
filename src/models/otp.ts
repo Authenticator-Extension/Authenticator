@@ -1,5 +1,6 @@
 import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
+import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 import * as uuid from "uuid/v4";
 
@@ -28,8 +29,6 @@ export enum OTPAlgorithm {
 export interface OTPAlgorithmSpec {
   length: number;
 }
-
-let LocalStorage: { [key: string]: any };
 
 export class OTPUtil {
   static getOTPAlgorithmSpec(otpAlgorithm: OTPAlgorithm): OTPAlgorithmSpec {
@@ -192,14 +191,13 @@ export class OTPEntry implements OTPEntryInterface {
   }
 
   generate() {
-    const offset = LocalStorage ? LocalStorage.offset : 0;
-    if (!LocalStorage) {
+    const offset = UserSettings.items ? UserSettings.items.offset : 0;
+    if (!UserSettings.items) {
       // browser storage is async, so we need to wait for it to load
       // and re-generate the code
       // don't change the code to async, it will break the mutation
       // for Accounts store to export data
-      chrome.storage.local.get("LocalStorage").then((res) => {
-        LocalStorage = res.LocalStorage || {};
+      UserSettings.updateItems().then(() => {
         this.generate();
       });
     }

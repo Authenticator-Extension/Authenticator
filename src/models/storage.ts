@@ -1,30 +1,31 @@
 import { Encryption } from "./encryption";
 import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
 import * as uuid from "uuid/v4";
-
-let LocalStorage: {
-  [key: string]: any;
-};
+import { StorageLocation, UserSettings } from "./settings";
 
 export class BrowserStorage {
-  private static async getStorageLocation() {
-    LocalStorage =
-      (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
-    const managedLocation = await ManagedStorage.get<"sync" | "local">(
+  private static async getStorageLocation(): Promise<
+    StorageLocation | undefined
+  > {
+    await UserSettings.updateItems();
+    const managedLocation = await ManagedStorage.get<StorageLocation>(
       "storageArea"
     );
-    if (managedLocation === "sync" || managedLocation === "local") {
+    if (
+      managedLocation === StorageLocation.Sync ||
+      managedLocation === StorageLocation.Local
+    ) {
       return new Promise((resolve) => {
-        if (LocalStorage.storageLocation !== managedLocation) {
-          LocalStorage.storageLocation = managedLocation;
-          chrome.storage.local.set({ LocalStorage });
+        if (UserSettings.items.storageLocation !== managedLocation) {
+          UserSettings.items.storageLocation = managedLocation;
+          UserSettings.commitItems();
         }
         resolve(managedLocation);
         return;
       });
     } else if (
-      LocalStorage.storageLocation !== "sync" &&
-      LocalStorage.storageLocation !== "local"
+      UserSettings.items.storageLocation !== StorageLocation.Sync &&
+      UserSettings.items.storageLocation !== StorageLocation.Local
     ) {
       return new Promise((resolve, reject) => {
         let amountSync: number;
@@ -40,15 +41,15 @@ export class BrowserStorage {
               // If storage location can't be found try to auto-detect storage
               // location
               if (amountLocal > amountSync && amountSync === 0) {
-                LocalStorage.storageLocation = "local";
+                UserSettings.items.storageLocation = StorageLocation.Local;
               } else if (amountLocal < amountSync && amountLocal === 0) {
-                LocalStorage.storageLocation = "sync";
+                UserSettings.items.storageLocation = StorageLocation.Sync;
               } else {
                 // Use default
-                LocalStorage.storageLocation = "sync";
+                UserSettings.items.storageLocation = StorageLocation.Sync;
               }
-              chrome.storage.local.set({ LocalStorage });
-              resolve(LocalStorage.storageLocation);
+              UserSettings.commitItems();
+              resolve(UserSettings.items.storageLocation);
               return;
             });
           } catch (error) {
@@ -59,7 +60,7 @@ export class BrowserStorage {
       });
     } else {
       return new Promise((resolve) => {
-        resolve(LocalStorage.storageLocation);
+        resolve(UserSettings.items.storageLocation);
         return;
       });
     }
@@ -102,9 +103,9 @@ export class BrowserStorage {
             return;
           };
 
-          if (storageLocation === "local") {
+          if (storageLocation === StorageLocation.Local) {
             chrome.storage.local.get(callback);
-          } else if (storageLocation === "sync") {
+          } else if (storageLocation === StorageLocation.Sync) {
             chrome.storage.sync.get(callback);
           }
           return;
@@ -113,25 +114,22 @@ export class BrowserStorage {
     );
   }
 
-  static async set(data: object, callback?: (() => void) | undefined) {
+  static async set(data: object) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === "local") {
-      chrome.storage.local.set(data, callback);
-    } else if (storageLocation === "sync") {
-      chrome.storage.sync.set(data, callback);
+    if (storageLocation === StorageLocation.Local) {
+      await chrome.storage.local.set(data);
+    } else if (storageLocation === StorageLocation.Sync) {
+      await chrome.storage.sync.set(data);
     }
     return;
   }
 
-  static async remove(
-    data: string | string[],
-    callback?: (() => void) | undefined
-  ) {
+  static async remove(data: string | string[]) {
     const storageLocation = await this.getStorageLocation();
     if (storageLocation === "local") {
-      chrome.storage.local.remove(data, callback);
+      await chrome.storage.local.remove(data);
     } else if (storageLocation === "sync") {
-      chrome.storage.sync.remove(data, callback);
+      await chrome.storage.sync.remove(data);
     }
     return;
   }
@@ -217,7 +215,7 @@ export class EntryStorage {
     const tempEntryArray: OTPStorage[] = [];
 
     for (const hash of Object.keys(_data)) {
-      if (!this.isValidEntry(_data, hash)) {
+      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
         continue;
       }
       tempEntryArray.push(_data[hash]);
@@ -304,7 +302,7 @@ export class EntryStorage {
   static async backupGetExport(encryption: Encryption, encrypted?: boolean) {
     const _data = await BrowserStorage.get();
     for (const hash of Object.keys(_data)) {
-      if (!this.isValidEntry(_data, hash)) {
+      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
         delete _data[hash];
         continue;
       }
@@ -495,7 +493,7 @@ export class EntryStorage {
     const data: OTPEntry[] = [];
 
     for (const hash of Object.keys(_data)) {
-      if (!this.isValidEntry(_data, hash)) {
+      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
         continue;
       }
       const entryData = _data[hash];

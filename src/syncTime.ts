@@ -1,4 +1,8 @@
-export function syncTimeWithGoogle(LocalStorage: { [key: string]: any }) {
+import { UserSettings } from "./models/settings";
+
+export async function syncTimeWithGoogle() {
+  await UserSettings.updateItems();
+
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
       try {
@@ -23,10 +27,10 @@ export function syncTimeWithGoogle(LocalStorage: { [key: string]: any }) {
 
             if (Math.abs(offset) <= 300) {
               // within 5 minutes
-              LocalStorage.offset = Math.round(
+              UserSettings.items.offset = Math.round(
                 (serverTime - clientTime) / 1000
               );
-              chrome.storage.local.set({ LocalStorage });
+              UserSettings.commitItems();
               return resolve("updateSuccess");
             } else {
               return resolve("clock_too_far_off");

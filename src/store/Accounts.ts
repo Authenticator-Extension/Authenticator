@@ -5,6 +5,7 @@ import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
 import { getSiteName, getMatchedEntriesHash } from "../utils";
 import { isChromium } from "../browser";
+import { StorageLocation, UserSettings } from "../models/settings";
 
 export class Accounts implements Module {
   async getModule() {
@@ -13,9 +14,7 @@ export class Accounts implements Module {
     const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
     const entries = shouldShowPassphrase ? [] : await this.getEntries();
 
-    const LocalStorage: {
-      [key: string]: any;
-    } = (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+    await UserSettings.updateItems();
 
     return {
       state: {
@@ -42,8 +41,7 @@ export class Accounts implements Module {
           getters: { matchedEntries: string[] }
         ) {
           return (
-            LocalStorage.smartFilter !== "false" &&
-            LocalStorage.smartFilter !== false &&
+            UserSettings.items.smartFilter !== false &&
             getters.matchedEntries.length
           );
         },
@@ -75,9 +73,9 @@ export class Accounts implements Module {
         },
         updateCodes(state: AccountsState) {
           let second = new Date().getSeconds();
-          if (LocalStorage.offset) {
+          if (UserSettings.items.offset) {
             // prevent second from negative
-            second += Number(LocalStorage.offset) + 60;
+            second += Number(UserSettings.items.offset) + 60;
           }
 
           second = second % 60;
@@ -416,8 +414,8 @@ export class Accounts implements Module {
           }
 
           // remove cached passphrase in old version
-          LocalStorage.encodedPhrase = undefined;
-          chrome.storage.local.remove("encodedPhrase");
+          UserSettings.items.encodedPhrase = undefined;
+          await UserSettings.removeItem("encodedPhrase");
         },
         updateEntries: async (state: ActionContext<AccountsState, {}>) => {
           const entries = await this.getEntries();
@@ -454,11 +452,11 @@ export class Accounts implements Module {
         ) => {
           // sync => local
           if (
-            LocalStorage.storageLocation === "sync" &&
-            newStorageLocation === "local"
+            UserSettings.items.storageLocation === StorageLocation.Sync &&
+            newStorageLocation === StorageLocation.Local
           ) {
             const syncData = await chrome.storage.sync.get();
-            await chrome.storage.local.set(syncData);
+            await chrome.storage.local.set(syncData); // userSettings will be handled later
             const localData = await chrome.storage.local.get();
 
             // Double check if data was set
@@ -467,20 +465,22 @@ export class Accounts implements Module {
                 (value) => Object.keys(localData).indexOf(value) >= 0
               )
             ) {
-              LocalStorage.storageLocation = "local";
+              UserSettings.items.storageLocation = StorageLocation.Local;
               await chrome.storage.sync.clear();
-              await chrome.storage.local.set({ LocalStorage });
+              await chrome.storage.local.set({
+                UserSettings: UserSettings.items,
+              });
               return "updateSuccess";
             } else {
               throw " All data not transferred successfully.";
             }
             // local => sync
           } else if (
-            LocalStorage.storageLocation === "local" &&
-            newStorageLocation === "sync"
+            UserSettings.items.storageLocation === StorageLocation.Local &&
+            newStorageLocation === StorageLocation.Sync
           ) {
             const localData = await chrome.storage.local.get();
-            delete localData.LocalStorage;
+            delete localData.UserSettings;
             await chrome.storage.sync.set(localData);
             const syncData = await chrome.storage.sync.get();
 
@@ -490,9 +490,9 @@ export class Accounts implements Module {
                 (value) => Object.keys(syncData).indexOf(value) >= 0
               )
             ) {
-              LocalStorage.storageLocation = "sync";
+              UserSettings.items.storageLocation = StorageLocation.Sync;
               await chrome.storage.local.clear();
-              await chrome.storage.local.set({ LocalStorage });
+              await UserSettings.commitItems();
               return "updateSuccess";
             } else {
               throw " All data not transferred successfully.";
