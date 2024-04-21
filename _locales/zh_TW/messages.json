@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "匯入QRcode圖片",
+        "message": "匯入 QR 圖片",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "",
+        "message": "匯入 OTP 網址",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -342,7 +342,7 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "登入 (企業)",
+        "message": "登入（企業）",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
@@ -447,7 +447,7 @@
         "message": "資訊"
     },
     "dismiss": {
-        "message": "關閉"
+        "message": "解除"
     },
     "learn_more": {
         "message": "了解更多"
