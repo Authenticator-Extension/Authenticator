@@ -501,7 +501,7 @@
         "message": "امکان تهیه نسخه پشتیبان در Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "ابتدا باید پشتیبان گیری OneDrive را غیرفعال کنید."
+        "message": "ابتدا باید پشتیبان‌گیری Google Drive را غیرفعال کنید."
     },
     "permission_onedrive": {
         "message": "امکان تهیه نسخه پشتیبان در OneDrive."
