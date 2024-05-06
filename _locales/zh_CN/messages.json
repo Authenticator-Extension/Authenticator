@@ -489,10 +489,10 @@
         "message": "访问所有网站以扫描QR码。"
     },
     "permission_sync_clock": {
-        "message": "允许与 Google 同步时间。"
+        "message": "允许与 Google 同步时间"
     },
     "permission_dropbox": {
-        "message": "允许备份到 Dropbox。"
+        "message": "允许备份到 Dropbox"
     },
     "permission_dropbox_cannot_revoke": {
         "message": "您必须先停用 Dropbox 备份。"
