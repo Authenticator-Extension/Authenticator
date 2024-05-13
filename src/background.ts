@@ -8,15 +8,12 @@ import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
+import { UserSettings } from "./models/settings";
 
 let contentTab: chrome.tabs.Tab | undefined;
-let LocalStorage: {
-  [key: string]: any;
-};
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
-  LocalStorage =
-    (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
+  await UserSettings.updateItems();
 
   if (message.action === "getCapture") {
     if (!sender.tab) {
@@ -273,8 +270,8 @@ function getBackupToken(service: string) {
         if (!value) {
           return false;
         }
-        LocalStorage.driveToken = value;
-        chrome.storage.local.set({ LocalStorage });
+        UserSettings.items.driveToken = value;
+        UserSettings.commitItems();
         chrome.runtime.sendMessage({ action: "drivetoken", value });
         return true;
       }
@@ -308,10 +305,7 @@ function getBackupToken(service: string) {
       authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
         getCredentials().onedrive.client_id
       }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-        LocalStorage.oneDriveBusiness !== "true" &&
-        LocalStorage.oneDriveBusiness !== true
-          ? ".AppFolder"
-          : ""
+        UserSettings.items.oneDriveBusiness !== true ? ".AppFolder" : ""
       }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
     }
     chrome.identity.launchWebAuthFlow(
@@ -345,8 +339,8 @@ function getBackupToken(service: string) {
             const value = kvMatches[2];
             if (key === "access_token") {
               if (service === "dropbox") {
-                LocalStorage.dropboxToken = value;
-                chrome.storage.local.set({ LocalStorage });
+                UserSettings.items.dropboxToken = value;
+                UserSettings.commitItems();
                 uploadBackup("dropbox");
                 return;
               }
@@ -379,9 +373,9 @@ function getBackupToken(service: string) {
                   if (res.error) {
                     console.error(res.error_description);
                   } else {
-                    LocalStorage.driveToken = res.access_token;
-                    LocalStorage.driveRefreshToken = res.refresh_token;
-                    chrome.storage.local.set({ LocalStorage });
+                    UserSettings.items.driveToken = res.access_token;
+                    UserSettings.items.driveRefreshToken = res.refresh_token;
+                    UserSettings.commitItems();
                     success = true;
                   }
                 } catch (error) {
@@ -412,9 +406,9 @@ function getBackupToken(service: string) {
                   if (res.error) {
                     console.error(res.error_description);
                   } else {
-                    LocalStorage.oneDriveToken = res.access_token;
-                    LocalStorage.oneDriveRefreshToken = res.refresh_token;
-                    chrome.storage.local.set({ LocalStorage });
+                    UserSettings.items.oneDriveToken = res.access_token;
+                    UserSettings.items.oneDriveRefreshToken = res.refresh_token;
+                    UserSettings.commitItems();
                     success = true;
                   }
                 } catch (error) {
@@ -558,27 +552,21 @@ async function setAutolock() {
     return;
   }
 
-  if (Number(LocalStorage.autolock) > 0) {
+  if (Number(UserSettings.items.autolock) > 0) {
     chrome.alarms.create("autolock", {
-      delayInMinutes: Number(LocalStorage.autolock),
+      delayInMinutes: Number(UserSettings.items.autolock),
     });
   }
 }
 
 async function updateContextMenu() {
-  LocalStorage =
-    (await chrome.storage.local.get("LocalStorage")).LocalStorage || {};
-
   chrome.permissions.contains(
     {
       permissions: ["contextMenus"],
     },
     (result) => {
       if (result) {
-        if (
-          LocalStorage.enableContextMenu === "true" ||
-          LocalStorage.enableContextMenu === true
-        ) {
+        if (UserSettings.items.enableContextMenu === true) {
           chrome.contextMenus.removeAll();
           chrome.contextMenus.create({
             id: "otpContextMenu",

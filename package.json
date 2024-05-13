@@ -24,7 +24,7 @@
   "devDependencies": {
     "@types/argon2-browser": "^1.18.1",
     "@types/chai": "^4.2.14",
-    "@types/chrome": "^0.0.210",
+    "@types/chrome": "^0.0.266",
     "@types/crypto-js": "^4.1.1",
     "@types/mocha": "^10.0.6",
     "@types/sinon": "^17.0.2",

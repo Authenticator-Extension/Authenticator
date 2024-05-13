@@ -63,6 +63,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { isFirefox, isSafari } from "../../browser";
+import { UserSettings } from "../../models/settings";
 
 export default Vue.extend({
   computed: {
@@ -148,9 +149,10 @@ export default Vue.extend({
     };
   },
   created() {
-    chrome.storage.local.get("LocalStorage").then((res) => {
+    UserSettings.updateItems().then(() => {
       this.newStorageLocation =
-        this.$store.state.menu.storageArea || res.LocalStorage?.storageLocation;
+        this.$store.state.menu.storageArea ||
+        UserSettings.items.storageLocation;
     });
   },
   methods: {

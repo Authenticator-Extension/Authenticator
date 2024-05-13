@@ -88,6 +88,7 @@ import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
+import { UserSettings } from "../../models/settings";
 
 export default Vue.extend({
   components: {
@@ -154,10 +155,8 @@ export default Vue.extend({
         { origins: ["https://www.google.com/"] },
         async (granted) => {
           if (granted) {
-            let LocalStorage =
-              (await chrome.storage.local.get("LocalStorage")).LocalStorage ||
-              {};
-            const message = await syncTimeWithGoogle(LocalStorage);
+            await UserSettings.updateItems();
+            const message = await syncTimeWithGoogle();
             this.$store.commit("notification/alert", this.i18n[message]);
           }
           return;
