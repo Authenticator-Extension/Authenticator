@@ -67,10 +67,8 @@ export class BrowserStorage {
   }
 
   // TODO: promise this
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static async get() {
     const storageLocation = await this.getStorageLocation();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const removeKey = function (items: { [key: string]: OTPStorage }): void {
       delete items.key;
       delete items.LocalStorage;
