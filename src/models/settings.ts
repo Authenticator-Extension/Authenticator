@@ -68,7 +68,6 @@ export class UserSettings {
 
     for (const key in data) {
       if (
-        key in
         [
           "autofill",
           "driveEncrypted",
@@ -79,19 +78,35 @@ export class UserSettings {
           "oneDriveBusiness",
           "oneDriveEncrypted",
           "oneDriveRevoked",
-          "highContrast",
           "smartFilter",
           "enableContextMenu",
-        ]
+        ].includes(key)
       ) {
-        data[key] = data[key] === "true";
-      } else if (key in ["autolock", "lastRemindingBackupTime", "offset", "zoom"]) {
-        data[key] = Number(data[key]);
-      } else if (key in ["advisorIgnoreList"]) {
-        data[key] = JSON.parse(data[key]);
+        settings[
+          key as
+            | "autofill"
+            | "driveEncrypted"
+            | "driveRevoked"
+            | "dropboxEncrypted"
+            | "dropboxRevoked"
+            | "enableContextMenu"
+            | "oneDriveBusiness"
+            | "oneDriveEncrypted"
+            | "oneDriveRevoked"
+            | "smartFilter"
+            | "enableContextMenu"
+        ] = data[key] === "true";
+      } else if (
+        ["autolock", "lastRemindingBackupTime", "offset", "zoom"].includes(key)
+      ) {
+        settings[
+          key as "autolock" | "lastRemindingBackupTime" | "offset" | "zoom"
+        ] = Number(data[key]);
+      } else if (["advisorIgnoreList"].includes(key)) {
+        settings[key as "advisorIgnoreList"] = JSON.parse(data[key]);
+      } else {
+        settings[key as keyof UserSettingsData] = data[key];
       }
-
-      settings[key as keyof UserSettingsData] = data[key];
     }
 
     settings.storageLocation = location;
