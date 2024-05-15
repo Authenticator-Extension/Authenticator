@@ -67,27 +67,31 @@ export class UserSettings {
     const settings: UserSettingsData = {};
 
     for (const key in data) {
-      if (LocalUserSettingsDataKeys.includes(key)) {
-        if (
-          key in
-          [
-            "driveEncrypted",
-            "dropboxEncrypted",
-            "oneDriveEncrypted",
-            "highContrast",
-            "smartFilter",
-            "enableContextMenu",
-          ]
-        ) {
-          data[key] = data[key] === "true";
-        } else if (key in ["autolock", "offset", "zoom"]) {
-          data[key] = Number(data[key]);
-        } else if (key in ["advisorIgnoreList"]) {
-          data[key] = JSON.parse(data[key]);
-        }
-
-        settings[key as keyof UserSettingsData] = data[key];
+      if (
+        key in
+        [
+          "autofill",
+          "driveEncrypted",
+          "driveRevoked",
+          "dropboxEncrypted",
+          "dropboxRevoked",
+          "enableContextMenu",
+          "oneDriveBusiness",
+          "oneDriveEncrypted",
+          "oneDriveRevoked",
+          "highContrast",
+          "smartFilter",
+          "enableContextMenu",
+        ]
+      ) {
+        data[key] = data[key] === "true";
+      } else if (key in ["autolock", "lastRemindingBackupTime", "offset", "zoom"]) {
+        data[key] = Number(data[key]);
+      } else if (key in ["advisorIgnoreList"]) {
+        data[key] = JSON.parse(data[key]);
       }
+
+      settings[key as keyof UserSettingsData] = data[key];
     }
 
     settings.storageLocation = location;
