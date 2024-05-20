@@ -7,6 +7,7 @@
     "dev:chrome": "npm run pretest && webpack --config ./webpack.watch.js",
     "chrome": "bash scripts/build.sh chrome",
     "firefox": "bash scripts/build.sh firefox",
+    "edge": "bash scripts/build.sh edge",
     "prod": "bash scripts/build.sh prod",
     "pretest": "bash scripts/build.sh test",
     "test": "node scripts/test-runner.js"

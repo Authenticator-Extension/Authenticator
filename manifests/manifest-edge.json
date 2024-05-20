@@ -41,16 +41,12 @@
         ]
     },
     "background": {
-        "scripts": [
-            "dist/background.js"
-        ],
-        "persistent": true
+        "service_worker": "dist/background.js"
     },
     "sandbox": {
         "pages": [
             "view/argon.html"
-        ],
-        "content_security_policy": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+        ]
     },
     "permissions": [
         "activeTab",
