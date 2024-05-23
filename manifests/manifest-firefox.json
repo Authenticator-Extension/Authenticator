@@ -43,14 +43,16 @@
         "open_in_tab": false
     },
     "permissions": [
+        "activeTab",
         "storage",
         "identity",
         "alarms",
         "scripting"
     ],
     "optional_permissions": [
-        "<all_urls>",
-        "clipboardWrite",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",
