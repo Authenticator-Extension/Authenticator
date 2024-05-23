@@ -58,36 +58,6 @@ chrome.alarms.onAlarm.addListener(() => {
   chrome.runtime.sendMessage({ action: "stopImport" });
 });
 
-chrome.permissions.contains(
-  { permissions: ["contextMenus"] },
-  (hasPermission) => {
-    if (hasPermission) {
-      chrome.contextMenus.onClicked.addListener((info, tab) => {
-        let popupUrl = "view/popup.html?popup=true";
-        if (tab && tab.url && tab.title) {
-          popupUrl +=
-            "&url=" +
-            encodeURIComponent(tab.url) +
-            "&title=" +
-            encodeURIComponent(tab.title);
-        }
-        let windowType;
-        if (isFirefox) {
-          windowType = "detached_panel";
-        } else {
-          windowType = "panel";
-        }
-        chrome.windows.create({
-          url: chrome.runtime.getURL(popupUrl),
-          type: windowType as chrome.windows.createTypeEnum,
-          height: 400,
-          width: 320,
-        });
-      });
-    }
-  }
-);
-
 async function getCapture(tab: chrome.tabs.Tab) {
   const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, {
     format: "png",
@@ -572,6 +542,28 @@ async function updateContextMenu() {
             id: "otpContextMenu",
             title: chrome.i18n.getMessage("extName"),
             contexts: ["all"],
+          });
+          chrome.contextMenus.onClicked.addListener((info, tab) => {
+            let popupUrl = "view/popup.html?popup=true";
+            if (tab && tab.url && tab.title) {
+              popupUrl +=
+                "&url=" +
+                encodeURIComponent(tab.url) +
+                "&title=" +
+                encodeURIComponent(tab.title);
+            }
+            let windowType;
+            if (isFirefox) {
+              windowType = "detached_panel";
+            } else {
+              windowType = "panel";
+            }
+            chrome.windows.create({
+              url: chrome.runtime.getURL(popupUrl),
+              type: windowType as chrome.windows.createTypeEnum,
+              height: 400,
+              width: 320,
+            });
           });
         } else {
           chrome.contextMenus.removeAll();

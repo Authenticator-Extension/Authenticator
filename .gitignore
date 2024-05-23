@@ -1,8 +1,8 @@
 node_modules
 build
-chrome
-firefox
-edge
+chrome*
+firefox*
+edge*
 dist
 .vscode
 .atom-build.yml
