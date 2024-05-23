@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "コンテキストメニューに認証システムを追加します。"
     },
-    "permission_all_urls": {
-        "message": "すべてのウェブサイトにアクセスしてQRコードをスキャンします。"
-    },
     "permission_sync_clock": {
         "message": "Google との時刻の同期を許可します。"
     },

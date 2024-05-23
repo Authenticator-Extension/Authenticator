@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Додає автентифікатор до контекстного меню."
     },
-    "permission_all_urls": {
-        "message": "Доступ до всіх вебсайтів для сканування QR-кодів."
-    },
     "permission_sync_clock": {
         "message": "Дозволяє синхронізувати годинник з Google."
     },

@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Foeget Authenticator ta oan kontekstmenu."
     },
-    "permission_all_urls": {
-        "message": "Tagong ta alle websites om QR-koaden te scannen."
-    },
     "permission_sync_clock": {
         "message": "Tiidssyngronisaasje mei Google tastean."
     },

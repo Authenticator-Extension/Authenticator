@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Authenticator را به منوی context اضافه می کند."
     },
-    "permission_all_urls": {
-        "message": "دسترسی به تمام وب سایت ها برای اسکن کدهای QR."
-    },
     "permission_sync_clock": {
         "message": "اجازه همگام سازی ساعت با Google را می دهد."
     },

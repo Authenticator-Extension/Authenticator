@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Добавляет аутентификатор в меню контекста."
     },
-    "permission_all_urls": {
-        "message": "Доступ ко всем сайтам для сканирования QR-кодов."
-    },
     "permission_sync_clock": {
         "message": "Позволяет синхронизировать часы с Google."
     },

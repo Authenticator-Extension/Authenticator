@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Dodaje dodatek Authenticator do menu kontekstowego."
     },
-    "permission_all_urls": {
-        "message": "Dostęp do wszystkich stron internetowych w celu skanowania kodów QR."
-    },
     "permission_sync_clock": {
         "message": "Umożliwia synchronizację zegara z Google."
     },

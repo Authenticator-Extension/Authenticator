@@ -152,17 +152,6 @@ export default Vue.extend({
         this.$store.commit("currentView/changeView", "SetPasswordPage");
         return;
       }
-      // Request permissions
-      if (isFirefox) {
-        await new Promise((resolve: (value: void) => void) => {
-          chrome.permissions.request(
-            { origins: ["<all_urls>"] },
-            async (granted) => {
-              resolve();
-            }
-          );
-        });
-      }
 
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
         this.$store.commit("notification/alert", this.i18n.phrase_incorrect);

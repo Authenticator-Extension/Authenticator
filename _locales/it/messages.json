@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Aggiungi Authenticatori al menu contestuale."
     },
-    "permission_all_urls": {
-        "message": "Accedi a tutti i siti web per scansionare i codici QR."
-    },
     "permission_sync_clock": {
         "message": "Consenti la sincronizzazione dell'orario con Google."
     },

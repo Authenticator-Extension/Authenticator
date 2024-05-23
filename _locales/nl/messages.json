@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Voegt Authenticator toe aan contextmenu."
     },
-    "permission_all_urls": {
-        "message": "Toegang tot alle websites om QR-codes te scannen."
-    },
     "permission_sync_clock": {
         "message": "Tijdssynchronisatie met Google toestaan."
     },

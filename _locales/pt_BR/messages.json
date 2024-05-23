@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Adiciona o Autenticador ao menu de contexto."
     },
-    "permission_all_urls": {
-        "message": "Acesso a todos os sites para escanear códigos QR."
-    },
     "permission_sync_clock": {
         "message": "Permite a sincronização de relógio com o Google."
     },

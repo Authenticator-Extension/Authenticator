@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Adds Authenticator to context menu."
     },
-    "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
-    },
     "permission_sync_clock": {
         "message": "Tillåter klocksynkronisering med Google."
     },

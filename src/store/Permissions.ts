@@ -38,11 +38,6 @@ const permissions: Permission[] = [
     revocable: true,
   },
   {
-    id: "<all_urls>",
-    description: chrome.i18n.getMessage("permission_all_urls"),
-    revocable: true,
-  },
-  {
     id: "https://www.google.com/*",
     description: chrome.i18n.getMessage("permission_sync_clock"),
     revocable: true,

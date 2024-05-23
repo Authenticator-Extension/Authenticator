@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
     },
-    "permission_all_urls": {
-        "message": "QR kodlarını taramak için tüm web sitelerine erişin."
-    },
     "permission_sync_clock": {
         "message": "Google ile saat eşitlemesine izin verir."
     },
