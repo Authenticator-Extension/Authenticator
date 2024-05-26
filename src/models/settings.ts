@@ -120,7 +120,9 @@ export class UserSettings {
 
     if (storageLocation === StorageLocation.Local) {
       await chrome.storage[storageLocation].set({
-        UserSettings: UserSettings.items,
+        // JSON.parse(JSON.stringify()) strips functions (e.g. getItem, setItem, ...) which may have been added to the object.
+        // Without this, a crash may occur as chrome.storage throws an error when trying to serialize a function.
+        UserSettings: JSON.parse(JSON.stringify(UserSettings.items)),
       });
     } else {
       const { syncableSettings, localSettings } = UserSettings.splitSettings(
@@ -129,10 +131,10 @@ export class UserSettings {
 
       await Promise.all([
         chrome.storage[StorageLocation.Local].set({
-          UserSettings: localSettings,
+          UserSettings: JSON.parse(JSON.stringify(localSettings)),
         }),
         chrome.storage[StorageLocation.Sync].set({
-          UserSettings: syncableSettings,
+          UserSettings: JSON.parse(JSON.stringify(syncableSettings)),
         }),
       ]);
     }
