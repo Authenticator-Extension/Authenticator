@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Επιτρέπει τη σύνδεση σε υπηρεσίες αποθήκευσης τρίτων."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
     },
     "permission_context_menus": {
         "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
-    },
-    "permission_all_urls": {
-        "message": "Πρόσβαση σε όλες τις ιστοσελίδες για σάρωση κωδικών QR."
     },
     "permission_sync_clock": {
         "message": "Επιτρέπει τον συγχρονισμό ρολογιού με την Google."
