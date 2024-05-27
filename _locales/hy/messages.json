@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Թույլատրում է մուտք գործել հիշողության ծառայություններ"
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Թույլատրում է փոփոխություններ կատարել կցատարում՝ հաշիվների կոդերը պատճենելու համար"
     },
     "permission_context_menus": {
         "message": "Ավելացնում է «Authenticator»-ը՝ կոնտեքստ ընտրացանկում"
-    },
-    "permission_all_urls": {
-        "message": "Մատչում բոլոր կայքէջերին՝ QR-կոդի սկանավորման համար"
     },
     "permission_sync_clock": {
         "message": "Թույլատրում է համաժամեցում՝ «Google»-ից"
