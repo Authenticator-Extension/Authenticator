@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "제삼자 저장 서비스에 로그인할 수 있게 해요."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
     },
     "permission_context_menus": {
         "message": "컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
-    },
-    "permission_all_urls": {
-        "message": "QR 코드 스캔을 위해 모든 웹 사이트에 접근할 수 있게 해요."
     },
     "permission_sync_clock": {
         "message": "Google과 시간 동기화를 허용해요."
