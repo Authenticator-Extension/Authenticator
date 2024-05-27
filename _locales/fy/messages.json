@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Oanmelden by ûnthâldtsjinsten fan tredden tastean."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Jout allinnich-skriuwrjochttagong ta it klamboerd om koaden nei it klamboerd te kopiearjen wannear’t jo op de account klikke."
     },
     "permission_context_menus": {
         "message": "Foeget Authenticator ta oan kontekstmenu."
-    },
-    "permission_all_urls": {
-        "message": "Tagong ta alle websites om QR-koaden te scannen."
     },
     "permission_sync_clock": {
         "message": "Tiidssyngronisaasje mei Google tastean."
