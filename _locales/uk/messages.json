@@ -480,10 +480,10 @@
         "message": "Дозволяє вхід до сервісів сторонніх сховищ."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Дозволяє роботу автоматичного блокування."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Вставте сценарії в поточну вкладку, щоб сканувати QR-коди та дозволити роботу автозаповнення."
     },
     "permission_clipboard_write": {
         "message": "Надає доступ лише до запису до буфера обміну для копіювання кодів в буфер обміну, коли ви клацаєте на нього в обліковому записі."
