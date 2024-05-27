@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Consenti l'accesso a servizi d'archiviazione di terze parti."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
     },
     "permission_context_menus": {
         "message": "Aggiungi Authenticatori al menu contestuale."
-    },
-    "permission_all_urls": {
-        "message": "Accedi a tutti i siti web per scansionare i codici QR."
     },
     "permission_sync_clock": {
         "message": "Consenti la sincronizzazione dell'orario con Google."
