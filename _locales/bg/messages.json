@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Позволи вход в услуги за съхранение на 3-ти страни."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Дава само write-only достъп до клавиатурата с цел копиране на кодове в клипборда, когато кликнете върху акаунта."
     },
     "permission_context_menus": {
         "message": "Добавя Удостоверител в контекстното меню."
-    },
-    "permission_all_urls": {
-        "message": "Достъп до всички уебсайтове за сканиране на QR кодове."
     },
     "permission_sync_clock": {
         "message": "Позволява синхронизация на часовника с Google."
