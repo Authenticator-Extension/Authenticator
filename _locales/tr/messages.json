@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Üçüncü taraf depolama hizmetlerinde oturum açmaya izin verir."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Hesaba tıkladığınızda kodları panoya kopyalamak için panoya yalnızca yazma erişimi verir."
     },
     "permission_context_menus": {
         "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
-    },
-    "permission_all_urls": {
-        "message": "Karekodları taramak için tüm web sitelerine erişim."
     },
     "permission_sync_clock": {
         "message": "Google ile saat eşitlemesine izin verir."
