@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
     },
     "permission_context_menus": {
         "message": "Ajoute Authenticator au menu contextuel."
-    },
-    "permission_all_urls": {
-        "message": "Accès à tous les sites web pour scanner les codes QR."
     },
     "permission_sync_clock": {
         "message": "Autoriser la synchronisation de l'horloge avec Google."
