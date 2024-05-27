@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
     },
     "permission_context_menus": {
         "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
-    },
-    "permission_all_urls": {
-        "message": "Minden internet oldal elérése QR-kód beolvasáshoz."
     },
     "permission_sync_clock": {
         "message": "Óra szinkronizálás engedélyezése Google által."
