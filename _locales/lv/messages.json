@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Ļauj autorizēties trešās puses krātuves pakalpojumos."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Piešķir tikai rakstīšanas piekļuvi starpliktuvei, lai varētu kopēt kodus starpliktuvē, kad noklikšķināt uz konta."
     },
     "permission_context_menus": {
         "message": "Pievieno Divpakāpju kodu ģeneratoru konteksta izvēlnei."
-    },
-    "permission_all_urls": {
-        "message": "Piekļuve visām vietnēm, lai varētu nolasīt kvadrātkodus (QR kodus)."
     },
     "permission_sync_clock": {
         "message": "Atļauj sinhronizēt laiku ar Google."
