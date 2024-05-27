@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "তৃতীয় পক্ষের ক্লাউড স্টোরএজ সেবায় যুক্ত হওয়ার অনুমতি। "
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "আপনি যখন অ্যাকাউন্টে ক্লিক করেন তখন ক্লিপবোর্ডে কোডটি কপি করতে ক্লিপবোর্ডে শুধুমাত্র লেখার অ্যাক্সেস প্রদান করে।"
     },
     "permission_context_menus": {
         "message": "কনট্যাক্স মেনু তে অথেন্টিকেটর যুক্ত করুন। "
-    },
-    "permission_all_urls": {
-        "message": "কিউআর কোডটি স্ক্যান করার জন্য সকল ওয়েবসাইট অ্যাক্সেস করুন।"
     },
     "permission_sync_clock": {
         "message": "গুগল এর সাথে ঘড়ি সিঙ্ক করুন।"
