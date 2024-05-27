@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Tillåt inloggning till lagringstjänster från tredje part."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Ger enbart skrivbehörighet till urklipp för att kopiera koder till urklipp när du klickar på kontot."
     },
     "permission_context_menus": {
         "message": "Lägger till Authenticator till snabbvalsmenyn."
-    },
-    "permission_all_urls": {
-        "message": "Åtkomst till alla webbplatser för att skanna QR-koder."
     },
     "permission_sync_clock": {
         "message": "Tillåter klocksynkronisering med Google."
