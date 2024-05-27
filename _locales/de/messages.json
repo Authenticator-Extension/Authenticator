@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Einloggen bei externen Speicherdiensten zulassen."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
     },
     "permission_context_menus": {
         "message": "Fügt Authenticator dem Kontextmenü hinzu."
-    },
-    "permission_all_urls": {
-        "message": "Zugriff auf alle Webseiten, um QR-Codes zu scannen."
     },
     "permission_sync_clock": {
         "message": "Synchronisierung mit Google zulassen."
