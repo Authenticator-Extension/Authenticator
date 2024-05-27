@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Leidžia prisijungti prie trečiosios šalies saugojimo paslaugų."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Suteikiama tik rašymo prieiga prie iškarpinės, kad, spustelėjus paskyrą, kodai būtų kopijuojami į iškarpinę."
     },
     "permission_context_menus": {
         "message": "Į kontekstinį meniu įtraukiamas autentifikatorius."
-    },
-    "permission_all_urls": {
-        "message": "Prieiga prie visų svetainių, kuriose galima nuskaityti QR kodus."
     },
     "permission_sync_clock": {
         "message": "Leidžia sinchronizuoti laikrodį su \"Google\"."
