@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Permet iniciar sessió en serveis d'emmagatzematge de tercers."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Atorga accés només d'escriptura al porta-retalls per copiar codis al porta-retalls quan feu clic al compte."
     },
     "permission_context_menus": {
         "message": "Afegeix Authenticator al menú contextual."
-    },
-    "permission_all_urls": {
-        "message": "Accés a tots els llocs web per escanejar codis QR."
     },
     "permission_sync_clock": {
         "message": "Permet la sincronització del rellotge amb Google."
