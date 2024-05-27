@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Umožňuje přihlášení ke službám úložiště třetích stran."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Umožňuje přístup do schránky pouze pro zápis a kopírování kódů do schránky po kliknutí na účet."
     },
     "permission_context_menus": {
         "message": "Přidá Authenticator do kontextové nabídky."
-    },
-    "permission_all_urls": {
-        "message": "Přístup ke všem webům pro skenování QR kódů."
     },
     "permission_sync_clock": {
         "message": "Umožnit synchronizaci hodin s Google."
