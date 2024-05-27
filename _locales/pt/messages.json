@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Allows sign in to 3rd party storage services."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
     },
     "permission_context_menus": {
         "message": "Adds Authenticator to context menu."
-    },
-    "permission_all_urls": {
-        "message": "Access to all websites to scan QR codes."
     },
     "permission_sync_clock": {
         "message": "Allows clock sync with Google."
