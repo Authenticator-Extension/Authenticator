@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "اجازه ورود به سرویس‌های ذخیره‌سازی شخص ثالث."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "وقتی روی حساب کلیک می‌کنید، به کلیپ‌بورد دسترسی فقط نوشتنی برای کپی کردن کدها در کلیپ‌بورد می‌دهد."
     },
     "permission_context_menus": {
         "message": "Authenticator را به منوی context اضافه می کند."
-    },
-    "permission_all_urls": {
-        "message": "دسترسی به تمام وب سایت ها برای اسکن کدهای QR."
     },
     "permission_sync_clock": {
         "message": "اجازه همگام سازی ساعت با Google را می دهد."
