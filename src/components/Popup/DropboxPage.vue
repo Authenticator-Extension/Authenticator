@@ -35,6 +35,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Dropbox } from "../../models/backup";
+import { UserSettings } from "../../models/settings";
 
 const service = "dropbox";
 
@@ -44,21 +45,26 @@ export default Vue.extend({
       email: this.i18n.loading,
     };
   },
+  created() {
+    UserSettings.updateItems();
+  },
   computed: {
     encryption: function () {
       return this.$store.state.accounts.encryption;
     },
     isEncrypted: {
       get(): boolean {
-        if (localStorage.getItem(`${service}Encrypted`) === null) {
+        if (UserSettings.items[`${service}Encrypted`] === null) {
           this.$store.commit("backup/setEnc", { service, value: true });
-          localStorage[`${service}Encrypted`] = true;
+          UserSettings.items[`${service}Encrypted`] = true;
+          UserSettings.commitItems();
           return true;
         }
         return this.$store.state.backup.dropboxEncrypted;
       },
       set(newValue: string) {
-        localStorage.dropboxEncrypted = newValue;
+        UserSettings.items.dropboxEncrypted = newValue === "true";
+        UserSettings.commitItems();
         this.$store.commit("backup/setEnc", { service, value: newValue });
       },
     },
@@ -76,7 +82,7 @@ export default Vue.extend({
         xhr.open("POST", "https://api.dropboxapi.com/2/auth/token/revoke");
         xhr.setRequestHeader(
           "Authorization",
-          "Bearer " + localStorage.dropboxToken
+          "Bearer " + UserSettings.items.dropboxToken
         );
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
@@ -86,7 +92,7 @@ export default Vue.extend({
         };
         xhr.send();
       });
-      localStorage.removeItem(`${service}Token`);
+      UserSettings.removeItem(`${service}Token`);
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
@@ -95,12 +101,12 @@ export default Vue.extend({
       const response = await dbox.upload(this.$store.state.accounts.encryption);
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      } else if (localStorage.dropboxRevoked === "true") {
+      } else if (UserSettings.items.dropboxRevoked === true) {
         this.$store.commit(
           "notification/alert",
           chrome.i18n.getMessage("token_revoked", ["Dropbox"])
         );
-        localStorage.removeItem("dropboxRevoked");
+        UserSettings.removeItem("dropboxToken");
         this.$store.commit("backup/setToken", { service, value: false });
       } else {
         this.$store.commit("notification/alert", this.i18n.updateFailure);

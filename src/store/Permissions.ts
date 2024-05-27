@@ -1,4 +1,5 @@
 import { Permission } from "../models/permission";
+import { UserSettings } from "../models/settings";
 
 const permissions: Permission[] = [
   {
@@ -17,6 +18,16 @@ const permissions: Permission[] = [
     revocable: false,
   },
   {
+    id: "alarms",
+    description: chrome.i18n.getMessage("permission_alarms"),
+    revocable: false,
+  },
+  {
+    id: "scripting",
+    description: chrome.i18n.getMessage("permission_scripting"),
+    revocable: false,
+  },
+  {
     id: "clipboardWrite",
     description: chrome.i18n.getMessage("permission_clipboard_write"),
     revocable: true,
@@ -24,11 +35,6 @@ const permissions: Permission[] = [
   {
     id: "contextMenus",
     description: chrome.i18n.getMessage("permission_context_menus"),
-    revocable: true,
-  },
-  {
-    id: "<all_urls>",
-    description: chrome.i18n.getMessage("permission_all_urls"),
     revocable: true,
   },
   {
@@ -41,8 +47,9 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_dropbox"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.dropboxToken !== undefined) {
+      async () => {
+        await UserSettings.updateItems();
+        if (UserSettings.items.dropboxToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_dropbox_cannot_revoke"),
@@ -59,8 +66,9 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_drive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.driveToken !== undefined) {
+      async () => {
+        await UserSettings.updateItems();
+        if (UserSettings.items.driveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_drive_cannot_revoke"),
@@ -77,8 +85,9 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_drive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.driveToken !== undefined) {
+      async () => {
+        await UserSettings.updateItems();
+        if (UserSettings.items.driveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage("permission_drive_cannot_revoke"),
@@ -95,8 +104,9 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_onedrive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.oneDriveToken !== undefined) {
+      async () => {
+        await UserSettings.updateItems();
+        if (UserSettings.items.oneDriveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage(
@@ -115,8 +125,9 @@ const permissions: Permission[] = [
     description: chrome.i18n.getMessage("permission_onedrive"),
     revocable: true,
     validation: [
-      () => {
-        if (localStorage.oneDriveToken !== undefined) {
+      async () => {
+        await UserSettings.updateItems();
+        if (UserSettings.items.oneDriveToken !== undefined) {
           return {
             valid: false,
             message: chrome.i18n.getMessage(
@@ -145,13 +156,17 @@ export class Permissions implements Module {
         ) => {
           const permissionObject = this.getPermissionById(permissionId);
           const validators = permissionObject.validation ?? [];
-          const validationResults = validators
-            .map((validator) => validator())
-            .filter((result) => !result.valid);
+          const validationResults = (
+            await Promise.all(
+              validators.map(async (validator) => await validator())
+            )
+          ).filter((result) => !result.valid);
 
           if (validationResults.length > 0) {
-            const messages = validationResults.map(
-              (result) => "• " + result.message
+            const messages = await Promise.all(
+              validationResults.map(
+                async (result) => "• " + (await result).message
+              )
             );
             alert(messages.join("\n"));
             return;

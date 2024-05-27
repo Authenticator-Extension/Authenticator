@@ -73,7 +73,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { syncTimeWithGoogle } from "../../popup";
+import { syncTimeWithGoogle } from "../../syncTime";
 
 import IconArrowLeft from "../../../svg/arrow-left.svg";
 import IconInfo from "../../../svg/info.svg";
@@ -88,6 +88,7 @@ import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
+import { UserSettings } from "../../models/settings";
 
 export default Vue.extend({
   components: {
@@ -121,7 +122,7 @@ export default Vue.extend({
     openHelp() {
       let url = "https://otp.ee/chromeissues";
 
-      if (isFirefox) {
+      if (navigator.userAgent.indexOf("Firefox") !== -1) {
         url = "https://otp.ee/firefoxissues";
       } else if (navigator.userAgent.indexOf("Edg") !== -1) {
         url = "https://otp.ee/edgeissues";
@@ -154,6 +155,7 @@ export default Vue.extend({
         { origins: ["https://www.google.com/"] },
         async (granted) => {
           if (granted) {
+            await UserSettings.updateItems();
             const message = await syncTimeWithGoogle();
             this.$store.commit("notification/alert", this.i18n[message]);
           }

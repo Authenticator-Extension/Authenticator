@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
     },
-    "permission_all_urls": {
-        "message": "Minden internet oldal elérése QR-kód beolvasáshoz."
-    },
     "permission_sync_clock": {
         "message": "Óra szinkronizálás engedélyezése Google által."
     },

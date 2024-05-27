@@ -124,7 +124,8 @@ export class KeyUtilities {
     counter: number,
     period: number,
     len?: number,
-    algorithm?: OTPAlgorithm
+    algorithm?: OTPAlgorithm,
+    clockOffset?: number
   ) {
     secret = secret.replace(/\s/g, "");
     if (!len) {
@@ -160,8 +161,8 @@ export class KeyUtilities {
 
     if (type !== OTPType.hotp && type !== OTPType.hhex) {
       let epoch = Math.round(new Date().getTime() / 1000.0);
-      if (localStorage.offset) {
-        epoch = epoch + Number(localStorage.offset);
+      if (clockOffset) {
+        epoch = epoch + Number(clockOffset);
       }
       counter = Math.floor(epoch / period);
     }

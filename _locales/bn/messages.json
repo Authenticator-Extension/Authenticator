@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "কনট্যাক্স মেনু তে অথেন্টিকেটর যুক্ত করুন। "
     },
-    "permission_all_urls": {
-        "message": "কিউআর কোডটি স্ক্যান করার জন্য সকল ওয়েবসাইট অ্যাক্সেস করুন।"
-    },
     "permission_sync_clock": {
         "message": "গুগল এর সাথে ঘড়ি সিঙ্ক করুন।"
     },

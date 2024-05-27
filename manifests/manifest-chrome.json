@@ -1,8 +1,8 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "6.3.5",
+    "version": "7.0.0",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -10,7 +10,7 @@
         "48": "images/icon48.png",
         "128": "images/icon128.png"
     },
-    "browser_action": {
+    "action": {
         "default_icon": {
             "19": "images/icon19.png",
             "38": "images/icon38.png"
@@ -19,7 +19,7 @@
         "default_popup": "view/popup.html"
     },
     "commands": {
-        "_execute_browser_action": {},
+        "_execute_action": {},
         "scan-qr": {
             "description": "Scan a QR code"
         },
@@ -29,7 +29,7 @@
     },
     "options_ui": {
         "page": "view/options.html",
-        "chrome_style": true
+        "open_in_tab": false
     },
     "storage": {
         "managed_schema": "schema.json"
@@ -41,25 +41,25 @@
         ]
     },
     "background": {
-        "scripts": [
-            "dist/background.js"
-        ],
-        "persistent": true
+        "service_worker": "dist/background.js"
     },
     "sandbox": {
         "pages": [
             "view/argon.html"
-        ],
-        "content_security_policy": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+        ]
     },
     "permissions": [
         "activeTab",
         "storage",
-        "identity"
+        "identity",
+        "alarms",
+        "scripting"
     ],
     "optional_permissions": [
         "clipboardWrite",
-        "contextMenus",
+        "contextMenus"
+    ],
+    "optional_host_permissions": [
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",
@@ -67,6 +67,8 @@
         "https://graph.microsoft.com/me/*",
         "https://login.microsoftonline.com/common/oauth2/v2.0/token"
     ],
-    "offline_enabled": true,
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
-}
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'",
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+    }
+  }

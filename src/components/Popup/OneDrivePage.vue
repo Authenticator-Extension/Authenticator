@@ -45,6 +45,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { OneDrive } from "../../models/backup";
+import { UserSettings } from "../../models/settings";
 
 const service = "onedrive";
 
@@ -54,21 +55,26 @@ export default Vue.extend({
       email: this.i18n.loading,
     };
   },
+  created() {
+    UserSettings.updateItems();
+  },
   computed: {
     encryption: function () {
       return this.$store.state.accounts.encryption;
     },
     isEncrypted: {
       get(): boolean {
-        if (localStorage.getItem(`oneDriveEncrypted`) === null) {
+        if (UserSettings.items.oneDriveEncrypted === null) {
           this.$store.commit("backup/setEnc", { service, value: true });
-          localStorage.oneDriveEncrypted = true;
+          UserSettings.items.oneDriveEncrypted = true;
+          UserSettings.commitItems();
           return true;
         }
         return this.$store.state.backup.driveEncrypted;
       },
       set(newValue: string) {
-        localStorage.driveEncrypted = newValue;
+        UserSettings.items.driveEncrypted = newValue === "true";
+        UserSettings.commitItems();
         this.$store.commit("backup/setEnc", { service, value: newValue });
       },
     },
@@ -82,12 +88,14 @@ export default Vue.extend({
       return;
     },
     getBackupToken(business?: boolean) {
-      localStorage.oneDriveBusiness = Boolean(business);
+      UserSettings.items.oneDriveBusiness = Boolean(business);
+      UserSettings.commitItems();
       chrome.runtime.sendMessage({ action: service });
     },
     async backupLogout() {
-      localStorage.removeItem("oneDriveToken");
-      localStorage.removeItem("oneDriveRefreshToken");
+      UserSettings.items.oneDriveToken = undefined;
+      UserSettings.items.oneDriveRefreshToken = undefined;
+      UserSettings.commitItems();
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
@@ -98,12 +106,12 @@ export default Vue.extend({
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      } else if (localStorage.oneDriveRevoked === "true") {
+      } else if (UserSettings.items.oneDriveRevoked === true) {
         this.$store.commit(
           "notification/alert",
           chrome.i18n.getMessage("token_revoked", ["OneDrive"])
         );
-        localStorage.removeItem("oneDriveRevoked");
+        UserSettings.removeItem("oneDriveRevoked");
         this.$store.commit("backup/setToken", { service, value: false });
       } else {
         this.$store.commit("notification/alert", this.i18n.updateFailure);

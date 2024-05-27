@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "将身份验证器添加到右键菜单。"
     },
-    "permission_all_urls": {
-        "message": "访问所有网站以扫描二维码。"
-    },
     "permission_sync_clock": {
         "message": "允许与 Google 同步时钟。"
     },

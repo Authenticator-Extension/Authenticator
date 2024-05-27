@@ -4,7 +4,7 @@
 # Syntax:
 #   build.sh <platform>
 # Platforms:
-#   'chrome', 'firefox', 'test', or 'prod'
+#   'chrome', 'firefox', 'edge', 'test', or 'prod'
 
 PLATFORM=$1
 REMOTE=$(git config --get remote.origin.url)
@@ -20,7 +20,7 @@ fi
 
 echo "Removing old build files..."
 rm -rf build dist
-rm -rf firefox chrome release test
+rm -rf firefox chrome edge release test
 echo "Checking style..."
 if ./node_modules/.bin/prettier --check $STYLEFILES 1> /dev/null ; then
     true
@@ -55,7 +55,7 @@ if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
-    ./node_modules/.bin/tsc scripts/test-runner.ts --esModuleInterop
+    ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution nodenext --module commonjs scripts/test-runner.ts
 else
     ./node_modules/webpack-cli/bin/cli.js
 fi

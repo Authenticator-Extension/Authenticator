@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "Přidá Authenticator do kontextové nabídky."
     },
-    "permission_all_urls": {
-        "message": "Přístup ke všem webům pro skenování QR kódů."
-    },
     "permission_sync_clock": {
         "message": "Umožnit synchronizaci hodin s Google."
     },

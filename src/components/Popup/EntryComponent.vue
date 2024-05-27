@@ -90,6 +90,7 @@ import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
+import { getCurrentTab } from "../../utils";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -221,21 +222,14 @@ export default Vue.extend({
 
             if (this.$store.state.menu.useAutofill) {
               await insertContentScript();
-
-              chrome.tabs.query(
-                { active: true, lastFocusedWindow: true },
-                (tabs) => {
-                  const tab = tabs[0];
-                  if (!tab || !tab.id) {
-                    return;
-                  }
-
-                  chrome.tabs.sendMessage(tab.id, {
-                    action: "pastecode",
-                    code: entry.code,
-                  });
-                }
-              );
+              const tab = await getCurrentTab();
+              if (!tab || !tab.id) {
+                return;
+              }
+              chrome.tabs.sendMessage(tab.id, {
+                action: "pastecode",
+                code: entry.code,
+              });
             }
 
             const lastActiveElement = document.activeElement as HTMLElement;
@@ -301,15 +295,17 @@ function getQrUrl(entry: OTPEntry) {
   return qr.createDataURL(5);
 }
 
-function insertContentScript() {
-  return new Promise((resolve: () => void, reject: (reason: Error) => void) => {
-    try {
-      return chrome.tabs.executeScript({ file: "/dist/content.js" }, () => {
-        chrome.tabs.insertCSS({ file: "/css/content.css" }, resolve);
-      });
-    } catch (error) {
-      return reject(error);
-    }
-  });
+async function insertContentScript() {
+  const tab = await getCurrentTab();
+  if (tab.id) {
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ["/dist/content.js"],
+    });
+    await chrome.scripting.insertCSS({
+      target: { tabId: tab.id },
+      files: ["/css/content.css"],
+    });
+  }
 }
 </script>

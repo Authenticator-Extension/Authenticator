@@ -473,9 +473,6 @@
     "permission_context_menus": {
         "message": "يضيف Authenticator إلى القائمة."
     },
-    "permission_all_urls": {
-        "message": "الوصول إلى جميع المواقع لمسح رموز QR."
-    },
     "permission_sync_clock": {
         "message": "يسمح بمزامنة الساعة مع جوجل."
     },
