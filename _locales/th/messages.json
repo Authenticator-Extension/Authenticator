@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "อนุญาตให้ลงชื่อเข้าใช้บริการพื้นที่เก็บข้อมูลของบุคคลที่สาม"
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "ให้สิทธิ์การเข้าถึงแบบเขียนอย่างเดียวในคลิปบอร์ดเพื่อคัดลอกรหัสไปยังคลิปบอร์ดเมื่อคุณคลิกที่บัญชี"
     },
     "permission_context_menus": {
         "message": "เพิ่ม Authenticator ให้กับเมนูบริบท"
-    },
-    "permission_all_urls": {
-        "message": "เข้าถึงเว็บไซต์ทั้งหมดเพื่อสแกนรหัส QR"
     },
     "permission_sync_clock": {
         "message": "อนุญาตให้ซิงค์นาฬิกากับ Google"
