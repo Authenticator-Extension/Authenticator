@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Dozvoljava prijavu na strane usluge spremanja podataka."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš račun."
     },
     "permission_context_menus": {
         "message": "Dodaje Autentifikator u kontekstni izbornik."
-    },
-    "permission_all_urls": {
-        "message": "Pristupi svim web stranicama za snimanje QR kodova."
     },
     "permission_sync_clock": {
         "message": "Dozvoljava sinkroniziranje sata s Googleom."
