@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Permite conectarea la serviciile de stocare ale unor terțe părți."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Oferă acces doar la scriere în clipboard pentru a copia coduri în clipboard atunci când faceți clic pe cont."
     },
     "permission_context_menus": {
         "message": ""
-    },
-    "permission_all_urls": {
-        "message": "Accés a tots els llocs web per escanejar codis QR."
     },
     "permission_sync_clock": {
         "message": ""
