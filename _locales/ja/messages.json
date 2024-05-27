@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "サードパーティのストレージサービスへのサインインを許可します。"
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
     },
     "permission_context_menus": {
         "message": "コンテキストメニューに認証システムを追加します。"
-    },
-    "permission_all_urls": {
-        "message": "すべてのウェブサイトにアクセスしてQRコードをスキャンします。"
     },
     "permission_sync_clock": {
         "message": "Google との時刻の同期を許可します。"
