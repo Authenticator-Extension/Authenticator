@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Позволяет войти в сторонние службы хранения."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
     },
     "permission_context_menus": {
         "message": "Добавляет аутентификатор в меню контекста."
-    },
-    "permission_all_urls": {
-        "message": "Доступ ко всем сайтам для сканирования QR-кодов."
     },
     "permission_sync_clock": {
         "message": "Позволяет синхронизировать часы с Google."
