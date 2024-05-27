@@ -393,7 +393,7 @@
         "message": "प्रकार"
     },
     "invalid": {
-        "message": "विशेषता सफलतापूर्वक अपडेट कर दी गई है।"
+        "message": "अमान्य"
     },
     "digits": {
         "message": "अंक"
@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "तृतीय पक्ष संग्रहण सेवाओं में साइन इन करने की अनुमति देता है।"
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "जब आप खाते पर क्लिक करते हैं तो कोड को क्लिपबोर्ड पर कॉपी करने के लिए क्लिपबोर्ड पर केवल-लिखने की पहुंच प्रदान करता है।"
     },
     "permission_context_menus": {
         "message": "संदर्भ मेनू में प्रमाणक जोड़ता है।"
-    },
-    "permission_all_urls": {
-        "message": "क्यूआर कोड स्कैन करने के लिए सभी वेबसाइटों तक पहुंच।"
     },
     "permission_sync_clock": {
         "message": "घड़ी को Google के साथ सिंक करने की अनुमति देता है।"
