@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Tillader at logge ind på 3. parts lagertjenester."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Giver skrivebeskyttet adgang til udklipsholderen for at kopiere koder til udklipsholderen, når du klikker på kontoen."
     },
     "permission_context_menus": {
         "message": "Tilføjer Authenticator til kontekstmenuen."
-    },
-    "permission_all_urls": {
-        "message": "Adgang til alle websteder for at scanne QR-koder."
     },
     "permission_sync_clock": {
         "message": "Tillader ur-synkronisering med Google."
