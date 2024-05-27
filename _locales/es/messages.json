@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Permitir iniciar sesión en servicios para almacenamiento de terceros."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Otorga acceso de sólo escritura al portapapeles para copiar codigos al portapapeles cuando haga clic en la cuenta."
     },
     "permission_context_menus": {
         "message": "Agregar Authenticator al menú contextual."
-    },
-    "permission_all_urls": {
-        "message": "Acceder a los sitios web para poder escanear códigos QR."
     },
     "permission_sync_clock": {
         "message": "Habilitar sincronización del reloj con Google."
