@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Úshinshi tárep saqlaw xizmetlerine kiriwge ruxsat beredi."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Esap betin basqanıńızda kodlardı almastırıw buferine nusqalaw ushın tek ģana jazıw ushın buferge ruxsat beredi."
     },
     "permission_context_menus": {
         "message": "Konteks menyusına Autentifikator qosadı."
-    },
-    "permission_all_urls": {
-        "message": "QR-kodlardı skanerlew ushın bárshe web-saytlarģa kiriń."
     },
     "permission_sync_clock": {
         "message": "Google menen saattı sinxronlaw imkániyatın beredi."
