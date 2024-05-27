@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Aanmelden bij opslagdiensten van derden toestaan."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Geeft alleen-schrijventoegang tot het klembord om codes naar het klembord te kopiëren wanneer u op de account klikt."
     },
     "permission_context_menus": {
         "message": "Voegt Authenticator toe aan contextmenu."
-    },
-    "permission_all_urls": {
-        "message": "Toegang tot alle websites om QR-codes te scannen."
     },
     "permission_sync_clock": {
         "message": "Tijdssynchronisatie met Google toestaan."
