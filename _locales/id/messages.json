@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Izinkan masuk ke layanan penyimpanan pihak ke-3."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Memberikan akses write-only ke clipboard untuk menyalin kode ke clipboard saat Anda meng-klik akun."
     },
     "permission_context_menus": {
         "message": "Menambahkan Authenticator ke menu konteks."
-    },
-    "permission_all_urls": {
-        "message": "Akses ke semua situs web untuk memindai kode QR."
     },
     "permission_sync_clock": {
         "message": "Mengizinkan sinkronisasi jam dengan Google."
