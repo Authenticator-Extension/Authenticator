@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Sallii kirjautumisen ulkoisiin tallennuspalveluihin."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Myöntää pelkän kirjoitusoikeuden leikepöydälle koodien kopiointiin tilejä painettaessa."
     },
     "permission_context_menus": {
         "message": "Lisää Authenticator sisältövalikkoon."
-    },
-    "permission_all_urls": {
-        "message": "Kaikkien verkkosivustojen käyttöoikeus QR-koodien lukuun."
     },
     "permission_sync_clock": {
         "message": "Sallii kellon synkronoinnin Googlen kanssa."
