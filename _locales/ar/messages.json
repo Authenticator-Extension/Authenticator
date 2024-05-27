@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "يسمح بتسجيل الدخول إلى خدمات تخزين طرف ثالث."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
     },
     "permission_context_menus": {
         "message": "يضيف Authenticator إلى القائمة."
-    },
-    "permission_all_urls": {
-        "message": "الوصول إلى جميع المواقع لمسح رموز QR."
     },
     "permission_sync_clock": {
         "message": "يسمح بمزامنة الساعة مع جوجل."
