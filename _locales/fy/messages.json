@@ -480,10 +480,10 @@
         "message": "Oanmelden by ûnthâldtsjinsten fan tredden tastean."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Stiet automatysk beskoatteljen ta."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Scripts yn it aktuele ljepblêd ynjektearje om QR-koaden te scannen en automatysk ynfoljen wurkje te litten."
     },
     "permission_clipboard_write": {
         "message": "Jout allinnich-skriuwrjochttagong ta it klamboerd om koaden nei it klamboerd te kopiearjen wannear’t jo op de account klikke."
