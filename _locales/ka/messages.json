@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "საშუალებას გაძლევთ შეხვიდეთ მესამე მხარის შენახვის სერვისებში."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "ანიჭებს მხოლოდ ჩაწერის წვდომას გაცვლის ბუფერზე, რათა დააკოპიროთ კოდები, ანგარიშზე დაჭერის დროს."
     },
     "permission_context_menus": {
         "message": "ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
-    },
-    "permission_all_urls": {
-        "message": "წვდომა ყველა ვებსაიტზე QR კოდების დასკანერებისთვის."
     },
     "permission_sync_clock": {
         "message": "საშუალებას გაძლევთ, მოახდინოთ დროის სინქრონიზაცია Google-თან."
