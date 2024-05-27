@@ -479,14 +479,17 @@
     "permission_identity": {
         "message": "Umożliwia logowanie się do usług pamięci masowej innych dostawców."
     },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
     "permission_clipboard_write": {
         "message": "Przyznaje dostęp tylko do zapisu do schowka w celu skopiowania kodów do schowka po kliknięciu konta."
     },
     "permission_context_menus": {
         "message": "Dodaje dodatek Authenticator do menu kontekstowego."
-    },
-    "permission_all_urls": {
-        "message": "Dostęp do wszystkich stron internetowych w celu skanowania kodów QR."
     },
     "permission_sync_clock": {
         "message": "Umożliwia synchronizację zegara z Google."
