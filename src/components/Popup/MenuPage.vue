@@ -8,9 +8,16 @@
     </div>
     <div id="menuBody">
       <div class="menuList">
-        <a href="licenses.html" target="_blank" style="text-decoration: none">
-          <p v-bind:title="i18n.about">
-            <span><IconInfo /></span>{{ i18n.about }}
+        <p v-bind:title="i18n.advisor" v-on:click="showInfo('AdvisorPage')">
+          <span><IconAdvisor /></span>{{ i18n.advisor }}
+        </p>
+        <a
+          href="permissions.html"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <p v-bind:title="i18n.permissions">
+            <span><IconClipboardCheck /></span>{{ i18n.permissions }}
           </p>
         </a>
       </div>
@@ -24,7 +31,11 @@
         >
           <span><IconLock /></span>{{ i18n.security }}
         </p>
-        <p v-bind:title="i18n.sync_clock" v-on:click="syncClock()">
+        <p
+          v-bind:title="i18n.sync_clock"
+          v-on:click="syncClock()"
+          v-if="isSupported"
+        >
           <span><IconSync /></span>{{ i18n.sync_clock }}
         </p>
         <p
@@ -32,11 +43,6 @@
           v-on:click="showInfo('PreferencesPage')"
         >
           <span><IconWrench /></span>{{ i18n.resize_popup_page }}
-        </p>
-      </div>
-      <div class="menuList">
-        <p v-bind:title="i18n.advisor" v-on:click="showInfo('AdvisorPage')">
-          <span><IconAdvisor /></span>{{ i18n.advisor }}
         </p>
       </div>
       <div class="menuList">
@@ -55,6 +61,11 @@
         >
           <span><IconCode /></span>{{ i18n.source }}
         </p>
+        <a href="licenses.html" target="_blank" style="text-decoration: none">
+          <p v-bind:title="i18n.about">
+            <span><IconInfo /></span>{{ i18n.about }}
+          </p>
+        </a>
       </div>
       <div id="version">Version {{ version }}</div>
     </div>
@@ -62,7 +73,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { syncTimeWithGoogle } from "../../popup";
+import { syncTimeWithGoogle } from "../../syncTime";
 
 import IconArrowLeft from "../../../svg/arrow-left.svg";
 import IconInfo from "../../../svg/info.svg";
@@ -75,6 +86,9 @@ import IconAdvisor from "../../../svg/lightbulb.svg";
 import IconComments from "../../../svg/comments.svg";
 import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
+import IconClipboardCheck from "../../../svg/clipboard-check.svg";
+import { isFirefox, isSafari } from "../../browser";
+import { UserSettings } from "../../models/settings";
 
 export default Vue.extend({
   components: {
@@ -89,10 +103,16 @@ export default Vue.extend({
     IconComments,
     IconGlobe,
     IconCode,
+    IconClipboardCheck,
   },
   computed: {
     version: function () {
       return this.$store.state.menu.version;
+    },
+    isSupported: {
+      get(): boolean {
+        return !isSafari;
+      },
     },
   },
   methods: {
@@ -135,6 +155,7 @@ export default Vue.extend({
         { origins: ["https://www.google.com/"] },
         async (granted) => {
           if (granted) {
+            await UserSettings.updateItems();
             const message = await syncTimeWithGoogle();
             this.$store.commit("notification/alert", this.i18n[message]);
           }

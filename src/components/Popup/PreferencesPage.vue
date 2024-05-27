@@ -8,7 +8,9 @@
       <option value="normal">{{ i18n.theme_light }}</option>
       <option value="dark">{{ i18n.theme_dark }}</option>
       <option value="simple">{{ i18n.theme_simple }}</option>
+      <option value="compact">{{ i18n.theme_compact }}</option>
       <option value="accessibility">{{ i18n.theme_high_contrast }}</option>
+      <option value="flat">{{ i18n.theme_flat }}</option>
     </a-select-input>
     <a-select-input
       :label="i18n.scale"
@@ -39,7 +41,7 @@
       :label="i18n.enable_context_menu"
       v-model="enableContextMenu"
       @change="requireContextMenuPermission()"
-      v-if="!isFirefox"
+      v-if="isSupported"
     />
     <div class="control-group" v-show="encryption.getEncryptionStatus()">
       <label class="combo-label">{{ i18n.autolock }}</label>
@@ -60,6 +62,8 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { isFirefox, isSafari } from "../../browser";
+import { UserSettings } from "../../models/settings";
 
 export default Vue.extend({
   computed: {
@@ -133,29 +137,35 @@ export default Vue.extend({
         this.newStorageLocation = value ? "sync" : "local";
       },
     },
-    isFirefox: {
+    isSupported: {
       get(): boolean {
-        return navigator.userAgent.indexOf("Firefox") !== -1;
+        return !isFirefox && !isSafari;
       },
     },
   },
   data() {
     return {
-      newStorageLocation:
-        this.$store.state.menu.storageArea || localStorage.storageLocation,
+      newStorageLocation: "",
     };
+  },
+  created() {
+    UserSettings.updateItems().then(() => {
+      this.newStorageLocation =
+        this.$store.state.menu.storageArea ||
+        UserSettings.items.storageLocation;
+    });
   },
   methods: {
     popOut() {
       let windowType;
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
+      if (isFirefox) {
         windowType = "detached_panel";
       } else {
         windowType = "panel";
       }
       chrome.windows.create({
-        url: chrome.extension.getURL("view/popup.html?popup=true"),
-        type: windowType,
+        url: chrome.runtime.getURL("view/popup.html?popup=true"),
+        type: windowType as chrome.windows.createTypeEnum,
         height: window.innerHeight,
         width: window.innerWidth,
       });

@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importat correctament, però alguns codis QR no s'han reconegut.",
+        "message": "S'ha importat correctament, però alguns codis QR no s'han reconegut.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -308,6 +308,10 @@
     "theme_simple": {
         "message": "Senzill",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "Compacte",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "Alt contrast",
@@ -441,5 +445,74 @@
     },
     "no_entires": {
         "message": "Sense comptes per mostrar. Afegiu un compte ara."
+    },
+    "permissions": {
+        "message": "Permisos"
+    },
+    "permission_revoke": {
+        "message": "Revoca"
+    },
+    "permission_show_required_permissions": {
+        "message": "Mostra els permisos no revocables"
+    },
+    "permission_required": {
+        "message": "Aquest és un permís obligatori i no es pot revocar."
+    },
+    "permission_active_tab": {
+        "message": "Accés a la pestanya actual per escanejar codis QR."
+    },
+    "permission_storage": {
+        "message": "Accés a l'emmagatzematge del navegador per emmagatzemar les dades del compte."
+    },
+    "permission_identity": {
+        "message": "Permet iniciar sessió en serveis d'emmagatzematge de tercers."
+    },
+    "permission_clipboard_write": {
+        "message": "Atorga accés només d'escriptura al porta-retalls per copiar codis al porta-retalls quan feu clic al compte."
+    },
+    "permission_context_menus": {
+        "message": "Afegeix Authenticator al menú contextual."
+    },
+    "permission_sync_clock": {
+        "message": "Permet la sincronització del rellotge amb Google."
+    },
+    "permission_dropbox": {
+        "message": "Permet còpies de seguretat a Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Primer heu de desactivar la còpia de seguretat a Dropbox."
+    },
+    "permission_drive": {
+        "message": "Permet còpies de seguretat a Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Primer heu de desactivar la còpia de seguretat a Google Drive."
+    },
+    "permission_onedrive": {
+        "message": "Permet còpies de seguretat a OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Primer heu de desactivar la còpia de seguretat a OneDrive."
+    },
+    "permission_unknown_permission": {
+        "message": "Permís desconegut. Si veieu aquest missatge, envieu un informe d'error."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
+    },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
     }
 }

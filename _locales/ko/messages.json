@@ -64,7 +64,7 @@
         "description": "Account."
     },
     "accountName": {
-        "message": "사용자명",
+        "message": "사용자 이름",
         "description": "Account Name."
     },
     "issuer": {
@@ -150,7 +150,7 @@
         "description": "Encrypted."
     },
     "copied": {
-        "message": "복사됨",
+        "message": "복사 완료",
         "description": "Copied."
     },
     "feedback": {
@@ -174,15 +174,15 @@
         "description": "Sync Clock"
     },
     "remember_phrase": {
-        "message": "암호 기억",
+        "message": "비밀번호 저장",
         "description": "Remember Passphrase"
     },
     "clock_too_far_off": {
-        "message": "주의! 로컬 시간이 오차가 너무 큽니다. 계속하기 전에 고쳐주세요.",
+        "message": "경고! 로컬 시간과의 오차가 너무 큽니다. 문제가 계속되기 전에 고쳐주세요.",
         "description": "Local Time is Too Far Off"
     },
     "remind_backup": {
-        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 생성하세요.",
+        "message": "귀하의 계정에 대한 백업이 있으십니까? 더 늦기 전에 빨리 생성하세요!",
         "description": "Remind Backup"
     },
     "capture_failed": {
@@ -190,15 +190,15 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "로컬 파일로부터 QR 코드 스캔을 시도하고 계십니까? QR 이미지 백업 가져오기를 대신 사용하십시오.",
+        "message": "기기에 있는 파일로부터 QR 코드 스캔을 시도하고 계십니까? QR 이미지 백업 가져오기를 대신 사용하십시오.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
-        "message": "시간 기반",
+        "message": "시간 기준",
         "description": "Time Based"
     },
     "based_on_counter": {
-        "message": "카운터 기반",
+        "message": "횟수 기준",
         "description": "Counter Based"
     },
     "resize_popup_page": {
@@ -206,7 +206,7 @@
         "description": "Popup Page Settings"
     },
     "scale": {
-        "message": "스케일",
+        "message": "화면 배율",
         "description": "Scale"
     },
     "export_info": {
@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "성공적으로 가져왔지만, 일부 QR 이미지를 인식하지 못했습니다.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -246,11 +246,11 @@
         "description": "Show all entries."
     },
     "dropbox_risk": {
-        "message": "경고: 백업이 암호화되지 않았습니다. 사용시 모든 위험은 사용자에게 있습니다.",
+        "message": "경고: 백업이 암호화되지 않았습니다. 사용 시 모든 위험은 저희가 책임지지 않습니다.",
         "description": "Backup risk warning."
     },
     "import_error_password": {
-        "message": "백업을 가져오려면 올바른 비밀번호를 제공해야 합니다.",
+        "message": "백업을 가져오려면 올바른 비밀번호를 입력해야 합니다.",
         "description": "Error password warning when import backups."
     },
     "local_passphrase_warning": {
@@ -286,7 +286,7 @@
         "description": "Manual backup"
     },
     "use_autofill": {
-        "message": "자동 입력 사용",
+        "message": "자동 완성 사용",
         "description": "Use Autofill"
     },
     "use_high_contrast": {
@@ -298,16 +298,20 @@
         "description": "Theme"
     },
     "theme_light": {
-        "message": "밝은",
+        "message": "라이트",
         "description": "Light theme"
     },
     "theme_dark": {
-        "message": "어두운",
+        "message": "다크",
         "description": "Dark theme"
     },
     "theme_simple": {
         "message": "심플",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "컴팩트",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "고대비",
@@ -326,11 +330,11 @@
         "description": "Sign in to 3rd party storage services"
     },
     "sign_in_business": {
-        "message": "로그인 (비즈니스)",
+        "message": "로그인 (업무)",
         "description": "Sign in to 3rd party storage services"
     },
     "onedrive_business_perms": {
-        "message": "왜 비즈니스 계정은 더많은 권한을 요청하는 건가요?"
+        "message": "왜 비즈니스 계정은 더 많은 권한을 요청하는 건가요?"
     },
     "log_out": {
         "message": "로그아웃",
@@ -355,7 +359,7 @@
         "description": "Info text on import page"
     },
     "otp_backup_learn": {
-        "message": "더 알아보기",
+        "message": "자세히 알아보기",
         "description": "learn more link on import page. Placed after otp_backup_inform"
     },
     "loading": {
@@ -401,10 +405,10 @@
         "message": "어드바이저"
     },
     "advisor_insight_password_not_set": {
-        "message": "데이터 보호를 위해 암호를 설정하십시오."
+        "message": "데이터를 보호하기 위해 암호를 설정하세요."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "데이터 보호를 위해 자동 잠금을 활성화하십시오."
+        "message": "데이터를 보호하기 위해 자동 잠금을 사용하세요."
     },
     "advisor_insight_browser_sync_not_enabled": {
         "message": "브라우저 동기화가 비활성화되었습니다. 활성화하면 브라우저 간 계정을 동기화할 수 있습니다."
@@ -441,5 +445,74 @@
     },
     "no_entires": {
         "message": "표시할 계정이 없습니다. 첫 번째 계정을 추가하세요."
+    },
+    "permissions": {
+        "message": "사용 권한"
+    },
+    "permission_revoke": {
+        "message": "취소"
+    },
+    "permission_show_required_permissions": {
+        "message": "취소할 수 없는 권한 표시"
+    },
+    "permission_required": {
+        "message": "이 권한은 필수 권한이며 취소할 수 없습니다."
+    },
+    "permission_active_tab": {
+        "message": "QR 코드를 스캔하기 위해 현재 탭에 액세스합니다."
+    },
+    "permission_storage": {
+        "message": "계정 데이터를 저장하기 위해 브라우저 저장소에 액세스합니다."
+    },
+    "permission_identity": {
+        "message": "제3자 스토리지제 3 자 스토리지 서비스에 로그인 할 수 있습니다. 서비스에 로그인 할 수 있습니다."
+    },
+    "permission_clipboard_write": {
+        "message": "계정을 클릭할 때 클립보드에 코드를 복사하여 클립보드에 대한 쓰기 전용 액세스 권한을 부여합니다."
+    },
+    "permission_context_menus": {
+        "message": "컨텍스트 메뉴에 인증 도구를 추가합니다."
+    },
+    "permission_sync_clock": {
+        "message": "Google과 시계 동기화를 허용합니다."
+    },
+    "permission_dropbox": {
+        "message": "Dropbox 백업을 허용합니다."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "먼저 Dropbox 백업을 사용하지 않도록 설정해야 합니다."
+    },
+    "permission_drive": {
+        "message": "Google Drive 백업을 허용합니다."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "먼저 Google Drive 백업을 사용하지 않도록 설정해야 합니다."
+    },
+    "permission_onedrive": {
+        "message": "OneDrive 백업을 허용합니다."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "먼저 OneDrive 백업을 사용하지 않도록 설정해야 합니다."
+    },
+    "permission_unknown_permission": {
+        "message": "알 수 없는 권한입니다. 이 메시지가 표시되면 버그 보고서를 보내주십시오."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
+    },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
     }
 }

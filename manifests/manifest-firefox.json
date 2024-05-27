@@ -1,14 +1,14 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "6.3.5",
+    "version": "7.0.0",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
-    "applications": {
+    "browser_specific_settings": {
         "gecko": {
             "id": "authenticator@mymindstorm",
-            "strict_min_version": "57.0"
+            "strict_min_version": "109.0"
         }
     },
     "icons": {
@@ -16,8 +16,7 @@
         "48": "images/icon48.png",
         "128": "images/icon128.png"
     },
-    "browser_action": {
-        "browser_style": false,
+    "action": {
         "default_icon": {
             "19": "images/icon19.png",
             "38": "images/icon38.png"
@@ -34,19 +33,26 @@
         "_execute_browser_action": {},
         "scan-qr": {
             "description": "Scan a QR code"
+        },
+        "autofill": {
+            "description": "Autofill the matched code"
         }
     },
     "options_ui": {
         "page": "view/options.html",
-        "browser_style": true
+        "open_in_tab": false
     },
     "permissions": [
+        "activeTab",
         "storage",
-        "identity"
+        "identity",
+        "alarms",
+        "scripting"
     ],
     "optional_permissions": [
-        "<all_urls>",
-        "clipboardWrite",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
         "https://www.google.com/",
         "https://*.dropboxapi.com/*",
         "https://www.googleapis.com/*",
@@ -54,5 +60,7 @@
         "https://graph.microsoft.com/me/*",
         "https://login.microsoftonline.com/common/oauth2/v2.0/token"
     ],
-    "content_security_policy": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
+    }
 }

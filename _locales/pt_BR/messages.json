@@ -309,6 +309,10 @@
         "message": "Simples",
         "description": "Simple theme"
     },
+    "theme_compact": {
+        "message": "Compacto",
+        "description": "Compact theme"
+    },
     "theme_high_contrast": {
         "message": "Alto contraste",
         "description": "High Contrast theme"
@@ -441,5 +445,74 @@
     },
     "no_entires": {
         "message": "Não há contas para exibir. Adicione sua primeira conta agora."
+    },
+    "permissions": {
+        "message": "Permissões"
+    },
+    "permission_revoke": {
+        "message": "Revogar"
+    },
+    "permission_show_required_permissions": {
+        "message": "Mostrar permissões não revogáveis"
+    },
+    "permission_required": {
+        "message": "Esta é uma permissão necessária e não pode ser revogada."
+    },
+    "permission_active_tab": {
+        "message": "Acesso à aba atual para escanear códigos QR."
+    },
+    "permission_storage": {
+        "message": "Acesso ao armazenamento do navegador para armazenar os dados da conta."
+    },
+    "permission_identity": {
+        "message": "Permite iniciar sessão em serviços de armazenamento de terceiros."
+    },
+    "permission_clipboard_write": {
+        "message": "Concede acesso somente de escrita à área de transferência para copiar códigos para a área de transferência quando você clicar na conta."
+    },
+    "permission_context_menus": {
+        "message": "Adiciona o Autenticador ao menu de contexto."
+    },
+    "permission_sync_clock": {
+        "message": "Permite a sincronização de relógio com o Google."
+    },
+    "permission_dropbox": {
+        "message": "Permite backup para o Dropbox."
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "Você deve desativar o backup do Dropbox primeiro."
+    },
+    "permission_drive": {
+        "message": "Permite backup para o Google Drive."
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "Você deve desativar o backup do Google Drive primeiro."
+    },
+    "permission_onedrive": {
+        "message": "Permite backup para o OneDrive."
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "Você deve desativar o backup do OneDrive primeiro."
+    },
+    "permission_unknown_permission": {
+        "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
+    },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
     }
 }

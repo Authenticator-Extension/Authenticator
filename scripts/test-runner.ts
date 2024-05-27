@@ -9,6 +9,7 @@ import merge from "lodash/merge";
 interface MochaTestResults {
   total?: number;
   tests?: StrippedTestResults[];
+  completed?: boolean;
 }
 
 interface StrippedTestResults {
@@ -22,7 +23,6 @@ interface StrippedTestResults {
 declare global {
   interface Window {
     __mocha_test_results__: MochaTestResults;
-    __coverage__: any;
   }
 }
 interface TestDisplay {
@@ -43,12 +43,6 @@ async function runTests() {
     "--lang=en-US,en"
   ];
 
-  if (!process.env.CI) {
-    // run with --single-process to prevent zombie Chromium processes from not terminating during development testing
-    // do not use this in CI as it will not run properly
-    puppeteerArgs.push("--single-process");
-  }
-
   const browser = await puppeteer.launch({
     ignoreDefaultArgs: ["--disable-extensions"],
     args: puppeteerArgs,
@@ -67,28 +61,24 @@ async function runTests() {
   }
 
   const results: {
-    coverage: unknown;
     testResults: MochaTestResults;
   } = await mochaPage.evaluate(() => {
     return new Promise((resolve: (value: {
-    coverage: unknown;
     testResults: MochaTestResults;
   }) => void) => {
       window.addEventListener("testsComplete", () => {
         resolve({
-          coverage: window.__coverage__,
           testResults: window.__mocha_test_results__,
         });
       });
+
+      if (window.__mocha_test_results__.completed) {
+        resolve({
+          testResults: window.__mocha_test_results__,
+        });
+      }
     });
   });
-
-  if (process.env.CI) {
-    if (!fs.existsSync(".nyc_output")) fs.mkdirSync(".nyc_output");
-    fs.writeFileSync(".nyc_output/out.json", JSON.stringify(results.coverage));
-    const output = execSync("./node_modules/.bin/nyc report --reporter=text-lcov");
-    fs.writeFileSync("coverage.lcov", output);
-  }
 
   let failedTest = false;
   let display: TestDisplay = {};

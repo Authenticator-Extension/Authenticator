@@ -1,5 +1,6 @@
 import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
+import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 import * as uuid from "uuid/v4";
 
@@ -190,6 +191,17 @@ export class OTPEntry implements OTPEntryInterface {
   }
 
   generate() {
+    const offset = UserSettings.items ? UserSettings.items.offset : 0;
+    if (!UserSettings.items) {
+      // browser storage is async, so we need to wait for it to load
+      // and re-generate the code
+      // don't change the code to async, it will break the mutation
+      // for Accounts store to export data
+      UserSettings.updateItems().then(() => {
+        this.generate();
+      });
+    }
+
     if (!this.secret && !this.encSecret) {
       this.code = CodeState.Invalid;
     } else if (!this.secret) {
@@ -202,7 +214,8 @@ export class OTPEntry implements OTPEntryInterface {
           this.counter,
           this.period,
           this.digits,
-          this.algorithm
+          this.algorithm,
+          offset
         );
       } catch (error) {
         this.code = CodeState.Invalid;

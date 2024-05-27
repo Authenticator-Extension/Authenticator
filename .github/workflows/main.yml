@@ -9,38 +9,34 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-      
+
       - name: Install dependencies
         run: |
           npm i prettier
-          sudo npm i -g lintspaces-cli
 
       - name: Prettier
         run: ./node_modules/prettier/bin-prettier.js --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
 
-      - name: lintspaces
-        run: |
-          lintspaces -nt -d 'spaces' -i 'js-comments' src/*/* src/*.ts view/* manifest-*.json css/popup.css css/import.css
   build:
     runs-on: ubuntu-latest
     name: Build ${{ matrix.platform }}
-    
+
     strategy:
       matrix:
         platform: ["chrome", "firefox"]
-    
+
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
-      
+
       - name: Install dependencies
         run: npm ci
-          
+
       - name: Build
         run: npm run ${{ matrix.platform }}
   run-tests:
@@ -63,6 +59,3 @@ jobs:
         uses: mujo-code/puppeteer-headful@master
         with:
           args: npm test
-
-      - name: Codecov
-        uses: codecov/codecov-action@v1.5.0

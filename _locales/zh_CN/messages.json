@@ -234,7 +234,7 @@
         "description": "Import backup code."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
+        "message": "导入成功，但部分二维码无法识别。",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -308,6 +308,10 @@
     "theme_simple": {
         "message": "简约",
         "description": "Simple theme"
+    },
+    "theme_compact": {
+        "message": "紧凑",
+        "description": "Compact theme"
     },
     "theme_high_contrast": {
         "message": "高对比度",
@@ -441,5 +445,74 @@
     },
     "no_entires": {
         "message": "没有可显示的账户。现在添加您的第一个账户。"
+    },
+    "permissions": {
+        "message": "权限管理"
+    },
+    "permission_revoke": {
+        "message": "撤销"
+    },
+    "permission_show_required_permissions": {
+        "message": "显示不可撤销的权限"
+    },
+    "permission_required": {
+        "message": "这是必需的权限，不能撤销。"
+    },
+    "permission_active_tab": {
+        "message": "访问当前标签页以扫描二维码。"
+    },
+    "permission_storage": {
+        "message": "访问浏览器存储以存储帐户数据。"
+    },
+    "permission_identity": {
+        "message": "用以登录第三方存储服务。"
+    },
+    "permission_clipboard_write": {
+        "message": "剪贴板只写权限以当您点击该帐户时复制代码到剪贴板。"
+    },
+    "permission_context_menus": {
+        "message": "将身份验证器添加到右键菜单。"
+    },
+    "permission_sync_clock": {
+        "message": "允许与 Google 同步时钟。"
+    },
+    "permission_dropbox": {
+        "message": "允许备份到 Dropbox。"
+    },
+    "permission_dropbox_cannot_revoke": {
+        "message": "您必须先停用 Dropbox 备份。"
+    },
+    "permission_drive": {
+        "message": "允许备份到 Google Drive。"
+    },
+    "permission_drive_cannot_revoke": {
+        "message": "您必须先停用 Google Drive 备份。"
+    },
+    "permission_onedrive": {
+        "message": "允许备份到 OneDrive。"
+    },
+    "permission_onedrive_cannot_revoke": {
+        "message": "您必须先停用 OneDrive 备份。"
+    },
+    "permission_unknown_permission": {
+        "message": "未知权限。如果看到此消息，请发送错误报告。"
+    },
+    "theme_flat": {
+        "message": "Flat",
+        "description": "Flat theme"
+    },
+    "import_qr_images": {
+        "message": "Import QR Images",
+        "description": "Import qr images. Shown as add account method."
+    },
+    "import_otp_urls": {
+        "message": "Import OTP URLs",
+        "description": "Import OTP URLs. Shown as add account method."
+    },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
     }
 }

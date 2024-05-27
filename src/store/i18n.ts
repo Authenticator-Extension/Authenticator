@@ -18,10 +18,16 @@ export async function loadI18nMessages() {
           }
           return;
         };
-        xhr.open("GET", chrome.extension.getURL("/_locales/en/messages.json"));
+        xhr.open("GET", chrome.runtime.getURL("/_locales/en/messages.json"));
         xhr.send();
       } catch (error) {
-        return reject(error);
+        if (typeof error === "string" || error === undefined) {
+          return reject(Error(error));
+        } else if (error instanceof Error) {
+          return reject(error);
+        } else {
+          return reject(Error(String(error)));
+        }
       }
     }
   );
