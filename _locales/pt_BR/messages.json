@@ -508,5 +508,11 @@
     "import_otp_urls": {
         "message": "Import OTP URLs",
         "description": "Import OTP URLs. Shown as add account method."
+    },
+    "permission_alarms": {
+        "message": "Allows auto-lock to work."
+    },
+    "permission_scripting": {
+        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
     }
 }
