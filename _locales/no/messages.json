@@ -480,10 +480,10 @@
         "message": "Tillater innlogging til tredjeparts lagringstjenester."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Lar automatisk lås fungere."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Injiser skript inn i denne fanen for å skanne QR-koder og la autoutfylle fungere."
     },
     "permission_clipboard_write": {
         "message": "Gir skrivetilgang til utklippstavlen for å kopiere koder til utklippstavlen når du klikker på kontoen."
