@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Authenticator",
+        "message": "تصدیق کردہ",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator",
+        "message": "تصدیق کردہ",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -28,11 +28,11 @@
         "description": "Add account."
     },
     "add_qr": {
-        "message": "Scan QR Code",
+        "message": "Authenticator QR Code Installation",
         "description": "Scan QR Code."
     },
     "add_secret": {
-        "message": "Manual Entry",
+        "message": "Authenticator Verification",
         "description": "Manual Entry."
     },
     "migration_fail": {
@@ -72,7 +72,7 @@
         "description": "Issuer."
     },
     "secret": {
-        "message": "Secret",
+        "message": "",
         "description": "Secret."
     },
     "updateSuccess": {
