@@ -480,10 +480,10 @@
         "message": "用以登录第三方存储服务。"
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "允许自动锁定功能生效。"
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "将脚本注入当前标签页以扫描二维码并允许自动填充功能生效。"
     },
     "permission_clipboard_write": {
         "message": "剪贴板只写权限以当您点击该帐户时复制代码到剪贴板。"
