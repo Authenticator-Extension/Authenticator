@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "Uvoz QR slika",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "Uvoz OTP URL-ova",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
         "message": "Dozvoljava prijavu na strane usluge spremanja podataka."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Omogućuje automatsko zaključavanje."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Umetni skripta u trenutačnu karticu za skeniranje QR kodova i omogući automatsko ispunjavanje."
     },
     "permission_clipboard_write": {
         "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš račun."
