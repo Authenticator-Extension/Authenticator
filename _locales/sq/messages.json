@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "إستحضار رمز المرور المؤقت",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -326,7 +326,7 @@
         "description": "High Contrast theme"
     },
     "theme_flat": {
-        "message": "Flat",
+        "message": "مسطح",
         "description": "Flat theme"
     },
     "storage_sync_info": {
@@ -414,28 +414,28 @@
         "message": "Fjalkalusi juaj nuk i pershtatet ligjeve te sigurise te organizates juaj. Ju lutemi kontaktoni administratorin per informata me te hollsishme."
     },
     "advisor": {
-        "message": "Advisor"
+        "message": "مساعدة"
     },
     "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
+        "message": "إنشاء كلمة مرور لحماية بياناتك."
     },
     "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
+        "message": "الرجاء تفعيل الإغلاق الالى لحماية بياناتك."
     },
     "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+        "message": "مزامنة المتصفح غير نشط. تفعيل المزامنة يسمح لحسابك بالمزامنه مع المواقع المختلفة."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
+        "message": "تفعيل الملء التلقائي يسمح بملء رموز التفعيل داخل المتصفحات المختلفة."
     },
     "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
+        "message": "تفعيل المنقى الذكى يسمح بالدخول بسرعة الى مختلف الحسابات."
     },
     "show_all_insights": {
-        "message": "Show all insights."
+        "message": "إظهار كافة الاقتراحات."
     },
     "no_insight_available": {
-        "message": "No insights found, everything looks good!"
+        "message": "لا يوجد اى إقتراحات، كل شئ يبدو جيد!"
     },
     "danger": {
         "message": "Rrezik"
@@ -447,13 +447,13 @@
         "message": "Info"
     },
     "dismiss": {
-        "message": "Dismiss"
+        "message": "الغاء"
     },
     "learn_more": {
         "message": "Mëso më shumë"
     },
     "enable_context_menu": {
-        "message": "Add to context menu"
+        "message": "إضافة الى قائمة السياق النصى"
     },
     "no_entires": {
         "message": "No accounts to display. Add your first account now."
