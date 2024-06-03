@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Импорт на QR изображения",
+        "message": "استحضار صور رموز الاستجابة السريع",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -242,7 +242,7 @@
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
-        "message": "Importimi i suksesshëm, por disa fotografi QR nuk mund të njihen.",
+        "message": "تم الاستحضار بنجاح، لاكن بعض رموز الاستجابة السريعة لم يتم التعرف عليها.",
         "description": "Import successful, but some QR image cannot be recognized."
     },
     "import_backup_qr_in_batches": {
@@ -314,11 +314,11 @@
         "description": "Dark theme"
     },
     "theme_simple": {
-        "message": "E thjeshtë",
+        "message": "بسيط",
         "description": "Simple theme"
     },
     "theme_compact": {
-        "message": "Kompakte",
+        "message": "معقد او مركب",
         "description": "Compact theme"
     },
     "theme_high_contrast": {
@@ -411,7 +411,7 @@
         "message": "Krijo një kopje rezervë të të dhënave tuaja në një skedar."
     },
     "password_policy_default_hint": {
-        "message": "Fjalkalusi juaj nuk i pershtatet ligjeve te sigurise te organizates juaj. Ju lutemi kontaktoni administratorin per informata me te hollsishme."
+        "message": "كلمة مرورك الخاصة لا تستوفى المتطلبات الخاصة بمنظمتك. الرجاء التواصل مع مديرك للمزيد من المعلومات."
     },
     "advisor": {
         "message": "مساعدة"
@@ -438,81 +438,81 @@
         "message": "لا يوجد اى إقتراحات، كل شئ يبدو جيد!"
     },
     "danger": {
-        "message": "Rrezik"
+        "message": "خطر"
     },
     "warning": {
-        "message": "Kujdes"
+        "message": "تحزير"
     },
     "info": {
-        "message": "Info"
+        "message": "معلومات"
     },
     "dismiss": {
         "message": "الغاء"
     },
     "learn_more": {
-        "message": "Mëso më shumë"
+        "message": "معرفة المزيد"
     },
     "enable_context_menu": {
         "message": "إضافة الى قائمة السياق النصى"
     },
     "no_entires": {
-        "message": "No accounts to display. Add your first account now."
+        "message": "لا يوجد لديك حسابات لإظهاره. انشاء حسابك الاول الان."
     },
     "permissions": {
-        "message": "Lejet"
+        "message": "الموافقة"
     },
     "permission_revoke": {
-        "message": "Revoke"
+        "message": "إبطال"
     },
     "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
+        "message": "اظهار رموز المرور الغير قابلة للإلغاء"
     },
     "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
+        "message": "هذا رمز مرور الزامي ولا يمكن ابطاله."
     },
     "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
+        "message": "الرجاء اختيار علامة التبويب الحالية لمسح رمز الاستجابة السريع."
     },
     "permission_storage": {
-        "message": "Access to browser storage to store account data."
+        "message": "الرجاء الدخول الى مساحة تخزين المتصفح لتخزين بيانات الحساب."
     },
     "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
+        "message": "يسمح بالمرور إلى خدمات تخزين الطرف الثالث."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "يسمح للإغلاق التلقائي بالعمل."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "ادخل النص إلى علامة التبويب الحالية لمسح رموز الإستجابة السريعة والسماح للملء التلقائي بالعمل."
     },
     "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+        "message": "يضمن حق الوصول للكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر فوق الحساب."
     },
     "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
+        "message": "يضيف المصادقة إلى قائمة السياق النصى."
     },
     "permission_sync_clock": {
-        "message": "Lejo sinkronizimin e ores me Google-in."
+        "message": "يسمح بمزامنة الساعة مع جوجل."
     },
     "permission_dropbox": {
-        "message": "Lejo backup drejt Dropbox."
+        "message": "يسمح بنسخة احتياطية فى موقع Dropbox."
     },
     "permission_dropbox_cannot_revoke": {
-        "message": "Ti duhet të çaktivizosh backup-in e Dropbox si fillim."
+        "message": "يجب الغاء تفعيل النسخة الاحتياطية على موقع Dropbox أولاً."
     },
     "permission_drive": {
-        "message": "Lejon backup drejt Google Drive."
+        "message": "السماح بالنسخ الاحتياطى على موقع Google Drive."
     },
     "permission_drive_cannot_revoke": {
-        "message": "Ti duhet të çaktivizosh backup-in e Google Drive si fillim."
+        "message": "يجب إلغاء تفعيل النسخ الاحتياطية على موقع Google Drive أولاً."
     },
     "permission_onedrive": {
-        "message": "Lejon backup drejt OneDrive."
+        "message": "السماح بالنسخ الاحتياطي على موقع OneDrive."
     },
     "permission_onedrive_cannot_revoke": {
-        "message": "Ti duhet të çaktivizosh backup-in e OneDrive si fillim."
+        "message": "الغاء تفعيل النسخة الاحتياطي على موقع OneDrive أولاً."
     },
     "permission_unknown_permission": {
-        "message": "Leje e panjohur. Nëse e sheh këtë mesazh, te lutem dërgo një bug report tek ne."
+        "message": "موافقة مجهولة. اذا رأيت هذه الرساله، الرجاء ارسال تقرير اختراق."
     }
 }
