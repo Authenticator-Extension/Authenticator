@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Import QR Images",
+        "message": "Impor Gambar QR",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "Impor URL OTP",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
         "message": "Izinkan masuk ke layanan penyimpanan pihak ke-3."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Mengizinkan kunci-otomatis berfungsi."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Masukkan skrip ke tab saat ini untuk memindai kode QR dan memungkinkan pengisian otomatis berfungsi."
     },
     "permission_clipboard_write": {
         "message": "Memberikan akses write-only ke clipboard untuk menyalin kode ke clipboard saat Anda meng-klik akun."
