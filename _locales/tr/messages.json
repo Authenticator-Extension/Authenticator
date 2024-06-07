@@ -190,7 +190,7 @@
         "description": "Capture Failed"
     },
     "capture_local_file_failed": {
-        "message": "Karekodu yerel bir dosyadan mı taramaya çalışıyorsunuz? Bunun yerine Karekod görüntü yedeğini içe aktar seçeneğini kullanın.",
+        "message": "Karekodu yerel bir dosyadan mı taramaya çalışıyorsunuz? Bunun yerine görsel karekod yedeğini içe aktar seçeneğini kullanın.",
         "description": "Import QR image backup instead of scan local image"
     },
     "based_on_time": {
@@ -226,11 +226,11 @@
         "description": "Import backup file."
     },
     "import_backup_qr": {
-        "message": "Karekod görüntü yedeğini içe aktar",
+        "message": "Görsel karekod yedeğini içe aktar",
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "Karekod görüntülerini içe aktar",
+        "message": "Karekod görsellerini içe aktar",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -480,7 +480,7 @@
         "message": "Üçüncü taraf depolama hizmetlerinde oturum açmaya izin verir."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Otomatik kilitlemenin çalışmasını sağlar."
     },
     "permission_scripting": {
         "message": "Karekodları taramak ve otomatik doldurmanın çalışmasını sağlamak için geçerli sekmeye komut dosyaları yerleştirin."
