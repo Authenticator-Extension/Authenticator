@@ -480,10 +480,10 @@
         "message": "Permite iniciar sessão em serviços de armazenamento de terceiros."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Permitir o bloqueio automático."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Injetar códigos na aba atual para escanear códigos QR e permitir o preenchimento automático."
     },
     "permission_clipboard_write": {
         "message": "Concede acesso somente de escrita à área de transferência para copiar códigos para a área de transferência quando você clicar na conta."
