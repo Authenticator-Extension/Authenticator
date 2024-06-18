@@ -48,7 +48,7 @@
     "nyc": "^15.1.0",
     "prettier": "2.2.1",
     "process": "^0.11.10",
-    "puppeteer": "^21.6.1",
+    "puppeteer": "^22.11.2",
     "sass": "^1.26.11",
     "sinon": "^17.0.1",
     "sinon-chai": "^3.7.0",
