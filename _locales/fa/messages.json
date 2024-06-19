@@ -334,7 +334,7 @@
         "description": "3rd party backup info"
     },
     "browser_sync": {
-        "message": "همسانسازی داده های مرورگر",
+        "message": "همگام‌سازی مرورگر",
         "description": "Storage location"
     },
     "sign_in": {
@@ -417,7 +417,7 @@
         "message": "مشاور"
     },
     "advisor_insight_password_not_set": {
-        "message": "یک گذرواژه تنظیم کنید تا از برنامه‌های شما محافظت کند."
+        "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
     },
     "advisor_insight_auto_lock_not_set": {
         "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
