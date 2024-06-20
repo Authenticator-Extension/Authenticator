@@ -1,10 +1,10 @@
 {
     "extName": {
-        "message": "Sasl mechanism",
+        "message": "Authenticator",
         "description": "Extension Name."
     },
     "extShortName": {
-        "message": "Authenticator<div id=\"crowdin_phrase_482\" class=\"crowdin_phrase crowdin_phrase_translated\" title wfd-id=\"50\">…</div>",
+        "message": "Trình xác thực",
         "description": "Extension Short Name."
     },
     "extDesc": {
@@ -24,7 +24,7 @@
         "description": "Secret Error."
     },
     "add_code": {
-        "message": "Add account",
+        "message": "Thêm tài khoản",
         "description": "Add account."
     },
     "add_qr": {
