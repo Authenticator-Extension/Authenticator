@@ -230,7 +230,7 @@
         "description": "Import qr image backup."
     },
     "import_qr_images": {
-        "message": "",
+        "message": "وارد کردن تصاویر QR",
         "description": "Import qr images. Shown as add account method."
     },
     "import_backup_code": {
@@ -426,7 +426,7 @@
         "message": "همگام سازی مرورگر غیرفعال شده است. فعال کردن آن اجازه می دهد تا حساب ها در سراسر مرورگرها همگام سازی شوند."
     },
     "advisor_insight_auto_fill_not_enabled": {
-        "message": "برای تکمیل خودکار کدها در وب سایت ها ، می توان تکمیل خودکار را فعال کرد."
+        "message": "تکمیل خودکار می‌تواند برای پر کردن خودکار کدها در وب‌سایت‌ها فعال شود."
     },
     "advisor_insight_smart_filter_not_enabled": {
         "message": "فعال کردن فیلتر هوشمند اجازه دسترسی سریع به حساب ها را می دهد."
@@ -483,7 +483,7 @@
         "message": "اجازه می دهد قفل خودکار کار کند."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "اسکریپت‌ها را به برگه فعلی تزریق کنید تا کدهای QR را اسکن کنید و اجازه دهید پر کردن خودکار کار کند."
     },
     "permission_clipboard_write": {
         "message": "وقتی روی حساب کلیک می‌کنید، به کلیپ‌بورد دسترسی فقط نوشتنی برای کپی کردن کدها در کلیپ‌بورد می‌دهد."
