@@ -223,13 +223,12 @@ export default Vue.extend({
             if (this.$store.state.menu.useAutofill) {
               await insertContentScript();
               const tab = await getCurrentTab();
-              if (!tab || !tab.id) {
-                return;
+              if (tab && tab.id) {
+                chrome.tabs.sendMessage(tab.id, {
+                  action: "pastecode",
+                  code: entry.code,
+                });
               }
-              chrome.tabs.sendMessage(tab.id, {
-                action: "pastecode",
-                code: entry.code,
-              });
             }
 
             const lastActiveElement = document.activeElement as HTMLElement;
