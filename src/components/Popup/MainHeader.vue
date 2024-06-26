@@ -160,7 +160,7 @@ export default Vue.extend({
 
       const tab = await getCurrentTab();
       // Insert content script
-      if (tab.id) {
+      if (tab.id && !tab.url?.startsWith("chrome:")) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],
