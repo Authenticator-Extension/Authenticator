@@ -297,7 +297,7 @@ function getQrUrl(entry: OTPEntry) {
 
 async function insertContentScript() {
   const tab = await getCurrentTab();
-  if (tab.id) {
+  if (tab.id && !tab.url?.startsWith("chrome:")) {
     await chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ["/dist/content.js"],
