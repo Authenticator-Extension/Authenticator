@@ -153,7 +153,7 @@ export class UserSettings {
       ? StorageLocation.Local
       : storageLocation;
     const storageData: UserSettingsData =
-      (await chrome.storage[location].get("UserSettings")).UserSettings || {};
+      (await chrome.storage[location].get("UserSettings"))?.UserSettings || {};
     delete storageData[key];
 
     UserSettings.items = storageData;
@@ -163,7 +163,7 @@ export class UserSettings {
 
   private static async getStorageData(location: StorageLocation) {
     const storageData: UserSettingsData =
-      (await chrome.storage[location].get("UserSettings")).UserSettings || {};
+      (await chrome.storage[location].get("UserSettings"))?.UserSettings || {};
 
     return storageData;
   }
