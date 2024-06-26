@@ -56,6 +56,6 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
 
       - name: Test code
-        uses: mymindstorm/puppeteer-headful@5cdb4b90ae90e67cefb14e867d35c7b73693adac
+        uses: mymindstorm/puppeteer-headful@8f745c770f7f4c0f9f332d7c43a775f90e53779a
         with:
           args: npm test
