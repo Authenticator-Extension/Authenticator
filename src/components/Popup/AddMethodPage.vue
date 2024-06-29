@@ -33,7 +33,7 @@ export default Vue.extend({
 
       // Insert content script
       const tab = await getCurrentTab();
-      if (okToInjectContentScript(tab.id)) {
+      if (okToInjectContentScript(tab)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],
