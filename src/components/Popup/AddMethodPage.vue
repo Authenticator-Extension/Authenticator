@@ -14,7 +14,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { getCurrentTab } from "../../utils";
+import { getCurrentTab, okToInjectContentScript } from "../../utils";
 export default Vue.extend({
   methods: {
     showInfo(page: string) {
@@ -33,7 +33,7 @@ export default Vue.extend({
 
       // Insert content script
       const tab = await getCurrentTab();
-      if (tab.id) {
+      if (okToInjectContentScript(tab.id)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],

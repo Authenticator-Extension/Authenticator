@@ -3,7 +3,12 @@ import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
 import * as uuid from "uuid/v4";
-import { getSiteName, getMatchedEntries, getCurrentTab } from "./utils";
+import {
+  getSiteName,
+  getMatchedEntries,
+  getCurrentTab,
+  okToInjectContentScript,
+} from "./utils";
 import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
@@ -456,7 +461,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
       }
 
       tab = await getCurrentTab();
-      if (tab.id) {
+      if (okToInjectContentScript(tab)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],
@@ -473,7 +478,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
     case "autofill":
       tab = await getCurrentTab();
-      if (tab.id) {
+      if (okToInjectContentScript(tab)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],

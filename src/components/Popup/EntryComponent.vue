@@ -90,7 +90,7 @@ import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
-import { getCurrentTab } from "../../utils";
+import { getCurrentTab, okToInjectContentScript } from "../../utils";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -295,8 +295,8 @@ function getQrUrl(entry: OTPEntry) {
 }
 
 async function insertContentScript() {
-  const tab = await getCurrentTab();
-  if (tab.id && !tab.url?.startsWith("chrome:")) {
+  let tab = await getCurrentTab();
+  if (okToInjectContentScript(tab)) {
     await chrome.scripting.executeScript({
       target: { tabId: tab.id },
       files: ["/dist/content.js"],

@@ -143,3 +143,20 @@ export async function getCurrentTab() {
   const [tab] = await chrome.tabs.query(queryOptions);
   return tab;
 }
+
+interface TabWithIdAndURL extends chrome.tabs.Tab {
+  id: number;
+  url: string;
+}
+
+export function okToInjectContentScript(
+  tab: chrome.tabs.Tab
+): tab is TabWithIdAndURL {
+  return (
+    tab.id !== undefined &&
+    tab.url !== undefined &&
+    (tab.url.startsWith("https://") ||
+      tab.url.startsWith("http://") ||
+      tab.url.startsWith("file://"))
+  );
+}

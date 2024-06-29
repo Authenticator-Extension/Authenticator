@@ -74,7 +74,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { mapState } from "vuex";
-import { getCurrentTab } from "../../utils";
+import { getCurrentTab, okToInjectContentScript } from "../../utils";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -160,7 +160,7 @@ export default Vue.extend({
 
       const tab = await getCurrentTab();
       // Insert content script
-      if (tab.id) {
+      if (okToInjectContentScript(tab.id)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: ["/dist/content.js"],
