@@ -480,8 +480,10 @@ export class Accounts implements Module {
             newStorageLocation === StorageLocation.Sync
           ) {
             const localData = await chrome.storage.local.get();
-            delete localData.UserSettings;
-            await chrome.storage.sync.set(localData);
+            if (localData?.UserSettings) {
+              delete localData.UserSettings;
+              await chrome.storage.sync.set(localData);
+            }
             const syncData = await chrome.storage.sync.get();
 
             // Double check if data was set
