@@ -2,7 +2,7 @@
   <div>
     <!-- File Backup -->
     <div v-show="!exportDisabled">
-      <div class="text warning" v-if="!encryption.getEncryptionStatus()">
+      <div class="text warning" v-if="!defaultEncryption">
         {{ i18n.export_info }}
       </div>
       <div class="text">
@@ -43,12 +43,12 @@
       <a-button-link
         download="authenticator.json"
         :href="exportEncryptedFile"
-        v-if="encryption.getEncryptionStatus() && isDataLinkSupported"
+        v-if="!!defaultEncryption && isDataLinkSupported"
         >{{ i18n.download_enc_backup }}</a-button-link
       >
       <button
         v-on:click="downloadBackUpExportEncryptedFile()"
-        v-if="encryption.getEncryptionStatus() && !isDataLinkSupported"
+        v-if="!!defaultEncryption && !isDataLinkSupported"
         class="button"
       >
         {{ i18n.download_enc_backup }}
@@ -86,8 +86,8 @@ export default Vue.extend({
     };
   },
   computed: {
-    encryption: function () {
-      return this.$store.state.accounts.encryption;
+    defaultEncryption: function () {
+      return this.$store.state.accounts.defaultEncryption;
     },
     exportDisabled: function () {
       return this.$store.state.menu.exportDisabled;
@@ -173,7 +173,7 @@ export default Vue.extend({
   },
 });
 
-function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {
+function hasUnsupportedAccounts(exportData: { [h: string]: RawOTPStorage }) {
   for (const entry of Object.keys(exportData)) {
     if (
       exportData[entry].type === "battle" ||
@@ -186,7 +186,7 @@ function hasUnsupportedAccounts(exportData: { [h: string]: OTPStorage }) {
 }
 
 function getBackupFile(
-  entryData: { [hash: string]: OTPStorage },
+  entryData: { [hash: string]: RawOTPStorage },
   key?: Object
 ) {
   if (key) {
@@ -198,7 +198,7 @@ function getBackupFile(
   return downloadFileUrlBuilder(json);
 }
 
-function getOneLineOtpBackupFile(entryData: { [hash: string]: OTPStorage }) {
+function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];

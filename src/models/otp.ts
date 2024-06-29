@@ -1,8 +1,6 @@
-import { Encryption } from "./encryption";
 import { KeyUtilities } from "./key-utilities";
 import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
-import * as uuid from "uuid/v4";
 
 export enum OTPType {
   totp = 1,
@@ -24,6 +22,12 @@ export enum OTPAlgorithm {
   SHA512,
   GOST3411_2012_256,
   GOST3411_2012_512,
+}
+
+export enum DataType {
+  OTPStorage = "OTPStorage",
+  EncOTPStorage = "EncOTPStorage",
+  Key = "Key",
 }
 
 export interface OTPAlgorithmSpec {
@@ -48,7 +52,6 @@ export class OTPEntry implements OTPEntryInterface {
   index: number;
   issuer: string;
   secret: string | null;
-  encSecret: string | null;
   account: string;
   hash: string;
   counter: number;
@@ -56,27 +59,65 @@ export class OTPEntry implements OTPEntryInterface {
   digits: number;
   algorithm: OTPAlgorithm;
   pinned: boolean;
+  encryption?: EncryptionInterface;
+  encData?: string;
+  encSecret?: string;
+  keyId?: string;
   code = "&bull;&bull;&bull;&bull;&bull;&bull;";
 
   constructor(
-    entry: {
-      account?: string;
-      encrypted: boolean;
-      index: number;
-      issuer?: string;
-      secret: string;
-      type: OTPType;
-      counter?: number;
-      period?: number;
-      hash?: string;
-      digits?: number;
-      algorithm?: OTPAlgorithm;
-      pinned?: boolean;
-    },
-    encryption?: Encryption
+    entry:
+      | {
+          account?: string;
+          encrypted: boolean;
+          index: number;
+          issuer?: string;
+          secret: string;
+          type: OTPType;
+          counter?: number;
+          period?: number;
+          hash?: string;
+          digits?: number;
+          algorithm?: OTPAlgorithm;
+          pinned?: boolean;
+        }
+      | {
+          encrypted: true;
+          keyId: string;
+          encData: string;
+          hash: string;
+          index: number;
+        },
+    encryption?: EncryptionInterface
   ) {
-    this.type = entry.type;
+    this.encryption = encryption;
     this.index = entry.index;
+
+    if ("keyId" in entry) {
+      this.encData = entry.encData;
+      this.secret = null;
+      this.hash = entry.hash;
+      this.keyId = entry.keyId;
+
+      // defaults
+      this.type = OTPType.totp;
+      this.issuer = "";
+      this.account = "";
+      this.counter = 0;
+      this.period = 30;
+      this.digits = 6;
+      this.algorithm = OTPAlgorithm.SHA1;
+      this.pinned = false;
+      return;
+    } else if (entry.encrypted) {
+      // v2 encryption backwards compat logic
+      this.secret = null;
+      this.encSecret = entry.secret;
+    } else {
+      this.secret = entry.secret;
+    }
+
+    this.type = entry.type;
     if (entry.issuer) {
       this.issuer = entry.issuer;
     } else {
@@ -87,20 +128,10 @@ export class OTPEntry implements OTPEntryInterface {
     } else {
       this.account = "";
     }
-    if (entry.encrypted) {
-      this.encSecret = entry.secret;
-      this.secret = null;
-    } else {
-      this.secret = entry.secret;
-      this.encSecret = null;
-      if (encryption && encryption.getEncryptionStatus()) {
-        this.encSecret = encryption.getEncryptedString(this.secret);
-      }
-    }
     if (entry.hash) {
       this.hash = entry.hash;
     } else {
-      this.hash = uuid(); // UUID
+      this.hash = crypto.randomUUID();
     }
     if (entry.counter) {
       this.counter = entry.counter;
@@ -142,31 +173,65 @@ export class OTPEntry implements OTPEntryInterface {
     return;
   }
 
-  changeEncryption(encryption: Encryption) {
+  changeEncryption(encryption: EncryptionInterface) {
     if (!this.secret) {
       return;
     }
 
-    if (encryption.getEncryptionStatus()) {
-      this.encSecret = encryption.getEncryptedString(this.secret);
-    } else {
-      this.encSecret = null;
-    }
+    this.encryption = encryption;
     return;
   }
 
-  applyEncryption(encryption: Encryption) {
-    const secret = this.encSecret ? this.encSecret : null;
-    if (secret) {
-      this.secret = encryption.getDecryptedSecret({
-        hash: this.hash,
-        secret,
-      });
-      if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
-        this.generate();
-      }
+  applyEncryption(encryption: EncryptionInterface) {
+    if (!encryption || !encryption.getEncryptionStatus()) {
+      return;
     }
-    return;
+
+    if (this.encSecret) {
+      // v2 encryption
+      this.secret = encryption.decryptSecretString(this.encSecret);
+      if (this.secret) {
+        this.encSecret = "";
+      }
+      return;
+    }
+
+    // check if its a rawotpstorage
+    const decryptedData = encryption.decryptEncSecret(this);
+    if (decryptedData === null) {
+      return;
+    }
+
+    if (decryptedData?.dataType !== "OTPStorage") {
+      console.warn("Decrypt successful, but malformed encData!", this.hash);
+    }
+
+    if (decryptedData.hash !== this.hash) {
+      console.warn(
+        "Decrypt successful, but hash mismatch!",
+        this.hash,
+        decryptedData.hash
+      );
+    }
+
+    this.account = decryptedData.account || "";
+    // @ts-expect-error need a better way to do this
+    this.algorithm = OTPAlgorithm[decryptedData.algorithm] || OTPAlgorithm.SHA1;
+    this.counter = decryptedData.counter || 0;
+    this.digits = decryptedData.digits || 6;
+    this.issuer = decryptedData.issuer || "";
+    this.period = decryptedData.period || 30;
+    this.pinned = decryptedData.pinned || false;
+    this.secret = decryptedData.secret;
+    // @ts-expect-error need a better way to do this
+    this.type = OTPType[decryptedData.type] || OTPType.totp;
+
+    if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
+      this.generate();
+    }
+
+    this.encryption = encryption;
+    this.encData = "";
   }
 
   async delete() {
@@ -187,7 +252,7 @@ export class OTPEntry implements OTPEntryInterface {
   }
 
   genUUID() {
-    this.hash = uuid();
+    this.hash = crypto.randomUUID();
   }
 
   generate() {
@@ -202,7 +267,7 @@ export class OTPEntry implements OTPEntryInterface {
       });
     }
 
-    if (!this.secret && !this.encSecret) {
+    if (!this.secret && !this.encData) {
       this.code = CodeState.Invalid;
     } else if (!this.secret) {
       this.code = CodeState.Encrypted;
@@ -219,7 +284,7 @@ export class OTPEntry implements OTPEntryInterface {
         );
       } catch (error) {
         this.code = CodeState.Invalid;
-        console.log("Invalid secret.", error);
+        console.warn("Invalid secret.", error);
       }
     }
   }

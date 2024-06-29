@@ -1,12 +1,9 @@
 import { Encryption } from "./encryption";
 import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
-import * as uuid from "uuid/v4";
 import { StorageLocation, UserSettings } from "./settings";
-
+import { DataType } from "./otp";
 export class BrowserStorage {
-  private static async getStorageLocation(): Promise<
-    StorageLocation | undefined
-  > {
+  private static async getStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
     const managedLocation = await ManagedStorage.get<StorageLocation>(
       "storageArea"
@@ -60,7 +57,7 @@ export class BrowserStorage {
       });
     } else {
       return new Promise((resolve) => {
-        resolve(UserSettings.items.storageLocation);
+        resolve(UserSettings.items.storageLocation || StorageLocation.Sync);
         return;
       });
     }
@@ -69,9 +66,22 @@ export class BrowserStorage {
   // TODO: promise this
   static async get() {
     const storageLocation = await this.getStorageLocation();
-    const removeKey = function (items: { [key: string]: OTPStorage }): void {
+    const removeOtherData = function (items: Record<string, unknown>): void {
       delete items.key;
       delete items.LocalStorage;
+
+      for (const itemId in items) {
+        const item = items[itemId];
+
+        if (
+          item !== null &&
+          typeof item === "object" &&
+          "dataType" in item &&
+          item.dataType === "Key"
+        ) {
+          delete items[itemId];
+        }
+      }
     };
 
     let items = {} as { [key: string]: OTPStorage };
@@ -82,34 +92,39 @@ export class BrowserStorage {
       items = await chrome.storage.sync.get();
     }
 
-    removeKey(items);
+    removeOtherData(items);
 
     return items;
   }
 
-  static getKey() {
-    return new Promise(
-      (resolve: (key: { enc: string; hash: string } | null) => void) => {
-        this.getStorageLocation().then((storageLocation) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const callback = function (items: { [key: string]: any }): void {
-            if (typeof items.key === "object") {
-              resolve(items.key);
-            } else {
-              resolve(null);
-            }
-            return;
-          };
+  static async getKeys(): Promise<OldKey | Key[]> {
+    const storageLocation = await this.getStorageLocation();
 
-          if (storageLocation === StorageLocation.Local) {
-            chrome.storage.local.get(callback);
-          } else if (storageLocation === StorageLocation.Sync) {
-            chrome.storage.sync.get(callback);
-          }
-          return;
-        });
+    const data = (await chrome.storage[storageLocation].get()) as Record<
+      string,
+      unknown
+    >;
+
+    // Return old key first, so we know to run a migration
+    if (data && typeof data === "object" && "key" in data) {
+      if (isOldKey(data.key)) {
+        return data.key;
+      } else {
+        console.error("'key' is malformed!");
       }
-    );
+    }
+
+    const keys: Key[] = [];
+    if (data && typeof data === "object") {
+      for (const record in data) {
+        const key = data[record];
+        if (isKey(key)) {
+          keys.push(key);
+        }
+      }
+    }
+
+    return keys;
   }
 
   static async set(data: object) {
@@ -148,14 +163,47 @@ export class BrowserStorage {
   }
 }
 
+export function isOldKey(key: unknown): key is OldKey {
+  return Boolean(
+    key &&
+      typeof key === "object" &&
+      "enc" in key &&
+      "hash" in key &&
+      key.enc &&
+      key.hash &&
+      typeof key.enc === "string" &&
+      typeof key.hash === "string"
+  );
+}
+
+function isKey(key: unknown): key is Key {
+  return Boolean(
+    key &&
+      typeof key === "object" &&
+      "dataType" in key &&
+      "id" in key &&
+      "salt" in key &&
+      key.dataType === "Key" &&
+      key.id &&
+      key.salt &&
+      typeof key.id === "string" &&
+      typeof key.salt === "string"
+  );
+}
+
 export class EntryStorage {
   private static getOTPStorageFromEntry(
     entry: OTPEntry,
     unencrypted?: boolean
   ): OTPStorage {
     let secret: string;
-    if (entry.encSecret) {
-      secret = entry.encSecret;
+    if (!entry.secret && entry.encData && entry.keyId) {
+      return {
+        dataType: DataType.EncOTPStorage,
+        keyId: entry.keyId,
+        data: entry.encData,
+        index: entry.index,
+      };
     } else if (entry.secret) {
       secret = entry.secret;
     } else {
@@ -163,14 +211,14 @@ export class EntryStorage {
       console.warn("Invalid entry", entry);
     }
 
-    let encrypted = Boolean(entry.encSecret);
+    let encrypted = entry.encryption?.getEncryptionStatus() || false;
 
     if (unencrypted && entry.secret) {
       secret = entry.secret;
       encrypted = false;
     }
 
-    const storageItem: OTPStorage = {
+    const storageItem: RawOTPStorage = {
       encrypted,
       hash: entry.hash,
       index: entry.index,
@@ -206,28 +254,66 @@ export class EntryStorage {
       storageItem.algorithm = OTPAlgorithm[entry.algorithm];
     }
 
+    if (entry.encryption?.getEncryptionKeyId()) {
+      storageItem.keyId = entry.encryption.getEncryptionKeyId();
+    }
+
+    storageItem.dataType = DataType.OTPStorage;
+
+    if (
+      !unencrypted &&
+      encrypted &&
+      entry.encryption?.getEncryptionStatus() &&
+      entry.encryption.getEncryptionKeyId()
+    ) {
+      const encData = entry.encryption.getEncryptedString(
+        JSON.stringify(storageItem)
+      );
+      return {
+        dataType: DataType.EncOTPStorage,
+        data: encData,
+        keyId: entry.encryption.getEncryptionKeyId(),
+        index: entry.index,
+      };
+    } else if (encrypted) {
+      console.error("Could not encrypt malformed entry: ", entry);
+    }
+
     return storageItem;
   }
 
-  private static ensureUniqueIndex(_data: { [hash: string]: OTPStorage }) {
-    const tempEntryArray: OTPStorage[] = [];
+  private static ensureUniqueIndex(data: { [hash: string]: OTPStorage }) {
+    const tempEntryArray: [hash: string, storage: OTPStorage][] = [];
 
-    for (const hash of Object.keys(_data)) {
-      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
+    for (const hash of Object.keys(data)) {
+      if (
+        hash === "UserSettings" ||
+        (data[hash] as { dataType: string }).dataType === "Key" ||
+        !this.isValidEntry(data, hash)
+      ) {
         continue;
       }
-      tempEntryArray.push(_data[hash]);
+      tempEntryArray.push([hash, data[hash]]);
     }
 
     tempEntryArray.sort((a, b) => {
-      return a.index - b.index;
+      return a[1].index - b[1].index;
     });
 
-    const newData: { [hash: string]: OTPStorage } = {};
-    for (let i = 0; i < tempEntryArray.length; i++) {
-      tempEntryArray[i].index = i;
-      newData[tempEntryArray[i].hash] = tempEntryArray[i];
-    }
+    let i = 0;
+    const newData: { [hash: string]: OTPStorage } = tempEntryArray.reduce(
+      (previous: { [hash: string]: OTPStorage }, entry) => {
+        const mergedData = {
+          ...previous,
+          [entry[0]]: { ...entry[1], index: i },
+        };
+
+        i += 1;
+
+        return mergedData;
+      },
+      {}
+    );
 
     return newData;
   }
@@ -237,10 +323,7 @@ export class EntryStorage {
       return false;
     }
 
-    if (
-      !entry ||
-      !Object.prototype.hasOwnProperty.hasOwnProperty.call(entry, "secret")
-    ) {
+    if (!entry || !("secret" in entry || "data" in entry)) {
       return false;
     }
 
@@ -264,7 +347,12 @@ export class EntryStorage {
   }
 
   static async hasEncryptionKey(): Promise<boolean> {
-    return Boolean(await BrowserStorage.getKey());
+    const keys = await BrowserStorage.getKeys();
+    if (isOldKey(keys)) {
+      return true;
+    } else {
+      return keys.length !== 0;
+    }
   }
 
   static getExport(data: OTPEntryInterface[], encrypted?: boolean) {
@@ -272,24 +360,11 @@ export class EntryStorage {
       const exportData: { [hash: string]: OTPStorage } = {};
       for (const entry of data) {
         // Skip unable-decrypted data
-        if (entry.code === CodeState.Encrypted) {
+        if (entry.code === CodeState.Encrypted || !entry.secret) {
           continue;
         }
 
-        if (!encrypted) {
-          if (!entry.secret) {
-            // Not unencrypted
-          } else {
-            exportData[entry.hash] = this.getOTPStorageFromEntry(
-              entry as OTPEntry,
-              true
-            );
-          }
-        } else {
-          exportData[entry.hash] = this.getOTPStorageFromEntry(
-            entry as OTPEntry
-          );
-        }
+        exportData[entry.hash] = this.getOTPStorageFromEntry(entry, !encrypted);
       }
       return exportData;
     } catch (error) {
@@ -300,140 +375,169 @@ export class EntryStorage {
   static async backupGetExport(encryption: Encryption, encrypted?: boolean) {
     const _data = await BrowserStorage.get();
     for (const hash of Object.keys(_data)) {
-      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
+      if (
+        hash === "UserSettings" ||
+        (_data[hash] as { dataType: string }).dataType === "Key" ||
+        !this.isValidEntry(_data, hash)
+      ) {
         delete _data[hash];
         continue;
       }
+
+      const entry = _data[hash];
+
+      // TODO: fix this
+      if (entry.dataType === "EncOTPStorage") {
+        continue;
+      }
+
       // remove unnecessary fields
       if (
-        !(_data[hash].type === OTPType[OTPType.hotp]) &&
-        !(_data[hash].type === OTPType[OTPType.hhex])
+        !(entry.type === OTPType[OTPType.hotp]) &&
+        !(entry.type === OTPType[OTPType.hhex])
       ) {
-        delete _data[hash].counter;
+        delete entry.counter;
       }
 
-      if (_data[hash].period === 30) {
-        delete _data[hash].period;
+      if (entry.period === 30) {
+        delete entry.period;
       }
 
-      if (!_data[hash].issuer) {
-        delete _data[hash].issuer;
+      if (!entry.issuer) {
+        delete entry.issuer;
       }
 
-      if (!_data[hash].account) {
-        delete _data[hash].account;
+      if (!entry.account) {
+        delete entry.account;
       }
 
-      if (_data[hash].digits === 6) {
-        delete _data[hash].digits;
+      if (entry.digits === 6) {
+        delete entry.digits;
       }
 
-      if (_data[hash].algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]) {
-        delete _data[hash].algorithm;
+      if (entry.algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]) {
+        delete entry.algorithm;
       }
 
-      delete _data[hash].pinned;
+      delete entry.pinned;
 
       if (!encrypted) {
         // decrypt the data to export
-        if (_data[hash].encrypted) {
-          const decryptedSecret = encryption.getDecryptedSecret(_data[hash]);
-          if (
-            decryptedSecret !== _data[hash].secret &&
-            decryptedSecret !== null
-          ) {
-            _data[hash].secret = decryptedSecret;
-            _data[hash].encrypted = false;
+        if (entry.encrypted) {
+          const decryptedSecret = encryption.decryptSecretString(entry.secret);
+          if (decryptedSecret !== entry.secret && decryptedSecret !== null) {
+            entry.secret = decryptedSecret;
+            entry.encrypted = false;
           }
         }
         // we need correct hash
-        if (hash !== _data[hash].hash) {
-          _data[_data[hash].hash] = _data[hash];
+        if (hash !== entry.hash) {
+          _data[entry.hash] = entry;
           delete _data[hash];
         }
       }
     }
     if (encryption.getEncryptionStatus()) {
-      Object.assign(_data, { key: await BrowserStorage.getKey() });
+      const keys = await BrowserStorage.getKeys();
+      if (isOldKey(keys)) {
+        Object.assign(_data, { key: keys });
+      } else {
+        for (const key of keys) {
+          Object.assign(_data, { [key.id]: key });
+        }
+      }
     }
     return _data;
   }
 
   static async import(
     encryption: Encryption,
-    data: { [hash: string]: OTPStorage }
+    data: { [hash: string]: RawOTPStorage }
   ) {
     let _data = await BrowserStorage.get();
     for (const hash of Object.keys(data)) {
       // never trust data import from user
-      // we do not support encrypted data import any longer
+      // data must be decrypted before calling this method
       if (!data[hash].secret || data[hash].encrypted) {
-        // we need give a failed warning
+        // TODO: we need give a failed warning
         continue;
       }
 
-      data[hash].hash = data[hash].hash || hash;
-      data[hash].account = data[hash].account || "";
-      data[hash].encrypted = encryption.getEncryptionStatus();
-      data[hash].index = data[hash].index || 0;
-      data[hash].issuer = data[hash].issuer || "";
-      data[hash].type = data[hash].type || OTPType[OTPType.totp];
-      data[hash].counter = data[hash].counter || 0;
-      data[hash].digits = data[hash].digits || 6;
-      data[hash].algorithm =
-        data[hash].algorithm || OTPAlgorithm[OTPAlgorithm.SHA1];
-      data[hash].pinned = data[hash].pinned || false;
-      const period = data[hash].period;
-      if (
-        data[hash].type !== OTPType[OTPType.totp] ||
-        (period && (isNaN(period) || period <= 0))
-      ) {
-        delete data[hash].period;
+      const rawAlgorithm = data[hash].algorithm;
+      const entryData: {
+        account: string;
+        encrypted: false;
+        index: number;
+        issuer: string;
+        secret: string;
+        type: OTPType;
+        counter: number;
+        period: number;
+        hash: string;
+        digits: number;
+        algorithm: OTPAlgorithm;
+        pinned: boolean;
+      } = {
+        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        index: data[hash].index || 0,
+        issuer: data[hash].issuer || "",
+        account: data[hash].account || "",
+        encrypted: false,
+        secret: data[hash].secret,
+        counter: data[hash].counter || 0,
+        period: data[hash].period || 30,
+        digits: data[hash].digits || 6,
+        algorithm: rawAlgorithm
+          ? (parseInt(rawAlgorithm) as OTPAlgorithm)
+          : OTPAlgorithm.SHA1,
+        pinned: data[hash].pinned || false,
+        hash: data[hash].hash || hash,
+      };
+
+      if (isNaN(entryData.period) || entryData.period <= 0) {
+        entryData.period = 30;
       }
 
       // If invalid digits, then use default.
-      const digits = data[hash].digits;
-      if (digits && (digits > 10 || digits < 1)) {
-        data[hash].digits = 6;
+      if (entryData.digits > 10 || entryData.digits < 1) {
+        entryData.digits = 6;
       }
 
       // If invalid algorithm, then use default
-      // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-      // @ts-ignore - it's fine if this ends up undefined
-      if (!OTPAlgorithm[data[hash].algorithm]) {
-        data[hash].algorithm = OTPAlgorithm[OTPAlgorithm.SHA1];
+      if (!OTPAlgorithm[entryData.algorithm]) {
+        entryData.algorithm = OTPAlgorithm.SHA1;
       }
 
-      if (/^(blz-|bliz-)/.test(data[hash].secret)) {
-        const secretMatches = data[hash].secret.match(/^(blz-|bliz-)(.*)/);
+      if (/^(blz-|bliz-)/.test(entryData.secret)) {
+        const secretMatches = entryData.secret.match(/^(blz-|bliz-)(.*)/);
         if (secretMatches && secretMatches.length >= 3) {
-          data[hash].secret = secretMatches[2];
-          data[hash].type = OTPType[OTPType.battle];
+          entryData.secret = secretMatches[2];
+          entryData.type = OTPType.battle;
         }
       }
 
-      if (/^stm-/.test(data[hash].secret)) {
-        const secretMatches = data[hash].secret.match(/^stm-(.*)/);
+      if (/^stm-/.test(entryData.secret)) {
+        const secretMatches = entryData.secret.match(/^stm-(.*)/);
         if (secretMatches && secretMatches.length >= 2) {
-          data[hash].secret = secretMatches[1];
-          data[hash].type = OTPType[OTPType.steam];
+          entryData.secret = secretMatches[1];
+          entryData.type = OTPType.steam;
         }
       }
 
       if (
-        !/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
-        /^[0-9a-f]+$/i.test(data[hash].secret) &&
-        data[hash].type === OTPType[OTPType.totp]
+        !/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+        /^[0-9a-f]+$/i.test(entryData.secret) &&
+        entryData.type === OTPType.totp
       ) {
-        data[hash].type = OTPType[OTPType.hex];
+        entryData.type = OTPType.hex;
       }
 
       if (
-        !/^[a-z2-7]+=*$/i.test(data[hash].secret) &&
-        /^[0-9a-f]+$/i.test(data[hash].secret) &&
-        data[hash].type === OTPType[OTPType.hotp]
+        !/^[a-z2-7]+=*$/i.test(entryData.secret) &&
+        /^[0-9a-f]+$/i.test(entryData.secret) &&
+        entryData.type === OTPType.hotp
       ) {
-        data[hash].type = OTPType[OTPType.hhex];
+        entryData.type = OTPType.hhex;
       }
 
       // not a valid / old hash
@@ -442,18 +546,12 @@ export class EntryStorage {
           hash
         )
       ) {
-        const _hash = await uuid();
-
-        data[_hash] = data[hash];
-        data[_hash].hash = _hash;
+        entryData.hash = crypto.randomUUID();
         delete data[hash];
-
-        data[_hash].secret = encryption.getEncryptedString(data[_hash].secret);
-        _data[_hash] = data[_hash];
-      } else {
-        data[hash].secret = encryption.getEncryptedString(data[hash].secret);
-        _data[hash] = data[hash];
       }
+
+      const entry = new OTPEntry(entryData, encryption);
+      _data[entryData.hash] = this.getOTPStorageFromEntry(entry);
     }
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
@@ -491,10 +589,28 @@ export class EntryStorage {
     const data: OTPEntry[] = [];
 
     for (const hash of Object.keys(_data)) {
-      if (hash === "UserSettings" || !this.isValidEntry(_data, hash)) {
+      if (
+        hash === "UserSettings" ||
+        (_data[hash] as { dataType: string }).dataType === "Key" ||
+        !this.isValidEntry(_data, hash)
+      ) {
         continue;
       }
+
       const entryData = _data[hash];
+
+      if (entryData.dataType === "EncOTPStorage") {
+        data.push(
+          new OTPEntry({
+            encrypted: true,
+            encData: entryData.data,
+            keyId: entryData.keyId,
+            hash,
+            index: entryData.index,
+          })
+        );
+        continue;
+      }
 
       if (!entryData.hash) {
         entryData.hash = hash;
@@ -540,19 +656,18 @@ export class EntryStorage {
         type,
         counter: entryData.counter,
         period,
-        digits: entryData.digits,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore - it's fine if this ends up undefined
+        digits: entryData.digits ? Number(entryData.digits) : undefined,
+        // @ts-expect-error - it's fine if this ends up undefined
         algorithm: OTPAlgorithm[entryData.algorithm],
         pinned: entryData.pinned,
       });
 
       data.push(entry);
-
-      data.sort((a, b) => {
-        return a.index - b.index;
-      });
     }
+
+    data.sort((a, b) => {
+      return a.index - b.index;
+    });
 
     return data;
   }

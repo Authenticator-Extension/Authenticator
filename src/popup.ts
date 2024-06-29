@@ -76,7 +76,7 @@ async function init() {
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
     // If we have cached password, use that
-    if (instance.$store.state.accounts.encryption.getEncryptionStatus()) {
+    if (instance.$store.state.accounts.defaultEncryption) {
       instance.$store.commit("currentView/changeView", "LoadingPage");
       await instance.$store.dispatch("accounts/updateEntries");
     } else {
@@ -209,7 +209,9 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           try {
             const dropbox = new Dropbox();
             const res = await dropbox.upload(
-              instance.$store.state.accounts.encryption
+              instance.$store.state.accounts.encryption.get(
+                instance.$store.state.accounts.defaultEncryption
+              )
             );
             if (res) {
               // we have uploaded backup to Dropbox
@@ -251,7 +253,9 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           try {
             const drive = new Drive();
             const res = await drive.upload(
-              instance.$store.state.accounts.encryption
+              instance.$store.state.accounts.encryption.get(
+                instance.$store.state.accounts.defaultEncryption
+              )
             );
             if (res) {
               UserSettings.items.lastRemindingBackupTime = clientTime;
@@ -291,7 +295,9 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
           try {
             const onedrive = new OneDrive();
             const res = await onedrive.upload(
-              instance.$store.state.accounts.encryption
+              instance.$store.state.accounts.encryption.get(
+                instance.$store.state.accounts.defaultEncryption
+              )
             );
             if (res) {
               UserSettings.items.lastRemindingBackupTime = clientTime;

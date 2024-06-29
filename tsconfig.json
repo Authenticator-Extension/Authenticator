@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["ES2020.Promise", "es6", "dom"],
-    "target": "es5",
+    "target": "es6",
     "strict": true,
     "module": "es2015",
     "rootDir": "src",
@@ -16,7 +16,7 @@
     "noImplicitReturns": true,
     "pretty": true,
     "sourceMap": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "src/*.ts",

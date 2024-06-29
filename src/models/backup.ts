@@ -280,14 +280,14 @@ export class Drive implements BackupProvider {
                     UserSettings.items.driveFolder = undefined;
                     UserSettings.commitItems();
                     resolve(true);
+                  } else {
+                    console.error(res.error.message);
+                    resolve(false);
                   }
                 } else if (res.trashed) {
                   UserSettings.items.driveFolder = undefined;
                   UserSettings.commitItems();
                   resolve(true);
-                } else if (res.error) {
-                  console.error(res.error.message);
-                  resolve(false);
                 } else {
                   resolve(true);
                 }

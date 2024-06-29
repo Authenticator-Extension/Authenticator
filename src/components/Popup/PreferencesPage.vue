@@ -43,7 +43,7 @@
       @change="requireContextMenuPermission()"
       v-if="isSupported"
     />
-    <div class="control-group" v-show="encryption.getEncryptionStatus()">
+    <div class="control-group" v-show="!!defaultEncryption">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
         class="input"
@@ -107,8 +107,8 @@ export default Vue.extend({
         this.$store.commit("menu/setTheme", theme);
       },
     },
-    encryption(): EncryptionInterface {
-      return this.$store.state.accounts.encryption;
+    defaultEncryption(): string {
+      return this.$store.state.accounts.defaultEncryption;
     },
     enforceAutolock() {
       return this.$store.state.menu.enforceAutolock;

@@ -1,10 +1,7 @@
 <template>
   <div>
     <div>
-      <div
-        class="text warning"
-        v-show="!isEncrypted || !encryption.getEncryptionStatus()"
-      >
+      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
@@ -13,7 +10,7 @@
         </div>
       </div>
       <a-select-input
-        v-show="encryption.getEncryptionStatus() && backupToken"
+        v-show="!!defaultEncryption && backupToken"
         :label="i18n.encrypted"
         v-model="isEncrypted"
       >
@@ -50,8 +47,8 @@ export default Vue.extend({
     UserSettings.updateItems();
   },
   computed: {
-    encryption: function () {
-      return this.$store.state.accounts.encryption;
+    defaultEncryption: function () {
+      return this.$store.state.accounts.defaultEncryption;
     },
     isEncrypted: {
       get(): boolean {

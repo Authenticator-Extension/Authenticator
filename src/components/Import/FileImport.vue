@@ -45,12 +45,12 @@ export default Vue.extend({
       }
       if (target.files[0]) {
         const reader = new FileReader();
-        let decryptedFileData: { [hash: string]: OTPStorage } = {};
+        let decryptedFileData: { [hash: string]: RawOTPStorage } = {};
         reader.onload = async () => {
           let importData: {
             // @ts-ignore
             key?: { enc: string; hash: string };
-            [hash: string]: OTPStorage;
+            [hash: string]: RawOTPStorage | Key;
             // Bug #557, uploaded backups were missing `key`
             // @ts-ignore
             enc?: string;
@@ -74,7 +74,7 @@ export default Vue.extend({
             succeededCount = result.succeededCount;
           }
 
-          let key: { enc: string; hash: string } | null = null;
+          let key: { enc: string } | null = null;
 
           if (importData.hasOwnProperty("key")) {
             if (importData.key) {
@@ -82,27 +82,33 @@ export default Vue.extend({
             }
             delete importData.key;
           } else if (importData.enc && importData.hash) {
-            key = { enc: importData.enc, hash: importData.hash };
+            key = { enc: importData.enc };
             delete importData.hash;
             delete importData.enc;
           }
 
-          let encrypted = false;
           for (const hash in importData) {
-            if (importData[hash].encrypted) {
-              encrypted = true;
+            const possibleEntry = importData[hash];
+            if (possibleEntry.dataType === "Key") {
+              // don't try to import keys as an OTPEntry
+              continue;
+            }
+
+            if (possibleEntry.keyId || possibleEntry.encrypted) {
               try {
                 const oldPassphrase:
                   | string
                   | null = await this.getOldPassphrase();
 
                 if (key) {
-                  decryptedFileData = decryptBackupData(
+                  // v2 encryption
+                  decryptedFileData = await decryptBackupData(
                     importData,
                     CryptoJS.AES.decrypt(key.enc, oldPassphrase).toString()
                   );
                 } else {
-                  decryptedFileData = decryptBackupData(
+                  // v3 and v1 encryption
+                  decryptedFileData = await decryptBackupData(
                     importData,
                     oldPassphrase
                   );
@@ -112,10 +118,9 @@ export default Vue.extend({
               } catch {
                 break;
               }
+            } else {
+              decryptedFileData[hash] = possibleEntry;
             }
-          }
-          if (!encrypted) {
-            decryptedFileData = importData;
           }
           if (Object.keys(decryptedFileData).length) {
             await EntryStorage.import(

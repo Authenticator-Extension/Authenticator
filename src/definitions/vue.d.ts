@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import Vue from "vue";
 import { Store } from "vuex";
 
 declare module "vue/types/vue" {
