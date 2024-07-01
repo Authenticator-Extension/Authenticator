@@ -103,7 +103,7 @@ export default Vue.extend({
       ) {
         type = OTPType.hhex;
       } else {
-        type = this.newAccount.type;
+        type = parseInt(this.newAccount.type);
       }
 
       if (type === OTPType.hhex || type === OTPType.hotp) {
