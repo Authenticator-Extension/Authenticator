@@ -483,7 +483,7 @@
         "message": "Allows auto-lock to work."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Injecter des scripts dans l'onglet actuel pour scanner les codes QR et permettre au remplissage automatique de fonctionner."
     },
     "permission_clipboard_write": {
         "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
