@@ -480,7 +480,7 @@
         "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Permet au verrouillage automatique de fonctionner."
     },
     "permission_scripting": {
         "message": "Injecter des scripts dans l'onglet actuel pour scanner les codes QR et permettre au remplissage automatique de fonctionner."
