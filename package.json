@@ -34,7 +34,6 @@
     "@types/uuid": "^3.4.9",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
-    "@vue/runtime-dom": "^3.2.47",
     "@vue/test-utils": "^1.1.1",
     "base64-loader": "^1.0.0",
     "buffer": "^6.0.3",
@@ -60,7 +59,7 @@
     "util": "^0.12.5",
     "vue-loader": "^15.10.1",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.7.0",
+    "vue-template-compiler": "^2.7.16",
     "webpack": "^5.11.0",
     "webpack-cli": "^5.0.0",
     "webpack-merge": "^5.0.0"
@@ -73,7 +72,7 @@
     "qrcode-generator": "^1.4.4",
     "qrcode-reader": "^1.0.4",
     "uuid": "^3.4.0",
-    "vue": "^2.6.12",
+    "vue": "^2.7.16",
     "vue2-dragula": "^2.5.4",
     "vuex": "^3.4.0"
   }
