@@ -33,7 +33,7 @@
         <option :value="OTPAlgorithm.GOST3411_2012_256">GOST 34.11 256</option>
         <option :value="OTPAlgorithm.GOST3411_2012_512">GOST 34.11 512</option>
       </a-select-input>
-      <a-select-input :label="i18n.type" v-model="newAccount.type">
+      <a-select-input :label="i18n.type" v-model.number="newAccount.type">
         <option :value="OTPType.totp">{{ i18n.based_on_time }}</option>
         <option :value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
         <option :value="OTPType.battle">Battle.net</option>
