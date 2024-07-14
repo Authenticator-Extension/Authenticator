@@ -238,7 +238,7 @@
         "description": "Import backup code."
     },
     "import_otp_urls": {
-        "message": "Import OTP URLs",
+        "message": "Importera OTP-URL:er",
         "description": "Import OTP URLs. Shown as add account method."
     },
     "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
         "message": "Tillåt inloggning till lagringstjänster från tredje part."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Gör att automatisk låsning fungerar."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Injicerar skript i nuvarande flik för att skanna QR-koder och göra att autofyll fungerar."
     },
     "permission_clipboard_write": {
         "message": "Ger enbart skrivbehörighet till urklipp för att kopiera koder till urklipp när du klickar på kontot."
