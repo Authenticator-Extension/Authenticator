@@ -480,10 +480,10 @@
         "message": "Επιτρέπει τη σύνδεση σε υπηρεσίες αποθήκευσης τρίτων."
     },
     "permission_alarms": {
-        "message": "Allows auto-lock to work."
+        "message": "Επιτρέπει το αυτόματο κλείδωμα να λειτουργήσει."
     },
     "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+        "message": "Χορηγεί κώδικα στην τρέχουσα καρτέλα για να σκανάρει κωδικούς QR και να συμπληρώσει αυτόματα ώστε να λειτουργήσει."
     },
     "permission_clipboard_write": {
         "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
