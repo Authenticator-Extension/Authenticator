@@ -48,12 +48,12 @@ export default Vue.extend({
         let importData: {
           // @ts-ignore
           key?: { enc: string; hash: string };
-          [hash: string]: OTPStorage;
+          [hash: string]: RawOTPStorage;
         } = result.exportData;
 
         const { failedCount, succeededCount } = result;
 
-        let decryptedFileData: { [hash: string]: OTPStorage } = importData;
+        let decryptedFileData: { [hash: string]: RawOTPStorage } = importData;
 
         if (Object.keys(decryptedFileData).length) {
           await EntryStorage.import(

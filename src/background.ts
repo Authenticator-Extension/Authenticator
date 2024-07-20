@@ -2,7 +2,6 @@ import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
-import * as uuid from "uuid/v4";
 import {
   getSiteName,
   getMatchedEntries,
@@ -35,13 +34,16 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
   } else if (message.action === "getTotp") {
     getTotp(message.info);
   } else if (message.action === "cachePassphrase") {
-    chrome.storage.session.set({ cachedPassphrase: message.value });
+    chrome.storage.session.set({
+      cachedPassphrase: message.value,
+      cachedKeyId: message.keyId,
+    });
     chrome.alarms.clear("autolock");
     setAutolock();
   } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
     getBackupToken(message.action);
   } else if (message.action === "lock") {
-    chrome.storage.session.set({ cachedPassphrase: null });
+    chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
   } else if (message.action === "resetAutolock") {
     chrome.alarms.clear("autolock");
     setAutolock();
@@ -56,11 +58,14 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
 });
 
 chrome.alarms.onAlarm.addListener(() => {
-  chrome.storage.session.set({ cachedPassphrase: null });
+  chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
   if (contentTab && contentTab.id) {
     chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
   }
   chrome.runtime.sendMessage({ action: "stopImport" });
+
+  // https://stackoverflow.com/a/56483156
+  return true;
 });
 
 async function getCapture(tab: chrome.tabs.Tab) {
@@ -141,9 +146,10 @@ async function getTotp(text: string, silent = false) {
         account = label;
       }
       const parameters = parameterPart.split("&");
-      const { cachedPassphrase } = await chrome.storage.session.get(
-        "cachedPassphrase"
-      );
+      const {
+        cachedPassphrase,
+        cachedKeyId,
+      } = await chrome.storage.session.get();
       parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
@@ -182,8 +188,8 @@ async function getTotp(text: string, silent = false) {
         !silent && chrome.tabs.sendMessage(id, { action: "secretqr", secret });
         return false;
       } else {
-        const encryption = new Encryption(cachedPassphrase);
-        const hash = await uuid();
+        const encryption = new Encryption(cachedPassphrase, cachedKeyId);
+        const hash = crypto.randomUUID();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
@@ -197,7 +203,7 @@ async function getTotp(text: string, silent = false) {
         ) {
           type = "hhex";
         }
-        const entryData: { [hash: string]: OTPStorage } = {};
+        const entryData: { [hash: string]: RawOTPStorage } = {};
         entryData[hash] = {
           account,
           hash,
@@ -405,10 +411,8 @@ function getBackupToken(service: string) {
 }
 
 async function uploadBackup(service: string) {
-  const { cachedPassphrase } = await chrome.storage.session.get(
-    "cachedPassphrase"
-  );
-  const encryption = new Encryption(cachedPassphrase);
+  const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
+  const encryption = new Encryption(cachedPassphrase, cachedKeyId);
 
   switch (service) {
     case "dropbox":
@@ -445,12 +449,13 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   if (url) {
     chrome.tabs.create({ url, active: true });
   }
+
+  // https://stackoverflow.com/a/56483156
+  return true;
 });
 
 chrome.commands.onCommand.addListener(async (command: string) => {
-  const { cachedPassphrase } = await chrome.storage.session.get(
-    "cachedPassphrase"
-  );
+  const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
 
   let tab: chrome.tabs.Tab | undefined;
 
@@ -496,7 +501,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
         if (matchedEntries && matchedEntries.length === 1) {
           const entry = matchedEntries[0];
-          const encryption = new Encryption(cachedPassphrase);
+          const encryption = new Encryption(cachedPassphrase, cachedKeyId);
           entry.applyEncryption(encryption);
 
           if (
@@ -515,6 +520,9 @@ chrome.commands.onCommand.addListener(async (command: string) => {
     default:
       break;
   }
+
+  // https://stackoverflow.com/a/56483156
+  return true;
 });
 
 async function setAutolock() {
@@ -569,6 +577,9 @@ async function updateContextMenu() {
               height: 400,
               width: 320,
             });
+
+            // https://stackoverflow.com/a/56483156
+            return true;
           });
         } else {
           chrome.contextMenus.removeAll();

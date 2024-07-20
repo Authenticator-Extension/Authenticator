@@ -10,7 +10,7 @@ window.addEventListener("message", (event) => {
 
   switch (message.action) {
     case "hash":
-      Argon.hash(message.value).then((hash) => {
+      Argon.hash(message.value, message.salt).then((hash) => {
         source.postMessage({ response: hash }, event.origin);
       });
       break;
@@ -28,12 +28,14 @@ window.addEventListener("message", (event) => {
 });
 
 class Argon {
-  static async hash(value: string) {
-    const salt = window.crypto.getRandomValues(new Uint8Array(16));
+  static async hash(value: string, salt: string | Uint8Array) {
     const hash = await argon2.hash({
       pass: value,
-      salt,
-      mem: 1024 * 16,
+      salt: salt,
+      time: 2,
+      mem: 1024 * 19,
+      parallelism: 1,
+      hashLen: 32,
       type: argon2.ArgonType.Argon2id,
     });
 

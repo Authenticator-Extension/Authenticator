@@ -1,10 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
+// @ts-expect-error - no typings
 import QRCode from "qrcode-reader";
 import jsQR from "jsqr";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-// @ts-ignore
+// @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
 
 if (!document.getElementById("__ga_grayLayout__")) {
@@ -63,6 +61,9 @@ if (!document.getElementById("__ga_grayLayout__")) {
         // invalid command, ignore it
         break;
     }
+
+    // https://stackoverflow.com/a/56483156
+    return true;
   });
 }
 

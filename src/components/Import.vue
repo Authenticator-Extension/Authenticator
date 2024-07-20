@@ -66,6 +66,9 @@ export default Vue.extend({
       if (event.action === "stopImport") {
         this.shouldShowPassphrase = true;
       }
+
+      // https://stackoverflow.com/a/56483156
+      return true;
     });
   },
 });

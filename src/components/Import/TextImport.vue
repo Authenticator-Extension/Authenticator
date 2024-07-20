@@ -48,7 +48,7 @@ export default Vue.extend({
       let exportData: {
         // @ts-ignore
         key?: { enc: string; hash: string };
-        [hash: string]: OTPStorage;
+        [hash: string]: OTPStorage | Key;
       } = {};
       let failedCount = 0;
       let succeededCount = 0;
@@ -78,15 +78,15 @@ export default Vue.extend({
             ? this.importPassphrase
             : null;
         let decryptedbackupData: {
-          [hash: string]: OTPStorage;
+          [hash: string]: RawOTPStorage;
         } = {};
         if (key && passphrase) {
-          decryptedbackupData = decryptBackupData(
+          decryptedbackupData = await decryptBackupData(
             exportData,
             CryptoJS.AES.decrypt(key.enc, passphrase).toString()
           );
         } else {
-          decryptedbackupData = decryptBackupData(exportData, passphrase);
+          decryptedbackupData = await decryptBackupData(exportData, passphrase);
         }
 
         if (Object.keys(decryptedbackupData).length) {

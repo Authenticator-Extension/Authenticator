@@ -6,8 +6,7 @@ export async function syncTimeWithGoogle() {
   return new Promise(
     (resolve: (value: string) => void, reject: (reason: Error) => void) => {
       try {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-        // @ts-ignore
+        // @ts-expect-error - these typings are wrong
         const xhr = new XMLHttpRequest({ mozAnon: true });
         xhr.open("HEAD", "https://www.google.com/generate_204");
         const xhrAbort = setTimeout(() => {

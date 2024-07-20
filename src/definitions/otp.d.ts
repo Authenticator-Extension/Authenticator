@@ -2,7 +2,6 @@ interface OTPEntryInterface {
   type: number; // OTPType
   index: number;
   issuer: string;
-  encSecret: string | null;
   secret: string | null;
   account: string;
   hash: string;
@@ -12,6 +11,8 @@ interface OTPEntryInterface {
   digits: number;
   algorithm: number; // OTPAlgorithm
   pinned: boolean;
+  encData?: string;
+  encryption?: EncryptionInterface;
   create(): Promise<void>;
   update(): Promise<void>;
   next(): Promise<void>;
@@ -24,14 +25,19 @@ interface OTPEntryInterface {
 
 interface EncryptionInterface {
   getEncryptedString(data: string): string;
-  getDecryptedSecret(entry: OTPStorage): string | null;
+  decryptSecretString(entry: string): string | null;
+  decryptEncSecret(entry: OTPEntryInterface): RawOTPStorage | null;
   getEncryptionStatus(): boolean;
   updateEncryptionPassword(password: string): void;
+  getEncryptionKeyId(): string;
+  setEncryptionKeyId(id: string): void;
 }
 
-interface OTPStorage {
+interface RawOTPStorage {
+  dataType?: "OTPStorage";
   account?: string;
   encrypted: boolean;
+  keyId?: string;
   hash: string;
   index: number;
   issuer?: string;
@@ -42,4 +48,29 @@ interface OTPStorage {
   digits?: number;
   algorithm?: string;
   pinned?: boolean;
+}
+
+interface EncOTPStorage {
+  dataType: "EncOTPStorage";
+  keyId: string;
+  data: string;
+  index: number;
+}
+
+type OTPStorage = RawOTPStorage | EncOTPStorage;
+
+interface OldKey {
+  enc: string;
+  hash: string;
+}
+
+interface Key {
+  dataType: "Key";
+  // UUID
+  id: string;
+  // Salt used to generate encryption key
+  salt: string;
+  // Hash of the encryption key
+  hash: string;
+  version: 3;
 }

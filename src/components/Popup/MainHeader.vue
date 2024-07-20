@@ -25,7 +25,7 @@
         id="i-lock"
         v-bind:title="i18n.lock"
         v-on:click="lock()"
-        v-show="!style.isEditing && encryption.getEncryptionStatus()"
+        v-show="!style.isEditing && !!defaultEncryption"
       >
         <IconLock />
       </div>
@@ -33,7 +33,7 @@
         class="icon"
         id="i-sync"
         v-bind:style="{
-          left: encryption.getEncryptionStatus() ? '70px' : '45px',
+          left: !!defaultEncryption ? '70px' : '45px',
         }"
         v-show="
           (dropboxToken || driveToken || oneDriveToken) && !style.isEditing
@@ -88,7 +88,7 @@ import { isFirefox } from "../../browser";
 
 const computedPrototype = [
   mapState("style", ["style"]),
-  mapState("accounts", ["encryption"]),
+  mapState("accounts", ["defaultEncryption"]),
   mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
 ];
 
@@ -127,7 +127,7 @@ export default Vue.extend({
       if (page === "AddMethodPage") {
         if (
           this.$store.state.menu.enforcePassword &&
-          !this.$store.state.accounts.encryption.getEncryptionStatus()
+          !this.$store.state.accounts.defaultEncryption
         ) {
           page = "SetPasswordPage";
         }
@@ -146,7 +146,7 @@ export default Vue.extend({
     async beginCapture() {
       if (
         this.$store.state.menu.enforcePassword &&
-        !this.$store.state.accounts.encryption.getEncryptionStatus()
+        !this.$store.state.accounts.defaultEncryption
       ) {
         this.$store.commit("style/showInfo");
         this.$store.commit("currentView/changeView", "SetPasswordPage");

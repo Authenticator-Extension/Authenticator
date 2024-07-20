@@ -12,6 +12,9 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       message.info.windowWidth
     );
   }
+
+  // https://stackoverflow.com/a/56483156
+  return true;
 });
 
 function getQrDebug(

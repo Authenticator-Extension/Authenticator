@@ -2,9 +2,11 @@ import * as CryptoJS from "crypto-js";
 
 export class Encryption implements EncryptionInterface {
   private password: string;
+  private keyId: string;
 
-  constructor(password: string) {
-    this.password = password;
+  constructor(hash: string, keyId: string) {
+    this.password = hash;
+    this.keyId = keyId;
   }
 
   getEncryptedString(data: string): string {
@@ -15,10 +17,10 @@ export class Encryption implements EncryptionInterface {
     }
   }
 
-  getDecryptedSecret(entry: { secret: string; hash: string }) {
+  decryptSecretString(secret: string) {
     try {
       const decryptedSecret = CryptoJS.AES.decrypt(
-        entry.secret,
+        secret,
         this.password
       ).toString(CryptoJS.enc.Utf8);
 
@@ -46,11 +48,40 @@ export class Encryption implements EncryptionInterface {
     }
   }
 
+  decryptEncSecret(entry: OTPEntryInterface) {
+    try {
+      if (!entry.encData) {
+        return null;
+      }
+
+      const decryptedData = CryptoJS.AES.decrypt(
+        entry.encData,
+        this.password
+      ).toString(CryptoJS.enc.Utf8);
+
+      if (!decryptedData) {
+        return null;
+      }
+
+      return JSON.parse(decryptedData);
+    } catch (error) {
+      return null;
+    }
+  }
+
   getEncryptionStatus(): boolean {
     return this.password ? true : false;
   }
 
   updateEncryptionPassword(password: string) {
     this.password = password;
+  }
+
+  setEncryptionKeyId(id: string): void {
+    this.keyId = id;
+  }
+
+  getEncryptionKeyId(): string {
+    return this.keyId;
   }
 }

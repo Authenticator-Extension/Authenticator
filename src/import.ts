@@ -7,7 +7,6 @@ import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import * as CryptoJS from "crypto-js";
-import * as uuid from "uuid/v4";
 
 async function init() {
   // i18n
@@ -19,7 +18,11 @@ async function init() {
   }
 
   // Load entries to global
-  const encryption = new Encryption(await getCachedPassphrase());
+  const cachedSecrets = await getCachedSecrets();
+  const encryption = new Encryption(
+    cachedSecrets.cachedPassphrase,
+    cachedSecrets.cachedKeyId
+  );
   const entries = await EntryStorage.get();
 
   if (encryption.getEncryptionStatus()) {
@@ -45,53 +48,153 @@ async function init() {
 
 init();
 
-async function getCachedPassphrase() {
-  const { cachedPassphrase } = await chrome.storage.session.get(
-    "cachedPassphrase"
-  );
+async function getCachedSecrets() {
+  const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
 
-  return cachedPassphrase;
+  return { cachedPassphrase, cachedKeyId };
 }
 
-export function decryptBackupData(
-  backupData: { [hash: string]: OTPStorage },
+export async function decryptBackupData(
+  backupData: { [hash: string]: OTPStorage | Key },
   passphrase: string | null
 ) {
-  const decryptedbackupData: { [hash: string]: OTPStorage } = {};
-  for (const hash of Object.keys(backupData)) {
-    if (typeof backupData[hash] !== "object") {
+  const decryptedBackupData: { [hash: string]: RawOTPStorage } = {};
+  const keys: Map<string, string | null> = new Map();
+  for (const hash in backupData) {
+    const unknownStorageItem = backupData[hash];
+    if (
+      typeof unknownStorageItem !== "object" ||
+      unknownStorageItem.dataType === "Key"
+    ) {
       continue;
     }
-    if (!backupData[hash].secret) {
+    let storageItem: RawOTPStorage;
+    if (unknownStorageItem.dataType === "EncOTPStorage") {
+      if (!passphrase) {
+        continue;
+      }
+
+      if (!keys.has(unknownStorageItem.keyId)) {
+        keys.set(
+          unknownStorageItem.keyId,
+          await findAndUnlockKey(
+            backupData,
+            unknownStorageItem.keyId,
+            passphrase
+          )
+        );
+      }
+      const decryptKey = keys.get(unknownStorageItem.keyId);
+      if (!decryptKey) {
+        // wrong password for key
+        continue;
+      }
+
+      storageItem = {
+        ...unknownStorageItem,
+        ...JSON.parse(
+          CryptoJS.AES.decrypt(unknownStorageItem.data, decryptKey).toString(
+            CryptoJS.enc.Utf8
+          )
+        ),
+        encrypted: false,
+      };
+    } else {
+      storageItem = unknownStorageItem;
+    }
+    if (!storageItem.secret) {
       continue;
     }
-    if (backupData[hash].encrypted && !passphrase) {
+    if (storageItem.encrypted && !passphrase) {
       continue;
     }
-    if (backupData[hash].encrypted && passphrase) {
+    if (storageItem.encrypted && passphrase) {
       try {
-        backupData[hash].secret = CryptoJS.AES.decrypt(
-          backupData[hash].secret,
+        storageItem.secret = CryptoJS.AES.decrypt(
+          storageItem.secret,
           passphrase
         ).toString(CryptoJS.enc.Utf8);
-        backupData[hash].encrypted = false;
+        storageItem.encrypted = false;
       } catch (error) {
         continue;
       }
     }
-    // backupData[hash].secret may be empty after decrypt with wrong
+    // storageItem.secret may be empty after decrypt with wrong
     // passphrase
-    if (!backupData[hash].secret) {
+    if (!storageItem.secret) {
       continue;
     }
-    decryptedbackupData[hash] = backupData[hash];
+    decryptedBackupData[hash] = storageItem;
   }
-  return decryptedbackupData;
+  return decryptedBackupData;
+}
+
+async function findAndUnlockKey(
+  importData: { [key: string]: OTPStorage | Key },
+  keyId: string,
+  password: string
+): Promise<string | null> {
+  if (!(keyId in importData)) {
+    return null;
+  }
+
+  const key = importData[keyId];
+  if (key.dataType !== "Key" || key.id !== keyId) {
+    return null;
+  }
+
+  const rawHash = await new Promise((resolve: (value: string) => void) => {
+    const iframe = document.getElementById("argon-sandbox");
+    const message = {
+      action: "hash",
+      value: password,
+      salt: key.salt,
+    };
+    if (iframe) {
+      window.addEventListener("message", (response) => {
+        resolve(response.data.response);
+      });
+      // @ts-expect-error bad typings
+      iframe.contentWindow.postMessage(message, "*");
+    }
+  });
+
+  // https://passlib.readthedocs.io/en/stable/lib/passlib.hash.argon2.html#format-algorithm
+  const possibleHash = rawHash.split("$")[5];
+  if (!possibleHash) {
+    throw new Error("argon2 did not return a hash!");
+  }
+
+  // verify user password by comparing their password hash with the
+  // hash of their password's hash
+  const isCorrectPassword = await new Promise(
+    (resolve: (value: string) => void) => {
+      const iframe = document.getElementById("argon-sandbox");
+      const message = {
+        action: "verify",
+        value: possibleHash,
+        hash: key.hash,
+      };
+      if (iframe) {
+        window.addEventListener("message", (response) => {
+          resolve(response.data.response);
+        });
+        // @ts-expect-error bad typings
+        iframe.contentWindow.postMessage(message, "*");
+      }
+    }
+  );
+
+  if (!isCorrectPassword) {
+    return null;
+  }
+
+  return possibleHash;
 }
 
 export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   const lines = importCode.split("\n");
-  const exportData: { [hash: string]: OTPStorage } = {};
+  const exportData: { [hash: string]: RawOTPStorage } = {};
   let failedCount = 0;
   let succeededCount = 0;
   for (let item of lines) {
@@ -175,7 +278,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         failedCount++;
         continue;
       } else {
-        const hash = await uuid();
+        const hash = crypto.randomUUID();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
