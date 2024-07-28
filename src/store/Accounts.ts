@@ -75,6 +75,11 @@ export class Accounts implements Module {
           );
           return [...pinnedEntries, ...unpinnedEntries];
         },
+        allEntriesEncrypted(state: AccountsState) {
+          return state.entries.every((entry) => {
+            return Boolean(entry.encryption?.getEncryptionStatus());
+          });
+        },
       },
       mutations: {
         stopFilter(state: AccountsState) {

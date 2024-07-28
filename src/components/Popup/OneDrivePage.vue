@@ -1,39 +1,37 @@
 <template>
   <div>
     <div>
-      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
-        {{ i18n.dropbox_risk }}
+      <div class="text warning" v-show="needEncryption">
+        {{ i18n.encryption_required }}
       </div>
       <div v-show="backupToken">
         <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
-      <a-select-input
-        v-show="!!defaultEncryption && backupToken"
-        :label="i18n.encrypted"
-        v-model="isEncrypted"
-      >
-        <option value="true">{{ i18n.yes }}</option>
-        <option value="false">{{ i18n.no }}</option>
-      </a-select-input>
       <a-button v-show="backupToken" @click="backupLogout()">
         {{ i18n.log_out }}
       </a-button>
-      <a-button v-show="!backupToken" @click="getBackupToken()">
+      <a-button
+        v-show="!backupToken && !needEncryption"
+        @click="getBackupToken()"
+      >
         {{ i18n.sign_in }}
       </a-button>
-      <a-button v-show="!backupToken" @click="getBackupToken(true)">
+      <a-button
+        v-show="!backupToken && !needEncryption"
+        @click="getBackupToken(true)"
+      >
         {{ i18n.sign_in_business }}
       </a-button>
-      <div class="text" v-show="!backupToken">
+      <div class="text" v-show="!backupToken && !needEncryption">
         <a
           v-on:click="openLink('https://otp.ee/onedriveperms')"
           href="https://otp.ee/onedriveperms"
           >{{ i18n.onedrive_business_perms }}</a
         >
       </div>
-      <a-button v-show="backupToken" @click="backupUpload()">
+      <a-button v-show="backupToken && !needEncryption" @click="backupUpload()">
         {{ i18n.manual_dropbox }}
       </a-button>
     </div>
@@ -59,23 +57,13 @@ export default Vue.extend({
     defaultEncryption: function () {
       return this.$store.state.accounts.defaultEncryption;
     },
-    isEncrypted: {
-      get(): boolean {
-        if (UserSettings.items.oneDriveEncrypted === null) {
-          this.$store.commit("backup/setEnc", { service, value: true });
-          UserSettings.items.oneDriveEncrypted = true;
-          UserSettings.commitItems();
-          return true;
-        }
-        return this.$store.state.backup.driveEncrypted;
-      },
-      set(newValue: string) {
-        UserSettings.items.driveEncrypted = newValue === "true";
-        UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: newValue });
-      },
+    allEntriesEncrypted: function (): boolean {
+      return this.$store.getters["accounts/allEntriesEncrypted"];
     },
-    backupToken: function () {
+    needEncryption: function (): boolean {
+      return !this.defaultEncryption || !this.allEntriesEncrypted;
+    },
+    backupToken: function (): string | undefined {
       return this.$store.state.backup.oneDriveToken;
     },
   },

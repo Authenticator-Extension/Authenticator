@@ -12,15 +12,7 @@ export class Dropbox implements BackupProvider {
   async upload(encryption: Encryption) {
     await UserSettings.updateItems();
 
-    if (UserSettings.items.dropboxEncrypted === undefined) {
-      // Encrypt by default if user hasn't set yet
-      UserSettings.items.dropboxEncrypted = true;
-      UserSettings.commitItems();
-    }
-    const exportData = await EntryStorage.backupGetExport(
-      encryption,
-      UserSettings.items.dropboxEncrypted === true
-    );
+    const exportData = await EntryStorage.backupGetExport(encryption, true);
     const backup = JSON.stringify(exportData, null, 2);
 
     const url = "https://content.dropboxapi.com/2/files/upload";
@@ -352,14 +344,8 @@ export class Drive implements BackupProvider {
 
   async upload(encryption: Encryption) {
     await UserSettings.updateItems();
-    if (UserSettings.items.driveEncrypted === undefined) {
-      UserSettings.items.driveEncrypted = true;
-      UserSettings.commitItems();
-    }
-    const exportData = await EntryStorage.backupGetExport(
-      encryption,
-      UserSettings.items.driveEncrypted === true
-    );
+
+    const exportData = await EntryStorage.backupGetExport(encryption, true);
     const backup = JSON.stringify(exportData, null, 2);
 
     const token = await this.getToken();
@@ -581,13 +567,8 @@ export class OneDrive implements BackupProvider {
 
   async upload(encryption: Encryption) {
     await UserSettings.updateItems();
-    if (UserSettings.items.oneDriveEncrypted === undefined) {
-      UserSettings.items.oneDriveEncrypted = true;
-    }
-    const exportData = await EntryStorage.backupGetExport(
-      encryption,
-      UserSettings.items.oneDriveEncrypted === true
-    );
+
+    const exportData = await EntryStorage.backupGetExport(encryption, true);
     const backup = JSON.stringify(exportData, null, 2);
 
     const token = await this.getToken();

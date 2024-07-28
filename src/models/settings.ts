@@ -5,18 +5,15 @@ export enum StorageLocation {
 
 interface UserSettingsData {
   // local settings
-  driveEncrypted?: boolean;
   driveFolder?: string;
   driveRefreshToken?: string;
   driveRevoked?: boolean;
   driveToken?: string;
-  dropboxEncrypted?: boolean;
   dropboxRevoked?: boolean;
   dropboxToken?: string;
   lastRemindingBackupTime?: number;
   offset?: number;
   oneDriveBusiness?: boolean;
-  oneDriveEncrypted?: boolean;
   oneDriveRevoked?: boolean;
   oneDriveRefreshToken?: string;
   oneDriveToken?: string;
@@ -35,18 +32,15 @@ interface UserSettingsData {
 
 // Maybe we can have a better way to define this
 const LocalUserSettingsDataKeys = [
-  "driveEncrypted",
   "driveFolder",
   "driveRefreshToken",
   "driveRevoked",
   "driveToken",
-  "dropboxEncrypted",
   "dropboxRevoked",
   "dropboxToken",
   "lastRemindingBackupTime",
   "offset",
   "oneDriveBusiness",
-  "oneDriveEncrypted",
   "oneDriveRevoked",
   "oneDriveRefreshToken",
   "oneDriveToken",
@@ -70,13 +64,10 @@ export class UserSettings {
       if (
         [
           "autofill",
-          "driveEncrypted",
           "driveRevoked",
-          "dropboxEncrypted",
           "dropboxRevoked",
           "enableContextMenu",
           "oneDriveBusiness",
-          "oneDriveEncrypted",
           "oneDriveRevoked",
           "smartFilter",
           "enableContextMenu",
@@ -85,13 +76,10 @@ export class UserSettings {
         settings[
           key as
             | "autofill"
-            | "driveEncrypted"
             | "driveRevoked"
-            | "dropboxEncrypted"
             | "dropboxRevoked"
             | "enableContextMenu"
             | "oneDriveBusiness"
-            | "oneDriveEncrypted"
             | "oneDriveRevoked"
             | "smartFilter"
             | "enableContextMenu"
