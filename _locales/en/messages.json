@@ -514,5 +514,9 @@
   "encryption_required": {
     "message": "Set a password in the security menu to use this feature.",
     "description": "Backup risk warning."
+  },
+  "warn_backup_paused": {
+    "message": "Warning: Cloud backups are paused until a password is set via the security menu.",
+    "description": "Backup paused warning."
   }
 }
