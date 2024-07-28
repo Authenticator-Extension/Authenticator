@@ -76,6 +76,7 @@ interface AccountsState {
   keys: OldKey | Key[];
   wrongPassword: boolean;
   initComplete: boolean;
+  allEntriesEncrypted: boolean;
 }
 
 interface NotificationState {
@@ -86,9 +87,6 @@ interface NotificationState {
 }
 
 interface BackupState {
-  dropboxEncrypted: boolean;
-  driveEncrypted: boolean;
-  oneDriveEncrypted: boolean;
   dropboxToken: boolean;
   driveToken: boolean;
   oneDriveToken: boolean;

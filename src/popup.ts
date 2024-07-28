@@ -201,6 +201,21 @@ async function init() {
 init();
 
 async function runScheduledBackup(clientTime: number, instance: Vue) {
+  if (!instance.$store.getters["accounts/allEntriesEncrypted"]) {
+    // Don't ever upload an unencrypted secret
+    if (
+      instance.$store.state.backup.dropboxToken ||
+      instance.$store.state.backup.driveToken ||
+      instance.$store.state.backup.oneDriveToken
+    ) {
+      instance.$store.commit(
+        "notification/alert",
+        instance.i18n.warn_backup_paused
+      );
+    }
+    return;
+  }
+
   if (instance.$store.state.backup.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },

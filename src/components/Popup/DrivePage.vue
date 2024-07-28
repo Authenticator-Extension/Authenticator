@@ -1,29 +1,24 @@
 <template>
   <div>
     <div>
-      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
-        {{ i18n.dropbox_risk }}
+      <div class="text warning" v-show="needEncryption">
+        {{ i18n.encryption_required }}
       </div>
       <div v-show="backupToken">
         <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
           {{ i18n.account }} - {{ email }}
         </div>
       </div>
-      <a-select-input
-        v-show="!!defaultEncryption && backupToken"
-        :label="i18n.encrypted"
-        v-model="isEncrypted"
-      >
-        <option value="true">{{ i18n.yes }}</option>
-        <option value="false">{{ i18n.no }}</option>
-      </a-select-input>
       <a-button v-show="backupToken" @click="backupLogout()">
         {{ i18n.log_out }}
       </a-button>
-      <a-button v-show="!backupToken" @click="getBackupToken()">
+      <a-button
+        v-show="!backupToken && !needEncryption"
+        @click="getBackupToken()"
+      >
         {{ i18n.sign_in }}
       </a-button>
-      <a-button v-show="backupToken" @click="backupUpload()">
+      <a-button v-show="backupToken && !needEncryption" @click="backupUpload()">
         {{ i18n.manual_dropbox }}
       </a-button>
     </div>
@@ -50,24 +45,14 @@ export default Vue.extend({
     defaultEncryption: function () {
       return this.$store.state.accounts.defaultEncryption;
     },
-    isEncrypted: {
-      get(): boolean {
-        if (UserSettings.items[`${service}Encrypted`] === null) {
-          this.$store.commit("backup/setEnc", { service, value: true });
-          UserSettings.items[`${service}Encrypted`] = true;
-          UserSettings.commitItems();
-          return true;
-        }
-        return this.$store.state.backup.driveEncrypted;
-      },
-      set(newValue: string) {
-        UserSettings.items.driveEncrypted = newValue === "true";
-        UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: newValue });
-      },
+    allEntriesEncrypted: function (): boolean {
+      return this.$store.getters["accounts/allEntriesEncrypted"];
     },
-    backupToken: function () {
+    backupToken: function (): string | undefined {
       return this.$store.state.backup.driveToken;
+    },
+    needEncryption: function (): boolean {
+      return !this.defaultEncryption || !this.allEntriesEncrypted;
     },
   },
   methods: {
