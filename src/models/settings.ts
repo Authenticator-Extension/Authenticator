@@ -67,43 +67,12 @@ export class UserSettings {
     const settings: UserSettingsData = {};
 
     for (const key in data) {
-      if (
-        [
-          "autofill",
-          "driveEncrypted",
-          "driveRevoked",
-          "dropboxEncrypted",
-          "dropboxRevoked",
-          "enableContextMenu",
-          "oneDriveBusiness",
-          "oneDriveEncrypted",
-          "oneDriveRevoked",
-          "smartFilter",
-          "enableContextMenu",
-        ].includes(key)
-      ) {
-        settings[
-          key as
-            | "autofill"
-            | "driveEncrypted"
-            | "driveRevoked"
-            | "dropboxEncrypted"
-            | "dropboxRevoked"
-            | "enableContextMenu"
-            | "oneDriveBusiness"
-            | "oneDriveEncrypted"
-            | "oneDriveRevoked"
-            | "smartFilter"
-            | "enableContextMenu"
-        ] = data[key] === "true";
-      } else if (
-        ["autolock", "lastRemindingBackupTime", "offset", "zoom"].includes(key)
-      ) {
-        settings[
-          key as "autolock" | "lastRemindingBackupTime" | "offset" | "zoom"
-        ] = Number(data[key]);
-      } else if (["advisorIgnoreList"].includes(key)) {
-        settings[key as "advisorIgnoreList"] = JSON.parse(data[key]);
+      if (isBooleanOption(key)) {
+        settings[key] = data[key] === "true";
+      } else if (isNumberOption(key)) {
+        settings[key] = Number(data[key]);
+      } else if (isJSONOption(key)) {
+        settings[key] = JSON.parse(data[key]);
       } else {
         settings[key as keyof UserSettingsData] = data[key];
       }
@@ -203,4 +172,45 @@ export class UserSettings {
     );
     return { ...syncableSettings, ...localSettings };
   }
+}
+
+type BooleanOption =
+  | "autofill"
+  | "driveEncrypted"
+  | "driveRevoked"
+  | "dropboxEncrypted"
+  | "dropboxRevoked"
+  | "enableContextMenu"
+  | "oneDriveBusiness"
+  | "oneDriveEncrypted"
+  | "oneDriveRevoked"
+  | "smartFilter";
+
+type NumberOption = "autolock" | "lastRemindingBackupTime" | "offset" | "zoom";
+
+type JSONOption = "advisorIgnoreList";
+
+function isBooleanOption(key: string): key is BooleanOption {
+  return [
+    "autofill",
+    "driveEncrypted",
+    "driveRevoked",
+    "dropboxEncrypted",
+    "dropboxRevoked",
+    "enableContextMenu",
+    "oneDriveBusiness",
+    "oneDriveEncrypted",
+    "oneDriveRevoked",
+    "smartFilter",
+  ].includes(key);
+}
+
+function isNumberOption(key: string): key is NumberOption {
+  return ["autolock", "lastRemindingBackupTime", "offset", "zoom"].includes(
+    key
+  );
+}
+
+function isJSONOption(key: string): key is JSONOption {
+  return ["advisorIgnoreList"].includes(key);
 }
