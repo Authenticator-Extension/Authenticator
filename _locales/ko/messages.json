@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "인증 도구",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "인증 도구",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "인증 도구는 브라우저에서 2단계 인증 코드를 생성해요.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": "을(를) 추가했어요.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "인식할 수 없는 QR 코드예요.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "잘못된 계정 비밀번호예요",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "계정 추가",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "QR 코드 스캔",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "수동 입력",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "가져오지 못했어요. Google 인증 도구로부터 데이터를 이전하셨다면, Google 인증 도구에서 데이터를 다시 내보낸 후에 다시 시도하세요.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "일부 계정 데이터를 가져오지 못했어요.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "닫기",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "확인",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "네",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "아니요",
-        "description": "No."
-    },
-    "account": {
-        "message": "계정",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "사용자 이름",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "발급자",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "비밀번호",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "성공했어요.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "실패했어요.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "소개",
-        "description": "About."
-    },
-    "settings": {
-        "message": "설정",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "보안",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "현재 비밀번호",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "새 비밀번호",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "비밀번호",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "비밀번호 재확인",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "정말로 이 계정을 삭제하시겠어요? 이 작업은 되돌릴 수 없어요.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "모든 데이터가 복구 불가능한 상태로 삭제된다는 점을 이해했어요.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "인증 도구 초기화"
-    },
-    "delete_all_warning": {
-        "message": "이 작업은 모든 데이터를 삭제하고 인증 도구를 완전히 초기화시킬 거예요. 삭제된 어떠한 데이터도 복구할 수 없게 돼요! 인증 도구 초기화 전 백업을 저장하는 걸 고려해 보세요."
-    },
-    "security_warning": {
-        "message": "이 비밀번호는 계정을 암호화시키는 데 사용돼요. 비밀번호를 잊어버리면 아무도 도움을 줄 수 없어요.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "갱신",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "모든 계정이 복호화될 때까지 새 계정을 추가할 수 없어요. 계속하기 전 올바른 비밀번호를 입력하세요.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "복호화가 불가능한 계정은 이 백업에 포함되지 않을 거예요.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "비밀번호가 일치하지 않아요.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "암호화됨",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "복사됨",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "의견 보내기",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "번역",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "소스 코드",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "계정 데이터를 복호화하려면 비밀번호를 입력하세요.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Google과 시간 동기화",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "비밀번호 기억",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "주의! 기기 시각과의 오차가 너무 커요. 계속하기 전 오차를 고쳐주세요.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "계정에 대한 백업이 있으신가요? 더 늦기 전에 빨리 생성하세요!",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "캡처하지 못했어요. 페이지를 다시 불러오고 다시 시도해 보세요.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "기기 파일에서 QR 코드 스캔을 시도하고 계신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "시간 기준",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "카운터 기준",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "환경 설정",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "배율",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "경고: 모든 백업이 암호화되지 않았어요. 다른 앱에 계정을 추가하고 싶으신가요? 계정 오른쪽 상단 부분에 있는 숨겨진 버튼을 누르세요.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "백업 파일 다운로드",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "백업 가져오기",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "백업 파일 가져오기",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "QR 이미지 백업 가져오기",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "QR 이미지 가져오기",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "문자 백업 가져오기",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "OTP URL 가져오기",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "가져왔지만, 일부 QR 코드를 인식하지 못했어요.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "일괄적으로 백업을 가져오기 위해서 여러 파일을 선택할 수 있어요.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "모든 항목 보기",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "경고: 백업이 암호화되지 않았어요. 사용 시 발생하는 문제는 저희가 책임지지 않아요.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "백업을 가져오려면 올바른 비밀번호를 입력해야 해요.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "비밀번호가 로컬 위치에 저장됐어요. 보안 메뉴에서 즉시 변경해 주세요.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "제거",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "비밀번호로 보호된 백업 다운로드",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "검색",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "팝업 모드",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "잠금",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "편집",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "수동 백업",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "자동 완성 사용",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "고대비 사용",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "테마",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "밝은 테마",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "어두운 테마",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "심플",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "콤팩트",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "고대비",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "플랫",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "제삼자 저장 서비스에 내 데이터를 자동으로 백업하세요.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "브라우저 동기화",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "로그인",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "로그인(업무용)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "왜 업무용 계정은 더 많은 권한을 요청하는 건가요?"
-    },
-    "log_out": {
-        "message": "로그아웃",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "$SERVICE$ 계정에 연결하는 도중 문제가 발생했어요. 다시 로그인해 주세요.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "한 개 이상의 Steam 또는 Blizzard 계정을 소유하고 있어요. 암호화되지 않은 백업은 표준 백업 형식을 사용하지 않을 거예요.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "다른 애플리케이션에서 백업을 가져올 수도 있어요.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "더 알아보기",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "불러오는 중…"
-    },
-    "autolock": {
-        "message": "다음 시간 이후 잠금:"
-    },
-    "minutes": {
-        "message": "분"
-    },
-    "advanced": {
-        "message": "고급 설정"
-    },
-    "period": {
-        "message": "기간"
-    },
-    "type": {
-        "message": "유형"
-    },
-    "invalid": {
-        "message": "무효"
-    },
-    "digits": {
-        "message": "자릿수"
-    },
-    "algorithm": {
-        "message": "알고리즘"
-    },
-    "smart_filter": {
-        "message": "스마트 필터"
-    },
-    "backup": {
-        "message": "백업"
-    },
-    "backup_file_info": {
-        "message": "내 데이터를 파일로 백업하세요."
-    },
-    "password_policy_default_hint": {
-        "message": "비밀번호가 조직의 보안 요구 사항을 충족하지 않아요. 자세한 정보는 관리자에게 문의해 주세요."
-    },
-    "advisor": {
-        "message": "권장 작업"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "내 데이터를 보호하려면 비밀번호를 설정하세요."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "내 데이터를 보호하려면 자동 잠금을 사용하세요."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "브라우저 동기화를 사용하지 않아요. 사용하면 브라우저 간 계정을 동기화할 수 있게 돼요."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "웹 사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 사용할 수 있어요."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "스마트 필터를 사용하면 계정에 빠르게 접근할 수 있어요."
-    },
-    "show_all_insights": {
-        "message": "모든 인사이트 보기."
-    },
-    "no_insight_available": {
-        "message": "인사이트가 발견되지 않았어요. 모든 것이 양호해 보여요!"
-    },
-    "danger": {
-        "message": "위험"
-    },
-    "warning": {
-        "message": "경고"
-    },
-    "info": {
-        "message": "알림"
-    },
-    "dismiss": {
-        "message": "지우기"
-    },
-    "learn_more": {
-        "message": "자세히 알아보기"
-    },
-    "enable_context_menu": {
-        "message": "컨텍스트 메뉴에 추가"
-    },
-    "no_entires": {
-        "message": "보여줄 계정이 없어요. 첫 번째 계정을 지금 추가해 보세요."
-    },
-    "permissions": {
-        "message": "권한"
-    },
-    "permission_revoke": {
-        "message": "회수"
-    },
-    "permission_show_required_permissions": {
-        "message": "회수할 수 없는 권한 보기"
-    },
-    "permission_required": {
-        "message": "이건 필수 권한이며 회수할 수 없어요."
-    },
-    "permission_active_tab": {
-        "message": "QR 코드 스캔을 위해 현재 탭에 접근할 수 있게 해요."
-    },
-    "permission_storage": {
-        "message": "계정 데이터를 저장하기 위해 브라우저 저장소에 접근할 수 있게 해요."
-    },
-    "permission_identity": {
-        "message": "제삼자 저장 서비스에 로그인할 수 있게 해요."
-    },
-    "permission_alarms": {
-        "message": "자동 잠금이 동작할 수 있도록 허용해요."
-    },
-    "permission_scripting": {
-        "message": "QR 코드를 스캔하고 자동 채우기를 실행하기 위해 현재 탭에 스크립트를 삽입할 수 있게 해요."
-    },
-    "permission_clipboard_write": {
-        "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
-    },
-    "permission_context_menus": {
-        "message": "컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
-    },
-    "permission_sync_clock": {
-        "message": "Google과 시간 동기화를 허용해요."
-    },
-    "permission_dropbox": {
-        "message": "Dropbox 백업을 허용해요."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "먼저 Dropbox 백업을 사용하지 않아야 해요."
-    },
-    "permission_drive": {
-        "message": "Google Drive 백업을 허용해요."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "먼저 Google Drive 백업을 사용하지 않아야 해요."
-    },
-    "permission_onedrive": {
-        "message": "OneDrive 백업을 허용해요."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "먼저 OneDrive 백업을 사용하지 않아야 해요."
-    },
-    "permission_unknown_permission": {
-        "message": "알 수 없는 권한이에요. 이 메시지를 보신다면, 버그 신고를 진행해 주세요."
+  "extName": {
+    "message": "인증 도구",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "인증 도구",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "인증 도구는 브라우저에서 2단계 인증 코드를 생성해요.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": "을(를) 추가했어요.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "인식할 수 없는 QR 코드예요.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "잘못된 계정 비밀번호예요",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "계정 추가",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "QR 코드 스캔",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "수동 입력",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "가져오지 못했어요. Google 인증 도구로부터 데이터를 이전하셨다면, Google 인증 도구에서 데이터를 다시 내보낸 후에 다시 시도하세요.",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "일부 계정 데이터를 가져오지 못했어요.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "닫기",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "확인",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "네",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "아니요",
+    "description": "No."
+  },
+  "account": {
+    "message": "계정",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "사용자 이름",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "발급자",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "비밀번호",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "성공했어요.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "실패했어요.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "소개",
+    "description": "About."
+  },
+  "settings": {
+    "message": "설정",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "보안",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "현재 비밀번호",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "새 비밀번호",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "비밀번호",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "비밀번호 재확인",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "정말로 이 계정을 삭제하시겠어요? 이 작업은 되돌릴 수 없어요.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "모든 데이터가 복구 불가능한 상태로 삭제된다는 점을 이해했어요.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "인증 도구 초기화"
+  },
+  "delete_all_warning": {
+    "message": "이 작업은 모든 데이터를 삭제하고 인증 도구를 완전히 초기화시킬 거예요. 삭제된 어떠한 데이터도 복구할 수 없게 돼요! 인증 도구 초기화 전 백업을 저장하는 걸 고려해 보세요."
+  },
+  "security_warning": {
+    "message": "이 비밀번호는 계정을 암호화시키는 데 사용돼요. 비밀번호를 잊어버리면 아무도 도움을 줄 수 없어요.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "갱신",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "모든 계정이 복호화될 때까지 새 계정을 추가할 수 없어요. 계속하기 전 올바른 비밀번호를 입력하세요.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "복호화가 불가능한 계정은 이 백업에 포함되지 않을 거예요.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "비밀번호가 일치하지 않아요.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "암호화됨",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "복사됨",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "의견 보내기",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "번역",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "소스 코드",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "계정 데이터를 복호화하려면 비밀번호를 입력하세요.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Google과 시간 동기화",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "비밀번호 기억",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "주의! 기기 시각과의 오차가 너무 커요. 계속하기 전 오차를 고쳐주세요.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "계정에 대한 백업이 있으신가요? 더 늦기 전에 빨리 생성하세요!",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "캡처하지 못했어요. 페이지를 다시 불러오고 다시 시도해 보세요.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "기기 파일에서 QR 코드 스캔을 시도하고 계신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "시간 기준",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "카운터 기준",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "환경 설정",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "배율",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "경고: 모든 백업이 암호화되지 않았어요. 다른 앱에 계정을 추가하고 싶으신가요? 계정 오른쪽 상단 부분에 있는 숨겨진 버튼을 누르세요.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "백업 파일 다운로드",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "백업 가져오기",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "백업 파일 가져오기",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "QR 이미지 백업 가져오기",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "QR 이미지 가져오기",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "문자 백업 가져오기",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "OTP URL 가져오기",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "가져왔지만, 일부 QR 코드를 인식하지 못했어요.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "일괄적으로 백업을 가져오기 위해서 여러 파일을 선택할 수 있어요.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "모든 항목 보기",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "경고: 백업이 암호화되지 않았어요. 사용 시 발생하는 문제는 저희가 책임지지 않아요.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "백업을 가져오려면 올바른 비밀번호를 입력해야 해요.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "비밀번호가 로컬 위치에 저장됐어요. 보안 메뉴에서 즉시 변경해 주세요.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "제거",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "비밀번호로 보호된 백업 다운로드",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "검색",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "팝업 모드",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "잠금",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "편집",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "수동 백업",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "자동 완성 사용",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "고대비 사용",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "테마",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "밝은 테마",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "어두운 테마",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "심플",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "콤팩트",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "고대비",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "플랫",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "제삼자 저장 서비스에 내 데이터를 자동으로 백업하세요.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "브라우저 동기화",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "로그인",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "로그인(업무용)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "왜 업무용 계정은 더 많은 권한을 요청하는 건가요?"
+  },
+  "log_out": {
+    "message": "로그아웃",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "$SERVICE$ 계정에 연결하는 도중 문제가 발생했어요. 다시 로그인해 주세요.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "한 개 이상의 Steam 또는 Blizzard 계정을 소유하고 있어요. 암호화되지 않은 백업은 표준 백업 형식을 사용하지 않을 거예요.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "다른 애플리케이션에서 백업을 가져올 수도 있어요.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "더 알아보기",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "불러오는 중…"
+  },
+  "autolock": {
+    "message": "다음 시간 이후 잠금:"
+  },
+  "minutes": {
+    "message": "분"
+  },
+  "advanced": {
+    "message": "고급 설정"
+  },
+  "period": {
+    "message": "기간"
+  },
+  "type": {
+    "message": "유형"
+  },
+  "invalid": {
+    "message": "무효"
+  },
+  "digits": {
+    "message": "자릿수"
+  },
+  "algorithm": {
+    "message": "알고리즘"
+  },
+  "smart_filter": {
+    "message": "스마트 필터"
+  },
+  "backup": {
+    "message": "백업"
+  },
+  "backup_file_info": {
+    "message": "내 데이터를 파일로 백업하세요."
+  },
+  "password_policy_default_hint": {
+    "message": "비밀번호가 조직의 보안 요구 사항을 충족하지 않아요. 자세한 정보는 관리자에게 문의해 주세요."
+  },
+  "advisor": {
+    "message": "권장 작업"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "내 데이터를 보호하려면 비밀번호를 설정하세요."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "내 데이터를 보호하려면 자동 잠금을 사용하세요."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "브라우저 동기화를 사용하지 않아요. 사용하면 브라우저 간 계정을 동기화할 수 있게 돼요."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "웹 사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 사용할 수 있어요."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "스마트 필터를 사용하면 계정에 빠르게 접근할 수 있어요."
+  },
+  "show_all_insights": {
+    "message": "모든 인사이트 보기."
+  },
+  "no_insight_available": {
+    "message": "인사이트가 발견되지 않았어요. 모든 것이 양호해 보여요!"
+  },
+  "danger": {
+    "message": "위험"
+  },
+  "warning": {
+    "message": "경고"
+  },
+  "info": {
+    "message": "알림"
+  },
+  "dismiss": {
+    "message": "지우기"
+  },
+  "learn_more": {
+    "message": "자세히 알아보기"
+  },
+  "enable_context_menu": {
+    "message": "컨텍스트 메뉴에 추가"
+  },
+  "no_entires": {
+    "message": "보여줄 계정이 없어요. 첫 번째 계정을 지금 추가해 보세요."
+  },
+  "permissions": {
+    "message": "권한"
+  },
+  "permission_revoke": {
+    "message": "회수"
+  },
+  "permission_show_required_permissions": {
+    "message": "회수할 수 없는 권한 보기"
+  },
+  "permission_required": {
+    "message": "이건 필수 권한이며 회수할 수 없어요."
+  },
+  "permission_active_tab": {
+    "message": "QR 코드 스캔을 위해 현재 탭에 접근할 수 있게 해요."
+  },
+  "permission_storage": {
+    "message": "계정 데이터를 저장하기 위해 브라우저 저장소에 접근할 수 있게 해요."
+  },
+  "permission_identity": {
+    "message": "제삼자 저장 서비스에 로그인할 수 있게 해요."
+  },
+  "permission_alarms": {
+    "message": "자동 잠금이 동작할 수 있도록 허용해요."
+  },
+  "permission_scripting": {
+    "message": "QR 코드를 스캔하고 자동 채우기를 실행하기 위해 현재 탭에 스크립트를 삽입할 수 있게 해요."
+  },
+  "permission_clipboard_write": {
+    "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
+  },
+  "permission_context_menus": {
+    "message": "컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
+  },
+  "permission_sync_clock": {
+    "message": "Google과 시간 동기화를 허용해요."
+  },
+  "permission_dropbox": {
+    "message": "Dropbox 백업을 허용해요."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "먼저 Dropbox 백업을 사용하지 않아야 해요."
+  },
+  "permission_drive": {
+    "message": "Google Drive 백업을 허용해요."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "먼저 Google Drive 백업을 사용하지 않아야 해요."
+  },
+  "permission_onedrive": {
+    "message": "OneDrive 백업을 허용해요."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "먼저 OneDrive 백업을 사용하지 않아야 해요."
+  },
+  "permission_unknown_permission": {
+    "message": "알 수 없는 권한이에요. 이 메시지를 보신다면, 버그 신고를 진행해 주세요."
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
