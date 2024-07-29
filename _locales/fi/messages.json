@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "Authenticator",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Authenticator",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Authenticator-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " on lisätty.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "Tunnistamaton QR-koodi.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "Virheellinen tilin salaisuus",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "Lisää tili",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "Lue QR-koodi",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "Manuaalinen syöttö",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "Tuonti epäonnistui. Jos olet siirtämässä tietoja Google Authenticatorista, vie tietosi Google Authenticatorista uudelleen ja yritä uudelleen.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Joitakin tilitietojen tuonti epäonnistui.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "Sulje",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "Ok",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "Kyllä",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "Ei",
-        "description": "No."
-    },
-    "account": {
-        "message": "Tili",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "Käyttäjätunnus",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "Myöntäjä",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "Salausavain",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "Onnistui.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "Epäonnistui.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "Tietoja",
-        "description": "About."
-    },
-    "settings": {
-        "message": "Asetukset",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "Suojaus",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "Nykyinen salasana",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "Uusi salasana",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "Salasana",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "Vahvista salasana",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "Haluatko varmasti poistaa tilin? Tätä ei ole mahdollista kumota.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "Ymmärrän, että kaikki tietoni poistetaan pysyvästi.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Palauta Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "Tämä poistaa kaikki tiedot ja palauttaa Authenticatorin täysin. Poistettujen tietojen palautus ei ole mahdollista! Ennen palautusta on syytä harkita varmuuskopiointia."
-    },
-    "security_warning": {
-        "message": "Salasanaa käytetään tiliesi salaukseen. Kukaan ei voi auttaa, jos unohdat sen.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "Päivitä",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "Et voi lisätä uutta tiliä ennen kaikkien tilien salauksen purkua. Syötä oikea salasana ennen jatkamista.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "Tähän varmuuskopioon ei sisällytetä tilejä, joiden salausta ei voitu purkaa.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "Salasanat eivät täsmää.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "Salattu",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "Kopioitu",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "Palaute",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "Käännä",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "Lähdekoodi",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "Pura tilin tietojen salaus syöttämällä salasana.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Synkronoi kello Googlen kanssa",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "Muista salasana",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "Varoitus! Aseta kellosi oikeaan aikaan ennen jatkamista.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "Onko sinulla varmuuskopio tileistäsi? Ota varmuuskopio, ennen kuin se on myöhäistä!",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "Kaappaus epäonnistu. Päivitä sivu ja yritä uudelleen.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "Yritätkö lukea QR-koodia paikallisesta tiedostosta? Käytä sen sijaan \"Tuo QR-kuvan varmuuskopio\" -toimintoa.",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Aikaperusteinen",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Laskuriperusteinen",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "Asetukset",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "Skaalaus",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "Varoitus: kaikki varmuuskopiot ovat salaamattomia. Haluatko lisätä tilin toiseen sovellukseen? Vie kohdistin minkä tahansa tilin oikean yläkulman päälle ja paina esiin tulevaa piilotettua painiketta.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "Lataa varmuuskopiotiedosto",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "Tuo varmuuskopio",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "Tuo varmuuskopiotiedosto",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "Tuo QR-kuvan varmuuskopio",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "Import QR Images",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "Tuo tekstivarmuuskopio",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "Import OTP URLs",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Tuonti onnistui, mutta joitakin QR-koodeja ei tunnistettu.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "Voit valita useita tiedostoja tuodaksesi varmuuskopion erissä.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "Näytä kaikki kohteet",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "Varoitus: varmuuskopiot ovat salaamattomia. Käytä toimintoa harkiten.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "Syötä oikea salasana tuodaksesi varmuuskopiot.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "Salasanasi on tallennettu paikallisesti. Vaihda se suojausvalikosta välittömästi.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "Poista",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "Lataa salasanasuojattu varmuuskopio",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "Haku",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "Ponnahdustila",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "Lukitse",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "Muokkaa",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "Manuaalinen varmuuskopiointi",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "Käytä automaattitäyttöä",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "Suuri kontrasti",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "Teema",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "Vaalea",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "Tumma",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "Yksinkertainen",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "Tiivis",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "Suuri kontrasti",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "Tasainen",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "Varmuuskopioi tietosi ulkoisiin tallennuspalveluihin automaattisesti.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "Selaimen synkronointi",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "Kirjaudu",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "Kirjaudu (yritykset)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Miksi yritystilit vaativat laajempia käyttöoikeuksia?"
-    },
-    "log_out": {
-        "message": "Kirjaudu ulos",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "Virhe yhdistettäessä palveluun $SERVICE$. Kirjaudu uudelleen.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "Sinulla on ainakin yksi Steam- tai Blizzard-tili. Salaamattomat varmuuskopiot eivät ole normaalissa varmuuskopiomuodossa.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "Voit tuoda myös joidenkin muiden sovellusten varmuuskopioita.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "Lue lisää",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "Ladataan..."
-    },
-    "autolock": {
-        "message": "Lukitse kun on kulunut"
-    },
-    "minutes": {
-        "message": "minuuttia"
-    },
-    "advanced": {
-        "message": "Lisäasetukset"
-    },
-    "period": {
-        "message": "Piste"
-    },
-    "type": {
-        "message": "Tyyppi"
-    },
-    "invalid": {
-        "message": "Virheellinen"
-    },
-    "digits": {
-        "message": "Numerot"
-    },
-    "algorithm": {
-        "message": "Algoritmi"
-    },
-    "smart_filter": {
-        "message": "Älykäs suodatin"
-    },
-    "backup": {
-        "message": "Varmuuskopiointi"
-    },
-    "backup_file_info": {
-        "message": "Varmuuskopioi tietosi tiedostoon."
-    },
-    "password_policy_default_hint": {
-        "message": "Salasanasi ei vastaa organisaatiosi suojausvaatimuksia. Lisätietoja saat järjestelmänvalvojaltasi."
-    },
-    "advisor": {
-        "message": "Opas"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Aseta salasana tietojesi suojaamiseksi."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Ota automaattinen lukitus käyttöön tietojesi suojaamiseksi."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "Selaimen synkronointi ei ole käytössä. Sen käyttöönotto mahdollistaa tilien synkronoinnin eri laitteiden selainten välillä."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Ota automaattitäyttö käyttöön täyttääksesi koodit verkkosivustoille automaattisesti."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Älykkään suodattimen käyttöönotto mahdollistaa nopean pääsyn tileihin."
-    },
-    "show_all_insights": {
-        "message": "Näytä kaikki huomiot."
-    },
-    "no_insight_available": {
-        "message": "Huomautettavaa ei löytynyt ja kaikki näyttää hyvältä!"
-    },
-    "danger": {
-        "message": "Vaarallinen"
-    },
-    "warning": {
-        "message": "Varoitus"
-    },
-    "info": {
-        "message": "Informatiiviinen"
-    },
-    "dismiss": {
-        "message": "Sulje"
-    },
-    "learn_more": {
-        "message": "Lue lisää"
-    },
-    "enable_context_menu": {
-        "message": "Lisää sisältövalikkoon"
-    },
-    "no_entires": {
-        "message": "Näytettäviä tilejä ei ole. Lisää ensimmäinen tilisi nyt."
-    },
-    "permissions": {
-        "message": "Käyttöoikeudet"
-    },
-    "permission_revoke": {
-        "message": "Kumoa"
-    },
-    "permission_show_required_permissions": {
-        "message": "Näytä ei-kumottavissa olevat oikeudet"
-    },
-    "permission_required": {
-        "message": "Pakollinen käyttöoikeus, jonka kumoaminen ei ole mahdollista."
-    },
-    "permission_active_tab": {
-        "message": "Nykyisen välilehden käyttöoikeus QR-koodien lukuun."
-    },
-    "permission_storage": {
-        "message": "Selaimen tallennustilan käyttöoikeus tilitietojen säilytykseen."
-    },
-    "permission_identity": {
-        "message": "Sallii kirjautumisen ulkoisiin tallennuspalveluihin."
-    },
-    "permission_alarms": {
-        "message": "Allows auto-lock to work."
-    },
-    "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
-    },
-    "permission_clipboard_write": {
-        "message": "Myöntää pelkän kirjoitusoikeuden leikepöydälle koodien kopiointiin tilejä painettaessa."
-    },
-    "permission_context_menus": {
-        "message": "Lisää Authenticator sisältövalikkoon."
-    },
-    "permission_sync_clock": {
-        "message": "Sallii kellon synkronoinnin Googlen kanssa."
-    },
-    "permission_dropbox": {
-        "message": "Sallii varmuuskopioinnin Dropboxiin."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "Dropbox-varmuuskopiointi on ensin poistettava käytöstä."
-    },
-    "permission_drive": {
-        "message": "Sallii varmuuskopioinnin Google Driveen."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "Google Drive -varmuuskopiointi on ensin poistettava käytöstä."
-    },
-    "permission_onedrive": {
-        "message": "Sallii varmuuskopioinnin OneDriveen."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "OneDrive-varmuuskopiointi on ensin poistettava käytöstä."
-    },
-    "permission_unknown_permission": {
-        "message": "Tuntematon käyttöoikeus. Jos näet tämän viestin, lähetä virheilmoitus."
+  "extName": {
+    "message": "Authenticator",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Authenticator",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Authenticator-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " on lisätty.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "Tunnistamaton QR-koodi.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "Virheellinen tilin salaisuus",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "Lisää tili",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "Lue QR-koodi",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "Manuaalinen syöttö",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "Tuonti epäonnistui. Jos olet siirtämässä tietoja Google Authenticatorista, vie tietosi Google Authenticatorista uudelleen ja yritä uudelleen.",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "Joitakin tilitietojen tuonti epäonnistui.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "Sulje",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "Ok",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "Kyllä",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "Ei",
+    "description": "No."
+  },
+  "account": {
+    "message": "Tili",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "Käyttäjätunnus",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "Myöntäjä",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "Salausavain",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "Onnistui.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "Epäonnistui.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "Tietoja",
+    "description": "About."
+  },
+  "settings": {
+    "message": "Asetukset",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "Suojaus",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "Nykyinen salasana",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "Uusi salasana",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "Salasana",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "Vahvista salasana",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "Haluatko varmasti poistaa tilin? Tätä ei ole mahdollista kumota.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "Ymmärrän, että kaikki tietoni poistetaan pysyvästi.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "Palauta Authenticator"
+  },
+  "delete_all_warning": {
+    "message": "Tämä poistaa kaikki tiedot ja palauttaa Authenticatorin täysin. Poistettujen tietojen palautus ei ole mahdollista! Ennen palautusta on syytä harkita varmuuskopiointia."
+  },
+  "security_warning": {
+    "message": "Salasanaa käytetään tiliesi salaukseen. Kukaan ei voi auttaa, jos unohdat sen.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "Päivitä",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "Et voi lisätä uutta tiliä ennen kaikkien tilien salauksen purkua. Syötä oikea salasana ennen jatkamista.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "Tähän varmuuskopioon ei sisällytetä tilejä, joiden salausta ei voitu purkaa.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "Salasanat eivät täsmää.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "Salattu",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "Kopioitu",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "Palaute",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "Käännä",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "Lähdekoodi",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "Pura tilin tietojen salaus syöttämällä salasana.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Synkronoi kello Googlen kanssa",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "Muista salasana",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "Varoitus! Aseta kellosi oikeaan aikaan ennen jatkamista.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "Onko sinulla varmuuskopio tileistäsi? Ota varmuuskopio, ennen kuin se on myöhäistä!",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "Kaappaus epäonnistu. Päivitä sivu ja yritä uudelleen.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "Yritätkö lukea QR-koodia paikallisesta tiedostosta? Käytä sen sijaan \"Tuo QR-kuvan varmuuskopio\" -toimintoa.",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Aikaperusteinen",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Laskuriperusteinen",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "Asetukset",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "Skaalaus",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "Varoitus: kaikki varmuuskopiot ovat salaamattomia. Haluatko lisätä tilin toiseen sovellukseen? Vie kohdistin minkä tahansa tilin oikean yläkulman päälle ja paina esiin tulevaa piilotettua painiketta.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "Lataa varmuuskopiotiedosto",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "Tuo varmuuskopio",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "Tuo varmuuskopiotiedosto",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "Tuo QR-kuvan varmuuskopio",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "Import QR Images",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "Tuo tekstivarmuuskopio",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "Import OTP URLs",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "Tuonti onnistui, mutta joitakin QR-koodeja ei tunnistettu.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "Voit valita useita tiedostoja tuodaksesi varmuuskopion erissä.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "Näytä kaikki kohteet",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "Varoitus: varmuuskopiot ovat salaamattomia. Käytä toimintoa harkiten.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "Syötä oikea salasana tuodaksesi varmuuskopiot.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "Salasanasi on tallennettu paikallisesti. Vaihda se suojausvalikosta välittömästi.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "Poista",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "Lataa salasanasuojattu varmuuskopio",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "Haku",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "Ponnahdustila",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "Lukitse",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "Muokkaa",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "Manuaalinen varmuuskopiointi",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "Käytä automaattitäyttöä",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "Suuri kontrasti",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "Teema",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "Vaalea",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "Tumma",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "Yksinkertainen",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "Tiivis",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "Suuri kontrasti",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "Tasainen",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "Varmuuskopioi tietosi ulkoisiin tallennuspalveluihin automaattisesti.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "Selaimen synkronointi",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "Kirjaudu",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "Kirjaudu (yritykset)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "Miksi yritystilit vaativat laajempia käyttöoikeuksia?"
+  },
+  "log_out": {
+    "message": "Kirjaudu ulos",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "Virhe yhdistettäessä palveluun $SERVICE$. Kirjaudu uudelleen.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "Sinulla on ainakin yksi Steam- tai Blizzard-tili. Salaamattomat varmuuskopiot eivät ole normaalissa varmuuskopiomuodossa.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "Voit tuoda myös joidenkin muiden sovellusten varmuuskopioita.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "Lue lisää",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "Ladataan..."
+  },
+  "autolock": {
+    "message": "Lukitse kun on kulunut"
+  },
+  "minutes": {
+    "message": "minuuttia"
+  },
+  "advanced": {
+    "message": "Lisäasetukset"
+  },
+  "period": {
+    "message": "Piste"
+  },
+  "type": {
+    "message": "Tyyppi"
+  },
+  "invalid": {
+    "message": "Virheellinen"
+  },
+  "digits": {
+    "message": "Numerot"
+  },
+  "algorithm": {
+    "message": "Algoritmi"
+  },
+  "smart_filter": {
+    "message": "Älykäs suodatin"
+  },
+  "backup": {
+    "message": "Varmuuskopiointi"
+  },
+  "backup_file_info": {
+    "message": "Varmuuskopioi tietosi tiedostoon."
+  },
+  "password_policy_default_hint": {
+    "message": "Salasanasi ei vastaa organisaatiosi suojausvaatimuksia. Lisätietoja saat järjestelmänvalvojaltasi."
+  },
+  "advisor": {
+    "message": "Opas"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "Aseta salasana tietojesi suojaamiseksi."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "Ota automaattinen lukitus käyttöön tietojesi suojaamiseksi."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "Selaimen synkronointi ei ole käytössä. Sen käyttöönotto mahdollistaa tilien synkronoinnin eri laitteiden selainten välillä."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Ota automaattitäyttö käyttöön täyttääksesi koodit verkkosivustoille automaattisesti."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "Älykkään suodattimen käyttöönotto mahdollistaa nopean pääsyn tileihin."
+  },
+  "show_all_insights": {
+    "message": "Näytä kaikki huomiot."
+  },
+  "no_insight_available": {
+    "message": "Huomautettavaa ei löytynyt ja kaikki näyttää hyvältä!"
+  },
+  "danger": {
+    "message": "Vaarallinen"
+  },
+  "warning": {
+    "message": "Varoitus"
+  },
+  "info": {
+    "message": "Informatiiviinen"
+  },
+  "dismiss": {
+    "message": "Sulje"
+  },
+  "learn_more": {
+    "message": "Lue lisää"
+  },
+  "enable_context_menu": {
+    "message": "Lisää sisältövalikkoon"
+  },
+  "no_entires": {
+    "message": "Näytettäviä tilejä ei ole. Lisää ensimmäinen tilisi nyt."
+  },
+  "permissions": {
+    "message": "Käyttöoikeudet"
+  },
+  "permission_revoke": {
+    "message": "Kumoa"
+  },
+  "permission_show_required_permissions": {
+    "message": "Näytä ei-kumottavissa olevat oikeudet"
+  },
+  "permission_required": {
+    "message": "Pakollinen käyttöoikeus, jonka kumoaminen ei ole mahdollista."
+  },
+  "permission_active_tab": {
+    "message": "Nykyisen välilehden käyttöoikeus QR-koodien lukuun."
+  },
+  "permission_storage": {
+    "message": "Selaimen tallennustilan käyttöoikeus tilitietojen säilytykseen."
+  },
+  "permission_identity": {
+    "message": "Sallii kirjautumisen ulkoisiin tallennuspalveluihin."
+  },
+  "permission_alarms": {
+    "message": "Allows auto-lock to work."
+  },
+  "permission_scripting": {
+    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+  },
+  "permission_clipboard_write": {
+    "message": "Myöntää pelkän kirjoitusoikeuden leikepöydälle koodien kopiointiin tilejä painettaessa."
+  },
+  "permission_context_menus": {
+    "message": "Lisää Authenticator sisältövalikkoon."
+  },
+  "permission_sync_clock": {
+    "message": "Sallii kellon synkronoinnin Googlen kanssa."
+  },
+  "permission_dropbox": {
+    "message": "Sallii varmuuskopioinnin Dropboxiin."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "Dropbox-varmuuskopiointi on ensin poistettava käytöstä."
+  },
+  "permission_drive": {
+    "message": "Sallii varmuuskopioinnin Google Driveen."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "Google Drive -varmuuskopiointi on ensin poistettava käytöstä."
+  },
+  "permission_onedrive": {
+    "message": "Sallii varmuuskopioinnin OneDriveen."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "OneDrive-varmuuskopiointi on ensin poistettava käytöstä."
+  },
+  "permission_unknown_permission": {
+    "message": "Tuntematon käyttöoikeus. Jos näet tämän viestin, lähetä virheilmoitus."
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
