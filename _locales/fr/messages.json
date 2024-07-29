@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "Authenticator",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Authenticator",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " a été ajouté.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "Le code QR n'a pas été reconnu.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "Secret du compte invalide",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "Ajouter un compte",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "Scanner le code QR",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "Saisie manuelle",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "Échec de l'importation. Si vous migrez des données depuis Google Authenticator, veuillez ré-exporter vos données depuis Google Authenticator et réessayer.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Certaines données de compte n'ont pas été importées correctement.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "Fermer",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "Ok",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "Oui",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "Non",
-        "description": "No."
-    },
-    "account": {
-        "message": "Compte",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "Nom d'utilisateur",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "Émetteur",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "Secret",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "Succès.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "Échec.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "À propos",
-        "description": "About."
-    },
-    "settings": {
-        "message": "Paramètres",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "Sécurité",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "Mot de passe actuel",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "Nouveau mot de passe",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "Mot de passe",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "Confirmer le Mot de Passe",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "Êtes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "Je comprends que toutes mes données seront définitivement supprimées.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Réinitialiser Authentificator"
-    },
-    "delete_all_warning": {
-        "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
-    },
-    "security_warning": {
-        "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "Mise à jour",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "Vous ne pouvez pas ajouter de nouveau compte tant que tous les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "Les comptes qui n'ont pas pu être déchiffrés ne seront pas inclus dans cette sauvegarde.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "Le mot de passe est incorrect.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "Chiffré",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "Copié",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "Commentaires",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "Traduire",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "Code source",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "Saisissez le mot de passe pour déchiffrer les données du compte.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Synchroniser l'horloge avec celle de Google",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "Enregistrer le mot de passe",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "Attention ! Un décalage trop important existe avec votre horloge locale, réglez ce problème avant de continuer.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "Avez-vous sauvegardé vos comptes ? N'attendez pas qu'il soit trop tard !",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "La capture a échoué, veuillez recharger la page et réessayer.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "Essayez-vous de scanner le code QR à partir d'un fichier local ? Utilisez plutôt l'importation de sauvegarde d'images QR.",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Basé sur le temps",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Basé sur un compteur",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "Préférences",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "Mise à l'échelle",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "Attention: les sauvegardes ne sont pas protégées par chiffrement. Voulez-vous ajouter un compte à une autre application ? Survollez la partie supérieure à droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "Télécharger un fichier de sauvegarde",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "Importer une sauvegarde",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "Importer un fichier de sauvegarde",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "Importer une image d'un code QR",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "Importer des images QR",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "Importer une sauvegarde textuelle",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "Importer des URL OTP",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Importation réussie, mais certains codes QR n'ont pas pu être reconnus.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "Vous pouvez sélectionner plusieurs fichiers pour importer les sauvegardes en lots.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "Afficher toutes les entrées",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez-les à vos propres risques.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "Votre mot de passe est stocké localement, veuillez le changer immédiatement par l'intermédiaire du menu sécurité.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "Supprimer",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "Télécharger une sauvegarde protégée par mot de passe",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "Rechercher",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "Mode popup",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "Verrouiller",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "Modifier",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "Sauvegarde manuelle",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "Utiliser le remplissage automatique",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "Utiliser le contraste élevé",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "Thème",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "Clair",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "Sombre",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "Contraste élevé",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "Plat",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "Sauvegardez automatiquement vos données vers des services de stockage tiers.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "Synchronisation du navigateur",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "Se connecter",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "Se connecter (professionnel)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Pourquoi les comptes professionnels requièrent-ils plus d'autorisations ?"
-    },
-    "log_out": {
-        "message": "Déconnexion",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "Il y a eu un problème de connexion à votre compte $SERVICE$ , veuillez vous connecter à nouveau.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "Vous avez un ou plusieurs comptes Steam ou Blizzard. Les sauvegardes non chiffrées n'utiliseront pas de format de sauvegarde standardisé.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "Vous pouvez importer des sauvegardes depuis d'autres applications.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "En savoir plus",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "Chargement..."
-    },
-    "autolock": {
-        "message": "Verrouiller après"
-    },
-    "minutes": {
-        "message": "minutes"
-    },
-    "advanced": {
-        "message": "Avancé"
-    },
-    "period": {
-        "message": "Période"
-    },
-    "type": {
-        "message": "Type"
-    },
-    "invalid": {
-        "message": "Invalide"
-    },
-    "digits": {
-        "message": "Chiffres"
-    },
-    "algorithm": {
-        "message": "Algorithme"
-    },
-    "smart_filter": {
-        "message": "Filtre Intelligent"
-    },
-    "backup": {
-        "message": "Sauvegarde"
-    },
-    "backup_file_info": {
-        "message": "Sauvegardez vos données dans un fichier."
-    },
-    "password_policy_default_hint": {
-        "message": "Votre mot de passe ne répond pas aux exigences de sécurité de votre organisation. Contactez votre administrateur pour plus d'informations."
-    },
-    "advisor": {
-        "message": "Conseils"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Définir un mot de passe pour protéger vos données."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Activer le verrouillage automatique pour protéger vos données."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "La synchronisation avec le navigateur est désactivée. Activez-la pour autoriser cette synchronisation."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Le remplissage automatique peut être activé pour remplir automatiquement les codes dans les sites web."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Activer le filtre intelligent permet un accès rapide aux comptes."
-    },
-    "show_all_insights": {
-        "message": "Afficher tous les aperçus."
-    },
-    "no_insight_available": {
-        "message": "Aucun aperçu trouvé, tout semble bien!"
-    },
-    "danger": {
-        "message": "Danger"
-    },
-    "warning": {
-        "message": "Attention"
-    },
-    "info": {
-        "message": "Information"
-    },
-    "dismiss": {
-        "message": "Fermer"
-    },
-    "learn_more": {
-        "message": "En savoir plus"
-    },
-    "enable_context_menu": {
-        "message": "Ajouter au menu contextuel"
-    },
-    "no_entires": {
-        "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
-    },
-    "permissions": {
-        "message": "Permissions"
-    },
-    "permission_revoke": {
-        "message": "Révoquer"
-    },
-    "permission_show_required_permissions": {
-        "message": "Afficher les permissions non révocables"
-    },
-    "permission_required": {
-        "message": "Il s'agit d'une autorisation nécessaire et ne peut pas être révoquée."
-    },
-    "permission_active_tab": {
-        "message": "Accéder à l'onglet actuel pour scanner le code QR."
-    },
-    "permission_storage": {
-        "message": "Accès au stockage du navigateur pour y stocker les données du compte."
-    },
-    "permission_identity": {
-        "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
-    },
-    "permission_alarms": {
-        "message": "Permet au verrouillage automatique de fonctionner."
-    },
-    "permission_scripting": {
-        "message": "Injecter des scripts dans l'onglet actuel pour scanner les codes QR et permettre au remplissage automatique de fonctionner."
-    },
-    "permission_clipboard_write": {
-        "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
-    },
-    "permission_context_menus": {
-        "message": "Ajoute Authenticator au menu contextuel."
-    },
-    "permission_sync_clock": {
-        "message": "Autoriser la synchronisation de l'horloge avec Google."
-    },
-    "permission_dropbox": {
-        "message": "Autoriser la sauvegarde vers Dropbox."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "Vous devez d'abord désactiver la sauvegarde Dropbox."
-    },
-    "permission_drive": {
-        "message": "Autoriser la sauvegarde vers Google Drive."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "Vous devez d'abord désactiver la sauvegarde de Google Drive."
-    },
-    "permission_onedrive": {
-        "message": "Autoriser la sauvegarde vers OneDrive."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "Vous devez d'abord désactiver la sauvegarde OneDrive."
-    },
-    "permission_unknown_permission": {
-        "message": "Autorisation inconnue. Si vous voyez ce message, veuillez envoyer un rapport de bug."
+  "extName": {
+    "message": "Authenticator",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Authenticator",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " a été ajouté.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "Le code QR n'a pas été reconnu.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "Secret du compte invalide",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "Ajouter un compte",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "Scanner le code QR",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "Saisie manuelle",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "Échec de l'importation. Si vous migrez des données depuis Google Authenticator, veuillez ré-exporter vos données depuis Google Authenticator et réessayer.",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "Certaines données de compte n'ont pas été importées correctement.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "Fermer",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "Ok",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "Oui",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "Non",
+    "description": "No."
+  },
+  "account": {
+    "message": "Compte",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "Nom d'utilisateur",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "Émetteur",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "Secret",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "Succès.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "Échec.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "À propos",
+    "description": "About."
+  },
+  "settings": {
+    "message": "Paramètres",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "Sécurité",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "Mot de passe actuel",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "Nouveau mot de passe",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "Mot de passe",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "Confirmer le Mot de Passe",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "Êtes-vous sûr de vouloir supprimer ce compte ? Cette action ne peut pas être annulée.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "Je comprends que toutes mes données seront définitivement supprimées.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "Réinitialiser Authentificator"
+  },
+  "delete_all_warning": {
+    "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
+  },
+  "security_warning": {
+    "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "Mise à jour",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "Vous ne pouvez pas ajouter de nouveau compte tant que tous les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "Les comptes qui n'ont pas pu être déchiffrés ne seront pas inclus dans cette sauvegarde.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "Le mot de passe est incorrect.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "Chiffré",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "Copié",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "Commentaires",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "Traduire",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "Code source",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "Saisissez le mot de passe pour déchiffrer les données du compte.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Synchroniser l'horloge avec celle de Google",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "Enregistrer le mot de passe",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "Attention ! Un décalage trop important existe avec votre horloge locale, réglez ce problème avant de continuer.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "Avez-vous sauvegardé vos comptes ? N'attendez pas qu'il soit trop tard !",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "La capture a échoué, veuillez recharger la page et réessayer.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "Essayez-vous de scanner le code QR à partir d'un fichier local ? Utilisez plutôt l'importation de sauvegarde d'images QR.",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Basé sur le temps",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Basé sur un compteur",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "Préférences",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "Mise à l'échelle",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "Attention: les sauvegardes ne sont pas protégées par chiffrement. Voulez-vous ajouter un compte à une autre application ? Survollez la partie supérieure à droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "Télécharger un fichier de sauvegarde",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "Importer une sauvegarde",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "Importer un fichier de sauvegarde",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "Importer une image d'un code QR",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "Importer des images QR",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "Importer une sauvegarde textuelle",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "Importer des URL OTP",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "Importation réussie, mais certains codes QR n'ont pas pu être reconnus.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "Vous pouvez sélectionner plusieurs fichiers pour importer les sauvegardes en lots.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "Afficher toutes les entrées",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "Attention : les sauvegardes ne sont pas chiffrées. Utilisez-les à vos propres risques.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "Votre mot de passe est stocké localement, veuillez le changer immédiatement par l'intermédiaire du menu sécurité.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "Supprimer",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "Télécharger une sauvegarde protégée par mot de passe",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "Rechercher",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "Mode popup",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "Verrouiller",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "Modifier",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "Sauvegarde manuelle",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "Utiliser le remplissage automatique",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "Utiliser le contraste élevé",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "Thème",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "Clair",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "Sombre",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "Simple",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "Compact",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "Contraste élevé",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "Plat",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "Sauvegardez automatiquement vos données vers des services de stockage tiers.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "Synchronisation du navigateur",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "Se connecter",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "Se connecter (professionnel)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "Pourquoi les comptes professionnels requièrent-ils plus d'autorisations ?"
+  },
+  "log_out": {
+    "message": "Déconnexion",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "Il y a eu un problème de connexion à votre compte $SERVICE$ , veuillez vous connecter à nouveau.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "Vous avez un ou plusieurs comptes Steam ou Blizzard. Les sauvegardes non chiffrées n'utiliseront pas de format de sauvegarde standardisé.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "Vous pouvez importer des sauvegardes depuis d'autres applications.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "En savoir plus",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "Chargement..."
+  },
+  "autolock": {
+    "message": "Verrouiller après"
+  },
+  "minutes": {
+    "message": "minutes"
+  },
+  "advanced": {
+    "message": "Avancé"
+  },
+  "period": {
+    "message": "Période"
+  },
+  "type": {
+    "message": "Type"
+  },
+  "invalid": {
+    "message": "Invalide"
+  },
+  "digits": {
+    "message": "Chiffres"
+  },
+  "algorithm": {
+    "message": "Algorithme"
+  },
+  "smart_filter": {
+    "message": "Filtre Intelligent"
+  },
+  "backup": {
+    "message": "Sauvegarde"
+  },
+  "backup_file_info": {
+    "message": "Sauvegardez vos données dans un fichier."
+  },
+  "password_policy_default_hint": {
+    "message": "Votre mot de passe ne répond pas aux exigences de sécurité de votre organisation. Contactez votre administrateur pour plus d'informations."
+  },
+  "advisor": {
+    "message": "Conseils"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "Définir un mot de passe pour protéger vos données."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "Activer le verrouillage automatique pour protéger vos données."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "La synchronisation avec le navigateur est désactivée. Activez-la pour autoriser cette synchronisation."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Le remplissage automatique peut être activé pour remplir automatiquement les codes dans les sites web."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "Activer le filtre intelligent permet un accès rapide aux comptes."
+  },
+  "show_all_insights": {
+    "message": "Afficher tous les aperçus."
+  },
+  "no_insight_available": {
+    "message": "Aucun aperçu trouvé, tout semble bien!"
+  },
+  "danger": {
+    "message": "Danger"
+  },
+  "warning": {
+    "message": "Attention"
+  },
+  "info": {
+    "message": "Information"
+  },
+  "dismiss": {
+    "message": "Fermer"
+  },
+  "learn_more": {
+    "message": "En savoir plus"
+  },
+  "enable_context_menu": {
+    "message": "Ajouter au menu contextuel"
+  },
+  "no_entires": {
+    "message": "Aucun compte à afficher. Ajoutez votre premier compte maintenant."
+  },
+  "permissions": {
+    "message": "Permissions"
+  },
+  "permission_revoke": {
+    "message": "Révoquer"
+  },
+  "permission_show_required_permissions": {
+    "message": "Afficher les permissions non révocables"
+  },
+  "permission_required": {
+    "message": "Il s'agit d'une autorisation nécessaire et ne peut pas être révoquée."
+  },
+  "permission_active_tab": {
+    "message": "Accéder à l'onglet actuel pour scanner le code QR."
+  },
+  "permission_storage": {
+    "message": "Accès au stockage du navigateur pour y stocker les données du compte."
+  },
+  "permission_identity": {
+    "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
+  },
+  "permission_alarms": {
+    "message": "Permet au verrouillage automatique de fonctionner."
+  },
+  "permission_scripting": {
+    "message": "Injecter des scripts dans l'onglet actuel pour scanner les codes QR et permettre au remplissage automatique de fonctionner."
+  },
+  "permission_clipboard_write": {
+    "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
+  },
+  "permission_context_menus": {
+    "message": "Ajoute Authenticator au menu contextuel."
+  },
+  "permission_sync_clock": {
+    "message": "Autoriser la synchronisation de l'horloge avec Google."
+  },
+  "permission_dropbox": {
+    "message": "Autoriser la sauvegarde vers Dropbox."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "Vous devez d'abord désactiver la sauvegarde Dropbox."
+  },
+  "permission_drive": {
+    "message": "Autoriser la sauvegarde vers Google Drive."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "Vous devez d'abord désactiver la sauvegarde de Google Drive."
+  },
+  "permission_onedrive": {
+    "message": "Autoriser la sauvegarde vers OneDrive."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "Vous devez d'abord désactiver la sauvegarde OneDrive."
+  },
+  "permission_unknown_permission": {
+    "message": "Autorisation inconnue. Si vous voyez ce message, veuillez envoyer un rapport de bug."
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
