@@ -53,7 +53,7 @@ export class Accounts implements Module {
           getters: { matchedEntries: string[] }
         ) {
           return (
-            UserSettings.items.smartFilter !== false &&
+            UserSettings.items.smartFilter === true &&
             getters.matchedEntries.length
           );
         },

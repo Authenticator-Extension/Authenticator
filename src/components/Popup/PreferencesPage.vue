@@ -89,6 +89,10 @@ export default Vue.extend({
       },
       set(smartFilter: boolean) {
         this.$store.commit("menu/setSmartFilter", smartFilter);
+        this.$store.commit(
+          "notification/alert",
+          this.i18n.activate_auto_filter
+        );
       },
     },
     enableContextMenu: {
