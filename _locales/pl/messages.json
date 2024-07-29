@@ -516,6 +516,6 @@
     "message": "Nieznane uprawnienie. Jeśli widzisz ten komunikat, wyślij raport o błędzie."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Ostrzeżenie: inteligentny filtr luźno dopasowuje nazwę domeny do konta. Zawsze sprawdzaj, czy jesteś na właściwej witrynie internetowej przed wprowadzeniem kodu!"
   }
 }
