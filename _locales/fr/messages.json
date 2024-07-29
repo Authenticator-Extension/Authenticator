@@ -516,6 +516,6 @@
     "message": "Autorisation inconnue. Si vous voyez ce message, veuillez envoyer un rapport de bug."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Avertissement: Le filtre intelligent associe grosso modo le nom de domaine à un compte. Vérifiez toujours que vous êtes sur le bon site avant d'entrer un code !"
   }
 }
