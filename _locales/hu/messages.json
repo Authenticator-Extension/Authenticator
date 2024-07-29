@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "Hitelesítő",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Hitelesítő",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " hozzáadva.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "Ismeretlen QR-kód.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "Invalid account secret",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "Fiók hozzáadása",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "QR kód beolvasása",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "Kézi bevitel",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "Az importálás sikertelen. Ha a Google Hitelesítőből történt az adatok mozgatása, akkor próbálkozzon a Google Hitelesítőből az adatok újra exportálásával!",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "A fiók adatok importálása csak részben volt sikeres.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "Bezár",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "Rendben",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "Igen",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "Nem",
-        "description": "No."
-    },
-    "account": {
-        "message": "Fiók",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "Felhasználónév",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "Kibocsátó",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "Titok",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "Sikerült.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "Sikertelen.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "Rólunk",
-        "description": "About."
-    },
-    "settings": {
-        "message": "Beállítások",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "Biztonság",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "Jelenlegi jelszó",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "Új jelszó",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "Jelszó",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "Jelszó megerősítése",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "Biztosan törli ezt a fiókot? Ez a művelet nem vonható vissza.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "Megértem, hogy az összes adatomat helyreállíthatatlanul törli.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Hitelesítő visszaállítása"
-    },
-    "delete_all_warning": {
-        "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az Authenticator alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
-    },
-    "security_warning": {
-        "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "Frissítés",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "Nem adhat hozzá új fiókot vagy exportálhat adatot míg az összes fiók titkosítva van. Kérjük, írja be a helyes jelszót a folytatáshoz.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "Azok a fiókok, amelyeket nem sikerült visszafejteni, nem lesznek benne a biztonsági mentésben.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "A jelszók nem egyeznek.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "Titkosított",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "Másolva",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "Visszajelzés",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "Fordítás",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "Forráskód",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "Írja be a jelszót az adatok visszafejtéséhez.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Előzmények szinkronizálása Google-val",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "Jelszó megjegyzése",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "Vigyázat! A helyi óra túl pontatlan, javítsa a folytatás előtt.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "Készített már biztonsági mentést a fiókjaihoz? Ne várjon még túl késő lesz!",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "Helyben tárolt fájlból próbálja beolvasni a QR-kódot? Inkább importálja a mentett QR képet!",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Idő alapú",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Számláló alapú",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "Tulajdonságok",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "Méretezés",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "Figyelem: a mentések nem titkosítottak. Hozzá szeretne adni egy fiókot egy másik apphoz? Tartsa az egeret bármely fiók jobb felső sarkánál, majd nyomja meg a titkos gombot.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "Biztonsági mentés letöltése",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "Biztonsági mentés importálása",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "Biztonsági mentés importálása",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "QR kód biztonsági mentés importálása",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "Import QR Images",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "Szöveges biztonsági mentés importálása",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "Import OTP URLs",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Sikeresen importálva, de néhány QR-kód nem ismerhető fel.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "Kijelölhet több képfájlt is a biztonsági mentés folyamatos importálásához.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "Minden bejegyzés mutatása",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "Figyelem: a biztonsági másolatok nem titkosítottak. Csak saját felelősségére használhatja.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "Meg kell adnia a helyes jelszót a mentések importálásához.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "Az ön jelszava helyben van tárolva, kérem módosítsa a biztonsági menüben sürgősen.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "Eltávolít",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "Jelszóval védett biztonsági másolat letöltése",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "Keresés",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "Felugró mód",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "Zárolás",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "Szerkeszt",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "Kézi mentés",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "Automatikus kitöltés használata",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "Nagy kontraszt használata",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "Téma",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "Világos",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "Sötét",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "Egyszerű téma",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "Kompakt téma",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "Nagy kontrasztú",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "Böngésző szinronizálása",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "Bejelentkezés",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "Bejelentkezés (üzleti)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Miért igényel az üzleti fiók több engedélyt?"
-    },
-    "log_out": {
-        "message": "Kijelentkezés",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "Probléma adódott az ön $SERVICE$ fiókjához kapcsolódáskor, kérjük jelentkezzen be újra.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "Egy vagy több Steam vagy Blizzard fiókokkal rendelkezik. A titkosítatlan biztonsági mentések nem fogják használni a szabványos biztonsági mentési formátumot.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "Imprtálhat biztonsági mentéseket pár másik alkalmazásból.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "További információ",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "Betöltés..."
-    },
-    "autolock": {
-        "message": "Lezárás ennyi idő után"
-    },
-    "minutes": {
-        "message": "percek"
-    },
-    "advanced": {
-        "message": "Haladó"
-    },
-    "period": {
-        "message": "Időszak"
-    },
-    "type": {
-        "message": "Típus"
-    },
-    "invalid": {
-        "message": "Érvénytelen"
-    },
-    "digits": {
-        "message": "Számok"
-    },
-    "algorithm": {
-        "message": "Algoritmus"
-    },
-    "smart_filter": {
-        "message": "Okos szűrő"
-    },
-    "backup": {
-        "message": "Biztonsági mentés"
-    },
-    "backup_file_info": {
-        "message": "Mentse el adatait egy fájlba!"
-    },
-    "password_policy_default_hint": {
-        "message": "A jelszava nem fele meg az előírt biztonsági követelményeknek. Vegye fel a kapcsolatot a rendszergazdával további információk érdekében!"
-    },
-    "advisor": {
-        "message": "Tanácsadó"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Állítson be jelszót az adatai biztonsága érdekében!"
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Automatikus lezárás engedélyezése adatai védelmének érdekében."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "A böngésző szinkronizálás le van tiltva. Az engedélyezés a fiókok böngészők közötti szinkronizálást teszi lehetővé."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Az automatikus kitöltés engedélyezésével a kódok az internet oldalak mezőiben automatikusan kitültésre kerülnek."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Az okos szűrő engedélyezésével a fiókok gyors elérése válik lehetővé."
-    },
-    "show_all_insights": {
-        "message": "Összes tipp mutatása."
-    },
-    "no_insight_available": {
-        "message": "Nem található tipp, úgy tűnik minden rendben!"
-    },
-    "danger": {
-        "message": "Veszély"
-    },
-    "warning": {
-        "message": "Figyelmeztetés"
-    },
-    "info": {
-        "message": "Információ"
-    },
-    "dismiss": {
-        "message": "Elvet"
-    },
-    "learn_more": {
-        "message": "Tudj meg többet"
-    },
-    "enable_context_menu": {
-        "message": "Kontextus menühöz adás"
-    },
-    "no_entires": {
-        "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
-    },
-    "permissions": {
-        "message": "Engedélyek"
-    },
-    "permission_revoke": {
-        "message": "Visszavon"
-    },
-    "permission_show_required_permissions": {
-        "message": "Nem visszavonható engedélyek megjelenítése"
-    },
-    "permission_required": {
-        "message": "Ez egy szükséges engedély és nem visszavonható."
-    },
-    "permission_active_tab": {
-        "message": "Az aktuális fül elérése a QR-kódok beolvasásához."
-    },
-    "permission_storage": {
-        "message": "Böngésző tárhely elérése fiók adatok tárolásához."
-    },
-    "permission_identity": {
-        "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
-    },
-    "permission_alarms": {
-        "message": "Allows auto-lock to work."
-    },
-    "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
-    },
-    "permission_clipboard_write": {
-        "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
-    },
-    "permission_context_menus": {
-        "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
-    },
-    "permission_sync_clock": {
-        "message": "Óra szinkronizálás engedélyezése Google által."
-    },
-    "permission_dropbox": {
-        "message": "Biztonsági mentés engedélyezése DropBox-ra."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "Először tiltsa le a DropBox-ra történő biztonsági adatmentést!"
-    },
-    "permission_drive": {
-        "message": "Biztonsági adatmentés Google Drive-ra."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "Először tiltsa le a Google Drive-ra történő biztonsági adatmentést!"
-    },
-    "permission_onedrive": {
-        "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "Először tiltsa le a OneDrive-ra történő biztonsági adatmentést!"
-    },
-    "permission_unknown_permission": {
-        "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
+  "extName": {
+    "message": "Hitelesítő",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Hitelesítő",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " hozzáadva.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "Ismeretlen QR-kód.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "Invalid account secret",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "Fiók hozzáadása",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "QR kód beolvasása",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "Kézi bevitel",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "Az importálás sikertelen. Ha a Google Hitelesítőből történt az adatok mozgatása, akkor próbálkozzon a Google Hitelesítőből az adatok újra exportálásával!",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "A fiók adatok importálása csak részben volt sikeres.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "Bezár",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "Rendben",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "Igen",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "Nem",
+    "description": "No."
+  },
+  "account": {
+    "message": "Fiók",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "Felhasználónév",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "Kibocsátó",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "Titok",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "Sikerült.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "Sikertelen.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "Rólunk",
+    "description": "About."
+  },
+  "settings": {
+    "message": "Beállítások",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "Biztonság",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "Jelenlegi jelszó",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "Új jelszó",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "Jelszó",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "Jelszó megerősítése",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "Biztosan törli ezt a fiókot? Ez a művelet nem vonható vissza.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "Megértem, hogy az összes adatomat helyreállíthatatlanul törli.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "Hitelesítő visszaállítása"
+  },
+  "delete_all_warning": {
+    "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az Authenticator alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
+  },
+  "security_warning": {
+    "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "Frissítés",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "Nem adhat hozzá új fiókot vagy exportálhat adatot míg az összes fiók titkosítva van. Kérjük, írja be a helyes jelszót a folytatáshoz.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "Azok a fiókok, amelyeket nem sikerült visszafejteni, nem lesznek benne a biztonsági mentésben.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "A jelszók nem egyeznek.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "Titkosított",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "Másolva",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "Visszajelzés",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "Fordítás",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "Forráskód",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "Írja be a jelszót az adatok visszafejtéséhez.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Előzmények szinkronizálása Google-val",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "Jelszó megjegyzése",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "Vigyázat! A helyi óra túl pontatlan, javítsa a folytatás előtt.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "Készített már biztonsági mentést a fiókjaihoz? Ne várjon még túl késő lesz!",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "Helyben tárolt fájlból próbálja beolvasni a QR-kódot? Inkább importálja a mentett QR képet!",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Idő alapú",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Számláló alapú",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "Tulajdonságok",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "Méretezés",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "Figyelem: a mentések nem titkosítottak. Hozzá szeretne adni egy fiókot egy másik apphoz? Tartsa az egeret bármely fiók jobb felső sarkánál, majd nyomja meg a titkos gombot.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "Biztonsági mentés letöltése",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "Biztonsági mentés importálása",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "Biztonsági mentés importálása",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "QR kód biztonsági mentés importálása",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "Import QR Images",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "Szöveges biztonsági mentés importálása",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "Import OTP URLs",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "Sikeresen importálva, de néhány QR-kód nem ismerhető fel.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "Kijelölhet több képfájlt is a biztonsági mentés folyamatos importálásához.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "Minden bejegyzés mutatása",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "Figyelem: a biztonsági másolatok nem titkosítottak. Csak saját felelősségére használhatja.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "Meg kell adnia a helyes jelszót a mentések importálásához.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "Az ön jelszava helyben van tárolva, kérem módosítsa a biztonsági menüben sürgősen.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "Eltávolít",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "Jelszóval védett biztonsági másolat letöltése",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "Keresés",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "Felugró mód",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "Zárolás",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "Szerkeszt",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "Kézi mentés",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "Automatikus kitöltés használata",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "Nagy kontraszt használata",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "Téma",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "Világos",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "Sötét",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "Egyszerű téma",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "Kompakt téma",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "Nagy kontrasztú",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "Böngésző szinronizálása",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "Bejelentkezés",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "Bejelentkezés (üzleti)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "Miért igényel az üzleti fiók több engedélyt?"
+  },
+  "log_out": {
+    "message": "Kijelentkezés",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "Probléma adódott az ön $SERVICE$ fiókjához kapcsolódáskor, kérjük jelentkezzen be újra.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "Egy vagy több Steam vagy Blizzard fiókokkal rendelkezik. A titkosítatlan biztonsági mentések nem fogják használni a szabványos biztonsági mentési formátumot.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "Imprtálhat biztonsági mentéseket pár másik alkalmazásból.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "További információ",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "Betöltés..."
+  },
+  "autolock": {
+    "message": "Lezárás ennyi idő után"
+  },
+  "minutes": {
+    "message": "percek"
+  },
+  "advanced": {
+    "message": "Haladó"
+  },
+  "period": {
+    "message": "Időszak"
+  },
+  "type": {
+    "message": "Típus"
+  },
+  "invalid": {
+    "message": "Érvénytelen"
+  },
+  "digits": {
+    "message": "Számok"
+  },
+  "algorithm": {
+    "message": "Algoritmus"
+  },
+  "smart_filter": {
+    "message": "Okos szűrő"
+  },
+  "backup": {
+    "message": "Biztonsági mentés"
+  },
+  "backup_file_info": {
+    "message": "Mentse el adatait egy fájlba!"
+  },
+  "password_policy_default_hint": {
+    "message": "A jelszava nem fele meg az előírt biztonsági követelményeknek. Vegye fel a kapcsolatot a rendszergazdával további információk érdekében!"
+  },
+  "advisor": {
+    "message": "Tanácsadó"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "Állítson be jelszót az adatai biztonsága érdekében!"
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "Automatikus lezárás engedélyezése adatai védelmének érdekében."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "A böngésző szinkronizálás le van tiltva. Az engedélyezés a fiókok böngészők közötti szinkronizálást teszi lehetővé."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Az automatikus kitöltés engedélyezésével a kódok az internet oldalak mezőiben automatikusan kitültésre kerülnek."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "Az okos szűrő engedélyezésével a fiókok gyors elérése válik lehetővé."
+  },
+  "show_all_insights": {
+    "message": "Összes tipp mutatása."
+  },
+  "no_insight_available": {
+    "message": "Nem található tipp, úgy tűnik minden rendben!"
+  },
+  "danger": {
+    "message": "Veszély"
+  },
+  "warning": {
+    "message": "Figyelmeztetés"
+  },
+  "info": {
+    "message": "Információ"
+  },
+  "dismiss": {
+    "message": "Elvet"
+  },
+  "learn_more": {
+    "message": "Tudj meg többet"
+  },
+  "enable_context_menu": {
+    "message": "Kontextus menühöz adás"
+  },
+  "no_entires": {
+    "message": "Nincs megjeleníthető fiók. Add hozzá első fiókodat most."
+  },
+  "permissions": {
+    "message": "Engedélyek"
+  },
+  "permission_revoke": {
+    "message": "Visszavon"
+  },
+  "permission_show_required_permissions": {
+    "message": "Nem visszavonható engedélyek megjelenítése"
+  },
+  "permission_required": {
+    "message": "Ez egy szükséges engedély és nem visszavonható."
+  },
+  "permission_active_tab": {
+    "message": "Az aktuális fül elérése a QR-kódok beolvasásához."
+  },
+  "permission_storage": {
+    "message": "Böngésző tárhely elérése fiók adatok tárolásához."
+  },
+  "permission_identity": {
+    "message": "Bejelentkezés engedélyezése harmadik fél által biztosított tárhely szolgáltatáshoz."
+  },
+  "permission_alarms": {
+    "message": "Allows auto-lock to work."
+  },
+  "permission_scripting": {
+    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+  },
+  "permission_clipboard_write": {
+    "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
+  },
+  "permission_context_menus": {
+    "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
+  },
+  "permission_sync_clock": {
+    "message": "Óra szinkronizálás engedélyezése Google által."
+  },
+  "permission_dropbox": {
+    "message": "Biztonsági mentés engedélyezése DropBox-ra."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "Először tiltsa le a DropBox-ra történő biztonsági adatmentést!"
+  },
+  "permission_drive": {
+    "message": "Biztonsági adatmentés Google Drive-ra."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "Először tiltsa le a Google Drive-ra történő biztonsági adatmentést!"
+  },
+  "permission_onedrive": {
+    "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "Először tiltsa le a OneDrive-ra történő biztonsági adatmentést!"
+  },
+  "permission_unknown_permission": {
+    "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
