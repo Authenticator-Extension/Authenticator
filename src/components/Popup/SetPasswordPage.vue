@@ -29,7 +29,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { verifyPassword } from "../../models/password";
+import { verifyPasswordUsingKeyID } from "../../models/password";
 
 export default Vue.extend({
   data: function () {
@@ -70,7 +70,7 @@ export default Vue.extend({
       this.$store.commit("currentView/changeView", "LoadingPage");
 
       if (this.defaultEncryption) {
-        const isCorrectPassword = await verifyPassword(
+        const isCorrectPassword = await verifyPasswordUsingKeyID(
           this.defaultEncryption,
           this.currentPhrase
         );

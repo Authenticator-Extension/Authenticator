@@ -52,7 +52,8 @@ export async function argonVerify(
   return argonPromise;
 }
 
-export async function verifyPassword(
+// Verify a password using keys in BrowserStorage
+export async function verifyPasswordUsingKeyID(
   keyId: string,
   password: string
 ): Promise<boolean> {
@@ -69,6 +70,13 @@ export async function verifyPassword(
     throw new Error(`Key ${keyId} not in BrowserStorage`);
   }
 
+  return verifyPasswordUsingKey(key, password);
+}
+
+export async function verifyPasswordUsingKey(
+  key: Key,
+  password: string
+): Promise<boolean> {
   // Hash password with argon
   const rawHash = await argonHash(password, key.salt);
   if (!rawHash) {
