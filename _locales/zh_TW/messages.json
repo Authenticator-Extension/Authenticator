@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "Authenticator",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Authenticator",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Authenticator 在你的瀏覽器中生成兩步驟驗證碼。",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": "已新增。",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "無法識別的QR碼。",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "帳號金鑰無效",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "新增帳號",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "掃描QR碼",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "手動輸入",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "匯入失敗。若您要從Google Authenticator搬遷資料，請重新從Google Autenticator匯出資料後再重試",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "部分帳號資料未被成功匯入",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "關閉",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "確定",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "是",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "否",
-        "description": "No."
-    },
-    "account": {
-        "message": "帳戶",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "用戶名",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "簽發方",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "金鑰",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "成功。",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "失敗。",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "關於",
-        "description": "About."
-    },
-    "settings": {
-        "message": "設定",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "安全性",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "當前密碼",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "新密碼",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "密碼",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "確認密碼",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "您確定要刪除此帳戶嗎？此操作無法復原。",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "我了解我的所有資料將被刪除且無法復原。",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "重設 Authenticator"
-    },
-    "delete_all_warning": {
-        "message": "這會刪除您所有的資料並重設Authenticator。您將無法復原任何已刪除的資料！在重設Authenticator之前您應備份您的資料。"
-    },
-    "security_warning": {
-        "message": "您的金鑰將使用此密碼進行加密。請妥善保管，如果遺失您將失去對此金鑰的權限。",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "更新",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "本次備份不包含無法解密的帳號",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "密碼錯誤。",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "已加密",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "複製成功！",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "問題反饋",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "參與翻譯",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "原始碼",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "輸入密碼以解碼帳戶資料。",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "通過Google校準時間",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "記住密碼",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "注意！您的本地時鐘時間差異過大，請於效準時間後再進行操作。",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "讀取失敗，請於重新載入頁面後重試。",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "您是否試著從本地檔案掃描QR碼? 請改用 匯入QR碼圖片備份。",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "驗證碼",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "一次性驗證碼",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "偏好設定",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "縮放",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "警告：所有備份均未加密。想要將賬號新增至其他應用？請點選賬號右上角隱藏的圖示。",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "下載備份檔案",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "匯入備份",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "以檔案匯入",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "导入 QR 图片备份",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "匯入 QR 圖片",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "以文字匯入",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "匯入 OTP 網址",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "匯入成功，但部份QR碼無法辨識",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "您可以選擇多個檔案進行批量匯入",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "顯示全部條目",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "警告：備份檔案未加密，需自行承擔風險。",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "您必須提供正確的密碼才能匯入備份。",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "移除",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "下載密碼保護備份",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "搜尋",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "彈出模式",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "鎖定",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "編輯",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "手動備份",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "啟用自動填充",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "高對比",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "主題",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "亮色",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "暗色",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "簡易",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "壓縮",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "高對比度",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "平",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "自動備份您的資料至第三方儲存服務。",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "瀏覽器同步",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "登入",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "登入（企業）",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "為什麼企業賬戶需要更多權限？"
-    },
-    "log_out": {
-        "message": "登出",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "連接到您的 $SERVICE$ 帳戶時出現問題，請重試。",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "您有一個或多個Steam或Blizzard帳戶。 未加密的備份將不使用標準化備份格式。",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "您可以從其他一些應用程序導入備份。",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "瞭解詳情",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "載入中..."
-    },
-    "autolock": {
-        "message": "鎖定於"
-    },
-    "minutes": {
-        "message": "分鐘"
-    },
-    "advanced": {
-        "message": "進階設定"
-    },
-    "period": {
-        "message": "有效期"
-    },
-    "type": {
-        "message": "類型"
-    },
-    "invalid": {
-        "message": "無效"
-    },
-    "digits": {
-        "message": "數字"
-    },
-    "algorithm": {
-        "message": "算法"
-    },
-    "smart_filter": {
-        "message": "智慧過濾"
-    },
-    "backup": {
-        "message": "備份"
-    },
-    "backup_file_info": {
-        "message": "備份至檔案"
-    },
-    "password_policy_default_hint": {
-        "message": "您的密碼不符合您組織的安全要求。 有關詳細信息，請聯繫您的管理員。"
-    },
-    "advisor": {
-        "message": "顧問"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "設定密碼保護您的資料。"
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "啟用自動鎖定以保護你的資料"
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "已禁用瀏覽器同步。啟用以在不同瀏覽器同步賬號。"
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "可以啟動自動填入以自動填入代碼到網站中"
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "啟用智能過濾器可以快速訪問帳戶。"
-    },
-    "show_all_insights": {
-        "message": "顯示所有見解。"
-    },
-    "no_insight_available": {
-        "message": "無任何見解被發現；一切完好!"
-    },
-    "danger": {
-        "message": "危險"
-    },
-    "warning": {
-        "message": "警告"
-    },
-    "info": {
-        "message": "資訊"
-    },
-    "dismiss": {
-        "message": "解除"
-    },
-    "learn_more": {
-        "message": "了解更多"
-    },
-    "enable_context_menu": {
-        "message": "加到右鍵選單"
-    },
-    "no_entires": {
-        "message": "帳號不存在，請新增帳號。"
-    },
-    "permissions": {
-        "message": "使用權限"
-    },
-    "permission_revoke": {
-        "message": "註銷"
-    },
-    "permission_show_required_permissions": {
-        "message": "顯示不可註銷的權限。"
-    },
-    "permission_required": {
-        "message": "這是必要的權限而且不可以註銷。"
-    },
-    "permission_active_tab": {
-        "message": "存取當前頁面並掃描QR碼"
-    },
-    "permission_storage": {
-        "message": "存取瀏覽器空間以便存放帳戶資訊"
-    },
-    "permission_identity": {
-        "message": "允許登入第三方儲存服務。"
-    },
-    "permission_alarms": {
-        "message": "Allows auto-lock to work."
-    },
-    "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
-    },
-    "permission_clipboard_write": {
-        "message": "授權點選帳戶時複製驗證碼到剪貼簿。"
-    },
-    "permission_context_menus": {
-        "message": "將驗證器加到右鍵選單"
-    },
-    "permission_sync_clock": {
-        "message": "允許與 Google 連線校時。"
-    },
-    "permission_dropbox": {
-        "message": "允許備份到Dropbox."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "請先取消 Dropbox 備份"
-    },
-    "permission_drive": {
-        "message": "允許備份到Google Drive."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "請先取消 Google Drive 備份"
-    },
-    "permission_onedrive": {
-        "message": "允許備份到OneDrive."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "請先取消 OneDrvie 備份"
-    },
-    "permission_unknown_permission": {
-        "message": "未知的權限。您如果看到這個訊息，請回報程式異常。"
+  "extName": {
+    "message": "Authenticator",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Authenticator",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Authenticator 在你的瀏覽器中生成兩步驟驗證碼。",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": "已新增。",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "無法識別的QR碼。",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "帳號金鑰無效",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "新增帳號",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "掃描QR碼",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "手動輸入",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "匯入失敗。若您要從Google Authenticator搬遷資料，請重新從Google Autenticator匯出資料後再重試",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "部分帳號資料未被成功匯入",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "關閉",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "確定",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "是",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "否",
+    "description": "No."
+  },
+  "account": {
+    "message": "帳戶",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "用戶名",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "簽發方",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "金鑰",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "成功。",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "失敗。",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "關於",
+    "description": "About."
+  },
+  "settings": {
+    "message": "設定",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "安全性",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "當前密碼",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "新密碼",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "密碼",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "確認密碼",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "您確定要刪除此帳戶嗎？此操作無法復原。",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "我了解我的所有資料將被刪除且無法復原。",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "重設 Authenticator"
+  },
+  "delete_all_warning": {
+    "message": "這會刪除您所有的資料並重設Authenticator。您將無法復原任何已刪除的資料！在重設Authenticator之前您應備份您的資料。"
+  },
+  "security_warning": {
+    "message": "您的金鑰將使用此密碼進行加密。請妥善保管，如果遺失您將失去對此金鑰的權限。",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "更新",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "本次備份不包含無法解密的帳號",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "密碼錯誤。",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "已加密",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "複製成功！",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "問題反饋",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "參與翻譯",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "原始碼",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "輸入密碼以解碼帳戶資料。",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "通過Google校準時間",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "記住密碼",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "注意！您的本地時鐘時間差異過大，請於效準時間後再進行操作。",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "您是否為金鑰建立了備份？別等到為時已晚才建立！",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "讀取失敗，請於重新載入頁面後重試。",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "您是否試著從本地檔案掃描QR碼? 請改用 匯入QR碼圖片備份。",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "驗證碼",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "一次性驗證碼",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "偏好設定",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "縮放",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "警告：所有備份均未加密。想要將賬號新增至其他應用？請點選賬號右上角隱藏的圖示。",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "下載備份檔案",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "匯入備份",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "以檔案匯入",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "导入 QR 图片备份",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "匯入 QR 圖片",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "以文字匯入",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "匯入 OTP 網址",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "匯入成功，但部份QR碼無法辨識",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "您可以選擇多個檔案進行批量匯入",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "顯示全部條目",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "警告：備份檔案未加密，需自行承擔風險。",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "您必須提供正確的密碼才能匯入備份。",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "您的密碼儲存在了本地，請立即通過安全選單更改密碼。",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "移除",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "下載密碼保護備份",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "搜尋",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "彈出模式",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "鎖定",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "編輯",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "手動備份",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "啟用自動填充",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "高對比",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "主題",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "亮色",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "暗色",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "簡易",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "壓縮",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "高對比度",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "平",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "自動備份您的資料至第三方儲存服務。",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "瀏覽器同步",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "登入",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "登入（企業）",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "為什麼企業賬戶需要更多權限？"
+  },
+  "log_out": {
+    "message": "登出",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "連接到您的 $SERVICE$ 帳戶時出現問題，請重試。",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "您有一個或多個Steam或Blizzard帳戶。 未加密的備份將不使用標準化備份格式。",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "您可以從其他一些應用程序導入備份。",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "瞭解詳情",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "載入中..."
+  },
+  "autolock": {
+    "message": "鎖定於"
+  },
+  "minutes": {
+    "message": "分鐘"
+  },
+  "advanced": {
+    "message": "進階設定"
+  },
+  "period": {
+    "message": "有效期"
+  },
+  "type": {
+    "message": "類型"
+  },
+  "invalid": {
+    "message": "無效"
+  },
+  "digits": {
+    "message": "數字"
+  },
+  "algorithm": {
+    "message": "算法"
+  },
+  "smart_filter": {
+    "message": "智慧過濾"
+  },
+  "backup": {
+    "message": "備份"
+  },
+  "backup_file_info": {
+    "message": "備份至檔案"
+  },
+  "password_policy_default_hint": {
+    "message": "您的密碼不符合您組織的安全要求。 有關詳細信息，請聯繫您的管理員。"
+  },
+  "advisor": {
+    "message": "顧問"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "設定密碼保護您的資料。"
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "啟用自動鎖定以保護你的資料"
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "已禁用瀏覽器同步。啟用以在不同瀏覽器同步賬號。"
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "可以啟動自動填入以自動填入代碼到網站中"
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "啟用智能過濾器可以快速訪問帳戶。"
+  },
+  "show_all_insights": {
+    "message": "顯示所有見解。"
+  },
+  "no_insight_available": {
+    "message": "無任何見解被發現；一切完好!"
+  },
+  "danger": {
+    "message": "危險"
+  },
+  "warning": {
+    "message": "警告"
+  },
+  "info": {
+    "message": "資訊"
+  },
+  "dismiss": {
+    "message": "解除"
+  },
+  "learn_more": {
+    "message": "了解更多"
+  },
+  "enable_context_menu": {
+    "message": "加到右鍵選單"
+  },
+  "no_entires": {
+    "message": "帳號不存在，請新增帳號。"
+  },
+  "permissions": {
+    "message": "使用權限"
+  },
+  "permission_revoke": {
+    "message": "註銷"
+  },
+  "permission_show_required_permissions": {
+    "message": "顯示不可註銷的權限。"
+  },
+  "permission_required": {
+    "message": "這是必要的權限而且不可以註銷。"
+  },
+  "permission_active_tab": {
+    "message": "存取當前頁面並掃描QR碼"
+  },
+  "permission_storage": {
+    "message": "存取瀏覽器空間以便存放帳戶資訊"
+  },
+  "permission_identity": {
+    "message": "允許登入第三方儲存服務。"
+  },
+  "permission_alarms": {
+    "message": "Allows auto-lock to work."
+  },
+  "permission_scripting": {
+    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+  },
+  "permission_clipboard_write": {
+    "message": "授權點選帳戶時複製驗證碼到剪貼簿。"
+  },
+  "permission_context_menus": {
+    "message": "將驗證器加到右鍵選單"
+  },
+  "permission_sync_clock": {
+    "message": "允許與 Google 連線校時。"
+  },
+  "permission_dropbox": {
+    "message": "允許備份到Dropbox."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "請先取消 Dropbox 備份"
+  },
+  "permission_drive": {
+    "message": "允許備份到Google Drive."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "請先取消 Google Drive 備份"
+  },
+  "permission_onedrive": {
+    "message": "允許備份到OneDrive."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "請先取消 OneDrvie 備份"
+  },
+  "permission_unknown_permission": {
+    "message": "未知的權限。您如果看到這個訊息，請回報程式異常。"
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
