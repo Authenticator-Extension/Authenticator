@@ -106,7 +106,7 @@ export default Vue.extend({
       this.$store.commit("currentView/changeView", "LoadingPage");
 
       if (this.defaultEncryption) {
-        const isCorrectPassword = await verifyPassword(
+        const isCorrectPassword = await verifyPasswordUsingKeyID(
           this.defaultEncryption,
           this.currentPhrase
         );
