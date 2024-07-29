@@ -1,518 +1,521 @@
 {
-    "extName": {
-        "message": "Επαληθευτής",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Επαληθευτής",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " έχει προστεθεί.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "Μην έγκυρο μυστικό λογα\npython\n\nimport pandas as pd\n\nimport numpy as np\n\nimport tensorflow as tf\n\nfrom keras. models import Sequential\n\nfrom keras. layers import Dense, Dropout\n\nfrom keras. optimizers import Adam\n\nfrom sklearn. preprocessing import StandardScaler\n\nfrom sklearn. model_selection import train_test_split\n\nfrom sklearn. metrics import accuracy_score, f1_score, roc_auc_score\n\nfrom pandas. plotting import register_matplotlib_converters\n\nregister_matplotlib_converters()\n\n\n\ndef preprocessing(data):\n\n # drop any missing values\n\n data = data. dropna()\n\n\n\n # drop any unnecessary columns\n\n data = data. drop(columns=['date', 'time', 'open', 'high', 'low', 'close', 'volume'])\n\n\n\n # standardize the data\n\n scaler = StandardScaler()\n\n data = pd. DataFrame(scaler. fit_transform(data))\n\n\n\n # split the data into training and testing sets\n\n X_train, X_test, Y_train, Y_test = train_test_split(\n\n data. iloc[:,:-1], data. iloc[:, -1], test_size=0.3, random_state=42)\n\n\n\n return X_train, X_test, Y_train, Y_test\n\n\n\ndef create_model(input_shape):\n\n model = Sequential()\n\n\n\n model. add(Dense(64, input_shape=input_shape, activation='relu'))\n\n model. add(Dropout(0.2))\n\n\n\n model. add(Dense(32, activation='relu'))\n\n model. add(Dropout(0.1))\n\n\n\n model. add(Dense(1, activation='sigmoid'))\n\n model. compile(loss='binary_crossentropy', optimizer=Adam(lr=0.0001), metrics=['accuracy'])\n\n\n\n return model\n\n\n\ndef train_model(X_train, X_test, Y_train, Y_test):\n\n input_shape = (X_train. shape[1],)\n\n model = create_model(input_shape)\n\n\n\n model. fit(X_train, Y_train, epochs=100, batch_size=32, validation_data=(X_test, Y_test), verbose=0)\n\n\n\n Y_pred_test = model. predict(X_test)\n\n Y_pred_test = np. round(Y_pred_test)\n\n\n\n accuracy = accuracy_score(Y_test, Y_pred_test)\n\n f1 = f1_score(Y_test, Y_pred_test)\n\n auc = roc_auc_score(Y_test, Y_pred_test)\n\n\n\n return model, accuracy, f1, auc\n\n\n\ndef evaluate_model(model, X_test, Y_test):\n\n Y_pred_test = model. predict(X_test)\n\n Y_pred_test = np. round(Y_pred_test)\n\n\n\n accuracy = accuracy_score(Y_test, Y_pred_test)\n\n f1 = f1_score(Y_test, Y_pred_test)\n\n auc = roc_auc_score(Y_test, Y_pred_test)\n\n\n\n return accuracy, f1, auc\n\n\n\ndef predict(model, data):\n\n # preprocess the data\n\n data = pd. DataFrame(data, columns=['close', 'returns', 'stdev'])\n\n\n\n data = pd. DataFrame(StandardScaler(). fit_transform(data))\n\n data = data. iloc[-1,:]. values. reshape(1, -1)\n\n\n\n # predict the next day's direction\n\n prediction = model. predict(data)\n\n prediction = np. round(prediction)\n\n\n\n return prediction\n\n\n\nif __name__ == '__main__':\n\n # load and preprocess the data\n\n data = pd. read_csv('data. csv')\n\n X_train, X_test, Y_train, Y_test = preprocessing(data)\n\n\n\n # train the model\n\n model, accuracy, f1, auc = train_model(X_train, X_test, Y_train, Y_test)\n\n\n\n # evaluate the model\n\n accuracy, f1, auc = evaluate_model(model, X_test, Y_test)\n\n\n\n # make a prediction\n\n data = pd. read_csv('today. csv')\n\n prediction = predict(model, data)\n\n\n\n if prediction == 1:\n\n print('Buy')\n\n else:\n\n print('Sell') ριασμού",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "Προσθήκη λογαριασμού",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "Σάρωση κώδικα QR",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "Χειροκίνητη εισαγωγή",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "Η εισαγωγή απέτυχε. Αν μεταφέρετε δεδομένα από το Google Authenticator, επανεξάγετέ τα και προσπαθήστε ξανά.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Ορισμένα από τα δεδομένα του λογαριασμού σας δεν εισήχθησαν με επιτυχία.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "Κλείσιμο",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "Εντάξει",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "Ναι",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "Όχι",
-        "description": "No."
-    },
-    "account": {
-        "message": "Λογαριασμός",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "Όνομα χρήστη",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "Εκδότης",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "Μυστικό",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "Επιτυχία.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "Αποτυχία.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "Σχετικά",
-        "description": "About."
-    },
-    "settings": {
-        "message": "Ρυθμίσεις",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "Ασφάλεια",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "Τρέχον Κωδικός",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "Νέος κωδικός πρόσβασης",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "Κωδικός πρόσβασης",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "Επιβεβαίωση κωδικού πρόσβασης",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Δε θα μπορέσετε να αναιρέσετε αυτήν την ενέργεια αργότερα.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "Καταλαβαίνω ότι όλα τα δεδομένα μου θα διαγραφούν οριστικά.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Επαναφορά Επαληθευτή"
-    },
-    "delete_all_warning": {
-        "message": "Αυτό θα διαγράψει όλα σας τα δεδομένα και θα επαναφέρει πλήρως τον Επαληθευτή. Δε θα μπορείτε να ανακτήσετε τυχόν διαγραμμένα δεδομένα, γι' αυτό σας συνιστούμε να δημιουργήσετε ένα αντίγραφο ασφαλείας πριν την επαναφορά."
-    },
-    "security_warning": {
-        "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει σε περίπτωση που τον ξεχάσετε.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "Ενημέρωση",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "Δεν μπορείτε να προσθέσετε ένα νέο λογαριασμό μέχρι όλοι οι λογαριασμοί να έχουν αποκρυπτογραφηθεί. Εισάγετε τον σωστό κωδικό πρόσβασης για να συνεχίσετε.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "Οι λογαριασμοί που δεν αποκρυπτογραφήθηκαν δε θα συμπεριληφθούν σε αυτό το αντίγραφο ασφαλείας.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "Ο κωδικός δεν ταιριάζει.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "Κρυπτογραφημένο",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "Αντιγράφηκε",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "Αξιολογήστε μας",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "Συνεισφέρετε στη μετάφραση",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "Πηγαίος κώδικας",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "Εισάγετε τον κωδικό πρόσβασης για να αποκρυπτογραφήσετε τα δεδομένα του λογαριασμού.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Συγχρονισμός ρολογιού με την Google",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "Απομνημόνευση κωδικού πρόσβασης",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "Προσοχή! Τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "Έχετε δημιουργήσει αντίγραφα ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "Η καταγραφή απέτυχε, επαναφορτώστε τη σελίδα και προσπαθήστε ξανά.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "Προσπαθείτε να σαρώσετε τον κωδικό QR από ένα τοπικό αρχείο; Κάντε κλικ στο \"Εισαγωγή αντιγράφου ασφαλείας εικόνας QR\".",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Βάσει χρόνου",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Με μετρητή",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "Ρυθμίσεις",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "Κλίμακα",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "Προσοχή: κανένα από τα αντίγραφα ασφαλείας σας δεν είναι κρυπτογραφημένα. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Σύρετε το ποντίκι στο επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και κάντε κλικ στο κρυφό κουμπί.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "Λήψη αρχείου",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "Εισαγωγή αντιγράφου ασφαλείας",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "Import Backup File",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "Εισαγωγή αντιγράφου ασφαλείας εικόνας QR",
-        "description": "Import qr image backup."
-    },
-    "import_qr_images": {
-        "message": "Εισαγωγή εικόνων QR",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_backup_code": {
-        "message": "Εισαγωγή αντιγράφου ασφαλείας κειμένου",
-        "description": "Import backup code."
-    },
-    "import_otp_urls": {
-        "message": "Εισαγωγή διευθύνσεων URL OTP",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά ορισμένοι κώδικες QR δεν αναγνωρίστηκαν.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "Μπορείτε να επιλέξετε περισσότερα από ένα αρχεία αντιγράφων ασφαλείας.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "Εμφάνιση όλων των λογαριασμών",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "Προσοχή: τα αντίγραφα ασφαλείας δεν είναι κρυπτογραφημένα. Χρησιμοποιήστε τα με δική σας ευθύνη.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "Ο κωδικός πρόσβασης πρέπει να είναι σωστός για να εισαχθούν τα αντίγραφα ασφαλείας.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "Ο κωδικός πρόσβασης είναι αποθηκευμένος τοπικά στον υπολογιστή σας. Σας συνιστούμε να τον αλλάξετε από το μενού ασφαλείας αμέσως.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "Αφαίρεση",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "Λήψη αντιγράφων ασφαλείας που προστατεύονται με κωδικό",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "Αναζήτηση",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "Αναδυόμενο παράθυρο",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "Κλείδωμα",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "Επεξεργασία",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "Χειροκίνητη δημιουργία αντιγράφων ασφαλείας",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "Αυτόματη συμπλήρωση",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "Χρήση υψηλής αντίθεσης",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "Θέμα",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "Φωτεινό",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "Σκούρο",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "Απλό",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "Συμπαγές",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "Υψηλή αντίθεση",
-        "description": "High Contrast theme"
-    },
-    "theme_flat": {
-        "message": "Απλό",
-        "description": "Flat theme"
-    },
-    "storage_sync_info": {
-        "message": "Δημιουργήστε αυτόματα αντίγραφα ασφαλείας των δεδομένων σας σε υπηρεσίες αποθήκευσης τρίτων.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "Συγχρονισμός δεδομένων",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "Σύνδεση",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "Σύνδεση (Επιχείρηση)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Γιατί οι λογαριασμοί των επιχειρήσεων χρειάζονται περισσότερα δικαιώματα για να λειτουργήσουν σωστά;"
-    },
-    "log_out": {
-        "message": "Αποσύνδεση",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "Υπήρξε ένα πρόβλημα στην σύνδεση με τον λογαριασμό σας $SERVICE$. Προσπαθήστε να συνδεθείτε ξανά.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Τα αντίγραφα ασφαλείας που δεν έχουν κρυπτογραφηθεί δε θα ακολουθήσουν τη συνηθισμένη μορφή των άλλων αντιγράφων.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "Μπορείτε να εισάγετε αντίγραφα ασφαλείας από άλλες εφαρμογές.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "Μάθετε περισσότερα",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "Φόρτωση..."
-    },
-    "autolock": {
-        "message": "Κλείδωμα μετά από"
-    },
-    "minutes": {
-        "message": "λεπτά"
-    },
-    "advanced": {
-        "message": "Για προχωρημένους"
-    },
-    "period": {
-        "message": "Περίοδος"
-    },
-    "type": {
-        "message": "Τύπος"
-    },
-    "invalid": {
-        "message": "Μη έγκυρο"
-    },
-    "digits": {
-        "message": "Ψηφία"
-    },
-    "algorithm": {
-        "message": "Αλγόριθμος"
-    },
-    "smart_filter": {
-        "message": "Έξυπνο φίλτρο"
-    },
-    "backup": {
-        "message": "Αντίγραφο Ασφαλείας"
-    },
-    "backup_file_info": {
-        "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
-    },
-    "password_policy_default_hint": {
-        "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τοn διαχειριστή σας για περισσότερες πληροφορίες."
-    },
-    "advisor": {
-        "message": "Σύμβουλος"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Δημιουργήστε έναν κωδικό για να προστατέψετε τα δεδομένα σας."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Ενεργοποιήστε το αυτόματο κλείδωμα για να προστατεύσετε τα δεδομένα σας."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "Ο συγχρονισμός είναι απενεργοποιημένος. Εάν τον ενεργοποιήσετε, θα μπορείτε να συγχρονίσετε τους λογαριασμούς σας σε περισσότερα από ένα προγράμματα περιήγησης."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Ενεργοποιήστε την αυτόματη συμπλήρωση έτσι ώστε οι κωδικοί σας να εισάγονται αυτόματα στις ιστοσελίδες."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Ενεργοποιήστε το «έξυπνο» φίλτρο για να έχετε γρήγορη πρόσβαση στους λογαριασμούς που χρειάζεστε."
-    },
-    "show_all_insights": {
-        "message": "Εμφάνιση όλων των συμβουλών."
-    },
-    "no_insight_available": {
-        "message": "Δε βρήκαμε καμία συμβουλή για εσάς, όλα φαίνονται τέλεια!"
-    },
-    "danger": {
-        "message": "Κίνδυνος"
-    },
-    "warning": {
-        "message": "Προσοχή"
-    },
-    "info": {
-        "message": "Πληροφορία"
-    },
-    "dismiss": {
-        "message": "Κλείσιμο"
-    },
-    "learn_more": {
-        "message": "Μάθετε περισσότερα"
-    },
-    "enable_context_menu": {
-        "message": "Προσθήκη στο μενού περιβάλλοντος"
-    },
-    "no_entires": {
-        "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
-    },
-    "permissions": {
-        "message": "Δικαιώματα"
-    },
-    "permission_revoke": {
-        "message": "Ανάκληση"
-    },
-    "permission_show_required_permissions": {
-        "message": "Εμφάνιση αδειών που δεν ανακαλούνται"
-    },
-    "permission_required": {
-        "message": "Αυτό είναι ένα δικαίωμα που απαιτείται και δεν μπορεί να ανακληθεί."
-    },
-    "permission_active_tab": {
-        "message": "Πρόσβαση στην τρέχουσα καρτέλα για σάρωση QR κωδικών."
-    },
-    "permission_storage": {
-        "message": "Πρόσβαση στον αποθηκευτικό χώρο του προγράμματος περιήγησης για την αποθήκευση δεδομένων του λογαριασμού σας."
-    },
-    "permission_identity": {
-        "message": "Επιτρέπει τη σύνδεση σε υπηρεσίες αποθήκευσης τρίτων."
-    },
-    "permission_alarms": {
-        "message": "Επιτρέπει το αυτόματο κλείδωμα να λειτουργήσει."
-    },
-    "permission_scripting": {
-        "message": "Χορηγεί κώδικα στην τρέχουσα καρτέλα για να σκανάρει κωδικούς QR και να συμπληρώσει αυτόματα ώστε να λειτουργήσει."
-    },
-    "permission_clipboard_write": {
-        "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
-    },
-    "permission_context_menus": {
-        "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
-    },
-    "permission_sync_clock": {
-        "message": "Επιτρέπει τον συγχρονισμό ρολογιού με την Google."
-    },
-    "permission_dropbox": {
-        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Dropbox."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Dropbox."
-    },
-    "permission_drive": {
-        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Google Drive."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Google Drive."
-    },
-    "permission_onedrive": {
-        "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο OneDrive."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "Πρέπει πρώτα να απενεργοποιήσετε τα αντίγραφα ασφαλείας του OneDrive."
-    },
-    "permission_unknown_permission": {
-        "message": "Άγνωστο δικαίωμα. Αν δείτε αυτό το μήνυμα, στείλτε μας μια αναφορά σφάλματος."
+  "extName": {
+    "message": "Επαληθευτής",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Επαληθευτής",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " έχει προστεθεί.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "Μην έγκυρο μυστικό λογα\npython\n\nimport pandas as pd\n\nimport numpy as np\n\nimport tensorflow as tf\n\nfrom keras. models import Sequential\n\nfrom keras. layers import Dense, Dropout\n\nfrom keras. optimizers import Adam\n\nfrom sklearn. preprocessing import StandardScaler\n\nfrom sklearn. model_selection import train_test_split\n\nfrom sklearn. metrics import accuracy_score, f1_score, roc_auc_score\n\nfrom pandas. plotting import register_matplotlib_converters\n\nregister_matplotlib_converters()\n\n\n\ndef preprocessing(data):\n\n # drop any missing values\n\n data = data. dropna()\n\n\n\n # drop any unnecessary columns\n\n data = data. drop(columns=['date', 'time', 'open', 'high', 'low', 'close', 'volume'])\n\n\n\n # standardize the data\n\n scaler = StandardScaler()\n\n data = pd. DataFrame(scaler. fit_transform(data))\n\n\n\n # split the data into training and testing sets\n\n X_train, X_test, Y_train, Y_test = train_test_split(\n\n data. iloc[:,:-1], data. iloc[:, -1], test_size=0.3, random_state=42)\n\n\n\n return X_train, X_test, Y_train, Y_test\n\n\n\ndef create_model(input_shape):\n\n model = Sequential()\n\n\n\n model. add(Dense(64, input_shape=input_shape, activation='relu'))\n\n model. add(Dropout(0.2))\n\n\n\n model. add(Dense(32, activation='relu'))\n\n model. add(Dropout(0.1))\n\n\n\n model. add(Dense(1, activation='sigmoid'))\n\n model. compile(loss='binary_crossentropy', optimizer=Adam(lr=0.0001), metrics=['accuracy'])\n\n\n\n return model\n\n\n\ndef train_model(X_train, X_test, Y_train, Y_test):\n\n input_shape = (X_train. shape[1],)\n\n model = create_model(input_shape)\n\n\n\n model. fit(X_train, Y_train, epochs=100, batch_size=32, validation_data=(X_test, Y_test), verbose=0)\n\n\n\n Y_pred_test = model. predict(X_test)\n\n Y_pred_test = np. round(Y_pred_test)\n\n\n\n accuracy = accuracy_score(Y_test, Y_pred_test)\n\n f1 = f1_score(Y_test, Y_pred_test)\n\n auc = roc_auc_score(Y_test, Y_pred_test)\n\n\n\n return model, accuracy, f1, auc\n\n\n\ndef evaluate_model(model, X_test, Y_test):\n\n Y_pred_test = model. predict(X_test)\n\n Y_pred_test = np. round(Y_pred_test)\n\n\n\n accuracy = accuracy_score(Y_test, Y_pred_test)\n\n f1 = f1_score(Y_test, Y_pred_test)\n\n auc = roc_auc_score(Y_test, Y_pred_test)\n\n\n\n return accuracy, f1, auc\n\n\n\ndef predict(model, data):\n\n # preprocess the data\n\n data = pd. DataFrame(data, columns=['close', 'returns', 'stdev'])\n\n\n\n data = pd. DataFrame(StandardScaler(). fit_transform(data))\n\n data = data. iloc[-1,:]. values. reshape(1, -1)\n\n\n\n # predict the next day's direction\n\n prediction = model. predict(data)\n\n prediction = np. round(prediction)\n\n\n\n return prediction\n\n\n\nif __name__ == '__main__':\n\n # load and preprocess the data\n\n data = pd. read_csv('data. csv')\n\n X_train, X_test, Y_train, Y_test = preprocessing(data)\n\n\n\n # train the model\n\n model, accuracy, f1, auc = train_model(X_train, X_test, Y_train, Y_test)\n\n\n\n # evaluate the model\n\n accuracy, f1, auc = evaluate_model(model, X_test, Y_test)\n\n\n\n # make a prediction\n\n data = pd. read_csv('today. csv')\n\n prediction = predict(model, data)\n\n\n\n if prediction == 1:\n\n print('Buy')\n\n else:\n\n print('Sell') ριασμού",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "Προσθήκη λογαριασμού",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "Σάρωση κώδικα QR",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "Χειροκίνητη εισαγωγή",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "Η εισαγωγή απέτυχε. Αν μεταφέρετε δεδομένα από το Google Authenticator, επανεξάγετέ τα και προσπαθήστε ξανά.",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "Ορισμένα από τα δεδομένα του λογαριασμού σας δεν εισήχθησαν με επιτυχία.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "Κλείσιμο",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "Εντάξει",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "Ναι",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "Όχι",
+    "description": "No."
+  },
+  "account": {
+    "message": "Λογαριασμός",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "Όνομα χρήστη",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "Εκδότης",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "Μυστικό",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "Επιτυχία.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "Αποτυχία.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "Σχετικά",
+    "description": "About."
+  },
+  "settings": {
+    "message": "Ρυθμίσεις",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "Ασφάλεια",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "Τρέχον Κωδικός",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "Νέος κωδικός πρόσβασης",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "Κωδικός πρόσβασης",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "Επιβεβαίωση κωδικού πρόσβασης",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Δε θα μπορέσετε να αναιρέσετε αυτήν την ενέργεια αργότερα.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "Καταλαβαίνω ότι όλα τα δεδομένα μου θα διαγραφούν οριστικά.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "Επαναφορά Επαληθευτή"
+  },
+  "delete_all_warning": {
+    "message": "Αυτό θα διαγράψει όλα σας τα δεδομένα και θα επαναφέρει πλήρως τον Επαληθευτή. Δε θα μπορείτε να ανακτήσετε τυχόν διαγραμμένα δεδομένα, γι' αυτό σας συνιστούμε να δημιουργήσετε ένα αντίγραφο ασφαλείας πριν την επαναφορά."
+  },
+  "security_warning": {
+    "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει σε περίπτωση που τον ξεχάσετε.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "Ενημέρωση",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "Δεν μπορείτε να προσθέσετε ένα νέο λογαριασμό μέχρι όλοι οι λογαριασμοί να έχουν αποκρυπτογραφηθεί. Εισάγετε τον σωστό κωδικό πρόσβασης για να συνεχίσετε.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "Οι λογαριασμοί που δεν αποκρυπτογραφήθηκαν δε θα συμπεριληφθούν σε αυτό το αντίγραφο ασφαλείας.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "Ο κωδικός δεν ταιριάζει.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "Κρυπτογραφημένο",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "Αντιγράφηκε",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "Αξιολογήστε μας",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "Συνεισφέρετε στη μετάφραση",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "Πηγαίος κώδικας",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "Εισάγετε τον κωδικό πρόσβασης για να αποκρυπτογραφήσετε τα δεδομένα του λογαριασμού.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Συγχρονισμός ρολογιού με την Google",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "Απομνημόνευση κωδικού πρόσβασης",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "Προσοχή! Τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "Έχετε δημιουργήσει αντίγραφα ασφαλείας για τους λογαριασμούς σας; Μην περιμένετε έως ότου είναι πολύ αργά!",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "Η καταγραφή απέτυχε, επαναφορτώστε τη σελίδα και προσπαθήστε ξανά.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "Προσπαθείτε να σαρώσετε τον κωδικό QR από ένα τοπικό αρχείο; Κάντε κλικ στο \"Εισαγωγή αντιγράφου ασφαλείας εικόνας QR\".",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Βάσει χρόνου",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Με μετρητή",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "Ρυθμίσεις",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "Κλίμακα",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "Προσοχή: κανένα από τα αντίγραφα ασφαλείας σας δεν είναι κρυπτογραφημένα. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Σύρετε το ποντίκι στο επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και κάντε κλικ στο κρυφό κουμπί.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "Λήψη αρχείου",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "Εισαγωγή αντιγράφου ασφαλείας",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "Import Backup File",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "Εισαγωγή αντιγράφου ασφαλείας εικόνας QR",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "Εισαγωγή εικόνων QR",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "Εισαγωγή αντιγράφου ασφαλείας κειμένου",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "Εισαγωγή διευθύνσεων URL OTP",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά ορισμένοι κώδικες QR δεν αναγνωρίστηκαν.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "Μπορείτε να επιλέξετε περισσότερα από ένα αρχεία αντιγράφων ασφαλείας.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "Εμφάνιση όλων των λογαριασμών",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "Προσοχή: τα αντίγραφα ασφαλείας δεν είναι κρυπτογραφημένα. Χρησιμοποιήστε τα με δική σας ευθύνη.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "Ο κωδικός πρόσβασης πρέπει να είναι σωστός για να εισαχθούν τα αντίγραφα ασφαλείας.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "Ο κωδικός πρόσβασης είναι αποθηκευμένος τοπικά στον υπολογιστή σας. Σας συνιστούμε να τον αλλάξετε από το μενού ασφαλείας αμέσως.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "Αφαίρεση",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "Λήψη αντιγράφων ασφαλείας που προστατεύονται με κωδικό",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "Αναζήτηση",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "Αναδυόμενο παράθυρο",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "Κλείδωμα",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "Επεξεργασία",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "Χειροκίνητη δημιουργία αντιγράφων ασφαλείας",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "Αυτόματη συμπλήρωση",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "Χρήση υψηλής αντίθεσης",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "Θέμα",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "Φωτεινό",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "Σκούρο",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "Απλό",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "Συμπαγές",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "Υψηλή αντίθεση",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "Απλό",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "Δημιουργήστε αυτόματα αντίγραφα ασφαλείας των δεδομένων σας σε υπηρεσίες αποθήκευσης τρίτων.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "Συγχρονισμός δεδομένων",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "Σύνδεση",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "Σύνδεση (Επιχείρηση)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "Γιατί οι λογαριασμοί των επιχειρήσεων χρειάζονται περισσότερα δικαιώματα για να λειτουργήσουν σωστά;"
+  },
+  "log_out": {
+    "message": "Αποσύνδεση",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "Υπήρξε ένα πρόβλημα στην σύνδεση με τον λογαριασμό σας $SERVICE$. Προσπαθήστε να συνδεθείτε ξανά.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Τα αντίγραφα ασφαλείας που δεν έχουν κρυπτογραφηθεί δε θα ακολουθήσουν τη συνηθισμένη μορφή των άλλων αντιγράφων.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "Μπορείτε να εισάγετε αντίγραφα ασφαλείας από άλλες εφαρμογές.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "Μάθετε περισσότερα",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "Φόρτωση..."
+  },
+  "autolock": {
+    "message": "Κλείδωμα μετά από"
+  },
+  "minutes": {
+    "message": "λεπτά"
+  },
+  "advanced": {
+    "message": "Για προχωρημένους"
+  },
+  "period": {
+    "message": "Περίοδος"
+  },
+  "type": {
+    "message": "Τύπος"
+  },
+  "invalid": {
+    "message": "Μη έγκυρο"
+  },
+  "digits": {
+    "message": "Ψηφία"
+  },
+  "algorithm": {
+    "message": "Αλγόριθμος"
+  },
+  "smart_filter": {
+    "message": "Έξυπνο φίλτρο"
+  },
+  "backup": {
+    "message": "Αντίγραφο Ασφαλείας"
+  },
+  "backup_file_info": {
+    "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
+  },
+  "password_policy_default_hint": {
+    "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τοn διαχειριστή σας για περισσότερες πληροφορίες."
+  },
+  "advisor": {
+    "message": "Σύμβουλος"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "Δημιουργήστε έναν κωδικό για να προστατέψετε τα δεδομένα σας."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "Ενεργοποιήστε το αυτόματο κλείδωμα για να προστατεύσετε τα δεδομένα σας."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "Ο συγχρονισμός είναι απενεργοποιημένος. Εάν τον ενεργοποιήσετε, θα μπορείτε να συγχρονίσετε τους λογαριασμούς σας σε περισσότερα από ένα προγράμματα περιήγησης."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Ενεργοποιήστε την αυτόματη συμπλήρωση έτσι ώστε οι κωδικοί σας να εισάγονται αυτόματα στις ιστοσελίδες."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "Ενεργοποιήστε το «έξυπνο» φίλτρο για να έχετε γρήγορη πρόσβαση στους λογαριασμούς που χρειάζεστε."
+  },
+  "show_all_insights": {
+    "message": "Εμφάνιση όλων των συμβουλών."
+  },
+  "no_insight_available": {
+    "message": "Δε βρήκαμε καμία συμβουλή για εσάς, όλα φαίνονται τέλεια!"
+  },
+  "danger": {
+    "message": "Κίνδυνος"
+  },
+  "warning": {
+    "message": "Προσοχή"
+  },
+  "info": {
+    "message": "Πληροφορία"
+  },
+  "dismiss": {
+    "message": "Κλείσιμο"
+  },
+  "learn_more": {
+    "message": "Μάθετε περισσότερα"
+  },
+  "enable_context_menu": {
+    "message": "Προσθήκη στο μενού περιβάλλοντος"
+  },
+  "no_entires": {
+    "message": "Δεν υπάρχει κανένας λογαριασμός εδώ. Προσθέστε έναν τώρα."
+  },
+  "permissions": {
+    "message": "Δικαιώματα"
+  },
+  "permission_revoke": {
+    "message": "Ανάκληση"
+  },
+  "permission_show_required_permissions": {
+    "message": "Εμφάνιση αδειών που δεν ανακαλούνται"
+  },
+  "permission_required": {
+    "message": "Αυτό είναι ένα δικαίωμα που απαιτείται και δεν μπορεί να ανακληθεί."
+  },
+  "permission_active_tab": {
+    "message": "Πρόσβαση στην τρέχουσα καρτέλα για σάρωση QR κωδικών."
+  },
+  "permission_storage": {
+    "message": "Πρόσβαση στον αποθηκευτικό χώρο του προγράμματος περιήγησης για την αποθήκευση δεδομένων του λογαριασμού σας."
+  },
+  "permission_identity": {
+    "message": "Επιτρέπει τη σύνδεση σε υπηρεσίες αποθήκευσης τρίτων."
+  },
+  "permission_alarms": {
+    "message": "Επιτρέπει το αυτόματο κλείδωμα να λειτουργήσει."
+  },
+  "permission_scripting": {
+    "message": "Χορηγεί κώδικα στην τρέχουσα καρτέλα για να σκανάρει κωδικούς QR και να συμπληρώσει αυτόματα ώστε να λειτουργήσει."
+  },
+  "permission_clipboard_write": {
+    "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
+  },
+  "permission_context_menus": {
+    "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
+  },
+  "permission_sync_clock": {
+    "message": "Επιτρέπει τον συγχρονισμό ρολογιού με την Google."
+  },
+  "permission_dropbox": {
+    "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Dropbox."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Dropbox."
+  },
+  "permission_drive": {
+    "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Google Drive."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Google Drive."
+  },
+  "permission_onedrive": {
+    "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο OneDrive."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "Πρέπει πρώτα να απενεργοποιήσετε τα αντίγραφα ασφαλείας του OneDrive."
+  },
+  "permission_unknown_permission": {
+    "message": "Άγνωστο δικαίωμα. Αν δείτε αυτό το μήνυμα, στείλτε μας μια αναφορά σφάλματος."
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }
