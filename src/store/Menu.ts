@@ -14,7 +14,7 @@ export class Menu implements Module {
         smartFilter: UserSettings.items.smartFilter !== false,
         enableContextMenu: UserSettings.items.enableContextMenu === true,
         theme: UserSettings.items.theme || (isSafari ? "flat" : "normal"),
-        autolock: Number(UserSettings.items.autolock) || 0,
+        autolock: Number(UserSettings.items.autolock) || 30,
         backupDisabled: await ManagedStorage.get("disableBackup", false),
         exportDisabled: await ManagedStorage.get("disableExport", false),
         enforcePassword: await ManagedStorage.get("enforcePassword", false),
