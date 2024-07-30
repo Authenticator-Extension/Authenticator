@@ -516,6 +516,6 @@
     "message": "Nepoznata dozvola. Ako vidiš ovu poruku pošalji izvještaj o grešci."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Upozorenje: Pametni filtar slabo povezuje naziv domene s računom. Prije unosa koda uvijek provjerite jeste li na ispravnoj web stranici!"
   }
 }
