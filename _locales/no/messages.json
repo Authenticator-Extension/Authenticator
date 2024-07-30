@@ -516,6 +516,6 @@
     "message": "Ukjent tillatelse. Hvis du ser denne meldingen, vennligst send en feilrapport."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Advarsel: Smartfilter samsvarer ikke med domenenavnet til en konto. Kontroller alltid at du er på korrekt nettside før du skriver inn en kode!"
   }
 }
