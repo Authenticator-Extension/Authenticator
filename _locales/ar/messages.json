@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "الموثق",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "المدقق",
     "description": "Extension Short Name."
   },
   "extDesc": {
@@ -16,11 +16,11 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "رمز QR غير معروف.",
+    "message": "رمز استجابة سريع غير معروف.",
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "سرية الحساب غير صالحة",
+    "message": "الإجابة السرية الخاص غير مطابق",
     "description": "Secret Error."
   },
   "add_code": {
@@ -40,7 +40,7 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "بعض بيانات الحساب لم يتم استيرادها بنجاح.",
+    "message": "بعض من بيانات الحساب لم يتم استيرادها بنجاح.",
     "description": "Some migration data is broken."
   },
   "close": {
@@ -52,7 +52,7 @@
     "description": "OK."
   },
   "yes": {
-    "message": "نعم",
+    "message": "إجابه",
     "description": "Yes."
   },
   "no": {
@@ -480,10 +480,10 @@
     "message": "يسمح بتسجيل الدخول إلى خدمات تخزين طرف ثالث."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "يسمح للقفل التلقائي بالعمل."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "أدخل النص في الشريط الظاهر لمسح رمز الاستجابة السريع والسماح للملء التلقائي بالعمل."
   },
   "permission_clipboard_write": {
     "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
@@ -516,6 +516,6 @@
     "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "تحذير: يقوم المدقق الذكي بمطابقة اسم الاختصاص مع الحساب بشكل غير جيد. تأكد دائمًا من أنك على موقع التبويب الصحيح قبل إدخال الرمز!"
   }
 }
