@@ -111,7 +111,7 @@ export default Vue.extend({
           this.currentPhrase
         );
         if (!isCorrectPassword) {
-          this.$store.commit("notification/alert", this.i18n.phrase_not_match);
+          this.$store.commit("notification/alert", this.i18n.phrase_wrong);
           this.$store.commit("currentView/changeView", "SetPasswordPage");
           return;
         }

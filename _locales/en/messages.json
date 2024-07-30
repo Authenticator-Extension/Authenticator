@@ -145,6 +145,9 @@
         "message": "Password does not match.",
         "description": "Passphrase Not Match."
     },
+    "phrase_wrong": {
+        "message": "Password incorrect"
+    },
     "encrypted": {
         "message": "Encrypted",
         "description": "Encrypted."
