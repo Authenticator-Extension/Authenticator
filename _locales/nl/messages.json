@@ -516,6 +516,6 @@
     "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Waarschuwing: Slim filter koppelt op een vrij losse manier de domeinnaam aan een account. Controleer altijd of u op de juiste website bent voordat u een code invoert!"
   }
 }
