@@ -516,6 +516,6 @@
     "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Aviso: O filtro inteligente corresponde pouco ao nome de domínio de uma conta. Verifique sempre se você está no site correto antes de inserir um código!"
   }
 }
