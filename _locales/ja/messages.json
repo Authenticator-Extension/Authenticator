@@ -20,7 +20,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "無効なアカウントのシークレット",
+    "message": "無効なアカウントのシークレットキー",
     "description": "Secret Error."
   },
   "add_code": {
@@ -480,10 +480,10 @@
     "message": "サードパーティのストレージサービスへのサインインを許可します。"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "機能を有効化するには、画面の自動ロックを有効にします。"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "現在のタブにスクリプトを挿入してQRコードをスキャンし、自動入力がが機能するようにする。"
   },
   "permission_clipboard_write": {
     "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
@@ -516,6 +516,6 @@
     "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "警告：スマートフィルタはアカウントのドメイン名とほぼ一致します。常にあなたが正しいウェブサイトにいることを確認してください！"
   }
 }
