@@ -306,11 +306,11 @@
     "description": "Theme"
   },
   "theme_light": {
-    "message": "밝은 테마",
+    "message": "밝게",
     "description": "Light theme"
   },
   "theme_dark": {
-    "message": "어두운 테마",
+    "message": "어둡게",
     "description": "Dark theme"
   },
   "theme_simple": {
@@ -432,7 +432,7 @@
     "message": "스마트 필터를 사용하면 계정에 빠르게 접근할 수 있어요."
   },
   "show_all_insights": {
-    "message": "모든 인사이트 보기."
+    "message": "모든 권장 사항 보기."
   },
   "no_insight_available": {
     "message": "인사이트가 발견되지 않았어요. 모든 것이 양호해 보여요!"
