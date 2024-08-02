@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "অনুমতি অজানা। আপনি যদি এই লেখাটি দেখে থাকেন, তাহলে দয়া করে বাগ রিপোর্ট পাঠান"
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
   }
