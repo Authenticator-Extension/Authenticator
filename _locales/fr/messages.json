@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "Autorisation inconnue. Si vous voyez ce message, veuillez envoyer un rapport de bug."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Avertissement: Le filtre intelligent associe grosso modo le nom de domaine à un compte. Vérifiez toujours que vous êtes sur le bon site avant d'entrer un code !"
   }
