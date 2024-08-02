@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "Nieznane uprawnienie. Jeśli widzisz ten komunikat, wyślij raport o błędzie."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Ostrzeżenie: inteligentny filtr luźno dopasowuje nazwę domeny do konta. Zawsze sprawdzaj, czy jesteś na właściwej witrynie internetowej przed wprowadzeniem kodu!"
   }
