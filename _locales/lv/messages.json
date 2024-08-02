@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "Nezināma atļauja. Ja redzat šo ziņojumu, lūdzu, nosūtiet kļūdu ziņojumu."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
   }
