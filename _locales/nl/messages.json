@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Waarschuwing: Slim filter koppelt op een vrij losse manier de domeinnaam aan een account. Controleer altijd of u op de juiste website bent voordat u een code invoert!"
   }
