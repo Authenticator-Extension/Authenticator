@@ -514,5 +514,8 @@
     },
     "permission_scripting": {
         "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    },
+    "activate_auto_filter": {
+        "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
     }
 }
