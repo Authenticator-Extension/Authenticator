@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "警告：スマートフィルタはアカウントのドメイン名とほぼ一致します。常にあなたが正しいウェブサイトにいることを確認してください！"
   }
