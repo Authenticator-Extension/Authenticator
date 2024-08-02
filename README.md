@@ -9,7 +9,7 @@
 
 ### Safari Edition
 
-We do not provide offical support for the Safari edition.
+A Safari edition of Authenticator is available on the App Store. We do not provide official support for the Safari edition.
 
 [<img width="150" alt="Download on the App Store" src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"/>](https://apps.apple.com/us/app/authen/id1602945200?mt=12)
 
