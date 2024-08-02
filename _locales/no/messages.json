@@ -516,7 +516,7 @@
     "message": "Ukjent tillatelse. Hvis du ser denne meldingen, vennligst send en feilrapport."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Feil passord"
   },
   "activate_auto_filter": {
     "message": "Advarsel: Smartfilter samsvarer ikke med domenenavnet til en konto. Kontroller alltid at du er på korrekt nettside før du skriver inn en kode!"
