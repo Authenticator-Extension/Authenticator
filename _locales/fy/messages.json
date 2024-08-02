@@ -515,6 +515,9 @@
   "permission_unknown_permission": {
     "message": "Unbekende tastimming. As dit bericht werjûn wurdt, stjoer dan in bugrapport."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
     "message": "Warskôging: Tûk filter keppelet op in frij losse manier de domeinnamme oan in account. Kontrolearje altyd oft jo op de krekte website binne eardat jo in koade ynfiere!"
   }
