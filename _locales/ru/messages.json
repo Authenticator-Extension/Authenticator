@@ -483,7 +483,7 @@
     "message": "Разрешить автоблокировку."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Вставляйте скрипты в текущую вкладку для сканирования QR-кодов и автоматического заполнения для работы."
   },
   "permission_clipboard_write": {
     "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
@@ -516,9 +516,9 @@
     "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Неверный пароль"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Внимание: Интеллектуальный фильтр точно сопоставляет доменное имя с учетной записью. Всегда проверяйте, что вы находитесь на правильном веб-сайте, прежде чем вводить код!"
   }
 }
