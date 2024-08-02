@@ -435,7 +435,7 @@
     "message": "모든 권장 사항 보기."
   },
   "no_insight_available": {
-    "message": "인사이트가 발견되지 않았어요. 모든 것이 양호해 보여요!"
+    "message": "권장 사항이 발견되지 않았어요. 모든 것이 양호해 보여요!"
   },
   "danger": {
     "message": "위험"
@@ -480,10 +480,10 @@
     "message": "제삼자 저장 서비스에 로그인할 수 있게 해요."
   },
   "permission_alarms": {
-    "message": "자동 잠금이 동작할 수 있도록 허용해요."
+    "message": "자동 잠금 동작을 허용해요."
   },
   "permission_scripting": {
-    "message": "QR 코드를 스캔하고 자동 채우기를 실행하기 위해 현재 탭에 스크립트를 삽입할 수 있게 해요."
+    "message": "현재 탭에 스크립트를 삽입해서 QR 코드 스캔과 자동 완성 동작을 허용해요."
   },
   "permission_clipboard_write": {
     "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
@@ -515,7 +515,10 @@
   "permission_unknown_permission": {
     "message": "알 수 없는 권한이에요. 이 메시지를 보신다면, 버그 신고를 진행해 주세요."
   },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "경고: 스마트 필터는 도메인 이름과 계정을 대략적으로만 일치시켜요. 코드를 입력하기 전에 항상 올바른 웹 사이트에 있는지 확인하세요!"
   }
 }
