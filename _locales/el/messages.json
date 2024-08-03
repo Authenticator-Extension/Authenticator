@@ -516,9 +516,9 @@
     "message": "Άγνωστο δικαίωμα. Αν δείτε αυτό το μήνυμα, στείλτε μας μια αναφορά σφάλματος."
   },
   "phrase_wrong": {
-    "message": "Λάθος κωδικός πρόσβασης"
+    "message": "Λανθασμένος κωδικός πρόσβασης"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Προσοχή: Το έξυπνο φίλτρο δεν αντιστοιχίζει με ακρίβεια τον κάθε λογαριασμό με την ιστοσελίδα όπου αυτός δημιουργήθηκε. Για τον λόγο αυτό, πρέπει πάντα να ελέγχετε αν βρίσκεστε στη σωστή ιστοσελίδα προτού εισάγετε τον κωδικό!"
   }
 }
