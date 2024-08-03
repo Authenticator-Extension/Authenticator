@@ -516,7 +516,7 @@
     "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Senha incorreta"
   },
   "activate_auto_filter": {
     "message": "Aviso: O filtro inteligente corresponde pouco ao nome de domínio de uma conta. Verifique sempre se você está no site correto antes de inserir um código!"
