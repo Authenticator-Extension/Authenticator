@@ -516,7 +516,7 @@
     "message": "Okänd behörighet. Om du ser detta meddelande, skicka en felrapport."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Lösenord felaktigt"
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
