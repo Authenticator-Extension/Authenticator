@@ -519,6 +519,6 @@
     "message": "Mật khẩu sai"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Cảnh báo: Bộ lọc thông minh không khớp với tên của tài khoản. Hãy xác nhận bạn đang ở trang web chính xác trước khi nhập mã!"
   }
 }
