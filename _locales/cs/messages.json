@@ -480,10 +480,10 @@
     "message": "Umožňuje přihlášení ke službám úložiště třetích stran."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Umožňuje funkci automatického zamykání."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Vloží do aktuální karty skripty pro skenování QR kódů a umožní automatické vyplňování."
   },
   "permission_clipboard_write": {
     "message": "Umožňuje přístup do schránky pouze pro zápis a kopírování kódů do schránky po kliknutí na účet."
@@ -516,9 +516,9 @@
     "message": "Neznámé oprávnění. Pokud uvidíte tuto zprávu, pošlete prosím hlášení o chybě."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Neplatné heslo"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Varování: Inteligentní filtr volně přiřazuje název domény k účtu. Před zadáním kódu vždy zkontrolujte, zda jste na správné webové stránce!"
   }
 }
