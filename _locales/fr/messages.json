@@ -130,7 +130,7 @@
     "description": "Passphrase Warning."
   },
   "update": {
-    "message": "Mise à jour",
+    "message": "Mettre à jour",
     "description": "Update."
   },
   "phrase_incorrect": {
@@ -210,7 +210,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Attention: les sauvegardes ne sont pas protégées par chiffrement. Voulez-vous ajouter un compte à une autre application ? Survollez la partie supérieure à droite d'un des comptes et cliquez sur le bouton caché qui apparaît.",
+    "message": "Attention : toutes les sauvegardes ne sont pas chiffrées. Vous voulez ajouter un compte à une autre application ? Survolez la partie supérieure droite de n'importe quel compte et cliquez sur le bouton caché.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -234,7 +234,7 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importer une sauvegarde textuelle",
+    "message": "Importation au format texte",
     "description": "Import backup code."
   },
   "import_otp_urls": {
