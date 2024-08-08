@@ -190,7 +190,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "기기 파일에서 QR 코드 스캔을 시도하고 계신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
+    "message": "기기 파일에서 QR 코드 스캔을 시도하고 있으신가요? QR 이미지 백업 가져오기를 대신 사용하세요.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -423,7 +423,7 @@
     "message": "내 데이터를 보호하려면 자동 잠금을 사용하세요."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "브라우저 동기화를 사용하지 않아요. 사용하면 브라우저 간 계정을 동기화할 수 있게 돼요."
+    "message": "브라우저 동기화를 사용하고 있지 않아요. 사용하면 브라우저 간 계정을 동기화할 수 있게 돼요."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "웹 사이트에 코드를 자동으로 채울 수 있도록 자동 완성 기능을 사용할 수 있어요."
@@ -516,7 +516,7 @@
     "message": "알 수 없는 권한이에요. 이 메시지를 보신다면, 버그 신고를 진행해 주세요."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "잘못된 비밀번호예요"
   },
   "activate_auto_filter": {
     "message": "경고: 스마트 필터는 도메인 이름과 계정을 대략적으로만 일치시켜요. 코드를 입력하기 전에 항상 올바른 웹 사이트에 있는지 확인하세요!"
