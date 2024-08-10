@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "인증 도구는 브라우저에서 2단계 인증 코드를 생성해요.",
+    "message": "인증 도구는 브라우저에서 2단계 인증 코드를 생성합니다.",
     "description": "Extension Description."
   },
   "added": {
@@ -393,7 +393,7 @@
     "message": "유형"
   },
   "invalid": {
-    "message": "무효"
+    "message": "올바르지 않음"
   },
   "digits": {
     "message": "자릿수"
