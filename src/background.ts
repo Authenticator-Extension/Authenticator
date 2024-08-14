@@ -535,6 +535,11 @@ async function setAutolock() {
     return;
   }
 
+  // Set default autolock value
+  if (UserSettings.items.autolock === undefined) {
+    UserSettings.items.autolock = 30;
+  }
+
   if (Number(UserSettings.items.autolock) > 0) {
     chrome.alarms.create("autolock", {
       delayInMinutes: Number(UserSettings.items.autolock),
