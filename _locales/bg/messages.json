@@ -36,7 +36,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": ".",
+    "message": "",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
