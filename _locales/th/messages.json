@@ -1,524 +1,524 @@
 {
-    "extName": {
-        "message": "Authentication",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Authentication",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Authenticator สำหรับสร้างรหัสยืนยัน 2 ชั้นบนเบราว์เซอร์",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " ถูกเพิ่มเรียบร้อย",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "QR code ไม่ถูกต้อง",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "รหัสลับของบัญชีไม่ถูกต้อง",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "เพิ่มบัญชี",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "สแกน QR Code",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "กรอกข้อมูลด้วยตนเอง",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "การนำเข้าล้มเหลว หากคุณกำลังย้ายข้อมูลจาก Google Authenticator โปรดส่งออกข้อมูลของคุณอีกครั้งจาก Google Authenticator และลองอีกครั้ง",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "บ้างบัญชีไม่สามารถถูกนำเข้าให้สำเร็จได้",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "ปิด",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "ตกลง",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "ใช่",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "ไม่",
-        "description": "No."
-    },
-    "account": {
-        "message": "บัญชี",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "ชื่อผู้ใช้",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "ออกโดย",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "รหัสลับ",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "สำเร็จ",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "ล้มเหลว",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "เกี่ยวกับ",
-        "description": "About."
-    },
-    "settings": {
-        "message": "ตั้งค่า",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "ความปลอดภัย",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "รหัสผ่านปัจจุบัน",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "รหัสผ่านใหม่",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "รหัสผ่าน",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "ยืนยันรหัสผ่าน",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "คุณแน่ใจต้องการลบบัญชีนี้ ? การกระทำดังกล่าวไม่สามารถกู้คืนกลับมาได้",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "ฉันเข้าใจว่าข้อมูลทั้งหมดของฉันจะถูกลบเเละไม่สามารถกู้คืนได้",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
-    },
-    "delete_all_warning": {
-        "message": "นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
-    },
-    "security_warning": {
-        "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "อัพ​เด​ต",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "คุณไม่สามารถเพิ่มบัญชีใหม่หรือส่งออกข้อมูลจนกว่าบัญชีทั้งหมดจะถูกถอดรหัส กรุณาใส่รหัสผ่านที่ถูกต้องก่อนดำเนินการต่อ",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "บัญชีที่ไม่สามารถถอดรหัสได้จะไม่รวมอยู่ในข้อมูลสำรองนี้",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "รหัสผ่านไม่ตรงกัน",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "เข้ารหัสเรียบร้อย",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "คัดลอกแล้ว",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "เสียงตอบรับ",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "แปลภาษา",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "แหล่งที่มา",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "ป้อนรหัสผ่านเพื่อถอดรหัสข้อมูลบัญชี",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "ซิงค์เวลาผ่าน Google",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "จดจำรหัสผ่าน",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "ระวัง! เวลาของคุณไม่ถูกต้อง โปรดแก้ไขก่อนดำเนินการขั้นต่อไป",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "คุณมีข้อมูลสำรองสำหรับบัญชีของคุณหรือไม่ ? โปรดอย่ารอจนสายเกินไป",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "การจับภาพล้มเหลว กรุณาโหลดหน้าซ้ำและลองอีกครั้ง",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "คุณกำลังพยายามสแกนคิวอาร์โค้ดจากไฟล์ในเครื่องหรือไม่? ใช้นำเข้ารูปคิวอาร์โค้ดที่สำรองไว้แทน",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Time Based",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Counter Based",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "การตั้งค่า",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "ขนาด",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "คำเตือน: การสำรองข้อมูลทั้งหมดไม่ได้เข้ารหัส ต้องการเพิ่มบัญชีในแอปอื่นหรือไม่ เลื่อนเมาส์ไปที่ส่วนบนขวาของบัญชีใด ๆ และกดปุ่มซ่อน",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "ดาวน์โหลดการสำรองข้อมูล",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "นำเข้าการสำรองข้อมูล",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "นำเข้าการสำรองข้อมูล (ไฟล์)",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "นำเข้ารูปQR การสำรองข้อมูล",
-        "description": "Import qr image backup."
-    },
-    "import_backup_code": {
-        "message": "นำเข้าการสำรองข้อมูล (ข้อความ)",
-        "description": "Import backup code."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ คิวอาร์โค้ด บางรูปไม่สามารอ่านค่าได้",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "คุณสามารถเลือกไฟล์หลายไฟล์เพื่อนำเข้าข้อมูลสำรองเป็นชุด ๆ",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "แสดงรายการทั้งหมด",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "ระวัง! การสำรองข้อมูลจะไม่เข้ารหัส โปรดรับความเสี่ยงด้วยตัวคุณเอง",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "โปรดระบุรหัสผ่านที่ถูกต้องเพื่อนำเข้าการสำรองข้อมูล",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "รหัสผ่านของคุณถูกเก็บไว้ในเครื่อง กรุณาเปลี่ยนในเมนูความปลอดภัยทันที",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "ลบออก",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "ดาวน์โหลดการสำรองข้อมูลที่ป้องกันด้วยรหัสผ่าน",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "ค้นหา",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "โหมดป๊อปอัพ",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "ล็อคบัญชี",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "แก้ไข",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "เรียกใช้การสำรองข้อมูลด้วยตนเอง",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "ใช้งานการป้อนอัตโนมัติ",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "ใช้งานความคมชัดสูง",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "ธีม",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "สว่าง",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "มืด",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "เรียบง่าย",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "กะทัดรัด",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "ความคมชัดสูง",
-        "description": "High Contrast theme"
-    },
-    "storage_sync_info": {
-        "message": "สำรองข้อมูลของคุณโดยอัตโนมัติ ไปยังผู้บริการอื่นๆ",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "ซิงค์กับเบราว์เซอร์",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "ลงชื่อเข้าใช้",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "ลงทะเบียน (ธุรกิจ)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "เพราะเหตุใดบัญชีธุรกิจต้องการขออนุญาตเพิ่มเติม?"
-    },
-    "log_out": {
-        "message": "ออกจากระบบ",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "เกิดปัญหาในการเชื่อมต่อกับบัญชี $SERVICE$ ของคุณ โปรดลงชื่อเข้าใช้อีกครั้ง",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "คุณมีบัญชี Steam หรือ Blizzard อย่างน้อยหนึ่งบัญชี ? การสำรองข้อมูลที่ไม่ได้เข้ารหัสจะไม่ใช้รูปแบบการสำรองข้อมูลมาตรฐาน",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "คุณสามารถนำเข้าข้อมูลสำรองจากแอปพลิเคชั่นอื่น ๆ",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "เรียนรู้เพิ่มเติม",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "กำลังโหลด..."
-    },
-    "autolock": {
-        "message": "ล็อคหลังจาก"
-    },
-    "minutes": {
-        "message": "นาที"
-    },
-    "advanced": {
-        "message": "ขั้นสูง"
-    },
-    "period": {
-        "message": "ระยะเวลา"
-    },
-    "type": {
-        "message": "ประเภท"
-    },
-    "invalid": {
-        "message": "ไม่ถูกต้อง"
-    },
-    "digits": {
-        "message": "จำนวนหลัก"
-    },
-    "algorithm": {
-        "message": "อัลกอริทึม"
-    },
-    "smart_filter": {
-        "message": "ตัวกรองอัจฉริยะ"
-    },
-    "backup": {
-        "message": "สำรองข้อมูล"
-    },
-    "backup_file_info": {
-        "message": "สำรองข้อมูลของคุณเป็นไฟล์"
-    },
-    "password_policy_default_hint": {
-        "message": "รหัสผ่านของคุณไม่ตรงตามความปลอดภัยขององค์กรของคุณที่กำหนดไว้ สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบของคุณ"
-    },
-    "advisor": {
-        "message": "คำแนะนำ"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งาน. การเปิดใช้งานนั้นจะยินยอมให้บัญชีซิงค์ข้ามเบราว์เซอร์."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "สามารถเปิดการป้อนอัตโนมัติเพื่อป้อนรหัสลงในเว็บไซต์ได้โดยอัตโนมัติ."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
-    },
-    "show_all_insights": {
-        "message": "แสดงข้อมูลเชิงลึกทั้งหมด."
-    },
-    "no_insight_available": {
-        "message": "ไม่พบข้อมูลเชิงลึก, ทุกอย่างยังดูดี!"
-    },
-    "danger": {
-        "message": "อันตราย"
-    },
-    "warning": {
-        "message": "คำเตือน"
-    },
-    "info": {
-        "message": "ข้อมูล"
-    },
-    "dismiss": {
-        "message": "ยกเลิก"
-    },
-    "learn_more": {
-        "message": "เรียนรู้เพิ่มเติม"
-    },
-    "enable_context_menu": {
-        "message": "เพิ่มไปยังเมนู"
-    },
-    "no_entires": {
-        "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณเลยตอนนี้"
-    },
-    "permissions": {
-        "message": "การอนุญาต"
-    },
-    "permission_revoke": {
-        "message": "เพิกถอน"
-    },
-    "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
-    },
-    "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
-    },
-    "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
-    },
-    "permission_storage": {
-        "message": "Access to browser storage to store account data."
-    },
-    "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
-    },
-    "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
-    },
-    "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
-    },
-    "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
-    },
-    "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
-    },
-    "permission_drive": {
-        "message": "Allows backup to Google Drive."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
-    },
-    "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
-    },
-    "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
-    },
-    "theme_flat": {
-        "message": "Flat",
-        "description": "Flat theme"
-    },
-    "import_qr_images": {
-        "message": "Import QR Images",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_otp_urls": {
-        "message": "Import OTP URLs",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "permission_alarms": {
-        "message": "Allows auto-lock to work."
-    },
-    "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
-    },
-    "activate_auto_filter": {
-        "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
-    },
-    "phrase_wrong": {
-        "message": "Password incorrect"
+  "extName": {
+    "message": "Authentication",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Authentication",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Authenticator สำหรับสร้างรหัสยืนยัน 2 ชั้นบนเบราว์เซอร์",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " ถูกเพิ่มเรียบร้อย",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "QR code ไม่ถูกต้อง",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "รหัสลับของบัญชีไม่ถูกต้อง",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "เพิ่มบัญชี",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "สแกน QR Code",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "กรอกข้อมูลด้วยตนเอง",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "การนำเข้าล้มเหลว หากคุณกำลังย้ายข้อมูลจาก Google Authenticator โปรดส่งออกข้อมูลของคุณอีกครั้งจาก Google Authenticator และลองอีกครั้ง",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "บ้างบัญชีไม่สามารถถูกนำเข้าให้สำเร็จได้",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "ปิด",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "ตกลง",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "ใช่",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "ไม่",
+    "description": "No."
+  },
+  "account": {
+    "message": "บัญชี",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "ชื่อผู้ใช้",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "ออกโดย",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "รหัสลับ",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "สำเร็จ",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "ล้มเหลว",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "เกี่ยวกับ",
+    "description": "About."
+  },
+  "settings": {
+    "message": "ตั้งค่า",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "ความปลอดภัย",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "รหัสผ่านปัจจุบัน",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "รหัสผ่านใหม่",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "รหัสผ่าน",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "ยืนยันรหัสผ่าน",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "คุณแน่ใจต้องการลบบัญชีนี้ ? การกระทำดังกล่าวไม่สามารถกู้คืนกลับมาได้",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "ฉันเข้าใจว่าข้อมูลทั้งหมดของฉันจะถูกลบเเละไม่สามารถกู้คืนได้",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
+  },
+  "delete_all_warning": {
+    "message": "นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
+  },
+  "security_warning": {
+    "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "อัพ​เด​ต",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "คุณไม่สามารถเพิ่มบัญชีใหม่หรือส่งออกข้อมูลจนกว่าบัญชีทั้งหมดจะถูกถอดรหัส กรุณาใส่รหัสผ่านที่ถูกต้องก่อนดำเนินการต่อ",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "บัญชีที่ไม่สามารถถอดรหัสได้จะไม่รวมอยู่ในข้อมูลสำรองนี้",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "รหัสผ่านไม่ตรงกัน",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "เข้ารหัสเรียบร้อย",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "คัดลอกแล้ว",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "เสียงตอบรับ",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "แปลภาษา",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "แหล่งที่มา",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "ป้อนรหัสผ่านเพื่อถอดรหัสข้อมูลบัญชี",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "ซิงค์เวลาผ่าน Google",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "จดจำรหัสผ่าน",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "ระวัง! เวลาของคุณไม่ถูกต้อง โปรดแก้ไขก่อนดำเนินการขั้นต่อไป",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "คุณมีข้อมูลสำรองสำหรับบัญชีของคุณหรือไม่ ? โปรดอย่ารอจนสายเกินไป",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "การจับภาพล้มเหลว กรุณาโหลดหน้าซ้ำและลองอีกครั้ง",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "คุณกำลังพยายามสแกนคิวอาร์โค้ดจากไฟล์ในเครื่องหรือไม่? ใช้นำเข้ารูปคิวอาร์โค้ดที่สำรองไว้แทน",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Time Based",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Counter Based",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "การตั้งค่า",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "ขนาด",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "คำเตือน: การสำรองข้อมูลทั้งหมดไม่ได้เข้ารหัส ต้องการเพิ่มบัญชีในแอปอื่นหรือไม่ เลื่อนเมาส์ไปที่ส่วนบนขวาของบัญชีใด ๆ และกดปุ่มซ่อน",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "ดาวน์โหลดการสำรองข้อมูล",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "นำเข้าการสำรองข้อมูล",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "นำเข้าการสำรองข้อมูล (ไฟล์)",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "นำเข้ารูปQR การสำรองข้อมูล",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "นำเข้ารูปภาพ QR",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "นำเข้าการสำรองข้อมูล (ข้อความ)",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "นำเข้า URL OTP",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ คิวอาร์โค้ด บางรูปไม่สามารอ่านค่าได้",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "คุณสามารถเลือกไฟล์หลายไฟล์เพื่อนำเข้าข้อมูลสำรองเป็นชุด ๆ",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "แสดงรายการทั้งหมด",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "ระวัง! การสำรองข้อมูลจะไม่เข้ารหัส โปรดรับความเสี่ยงด้วยตัวคุณเอง",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "โปรดระบุรหัสผ่านที่ถูกต้องเพื่อนำเข้าการสำรองข้อมูล",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "รหัสผ่านของคุณถูกเก็บไว้ในเครื่อง กรุณาเปลี่ยนในเมนูความปลอดภัยทันที",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "ลบออก",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "ดาวน์โหลดการสำรองข้อมูลที่ป้องกันด้วยรหัสผ่าน",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "ค้นหา",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "โหมดป๊อปอัพ",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "ล็อคบัญชี",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "แก้ไข",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "เรียกใช้การสำรองข้อมูลด้วยตนเอง",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "ใช้งานการป้อนอัตโนมัติ",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "ใช้งานความคมชัดสูง",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "ธีม",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "สว่าง",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "มืด",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "เรียบง่าย",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "กะทัดรัด",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "ความคมชัดสูง",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "แบน",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "สำรองข้อมูลของคุณโดยอัตโนมัติ ไปยังผู้บริการอื่นๆ",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "ซิงค์กับเบราว์เซอร์",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "ลงชื่อเข้าใช้",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "ลงทะเบียน (ธุรกิจ)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "เพราะเหตุใดบัญชีธุรกิจต้องการขออนุญาตเพิ่มเติม?"
+  },
+  "log_out": {
+    "message": "ออกจากระบบ",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "เกิดปัญหาในการเชื่อมต่อกับบัญชี $SERVICE$ ของคุณ โปรดลงชื่อเข้าใช้อีกครั้ง",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "คุณมีบัญชี Steam หรือ Blizzard อย่างน้อยหนึ่งบัญชี ? การสำรองข้อมูลที่ไม่ได้เข้ารหัสจะไม่ใช้รูปแบบการสำรองข้อมูลมาตรฐาน",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "คุณสามารถนำเข้าข้อมูลสำรองจากแอปพลิเคชั่นอื่น ๆ",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "เรียนรู้เพิ่มเติม",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "กำลังโหลด..."
+  },
+  "autolock": {
+    "message": "ล็อคหลังจาก"
+  },
+  "minutes": {
+    "message": "นาที"
+  },
+  "advanced": {
+    "message": "ขั้นสูง"
+  },
+  "period": {
+    "message": "ระยะเวลา"
+  },
+  "type": {
+    "message": "ประเภท"
+  },
+  "invalid": {
+    "message": "ไม่ถูกต้อง"
+  },
+  "digits": {
+    "message": "จำนวนหลัก"
+  },
+  "algorithm": {
+    "message": "อัลกอริทึม"
+  },
+  "smart_filter": {
+    "message": "ตัวกรองอัจฉริยะ"
+  },
+  "backup": {
+    "message": "สำรองข้อมูล"
+  },
+  "backup_file_info": {
+    "message": "สำรองข้อมูลของคุณเป็นไฟล์"
+  },
+  "password_policy_default_hint": {
+    "message": "รหัสผ่านของคุณไม่ตรงตามความปลอดภัยขององค์กรของคุณที่กำหนดไว้ สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบของคุณ"
+  },
+  "advisor": {
+    "message": "คำแนะนำ"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Autofill can be enabled to automatically fill codes into websites."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
+  },
+  "show_all_insights": {
+    "message": "แสดงข้อมูลเชิงลึกทั้งหมด."
+  },
+  "no_insight_available": {
+    "message": "ไม่พบข้อมูลเชิงลึก, ทุกอย่างยังดูดี!"
+  },
+  "danger": {
+    "message": "อันตราย"
+  },
+  "warning": {
+    "message": "คำเตือน"
+  },
+  "info": {
+    "message": "ข้อมูล"
+  },
+  "dismiss": {
+    "message": "ยกเลิก"
+  },
+  "learn_more": {
+    "message": "เรียนรู้เพิ่มเติม"
+  },
+  "enable_context_menu": {
+    "message": "เพิ่มไปยังเมนู"
+  },
+  "no_entires": {
+    "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณเลยตอนนี้"
+  },
+  "permissions": {
+    "message": "การอนุญาต"
+  },
+  "permission_revoke": {
+    "message": "เพิกถอน"
+  },
+  "permission_show_required_permissions": {
+    "message": "แสดงสิทธิ์ที่เพิกถอนไม่ได้"
+  },
+  "permission_required": {
+    "message": "นี่เป็นการอนุญาตที่จำเป็นและไม่สามารถเพิกถอนได้"
+  },
+  "permission_active_tab": {
+    "message": "เข้าถึงแท็บปัจจุบันเพื่อสแกนรหัส QR"
+  },
+  "permission_storage": {
+    "message": "เข้าถึงที่เก็บข้อมูลของเบราว์เซอร์เพื่อเก็บข้อมูลบัญชี"
+  },
+  "permission_identity": {
+    "message": "อนุญาตให้ลงชื่อเข้าใช้บริการพื้นที่เก็บข้อมูลของบุคคลที่สาม"
+  },
+  "permission_alarms": {
+    "message": ""
+  },
+  "permission_scripting": {
+    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+  },
+  "permission_clipboard_write": {
+    "message": "ให้สิทธิ์การเข้าถึงแบบเขียนอย่างเดียวในคลิปบอร์ดเพื่อคัดลอกรหัสไปยังคลิปบอร์ดเมื่อคุณคลิกที่บัญชี"
+  },
+  "permission_context_menus": {
+    "message": "เพิ่ม Authenticator ให้กับเมนูบริบท"
+  },
+  "permission_sync_clock": {
+    "message": "อนุญาตให้ซิงค์นาฬิกากับ Google"
+  },
+  "permission_dropbox": {
+    "message": "อนุญาตให้สำรองข้อมูลไปยัง Dropbox"
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Dropbox ก่อน"
+  },
+  "permission_drive": {
+    "message": "อนุญาตให้สำรองข้อมูลไปยัง Google Drive"
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Google ไดรฟ์ก่อน"
+  },
+  "permission_onedrive": {
+    "message": "อนุญาตให้สำรองข้อมูลไปยัง OneDrive"
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "คุณต้องปิดใช้งานการสำรองข้อมูล OneDrive ก่อน"
+  },
+  "permission_unknown_permission": {
+    "message": "ไม่ทราบการอนุญาต หากเห็นข้อความนี้ โปรดส่งรายงานข้อบกพร่อง"
+  },
+  "phrase_wrong": {
+    "message": "Password incorrect"
+  },
+  "activate_auto_filter": {
+    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  }
 }

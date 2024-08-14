@@ -1,524 +1,524 @@
 {
-    "extName": {
-        "message": "Autentifikator",
-        "description": "Extension Name."
-    },
-    "extShortName": {
-        "message": "Autentifikator",
-        "description": "Extension Short Name."
-    },
-    "extDesc": {
-        "message": "Autentifikator generira autentifikacijske kodove prijava u dva koraka direktno u Vašem pregledniku.",
-        "description": "Extension Description."
-    },
-    "added": {
-        "message": " dodano.",
-        "description": "Added Account."
-    },
-    "errorqr": {
-        "message": "QR kôd nije prepoznat.",
-        "description": "QR Error."
-    },
-    "errorsecret": {
-        "message": "Neispravan tajni ključ računa",
-        "description": "Secret Error."
-    },
-    "add_code": {
-        "message": "Dodavanje računa",
-        "description": "Add account."
-    },
-    "add_qr": {
-        "message": "Skeniranje QR koda",
-        "description": "Scan QR Code."
-    },
-    "add_secret": {
-        "message": "Ručno dodavanje",
-        "description": "Manual Entry."
-    },
-    "migration_fail": {
-        "message": "Uvoz nije uspio. Ako selite podatke iz Google Autentifikatora, molimo, ponovno iz njega izvezite svoje podatke i pokušajte ponovno.",
-        "description": "Import migration data failed."
-    },
-    "migration_partly_fail": {
-        "message": "Neki podaci računa nisu uspješno uvezeni.",
-        "description": "Some migration data is broken."
-    },
-    "close": {
-        "message": "Zatvori",
-        "description": "Close."
-    },
-    "ok": {
-        "message": "U redu",
-        "description": "OK."
-    },
-    "yes": {
-        "message": "Da",
-        "description": "Yes."
-    },
-    "no": {
-        "message": "Ne",
-        "description": "No."
-    },
-    "account": {
-        "message": "Račun",
-        "description": "Account."
-    },
-    "accountName": {
-        "message": "Korisničko ime",
-        "description": "Account Name."
-    },
-    "issuer": {
-        "message": "Izdavatelj",
-        "description": "Issuer."
-    },
-    "secret": {
-        "message": "Tajna",
-        "description": "Secret."
-    },
-    "updateSuccess": {
-        "message": "Uspješno.",
-        "description": "Update Success."
-    },
-    "updateFailure": {
-        "message": "Neuspješno.",
-        "description": "Update Failure."
-    },
-    "about": {
-        "message": "O programu",
-        "description": "About."
-    },
-    "settings": {
-        "message": "Postavke",
-        "description": "Settings."
-    },
-    "security": {
-        "message": "Sigurnost",
-        "description": "Security."
-    },
-    "current_phrase": {
-        "message": "Trenutna lozinka",
-        "description": "Current Passphrase."
-    },
-    "new_phrase": {
-        "message": "Nova lozinka",
-        "description": "New Passphrase."
-    },
-    "phrase": {
-        "message": "Lozinka",
-        "description": "Passphrase."
-    },
-    "confirm_phrase": {
-        "message": "Potvrdi lozinku",
-        "description": "Confirm Passphrase."
-    },
-    "confirm_delete": {
-        "message": "Sigurno želite izbrisati ovaj račun? Ovo naknadno nije moguće poništiti.",
-        "description": "Remove entry confirmation"
-    },
-    "confirm_delete_all": {
-        "message": "Razmijem da će svi moji podaci nepovratno biti izbrisani.",
-        "description": "Message that user is required to acknowledge before clearing all data."
-    },
-    "delete_all": {
-        "message": "Resetiranje Autentifikatora"
-    },
-    "delete_all_warning": {
-        "message": "Ovo će obrisati sve vaše podatke i potpuno resetirati Autentifikator. Nećete moći vratiti obrisane podatke! Razmislite o spremanju sigurnosne kopije prije resetiranja Autentifikatora."
-    },
-    "security_warning": {
-        "message": "Ovom će se lozinkom šifrirati vaš račun. Nitko vam neće moći pomoći ako ju zaboravite.",
-        "description": "Passphrase Warning."
-    },
-    "update": {
-        "message": "Ažuriranje",
-        "description": "Update."
-    },
-    "phrase_incorrect": {
-        "message": "Ne možete dodati novi račun, dok svi računi nisu dešifrirani. Za nastavak, molimo unesite ispravnu lozinku.",
-        "description": "Passphrase Incorrect."
-    },
-    "phrase_incorrect_export": {
-        "message": "Računi koji nisu mogli biti dešifrirani neće biti uključeni u ovoj sigurnosnoj kopiji.",
-        "description": "Skip Unable-decripted Data."
-    },
-    "phrase_not_match": {
-        "message": "Lozinka se ne podudara.",
-        "description": "Passphrase Not Match."
-    },
-    "encrypted": {
-        "message": "Šifrirano",
-        "description": "Encrypted."
-    },
-    "copied": {
-        "message": "Kopirano",
-        "description": "Copied."
-    },
-    "feedback": {
-        "message": "Povratne informacije",
-        "description": "Feedback."
-    },
-    "translate": {
-        "message": "Prevedi",
-        "description": "Translate."
-    },
-    "source": {
-        "message": "Izvorni kȏd",
-        "description": "Source Code."
-    },
-    "passphrase_info": {
-        "message": "Unesite lozinku za dešifriranje podataka računa.",
-        "description": "Passphrase Info"
-    },
-    "sync_clock": {
-        "message": "Sinkroniziraj sat s Google-om",
-        "description": "Sync Clock"
-    },
-    "remember_phrase": {
-        "message": "Zapamti lozinku",
-        "description": "Remember Passphrase"
-    },
-    "clock_too_far_off": {
-        "message": "Pažnja! Vaš lokalni sat nije usklađen. Za nastavak, molimo najmjestite ga.",
-        "description": "Local Time is Too Far Off"
-    },
-    "remind_backup": {
-        "message": "Imate li sigurnosne kopije vaših računa? Ne odgađajte dok još nije kasno!",
-        "description": "Remind Backup"
-    },
-    "capture_failed": {
-        "message": "Zahvat nije uspio. Molimo ponovno učitajte stranicu i pokušajte ponovno.",
-        "description": "Capture Failed"
-    },
-    "capture_local_file_failed": {
-        "message": "Pokušavate skenirati QR kôd iz lokalne datoteke? Koristite opciju uvoza slike QR koda.",
-        "description": "Import QR image backup instead of scan local image"
-    },
-    "based_on_time": {
-        "message": "Zasnovano na vremenu",
-        "description": "Time Based"
-    },
-    "based_on_counter": {
-        "message": "Zasnovano na brojaču",
-        "description": "Counter Based"
-    },
-    "resize_popup_page": {
-        "message": "Postavke",
-        "description": "Popup Page Settings"
-    },
-    "scale": {
-        "message": "Mjerilo",
-        "description": "Scale"
-    },
-    "export_info": {
-        "message": "Upozorenje: svi izvozi su dešifrirano. Želite li dodati račun u drugu aplikaciju? Lebdjenje iznad gornjeg desnog dijela svakog računa nudi prikaz skrivene tipke.",
-        "description": "Export menu info text"
-    },
-    "download_backup": {
-        "message": "Preuzmi sigurnosnu kopiju",
-        "description": "Download backup file."
-    },
-    "import_backup": {
-        "message": "Uvoz sigurnosne kopije",
-        "description": "Import backup."
-    },
-    "import_backup_file": {
-        "message": "Uvoz sigurnosne kopije",
-        "description": "Import backup file."
-    },
-    "import_backup_qr": {
-        "message": "Uvoz kopije slike QR koda",
-        "description": "Import qr image backup."
-    },
-    "import_backup_code": {
-        "message": "Uvoz tekstualne kopije",
-        "description": "Import backup code."
-    },
-    "import_backup_qr_partly_failed": {
-        "message": "Import successful, but some QR codes could not be recognized.",
-        "description": "Import successful, but some QR image cannot be recognized."
-    },
-    "import_backup_qr_in_batches": {
-        "message": "Možete odabrati više datoteka za uzastopni uvoz sigurnosnih kopija.",
-        "description": "You can select multiple image files to import backup in batches."
-    },
-    "show_all_entries": {
-        "message": "Prikaži sve unose",
-        "description": "Show all entries."
-    },
-    "dropbox_risk": {
-        "message": "Upozorenje: sigurnose kopije su dešifrirane. Koristite na vlastitu odgovornost.",
-        "description": "Backup risk warning."
-    },
-    "import_error_password": {
-        "message": "Za uvoz sigurnosnih kopija, potrebno je unijeti ispravnu lozinku.",
-        "description": "Error password warning when import backups."
-    },
-    "local_passphrase_warning": {
-        "message": "Vaša lozinka je spremljena lokalno. Molimo odmah je promijenite u izborniku Sigurnost.",
-        "description": "localStorage password warning."
-    },
-    "remove": {
-        "message": "Ukloni",
-        "description": "Remove password."
-    },
-    "download_enc_backup": {
-        "message": "Prezimanje sigurnosne kopije zaštićene lozinkom",
-        "description": "Download Encrypted Backup"
-    },
-    "search": {
-        "message": "Pretraživanje",
-        "description": "Search"
-    },
-    "popout": {
-        "message": "Iskočni način",
-        "description": "Make window turn into persistent popup"
-    },
-    "lock": {
-        "message": "Zaključavanje",
-        "description": "Lock accounts"
-    },
-    "edit": {
-        "message": "Uređivanje",
-        "description": "Edit"
-    },
-    "manual_dropbox": {
-        "message": "Manual Backup",
-        "description": "Manual backup"
-    },
-    "use_autofill": {
-        "message": "Koristi automatsko ispunjavanje",
-        "description": "Use Autofill"
-    },
-    "use_high_contrast": {
-        "message": "Koristi visoki kontrast",
-        "description": "Use High Contrast"
-    },
-    "theme": {
-        "message": "Tema",
-        "description": "Theme"
-    },
-    "theme_light": {
-        "message": "Svijetla",
-        "description": "Light theme"
-    },
-    "theme_dark": {
-        "message": "Tamna",
-        "description": "Dark theme"
-    },
-    "theme_simple": {
-        "message": "Simple",
-        "description": "Simple theme"
-    },
-    "theme_compact": {
-        "message": "Compact",
-        "description": "Compact theme"
-    },
-    "theme_high_contrast": {
-        "message": "Visoki kontrast",
-        "description": "High Contrast theme"
-    },
-    "storage_sync_info": {
-        "message": "Automatski spremi sigurnosnu kopiju na uslugu za pohranu.",
-        "description": "3rd party backup info"
-    },
-    "browser_sync": {
-        "message": "Sinkronizacija preglednika",
-        "description": "Storage location"
-    },
-    "sign_in": {
-        "message": "Prijava",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "sign_in_business": {
-        "message": "Sign in (Business)",
-        "description": "Sign in to 3rd party storage services"
-    },
-    "onedrive_business_perms": {
-        "message": "Why do business accounts require more permissions?"
-    },
-    "log_out": {
-        "message": "Odjava",
-        "description": "Sign out of 3rd party storage services"
-    },
-    "token_revoked": {
-        "message": "Došlo je do poteškoće kod spajanja na vaš račun $SERVICE$. Molimo, ponovno se prijavite.",
-        "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
-        "placeholders": {
-            "service": {
-                "content": "$1",
-                "example": "Google Drive"
-            }
-        }
-    },
-    "otp_unsupported_warn": {
-        "message": "Imate jedan ili više Steam ili Blizzard korisničkih računa. Nešifrirane sigurnosne kopije neće koristiti zadani sigurnostni oblik.",
-        "description": "Warning if using account that is not supported by standard backup format."
-    },
-    "otp_backup_inform": {
-        "message": "Možete uvesti sigurnosne kopije iz drugih aplikacija.",
-        "description": "Info text on import page"
-    },
-    "otp_backup_learn": {
-        "message": "Saznajte više",
-        "description": "learn more link on import page. Placed after otp_backup_inform"
-    },
-    "loading": {
-        "message": "Ulitavanje..."
-    },
-    "autolock": {
-        "message": "Zaključaj nakon"
-    },
-    "minutes": {
-        "message": "minute/a"
-    },
-    "advanced": {
-        "message": "Napredno"
-    },
-    "period": {
-        "message": "Razdoblje"
-    },
-    "type": {
-        "message": "Vrsta"
-    },
-    "invalid": {
-        "message": "Nevažeće"
-    },
-    "digits": {
-        "message": "Brojevi"
-    },
-    "algorithm": {
-        "message": "Algoritam"
-    },
-    "smart_filter": {
-        "message": "Pametni filter"
-    },
-    "backup": {
-        "message": "Sigurnosna kopija"
-    },
-    "backup_file_info": {
-        "message": "Spremanje podataka u sigurnosnu kopiju."
-    },
-    "password_policy_default_hint": {
-        "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
-    },
-    "advisor": {
-        "message": "Advisor"
-    },
-    "advisor_insight_password_not_set": {
-        "message": "Set a password to protect your data."
-    },
-    "advisor_insight_auto_lock_not_set": {
-        "message": "Enable auto-lock to protect your data."
-    },
-    "advisor_insight_browser_sync_not_enabled": {
-        "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
-    },
-    "advisor_insight_auto_fill_not_enabled": {
-        "message": "Autofill can be enabled to automatically fill codes into websites."
-    },
-    "advisor_insight_smart_filter_not_enabled": {
-        "message": "Enabling smart filter allows for quick access to accounts."
-    },
-    "show_all_insights": {
-        "message": "Show all insights."
-    },
-    "no_insight_available": {
-        "message": "No insights found, everything looks good!"
-    },
-    "danger": {
-        "message": "Danger"
-    },
-    "warning": {
-        "message": "Warning"
-    },
-    "info": {
-        "message": "Info"
-    },
-    "dismiss": {
-        "message": "Dismiss"
-    },
-    "learn_more": {
-        "message": "Learn more"
-    },
-    "enable_context_menu": {
-        "message": "Add to context menu"
-    },
-    "no_entires": {
-        "message": "No accounts to display. Add your first account now."
-    },
-    "permissions": {
-        "message": "Permissions"
-    },
-    "permission_revoke": {
-        "message": "Revoke"
-    },
-    "permission_show_required_permissions": {
-        "message": "Show non-revocable permissions"
-    },
-    "permission_required": {
-        "message": "This is a required permission and cannot be revoked."
-    },
-    "permission_active_tab": {
-        "message": "Access to the current tab to scan QR codes."
-    },
-    "permission_storage": {
-        "message": "Access to browser storage to store account data."
-    },
-    "permission_identity": {
-        "message": "Allows sign in to 3rd party storage services."
-    },
-    "permission_clipboard_write": {
-        "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
-    },
-    "permission_context_menus": {
-        "message": "Adds Authenticator to context menu."
-    },
-    "permission_sync_clock": {
-        "message": "Allows clock sync with Google."
-    },
-    "permission_dropbox": {
-        "message": "Allows backup to Dropbox."
-    },
-    "permission_dropbox_cannot_revoke": {
-        "message": "You must disable Dropbox backup first."
-    },
-    "permission_drive": {
-        "message": "Allows backup to Google Drive."
-    },
-    "permission_drive_cannot_revoke": {
-        "message": "You must disable Google Drive backup first."
-    },
-    "permission_onedrive": {
-        "message": "Allows backup to OneDrive."
-    },
-    "permission_onedrive_cannot_revoke": {
-        "message": "You must disable OneDrive backup first."
-    },
-    "permission_unknown_permission": {
-        "message": "Unknown permission. If see this message, please send a bug report."
-    },
-    "theme_flat": {
-        "message": "Flat",
-        "description": "Flat theme"
-    },
-    "import_qr_images": {
-        "message": "Import QR Images",
-        "description": "Import qr images. Shown as add account method."
-    },
-    "import_otp_urls": {
-        "message": "Import OTP URLs",
-        "description": "Import OTP URLs. Shown as add account method."
-    },
-    "permission_alarms": {
-        "message": "Allows auto-lock to work."
-    },
-    "permission_scripting": {
-        "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
-    },
-    "activate_auto_filter": {
-        "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
-    },
-    "phrase_wrong": {
-        "message": "Password incorrect"
+  "extName": {
+    "message": "Autentifikator",
+    "description": "Extension Name."
+  },
+  "extShortName": {
+    "message": "Autentifikator",
+    "description": "Extension Short Name."
+  },
+  "extDesc": {
+    "message": "Autentifikator generira dvofaktorske autentifikacijske kodove u tvom pregledniku.",
+    "description": "Extension Description."
+  },
+  "added": {
+    "message": " je dodan.",
+    "description": "Added Account."
+  },
+  "errorqr": {
+    "message": "QR kod nije prepoznat.",
+    "description": "QR Error."
+  },
+  "errorsecret": {
+    "message": "Neispravna tajna računa",
+    "description": "Secret Error."
+  },
+  "add_code": {
+    "message": "Dodaj račun",
+    "description": "Add account."
+  },
+  "add_qr": {
+    "message": "Snimi QR kod",
+    "description": "Scan QR Code."
+  },
+  "add_secret": {
+    "message": "Ručni unos",
+    "description": "Manual Entry."
+  },
+  "migration_fail": {
+    "message": "Uvoz nije uspio. Ako seliš podatke iz Google Autentifikatora, ponovo izvezi svoje podatke iz Google Autentifikatora i pokušaj ponovo.",
+    "description": "Import migration data failed."
+  },
+  "migration_partly_fail": {
+    "message": "Neki podaci računa nisu uspješno uvezeni.",
+    "description": "Some migration data is broken."
+  },
+  "close": {
+    "message": "Zatvori",
+    "description": "Close."
+  },
+  "ok": {
+    "message": "U redu",
+    "description": "OK."
+  },
+  "yes": {
+    "message": "Da",
+    "description": "Yes."
+  },
+  "no": {
+    "message": "Ne",
+    "description": "No."
+  },
+  "account": {
+    "message": "Račun",
+    "description": "Account."
+  },
+  "accountName": {
+    "message": "Korisničko ime",
+    "description": "Account Name."
+  },
+  "issuer": {
+    "message": "Izdavatelj",
+    "description": "Issuer."
+  },
+  "secret": {
+    "message": "Tajna",
+    "description": "Secret."
+  },
+  "updateSuccess": {
+    "message": "Uspjeh.",
+    "description": "Update Success."
+  },
+  "updateFailure": {
+    "message": "Neuspjeh.",
+    "description": "Update Failure."
+  },
+  "about": {
+    "message": "O programu",
+    "description": "About."
+  },
+  "settings": {
+    "message": "Postavke",
+    "description": "Settings."
+  },
+  "security": {
+    "message": "Sigurnost",
+    "description": "Security."
+  },
+  "current_phrase": {
+    "message": "Trenutačna lozinka",
+    "description": "Current Passphrase."
+  },
+  "new_phrase": {
+    "message": "Nova lozinka",
+    "description": "New Passphrase."
+  },
+  "phrase": {
+    "message": "Lozinka",
+    "description": "Passphrase."
+  },
+  "confirm_phrase": {
+    "message": "Potvrdi lozinku",
+    "description": "Confirm Passphrase."
+  },
+  "confirm_delete": {
+    "message": "Stvarno želiš izbrisati ovaj račun? Ovo je nepovratna radnja.",
+    "description": "Remove entry confirmation"
+  },
+  "confirm_delete_all": {
+    "message": "Razumijem da će se svi moji podaci nepovratno izbrisati.",
+    "description": "Message that user is required to acknowledge before clearing all data."
+  },
+  "delete_all": {
+    "message": "Resetiraj Autentifikator"
+  },
+  "delete_all_warning": {
+    "message": "Ovo će izbrisati sve tvoje podatke i potpuno resetirati Autentifikator. Nećeš moći vratiti izbrisane podatke! Spremi sigurnosnu kopiju prije resetiranja Autentifikatora."
+  },
+  "security_warning": {
+    "message": "Ova će se lozinka koristiti za šifriranje tvog računa. Nitko ti neće moći pomoći ako ju zaboraviš.",
+    "description": "Passphrase Warning."
+  },
+  "update": {
+    "message": "Aktualiziranje",
+    "description": "Update."
+  },
+  "phrase_incorrect": {
+    "message": "Ne možeš dodati novi račun, sve dok svi računi nisu dešifrirani. Za nastavljanje upiši ispravnu lozinku.",
+    "description": "Passphrase Incorrect."
+  },
+  "phrase_incorrect_export": {
+    "message": "Računi koji se nisu mogli dešifrirati neće biti uključeni u ovoj sigurnosnoj kopiji.",
+    "description": "Skip Unable-decripted Data."
+  },
+  "phrase_not_match": {
+    "message": "Lozinka se ne podudara.",
+    "description": "Passphrase Not Match."
+  },
+  "encrypted": {
+    "message": "Šifrirano",
+    "description": "Encrypted."
+  },
+  "copied": {
+    "message": "Kopirano",
+    "description": "Copied."
+  },
+  "feedback": {
+    "message": "Povratne informacije",
+    "description": "Feedback."
+  },
+  "translate": {
+    "message": "Prevedi",
+    "description": "Translate."
+  },
+  "source": {
+    "message": "Izvorni kod",
+    "description": "Source Code."
+  },
+  "passphrase_info": {
+    "message": "Upiši lozinku za dešifriranje podataka računa.",
+    "description": "Passphrase Info"
+  },
+  "sync_clock": {
+    "message": "Sinkroniziraj sat s Google-om",
+    "description": "Sync Clock"
+  },
+  "remember_phrase": {
+    "message": "Zapamti lozinku",
+    "description": "Remember Passphrase"
+  },
+  "clock_too_far_off": {
+    "message": "Pažnja! Tvoj lokalni sat nije usklađen. Najmjesti ga prije nastavljanja.",
+    "description": "Local Time is Too Far Off"
+  },
+  "remind_backup": {
+    "message": "Imaš sigurnosne kopije za tvoje račune? Spremi ih dok nije prekasno!",
+    "description": "Remind Backup"
+  },
+  "capture_failed": {
+    "message": "Snimanje nije uspjelo. Ponovo učitaj stranicu i pokušaj ponovo.",
+    "description": "Capture Failed"
+  },
+  "capture_local_file_failed": {
+    "message": "Pokušavaš snimiti QR kod iz lokalne datoteke? Umjeto toga koristi „Uvoz sigurnosne kopije slike QR koda”.",
+    "description": "Import QR image backup instead of scan local image"
+  },
+  "based_on_time": {
+    "message": "Na osnovi vremena",
+    "description": "Time Based"
+  },
+  "based_on_counter": {
+    "message": "Na osnovi brojača",
+    "description": "Counter Based"
+  },
+  "resize_popup_page": {
+    "message": "Postavke",
+    "description": "Popup Page Settings"
+  },
+  "scale": {
+    "message": "Uvećanje",
+    "description": "Scale"
+  },
+  "export_info": {
+    "message": "Upozorenje: sve sigurnosne kopije su nešifrirane. Želiš li dodati račun u jednu drugu aplikaciju? Prijeđi mišem preko gornjeg desnog dijela svakog računa i pritisni gumb tipku za skrivanje.",
+    "description": "Export menu info text"
+  },
+  "download_backup": {
+    "message": "Preuzmi datoteku sigurnosne kopije",
+    "description": "Download backup file."
+  },
+  "import_backup": {
+    "message": "Uvoz sigurnosne kopije",
+    "description": "Import backup."
+  },
+  "import_backup_file": {
+    "message": "Uvoz datoteke sigurnosne kopije",
+    "description": "Import backup file."
+  },
+  "import_backup_qr": {
+    "message": "Uvoz sigurnosne kopije slike QR koda",
+    "description": "Import qr image backup."
+  },
+  "import_qr_images": {
+    "message": "Uvoz QR slika",
+    "description": "Import qr images. Shown as add account method."
+  },
+  "import_backup_code": {
+    "message": "Uvoz sigurnosne kopije teksta",
+    "description": "Import backup code."
+  },
+  "import_otp_urls": {
+    "message": "Uvoz OTP URL-ova",
+    "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_backup_qr_partly_failed": {
+    "message": "Uvoz je uspio, ali neki QR kodovi nisu prepoznati.",
+    "description": "Import successful, but some QR image cannot be recognized."
+  },
+  "import_backup_qr_in_batches": {
+    "message": "Možeš odabrati više datoteka za grupni uvoz sigurnosnih kopija.",
+    "description": "You can select multiple image files to import backup in batches."
+  },
+  "show_all_entries": {
+    "message": "Prikaži sve unose",
+    "description": "Show all entries."
+  },
+  "dropbox_risk": {
+    "message": "Upozorenje: sigurnose kopije nisu šifrirane. Koristi ih na vlastitu odgovornost.",
+    "description": "Backup risk warning."
+  },
+  "import_error_password": {
+    "message": "Za uvoz sigurnosnih kopija moraš upisati ispravnu lozinku.",
+    "description": "Error password warning when import backups."
+  },
+  "local_passphrase_warning": {
+    "message": "Tvoja je lozinka spremljena lokalno. Promijeni ju odmah u izborniku sigurnosti.",
+    "description": "localStorage password warning."
+  },
+  "remove": {
+    "message": "Ukloni",
+    "description": "Remove password."
+  },
+  "download_enc_backup": {
+    "message": "Prezimanje sigurnosne kopije zaštićene lozinkom",
+    "description": "Download Encrypted Backup"
+  },
+  "search": {
+    "message": "Pretraga",
+    "description": "Search"
+  },
+  "popout": {
+    "message": "Skočni prozor",
+    "description": "Make window turn into persistent popup"
+  },
+  "lock": {
+    "message": "Zaključaj",
+    "description": "Lock accounts"
+  },
+  "edit": {
+    "message": "Uredi",
+    "description": "Edit"
+  },
+  "manual_dropbox": {
+    "message": "Ručno spremljena sigurnosna kopija",
+    "description": "Manual backup"
+  },
+  "use_autofill": {
+    "message": "Koristi automatsko ispunjavanje",
+    "description": "Use Autofill"
+  },
+  "use_high_contrast": {
+    "message": "Koristi visoki kontrast",
+    "description": "Use High Contrast"
+  },
+  "theme": {
+    "message": "Tema",
+    "description": "Theme"
+  },
+  "theme_light": {
+    "message": "Svijetla",
+    "description": "Light theme"
+  },
+  "theme_dark": {
+    "message": "Tamna",
+    "description": "Dark theme"
+  },
+  "theme_simple": {
+    "message": "Jednostavna",
+    "description": "Simple theme"
+  },
+  "theme_compact": {
+    "message": "Kompaktna",
+    "description": "Compact theme"
+  },
+  "theme_high_contrast": {
+    "message": "Visoki kontrast",
+    "description": "High Contrast theme"
+  },
+  "theme_flat": {
+    "message": "Plošna",
+    "description": "Flat theme"
+  },
+  "storage_sync_info": {
+    "message": "Automatski spremi sigurnosnu kopiju tvojih podataka u stranoj usluzi za spremanje podataka.",
+    "description": "3rd party backup info"
+  },
+  "browser_sync": {
+    "message": "Sinkronizacija preglednika",
+    "description": "Storage location"
+  },
+  "sign_in": {
+    "message": "Prijavi se",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "sign_in_business": {
+    "message": "Prijavi se (poslovno)",
+    "description": "Sign in to 3rd party storage services"
+  },
+  "onedrive_business_perms": {
+    "message": "Zašto poslovni računi zahtijevaju više dozvola?"
+  },
+  "log_out": {
+    "message": "Odjava",
+    "description": "Sign out of 3rd party storage services"
+  },
+  "token_revoked": {
+    "message": "Povezivanje na tvoj $SERVICE$ račun nije uspjelo. Prijavi se ponovo.",
+    "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
+    "placeholders": {
+      "service": {
+        "content": "$1",
+        "example": "Google Drive"
+      }
     }
+  },
+  "otp_unsupported_warn": {
+    "message": "Imaš jedan ili više Steam ili Blizzard računa. Nešifrirane sigurnosne kopije neće koristiti standardni format sigurnosne kopije.",
+    "description": "Warning if using account that is not supported by standard backup format."
+  },
+  "otp_backup_inform": {
+    "message": "Možeš uvesti sigurnosne kopije iz drugih aplikacija.",
+    "description": "Info text on import page"
+  },
+  "otp_backup_learn": {
+    "message": "Saznaj više",
+    "description": "learn more link on import page. Placed after otp_backup_inform"
+  },
+  "loading": {
+    "message": "Učitavanje …"
+  },
+  "autolock": {
+    "message": "Zaključaj nakon"
+  },
+  "minutes": {
+    "message": "min"
+  },
+  "advanced": {
+    "message": "Napredno"
+  },
+  "period": {
+    "message": "Razdoblje"
+  },
+  "type": {
+    "message": "Vrsta"
+  },
+  "invalid": {
+    "message": "Nevažeće"
+  },
+  "digits": {
+    "message": "Brojke"
+  },
+  "algorithm": {
+    "message": "Algoritam"
+  },
+  "smart_filter": {
+    "message": "Pametni filtar"
+  },
+  "backup": {
+    "message": "Sigurnosna kopija"
+  },
+  "backup_file_info": {
+    "message": "Spremi sigurnosnu kopiju tvojih podataka u datoteku."
+  },
+  "password_policy_default_hint": {
+    "message": "Tvoja lozinka ne zadovoljava sigurnosne zahtjeve tvoje organizacije. Kontaktiraj administratora za daljnje informacije."
+  },
+  "advisor": {
+    "message": "Savjetnik"
+  },
+  "advisor_insight_password_not_set": {
+    "message": "Postavi lozinku za zaštitu tvojih podataka."
+  },
+  "advisor_insight_auto_lock_not_set": {
+    "message": "Aktiviraj automatsko zaključavanje za zaštitu tvojih podataka."
+  },
+  "advisor_insight_browser_sync_not_enabled": {
+    "message": "Sinkronizacija preglednika je deaktivirana. Aktiviranje omogućuje sinkronizaciju računa u svim preglednicima."
+  },
+  "advisor_insight_auto_fill_not_enabled": {
+    "message": "Automatsko ispunjavanje se može aktivirati za automatsko ispunjavanje kodova na web stranicama."
+  },
+  "advisor_insight_smart_filter_not_enabled": {
+    "message": "Aktiviranje pametnog filtra omogućuje brzi pristup računima."
+  },
+  "show_all_insights": {
+    "message": "Prikaži sve obavijesti."
+  },
+  "no_insight_available": {
+    "message": "Nema obavijesti, sve izgleda dobro!"
+  },
+  "danger": {
+    "message": "Opasnost"
+  },
+  "warning": {
+    "message": "Upozorenje"
+  },
+  "info": {
+    "message": "Informacije"
+  },
+  "dismiss": {
+    "message": "Odbaci"
+  },
+  "learn_more": {
+    "message": "Saznaj više"
+  },
+  "enable_context_menu": {
+    "message": "Dodaj u kontekstni izbornik"
+  },
+  "no_entires": {
+    "message": "Nema računa za prikaz. Dodaj svoj prvi račun."
+  },
+  "permissions": {
+    "message": "Dozvole"
+  },
+  "permission_revoke": {
+    "message": "Opozovi"
+  },
+  "permission_show_required_permissions": {
+    "message": "Prikaži neopozive dozvole"
+  },
+  "permission_required": {
+    "message": "Ovo je obavezna dozvola i ne može se opozvati."
+  },
+  "permission_active_tab": {
+    "message": "Pristupi trenutačnoj kartici za snimanje QR kodova."
+  },
+  "permission_storage": {
+    "message": "Pristupi memoriji preglednika za spremanje podataka računa."
+  },
+  "permission_identity": {
+    "message": "Dozvoljava prijavu na strane usluge spremanja podataka."
+  },
+  "permission_alarms": {
+    "message": "Omogućuje automatsko zaključavanje."
+  },
+  "permission_scripting": {
+    "message": "Umetni skripta u trenutačnu karticu za skeniranje QR kodova i omogući automatsko ispunjavanje."
+  },
+  "permission_clipboard_write": {
+    "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš račun."
+  },
+  "permission_context_menus": {
+    "message": "Dodaje Autentifikator u kontekstni izbornik."
+  },
+  "permission_sync_clock": {
+    "message": "Dozvoljava sinkroniziranje sata s Googleom."
+  },
+  "permission_dropbox": {
+    "message": "Dozvoljava spremanje sigurnosne kopije na Dropboxu."
+  },
+  "permission_dropbox_cannot_revoke": {
+    "message": "Najprije moraš deaktivirati Dropbox sigurnosne kopije."
+  },
+  "permission_drive": {
+    "message": "Dozvoljava spremanje sigurnosne kopije na Google Driveu."
+  },
+  "permission_drive_cannot_revoke": {
+    "message": "Najprije moraš deaktivirati Google Drive sigurnosne kopije."
+  },
+  "permission_onedrive": {
+    "message": "Dozvoljava spremanje sigurnosne kopije na OneDriveu."
+  },
+  "permission_onedrive_cannot_revoke": {
+    "message": "Najprije moraš deaktivirati OneDrive sigurnosne kopije."
+  },
+  "permission_unknown_permission": {
+    "message": "Nepoznata dozvola. Ako vidiš ovu poruku pošalji izvještaj o grešci."
+  },
+  "phrase_wrong": {
+    "message": "Neispravna lozinka"
+  },
+  "activate_auto_filter": {
+    "message": "Upozorenje: Pametni filtar slabo povezuje naziv domene s računom. Prije unosa koda uvijek provjerite jeste li na ispravnoj web stranici!"
+  }
 }
