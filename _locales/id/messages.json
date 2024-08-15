@@ -462,7 +462,7 @@
     "message": "Perizinan"
   },
   "permission_revoke": {
-    "message": "Cabut; tarik; batal; batalkan"
+    "message": "Revoke"
   },
   "permission_show_required_permissions": {
     "message": "Menampilkan ijin yang tidak bisa dibatalkan"
