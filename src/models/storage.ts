@@ -691,23 +691,31 @@ export class ManagedStorage {
   static get<T>(key: string): T | undefined;
   static get<T>(key: string, defaultValue: T): T;
   static get<T>(key: string, defaultValue?: T) {
-    return new Promise((resolve: (result: T | undefined) => void) => {
-      if (chrome.storage.managed) {
-        chrome.storage.managed.get((data) => {
-          if (chrome.runtime.lastError) {
-            return resolve(defaultValue);
-          }
-          if (data) {
-            if (data[key]) {
-              return resolve(data[key]);
+    const managedStoragePromise = new Promise(
+      (resolve: (result: T | undefined) => void) => {
+        if (chrome.storage.managed) {
+          chrome.storage.managed.get((data) => {
+            if (chrome.runtime.lastError) {
+              return resolve(defaultValue);
             }
-          }
-          return resolve(defaultValue);
-        });
-      } else {
-        // no available in Safari
-        resolve(defaultValue);
+            if (data) {
+              if (data[key]) {
+                return resolve(data[key]);
+              }
+            }
+            return resolve(defaultValue);
+          });
+        } else {
+          // no available in Safari
+          resolve(defaultValue);
+        }
       }
+    );
+
+    const timeoutPromise = new Promise((resolve) => {
+      setTimeout(() => resolve(defaultValue), 1500);
     });
+
+    return Promise.race([managedStoragePromise, timeoutPromise]);
   }
 }
