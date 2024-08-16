@@ -713,7 +713,7 @@ export class ManagedStorage {
     );
 
     const timeoutPromise = new Promise((resolve) => {
-      setTimeout(() => resolve(defaultValue), 1500);
+      setTimeout(() => resolve(defaultValue), 10);
     });
 
     return Promise.race([managedStoragePromise, timeoutPromise]);
