@@ -1,7 +1,6 @@
 {
     "manifest_version": 3,
     "name": "Authenticator: 2FA Client",
-    "short_name": "__MSG_extShortName__",
     "version": "8.0.0",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
