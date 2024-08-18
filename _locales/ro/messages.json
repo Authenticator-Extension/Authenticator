@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "",
+    "message": "Import QR Images",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -489,10 +489,10 @@
     "message": "Oferă acces doar la scriere în clipboard pentru a copia coduri în clipboard atunci când faceți clic pe cont."
   },
   "permission_context_menus": {
-    "message": ""
+    "message": "Adds Authenticator to context menu."
   },
   "permission_sync_clock": {
-    "message": ""
+    "message": "Allows clock sync with Google."
   },
   "permission_dropbox": {
     "message": "Auto Backup pe Dropbox."
