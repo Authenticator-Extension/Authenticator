@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "কিউআর কোড ছবি যুক্ত করুন",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -519,6 +519,6 @@
     "message": "Password incorrect"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "!"
   }
 }
