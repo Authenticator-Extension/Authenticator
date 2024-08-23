@@ -115,6 +115,11 @@ export default Vue.extend({
         this.newAccount.period = undefined;
       }
 
+      const defaultEncyptionKey = this.$store.state.accounts.defaultEncryption;
+      const encryption = this.$store.state.accounts.encryption[
+        defaultEncyptionKey
+      ];
+
       const entry = new OTPEntry(
         {
           type,
@@ -128,7 +133,7 @@ export default Vue.extend({
           digits: this.newAccount.digits,
           algorithm: this.newAccount.algorithm,
         },
-        this.$store.state.accounts.encryption
+        encryption
       );
 
       await entry.create();
