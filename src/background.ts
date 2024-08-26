@@ -119,7 +119,7 @@ async function getTotp(text: string, silent = false) {
     }
   } else {
     let uri = text.split("otpauth://")[1];
-    let type = uri.substr(0, 4).toLowerCase();
+    let type = uri.substr(0, 4).toLowerCase() as OTPType;
     uri = uri.substr(5);
     let label = uri.split("?")[0];
     const parameterPart = uri.split("?")[1];
@@ -193,15 +193,15 @@ async function getTotp(text: string, silent = false) {
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "totp"
+          type === OTPType.totp
         ) {
-          type = "hex";
+          type = OTPType.hex;
         } else if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "hotp"
+          type === OTPType.hotp
         ) {
-          type = "hhex";
+          type = OTPType.hhex;
         }
         const entryData: { [hash: string]: RawOTPStorage } = {};
         entryData[hash] = {

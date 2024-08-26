@@ -212,10 +212,13 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";
     let type = "";
-    if (otpStorage.type === "totp" || otpStorage.type === "hex") {
-      type = "totp";
-    } else if (otpStorage.type === "hotp" || otpStorage.type === "hhex") {
-      type = "hotp";
+    if (otpStorage.type === OTPType.totp || otpStorage.type === OTPType.hex) {
+      type = OTPType.totp;
+    } else if (
+      otpStorage.type === OTPType.hotp ||
+      otpStorage.type === OTPType.hhex
+    ) {
+      type = OTPType.hotp;
     } else {
       continue;
     }
@@ -228,8 +231,8 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       "?secret=" +
       otpStorage.secret +
       (otpStorage.issuer ? "&issuer=" + otpStorage.issuer : "") +
-      (type === "hotp" ? "&counter=" + otpStorage.counter : "") +
-      (type === "totp" && otpStorage.period
+      (type === OTPType.hotp ? "&counter=" + otpStorage.counter : "") +
+      (type === OTPType.totp && otpStorage.period
         ? "&period=" + otpStorage.period
         : "") +
       (otpStorage.digits ? "&digits=" + otpStorage.digits : "") +

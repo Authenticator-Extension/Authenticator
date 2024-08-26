@@ -3,12 +3,12 @@ import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 
 export enum OTPType {
-  totp = 1,
-  hotp,
-  battle,
-  steam,
-  hex,
-  hhex,
+  totp = "totp",
+  hotp = "hotp",
+  battle = "battle",
+  steam = "steam",
+  hex = "hex",
+  hhex = "hhex",
 }
 
 export enum CodeState {
@@ -223,8 +223,7 @@ export class OTPEntry implements OTPEntryInterface {
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;
-    // @ts-expect-error need a better way to do this
-    this.type = OTPType[decryptedData.type] || OTPType.totp;
+    this.type = decryptedData.type || OTPType.totp;
 
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();
