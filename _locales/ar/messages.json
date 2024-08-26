@@ -142,7 +142,7 @@
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "كلمة السر غير صحيحة.",
+    "message": "كلمة السر غير مطابقه.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -286,7 +286,7 @@
     "description": "Lock accounts"
   },
   "edit": {
-    "message": "تحرير",
+    "message": "تعديل",
     "description": "Edit"
   },
   "manual_dropbox": {
