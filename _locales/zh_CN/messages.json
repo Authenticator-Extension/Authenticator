@@ -516,7 +516,7 @@
     "message": "未知权限。如果您看到此消息，请发送错误报告。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "密码不正确"
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
