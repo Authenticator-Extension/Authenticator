@@ -28,7 +28,7 @@
     "scripts": ["dist/background.js"]
   },
   "commands": {
-    "_execute_browser_action": {},
+    "_execute_action": {},
     "scan-qr": {
       "description": "Scan a QR code"
     },
