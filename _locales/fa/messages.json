@@ -516,7 +516,7 @@
     "message": "مجوز نامعلوم. در صورت مشاهده این پیام، لطفاً یک گزارش اشکال ارسال کنید."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": ""
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
