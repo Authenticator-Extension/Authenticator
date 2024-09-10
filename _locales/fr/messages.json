@@ -126,7 +126,7 @@
     "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
   },
   "security_warning": {
-    "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
+    "message": "Ce mot de passe sera utilisé pour chiffrer vos comptes. Personne ne sera en mesure de vous aider si vous oubliez le mot de passe.",
     "description": "Passphrase Warning."
   },
   "update": {
@@ -134,7 +134,7 @@
     "description": "Update."
   },
   "phrase_incorrect": {
-    "message": "Vous ne pouvez pas ajouter de nouveau compte tant que tous les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
+    "message": "Vous ne pouvez pas ajouter de nouveau compte tant que les comptes ne sont pas déchiffrés. Veuillez entrer le mot de passe correct avant de continuer.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -226,7 +226,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Importer une image d'un code QR",
+    "message": "Importer une sauvegarde de l'image QR",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -242,7 +242,7 @@
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "Importation réussie, mais certains codes QR n'ont pas pu être reconnus.",
+    "message": "Importation partiellement réussie, certains codes QR n'ont pas pu être reconnus.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
