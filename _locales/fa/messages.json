@@ -519,6 +519,6 @@
     "message": ""
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": ""
   }
 }
