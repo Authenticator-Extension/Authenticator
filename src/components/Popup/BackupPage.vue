@@ -212,11 +212,25 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";
     let type = "";
-    if (otpStorage.type === OTPType.totp || otpStorage.type === OTPType.hex) {
+    // We may have already have some error OTP type entries in the storage
+    // totp = 1
+    // hotp = 2
+    // battle = 3
+    // steam = 4
+    // hex = 5
+    // hhex = 6
+    if (
+      otpStorage.type === OTPType.totp ||
+      otpStorage.type === OTPType.hex ||
+      (otpStorage.type as unknown) === 1 ||
+      (otpStorage.type as unknown) === 5
+    ) {
       type = OTPType.totp;
     } else if (
       otpStorage.type === OTPType.hotp ||
-      otpStorage.type === OTPType.hhex
+      otpStorage.type === OTPType.hhex ||
+      (otpStorage.type as unknown) === 2 ||
+      (otpStorage.type as unknown) === 6
     ) {
       type = OTPType.hotp;
     } else {
