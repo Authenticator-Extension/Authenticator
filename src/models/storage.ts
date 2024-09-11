@@ -630,8 +630,32 @@ export class EntryStorage {
         default:
           // we need correct the type here
           // and save it
-          type = OTPType.totp;
-          entryData.type = OTPType.totp;
+
+          // We may have already had some error OTP type entries in the storage
+          // totp = 1
+          // hotp = 2
+          // battle = 3
+          // steam = 4
+          // hex = 5
+          // hhex = 6
+
+          if ((entryData.type as unknown) === 1) {
+            type = OTPType.totp;
+          } else if ((entryData.type as unknown) === 2) {
+            type = OTPType.hotp;
+          } else if ((entryData.type as unknown) === 3) {
+            type = OTPType.battle;
+          } else if ((entryData.type as unknown) === 4) {
+            type = OTPType.steam;
+          } else if ((entryData.type as unknown) === 5) {
+            type = OTPType.hex;
+          } else if ((entryData.type as unknown) === 6) {
+            type = OTPType.hhex;
+          } else {
+            type = OTPType.totp;
+          }
+
+          entryData.type = type;
       }
 
       let period: number | undefined;

@@ -71,6 +71,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { isSafari } from "../../browser";
+import { OTPType } from "../../models/otp";
 
 export default Vue.extend({
   data: function () {
@@ -212,25 +213,11 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";
     let type = "";
-    // We may have already have some error OTP type entries in the storage
-    // totp = 1
-    // hotp = 2
-    // battle = 3
-    // steam = 4
-    // hex = 5
-    // hhex = 6
-    if (
-      otpStorage.type === OTPType.totp ||
-      otpStorage.type === OTPType.hex ||
-      (otpStorage.type as unknown) === 1 ||
-      (otpStorage.type as unknown) === 5
-    ) {
+    if (otpStorage.type === OTPType.totp || otpStorage.type === OTPType.hex) {
       type = OTPType.totp;
     } else if (
       otpStorage.type === OTPType.hotp ||
-      otpStorage.type === OTPType.hhex ||
-      (otpStorage.type as unknown) === 2 ||
-      (otpStorage.type as unknown) === 6
+      otpStorage.type === OTPType.hhex
     ) {
       type = OTPType.hotp;
     } else {
