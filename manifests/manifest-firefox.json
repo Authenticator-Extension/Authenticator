@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "short_name": "__MSG_extShortName__",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "default_locale": "en",
   "description": "__MSG_extDesc__",
   "browser_specific_settings": {
