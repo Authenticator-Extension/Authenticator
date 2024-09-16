@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Importa imatges de QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -238,7 +238,7 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Importa URLs d'OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
     "message": "Permet iniciar sessió en serveis d'emmagatzematge de tercers."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Permet el bloqueig automàtic."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Injecta scripts a la pestanya actual per llegir codis QR i permetre l'emplenament automàtic."
   },
   "permission_clipboard_write": {
     "message": "Atorga accés només d'escriptura al porta-retalls per copiar codis al porta-retalls quan feu clic al compte."
@@ -516,9 +516,9 @@
     "message": "Permís desconegut. Si veieu aquest missatge, envieu un informe d'error."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Contrasenya incorrecta"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Atenció: El filtre intel·ligent relaciona vagament el nom de domini amb un compte. Comprova sempre que siguis a la pàgina correcta abans d'introduir un codi!"
   }
 }
