@@ -90,7 +90,7 @@ export class Accounts implements Module {
             second += Number(UserSettings.items.offset) + 60;
           }
 
-          second = second % 60;
+          second = (second < 0) ? (60 - (second * -1) % 60) : (second % 60);
           state.second = second;
 
           let currentlyEncrypted = false;
