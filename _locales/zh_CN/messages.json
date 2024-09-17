@@ -423,7 +423,7 @@
     "message": "启用自动锁定来保护您的数据。"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "浏览器同步已被禁用。启用它以允许跨浏览器的帐户同步。"
+    "message": "浏览器同步已被禁用。启用它以允许跨浏览器的同步帐户。"
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "可以启用自动填充以自动将代码填充到网站中。"
