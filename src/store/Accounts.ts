@@ -87,7 +87,7 @@ export class Accounts implements Module {
           let second = new Date().getSeconds();
           if (UserSettings.items.offset) {
             // prevent second from negative
-            second += Number(UserSettings.items.offset) + 60;
+            second += Number(UserSettings.items.offset);
           }
 
           second = (second < 0) ? (60 - (second * -1) % 60) : (second % 60);
