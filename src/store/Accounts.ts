@@ -86,10 +86,10 @@ export class Accounts implements Module {
         updateCodes(state: AccountsState) {
           let second = new Date().getSeconds();
           if (UserSettings.items.offset) {
-            // prevent second from negative
             second += Number(UserSettings.items.offset);
           }
 
+          // prevent second from negative
           second = (second < 0) ? (60 - (second * -1) % 60) : (second % 60);
           state.second = second;
 
