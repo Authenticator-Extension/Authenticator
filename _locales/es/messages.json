@@ -238,7 +238,7 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Añadir las URL del Autenticador de Google",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
     "message": "Permitir iniciar sesión en servicios para almacenamiento de terceros."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Habilita el bloqueo automático."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Inyecta los scripts en la ventana actual para escanear los códigos QR y habilitar el relleno automático."
   },
   "permission_clipboard_write": {
     "message": "Otorga acceso de sólo escritura al portapapeles para copiar codigos al portapapeles cuando haga clic en la cuenta."
@@ -516,9 +516,9 @@
     "message": "Permiso desconocido. Si ve este mensaje, por favor envíe un informe de error."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Contraseña incorrecta"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Advertencia: El filtro inteligente utiliza la coincidencia de nombres de dominio. ¡Verifica que siempre accedas al sitio web correcto antes de introducir el código!"
   }
 }
