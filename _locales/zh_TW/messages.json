@@ -480,10 +480,10 @@
     "message": "允許登入第三方儲存服務。"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "允許自動鎖定功能生效。"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "將腳本注入目前標籤頁以掃描二維碼並允許自動填充功能生效。"
   },
   "permission_clipboard_write": {
     "message": "授權點選帳戶時複製驗證碼到剪貼簿。"
@@ -516,9 +516,9 @@
     "message": "未知的權限。您如果看到這個訊息，請回報程式異常。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "密碼不正確"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "警告：Smart filter loosely matches the domain name to an account. 輸入代碼之前，請務必確認您造訪的是正確的網站！"
   }
 }
