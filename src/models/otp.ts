@@ -3,7 +3,8 @@ import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 
 export enum OTPType {
-  totp = 1,
+  PLACEHOLDER_DO_NOT_USE, // https://github.com/Authenticator-Extension/Authenticator/pull/1283#issuecomment-2382842440
+  totp,
   hotp,
   battle,
   steam,
