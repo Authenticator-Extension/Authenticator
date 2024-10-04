@@ -134,7 +134,7 @@
     "description": "Update."
   },
   "phrase_incorrect": {
-    "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+    "message": "Bạn không thể thêm tài khoản mới hoặc trích xuất dữ liệu cho đến khi tất cả các tài khoản được giải mã. Vui lòng nhập lại mật khẩu để tiếp tục.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Nhập hình ảnh mã QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
