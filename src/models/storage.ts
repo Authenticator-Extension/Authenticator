@@ -622,12 +622,12 @@ export class EntryStorage {
 
       let type: OTPType;
       switch (entryData.type) {
-        case "totp":
-        case "hotp":
-        case "battle":
-        case "steam":
-        case "hex":
-        case "hhex":
+        case OTPType[OTPType.totp]:
+        case OTPType[OTPType.hotp]:
+        case OTPType[OTPType.battle]:
+        case OTPType[OTPType.steam]:
+        case OTPType[OTPType.hex]:
+        case OTPType[OTPType.hhex]:
           type = OTPType[entryData.type];
           break;
         default:

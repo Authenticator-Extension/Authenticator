@@ -71,6 +71,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { isSafari } from "../../browser";
+import { OTPType } from "../../models/otp";
 
 export default Vue.extend({
   data: function () {
@@ -176,8 +177,8 @@ export default Vue.extend({
 function hasUnsupportedAccounts(exportData: { [h: string]: RawOTPStorage }) {
   for (const entry of Object.keys(exportData)) {
     if (
-      exportData[entry].type === "battle" ||
-      exportData[entry].type === "steam"
+      exportData[entry].type === OTPType[OTPType.battle] ||
+      exportData[entry].type === OTPType[OTPType.steam]
     ) {
       return true;
     }
@@ -212,10 +213,10 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";
     let type = "";
-    if (otpStorage.type === "totp" || otpStorage.type === "hex") {
-      type = "totp";
-    } else if (otpStorage.type === "hotp" || otpStorage.type === "hhex") {
-      type = "hotp";
+    if (otpStorage.type === OTPType[OTPType.totp] || otpStorage.type === OTPType[OTPType.hex]) {
+      type = OTPType[OTPType.totp];
+    } else if (otpStorage.type === OTPType[OTPType.hotp] || otpStorage.type === OTPType[OTPType.hhex]) {
+      type = OTPType[OTPType.hotp];
     } else {
       continue;
     }
@@ -228,8 +229,8 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       "?secret=" +
       otpStorage.secret +
       (otpStorage.issuer ? "&issuer=" + otpStorage.issuer : "") +
-      (type === "hotp" ? "&counter=" + otpStorage.counter : "") +
-      (type === "totp" && otpStorage.period
+      (type === OTPType[OTPType.hotp] ? "&counter=" + otpStorage.counter : "") +
+      (type === OTPType[OTPType.totp] && otpStorage.period
         ? "&period=" + otpStorage.period
         : "") +
       (otpStorage.digits ? "&digits=" + otpStorage.digits : "") +
