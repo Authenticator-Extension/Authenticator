@@ -516,7 +516,7 @@
     "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Yanlış parola"
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
