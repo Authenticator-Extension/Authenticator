@@ -190,7 +190,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Karekodu yerel bir dosyadan mı taramaya çalışıyorsunuz? Bunun yerine görsel karekod yedeğini içe aktar seçeneğini kullanın.",
+    "message": "Karekodu yerel bir dosyadan mı taramaya çalışıyorsunuz? Bunun yerine karekod görüntüsü yedeğini içe aktar seçeneğini kullanın.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -226,7 +226,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Görsel karekod yedeğini içe aktar",
+    "message": "Karekod görüntüsü yedeğini içe aktar",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -519,6 +519,6 @@
     "message": "Yanlış parola"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Uyarı: Akıllı filtre, alan adını tahmini şekilde bir hesapla eşleştirir. Kodu girmeden önce doğru web sitesinde olduğunuzu her zaman doğrulayın."
   }
 }
