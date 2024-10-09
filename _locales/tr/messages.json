@@ -182,7 +182,7 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
+    "message": "Hesaplarınızı yedeklediniz mi? Geç kalmadan önlem alın!",
     "description": "Remind Backup"
   },
   "capture_failed": {
