@@ -62,7 +62,7 @@ interface AccountsState {
   entries: OTPEntryInterface[];
   defaultEncryption: string;
   encryption: Map<string, EncryptionInterface>;
-  OTPType: number;
+  OTPType: OTPType;
   shouldShowPassphrase: boolean;
   sectorStart: boolean;
   sectorOffset: number;

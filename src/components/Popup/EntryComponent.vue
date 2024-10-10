@@ -264,10 +264,10 @@ function getQrUrl(entry: OTPEntry) {
     : entry.account;
   const type =
     entry.type === OTPType.hex
-      ? OTPType[OTPType.totp]
+      ? OTPType.totp
       : entry.type === OTPType.hhex
-      ? OTPType[OTPType.hotp]
-      : OTPType[entry.type];
+      ? OTPType.hotp
+      : entry.type;
   const otpauth =
     "otpauth://" +
     type +

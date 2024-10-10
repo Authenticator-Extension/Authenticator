@@ -1,5 +1,14 @@
+declare enum OTPType {
+  totp = "totp",
+  hotp = "hotp",
+  battle = "battle",
+  steam = "steam",
+  hex = "hex",
+  hhex = "hhex",
+}
+
 interface OTPEntryInterface {
-  type: number; // OTPType
+  type: OTPType;
   index: number;
   issuer: string;
   secret: string | null;
@@ -42,7 +51,7 @@ interface RawOTPStorage {
   index: number;
   issuer?: string;
   secret: string;
-  type: string;
+  type: OTPType;
   counter?: number;
   period?: number;
   digits?: number;

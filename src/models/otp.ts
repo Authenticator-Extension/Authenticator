@@ -3,12 +3,12 @@ import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 
 export enum OTPType {
-  totp = 1,
-  hotp,
-  battle,
-  steam,
-  hex,
-  hhex,
+  totp = "totp",
+  hotp = "hotp",
+  battle = "battle",
+  steam = "steam",
+  hex = "hex",
+  hhex = "hhex",
 }
 
 export enum CodeState {
@@ -117,7 +117,30 @@ export class OTPEntry implements OTPEntryInterface {
       this.secret = entry.secret;
     }
 
-    this.type = entry.type;
+    // We may have already had some error OTP type entries in the storage
+    // totp = 1
+    // hotp = 2
+    // battle = 3
+    // steam = 4
+    // hex = 5
+    // hhex = 6
+
+    if ((entry.type as unknown) === 1) {
+      this.type = OTPType.totp;
+    } else if ((entry.type as unknown) === 2) {
+      this.type = OTPType.hotp;
+    } else if ((entry.type as unknown) === 3) {
+      this.type = OTPType.battle;
+    } else if ((entry.type as unknown) === 4) {
+      this.type = OTPType.steam;
+    } else if ((entry.type as unknown) === 5) {
+      this.type = OTPType.hex;
+    } else if ((entry.type as unknown) === 6) {
+      this.type = OTPType.hhex;
+    } else {
+      this.type = entry.type;
+    }
+
     if (entry.issuer) {
       this.issuer = entry.issuer;
     } else {
@@ -223,8 +246,31 @@ export class OTPEntry implements OTPEntryInterface {
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;
-    // @ts-expect-error need a better way to do this
-    this.type = OTPType[decryptedData.type] || OTPType.totp;
+    this.type = decryptedData.type || OTPType.totp;
+
+    // We may have already had some error OTP type entries in the storage
+    // totp = 1
+    // hotp = 2
+    // battle = 3
+    // steam = 4
+    // hex = 5
+    // hhex = 6
+
+    if ((decryptedData.type as unknown) === 1) {
+      this.type = OTPType.totp;
+    } else if ((decryptedData.type as unknown) === 2) {
+      this.type = OTPType.hotp;
+    } else if ((decryptedData.type as unknown) === 3) {
+      this.type = OTPType.battle;
+    } else if ((decryptedData.type as unknown) === 4) {
+      this.type = OTPType.steam;
+    } else if ((decryptedData.type as unknown) === 5) {
+      this.type = OTPType.hex;
+    } else if ((decryptedData.type as unknown) === 6) {
+      this.type = OTPType.hhex;
+    } else {
+      this.type = OTPType.totp;
+    }
 
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();

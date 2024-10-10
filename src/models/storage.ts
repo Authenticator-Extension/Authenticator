@@ -222,7 +222,7 @@ export class EntryStorage {
       encrypted,
       hash: entry.hash,
       index: entry.index,
-      type: OTPType[entry.type],
+      type: entry.type,
       secret,
     };
 
@@ -392,10 +392,7 @@ export class EntryStorage {
       }
 
       // remove unnecessary fields
-      if (
-        !(entry.type === OTPType[OTPType.hotp]) &&
-        !(entry.type === OTPType[OTPType.hhex])
-      ) {
+      if (!(entry.type === OTPType.hotp) && !(entry.type === OTPType.hhex)) {
         delete entry.counter;
       }
 
@@ -478,7 +475,7 @@ export class EntryStorage {
         algorithm: OTPAlgorithm;
         pinned: boolean;
       } = {
-        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        type: data[hash].type || OTPType.totp,
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
         account: data[hash].account || "",
@@ -617,29 +614,53 @@ export class EntryStorage {
       }
 
       if (!entryData.type) {
-        entryData.type = OTPType[OTPType.totp];
+        entryData.type = OTPType.totp;
       }
 
       let type: OTPType;
       switch (entryData.type) {
-        case "totp":
-        case "hotp":
-        case "battle":
-        case "steam":
-        case "hex":
-        case "hhex":
-          type = OTPType[entryData.type];
+        case OTPType.totp:
+        case OTPType.hotp:
+        case OTPType.battle:
+        case OTPType.steam:
+        case OTPType.hex:
+        case OTPType.hhex:
+          type = entryData.type;
           break;
         default:
           // we need correct the type here
           // and save it
-          type = OTPType.totp;
-          entryData.type = OTPType[OTPType.totp];
+
+          // We may have already had some error OTP type entries in the storage
+          // totp = 1
+          // hotp = 2
+          // battle = 3
+          // steam = 4
+          // hex = 5
+          // hhex = 6
+
+          if ((entryData.type as unknown) === 1) {
+            type = OTPType.totp;
+          } else if ((entryData.type as unknown) === 2) {
+            type = OTPType.hotp;
+          } else if ((entryData.type as unknown) === 3) {
+            type = OTPType.battle;
+          } else if ((entryData.type as unknown) === 4) {
+            type = OTPType.steam;
+          } else if ((entryData.type as unknown) === 5) {
+            type = OTPType.hex;
+          } else if ((entryData.type as unknown) === 6) {
+            type = OTPType.hhex;
+          } else {
+            type = OTPType.totp;
+          }
+
+          entryData.type = type;
       }
 
       let period: number | undefined;
       if (
-        entryData.type === OTPType[OTPType.totp] &&
+        entryData.type === OTPType.totp &&
         entryData.period &&
         entryData.period > 0
       ) {

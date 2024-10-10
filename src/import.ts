@@ -211,7 +211,7 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
     }
 
     let uri = item.split("otpauth://")[1];
-    let type = uri.substr(0, 4).toLowerCase();
+    let type = uri.substr(0, 4).toLowerCase() as OTPType;
     uri = uri.substr(5);
     let label = uri.split("?")[0];
     const parameterPart = uri.split("?")[1];
@@ -282,15 +282,15 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "totp"
+          type === OTPType.totp
         ) {
-          type = "hex";
+          type = OTPType.hex;
         } else if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "hotp"
+          type === OTPType.hotp
         ) {
-          type = "hhex";
+          type = OTPType.hhex;
         }
 
         exportData[hash] = {
