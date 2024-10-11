@@ -7,6 +7,7 @@ import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import * as CryptoJS from "crypto-js";
+import { OTPType } from "./models/otp";
 
 async function init() {
   // i18n
@@ -282,15 +283,15 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "totp"
+          type === OTPType[OTPType.totp]
         ) {
-          type = "hex";
+          type = OTPType[OTPType.hex];
         } else if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "hotp"
+          type === OTPType[OTPType.hotp]
         ) {
-          type = "hhex";
+          type = OTPType[OTPType.hhex];
         }
 
         exportData[hash] = {
