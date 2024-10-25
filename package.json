@@ -33,7 +33,7 @@
     "@types/sinon-chrome": "^2.2.10",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",
-    "@vue/test-utils": "^1.1.1",
+    "@vue/test-utils": "^2.4.6",
     "base64-loader": "^1.0.0",
     "buffer": "^6.0.3",
     "chai": "^4.2.0",
@@ -70,8 +70,8 @@
     "node-gost-crypto": "^1.0.2",
     "qrcode-generator": "^1.4.4",
     "qrcode-reader": "^1.0.4",
-    "vue": "^2.7.16",
+    "vue": "^3.5.12",
     "vue2-dragula": "^2.5.4",
-    "vuex": "^3.4.0"
+    "vuex": "^4.1.0"
   }
 }
