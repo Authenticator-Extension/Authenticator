@@ -4,6 +4,7 @@ import jsQR from "jsqr";
 
 // @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
+import { OTPType } from "./models/otp";
 
 if (!document.getElementById("__ga_grayLayout__")) {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -304,7 +305,7 @@ function pasteCode(code: string) {
     "authenticator",
     "factor",
     "code",
-    "totp",
+    OTPType[OTPType.totp],
     "twoFactorCode",
   ];
   for (const inputBox of inputBoxes) {

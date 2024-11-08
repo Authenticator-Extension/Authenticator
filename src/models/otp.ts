@@ -3,7 +3,8 @@ import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 
 export enum OTPType {
-  totp = 1,
+  PLACEHOLDER_DO_NOT_USE, // https://github.com/Authenticator-Extension/Authenticator/pull/1283#issuecomment-2382842440
+  totp,
   hotp,
   battle,
   steam,
@@ -223,8 +224,8 @@ export class OTPEntry implements OTPEntryInterface {
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;
-    // @ts-expect-error need a better way to do this
-    this.type = OTPType[decryptedData.type] || OTPType.totp;
+    this.type =
+      OTPType[decryptedData.type as keyof typeof OTPType] || OTPType.totp;
 
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();

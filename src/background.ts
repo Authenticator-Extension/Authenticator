@@ -8,7 +8,7 @@ import {
   getCurrentTab,
   okToInjectContentScript,
 } from "./utils";
-import { CodeState } from "./models/otp";
+import { CodeState, OTPType } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
@@ -193,15 +193,15 @@ async function getTotp(text: string, silent = false) {
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "totp"
+          type === OTPType[OTPType.totp]
         ) {
-          type = "hex";
+          type = OTPType[OTPType.hex];
         } else if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
           /^[0-9a-f]+$/i.test(secret) &&
-          type === "hotp"
+          type === OTPType[OTPType.hotp]
         ) {
-          type = "hhex";
+          type = OTPType[OTPType.hhex];
         }
         const entryData: { [hash: string]: RawOTPStorage } = {};
         entryData[hash] = {
