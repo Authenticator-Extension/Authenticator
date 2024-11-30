@@ -96,14 +96,14 @@ export default Vue.extend({
       if (this.searchText === "") {
         return true;
       }
-      if (
-        entry.issuer.toLowerCase().includes(this.searchText.toLowerCase()) ||
-        entry.account.toLowerCase().includes(this.searchText.toLowerCase())
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+
+      const keywords = this.searchText.toLowerCase().split(" ").filter(Boolean);
+
+      return keywords.every(
+        (keyword) =>
+          entry.issuer.toLowerCase().includes(keyword) ||
+          entry.account.toLowerCase().includes(keyword)
+      );
     },
     clearFilter() {
       this.$store.dispatch("accounts/clearFilter");
