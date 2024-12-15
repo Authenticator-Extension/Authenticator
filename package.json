@@ -41,7 +41,7 @@
     "eslint": "^8.56.0",
     "fork-ts-checker-webpack-plugin": "^6.5.3",
     "lodash": "^4.17.21",
-    "mocha": "^10.2.0",
+    "mocha": "^10.8.2",
     "npm-license-generator": "^2.0.0",
     "nyc": "^15.1.0",
     "prettier": "2.2.1",
