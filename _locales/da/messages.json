@@ -480,10 +480,10 @@
     "message": "Tillader at logge ind på 3. parts lagertjenester."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Tillader auto-lås til arbejde."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Injicer scripts ind i den aktuelle fane for at scanne QR-koder og tillade autoudfyldning til arbejde."
   },
   "permission_clipboard_write": {
     "message": "Giver skrivebeskyttet adgang til udklipsholderen for at kopiere koder til udklipsholderen, når du klikker på kontoen."
@@ -519,6 +519,6 @@
     "message": "Forkert adgangskode"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Advarsel: Smart filter matcher delvist domænenavnet til en konto. Kontrollér altid, at du er på det rigtige websted, før du indtaster en kode!"
   }
 }
