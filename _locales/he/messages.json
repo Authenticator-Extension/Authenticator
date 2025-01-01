@@ -507,16 +507,16 @@
     "message": "You must disable Google Drive backup first."
   },
   "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
+    "message": "אפשר גיבוי ל OneDrive."
   },
   "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
+    "message": "יש לבטל תחילה את הגיבוי ל OneDrive."
   },
   "permission_unknown_permission": {
-    "message": "Unknown permission. If see this message, please send a bug report."
+    "message": "הרשאה לא מוכרת. אם אתה רואה הודעה זו, בבקשה שלח לנו דיווח על באג."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "הסיסמה שגויה"
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
