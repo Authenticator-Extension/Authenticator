@@ -495,16 +495,16 @@
     "message": "Allows clock sync with Google."
   },
   "permission_dropbox": {
-    "message": "Allows backup to Dropbox."
+    "message": "אפשר תמיד גיבוי ל Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "You must disable Dropbox backup first."
+    "message": "תחילה חובה לבטל גיבוי ל Dropbox."
   },
   "permission_drive": {
-    "message": "Allows backup to Google Drive."
+    "message": "גבה תמיד ל Google Drive."
   },
   "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
+    "message": "תחילה יש לבטל את גיבוי Google Drive."
   },
   "permission_onedrive": {
     "message": "אפשר גיבוי ל OneDrive."
@@ -519,6 +519,6 @@
     "message": "הסיסמה שגויה"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "אזהרה: מסנן חכם מבצע הערכת התאמה על בסיס דומיין לחשבון. ודא תמיד שהינך נמצא בכתובת הנכונה לפני הכנסת קוד!"
   }
 }
