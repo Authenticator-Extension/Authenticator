@@ -396,7 +396,7 @@
     "message": "Không hợp lệ"
   },
   "digits": {
-    "message": "Đồng hồ số"
+    "message": "Digits"
   },
   "algorithm": {
     "message": "Thuật toán"
