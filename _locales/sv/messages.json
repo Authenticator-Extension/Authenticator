@@ -519,6 +519,6 @@
     "message": "Lösenord felaktigt"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Varning: Smart filter matchar domännamnet på ett ungefär till ett konto. Kontrollera alltid att du är på rätt webbplats innan du anger en kod!"
   }
 }
