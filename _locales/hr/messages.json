@@ -483,7 +483,7 @@
     "message": "Omogućuje automatsko zaključavanje."
   },
   "permission_scripting": {
-    "message": "Umetni skripta u trenutačnu karticu za skeniranje QR kodova i omogući automatsko ispunjavanje."
+    "message": "Ubaci skripte u trenutačnu karticu za skeniranje QR kodova i omogućavanje automatskog ispunjavanja."
   },
   "permission_clipboard_write": {
     "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš račun."
