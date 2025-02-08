@@ -468,7 +468,7 @@
     "message": "显示不可撤销的权限"
   },
   "permission_required": {
-    "message": "这是必需的权限，不能撤销。"
+    "message": "这是必须的权限，不可撤销。"
   },
   "permission_active_tab": {
     "message": "访问当前标签页以扫描二维码。"
@@ -519,6 +519,6 @@
     "message": "密码不正确"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "警告：智能筛选器将域名与帐户松散匹配。在输入代码之前，请务必验证您是否在正确的网站上！"
   }
 }
