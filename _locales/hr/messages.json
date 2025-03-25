@@ -120,7 +120,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetiraj Autentifikator"
+    "message": "Ponovno postavi Autentifikator"
   },
   "delete_all_warning": {
     "message": "Ovo će izbrisati sve tvoje podatke i potpuno resetirati Autentifikator. Nećeš moći vratiti izbrisane podatke! Spremi sigurnosnu kopiju prije resetiranja Autentifikatora."
