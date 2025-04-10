@@ -11,6 +11,13 @@
 </head>
 
 <body>
+    <input 
+  type="text" 
+  id="search" 
+  placeholder="🔍 Search accounts..." 
+  oninput="filterAccounts()" 
+  style="width: 80%; padding: 8px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;" 
+/>
     <div id="authenticator">
     </div>
     <script src="../dist/popup.js"></script>
