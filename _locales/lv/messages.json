@@ -36,7 +36,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Neizdevās importēt. Ja migrējat datus no Google Authenticator, lūdzu, atkārtoti eksportējiet datus no Google Authenticator un mēģiniet vēlreiz.",
+    "message": "Neizdevās importēt. Ja migrējiet datus no Google Authenticator, lūdzu, atkārtoti eksportējiet datus no Google Authenticator un mēģiniet vēlreiz.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -84,7 +84,7 @@
     "description": "Update Failure."
   },
   "about": {
-    "message": "Par",
+    "message": "Par lietotni",
     "description": "About."
   },
   "settings": {
@@ -162,7 +162,7 @@
     "description": "Translate."
   },
   "source": {
-    "message": "Avota kods",
+    "message": "Pirmkods",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -214,7 +214,7 @@
     "description": "Export menu info text"
   },
   "download_backup": {
-    "message": "Saglabāt rezerves kopijas failu",
+    "message": "Saglabāt rezerves kopiju",
     "description": "Download backup file."
   },
   "import_backup": {
@@ -226,7 +226,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Importēt kvadrātkoda (QR) attēla rezerves kopiju",
+    "message": "Importēt kvadrātkoda attēla rezerves kopiju",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -238,11 +238,11 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Importēt OTP URL saites",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "Importēšana bija veiksmīga, taču dažus kvadrātkodus (QR kodus) nevarēja atpazīt.",
+    "message": "Importēšana bija veiksmīga, taču dažus kvadrātkodus nevarēja atpazīt.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -270,7 +270,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Lejupielādēt rezerves kopiju aizsargātu ar paroli",
+    "message": "Saglabāt rezerves kopiju aizsargātu ar paroli",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -480,10 +480,10 @@
     "message": "Ļauj autorizēties trešās puses krātuves pakalpojumos."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Ļauj izmantot automātisko bloķēšanu."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Ievietot skriptus pašreizējā cilnē, lai varētu skenētu kvadrātkodus un automātiski aizpildīt ievades laukus."
   },
   "permission_clipboard_write": {
     "message": "Piešķir tikai rakstīšanas piekļuvi starpliktuvei, lai varētu kopēt kodus starpliktuvē, kad noklikšķināt uz konta."
@@ -519,6 +519,6 @@
     "message": "Nepareiza parole"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Uzmanību: Intelektuālais (viedais) filtrs nevisai precīzi salīdzina domēna vārdu ar kontu. Pirms koda ievadīšanas vienmēr pārliecinieties, ka atrodaties īstajā vietnē!"
   }
 }
