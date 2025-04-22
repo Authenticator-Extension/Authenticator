@@ -16,7 +16,7 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "Neatpazīstams kvadrātkods (QR kods).",
+    "message": "Neatpazīstams kvadrātkods.",
     "description": "QR Error."
   },
   "errorsecret": {
@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Importēt kvadrātkoda attēlus",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -474,7 +474,7 @@
     "message": "Piekļuve pašreizējai cilnei, lai varētu nolasīt kvadrātkodus (QR kodus)."
   },
   "permission_storage": {
-    "message": "Piekļuve pārlūkprogrammas krātuvei, lai varētu saglabāt konta datus."
+    "message": "Piekļuve pārlūka krātuvei, lai varētu saglabāt konta datus."
   },
   "permission_identity": {
     "message": "Ļauj autorizēties trešās puses krātuves pakalpojumos."
@@ -516,7 +516,7 @@
     "message": "Nezināma atļauja. Ja redzat šo ziņojumu, lūdzu, nosūtiet kļūdu ziņojumu."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Nepareiza parole"
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
