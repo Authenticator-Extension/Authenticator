@@ -278,7 +278,7 @@
     "description": "Search"
   },
   "popout": {
-    "message": "Uznirstošais režīms",
+    "message": "Uznirstošā loga režīms",
     "description": "Make window turn into persistent popup"
   },
   "lock": {
@@ -290,7 +290,7 @@
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "Manuāla dublēšana",
+    "message": "Manuāla rezerves kopiju veidošana",
     "description": "Manual backup"
   },
   "use_autofill": {
@@ -334,7 +334,7 @@
     "description": "3rd party backup info"
   },
   "browser_sync": {
-    "message": "Pārlūkprogrammas sinhronizēšana",
+    "message": "Pārlūku sinhronizēšana",
     "description": "Storage location"
   },
   "sign_in": {
@@ -402,7 +402,7 @@
     "message": "Algoritms"
   },
   "smart_filter": {
-    "message": "Viedais filtrs"
+    "message": "Intelektuālais filtrs"
   },
   "backup": {
     "message": "Rezerves kopija"
@@ -411,7 +411,7 @@
     "message": "Izveidot datu rezerves kopiju failā."
   },
   "password_policy_default_hint": {
-    "message": "Jūsu parole neatbilst jūsu organizācijas drošības prasībām. Lai iegūtu papildinformāciju, sazinieties ar savu administratoru."
+    "message": "Jūsu parole neatbilst jūsu uzņēmuma drošības prasībām. Lai iegūtu papildinformāciju, sazinieties ar savu administratoru."
   },
   "advisor": {
     "message": "Padomdevējs"
@@ -423,19 +423,19 @@
     "message": "Iespējojiet automātisko aizslēgšanu, lai aizsargātu savus datus."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Pārlūkprogrammas sinhronizēšana ir atspējota. Iespējojot to, kontus var sinhronizēt dažādās pārlūkprogrammās."
+    "message": "Pārlūku sinhronizēšana ir atspējota. Iespējojot to, ļauj sinhronizēt kontus dažādos pārlūkos."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "Var iespējot automātisko aizpildīšanu, lai automātiski ievadītu kodus vietnēs."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Viedā filtra iespējošana ļauj ātri piekļūt kontiem."
+    "message": "Intelektuālā filtra iespējošana ļauj ātri piekļūt kontiem."
   },
   "show_all_insights": {
     "message": "Rādīt visus ieteikumus."
   },
   "no_insight_available": {
-    "message": "Ieteikumi nav atrasti, viss ir kārtībā!"
+    "message": "Nav ieteikumu, viss kārtībā!"
   },
   "danger": {
     "message": "Bīstami"
@@ -456,7 +456,7 @@
     "message": "Pievienot konteksta izvēlnei"
   },
   "no_entires": {
-    "message": "Nav kontu, ko parādīt. Pievienojiet savu pirmo kontu tūlīt."
+    "message": "Nav kontu, ko parādīt. Pievienojiet savu pirmo kontu tagad."
   },
   "permissions": {
     "message": "Atļaujas"
@@ -465,13 +465,13 @@
     "message": "Noņemt"
   },
   "permission_show_required_permissions": {
-    "message": "Rādīt neatsaucamās atļaujas"
+    "message": "Rādīt nenoņemamās atļaujas"
   },
   "permission_required": {
-    "message": "Šī atļauja ir nepieciešama, un to nevar atsaukt."
+    "message": "Šī atļauja ir nepieciešama, un to nevar noņemt."
   },
   "permission_active_tab": {
-    "message": "Piekļuve pašreizējai cilnei, lai varētu nolasīt kvadrātkodus (QR kodus)."
+    "message": "Piekļuve pašreizējai cilnei, lai varētu nolasīt kvadrātkodus."
   },
   "permission_storage": {
     "message": "Piekļuve pārlūka krātuvei, lai varētu saglabāt konta datus."
@@ -519,6 +519,6 @@
     "message": "Nepareiza parole"
   },
   "activate_auto_filter": {
-    "message": "Uzmanību: Intelektuālais (viedais) filtrs nevisai precīzi salīdzina domēna vārdu ar kontu. Pirms koda ievadīšanas vienmēr pārliecinieties, ka atrodaties īstajā vietnē!"
+    "message": "Uzmanību: Intelektuālais filtrs nevisai precīzi salīdzina domēna vārdu ar kontu. Pirms koda ievadīšanas vienmēr pārliecinieties, ka atrodaties īstajā vietnē!"
   }
 }
