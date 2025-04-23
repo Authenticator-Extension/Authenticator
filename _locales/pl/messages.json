@@ -426,7 +426,7 @@
     "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej umożliwia synchronizację kont pomiędzy przeglądarkami."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
+    "message": "Automatyczne uzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
   },
   "advisor_insight_smart_filter_not_enabled": {
     "message": "Włączenie inteligentnego filtra umożliwia szybki dostęp do kont."
@@ -483,7 +483,7 @@
     "message": "Umożliwia działanie automatycznego blokowania."
   },
   "permission_scripting": {
-    "message": "Wstawiaj skrypty do bieżącej karty, aby skanować kody QR i umożliwić autouzupełnianie."
+    "message": "Wstawiaj skrypty do bieżącej karty, aby skanować kody QR i umożliwić automatyczne uzupełnianie."
   },
   "permission_clipboard_write": {
     "message": "Przyznaje dostęp tylko do zapisu do schowka w celu skopiowania kodów do schowka po kliknięciu konta."
