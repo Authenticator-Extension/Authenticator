@@ -60,7 +60,7 @@
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.7.16",
     "webpack": "^5.94.0",
-    "webpack-cli": "^5.0.0",
+    "webpack-cli": "^5.1.4",
     "webpack-merge": "^5.0.0"
   },
   "dependencies": {
