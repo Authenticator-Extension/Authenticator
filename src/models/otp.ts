@@ -59,6 +59,7 @@ export class OTPEntry implements OTPEntryInterface {
   digits: number;
   algorithm: OTPAlgorithm;
   pinned: boolean;
+  favorite: boolean;
   encryption?: EncryptionInterface;
   encData?: string;
   encSecret?: string;
@@ -80,6 +81,7 @@ export class OTPEntry implements OTPEntryInterface {
           digits?: number;
           algorithm?: OTPAlgorithm;
           pinned?: boolean;
+          favorite?: boolean;
         }
       | {
           encrypted: true;
@@ -108,6 +110,7 @@ export class OTPEntry implements OTPEntryInterface {
       this.digits = 6;
       this.algorithm = OTPAlgorithm.SHA1;
       this.pinned = false;
+      this.favorite = false;
       return;
     } else if (entry.encrypted) {
       // v2 encryption backwards compat logic
@@ -152,6 +155,11 @@ export class OTPEntry implements OTPEntryInterface {
       this.pinned = entry.pinned;
     } else {
       this.pinned = false;
+    }
+    if (entry.favorite) {
+      this.favorite = entry.favorite;
+    } else {
+      this.favorite = false;
     }
     if (this.type === OTPType.totp && entry.period) {
       this.period = entry.period;

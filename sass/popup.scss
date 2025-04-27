@@ -414,6 +414,7 @@ svg {
   }
 
   .showqr,
+  .favorite,
   .pin {
     @include themify($themes) {
       @include icon-special(20px, themed("grey-2"));
@@ -423,16 +424,30 @@ svg {
     top: 10px;
     position: absolute;
     cursor: pointer;
-    opacity: 0;
   }
 
   .showqr {
+    right: 60px;
+    opacity: 0;
+  }
+
+  .favorite {
     right: 35px;
+    opacity: 0;
+    
+    svg.active {
+      fill: #FFC107 !important;
+    }
+  }
+
+  .pin {
+    opacity: 0;
   }
 
   &:hover {
     .showqr,
-    .pin {
+    .pin,
+    .favorite {
       opacity: 1;
     }
 
@@ -469,6 +484,22 @@ svg {
         transition: height 0.2s;
     }
     */
+}
+
+.favoriteEntry {
+  .favorite {
+    opacity: 1;
+    
+    svg {
+      fill: #FFC107 !important;
+    }
+  }
+  
+  @include themify($themes) {
+    background-color: rgba(255, 193, 7, 0.25) !important;
+    border-left: 4px solid #FFC107 !important;
+    padding-left: 6px !important;
+  }
 }
 
 .pinnedEntry {

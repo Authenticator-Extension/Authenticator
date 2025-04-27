@@ -6,6 +6,7 @@
     v-bind:class="{
       entry: true,
       pinnedEntry: entry.pinned,
+      favoriteEntry: entry.favorite,
       'no-copy': noCopy(entry.code),
     }"
     v-on:click="copyCode(entry)"
@@ -76,6 +77,9 @@
     >
       <IconQr />
     </div>
+    <div class="favorite" v-on:click.stop="favorite(entry)">
+      <IconStar v-bind:class="{ active: entry.favorite }" />
+    </div>
     <div class="pin" v-on:click.stop="pin(entry)">
       <IconPin />
     </div>
@@ -97,6 +101,7 @@ import IconRedo from "../../../svg/redo.svg";
 import IconQr from "../../../svg/qrcode.svg";
 import IconBars from "../../../svg/bars.svg";
 import IconPin from "../../../svg/pin.svg";
+import IconStar from "../../../svg/star.svg";
 
 const computedPrototype = [
   mapState("accounts", [
@@ -178,6 +183,12 @@ export default Vue.extend({
       const codesEl = document.getElementById("codes") as HTMLDivElement;
       codesEl.scrollTop = 0;
     },
+    async favorite(entry: OTPEntry) {
+      this.$store.commit("accounts/favoriteEntry", entry);
+      await EntryStorage.set(this.$store.state.accounts.entries);
+      const codesEl = document.getElementById("codes") as HTMLDivElement;
+      codesEl.scrollTop = 0;
+    },
     showQr(entry: OTPEntry) {
       this.$store.commit("qr/setQr", getQrUrl(entry));
       this.$store.commit("style/showQr");
@@ -254,6 +265,7 @@ export default Vue.extend({
     IconQr,
     IconBars,
     IconPin,
+    IconStar,
   },
 });
 

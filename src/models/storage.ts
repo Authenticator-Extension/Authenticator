@@ -230,6 +230,10 @@ export class EntryStorage {
       storageItem.pinned = true;
     }
 
+    if (entry.favorite) {
+      storageItem.favorite = true;
+    }
+
     if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
       storageItem.counter = entry.counter;
     }
@@ -420,6 +424,7 @@ export class EntryStorage {
       }
 
       delete entry.pinned;
+      delete entry.favorite;
 
       if (!encrypted) {
         // decrypt the data to export
@@ -477,6 +482,7 @@ export class EntryStorage {
         digits: number;
         algorithm: OTPAlgorithm;
         pinned: boolean;
+        favorite: boolean;
       } = {
         type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
         index: data[hash].index || 0,
@@ -491,6 +497,7 @@ export class EntryStorage {
           ? (parseInt(rawAlgorithm) as OTPAlgorithm)
           : OTPAlgorithm.SHA1,
         pinned: data[hash].pinned || false,
+        favorite: data[hash].favorite || false,
         hash: data[hash].hash || hash,
       };
 
@@ -660,6 +667,7 @@ export class EntryStorage {
         // @ts-expect-error - it's fine if this ends up undefined
         algorithm: OTPAlgorithm[entryData.algorithm],
         pinned: entryData.pinned,
+        favorite: entryData.favorite,
       });
 
       data.push(entry);
@@ -694,7 +702,7 @@ export class ManagedStorage {
     const managedStoragePromise = new Promise(
       (resolve: (result: T | undefined) => void) => {
         if (chrome.storage.managed) {
-          chrome.storage.managed.get((data) => {
+          chrome.storage.managed.get((data: any) => {
             if (chrome.runtime.lastError) {
               return resolve(defaultValue);
             }

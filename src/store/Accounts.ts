@@ -153,6 +153,20 @@ export class Accounts implements Module {
         pinEntry(state: AccountsState, entry: OTPEntryInterface) {
           state.entries[entry.index].pinned = !entry.pinned;
         },
+        favoriteEntry(state: AccountsState, entry: OTPEntryInterface) {
+          state.entries[entry.index].favorite = !entry.favorite;
+          
+          if(state.entries[entry.index].favorite) {
+            const pinnedCount = state.entries.filter(e => e.pinned).length;
+            if(entry.index >= pinnedCount && !state.entries[entry.index].pinned) {
+              const entryToMove = state.entries.splice(entry.index, 1)[0];
+              state.entries.splice(pinnedCount, 0, entryToMove);
+              for (let i = 0; i < state.entries.length; i++) {
+                state.entries[i].index = i;
+              }
+            }
+          }
+        },
         updateExport(
           state: AccountsState,
           exportData: { [k: string]: OTPEntryInterface }
