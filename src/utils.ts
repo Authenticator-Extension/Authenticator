@@ -34,32 +34,33 @@ export async function getSiteName() {
   // ip address
   if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
     nameFromDomain = hostname;
-  }
+  }else{
+    
+    // local network
+    if (hostname.indexOf(".") === -1) {
+      nameFromDomain = hostname;
+    }
 
-  // local network
-  if (hostname.indexOf(".") === -1) {
-    nameFromDomain = hostname;
-  }
+    const hostLevelUnits = hostname.split(".");
 
-  const hostLevelUnits = hostname.split(".");
+    if (hostLevelUnits.length === 2) {
+      nameFromDomain = hostLevelUnits[0];
+    }
 
-  if (hostLevelUnits.length === 2) {
-    nameFromDomain = hostLevelUnits[0];
-  }
-
-  // www.example.com
-  // example.com.cn
-  if (hostLevelUnits.length > 2) {
+    // www.example.com
     // example.com.cn
-    if (
-      ["com", "net", "org", "edu", "gov", "co"].indexOf(
-        hostLevelUnits[hostLevelUnits.length - 2]
-      ) !== -1
-    ) {
-      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
-    } else {
-      // www.example.com
-      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
+    if (hostLevelUnits.length > 2) {
+      // example.com.cn
+      if (
+        ["com", "net", "org", "edu", "gov", "co"].indexOf(
+          hostLevelUnits[hostLevelUnits.length - 2]
+        ) !== -1
+      ) {
+        nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
+      } else {
+        // www.example.com
+        nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
+      }
     }
   }
 
