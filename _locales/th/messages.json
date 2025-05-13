@@ -480,10 +480,10 @@
     "message": "อนุญาตให้ลงชื่อเข้าใช้บริการพื้นที่เก็บข้อมูลของบุคคลที่สาม"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "อนุญาตให้การล็อกอัตโนมัติทำงานได้"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "แทรกสคริปต์ในแท็บปัจจุบันเพื่อสแกน QR โค้ดและใช้งานการกรอกอัตโนมัติ"
   },
   "permission_clipboard_write": {
     "message": "ให้สิทธิ์การเข้าถึงแบบเขียนอย่างเดียวในคลิปบอร์ดเพื่อคัดลอกรหัสไปยังคลิปบอร์ดเมื่อคุณคลิกที่บัญชี"
@@ -519,6 +519,6 @@
     "message": "รหัสผ่านไม่ถูกต้อง"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "คำเตือน: ระบบกรองอัจฉริยะอาจจับคู่โดเมนกับบัญชีไม่ตรงเป๊ะ โปรดตรวจสอบว่าเป็นเว็บไซต์ที่ถูกต้องก่อนใส่รหัส!"
   }
 }
