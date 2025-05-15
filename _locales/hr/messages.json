@@ -120,7 +120,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Ponovno postavi Autentifikator"
+    "message": "Resetiraj Autentifikator"
   },
   "delete_all_warning": {
     "message": "Ovo će izbrisati sve tvoje podatke i potpuno resetirati Autentifikator. Nećeš moći vratiti izbrisane podatke! Spremi sigurnosnu kopiju prije resetiranja Autentifikatora."
@@ -480,7 +480,7 @@
     "message": "Dozvoljava prijavu na strane usluge spremanja podataka."
   },
   "permission_alarms": {
-    "message": "Omogućuje automatsko zaključavanje."
+    "message": "Dozvoljava automatsko zaključavanje."
   },
   "permission_scripting": {
     "message": "Ubaci skripte u trenutačnu karticu za skeniranje QR kodova i omogućavanje automatskog ispunjavanja."
@@ -519,6 +519,6 @@
     "message": "Neispravna lozinka"
   },
   "activate_auto_filter": {
-    "message": "Upozorenje: Pametni filtar slabo povezuje naziv domene s računom. Prije unosa koda uvijek provjerite jeste li na ispravnoj web stranici!"
+    "message": "Upozorenje: Pametni filtar približno podudara naziv domene s računom. Prije unosa koda uvijek provjeri jesi li na ispravnoj web stranici!"
   }
 }
