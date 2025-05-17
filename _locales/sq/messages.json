@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "استحضار صور رموز الاستجابة السريع",
+    "message": "Importo kod QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -238,11 +238,11 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "إستحضار رمز المرور المؤقت",
+    "message": "Importo URL-te OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "تم الاستحضار بنجاح، لاكن بعض رموز الاستجابة السريعة لم يتم التعرف عليها.",
+    "message": "Importimi i suksesshëm, por disa kodeQR nuk mund të njihen.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -314,11 +314,11 @@
     "description": "Dark theme"
   },
   "theme_simple": {
-    "message": "بسيط",
+    "message": "E thjeshtë",
     "description": "Simple theme"
   },
   "theme_compact": {
-    "message": "معقد او مركب",
+    "message": "Kompakte",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
@@ -326,7 +326,7 @@
     "description": "High Contrast theme"
   },
   "theme_flat": {
-    "message": "مسطح",
+    "message": "e Sheshtë",
     "description": "Flat theme"
   },
   "storage_sync_info": {
@@ -411,19 +411,19 @@
     "message": "Krijo një kopje rezervë të të dhënave tuaja në një skedar."
   },
   "password_policy_default_hint": {
-    "message": "كلمة مرورك الخاصة لا تستوفى المتطلبات الخاصة بمنظمتك. الرجاء التواصل مع مديرك للمزيد من المعلومات."
+    "message": "Fjalkalimi juaj nuk i përshtatet rregjullave të sigurise të organizates juaj. Ju lutemi kontaktoni administratorin për info më të hollësishme."
   },
   "advisor": {
-    "message": "مساعدة"
+    "message": "Këshillues"
   },
   "advisor_insight_password_not_set": {
-    "message": "إنشاء كلمة مرور لحماية بياناتك."
+    "message": "Vendos një fjalëkalim për të mbrojtur të dhënat tuaja."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "الرجاء تفعيل الإغلاق الالى لحماية بياناتك."
+    "message": "Aktivizo auto-kyçjen për të mbrojtur të dhënat tuaja."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "مزامنة المتصفح غير نشط. تفعيل المزامنة يسمح لحسابك بالمزامنه مع المواقع المختلفة."
+    "message": "Sinkronizimi i shfletuesit është i çaktivizuar. Aktivizimi i tij lejon sinkronizimin e llogarive përgjate shfletuesve t ë ndryshëm."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "تفعيل الملء التلقائي يسمح بملء رموز التفعيل داخل المتصفحات المختلفة."
