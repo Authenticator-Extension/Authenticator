@@ -283,69 +283,29 @@ async function qrDecode(
 }
 
 function pasteCode(code: string) {
-  const _inputBoxes = document.getElementsByTagName("input");
-  const inputBoxes: HTMLInputElement[] = [];
-  for (let i = 0; i < _inputBoxes.length; i++) {
-    if (
-      _inputBoxes[i].type === "text" ||
-      _inputBoxes[i].type === "number" ||
-      _inputBoxes[i].type === "tel" ||
-      _inputBoxes[i].type === "password"
-    ) {
-      inputBoxes.push(_inputBoxes[i]);
-    }
-  }
-  if (!inputBoxes.length) {
-    return;
-  }
-  const identities = [
-    "2fa",
-    "otp",
-    "authenticator",
-    "factor",
-    "code",
-    "totp",
-    "twoFactorCode",
-  ];
-  for (const inputBox of inputBoxes) {
-    for (const identity of identities) {
-      if (
-        inputBox.name.toLowerCase().indexOf(identity) >= 0 ||
-        inputBox.id.toLowerCase().indexOf(identity) >= 0
-      ) {
-        if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
-          inputBox.value = code;
-          fireInputEvents(inputBox);
-        }
-        return;
-      }
-    }
+  const selector =
+    "input[type=text], input[type=number], input[type=tel], input[type=password]";
+  const isValidInput = (input: HTMLInputElement) =>
+    input.checkVisibility() &&
+    (!input.value || /^(\d{6}|\d{8}|[A-Z\d]{5})$/.test(input.value));
+  let input: HTMLInputElement | undefined;
+
+  if (
+    document.activeElement &&
+    document.activeElement.matches(selector) &&
+    isValidInput(document.activeElement as HTMLInputElement)
+  ) {
+    input = document.activeElement as HTMLInputElement;
+  } else {
+    input = Array.from<HTMLInputElement>(
+      document.querySelectorAll(selector)
+    ).find(isValidInput);
   }
 
-  const activeInputBox =
-    document.activeElement && document.activeElement.tagName === "INPUT"
-      ? document.activeElement
-      : null;
-  if (activeInputBox) {
-    const inputBox = activeInputBox as HTMLInputElement;
-    if (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) {
-      inputBox.value = code;
-      fireInputEvents(inputBox);
-    }
-    return;
+  if (input) {
+    input.value = code;
+    fireInputEvents(input);
   }
-
-  for (const inputBox of inputBoxes) {
-    if (
-      (!inputBox.value || /^(\d{6}|\d{8})$/.test(inputBox.value)) &&
-      inputBox.type !== "password"
-    ) {
-      inputBox.value = code;
-      fireInputEvents(inputBox);
-      return;
-    }
-  }
-  return;
 }
 
 function fireInputEvents(inputBox: HTMLInputElement) {
