@@ -233,7 +233,22 @@ async function getTotp(text: string, silent = false) {
           return false;
         }
         await EntryStorage.import(encryption, entryData);
-        !silent && chrome.tabs.sendMessage(id, { action: "added", account });
+
+        const newEntry = await EntryStorage.get(hash);
+        newEntry.applyEncryption(encryption);
+        
+        if (newEntry.code && newEntry.code !== CodeState.Encrypted && newEntry.code !== CodeState.Invalid) {
+          try {
+            await navigator.clipboard.writeText(newEntry.code);
+            console.log(`TOTP code copied to clipboard: ${newEntry.code}`);
+            !silent && chrome.tabs.sendMessage(id, { action: "addedAndCopied", account, code: newEntry.code });
+          } catch (e) {
+            console.error("Failed to copy TOTP code:", e);
+            !silent && chrome.tabs.sendMessage(id, { action: "added", account });
+          }
+        } else {
+          !silent && chrome.tabs.sendMessage(id, { action: "added", account });
+        }
         return true;
       }
     }
