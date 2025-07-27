@@ -232,7 +232,7 @@ async function getTotp(text: string, silent = false) {
           !silent && chrome.tabs.sendMessage(id, { action: "errorenc" });
           return false;
         }
-        wait EntryStorage.import(encryption, entryData);
+        await EntryStorage.import(encryption, entryData);
 
         const newEntry = await EntryStorage.get(hash);
         newEntry.applyEncryption(encryption);
