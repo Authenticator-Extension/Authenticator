@@ -489,7 +489,9 @@ export class EntryStorage {
         counter: data[hash].counter || 0,
         period: data[hash].period || 30,
         digits: data[hash].digits || 6,
-        algorithm: OTPAlgorithm[rawAlgorithm] || OTPAlgorithm.SHA1,
+        algorithm: rawAlgorithm
+          ? OTPAlgorithm[rawAlgorithm]
+          : OTPAlgorithm.SHA1,
         pinned: data[hash].pinned || false,
         hash: data[hash].hash || hash,
       };
