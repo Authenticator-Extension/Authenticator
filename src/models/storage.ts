@@ -463,7 +463,9 @@ export class EntryStorage {
         continue;
       }
 
+      const rawType = data[hash].type;
       const rawAlgorithm = data[hash].algorithm;
+
       const entryData: {
         account: string;
         encrypted: false;
@@ -478,7 +480,7 @@ export class EntryStorage {
         algorithm: OTPAlgorithm;
         pinned: boolean;
       } = {
-        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        type: OTPType[rawType] || OTPType[OTPType.totp],
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
         account: data[hash].account || "",
