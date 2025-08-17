@@ -492,10 +492,10 @@
     "message": "Aggiungi Authenticatori al menu contestuale."
   },
   "permission_sync_clock": {
-    "message": "Consenti la sincronizzazione dell'orario con Google."
+    "message": "Consente la sincronizzazione con Google."
   },
   "permission_dropbox": {
-    "message": "Consenti il backup su Dropbox."
+    "message": "Consente il backup su Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
     "message": "Devi prima disabilitare il backup di Dropbox."
