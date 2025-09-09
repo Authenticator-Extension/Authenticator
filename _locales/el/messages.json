@@ -16,7 +16,7 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
+    "message": "Δεν ήταν δυνατή η αναγνώριση του κωδικού QR.",
     "description": "QR Error."
   },
   "errorsecret": {
@@ -28,7 +28,7 @@
     "description": "Add account."
   },
   "add_qr": {
-    "message": "Σάρωση κώδικα QR",
+    "message": "Σάρωση κωδικού QR",
     "description": "Scan QR Code."
   },
   "add_secret": {
@@ -96,7 +96,7 @@
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Τρέχον Κωδικός",
+    "message": "Τρέχων κωδικός πρόσβασης",
     "description": "Current Passphrase."
   },
   "new_phrase": {
@@ -112,7 +112,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον λογαριασμό; Δε θα μπορέσετε να αναιρέσετε αυτήν την ενέργεια αργότερα.",
+    "message": "Θέλετε σίγουρα να διαγράψετε αυτόν τον λογαριασμό; Η ενέργεια αυτή δεν μπορεί να αναιρεθεί.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -178,7 +178,7 @@
     "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
-    "message": "Προσοχή! Τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
+    "message": "Προσοχή! Το τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
@@ -210,7 +210,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Προσοχή: κανένα από τα αντίγραφα ασφαλείας σας δεν είναι κρυπτογραφημένα. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Σύρετε το ποντίκι στο επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και κάντε κλικ στο κρυφό κουμπί.",
+    "message": "Προσοχή: κανένα από τα αντίγραφα ασφαλείας σας δεν είναι κρυπτογραφημένο. Θέλετε να προσθέσετε ένα λογαριασμό σε μια άλλη εφαρμογή; Σύρετε το ποντίκι στο επάνω δεξιά μέρος οποιουδήποτε λογαριασμού και κάντε κλικ στο κρυφό κουμπί.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -222,7 +222,7 @@
     "description": "Import backup."
   },
   "import_backup_file": {
-    "message": "Import Backup File",
+    "message": "Εισαγωγή από αρχείο",
     "description": "Import backup file."
   },
   "import_backup_qr": {
@@ -242,7 +242,7 @@
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά ορισμένοι κώδικες QR δεν αναγνωρίστηκαν.",
+    "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά δεν ήταν δυνατή η αναγνώριση ορισμένων κωδικών QR.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -405,13 +405,13 @@
     "message": "Έξυπνο φίλτρο"
   },
   "backup": {
-    "message": "Αντίγραφο Ασφαλείας"
+    "message": "Αντίγραφα ασφαλείας"
   },
   "backup_file_info": {
     "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
   },
   "password_policy_default_hint": {
-    "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τοn διαχειριστή σας για περισσότερες πληροφορίες."
+    "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τον διαχειριστή σας για περισσότερες πληροφορίες."
   },
   "advisor": {
     "message": "Σύμβουλος"
