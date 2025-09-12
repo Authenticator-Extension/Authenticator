@@ -186,7 +186,7 @@
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "A rögzítés sikertelen, kérem töltse újra az oldalt és próbálja meg újra.",
+    "message": "A rögzítés sikertelen, töltse újra az oldalt és próbálja meg újra.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
