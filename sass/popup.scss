@@ -304,13 +304,14 @@ svg {
     border: themed("grey-2") 1px solid;
     background: themed("white-1");
   }
-  border-radius: 2px;
+  border-radius: 10px;
   position: relative;
   display: block;
   cursor: pointer;
 
   .issuer {
     font-size: 12px;
+    font-weight: bold;
     @include themify($themes) {
       color: themed("black-1");
     }
@@ -474,6 +475,10 @@ svg {
 .pinnedEntry {
   .pin {
     opacity: 1;
+    }
+  .pin svg {
+     fill: rgb(84 84 84);
+    }
   }
 
   .movehandle {
