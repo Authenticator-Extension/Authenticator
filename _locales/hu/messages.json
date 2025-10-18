@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
+    "message": "A Hitelesítő kétlépcsős hitelesítő kódokat állít elő a böngészőben.",
     "description": "Extension Description."
   },
   "added": {
@@ -40,7 +40,7 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "A fiók adatok importálása csak részben volt sikeres.",
+    "message": "A fiókadatok importálása csak részben volt sikeres.",
     "description": "Some migration data is broken."
   },
   "close": {
