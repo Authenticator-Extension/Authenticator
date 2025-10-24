@@ -182,7 +182,7 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "У вас есть резервная копия для ваших учетных записей? Создайте резервную копию, пока не поздно!",
+    "message": "Do you have a backup for your accounts? Don't wait until its too late!",
     "description": "Remind Backup"
   },
   "capture_failed": {
