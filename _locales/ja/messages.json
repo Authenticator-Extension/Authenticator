@@ -16,7 +16,7 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "QR コードが認識できません。",
+    "message": "QR コードを認識できません。",
     "description": "QR Error."
   },
   "errorsecret": {
