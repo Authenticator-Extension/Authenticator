@@ -595,6 +595,13 @@ export class Accounts implements Module {
 
           state.commit("loadCodes", entries);
           state.commit("updateCodes");
+
+          if (
+            state.state.entries.length >= 10 &&
+            !(state.getters.shouldFilter && state.state.filter)
+          ) {
+            state.commit("showSearch");
+          }
           state.commit(
             "updateExport",
             await EntryStorage.getExport(state.state.entries)
