@@ -190,7 +190,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Ви намагаєтеся відсканувати QR-код із локального файлу? Замість цього використовуйте «Імпорт резервної копії QR-зображення».",
+    "message": "Ви намагаєтеся просканувати QR-код із локального файлу? Замість цього використовуйте «Імпорт резервної копії QR-зображення».",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
