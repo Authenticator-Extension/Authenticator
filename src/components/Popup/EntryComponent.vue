@@ -70,6 +70,18 @@
       />
     </div>
     <div
+      class="issuerEdit"
+      v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex"
+    >
+      <input
+        type="number"
+        min="0"
+        v-model.number="entry.counter"
+        v-bind:placeholder="i18n.counter"
+        v-on:change="onCounterChange(entry)"
+      />
+    </div>
+    <div
       class="showqr"
       v-if="shouldShowQrIcon(entry)"
       v-on:click.stop="showQr(entry)"
@@ -193,6 +205,10 @@ export default Vue.extend({
         this.$store.commit("style/toggleHotpDisabled");
       }, 3000);
       return;
+    },
+    onCounterChange(entry: OTPEntry) {
+      entry.generate();
+      entry.update();
     },
     async copyCode(entry: OTPEntry) {
       if (
