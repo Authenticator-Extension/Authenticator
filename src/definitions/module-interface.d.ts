@@ -34,6 +34,7 @@ interface MenuState {
   zoom: number;
   autolock: number;
   useAutofill: boolean;
+  autofillMode: "replace" | "append";
   smartFilter: boolean;
   enableContextMenu: boolean;
   theme: string;
