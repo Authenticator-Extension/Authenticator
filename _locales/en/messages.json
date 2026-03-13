@@ -201,6 +201,10 @@
     "message": "Counter Based",
     "description": "Counter Based"
   },
+  "counter": {
+    "message": "Counter",
+    "description": "HOTP counter value"
+  },
   "resize_popup_page": {
     "message": "Preferences",
     "description": "Popup Page Settings"
