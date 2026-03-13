@@ -297,6 +297,18 @@
     "message": "Use Autofill",
     "description": "Use Autofill"
   },
+  "autofill_mode": {
+    "message": "Autofill mode",
+    "description": "Label for autofill mode selector"
+  },
+  "autofill_mode_replace": {
+    "message": "Replace (dedicated OTP field)",
+    "description": "Autofill replaces the value in detected OTP field"
+  },
+  "autofill_mode_append": {
+    "message": "Append to focused field (password + OTP)",
+    "description": "Autofill appends the code to the currently focused input"
+  },
   "use_high_contrast": {
     "message": "Use High Contrast",
     "description": "Use High Contrast"

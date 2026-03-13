@@ -43,7 +43,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
         alert(chrome.i18n.getMessage("updateSuccess"));
         break;
       case "pastecode":
-        pasteCode(message.code);
+        pasteCode(message.code, message.mode || "replace");
         break;
       case "stopCapture": {
         const captureBox = document.getElementById("__ga_captureBox__");
@@ -282,7 +282,17 @@ async function qrDecode(
   qr.src = url;
 }
 
-function pasteCode(code: string) {
+function pasteCode(code: string, mode: "replace" | "append" = "replace") {
+  if (mode === "append") {
+    const activeEl = document.activeElement;
+    if (activeEl && activeEl.tagName === "INPUT") {
+      const inputBox = activeEl as HTMLInputElement;
+      inputBox.value = inputBox.value + code;
+      fireInputEvents(inputBox);
+    }
+    return;
+  }
+
   const _inputBoxes = document.getElementsByTagName("input");
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {

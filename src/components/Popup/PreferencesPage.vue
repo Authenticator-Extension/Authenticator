@@ -30,6 +30,15 @@
       <option value="20">20%</option>
     </a-select-input>
     <a-toggle-input :label="i18n.use_autofill" v-model="useAutofill" />
+    <a-select-input
+      v-if="useAutofill"
+      :label="i18n.autofill_mode"
+      v-model="autofillMode"
+      style="margin-left: 10px"
+    >
+      <option value="replace">{{ i18n.autofill_mode_replace }}</option>
+      <option value="append">{{ i18n.autofill_mode_append }}</option>
+    </a-select-input>
     <a-toggle-input
       :label="i18n.browser_sync"
       v-model="browserSync"
@@ -81,6 +90,14 @@ export default Vue.extend({
       },
       set(useAutofill: boolean) {
         this.$store.commit("menu/setAutofill", useAutofill);
+      },
+    },
+    autofillMode: {
+      get(): "replace" | "append" {
+        return this.$store.state.menu.autofillMode;
+      },
+      set(autofillMode: "replace" | "append") {
+        this.$store.commit("menu/setAutofillMode", autofillMode);
       },
     },
     smartFilter: {

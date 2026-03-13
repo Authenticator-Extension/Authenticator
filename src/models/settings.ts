@@ -25,6 +25,7 @@ interface UserSettingsData {
   // syncable settings
   advisorIgnoreList?: string[];
   autofill?: boolean;
+  autofillMode?: "replace" | "append";
   autolock?: number;
   enableContextMenu?: boolean;
   encodedPhrase?: string;
