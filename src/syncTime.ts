@@ -21,6 +21,10 @@ export async function syncTimeWithGoogle() {
               return resolve("updateFailure");
             }
             const serverTime = new Date(date).getTime();
+            if (isNaN(serverTime)) {
+              // unparseable date header — report a failure, not a huge offset
+              return resolve("updateFailure");
+            }
             const clientTime = new Date().getTime();
             const offset = Math.round((serverTime - clientTime) / 1000);
 
