@@ -17,6 +17,14 @@ import { UserSettings } from "./models/settings";
 let contentTab: chrome.tabs.Tab | undefined;
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
+  // Only act on messages from our own extension pages / content scripts, never
+  // another extension. (No externally_connectable is set, so web pages can't
+  // reach here, but this is cheap defense-in-depth for the sensitive actions
+  // below — cache passphrase, cloud backup, lock.)
+  if (sender.id !== chrome.runtime.id) {
+    return;
+  }
+
   await UserSettings.updateItems();
 
   if (message.action === "getCapture") {
