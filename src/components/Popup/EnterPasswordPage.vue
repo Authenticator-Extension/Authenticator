@@ -30,7 +30,18 @@ export default Vue.extend({
   },
   methods: {
     async applyPassphrase() {
-      await this.$store.dispatch("accounts/applyPassphrase", this.password);
+      try {
+        await this.$store.dispatch("accounts/applyPassphrase", this.password);
+      } catch (error) {
+        // applyPassphrase switches to LoadingPage first; if decryption/migration
+        // throws, recover the UI instead of leaving the user stuck there.
+        this.$store.commit("currentView/changeView", "EnterPasswordPage");
+        this.$store.commit(
+          "notification/alert",
+          error instanceof Error ? error.message : String(error)
+        );
+        return;
+      }
       const firstEntry = document.querySelector(
         ".entry[tabindex='0']"
       ) as HTMLElement;
