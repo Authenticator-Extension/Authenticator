@@ -61,6 +61,10 @@ export default Vue.extend({
           let succeededCount = 0;
           try {
             importData = JSON.parse(reader.result as string);
+            // andOTP exports a flat JSON array instead of a keyed object (#1304)
+            if (Array.isArray(importData)) {
+              importData = getEntryDataFromAndOTP(importData);
+            }
             succeededCount = Object.keys(importData).filter(
               (key) => ["key", "enc", "hash"].indexOf(key) === -1
             ).length;
@@ -170,4 +174,50 @@ export default Vue.extend({
     },
   },
 });
+
+interface AndOTPEntry {
+  secret: string;
+  issuer?: string;
+  label?: string;
+  digits?: number;
+  type?: string;
+  algorithm?: string;
+  period?: number;
+  counter?: number;
+}
+
+// Convert an andOTP plain-JSON export (array of entries) into the keyed
+// RawOTPStorage map the importer expects. EntryStorage.import normalises the
+// type/algorithm names, so we just need the right field names and lower-cased
+// type (andOTP uses "TOTP"/"HOTP"/"STEAM"). #1304
+function getEntryDataFromAndOTP(entries: AndOTPEntry[]) {
+  const data: { [hash: string]: RawOTPStorage } = {};
+  for (const entry of entries) {
+    if (!entry || !entry.secret) {
+      continue;
+    }
+    const hash = crypto.randomUUID();
+    const issuer = entry.issuer || "";
+    let account = entry.label || "";
+    // andOTP labels are often "Issuer:account"; drop the redundant prefix
+    if (issuer && account.startsWith(issuer + ":")) {
+      account = account.slice(issuer.length + 1);
+    }
+    data[hash] = {
+      account,
+      issuer,
+      secret: entry.secret,
+      type: (entry.type || "totp").toLowerCase(),
+      encrypted: false,
+      index: 0,
+      hash,
+      counter: entry.counter || 0,
+      period: entry.period || 30,
+      digits: entry.digits || 6,
+      algorithm: entry.algorithm || "SHA1",
+      pinned: false,
+    };
+  }
+  return data;
+}
 </script>
