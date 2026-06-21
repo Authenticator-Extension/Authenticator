@@ -16,7 +16,7 @@ interface OTPEntryInterface {
   create(): Promise<void>;
   update(): Promise<void>;
   next(): Promise<void>;
-  applyEncryption(encryption: EncryptionInterface): void;
+  applyEncryption(encryption: EncryptionInterface): Promise<void>;
   changeEncryption(encryption: EncryptionInterface): void;
   delete(): Promise<void>;
   generate(): void;
@@ -24,9 +24,9 @@ interface OTPEntryInterface {
 }
 
 interface EncryptionInterface {
-  getEncryptedString(data: string): string;
-  decryptSecretString(entry: string): string | null;
-  decryptEncSecret(entry: OTPEntryInterface): RawOTPStorage | null;
+  getEncryptedString(data: string): Promise<string>;
+  decryptSecretString(entry: string): Promise<string | null>;
+  decryptEncSecret(entry: OTPEntryInterface): Promise<RawOTPStorage | null>;
   getEncryptionStatus(): boolean;
   updateEncryptionPassword(password: string): void;
   getEncryptionKeyId(): string;
