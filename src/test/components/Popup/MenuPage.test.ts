@@ -2,8 +2,8 @@ import "mocha";
 import * as chai from "chai";
 import { assert } from "chai";
 import * as sinonChai from "sinon-chai";
-import { createLocalVue, mount, Wrapper } from "@vue/test-utils";
-import Vuex, { Store } from "vuex";
+import { mount, VueWrapper } from "@vue/test-utils";
+import { createStore, Store } from "vuex";
 
 import { loadI18nMessages } from "../../../store/i18n";
 import MenuPage from "../../../components/Popup/MenuPage.vue";
@@ -21,15 +21,15 @@ import chrome from "sinon-chrome";
 chai.should();
 chai.use(sinonChai);
 mocha.setup("bdd");
-const localVue = createLocalVue();
 
 describe("MenuPage", () => {
+  let i18n: { [key: string]: string };
+
   before(async () => {
-    localVue.prototype.i18n = await loadI18nMessages();
-    localVue.use(Vuex);
+    i18n = await loadI18nMessages();
   });
 
-  let storeOpts = {
+  const storeOpts = {
     menu: {
       state: {
         version: "1.2.3",
@@ -40,7 +40,13 @@ describe("MenuPage", () => {
 
   let store: Store<{}>;
 
-  let wrapper: Wrapper<any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let wrapper: VueWrapper<any>;
+
+  const mountMenu = () =>
+    mount(MenuPage, {
+      global: { plugins: [store], mocks: { i18n } },
+    });
 
   before(() => {
     // mock the chrome global object
@@ -49,17 +55,15 @@ describe("MenuPage", () => {
   });
 
   beforeEach(async () => {
-    store = new Vuex.Store({
+    store = createStore({
       modules: storeOpts,
     });
-    wrapper = mount(MenuPage, {
-      store,
-      localVue,
-    });
+    wrapper = mountMenu();
   });
 
   const clickMenuPageButtonByTitle = async (
-    wrapper: Wrapper<any>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    wrapper: VueWrapper<any>,
     title: string
   ) => wrapper.find(`*[title='${title}']`).trigger("click");
 
@@ -77,10 +81,7 @@ describe("MenuPage", () => {
     };
 
     beforeEach(() => {
-      wrapper = mount(MenuPage, {
-        store,
-        localVue,
-      });
+      wrapper = mountMenu();
     });
 
     it("should open a new tab to the Chrome help page when the feedback button is clicked and the user agent is Chrome", async () => {
@@ -136,7 +137,7 @@ describe("MenuPage", () => {
             feedbackURL: "https://authenticator.cc",
           });
 
-          store = new Vuex.Store({
+          store = createStore({
             modules: {
               backup: await new Backup().getModule(),
               currentView: new CurrentView().getModule(),
@@ -148,10 +149,7 @@ describe("MenuPage", () => {
             },
           });
 
-          wrapper = mount(MenuPage, {
-            store,
-            localVue,
-          });
+          wrapper = mountMenu();
         } catch (e) {
           console.error(e);
           // Doesn't show up in mocha?

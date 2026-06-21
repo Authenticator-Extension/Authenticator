@@ -3,8 +3,8 @@ import * as chai from "chai";
 import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
-import { mount, createLocalVue } from "@vue/test-utils";
-import Vuex, { Store } from "vuex";
+import { mount } from "@vue/test-utils";
+import { createStore, Store } from "vuex";
 import CommonComponents from "../../../components/common/index";
 
 import EnterPasswordPage from "../../../components/Popup/EnterPasswordPage.vue";
@@ -13,18 +13,20 @@ import { loadI18nMessages } from "../../../store/i18n";
 const should = chai.should();
 chai.use(sinonChai);
 mocha.setup("bdd");
-const localVue = createLocalVue();
 
 describe("EnterPasswordPage", () => {
+  let i18n: { [key: string]: string };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const components: { [name: string]: any } = {};
+
   before(async () => {
-    localVue.prototype.i18n = await loadI18nMessages();
-    localVue.use(Vuex);
+    i18n = await loadI18nMessages();
     for (const component of CommonComponents) {
-      localVue.component(component.name, component.component);
+      components[component.name] = component.component;
     }
   });
 
-  let storeOpts = {
+  const storeOpts = {
     modules: {
       accounts: {
         actions: {
@@ -39,14 +41,20 @@ describe("EnterPasswordPage", () => {
   };
   let store: Store<typeof storeOpts>;
 
+  const mountPage = (attach = false) =>
+    mount(EnterPasswordPage, {
+      global: { plugins: [store], mocks: { i18n }, components },
+      ...(attach ? { attachTo: document.body } : {}),
+    });
+
   beforeEach(() => {
     // TODO: find a nicer var
     storeOpts.modules.accounts.actions.applyPassphrase.resetHistory();
-    store = new Vuex.Store(storeOpts);
+    store = createStore(storeOpts);
   });
 
   it("should apply password when button is clicked", async () => {
-    const wrapper = mount(EnterPasswordPage, { store, localVue });
+    const wrapper = mountPage();
 
     const passwordInput = wrapper.find("input");
     const passwordButton = wrapper.find("button");
@@ -60,7 +68,7 @@ describe("EnterPasswordPage", () => {
   });
 
   it("should apply password when enter is pressed", async () => {
-    const wrapper = mount(EnterPasswordPage, { store, localVue });
+    const wrapper = mountPage();
 
     const passwordInput = wrapper.find("input");
 
@@ -73,11 +81,7 @@ describe("EnterPasswordPage", () => {
   });
 
   it("should autofocus password input", () => {
-    const wrapper = mount(EnterPasswordPage, {
-      store,
-      localVue,
-      attachToDocument: true,
-    });
+    const wrapper = mountPage(true);
 
     const passwordInput = wrapper.find("input");
 
@@ -85,7 +89,7 @@ describe("EnterPasswordPage", () => {
   });
 
   it("should not show incorrect password message", () => {
-    const wrapper = mount(EnterPasswordPage, { store, localVue });
+    const wrapper = mountPage();
 
     const errorText = wrapper.find("label.warning");
 
@@ -98,7 +102,7 @@ describe("EnterPasswordPage", () => {
     });
 
     it("should show incorrect password message", () => {
-      const wrapper = mount(EnterPasswordPage, { store, localVue });
+      const wrapper = mountPage();
 
       const errorText = wrapper.find("label.warning");
 
