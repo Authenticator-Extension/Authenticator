@@ -282,15 +282,23 @@ async function qrDecode(
   qr.src = url;
 }
 
+// Skip inputs the user can't see (hidden honeypots, off-screen fields) so the
+// code doesn't land in the wrong box. checkVisibility is guarded for older
+// browsers that don't support it. (#1273, #1136)
+function isVisibleInput(input: HTMLInputElement) {
+  return typeof input.checkVisibility !== "function" || input.checkVisibility();
+}
+
 function pasteCode(code: string) {
   const _inputBoxes = document.getElementsByTagName("input");
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
     if (
-      _inputBoxes[i].type === "text" ||
-      _inputBoxes[i].type === "number" ||
-      _inputBoxes[i].type === "tel" ||
-      _inputBoxes[i].type === "password"
+      (_inputBoxes[i].type === "text" ||
+        _inputBoxes[i].type === "number" ||
+        _inputBoxes[i].type === "tel" ||
+        _inputBoxes[i].type === "password") &&
+      isVisibleInput(_inputBoxes[i])
     ) {
       inputBoxes.push(_inputBoxes[i]);
     }
