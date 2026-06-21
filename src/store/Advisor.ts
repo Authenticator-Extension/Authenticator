@@ -1,3 +1,4 @@
+import { ActionContext } from "vuex";
 import { EntryStorage } from "../models/storage";
 import { InsightLevel, AdvisorInsight } from "../models/advisor";
 import { StorageLocation, UserSettings } from "../models/settings";
@@ -69,26 +70,48 @@ export class Advisor implements Module {
         ignoreList: UserSettings.items.advisorIgnoreList || [],
       },
       mutations: {
-        dismissInsight: async (state: AdvisorState, insightId: string) => {
+        // sync state changes only (these used to be async mutations that
+        // assigned state after an await, which Vuex strict mode forbids)
+        pushIgnore(state: AdvisorState, insightId: string) {
           state.ignoreList.push(insightId);
-          UserSettings.items.advisorIgnoreList = state.ignoreList;
+        },
+        setIgnoreList(state: AdvisorState, list: string[]) {
+          state.ignoreList = list;
+        },
+        setInsights(state: AdvisorState, insights: AdvisorInsightInterface[]) {
+          state.insights = insights;
+        },
+      },
+      actions: {
+        dismissInsight: async (
+          context: ActionContext<AdvisorState, object>,
+          insightId: string
+        ) => {
+          context.commit("pushIgnore", insightId);
+          UserSettings.items.advisorIgnoreList = context.state.ignoreList;
           UserSettings.commitItems();
 
-          state.insights = await this.getInsights();
+          context.commit("setInsights", await this.getInsights());
         },
-        clearIgnoreList: async (state: AdvisorState) => {
-          state.ignoreList = [];
+        clearIgnoreList: async (
+          context: ActionContext<AdvisorState, object>
+        ) => {
+          context.commit("setIgnoreList", []);
           UserSettings.items.advisorIgnoreList = undefined;
           UserSettings.commitItems();
 
-          state.insights = await this.getInsights();
+          context.commit("setInsights", await this.getInsights());
         },
-        updateInsight: async (state: AdvisorState) => {
-          state.insights = await this.getInsights();
-          state.ignoreList =
+        updateInsight: async (
+          context: ActionContext<AdvisorState, object>
+        ) => {
+          context.commit("setInsights", await this.getInsights());
+          context.commit(
+            "setIgnoreList",
             typeof UserSettings.items.advisorIgnoreList === "string"
               ? JSON.parse(UserSettings.items.advisorIgnoreList || "[]")
-              : UserSettings.items.advisorIgnoreList || [];
+              : UserSettings.items.advisorIgnoreList || []
+          );
         },
       },
       namespaced: true,

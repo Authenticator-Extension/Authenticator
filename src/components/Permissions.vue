@@ -46,7 +46,7 @@ export default Vue.extend({
   },
   methods: {
     revoke(permissionId: string) {
-      this.$store.commit("permissions/revokePermission", permissionId);
+      this.$store.dispatch("permissions/revokePermission", permissionId);
     },
   },
 });

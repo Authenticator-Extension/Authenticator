@@ -23,7 +23,7 @@ import AdvisorInsight from "./AdvisorInsight.vue";
 
 export default Vue.extend({
   mounted: function () {
-    this.$store.commit("advisor/updateInsight");
+    this.$store.dispatch("advisor/updateInsight");
   },
   computed: {
     insights: function () {
@@ -38,7 +38,7 @@ export default Vue.extend({
   },
   methods: {
     clearIgnoreList: function () {
-      this.$store.commit("advisor/clearIgnoreList");
+      this.$store.dispatch("advisor/clearIgnoreList");
     },
   },
 });

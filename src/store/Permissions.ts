@@ -1,3 +1,4 @@
+import { ActionContext } from "vuex";
 import { Permission } from "../models/permission";
 import { UserSettings } from "../models/settings";
 
@@ -150,8 +151,15 @@ export class Permissions implements Module {
         permissions: await this.getPermissions(),
       },
       mutations: {
+        setPermissions(state: PermissionsState, permissions: Permission[]) {
+          state.permissions = permissions;
+        },
+      },
+      actions: {
+        // was an async mutation; assigning state after an await violates Vuex
+        // strict mode, so the async work lives in an action now
         revokePermission: async (
-          state: PermissionsState,
+          context: ActionContext<PermissionsState, object>,
           permissionId: string
         ) => {
           const permissionObject = this.getPermissionById(permissionId);
@@ -173,7 +181,7 @@ export class Permissions implements Module {
           }
 
           await this.revokePermission(permissionId);
-          state.permissions = await this.getPermissions();
+          context.commit("setPermissions", await this.getPermissions());
         },
       },
       namespaced: true,
