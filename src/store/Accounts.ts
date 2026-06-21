@@ -603,9 +603,9 @@ export class Accounts implements Module {
             ) {
               UserSettings.items.storageLocation = StorageLocation.Local;
               await chrome.storage.sync.clear();
-              await chrome.storage.local.set({
-                UserSettings: UserSettings.items,
-              });
+              // commitItems() strips functions and routes by storageLocation,
+              // matching the local=>sync branch (was a raw local.set bypass).
+              await UserSettings.commitItems();
               return "updateSuccess";
             } else {
               throw " All data not transferred successfully.";
@@ -664,7 +664,10 @@ async function genHash(value: string) {
   const randomValues = window.crypto.getRandomValues(new Uint16Array(8));
   let salt = "";
   for (const byte of randomValues) {
-    salt += byte.toString(16);
+    // zero-pad each 16-bit value to 4 hex chars; without padding leading zeros
+    // were dropped, giving variable-length salts and collisions (e.g. 0x0001
+    // and 0x0010 both contributing "1"/"10" ambiguously).
+    salt += byte.toString(16).padStart(4, "0");
   }
 
   const hash = await argonHash(value, salt);
