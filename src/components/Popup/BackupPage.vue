@@ -202,15 +202,16 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
-    if (otpStorage.issuer) {
-      otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
-    }
-    if (otpStorage.account) {
-      otpStorage.account = removeUnsafeData(otpStorage.account);
-    }
-    const label = otpStorage.issuer
-      ? otpStorage.issuer + ":" + (otpStorage.account || "")
-      : otpStorage.account || "";
+    // Work on local copies — entryData is the live Vuex export state; mutating
+    // it here corrupted the stored issuer/account (stripped colons, %-encoded)
+    // for later JSON backups and double-encoded on a repeat .txt download.
+    const safeIssuer = otpStorage.issuer
+      ? removeUnsafeData(otpStorage.issuer)
+      : "";
+    const safeAccount = otpStorage.account
+      ? removeUnsafeData(otpStorage.account)
+      : "";
+    const label = safeIssuer ? safeIssuer + ":" + safeAccount : safeAccount;
     let type = "";
     if (otpStorage.type === "totp" || otpStorage.type === "hex") {
       type = "totp";
@@ -227,7 +228,7 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       label +
       "?secret=" +
       otpStorage.secret +
-      (otpStorage.issuer ? "&issuer=" + otpStorage.issuer : "") +
+      (safeIssuer ? "&issuer=" + safeIssuer : "") +
       (type === "hotp" ? "&counter=" + otpStorage.counter : "") +
       (type === "totp" && otpStorage.period
         ? "&period=" + otpStorage.period
