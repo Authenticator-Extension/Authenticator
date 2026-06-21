@@ -138,17 +138,22 @@ export class Accounts implements Module {
           state.entries = newCodes;
         },
         moveCode(state: AccountsState, opts: { from: number; to: number }) {
-          state.entries.splice(
-            opts.to,
-            0,
-            state.entries.splice(opts.from, 1)[0]
-          );
+          // from/to are positions in the displayed (pinned-first) order that
+          // the getter renders and dragula reports. Reorder that view before
+          // re-indexing, otherwise the indices were applied to the raw array
+          // and dragging got scrambled whenever an entry was pinned (#1312).
+          const displayed = [
+            ...state.entries.filter((entry) => entry.pinned),
+            ...state.entries.filter((entry) => !entry.pinned),
+          ];
 
-          for (let i = 0; i < state.entries.length; i++) {
-            if (state.entries[i].index !== i) {
-              state.entries[i].index = i;
-            }
-          }
+          displayed.splice(opts.to, 0, displayed.splice(opts.from, 1)[0]);
+
+          displayed.forEach((entry, i) => {
+            entry.index = i;
+          });
+
+          state.entries = displayed;
         },
         pinEntry(state: AccountsState, entry: OTPEntryInterface) {
           state.entries[entry.index].pinned = !entry.pinned;
