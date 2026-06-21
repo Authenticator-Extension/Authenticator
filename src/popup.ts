@@ -1,7 +1,6 @@
 // Vue
-import Vue from "vue";
-import Vuex from "vuex";
-import { Vue2Dragula } from "vue2-dragula";
+import { createApp, h, ComponentPublicInstance } from "vue";
+import { createStore } from "vuex";
 
 // Components
 import Popup from "./components/Popup.vue";
@@ -34,20 +33,8 @@ async function init() {
   await migrateLocalStorageToBrowserStorage();
   await UserSettings.updateItems();
 
-  // Add globals
-  Vue.prototype.i18n = await loadI18nMessages();
-
-  // Load modules
-  Vue.use(Vuex);
-  Vue.use(Vue2Dragula);
-
-  // Load common components globally
-  for (const component of CommonComponents) {
-    Vue.component(component.name, component.component);
-  }
-
   // State
-  const store = new Vuex.Store({
+  const store = createStore({
     // catch out-of-mutation state changes during development (no prod cost)
     strict: process.env.NODE_ENV !== "production",
     modules: {
@@ -63,9 +50,8 @@ async function init() {
   });
 
   // Render
-  const instance = new Vue({
-    render: (h) => h(Popup),
-    store,
+  const app = createApp({
+    render: () => h(Popup),
     mounted() {
       // Update time based entries' codes
       this.$store.commit("accounts/updateCodes");
@@ -73,7 +59,17 @@ async function init() {
         this.$store.commit("accounts/updateCodes");
       }, 1000);
     },
-  }).$mount("#authenticator");
+  });
+
+  app.use(store);
+  // Add globals
+  app.config.globalProperties.i18n = await loadI18nMessages();
+  // Load common components globally
+  for (const component of CommonComponents) {
+    app.component(component.name, component.component);
+  }
+
+  const instance = app.mount("#authenticator");
 
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
@@ -202,7 +198,10 @@ async function init() {
 
 init();
 
-async function runScheduledBackup(clientTime: number, instance: Vue) {
+async function runScheduledBackup(
+  clientTime: number,
+  instance: ComponentPublicInstance
+) {
   if (instance.$store.state.backup.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },

@@ -1,4 +1,4 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import ImportView from "./components/Import.vue";
 import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
@@ -9,12 +9,13 @@ import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { argonHash, argonVerify } from "./models/password";
 
 async function init() {
+  const app = createApp(ImportView);
   // i18n
-  Vue.prototype.i18n = await loadI18nMessages();
+  app.config.globalProperties.i18n = await loadI18nMessages();
 
   // Load common components globally
   for (const component of CommonComponents) {
-    Vue.component(component.name, component.component);
+    app.component(component.name, component.component);
   }
 
   // Load entries to global
@@ -31,12 +32,10 @@ async function init() {
     }
   }
 
-  Vue.prototype.$entries = entries;
-  Vue.prototype.$encryption = encryption;
+  app.config.globalProperties.$entries = entries;
+  app.config.globalProperties.$encryption = encryption;
 
-  const instance = new Vue({
-    render: (h) => h(ImportView),
-  }).$mount("#import");
+  const instance = app.mount("#import");
 
   // Set title
   try {
