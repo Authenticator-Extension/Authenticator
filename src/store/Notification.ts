@@ -34,7 +34,11 @@ export class Notification implements Module {
         ) => {
           return new Promise((resolve: (value: boolean) => void) => {
             state.commit("setConfirm", message);
-            window.addEventListener("confirm", (event) => {
+            // Named handler so it can be removed once it fires; the old
+            // anonymous listener was added on every dispatch and never removed,
+            // accumulating and re-firing on later confirms.
+            const handler = (event: Event) => {
+              window.removeEventListener("confirm", handler);
               state.commit("setConfirm", "");
               if (!this.isCustomEvent(event)) {
                 resolve(false);
@@ -42,7 +46,8 @@ export class Notification implements Module {
               }
               resolve(event.detail);
               return;
-            });
+            };
+            window.addEventListener("confirm", handler);
           });
         },
         ephermalMessage: (
