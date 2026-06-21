@@ -96,7 +96,11 @@ async function getTotp(text: string, silent = false) {
       }
 
       const getTotpResults = await Promise.allSettled(getTotpPromises);
-      const failedCount = getTotpResults.filter((res) => !res).length;
+      // allSettled entries are always-truthy {status,value} objects, so the
+      // old `!res` test was never true and every import reported success.
+      const failedCount = getTotpResults.filter(
+        (res) => res.status !== "fulfilled" || !res.value
+      ).length;
       if (failedCount === otpUrls.length) {
         !silent && chrome.tabs.sendMessage(id, { action: "migrationfail" });
         return false;
