@@ -85,7 +85,19 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
     return [];
   }
 
-  const base64Data = decodeURIComponent(migrationUri.split("data=")[1]);
+  const dataPart = migrationUri.split("data=")[1];
+  if (!dataPart) {
+    return [];
+  }
+
+  let base64Data: string;
+  try {
+    base64Data = decodeURIComponent(dataPart);
+  } catch {
+    // malformed percent-encoding in the migration URI
+    return [];
+  }
+
   const wordArrayData = CryptoJS.enc.Base64.parse(base64Data);
   const byteData = wordArrayToByteArray(wordArrayData);
   const lines: string[] = [];
@@ -94,31 +106,62 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
     if (byteData[offset] !== 10) {
       break;
     }
+    // Every length byte below is attacker-controlled; validate that each field
+    // stays inside the buffer before reading, so truncated/garbage payloads
+    // can't fabricate entries from out-of-bounds (undefined) bytes.
+    if (offset + 4 > byteData.length) {
+      break;
+    }
     const lineLength = byteData[offset + 1];
     const secretStart = offset + 4;
     const secretLength = byteData[offset + 3];
+    const secretEnd = secretStart + secretLength;
+    if (secretEnd + 2 > byteData.length) {
+      break;
+    }
+    const accountStart = secretEnd + 2;
+    const accountLength = byteData[secretEnd + 1];
+    const accountEnd = accountStart + accountLength;
+    if (accountEnd + 2 > byteData.length) {
+      break;
+    }
+    const isserStart = accountEnd + 2;
+    const isserLength = byteData[accountEnd + 1];
+    const isserEnd = isserStart + isserLength;
+    // need bytes up to the type field (isserEnd + 5)
+    if (isserEnd + 5 >= byteData.length) {
+      break;
+    }
+
     const secretBytes = subBytesArray(byteData, secretStart, secretLength);
     const secret = byteArray2Base32(secretBytes);
-    const accountStart = secretStart + secretLength + 2;
-    const accountLength = byteData[secretStart + secretLength + 1];
     const accountBytes = subBytesArray(byteData, accountStart, accountLength);
     const account = byteArray2String(accountBytes);
-    const isserStart = accountStart + accountLength + 2;
-    const isserLength = byteData[accountStart + accountLength + 1];
     const issuerBytes = subBytesArray(byteData, isserStart, isserLength);
     const issuer = byteArray2String(issuerBytes);
     const algorithm = ["SHA1", "SHA1", "SHA256", "SHA512", "MD5"][
-      byteData[isserStart + isserLength + 1]
+      byteData[isserEnd + 1]
     ];
-    const digits = [6, 6, 8][byteData[isserStart + isserLength + 3]];
-    const type = ["totp", "hotp", "totp"][
-      byteData[isserStart + isserLength + 5]
-    ];
+    const digits = [6, 6, 8][byteData[isserEnd + 3]];
+    const type = ["totp", "hotp", "totp"][byteData[isserEnd + 5]];
+
+    // Skip rather than emit otpauth://undefined/...&algorithm=undefined, which
+    // would silently import an entry that generates wrong codes.
+    if (
+      !secret ||
+      algorithm === undefined ||
+      digits === undefined ||
+      type === undefined
+    ) {
+      offset += lineLength + 2;
+      continue;
+    }
+
     let line = `otpauth://${type}/${account}?secret=${secret}&issuer=${issuer}&algorithm=${algorithm}&digits=${digits}`;
     if (type === "hotp") {
       let counter = 1;
-      if (isserStart + isserLength + 7 <= lineLength) {
-        counter = byteData[isserStart + isserLength + 7];
+      if (isserEnd + 7 <= lineLength) {
+        counter = byteData[isserEnd + 7];
       }
       line += `&counter=${counter}`;
     }

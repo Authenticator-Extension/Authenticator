@@ -200,7 +200,13 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   for (let item of lines) {
     item = item.trim();
     if (item.startsWith("otpauth-migration:")) {
-      const migrationData = getOTPAuthPerLineFromOPTAuthMigration(item);
+      let migrationData: string[] = [];
+      try {
+        migrationData = getOTPAuthPerLineFromOPTAuthMigration(item);
+      } catch (error) {
+        // one malformed migration payload must not abort the whole batch
+        console.warn("Failed to parse migration payload", error);
+      }
       for (const line of migrationData) {
         lines.push(line);
       }
