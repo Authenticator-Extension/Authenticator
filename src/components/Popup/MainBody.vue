@@ -192,6 +192,8 @@ export default Vue.extend({
           from: dragIndex,
           to: dropIndex,
         });
+        // reordering restarts the timer-circle animation; re-sync its phase
+        this.$store.commit("accounts/resyncSector");
         await EntryStorage.set(this.$store.state.accounts.entries);
       }
     );

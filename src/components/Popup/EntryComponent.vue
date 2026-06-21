@@ -18,6 +18,7 @@
       class="sector"
       v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex"
       v-show="sectorStart"
+      v-bind:key="sectorOffset"
     >
       <svg viewBox="0 0 16 16">
         <circle
@@ -177,6 +178,8 @@ export default Vue.extend({
     },
     async pin(entry: OTPEntry) {
       this.$store.commit("accounts/pinEntry", entry);
+      // reordering restarts the timer-circle animation; re-sync its phase
+      this.$store.commit("accounts/resyncSector");
       await EntryStorage.set(this.$store.state.accounts.entries);
       const codesEl = document.getElementById("codes") as HTMLDivElement;
       codesEl.scrollTop = 0;

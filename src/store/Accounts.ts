@@ -159,6 +159,14 @@ export class Accounts implements Module {
         pinEntry(state: AccountsState, entry: OTPEntryInterface) {
           state.entries[entry.index].pinned = !entry.pinned;
         },
+        // Re-anchor the timer-circle animation phase to the current second.
+        // Reordering (pin/drag) re-attaches the entry's DOM node, which restarts
+        // its CSS animation; without re-syncing it would resume from the stale
+        // load-time sectorOffset and the countdown circle would drift until the
+        // popup is reopened.
+        resyncSector(state: AccountsState) {
+          state.sectorOffset = -state.second;
+        },
         updateExport(
           state: AccountsState,
           exportData: { [k: string]: OTPEntryInterface }
