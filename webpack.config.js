@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const { VueLoaderPlugin } = require("vue-loader");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
@@ -54,6 +55,12 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
+    // Vue 3 esm-bundler feature flags (better tree-shaking, silences the warning)
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: "true",
+      __VUE_PROD_DEVTOOLS__: "false",
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: "false"
+    }),
     // .vue type checking is done by vue-tsc (npm run typecheck), not here;
     // fork-ts-checker's vue extension needs Vue 2's vue-template-compiler.
     new ForkTsCheckerWebpackPlugin()
