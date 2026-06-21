@@ -204,10 +204,10 @@ function isKey(key: unknown): key is Key {
 }
 
 export class EntryStorage {
-  private static getOTPStorageFromEntry(
+  private static async getOTPStorageFromEntry(
     entry: OTPEntry,
     unencrypted?: boolean
-  ): OTPStorage {
+  ): Promise<OTPStorage> {
     let secret: string;
     if (!entry.secret && entry.encData && entry.keyId) {
       return {
@@ -278,7 +278,7 @@ export class EntryStorage {
       entry.encryption?.getEncryptionStatus() &&
       entry.encryption.getEncryptionKeyId()
     ) {
-      const encData = entry.encryption.getEncryptedString(
+      const encData = await entry.encryption.getEncryptedString(
         JSON.stringify(storageItem)
       );
       return {
@@ -367,7 +367,7 @@ export class EntryStorage {
     }
   }
 
-  static getExport(data: OTPEntryInterface[], encrypted?: boolean) {
+  static async getExport(data: OTPEntryInterface[], encrypted?: boolean) {
     try {
       const exportData: { [hash: string]: OTPStorage } = {};
       for (const entry of data) {
@@ -376,7 +376,10 @@ export class EntryStorage {
           continue;
         }
 
-        exportData[entry.hash] = this.getOTPStorageFromEntry(entry, !encrypted);
+        exportData[entry.hash] = await this.getOTPStorageFromEntry(
+          entry,
+          !encrypted
+        );
       }
       return exportData;
     } catch (error) {
@@ -436,7 +439,9 @@ export class EntryStorage {
       if (!encrypted) {
         // decrypt the data to export
         if (entry.encrypted) {
-          const decryptedSecret = encryption.decryptSecretString(entry.secret);
+          const decryptedSecret = await encryption.decryptSecretString(
+            entry.secret
+          );
           if (decryptedSecret !== entry.secret && decryptedSecret !== null) {
             entry.secret = decryptedSecret;
             entry.encrypted = false;
@@ -573,7 +578,7 @@ export class EntryStorage {
       }
 
       const entry = new OTPEntry(entryData, encryption);
-      _data[entryData.hash] = this.getOTPStorageFromEntry(entry);
+      _data[entryData.hash] = await this.getOTPStorageFromEntry(entry);
     }
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
@@ -581,7 +586,7 @@ export class EntryStorage {
 
   static async add(entry: OTPEntry) {
     await BrowserStorage.set({
-      [entry.hash]: this.getOTPStorageFromEntry(entry),
+      [entry.hash]: await this.getOTPStorageFromEntry(entry),
     });
   }
 
@@ -590,7 +595,7 @@ export class EntryStorage {
     if (!Object.prototype.hasOwnProperty.call(_data, entry.hash)) {
       throw new Error("Entry to change does not exist.");
     }
-    const storageItem = this.getOTPStorageFromEntry(entry);
+    const storageItem = await this.getOTPStorageFromEntry(entry);
     _data[entry.hash] = storageItem;
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
@@ -598,10 +603,10 @@ export class EntryStorage {
 
   static async set(entries: OTPEntry[]) {
     let _data = await BrowserStorage.get();
-    entries.forEach((entry) => {
-      const storageItem = this.getOTPStorageFromEntry(entry);
+    for (const entry of entries) {
+      const storageItem = await this.getOTPStorageFromEntry(entry);
       _data[entry.hash] = storageItem;
-    });
+    }
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
   }

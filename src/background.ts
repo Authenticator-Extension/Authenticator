@@ -532,7 +532,8 @@ chrome.commands.onCommand.addListener(async (command: string) => {
         if (matchedEntries && matchedEntries.length === 1) {
           const entry = matchedEntries[0];
           const encryption = new Encryption(cachedPassphrase, cachedKeyId);
-          entry.applyEncryption(encryption);
+          // applyEncryption is async now; await so entry.code is decrypted
+          await entry.applyEncryption(encryption);
 
           if (
             entry.code !== CodeState.Encrypted &&

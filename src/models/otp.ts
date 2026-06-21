@@ -182,14 +182,14 @@ export class OTPEntry implements OTPEntryInterface {
     return;
   }
 
-  applyEncryption(encryption: EncryptionInterface) {
+  async applyEncryption(encryption: EncryptionInterface) {
     if (!encryption || !encryption.getEncryptionStatus()) {
       return;
     }
 
     if (this.encSecret) {
       // v2 encryption
-      this.secret = encryption.decryptSecretString(this.encSecret);
+      this.secret = await encryption.decryptSecretString(this.encSecret);
       if (this.secret) {
         this.encSecret = "";
       }
@@ -197,7 +197,7 @@ export class OTPEntry implements OTPEntryInterface {
     }
 
     // check if its a rawotpstorage
-    const decryptedData = encryption.decryptEncSecret(this);
+    const decryptedData = await encryption.decryptEncSecret(this);
     if (decryptedData === null) {
       return;
     }

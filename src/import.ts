@@ -3,11 +3,10 @@ import ImportView from "./components/Import.vue";
 import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
 
-import { Encryption } from "./models/encryption";
+import { Encryption, decryptString } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { argonHash, argonVerify } from "./models/password";
-import * as CryptoJS from "crypto-js";
 
 async function init() {
   // i18n
@@ -91,15 +90,19 @@ export async function decryptBackupData(
         continue;
       }
 
+      // decryptString is prefix-aware (new AES-GCM or legacy AES-CBC backups)
+      const decryptedJson = await decryptString(
+        unknownStorageItem.data,
+        decryptKey
+      );
+      if (!decryptedJson) {
+        // a single corrupt/undecryptable entry must not abort the whole import
+        continue;
+      }
       let decryptedData;
       try {
-        decryptedData = JSON.parse(
-          CryptoJS.AES.decrypt(unknownStorageItem.data, decryptKey).toString(
-            CryptoJS.enc.Utf8
-          )
-        );
+        decryptedData = JSON.parse(decryptedJson);
       } catch {
-        // a single corrupt/undecryptable entry must not abort the whole import
         continue;
       }
       storageItem = {
@@ -117,15 +120,15 @@ export async function decryptBackupData(
       continue;
     }
     if (storageItem.encrypted && passphrase) {
-      try {
-        storageItem.secret = CryptoJS.AES.decrypt(
-          storageItem.secret,
-          passphrase
-        ).toString(CryptoJS.enc.Utf8);
-        storageItem.encrypted = false;
-      } catch (error) {
+      const decryptedSecret = await decryptString(
+        storageItem.secret,
+        passphrase
+      );
+      if (!decryptedSecret) {
         continue;
       }
+      storageItem.secret = decryptedSecret;
+      storageItem.encrypted = false;
     }
     // storageItem.secret may be empty after decrypt with wrong
     // passphrase
