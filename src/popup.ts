@@ -48,6 +48,8 @@ async function init() {
 
   // State
   const store = new Vuex.Store({
+    // catch out-of-mutation state changes during development (no prod cost)
+    strict: process.env.NODE_ENV !== "production",
     modules: {
       accounts: await new Accounts().getModule(),
       advisor: await new Advisor().getModule(),

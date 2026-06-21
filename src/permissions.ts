@@ -24,6 +24,7 @@ async function init() {
 
   // State
   const store = new Vuex.Store({
+    strict: process.env.NODE_ENV !== "production",
     modules: {
       permissions: await new Permissions().getModule(),
     },
