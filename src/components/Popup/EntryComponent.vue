@@ -259,9 +259,13 @@ export default Vue.extend({
 
 // TODO: move most of this to a models file and reuse for backup stuff
 function getQrUrl(entry: OTPEntry) {
-  const label = entry.issuer
-    ? entry.issuer + ":" + entry.account
-    : entry.account;
+  const issuer = entry.issuer.split("::")[0];
+  // Encode issuer and account separately so the "issuer:account" separator
+  // stays a literal colon. Encoding the whole label turned it into %3A, which
+  // several authenticators (incl. Google) fail to parse. (#1302)
+  const label = issuer
+    ? encodeURIComponent(issuer) + ":" + encodeURIComponent(entry.account)
+    : encodeURIComponent(entry.account);
   const type =
     entry.type === OTPType.hex
       ? OTPType[OTPType.totp]
@@ -272,7 +276,7 @@ function getQrUrl(entry: OTPEntry) {
     "otpauth://" +
     type +
     "/" +
-    encodeURIComponent(label) +
+    label +
     "?secret=" +
     entry.secret +
     (entry.issuer
