@@ -227,19 +227,19 @@ async function qrDecode(
     const devicePixelRatio = qr.width / window.innerWidth;
     canvas.width = qr.width;
     canvas.height = qr.height;
-    canvas.getContext("2d")?.drawImage(qr, 0, 0);
-    const imageData = canvas
-      .getContext("2d")
-      ?.getImageData(
-        left * devicePixelRatio,
-        top * devicePixelRatio,
-        width * devicePixelRatio,
-        height * devicePixelRatio
-      );
+    // willReadFrequently: we call getImageData below; silences a Chrome perf hint
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    ctx?.drawImage(qr, 0, 0);
+    const imageData = ctx?.getImageData(
+      left * devicePixelRatio,
+      top * devicePixelRatio,
+      width * devicePixelRatio,
+      height * devicePixelRatio
+    );
     if (imageData) {
       canvas.width = imageData.width;
       canvas.height = imageData.height;
-      canvas.getContext("2d")?.putImageData(imageData, 0, 0);
+      ctx?.putImageData(imageData, 0, 0);
 
       const qrReader = new QRCode();
       qrReader.callback = (
