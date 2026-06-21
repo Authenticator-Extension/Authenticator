@@ -52,15 +52,24 @@ export default Vue.extend({
       } = {};
       let failedCount = 0;
       let succeededCount = 0;
-      try {
-        exportData = JSON.parse(this.importCode);
-      } catch (error) {
-        console.warn(error);
-        // Maybe one-otpauth-per line text
-        const result = await getEntryDataFromOTPAuthPerLine(this.importCode);
+      const content = this.importCode.trim();
+      if (content.startsWith("otpauth")) {
+        // otpauth:// per-line text, not JSON — parse directly so we don't
+        // JSON.parse it and log a confusing "is not valid JSON" SyntaxError
+        const result = await getEntryDataFromOTPAuthPerLine(content);
         exportData = result.exportData;
         failedCount = result.failedCount;
         succeededCount = result.succeededCount;
+      } else {
+        try {
+          exportData = JSON.parse(content);
+        } catch (error) {
+          console.warn(error);
+          const result = await getEntryDataFromOTPAuthPerLine(content);
+          exportData = result.exportData;
+          failedCount = result.failedCount;
+          succeededCount = result.succeededCount;
+        }
       }
 
       let key: { enc: string; hash: string } | null = null;
