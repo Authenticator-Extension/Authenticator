@@ -456,7 +456,7 @@ export class Accounts implements Module {
             });
           }
 
-          state.commit("style/hideInfo", true, { root: true });
+          state.dispatch("style/hideInfo", true, { root: true });
           return;
         },
         changePassphrase: async (

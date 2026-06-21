@@ -1,3 +1,5 @@
+import { ActionContext } from "vuex";
+
 export class Style implements Module {
   getModule() {
     return {
@@ -18,16 +20,18 @@ export class Style implements Module {
         },
       },
       mutations: {
+        // generic synchronous flag setter so the animation actions below can
+        // schedule their deferred resets through a mutation (Vuex strict mode
+        // forbids the setTimeout callbacks mutating state directly)
+        setStyleFlag(
+          state: StyleState,
+          payload: { key: keyof StyleState["style"]; value: boolean }
+        ) {
+          state.style[payload.key] = payload.value;
+        },
         showMenu(state: StyleState) {
           state.style.slidein = true;
           state.style.slideout = false;
-        },
-        hideMenu(state: StyleState) {
-          state.style.slidein = false;
-          state.style.slideout = true;
-          setTimeout(() => {
-            state.style.slideout = false;
-          }, 200);
         },
         showInfo(state: StyleState, noAnimate?: boolean) {
           if (noAnimate) {
@@ -37,44 +41,61 @@ export class Style implements Module {
             state.style.fadeout = false;
           }
         },
-        hideInfo(state: StyleState, noAnimate?: boolean) {
-          if (noAnimate) {
-            state.style.show = false;
-          } else {
-            state.style.fadein = false;
-            state.style.fadeout = true;
-          }
-          setTimeout(() => {
-            state.style.fadeout = false;
-          }, 200);
-        },
         showQr(state: StyleState) {
           state.style.qrfadein = true;
           state.style.qrfadeout = false;
-        },
-        hideQr(state: StyleState) {
-          state.style.qrfadein = false;
-          state.style.qrfadeout = true;
-          setTimeout(() => {
-            state.style.qrfadeout = false;
-          }, 200);
-        },
-        showNotification(state: StyleState) {
-          state.style.notificationFadein = true;
-          state.style.notificationFadeout = false;
-          setTimeout(() => {
-            state.style.notificationFadein = false;
-            state.style.notificationFadeout = true;
-            setTimeout(() => {
-              state.style.notificationFadeout = false;
-            }, 200);
-          }, 1000);
         },
         toggleEdit(state: StyleState) {
           state.style.isEditing = !state.style.isEditing;
         },
         toggleHotpDisabled(state: StyleState) {
           state.style.hotpDisabled = !state.style.hotpDisabled;
+        },
+      },
+      actions: {
+        // these end an animation by resetting a flag after a delay, which has
+        // to be committed (not mutated directly) under strict mode
+        hideMenu({ commit }: ActionContext<StyleState, object>) {
+          commit("setStyleFlag", { key: "slidein", value: false });
+          commit("setStyleFlag", { key: "slideout", value: true });
+          setTimeout(() => {
+            commit("setStyleFlag", { key: "slideout", value: false });
+          }, 200);
+        },
+        hideInfo(
+          { commit }: ActionContext<StyleState, object>,
+          noAnimate?: boolean
+        ) {
+          if (noAnimate) {
+            commit("setStyleFlag", { key: "show", value: false });
+          } else {
+            commit("setStyleFlag", { key: "fadein", value: false });
+            commit("setStyleFlag", { key: "fadeout", value: true });
+          }
+          setTimeout(() => {
+            commit("setStyleFlag", { key: "fadeout", value: false });
+          }, 200);
+        },
+        hideQr({ commit }: ActionContext<StyleState, object>) {
+          commit("setStyleFlag", { key: "qrfadein", value: false });
+          commit("setStyleFlag", { key: "qrfadeout", value: true });
+          setTimeout(() => {
+            commit("setStyleFlag", { key: "qrfadeout", value: false });
+          }, 200);
+        },
+        showNotification({ commit }: ActionContext<StyleState, object>) {
+          commit("setStyleFlag", { key: "notificationFadein", value: true });
+          commit("setStyleFlag", { key: "notificationFadeout", value: false });
+          setTimeout(() => {
+            commit("setStyleFlag", { key: "notificationFadein", value: false });
+            commit("setStyleFlag", { key: "notificationFadeout", value: true });
+            setTimeout(() => {
+              commit("setStyleFlag", {
+                key: "notificationFadeout",
+                value: false,
+              });
+            }, 200);
+          }, 1000);
         },
       },
       getters: {

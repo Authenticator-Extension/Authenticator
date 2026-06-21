@@ -97,7 +97,7 @@ export default Vue.extend({
   computed,
   methods: {
     hideQr() {
-      this.$store.commit("style/hideQr");
+      this.$store.dispatch("style/hideQr");
     },
   },
   components: {

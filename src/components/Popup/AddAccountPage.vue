@@ -150,7 +150,7 @@ export default Vue.extend({
         return;
       }
       await this.$store.dispatch("accounts/addCode", entry);
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
       this.$store.commit("style/toggleEdit");
 
       const codes = document.getElementById("codes");

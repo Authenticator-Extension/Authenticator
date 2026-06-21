@@ -83,7 +83,7 @@ export default Vue.extend({
 
       await this.$store.dispatch("accounts/changePassphrase", "");
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
       return;
     },
     async changePassphrase() {
@@ -119,7 +119,7 @@ export default Vue.extend({
 
       await this.$store.dispatch("accounts/changePassphrase", this.phrase);
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
       return;
     },
   },

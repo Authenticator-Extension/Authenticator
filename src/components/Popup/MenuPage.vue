@@ -117,7 +117,7 @@ export default Vue.extend({
   },
   methods: {
     hideMenu() {
-      this.$store.commit("style/hideMenu");
+      this.$store.dispatch("style/hideMenu");
     },
     openHelp() {
       let url = "https://otp.ee/chromeissues";

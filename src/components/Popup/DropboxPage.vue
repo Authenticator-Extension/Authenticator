@@ -91,7 +91,7 @@ export default Vue.extend({
       });
       UserSettings.removeItem(`${service}Token`);
       this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
     },
     async backupUpload() {
       const dbox = new Dropbox();

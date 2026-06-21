@@ -101,7 +101,7 @@ export default Vue.extend({
       });
       UserSettings.removeItem("driveToken");
       this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
     },
     async backupUpload() {
       const drive = new Drive();

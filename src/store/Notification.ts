@@ -13,12 +13,11 @@ export class Notification implements Module {
         alert: (state: NotificationState, message: string) => {
           state.message.unshift(message);
         },
-        closeAlert: (state: NotificationState) => {
-          state.messageIdle = false;
+        setMessageIdle: (state: NotificationState, value: boolean) => {
+          state.messageIdle = value;
+        },
+        shiftMessage: (state: NotificationState) => {
           state.message.shift();
-          setTimeout(() => {
-            state.messageIdle = true;
-          }, 200);
         },
         setConfirm: (state: NotificationState, message: string) => {
           state.confirmMessage = message;
@@ -28,6 +27,15 @@ export class Notification implements Module {
         },
       },
       actions: {
+        // was a mutation, but the deferred reset (setTimeout) mutated state
+        // outside the handler, which Vuex strict mode forbids
+        closeAlert: ({ commit }: ActionContext<NotificationState, object>) => {
+          commit("setMessageIdle", false);
+          commit("shiftMessage");
+          setTimeout(() => {
+            commit("setMessageIdle", true);
+          }, 200);
+        },
         confirm: async (
           state: ActionContext<NotificationState, object>,
           message: string
@@ -55,7 +63,7 @@ export class Notification implements Module {
           message: string
         ) => {
           state.commit("setNotification", message);
-          state.commit("style/showNotification", null, { root: true });
+          state.dispatch("style/showNotification", null, { root: true });
         },
       },
       namespaced: true,

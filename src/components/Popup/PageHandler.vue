@@ -35,7 +35,7 @@ export default Vue.extend({
   },
   methods: {
     hideInfo() {
-      this.$store.commit("style/hideInfo");
+      this.$store.dispatch("style/hideInfo");
     },
   },
   components: {

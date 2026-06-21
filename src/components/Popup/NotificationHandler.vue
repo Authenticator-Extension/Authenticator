@@ -36,7 +36,7 @@ export default Vue.extend({
   ]),
   methods: {
     closeAlert() {
-      this.$store.commit("notification/closeAlert");
+      this.$store.dispatch("notification/closeAlert");
     },
     confirmOK() {
       const confirmEvent = new CustomEvent("confirm", { detail: true });
