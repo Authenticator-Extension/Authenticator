@@ -139,7 +139,16 @@ export default Vue.extend({
         encryption
       );
 
-      await entry.create();
+      try {
+        await entry.create();
+      } catch (error) {
+        // e.g. sync storage full — don't show a phantom entry that wasn't saved
+        this.$store.commit(
+          "notification/alert",
+          error instanceof Error ? error.message : String(error)
+        );
+        return;
+      }
       await this.$store.dispatch("accounts/addCode", entry);
       this.$store.commit("style/hideInfo");
       this.$store.commit("style/toggleEdit");

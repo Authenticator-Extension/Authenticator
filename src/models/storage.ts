@@ -129,10 +129,22 @@ export class BrowserStorage {
 
   static async set(data: object) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === StorageLocation.Local) {
-      await chrome.storage.local.set(data);
-    } else if (storageLocation === StorageLocation.Sync) {
-      await chrome.storage.sync.set(data);
+    try {
+      if (storageLocation === StorageLocation.Local) {
+        await chrome.storage.local.set(data);
+      } else if (storageLocation === StorageLocation.Sync) {
+        await chrome.storage.sync.set(data);
+      }
+    } catch (error) {
+      // Usually the sync quota (MAX_ITEMS / QUOTA_BYTES_PER_ITEM). Re-throw with
+      // a clear message instead of failing as a silent unhandled rejection that
+      // leaves the entry visible in the UI but never persisted.
+      console.error("Storage write failed", storageLocation, error);
+      throw new Error(
+        storageLocation === StorageLocation.Sync
+          ? "Browser sync storage is full. Switch to local storage in Preferences."
+          : "Storage write failed: " + String(error)
+      );
     }
     return;
   }
