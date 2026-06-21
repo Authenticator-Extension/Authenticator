@@ -32,7 +32,7 @@
       </svg>
     </div>
     <div
-      v-bind:class="{ counter: true, disabled: style.hotpDiabled }"
+      v-bind:class="{ counter: true, disabled: style.hotpDisabled }"
       v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex"
       v-on:click="nextCode(entry)"
     >
@@ -186,7 +186,7 @@ export default Vue.extend({
       return;
     },
     async nextCode(entry: OTPEntry) {
-      if (this.$store.state.style.hotpDisabled) {
+      if (this.$store.state.style.style.hotpDisabled) {
         return;
       }
       this.$store.commit("style/toggleHotpDisabled");
