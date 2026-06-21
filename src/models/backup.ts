@@ -50,6 +50,13 @@ export class Dropbox implements BackupProvider {
                 UserSettings.commitItems();
                 return resolve(false);
               }
+              if (xhr.status < 200 || xhr.status >= 300) {
+                // a non-2xx (5xx, HTML error page, ...) is a failed upload, not
+                // something to JSON.parse and maybe misread as success
+                return reject(
+                  new Error("Dropbox upload failed: HTTP " + xhr.status)
+                );
+              }
               try {
                 const res = JSON.parse(xhr.responseText);
                 if (res.name) {
