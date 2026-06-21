@@ -22,11 +22,14 @@
         v-model.number="newAccount.period"
         :disabled="newAccount.type === OTPType.hotp"
       />
-      <a-select-input :label="i18n.digits" v-model="newAccount.digits">
+      <a-select-input :label="i18n.digits" v-model.number="newAccount.digits">
         <option value="6">6</option>
         <option value="8">8</option>
       </a-select-input>
-      <a-select-input :label="i18n.algorithm" v-model="newAccount.algorithm">
+      <a-select-input
+        :label="i18n.algorithm"
+        v-model.number="newAccount.algorithm"
+      >
         <option :value="OTPAlgorithm.SHA1">SHA-1</option>
         <option :value="OTPAlgorithm.SHA256">SHA-256</option>
         <option :value="OTPAlgorithm.SHA512">SHA-512</option>
