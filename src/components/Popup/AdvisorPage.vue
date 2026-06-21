@@ -18,10 +18,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import AdvisorInsight from "./AdvisorInsight.vue";
 
-export default Vue.extend({
+export default defineComponent({
   mounted: function () {
     this.$store.dispatch("advisor/updateInsight");
   },

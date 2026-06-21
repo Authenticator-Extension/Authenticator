@@ -4,22 +4,27 @@
     <input
       class="checkbox"
       type="checkbox"
-      :checked="checked"
-      @change="$emit('change', $event.target.checked)"
+      :checked="modelValue"
+      @change="onChange"
     />
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     label: String,
-    checked: Boolean,
+    modelValue: Boolean,
   },
-  model: {
-    prop: "checked",
-    event: "change",
+  emits: ["update:modelValue", "change"],
+  methods: {
+    onChange(event: Event) {
+      const checked = (event.target as HTMLInputElement).checked;
+      // update:modelValue drives v-model; change keeps the side-effect handlers
+      this.$emit("update:modelValue", checked);
+      this.$emit("change", checked);
+    },
   },
 });
 </script>

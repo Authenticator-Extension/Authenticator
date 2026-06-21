@@ -21,7 +21,7 @@
 </template>
 <script lang="ts">
 import * as CryptoJS from "crypto-js";
-import Vue from "vue";
+import { defineComponent } from "vue";
 import {
   decryptBackupData,
   getEntryDataFromOTPAuthPerLine,
@@ -29,7 +29,7 @@ import {
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       getFilePassphrase: false,

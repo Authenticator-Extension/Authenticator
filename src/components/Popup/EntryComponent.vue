@@ -61,7 +61,9 @@
         hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
         timeout: entry.period - (second % entry.period) < 5,
       }"
-    >{{ style.isEditing ? showBulls(entry) : showCode(entry.code) }}</div>
+    >
+      {{ style.isEditing ? showBulls(entry) : showCode(entry.code) }}
+    </div>
     <div class="issuer account">{{ entry.account }}</div>
     <div class="issuerEdit">
       <input
@@ -89,7 +91,7 @@
   </a>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
@@ -120,7 +122,7 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
-export default Vue.extend({
+export default defineComponent({
   computed,
   props: {
     entry: OTPEntry,

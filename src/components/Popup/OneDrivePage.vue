@@ -40,13 +40,13 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { OneDrive } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
 
 const service = "onedrive";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       email: this.i18n.loading,

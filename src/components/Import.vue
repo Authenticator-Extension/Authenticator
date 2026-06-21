@@ -40,12 +40,12 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import FileImport from "./Import/FileImport.vue";
 import QrImport from "./Import/QrImport.vue";
 import TextImport from "./Import/TextImport.vue";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     const query = location.search ? location.search.substr(1) : "";
     const importType = ["FileImport", "QrImport", "TextImport"].includes(query)

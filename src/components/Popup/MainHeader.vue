@@ -72,7 +72,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
 
@@ -98,7 +98,7 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
-export default Vue.extend({
+export default defineComponent({
   computed,
   methods: {
     isPopup() {

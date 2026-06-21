@@ -26,10 +26,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Permission } from "../models/permission";
 
-export default Vue.extend({
+export default defineComponent({
   computed: {
     permissions: function () {
       return this.$store.state.permissions.permissions.filter(

@@ -61,11 +61,11 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
 
-export default Vue.extend({
+export default defineComponent({
   computed: {
     zoom: {
       get(): number {

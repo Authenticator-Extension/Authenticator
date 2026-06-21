@@ -23,37 +23,40 @@
       </div>
     </div>
     <!-- Entries -->
-    <div
-      v-dragula
-      drake="entryDrake"
+    <draggable
+      v-model="draggableEntries"
+      item-key="hash"
+      handle=".movehandle"
+      :disabled="!isEditing"
       v-on:keydown.down="focusNextEntry()"
       v-on:keydown.right="focusNextEntry()"
       v-on:keydown.up="focusLastEntry()"
       v-on:keydown.left="focusLastEntry()"
     >
-      <EntryComponent
-        v-for="entry in entries"
-        :key="entry.hash"
-        v-bind:filtered="!entry.pinned && !isMatchedEntry(entry)"
-        v-bind:notSearched="!isSearchedEntry(entry)"
-        v-bind:entry="entry"
-        v-bind:tabindex="getTabindex(entry)"
-      />
-      <div class="no-entry" v-if="entries.length === 0 && initComplete">
-        <IconKey />
-        <p>
-          {{ i18n.no_entires }}
-          <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
-            i18n.learn_more
-          }}</a>
-        </p>
-      </div>
+      <template #item="{ element }">
+        <EntryComponent
+          v-bind:filtered="!element.pinned && !isMatchedEntry(element)"
+          v-bind:notSearched="!isSearchedEntry(element)"
+          v-bind:entry="element"
+          v-bind:tabindex="getTabindex(element)"
+        />
+      </template>
+    </draggable>
+    <div class="no-entry" v-if="entries.length === 0 && initComplete">
+      <IconKey />
+      <p>
+        {{ i18n.no_entires }}
+        <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
+          i18n.learn_more
+        }}</a>
+      </p>
     </div>
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState, mapGetters } from "vuex";
+import draggable from "vuedraggable";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 
@@ -62,23 +65,30 @@ import EntryComponent from "./EntryComponent.vue";
 // import IconPlus from "../../../svg/plus.svg";
 import IconKey from "../../../svg/key-solid.svg";
 
-const computed: {
-  filter: () => boolean;
-  showSearch: () => boolean;
-  shouldFilter: () => boolean;
-  entries: () => OTPEntry[];
-} = {
-  ...mapState("accounts", ["filter", "showSearch", "initComplete"]),
-  ...mapGetters("accounts", ["shouldFilter", "entries"]),
-};
-
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       searchText: "",
     };
   },
-  computed,
+  computed: {
+    ...mapState("accounts", ["filter", "showSearch", "initComplete"]),
+    ...mapGetters("accounts", ["shouldFilter", "entries"]),
+    isEditing(): boolean {
+      return this.$store.state.style.style.isEditing;
+    },
+    draggableEntries: {
+      get(): OTPEntry[] {
+        return this.$store.getters["accounts/entries"];
+      },
+      set(reordered: OTPEntry[]) {
+        this.$store.commit("accounts/reorderEntries", reordered);
+        // reordering restarts the timer-circle animation; re-sync its phase
+        this.$store.commit("accounts/resyncSector");
+        EntryStorage.set(this.$store.state.accounts.entries);
+      },
+    },
+  },
   methods: {
     openLink(url: string) {
       window.open(url, "_blank");
@@ -118,7 +128,7 @@ export default Vue.extend({
       );
     },
     getTabindex(entry: OTPEntry) {
-      const firstEntry = this.entries.find((entry) =>
+      const firstEntry = this.entries.find((entry: OTPEntry) =>
         this.isEntryVisible(entry)
       );
 
@@ -141,14 +151,16 @@ export default Vue.extend({
       const _entries = reverse ? this.entries.slice().reverse() : this.entries;
 
       let nextIndex = _entries.findIndex(
-        (entry, index) =>
+        (entry: OTPEntry, index: number) =>
           index >
             (reverse ? this.entries.length - 1 - activeIndex : activeIndex) &&
           this.isEntryVisible(entry)
       );
 
       if (nextIndex === -1) {
-        nextIndex = _entries.findIndex((entry) => this.isEntryVisible(entry));
+        nextIndex = _entries.findIndex((entry: OTPEntry) =>
+          this.isEntryVisible(entry)
+        );
       }
 
       return nextIndex;
@@ -166,42 +178,11 @@ export default Vue.extend({
         ?.focus();
     },
   },
-  created() {
-    // Don't drag if !isEditing
-    this.$dragula.$service.options("entryDrake", {
-      invalid: () => {
-        if (!this.$store.state.style.style.isEditing) {
-          return true;
-        } else {
-          return false;
-        }
-      },
-    });
-
-    // Update entry index if dragged
-    this.$dragula.$service.eventBus.$on(
-      "dropModel",
-      async ({
-        dragIndex,
-        dropIndex,
-      }: {
-        dragIndex: number;
-        dropIndex: number;
-      }) => {
-        this.$store.commit("accounts/moveCode", {
-          from: dragIndex,
-          to: dropIndex,
-        });
-        // reordering restarts the timer-circle animation; re-sync its phase
-        this.$store.commit("accounts/resyncSector");
-        await EntryStorage.set(this.$store.state.accounts.entries);
-      }
-    );
-  },
   components: {
     EntryComponent,
     // IconPlus,
     IconKey,
+    draggable,
   },
 });
 </script>

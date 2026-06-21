@@ -4,18 +4,19 @@
     <input
       :type="type ? type : 'text'"
       class="input"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
       @keyup.enter="$emit('enter')"
       ref="textInput"
     />
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
-  props: ["label", "value", "type", "autofocus"],
+export default defineComponent({
+  props: ["label", "modelValue", "type", "autofocus"],
+  emits: ["update:modelValue", "enter"],
   mounted() {
     if (!this.$props.autofocus) {
       return;

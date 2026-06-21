@@ -72,7 +72,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { syncTimeWithGoogle } from "../../syncTime";
 
 import IconArrowLeft from "../../../svg/arrow-left.svg";
@@ -90,7 +90,7 @@ import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     IconArrowLeft,
     IconInfo,

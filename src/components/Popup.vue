@@ -66,7 +66,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
 
 import MainHeader from "./Popup/MainHeader.vue";
@@ -88,7 +88,7 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       hideoutline: true,

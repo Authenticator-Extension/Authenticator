@@ -13,7 +13,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 // @ts-ignore
 import QRCode from "qrcode-reader";
 import jsQR from "jsqr";
@@ -21,7 +21,7 @@ import { getEntryDataFromOTPAuthPerLine } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
-export default Vue.extend({
+export default defineComponent({
   methods: {
     async importQr(event: Event, closeWindow: Boolean) {
       const target = event.target as HTMLInputElement;

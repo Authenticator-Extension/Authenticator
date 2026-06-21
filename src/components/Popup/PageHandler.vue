@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import IconXCircle from "../../../svg/x-circle.svg";
 
@@ -27,7 +27,7 @@ import PreferencesPage from "./PreferencesPage.vue";
 import AdvisorPage from "./AdvisorPage.vue";
 import LoadingPage from "./LoadingPage.vue";
 
-export default Vue.extend({
+export default defineComponent({
   computed: {
     info: function () {
       return this.$store.state.currentView.info;

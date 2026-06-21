@@ -13,9 +13,9 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
-export default Vue.extend({
+export default defineComponent({
   methods: {
     showInfo(page: string) {
       if (this.$store.getters["accounts/currentlyEncrypted"]) {

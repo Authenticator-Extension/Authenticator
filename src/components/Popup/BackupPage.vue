@@ -69,10 +69,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { isSafari } from "../../browser";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     const exportData = this.$store.state.accounts.exportData;
     const exportEncData = this.$store.state.accounts.exportEncData;

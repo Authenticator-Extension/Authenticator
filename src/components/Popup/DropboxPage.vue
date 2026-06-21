@@ -30,13 +30,13 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Dropbox } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
 
 const service = "dropbox";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       email: this.i18n.loading,

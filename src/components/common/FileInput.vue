@@ -4,16 +4,17 @@
     <input
       id="import_file"
       type="file"
-      v-on="$listeners"
+      v-bind="$attrs"
       :accept="accept"
       :multiple="multiple"
     />
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
-export default Vue.extend({
+export default defineComponent({
+  inheritAttrs: false,
   props: ["label", "multiple", "accept"],
 });
 </script>
