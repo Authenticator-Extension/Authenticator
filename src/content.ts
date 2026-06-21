@@ -61,9 +61,10 @@ if (!document.getElementById("__ga_grayLayout__")) {
         // invalid command, ignore it
         break;
     }
-
-    // https://stackoverflow.com/a/56483156
-    return true;
+    // Only "capture" responds, and it does so synchronously, so don't return
+    // true. Returning true kept the channel open waiting for a response that
+    // never came for the other actions (e.g. sendCaptureUrl on a non-QR image),
+    // making the background sender's sendMessage promise reject.
   });
 }
 

@@ -16,7 +16,7 @@ import { UserSettings } from "./models/settings";
 
 let contentTab: chrome.tabs.Tab | undefined;
 
-chrome.runtime.onMessage.addListener(async (message, sender) => {
+chrome.runtime.onMessage.addListener((message, sender) => {
   // Only act on messages from our own extension pages / content scripts, never
   // another extension. (No externally_connectable is set, so web pages can't
   // reach here, but this is cheap defense-in-depth for the sensitive actions
@@ -25,44 +25,48 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
     return;
   }
 
-  await UserSettings.updateItems();
+  // None of these handlers send a response, so do the async work fire-and-forget
+  // and DON'T return true. Returning true kept the message channel open waiting
+  // for a sendResponse that never came, so the sender's sendMessage promise
+  // rejected with "message channel closed before a response was received"
+  // (e.g. when a QR capture finds no code).
+  void (async () => {
+    await UserSettings.updateItems();
 
-  if (message.action === "getCapture") {
-    if (!sender.tab) {
-      return;
-    }
-    const url = await getCapture(sender.tab);
-    if (contentTab && contentTab.id) {
-      message.info.url = url;
-      chrome.tabs.sendMessage(contentTab.id, {
-        action: "sendCaptureUrl",
-        info: message.info,
+    if (message.action === "getCapture") {
+      if (!sender.tab) {
+        return;
+      }
+      const url = await getCapture(sender.tab);
+      if (contentTab && contentTab.id) {
+        message.info.url = url;
+        chrome.tabs.sendMessage(contentTab.id, {
+          action: "sendCaptureUrl",
+          info: message.info,
+        });
+      }
+    } else if (message.action === "getTotp") {
+      getTotp(message.info);
+    } else if (message.action === "cachePassphrase") {
+      chrome.storage.session.set({
+        cachedPassphrase: message.value,
+        cachedKeyId: message.keyId,
       });
+      chrome.alarms.clear("autolock");
+      setAutolock();
+    } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
+      getBackupToken(message.action);
+    } else if (message.action === "lock") {
+      chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
+    } else if (message.action === "resetAutolock") {
+      chrome.alarms.clear("autolock");
+      setAutolock();
+    } else if (message.action === "updateContentTab") {
+      contentTab = message.data;
+    } else if (message.action === "updateContextMenu") {
+      updateContextMenu();
     }
-  } else if (message.action === "getTotp") {
-    getTotp(message.info);
-  } else if (message.action === "cachePassphrase") {
-    chrome.storage.session.set({
-      cachedPassphrase: message.value,
-      cachedKeyId: message.keyId,
-    });
-    chrome.alarms.clear("autolock");
-    setAutolock();
-  } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
-    getBackupToken(message.action);
-  } else if (message.action === "lock") {
-    chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
-  } else if (message.action === "resetAutolock") {
-    chrome.alarms.clear("autolock");
-    setAutolock();
-  } else if (message.action === "updateContentTab") {
-    contentTab = message.data;
-  } else if (message.action === "updateContextMenu") {
-    updateContextMenu();
-  }
-
-  // https://stackoverflow.com/a/56483156
-  return true;
+  })();
 });
 
 chrome.alarms.onAlarm.addListener(() => {

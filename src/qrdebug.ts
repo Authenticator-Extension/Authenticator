@@ -12,9 +12,8 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       message.info.windowWidth
     );
   }
-
-  // https://stackoverflow.com/a/56483156
-  return true;
+  // no response is sent, so don't return true (which leaves the sender's
+  // message channel open and rejects it on close)
 });
 
 function getQrDebug(

@@ -66,9 +66,8 @@ export default Vue.extend({
       if (event.action === "stopImport") {
         this.shouldShowPassphrase = true;
       }
-
-      // https://stackoverflow.com/a/56483156
-      return true;
+      // no response is sent, so don't return true (which would leave the
+      // sender's message channel open and reject it on close)
     });
   },
 });
