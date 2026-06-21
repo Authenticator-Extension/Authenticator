@@ -228,7 +228,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               UserSettings.removeItem("dropboxRevoked");
             }
           } catch (error) {
-            // ignore
+            // a failed scheduled backup shouldn't be completely silent
+            console.error("Scheduled backup failed", error);
           }
         }
         instance.$store.commit(
@@ -270,7 +271,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               UserSettings.removeItem("driveRevoked");
             }
           } catch (error) {
-            // ignore
+            // a failed scheduled backup shouldn't be completely silent
+            console.error("Scheduled backup failed", error);
           }
         }
         instance.$store.commit(
@@ -312,7 +314,8 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
               UserSettings.removeItem("oneDriveRevoked");
             }
           } catch (error) {
-            // ignore
+            // a failed scheduled backup shouldn't be completely silent
+            console.error("Scheduled backup failed", error);
           }
         }
         instance.$store.commit(
