@@ -379,6 +379,19 @@ function getBackupToken(service: string) {
                       Accept: "application/json",
                       "Content-Type": "application/x-www-form-urlencoded",
                     },
+                    // Microsoft's token endpoint requires the parameters in the
+                    // request body; without it the exchange always failed and
+                    // OneDrive sign-in never completed.
+                    body:
+                      "client_id=" +
+                      getCredentials().onedrive.client_id +
+                      "&client_secret=" +
+                      getCredentials().onedrive.client_secret +
+                      "&code=" +
+                      value +
+                      "&redirect_uri=" +
+                      redirUrl +
+                      "&grant_type=authorization_code",
                   }
                 );
 
