@@ -59,23 +59,32 @@ export default Vue.extend({
           } = {};
           let failedCount = 0;
           let succeededCount = 0;
-          try {
-            importData = JSON.parse(reader.result as string);
-            // andOTP exports a flat JSON array instead of a keyed object (#1304)
-            if (Array.isArray(importData)) {
-              importData = getEntryDataFromAndOTP(importData);
-            }
-            succeededCount = Object.keys(importData).filter(
-              (key) => ["key", "enc", "hash"].indexOf(key) === -1
-            ).length;
-          } catch (e) {
-            console.warn(e);
-            const result = await getEntryDataFromOTPAuthPerLine(
-              reader.result as string
-            );
+          const content = (reader.result as string).trim();
+          if (content.startsWith("otpauth")) {
+            // otpauth:// or otpauth-migration:// text backup (not JSON) — parse
+            // it directly so we don't JSON.parse it and log a confusing
+            // "otpauth:// is not valid JSON" SyntaxError
+            const result = await getEntryDataFromOTPAuthPerLine(content);
             importData = result.exportData;
             failedCount = result.failedCount;
             succeededCount = result.succeededCount;
+          } else {
+            try {
+              importData = JSON.parse(content);
+              // andOTP exports a flat JSON array instead of a keyed object (#1304)
+              if (Array.isArray(importData)) {
+                importData = getEntryDataFromAndOTP(importData);
+              }
+              succeededCount = Object.keys(importData).filter(
+                (key) => ["key", "enc", "hash"].indexOf(key) === -1
+              ).length;
+            } catch (e) {
+              console.warn(e);
+              const result = await getEntryDataFromOTPAuthPerLine(content);
+              importData = result.exportData;
+              failedCount = result.failedCount;
+              succeededCount = result.succeededCount;
+            }
           }
 
           let key: { enc: string } | null = null;
