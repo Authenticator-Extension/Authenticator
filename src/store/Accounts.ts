@@ -595,6 +595,15 @@ export class Accounts implements Module {
 
           state.commit("loadCodes", entries);
           state.commit("updateCodes");
+
+          // show the search box on load too, not only after clearing a smart
+          // filter, so it appears for large lists / after unlocking (#1496, #1400)
+          if (
+            state.state.entries.length >= 10 &&
+            !(state.getters.shouldFilter && state.state.filter)
+          ) {
+            state.commit("showSearch");
+          }
           state.commit(
             "updateExport",
             await EntryStorage.getExport(state.state.entries)
