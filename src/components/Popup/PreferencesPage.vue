@@ -89,10 +89,13 @@ export default Vue.extend({
       },
       set(smartFilter: boolean) {
         this.$store.commit("menu/setSmartFilter", smartFilter);
-        this.$store.commit(
-          "notification/alert",
-          this.i18n.activate_auto_filter
-        );
+        // only explain smart filter when turning it on, not off (#1282)
+        if (smartFilter) {
+          this.$store.commit(
+            "notification/alert",
+            this.i18n.activate_auto_filter
+          );
+        }
       },
     },
     enableContextMenu: {
