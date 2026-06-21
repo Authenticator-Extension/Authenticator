@@ -50,7 +50,7 @@
         type="text"
         v-model="entry.issuer"
         v-on:keydown.stop
-        v-on:change="entry.update(encryption)"
+        v-on:change="entry.update()"
       />
     </div>
     <div
@@ -59,8 +59,7 @@
         hotp: entry.type === OTPType.hotp || entry.type === OTPType.hhex,
         timeout: entry.period - (second % entry.period) < 5,
       }"
-      v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
-    ></div>
+    >{{ style.isEditing ? showBulls(entry) : showCode(entry.code) }}</div>
     <div class="issuer account">{{ entry.account }}</div>
     <div class="issuerEdit">
       <input
@@ -68,7 +67,7 @@
         type="text"
         v-model="entry.account"
         v-on:keydown.stop
-        v-on:change="entry.update(encryption)"
+        v-on:change="entry.update()"
       />
     </div>
     <div
@@ -129,7 +128,7 @@ export default Vue.extend({
       return (
         code === CodeState.Encrypted ||
         code === CodeState.Invalid ||
-        code.startsWith("&bull;")
+        code.startsWith("•")
       );
     },
     shouldShowQrIcon(entry: OTPEntry) {
@@ -156,11 +155,11 @@ export default Vue.extend({
         return this.i18n.invalid;
       }
 
-      if (entry.code.startsWith("&bull;")) {
+      if (entry.code.startsWith("•")) {
         return entry.code;
       }
 
-      return new Array(entry.digits).fill("&bull;").join("");
+      return new Array(entry.digits).fill("•").join("");
     },
     async removeEntry(entry: OTPEntry) {
       if (
@@ -200,7 +199,7 @@ export default Vue.extend({
       if (
         this.$store.state.style.style.isEditing ||
         entry.code === CodeState.Invalid ||
-        entry.code.startsWith("&bull;")
+        entry.code.startsWith("•")
       ) {
         return;
       }

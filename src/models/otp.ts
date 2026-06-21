@@ -63,7 +63,7 @@ export class OTPEntry implements OTPEntryInterface {
   encData?: string;
   encSecret?: string;
   keyId?: string;
-  code = "&bull;&bull;&bull;&bull;&bull;&bull;";
+  code = "••••••";
 
   constructor(
     entry:
