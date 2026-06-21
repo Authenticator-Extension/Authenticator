@@ -26,6 +26,6 @@
     "node_modules"
   ],
   "vueCompilerOptions": {
-    "target": 2
+    "target": 3
   }
 }

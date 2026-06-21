@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader'
+        use: ['vue-loader', 'vue-svg-loader']
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -54,13 +54,9 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        extensions: {
-          vue: true
-        }
-      }
-    })
+    // .vue type checking is done by vue-tsc (npm run typecheck), not here;
+    // fork-ts-checker's vue extension needs Vue 2's vue-template-compiler.
+    new ForkTsCheckerWebpackPlugin()
   ],
   resolve: {
     extensions: [

@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Store } from "vuex";
 
-declare module "vue/types/vue" {
-  interface Vue {
+declare module "@vue/runtime-core" {
+  interface ComponentCustomProperties {
     // Only in Popup
     $store: Store<any>;
-    $dragula: any;
     // Only in Import
     $entries: OTPEntryInterface[];
     $encryption: EncryptionInterface;
