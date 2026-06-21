@@ -256,10 +256,10 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
           parameter[0].toLowerCase() === "period"
         ) {
           period = Number(parameter[1]);
-          period =
-            isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
-              ? undefined
-              : period;
+          // accept any positive integer period; the old "> 60" / "60 % period"
+          // checks silently dropped valid periods (45, 60, 90, 120...) so those
+          // OTPs fell back to 30s and produced wrong codes (#1271, #1508)
+          period = !Number.isInteger(period) || period < 1 ? undefined : period;
         } else if (parameter[0].toLowerCase() === "digits") {
           digits = Number(parameter[1]);
           digits = isNaN(digits) ? 6 : digits;
