@@ -91,13 +91,20 @@ export async function decryptBackupData(
         continue;
       }
 
-      storageItem = {
-        ...unknownStorageItem,
-        ...JSON.parse(
+      let decryptedData;
+      try {
+        decryptedData = JSON.parse(
           CryptoJS.AES.decrypt(unknownStorageItem.data, decryptKey).toString(
             CryptoJS.enc.Utf8
           )
-        ),
+        );
+      } catch {
+        // a single corrupt/undecryptable entry must not abort the whole import
+        continue;
+      }
+      storageItem = {
+        ...unknownStorageItem,
+        ...decryptedData,
         encrypted: false,
       };
     } else {
