@@ -46,8 +46,6 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
     echo -e "Thanks for forking Authenticator! If you plan on redistributing your own version of Authenticator please generate your own API keys and put them in ./src/models/credentials.ts and ./manifest-chrome.json"
     echo "Clear this warning by commenting it out in ./scripts/build.sh"
     echo
-    read -rsp $'Press any key to continue...\n' -n1 key
-    echo
 fi
 
 echo "Compiling..."
