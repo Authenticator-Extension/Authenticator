@@ -463,7 +463,16 @@ export class EntryStorage {
         continue;
       }
 
+      // type and algorithm are stored as their names (e.g. "hotp", "SHA256"),
+      // not numbers, so parseInt would yield NaN and silently fall back to the
+      // default. Map the name back to the enum instead. Fixes imported HOTP /
+      // Steam entries becoming TOTP (Authenticator-Extension/Authenticator#1292,
+      // #405) and SHA256/SHA512 reverting to SHA1 (#1442, #1294, #1089).
+      const typeFromName = OTPType[data[hash].type as keyof typeof OTPType];
       const rawAlgorithm = data[hash].algorithm;
+      const algorithmFromName = rawAlgorithm
+        ? OTPAlgorithm[rawAlgorithm.toUpperCase() as keyof typeof OTPAlgorithm]
+        : undefined;
       const entryData: {
         account: string;
         encrypted: false;
@@ -478,7 +487,7 @@ export class EntryStorage {
         algorithm: OTPAlgorithm;
         pinned: boolean;
       } = {
-        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        type: typeof typeFromName === "number" ? typeFromName : OTPType.totp,
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
         account: data[hash].account || "",
@@ -487,9 +496,10 @@ export class EntryStorage {
         counter: data[hash].counter || 0,
         period: data[hash].period || 30,
         digits: data[hash].digits || 6,
-        algorithm: rawAlgorithm
-          ? (parseInt(rawAlgorithm) as OTPAlgorithm)
-          : OTPAlgorithm.SHA1,
+        algorithm:
+          typeof algorithmFromName === "number"
+            ? algorithmFromName
+            : OTPAlgorithm.SHA1,
         pinned: data[hash].pinned || false,
         hash: data[hash].hash || hash,
       };
