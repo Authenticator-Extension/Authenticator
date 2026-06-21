@@ -7,6 +7,7 @@ import { getSiteName, getMatchedEntriesHash } from "../utils";
 import { isChromium } from "../browser";
 import { StorageLocation, UserSettings } from "../models/settings";
 import { DataType } from "../models/otp";
+import { argonHash, argonVerify } from "../models/password";
 
 const LegacyEncryption = "LegacyEncryption";
 export class Accounts implements Module {
@@ -240,23 +241,7 @@ export class Accounts implements Module {
             // --- handle v2 encryption
             // decrypt using key
             const key = CryptoJS.AES.decrypt(encKeys.enc, password).toString();
-            const isCorrectPassword = await new Promise(
-              (resolve: (value: string) => void) => {
-                const iframe = document.getElementById("argon-sandbox");
-                const message = {
-                  action: "verify",
-                  value: key,
-                  hash: encKeys.hash,
-                };
-                if (iframe) {
-                  window.addEventListener("message", (response) => {
-                    resolve(response.data.response);
-                  });
-                  // @ts-expect-error - bad typings
-                  iframe.contentWindow.postMessage(message, "*");
-                }
-              }
-            );
+            const isCorrectPassword = await argonVerify(key, encKeys.hash);
 
             if (!isCorrectPassword) {
               state.commit("wrongPassword");
@@ -294,48 +279,19 @@ export class Accounts implements Module {
             // --- handle v3 encryption
             // TODO: let user reconcile multiple keys from sync conflicts
             for (const key of encKeys) {
-              const rawHash = await new Promise(
-                (resolve: (value: string) => void) => {
-                  const iframe = document.getElementById("argon-sandbox");
-                  const message = {
-                    action: "hash",
-                    value: password,
-                    salt: key.salt,
-                  };
-                  if (iframe) {
-                    window.addEventListener("message", (response) => {
-                      resolve(response.data.response);
-                    });
-                    // @ts-expect-error bad typings
-                    iframe.contentWindow.postMessage(message, "*");
-                  }
-                }
-              );
+              const rawHash = await argonHash(password, key.salt);
 
               // https://passlib.readthedocs.io/en/stable/lib/passlib.hash.argon2.html#format-algorithm
-              const possibleHash = rawHash.split("$")[5];
+              const possibleHash = rawHash ? rawHash.split("$")[5] : "";
               if (!possibleHash) {
                 throw new Error("argon2 did not return a hash!");
               }
 
               // verify user password by comparing their password hash with the
               // hash of their password's hash
-              const isCorrectPassword = await new Promise(
-                (resolve: (value: string) => void) => {
-                  const iframe = document.getElementById("argon-sandbox");
-                  const message = {
-                    action: "verify",
-                    value: possibleHash,
-                    hash: key.hash,
-                  };
-                  if (iframe) {
-                    window.addEventListener("message", (response) => {
-                      resolve(response.data.response);
-                    });
-                    // @ts-expect-error bad typings
-                    iframe.contentWindow.postMessage(message, "*");
-                  }
-                }
+              const isCorrectPassword = await argonVerify(
+                possibleHash,
+                key.hash
               );
 
               // TODO: there is a serious bug here. If two keys have the same password,
@@ -711,19 +667,9 @@ async function genHash(value: string) {
     salt += byte.toString(16);
   }
 
-  return new Promise((resolve: (value: string) => void) => {
-    const iframe = document.getElementById("argon-sandbox");
-    const message = {
-      action: "hash",
-      value: value,
-      salt,
-    };
-    if (iframe) {
-      window.addEventListener("message", (response) => {
-        resolve(response.data.response);
-      });
-      // @ts-expect-error bad typings
-      iframe.contentWindow.postMessage(message, "*");
-    }
-  });
+  const hash = await argonHash(value, salt);
+  if (!hash) {
+    throw new Error("argon2 did not return a hash!");
+  }
+  return hash;
 }

@@ -6,6 +6,7 @@ import { loadI18nMessages } from "./store/i18n";
 import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
+import { argonHash, argonVerify } from "./models/password";
 import * as CryptoJS from "crypto-js";
 
 async function init() {
@@ -143,47 +144,17 @@ async function findAndUnlockKey(
     return null;
   }
 
-  const rawHash = await new Promise((resolve: (value: string) => void) => {
-    const iframe = document.getElementById("argon-sandbox");
-    const message = {
-      action: "hash",
-      value: password,
-      salt: key.salt,
-    };
-    if (iframe) {
-      window.addEventListener("message", (response) => {
-        resolve(response.data.response);
-      });
-      // @ts-expect-error bad typings
-      iframe.contentWindow.postMessage(message, "*");
-    }
-  });
+  const rawHash = await argonHash(password, key.salt);
 
   // https://passlib.readthedocs.io/en/stable/lib/passlib.hash.argon2.html#format-algorithm
-  const possibleHash = rawHash.split("$")[5];
+  const possibleHash = rawHash ? rawHash.split("$")[5] : "";
   if (!possibleHash) {
     throw new Error("argon2 did not return a hash!");
   }
 
   // verify user password by comparing their password hash with the
   // hash of their password's hash
-  const isCorrectPassword = await new Promise(
-    (resolve: (value: string) => void) => {
-      const iframe = document.getElementById("argon-sandbox");
-      const message = {
-        action: "verify",
-        value: possibleHash,
-        hash: key.hash,
-      };
-      if (iframe) {
-        window.addEventListener("message", (response) => {
-          resolve(response.data.response);
-        });
-        // @ts-expect-error bad typings
-        iframe.contentWindow.postMessage(message, "*");
-      }
-    }
-  );
+  const isCorrectPassword = await argonVerify(possibleHash, key.hash);
 
   if (!isCorrectPassword) {
     return null;

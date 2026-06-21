@@ -11,13 +11,14 @@ window.addEventListener("message", (event) => {
   switch (message.action) {
     case "hash":
       Argon.hash(message.value, message.salt).then((hash) => {
-        source.postMessage({ response: hash }, event.origin);
+        // echo the request id so the caller can match the reply to its request
+        source.postMessage({ id: message.id, response: hash }, event.origin);
       });
       break;
 
     case "verify":
       Argon.compareHash(message.hash, message.value).then((result) => {
-        source.postMessage({ response: result }, event.origin);
+        source.postMessage({ id: message.id, response: result }, event.origin);
       });
       break;
 
