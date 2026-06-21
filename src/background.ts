@@ -514,7 +514,8 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
         const siteName = await getSiteName();
         const entries = await EntryStorage.get();
-        const matchedEntries = getMatchedEntries(siteName, entries);
+        // strict=true: autofill pastes a live OTP, so don't trust the page title
+        const matchedEntries = getMatchedEntries(siteName, entries, true);
 
         if (matchedEntries && matchedEntries.length === 1) {
           const entry = matchedEntries[0];

@@ -69,9 +69,14 @@ export async function getSiteName() {
   return [title, nameFromDomain, hostname];
 }
 
+// `strict` is used by autofill, which pastes a live OTP into the page: it drops
+// the page-controlled <title> match and anchors the host match to a real domain
+// boundary, so a hostile page can't claim another origin's code. Display
+// filtering passes strict=false and stays loose.
 export function getMatchedEntries(
   siteName: Array<string | null>,
-  entries: OTPEntryInterface[]
+  entries: OTPEntryInterface[],
+  strict = false
 ) {
   if (siteName.length < 2) {
     return false;
@@ -80,7 +85,7 @@ export function getMatchedEntries(
   const matched = [];
 
   for (const entry of entries) {
-    if (isMatchedEntry(siteName, entry)) {
+    if (isMatchedEntry(siteName, entry, strict)) {
       matched.push(entry);
     }
   }
@@ -100,9 +105,18 @@ export function getMatchedEntriesHash(
   return false;
 }
 
+// True when `host` is exactly `bound` or a subdomain of it, so that
+// "google.com.attacker.com" does NOT match the bound host "google.com".
+function hostMatchesDomain(host: string, bound: string) {
+  host = host.toLowerCase();
+  bound = bound.toLowerCase().replace(/^\.+/, "");
+  return host === bound || host.endsWith("." + bound);
+}
+
 function isMatchedEntry(
   siteName: Array<string | null>,
-  entry: OTPEntryInterface
+  entry: OTPEntryInterface,
+  strict = false
 ) {
   if (!entry.issuer) {
     return false;
@@ -119,17 +133,19 @@ function isMatchedEntry(
   const siteNameFromHost = siteName[1] || "";
   const siteHost = siteName[2] || "";
 
-  if (issuerHostMatches.length > 1) {
-    if (siteHost && siteHost.indexOf(issuerHostMatches[1]) !== -1) {
+  if (issuerHostMatches.length > 1 && issuerHostMatches[1]) {
+    if (siteHost && hostMatchesDomain(siteHost, issuerHostMatches[1])) {
       return true;
     }
   }
-  // site title should be more detailed
-  // so we use siteTitle.indexOf(issuer)
-  if (siteTitle && siteTitle.indexOf(issuer) !== -1) {
+
+  // The page-controlled <title> is only a weak hint: never let it authorize an
+  // autofill paste, but keep it for display filtering.
+  if (!strict && siteTitle && siteTitle.indexOf(issuer) !== -1) {
     return true;
   }
 
+  // siteNameFromHost is derived from the real hostname, not page-controlled.
   if (siteNameFromHost && issuer.indexOf(siteNameFromHost) !== -1) {
     return true;
   }
