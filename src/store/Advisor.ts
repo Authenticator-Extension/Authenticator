@@ -19,7 +19,9 @@ const insightsData: AdvisorInsightInterface[] = [
     validation: async () => {
       await UserSettings.updateItems();
       const hasEncryptedEntry = await EntryStorage.hasEncryptionKey();
-      return hasEncryptedEntry && !Number(UserSettings.items.autolock);
+      // an unset autolock falls back to the 30-min default (see setAutolock),
+      // so only warn when the user has explicitly disabled it with 0 (#1281)
+      return hasEncryptedEntry && Number(UserSettings.items.autolock) === 0;
     },
   },
   {
