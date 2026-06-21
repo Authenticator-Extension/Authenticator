@@ -49,6 +49,7 @@
         v-bind:placeholder="i18n.issuer"
         type="text"
         v-model="entry.issuer"
+        v-on:keydown.stop
         v-on:change="entry.update(encryption)"
       />
     </div>
@@ -66,6 +67,7 @@
         v-bind:placeholder="i18n.accountName"
         type="text"
         v-model="entry.account"
+        v-on:keydown.stop
         v-on:change="entry.update(encryption)"
       />
     </div>
