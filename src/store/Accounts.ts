@@ -188,18 +188,53 @@ export class Accounts implements Module {
         initComplete(state: AccountsState) {
           state.initComplete = true;
         },
+        // --- mutations routed for Vuex strict mode (state must only change here)
+        removeEntry(state: AccountsState, hash: string) {
+          const index = state.entries.findIndex((entry) => entry.hash === hash);
+          if (index > -1) {
+            state.entries.splice(index, 1);
+          }
+        },
+        addEntry(state: AccountsState, entry: OTPEntryInterface) {
+          state.entries.unshift(entry);
+        },
+        setDefaultEncryption(state: AccountsState, keyId: string) {
+          state.defaultEncryption = keyId;
+        },
+        setEntryField(
+          state: AccountsState,
+          payload: {
+            entry: OTPEntryInterface;
+            field: "issuer" | "account";
+            value: string;
+          }
+        ) {
+          payload.entry[payload.field] = payload.value;
+        },
+        applyEntryEncryption(
+          state: AccountsState,
+          payload: { entry: OTPEntryInterface; encryption: EncryptionInterface }
+        ) {
+          payload.entry.changeEncryption(payload.encryption);
+        },
+        regenEntryHash(state: AccountsState, entry: OTPEntryInterface) {
+          entry.genUUID();
+        },
+        // in-memory part of OTPEntry.next(); persistence (entry.update()) stays
+        // in the action since mutations must be synchronous
+        advanceHotpCounter(state: AccountsState, entry: OTPEntryInterface) {
+          entry.generate();
+          if (entry.secret !== null) {
+            entry.counter++;
+          }
+        },
       },
       actions: {
         deleteCode: async (
           state: ActionContext<AccountsState, object>,
           hash: string
         ) => {
-          const index = state.state.entries.findIndex(
-            (entry) => entry.hash === hash
-          );
-          if (index > -1) {
-            state.state.entries.splice(index, 1);
-          }
+          state.commit("removeEntry", hash);
           state.commit(
             "updateExport",
             await EntryStorage.getExport(state.state.entries)
@@ -213,7 +248,7 @@ export class Accounts implements Module {
           state: ActionContext<AccountsState, object>,
           entry: OTPEntryInterface
         ) => {
-          state.state.entries.unshift(entry);
+          state.commit("addEntry", entry);
           state.commit(
             "updateExport",
             await EntryStorage.getExport(state.state.entries)
@@ -301,7 +336,7 @@ export class Accounts implements Module {
                   key.id,
                   new Encryption(possibleHash, key.id)
                 );
-                state.state.defaultEncryption = key.id;
+                state.commit("setDefaultEncryption", key.id);
 
                 saltedHash = possibleHash;
               }
@@ -345,7 +380,7 @@ export class Accounts implements Module {
             };
             const newEncryption = new Encryption(saltedHash, key.id);
             state.state.encryption.set(key.id, newEncryption);
-            state.state.defaultEncryption = key.id;
+            state.commit("setDefaultEncryption", key.id);
 
             const toRemove: string[] = [];
             for (const entry of state.state.entries) {
@@ -353,7 +388,10 @@ export class Accounts implements Module {
                 continue;
               }
 
-              await entry.changeEncryption(newEncryption);
+              state.commit("applyEntryEncryption", {
+                entry,
+                encryption: newEncryption,
+              });
 
               // if not uuidv4 regen
               if (
@@ -361,7 +399,7 @@ export class Accounts implements Module {
                   entry.hash
                 )
               ) {
-                entry.genUUID();
+                state.commit("regenEntryHash", entry);
                 toRemove.push(entry.hash);
               }
             }
@@ -397,7 +435,10 @@ export class Accounts implements Module {
               entry.encryption?.getEncryptionKeyId() !==
               state.state.defaultEncryption
             ) {
-              await entry.changeEncryption(defaultEncryption);
+              state.commit("applyEntryEncryption", {
+                entry,
+                encryption: defaultEncryption,
+              });
               needUpdateStorage = true;
             }
           }
@@ -454,7 +495,10 @@ export class Accounts implements Module {
 
             const linkedKeys = new Map<string, undefined>();
             for (const entry of state.state.entries) {
-              await entry.changeEncryption(new Encryption(saltedHash, key.id));
+              state.commit("applyEntryEncryption", {
+                entry,
+                encryption: new Encryption(saltedHash, key.id),
+              });
               // if not uuidv4 regen
               if (
                 /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i.test(
@@ -462,7 +506,7 @@ export class Accounts implements Module {
                 )
               ) {
                 removeKeys.push(entry.hash);
-                entry.genUUID();
+                state.commit("regenEntryHash", entry);
               }
 
               if (entry.encryption?.getEncryptionKeyId()) {
@@ -494,7 +538,7 @@ export class Accounts implements Module {
               key.id,
               new Encryption(saltedHash, key.id)
             );
-            state.state.defaultEncryption = key.id;
+            state.commit("setDefaultEncryption", key.id);
 
             await state.dispatch("updateEntries");
 
@@ -510,7 +554,10 @@ export class Accounts implements Module {
             });
           } else {
             for (const entry of state.state.entries) {
-              await entry.changeEncryption(new Encryption("", ""));
+              state.commit("applyEntryEncryption", {
+                entry,
+                encryption: new Encryption("", ""),
+              });
             }
             await EntryStorage.set(state.state.entries);
 
@@ -521,7 +568,7 @@ export class Accounts implements Module {
             if (keyId) {
               await BrowserStorage.remove(keyId);
             }
-            state.state.defaultEncryption = "";
+            state.commit("setDefaultEncryption", "");
 
             await state.dispatch("updateEntries");
 

@@ -48,7 +48,8 @@
       <input
         v-bind:placeholder="i18n.issuer"
         type="text"
-        v-model="entry.issuer"
+        v-bind:value="entry.issuer"
+        v-on:input="setEntryField(entry, 'issuer', $event.target.value)"
         v-on:keydown.stop
         v-on:change="entry.update()"
       />
@@ -65,7 +66,8 @@
       <input
         v-bind:placeholder="i18n.accountName"
         type="text"
-        v-model="entry.account"
+        v-bind:value="entry.account"
+        v-on:input="setEntryField(entry, 'account', $event.target.value)"
         v-on:keydown.stop
         v-on:change="entry.update()"
       />
@@ -189,11 +191,21 @@ export default Vue.extend({
         return;
       }
       this.$store.commit("style/toggleHotpDisabled");
-      await entry.next();
+      // entry.next() mutated the store-held entry directly; do the in-memory
+      // counter/code change in a mutation, then persist (storage, not state)
+      if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
+        this.$store.commit("accounts/advanceHotpCounter", entry);
+        if (entry.secret !== null) {
+          await entry.update();
+        }
+      }
       setTimeout(() => {
         this.$store.commit("style/toggleHotpDisabled");
       }, 3000);
       return;
+    },
+    setEntryField(entry: OTPEntry, field: "issuer" | "account", value: string) {
+      this.$store.commit("accounts/setEntryField", { entry, field, value });
     },
     async copyCode(entry: OTPEntry) {
       if (
