@@ -81,43 +81,39 @@ export default defineComponent({
         delete exportData.key;
       }
 
-      try {
-        const passphrase: string | null =
-          this.importEncrypted && this.importPassphrase
-            ? this.importPassphrase
-            : null;
-        let decryptedbackupData: {
-          [hash: string]: RawOTPStorage;
-        } = {};
-        if (key && passphrase) {
-          decryptedbackupData = await decryptBackupData(
-            exportData,
-            CryptoJS.AES.decrypt(key.enc, passphrase).toString()
-          );
-        } else {
-          decryptedbackupData = await decryptBackupData(exportData, passphrase);
-        }
+      const passphrase: string | null =
+        this.importEncrypted && this.importPassphrase
+          ? this.importPassphrase
+          : null;
+      let decryptedbackupData: {
+        [hash: string]: RawOTPStorage;
+      } = {};
+      if (key && passphrase) {
+        decryptedbackupData = await decryptBackupData(
+          exportData,
+          CryptoJS.AES.decrypt(key.enc, passphrase).toString()
+        );
+      } else {
+        decryptedbackupData = await decryptBackupData(exportData, passphrase);
+      }
 
-        if (Object.keys(decryptedbackupData).length) {
-          await EntryStorage.import(
-            this.$encryption as Encryption,
-            decryptedbackupData
-          );
-          if (failedCount === 0) {
-            alert(this.i18n.updateSuccess);
-          } else if (succeededCount) {
-            alert(this.i18n.import_backup_qr_partly_failed);
-          } else {
-            alert(this.i18n.updateFailure);
-          }
-          window.close();
+      if (Object.keys(decryptedbackupData).length) {
+        await EntryStorage.import(
+          this.$encryption as Encryption,
+          decryptedbackupData
+        );
+        if (failedCount === 0) {
+          alert(this.i18n.updateSuccess);
+        } else if (succeededCount) {
+          alert(this.i18n.import_backup_qr_partly_failed);
         } else {
           alert(this.i18n.updateFailure);
         }
-        return;
-      } catch (error) {
-        throw error;
+        window.close();
+      } else {
+        alert(this.i18n.updateFailure);
       }
+      return;
     },
   },
 });
