@@ -10,6 +10,8 @@ import { DataType } from "../models/otp";
 import { argonHash, argonVerify } from "../models/password";
 
 const LegacyEncryption = "LegacyEncryption";
+// uuidv4 shape; entries whose hash is not a uuidv4 get their hash regenerated
+const UUIDV4_REGEX = /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i;
 export class Accounts implements Module {
   async getModule() {
     const cachedKeyInfo = await this.getCachedKeyInfo();
@@ -111,27 +113,9 @@ export class Accounts implements Module {
             state.sectorOffset = -second;
           }
 
-          // if (second > 25) {
-          //   app.class.timeout = true;
-          // } else {
-          //   app.class.timeout = false;
-          // }
-          // if (second < 1) {
-          //   const entries = app.entries as OTP[];
-          //   for (let i = 0; i < entries.length; i++) {
-          //     if (entries[i].type !== OTPType.hotp &&
-          //         entries[i].type !== OTPType.hhex) {
-          //       entries[i].generate();
-          //     }
-          //   }
-          // }
-          const entries = state.entries as OTPEntryInterface[];
-          for (let i = 0; i < entries.length; i++) {
-            if (
-              entries[i].type !== OTPType.hotp &&
-              entries[i].type !== OTPType.hhex
-            ) {
-              entries[i].generate();
+          for (const entry of state.entries) {
+            if (entry.type !== OTPType.hotp && entry.type !== OTPType.hhex) {
+              entry.generate();
             }
           }
         },
@@ -402,11 +386,7 @@ export class Accounts implements Module {
               });
 
               // if not uuidv4 regen
-              if (
-                /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i.test(
-                  entry.hash
-                )
-              ) {
+              if (UUIDV4_REGEX.test(entry.hash)) {
                 state.commit("regenEntryHash", entry);
                 toRemove.push(entry.hash);
               }
@@ -508,11 +488,7 @@ export class Accounts implements Module {
                 encryption: new Encryption(saltedHash, key.id),
               });
               // if not uuidv4 regen
-              if (
-                /[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}/i.test(
-                  entry.hash
-                )
-              ) {
+              if (UUIDV4_REGEX.test(entry.hash)) {
                 removeKeys.push(entry.hash);
                 state.commit("regenEntryHash", entry);
               }
@@ -701,10 +677,10 @@ export class Accounts implements Module {
   }
 
   private async getCachedKeyInfo() {
-    const {
-      cachedPassphrase,
-      cachedKeyId,
-    } = await chrome.storage.session.get();
+    const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get([
+      "cachedPassphrase",
+      "cachedKeyId",
+    ]);
 
     return { cachedPassphrase, cachedKeyId };
   }
