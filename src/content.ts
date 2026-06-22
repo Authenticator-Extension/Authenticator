@@ -99,6 +99,10 @@ function showGrayLayout() {
       event.preventDefault();
       return;
     };
+    // Belt-and-suspenders: explicitly refuse native drag (e.g. dragging over an
+    // image/link under the overlay), which otherwise shows the no-drop cursor.
+    grayLayout.ondragstart = () => false;
+    grayLayout.style.userSelect = "none";
   }
   grayLayout.style.display = "block";
 }
@@ -112,6 +116,10 @@ function grayLayoutDown(event: MouseEvent) {
   if (!captureBox) {
     return;
   }
+
+  // Stop the browser from starting a native text-selection / image drag, which
+  // shows the "no-drop" cursor and steals the gesture from our drag-select.
+  event.preventDefault();
 
   sessionStorage.setItem("captureBoxPositionLeft", event.clientX.toString());
   sessionStorage.setItem("captureBoxPositionTop", event.clientY.toString());
