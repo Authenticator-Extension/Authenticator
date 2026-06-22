@@ -171,10 +171,8 @@ export class Permissions implements Module {
           ).filter((result) => !result.valid);
 
           if (validationResults.length > 0) {
-            const messages = await Promise.all(
-              validationResults.map(
-                async (result) => "• " + (await result).message
-              )
+            const messages = validationResults.map(
+              (result) => "• " + result.message
             );
             alert(messages.join("\n"));
             return;
