@@ -67,12 +67,13 @@ export default defineComponent({
           UserSettings.commitItems();
           return true;
         }
-        return this.$store.state.backup.driveEncrypted;
+        return this.$store.state.backup.oneDriveEncrypted;
       },
       set(newValue: string) {
-        UserSettings.items.driveEncrypted = newValue === "true";
+        const encrypted = newValue === "true";
+        UserSettings.items.oneDriveEncrypted = encrypted;
         UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: newValue });
+        this.$store.commit("backup/setEnc", { service, value: encrypted });
       },
     },
     backupToken: function () {
