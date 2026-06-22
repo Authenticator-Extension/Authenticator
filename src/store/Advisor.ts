@@ -61,6 +61,13 @@ const insightsData: AdvisorInsightInterface[] = [
   },
 ];
 
+// advisorIgnoreList may be stored as a JSON string (legacy) or an array;
+// normalise to an array.
+function parseIgnoreList(): string[] {
+  const raw = UserSettings.items.advisorIgnoreList;
+  return typeof raw === "string" ? JSON.parse(raw || "[]") : raw || [];
+}
+
 export class Advisor implements Module {
   async getModule() {
     await UserSettings.updateItems();
@@ -102,16 +109,9 @@ export class Advisor implements Module {
 
           context.commit("setInsights", await this.getInsights());
         },
-        updateInsight: async (
-          context: ActionContext<AdvisorState, object>
-        ) => {
+        updateInsight: async (context: ActionContext<AdvisorState, object>) => {
           context.commit("setInsights", await this.getInsights());
-          context.commit(
-            "setIgnoreList",
-            typeof UserSettings.items.advisorIgnoreList === "string"
-              ? JSON.parse(UserSettings.items.advisorIgnoreList || "[]")
-              : UserSettings.items.advisorIgnoreList || []
-          );
+          context.commit("setIgnoreList", parseIgnoreList());
         },
       },
       namespaced: true,
@@ -120,10 +120,7 @@ export class Advisor implements Module {
 
   private async getInsights() {
     await UserSettings.updateItems();
-    const advisorIgnoreList: string[] =
-      typeof UserSettings.items.advisorIgnoreList === "string"
-        ? JSON.parse(UserSettings.items.advisorIgnoreList || "[]")
-        : UserSettings.items.advisorIgnoreList || [];
+    const advisorIgnoreList = parseIgnoreList();
 
     const filteredInsightsData: AdvisorInsightInterface[] = [];
 
