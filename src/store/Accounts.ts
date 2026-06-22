@@ -200,6 +200,12 @@ export class Accounts implements Module {
         setDefaultEncryption(state: AccountsState, keyId: string) {
           state.defaultEncryption = keyId;
         },
+        setEncryption(
+          state: AccountsState,
+          payload: { keyId: string; encryption: EncryptionInterface }
+        ) {
+          state.encryption.set(payload.keyId, payload.encryption);
+        },
         setEntryField(
           state: AccountsState,
           payload: {
@@ -285,19 +291,19 @@ export class Accounts implements Module {
               return;
             }
 
-            state.state.encryption.set(
-              LegacyEncryption,
-              new Encryption(key, LegacyEncryption)
-            );
+            state.commit("setEncryption", {
+              keyId: LegacyEncryption,
+              encryption: new Encryption(key, LegacyEncryption),
+            });
 
             migrationNeeded = true;
           } else if (encKeys.length === 0) {
             // --- handle v1 encryption
             // verify current password
-            state.state.encryption.set(
-              LegacyEncryption,
-              new Encryption(password, LegacyEncryption)
-            );
+            state.commit("setEncryption", {
+              keyId: LegacyEncryption,
+              encryption: new Encryption(password, LegacyEncryption),
+            });
             await state.dispatch("updateEntries");
 
             if (state.getters.currentlyEncrypted) {
@@ -331,10 +337,10 @@ export class Accounts implements Module {
               // TODO: there is a serious bug here. If two keys have the same password,
               // then only one of them will be used for decryption.
               if (isCorrectPassword) {
-                state.state.encryption.set(
-                  key.id,
-                  new Encryption(possibleHash, key.id)
-                );
+                state.commit("setEncryption", {
+                  keyId: key.id,
+                  encryption: new Encryption(possibleHash, key.id),
+                });
                 state.commit("setDefaultEncryption", key.id);
 
                 saltedHash = possibleHash;
@@ -378,7 +384,10 @@ export class Accounts implements Module {
               version: 3,
             };
             const newEncryption = new Encryption(saltedHash, key.id);
-            state.state.encryption.set(key.id, newEncryption);
+            state.commit("setEncryption", {
+              keyId: key.id,
+              encryption: newEncryption,
+            });
             state.commit("setDefaultEncryption", key.id);
 
             const toRemove: string[] = [];
@@ -533,10 +542,10 @@ export class Accounts implements Module {
               await BrowserStorage.remove(removeKeys);
             }
 
-            state.state.encryption.set(
-              key.id,
-              new Encryption(saltedHash, key.id)
-            );
+            state.commit("setEncryption", {
+              keyId: key.id,
+              encryption: new Encryption(saltedHash, key.id),
+            });
             state.commit("setDefaultEncryption", key.id);
 
             await state.dispatch("updateEntries");

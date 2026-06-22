@@ -76,6 +76,13 @@ export class Encryption implements EncryptionInterface {
   constructor(hash: string, keyId: string) {
     this.password = hash;
     this.keyId = keyId;
+    // Derive eagerly. These instances get stored in the reactive Vuex store
+    // (state.encryption / entry.encryption); if getKey() lazily assigned
+    // this.keyPromise later, that write would mutate reactive state during an
+    // await -- outside a mutation handler -- and trip Vuex strict mode.
+    if (hash) {
+      this.keyPromise = deriveKey(hash);
+    }
   }
 
   // Derive a 256-bit AES-GCM key from the (high-entropy argon2) saltedHash.
