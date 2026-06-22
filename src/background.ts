@@ -34,19 +34,22 @@ chrome.runtime.onMessage.addListener((message, sender) => {
     await UserSettings.updateItems();
 
     if (message.action === "getCapture") {
-      if (!sender.tab) {
+      // Use sender.tab, not the module-level contentTab: in MV3 the service
+      // worker can be torn down between framing the QR region and this message
+      // arriving, leaving contentTab undefined -- so the capture reply was
+      // never sent back and the scan silently did nothing. sender.tab is the
+      // content script that asked, so it is always the right (and live) tab.
+      if (!sender.tab || sender.tab.id === undefined) {
         return;
       }
       const url = await getCapture(sender.tab);
-      if (contentTab && contentTab.id) {
-        message.info.url = url;
-        chrome.tabs.sendMessage(contentTab.id, {
-          action: "sendCaptureUrl",
-          info: message.info,
-        });
-      }
+      message.info.url = url;
+      chrome.tabs.sendMessage(sender.tab.id, {
+        action: "sendCaptureUrl",
+        info: message.info,
+      });
     } else if (message.action === "getTotp") {
-      getTotp(message.info);
+      getTotp(message.info, sender.tab?.id);
     } else if (message.action === "cachePassphrase") {
       chrome.storage.session.set({
         cachedPassphrase: message.value,
@@ -88,11 +91,14 @@ async function getCapture(tab: chrome.tabs.Tab) {
   return dataUrl;
 }
 
-async function getTotp(text: string, silent = false) {
-  if (!contentTab || !contentTab.id || !text) {
+async function getTotp(text: string, tabId?: number, silent = false) {
+  // tabId is the content tab that initiated the scan (sender.tab.id). Relying on
+  // the module-level contentTab here broke scans whenever the MV3 service worker
+  // had been recycled (contentTab undefined -> silent return).
+  if (tabId === undefined || !text) {
     return false;
   }
-  const id = contentTab.id;
+  const id = tabId;
 
   if (text.indexOf("otpauth://") !== 0) {
     if (text.indexOf("otpauth-migration://") === 0) {
@@ -104,7 +110,7 @@ async function getTotp(text: string, silent = false) {
 
       const getTotpPromises: Array<Promise<boolean>> = [];
       for (const otpUrl of otpUrls) {
-        getTotpPromises.push(getTotp(otpUrl, true));
+        getTotpPromises.push(getTotp(otpUrl, id, true));
       }
 
       const getTotpResults = await Promise.allSettled(getTotpPromises);
