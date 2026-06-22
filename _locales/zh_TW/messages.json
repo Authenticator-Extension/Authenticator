@@ -242,7 +242,7 @@
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "匯入成功，但部分 QR Code無法辨識。",
+    "message": "匯入成功，但部分 QR Code 無法辨識。",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
