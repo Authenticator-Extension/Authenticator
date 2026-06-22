@@ -257,11 +257,11 @@ export class Permissions implements Module {
               );
             }
           }
+
+          // nothing matched -> nothing to remove
+          resolve();
         }
       );
-
-      // Timeout for remove permissions failed
-      setTimeout(resolve, 100);
     });
   }
 }
