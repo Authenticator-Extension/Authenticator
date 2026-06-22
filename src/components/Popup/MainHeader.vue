@@ -140,7 +140,13 @@ export default defineComponent({
       this.$store.commit("accounts/stopFilter");
     },
     lock() {
-      chrome.runtime.sendMessage({ action: "lock" }, window.close);
+      // The background "lock" handler is fire-and-forget (no sendResponse), so
+      // the callback fires once the port closes with lastError set. Read it so
+      // it isn't logged as an unchecked error, then close the popup.
+      chrome.runtime.sendMessage({ action: "lock" }, () => {
+        void chrome.runtime.lastError;
+        window.close();
+      });
       return;
     },
     async beginCapture() {
