@@ -78,7 +78,6 @@ import { syncTimeWithGoogle } from "../../syncTime";
 import IconArrowLeft from "../../../svg/arrow-left.svg";
 import IconInfo from "../../../svg/info.svg";
 import IconExchange from "../../../svg/exchange.svg";
-import IconDatabase from "../../../svg/database.svg";
 import IconLock from "../../../svg/lock.svg";
 import IconSync from "../../../svg/sync.svg";
 import IconWrench from "../../../svg/wrench.svg";
@@ -95,7 +94,6 @@ export default defineComponent({
     IconArrowLeft,
     IconInfo,
     IconExchange,
-    IconDatabase,
     IconLock,
     IconSync,
     IconWrench,
@@ -109,10 +107,8 @@ export default defineComponent({
     version: function () {
       return this.$store.state.menu.version;
     },
-    isSupported: {
-      get(): boolean {
-        return !isSafari;
-      },
+    isSupported(): boolean {
+      return !isSafari;
     },
   },
   methods: {
