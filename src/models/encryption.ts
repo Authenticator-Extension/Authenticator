@@ -152,7 +152,7 @@ export class Encryption implements EncryptionInterface {
   }
 
   getEncryptionStatus(): boolean {
-    return this.password ? true : false;
+    return Boolean(this.password);
   }
 
   updateEncryptionPassword(password: string) {
