@@ -208,17 +208,12 @@ export class Drive implements BackupProvider {
           reject: (reason: Error) => void
         ) => {
           const xhr = new XMLHttpRequest();
-          xhr.open(
-            "POST",
-            "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-              getCredentials().drive.client_id +
-              "&client_secret=" +
-              getCredentials().drive.client_secret +
-              "&refresh_token=" +
-              UserSettings.items.driveRefreshToken +
-              "&grant_type=refresh_token"
-          );
+          xhr.open("POST", "https://www.googleapis.com/oauth2/v4/token");
           xhr.setRequestHeader("Accept", "application/json");
+          xhr.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+          );
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
@@ -249,7 +244,12 @@ export class Drive implements BackupProvider {
             }
             return;
           };
-          xhr.send();
+          xhr.send(
+            `client_id=${getCredentials().drive.client_id}` +
+              `&client_secret=${getCredentials().drive.client_secret}` +
+              `&refresh_token=${UserSettings.items.driveRefreshToken}` +
+              `&grant_type=refresh_token`
+          );
         }
       );
     }
