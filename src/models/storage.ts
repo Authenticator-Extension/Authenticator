@@ -63,7 +63,6 @@ export class BrowserStorage {
     }
   }
 
-  // TODO: promise this
   static async get() {
     const storageLocation = await this.getStorageLocation();
     const removeOtherData = function (items: Record<string, unknown>): void {
