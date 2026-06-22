@@ -97,6 +97,7 @@ export class Dropbox implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);
@@ -154,6 +155,8 @@ export class Drive implements BackupProvider {
                     UserSettings.items.driveToken = undefined;
                     UserSettings.commitItems();
                     resolve(true);
+                  } else {
+                    resolve(false);
                   }
                 } else {
                   resolve(false);
@@ -461,6 +464,7 @@ export class Drive implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);
@@ -510,6 +514,8 @@ export class OneDrive implements BackupProvider {
                     UserSettings.items.oneDriveToken = undefined;
                     UserSettings.commitItems();
                     resolve(true);
+                  } else {
+                    resolve(false);
                   }
                 } else {
                   resolve(false);
@@ -590,6 +596,7 @@ export class OneDrive implements BackupProvider {
     await UserSettings.updateItems();
     if (UserSettings.items.oneDriveEncrypted === undefined) {
       UserSettings.items.oneDriveEncrypted = true;
+      UserSettings.commitItems();
     }
     const exportData = await EntryStorage.backupGetExport(
       encryption,
@@ -664,6 +671,7 @@ export class OneDrive implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);
