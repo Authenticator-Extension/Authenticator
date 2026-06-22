@@ -398,7 +398,13 @@ export class Drive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 UserSettings.items.driveToken = undefined;
+                UserSettings.items.driveRevoked = true;
                 UserSettings.commitItems();
+                return resolve(false);
+              }
+              if (xhr.status < 200 || xhr.status >= 300) {
+                // a non-2xx is a failed upload; don't fall through and risk
+                // misreading the body as success
                 return resolve(false);
               }
               try {
@@ -626,7 +632,14 @@ export class OneDrive implements BackupProvider {
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                UserSettings.removeItem("oneDriveToken");
+                UserSettings.items.oneDriveToken = undefined;
+                UserSettings.items.oneDriveRevoked = true;
+                UserSettings.commitItems();
+                return resolve(false);
+              }
+              if (xhr.status < 200 || xhr.status >= 300) {
+                // a non-2xx is a failed upload; don't fall through and risk
+                // misreading the body as success
                 return resolve(false);
               }
               try {
