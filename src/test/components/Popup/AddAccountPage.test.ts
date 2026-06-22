@@ -4,6 +4,7 @@ import * as sinon from "sinon";
 import * as sinonChai from "sinon-chai";
 
 import { mount } from "@vue/test-utils";
+import { toRaw } from "vue";
 import { createStore, Store } from "vuex";
 import CommonComponents from "../../../components/common/index";
 
@@ -75,7 +76,9 @@ describe("AddAccountPage", () => {
     addCode.should.have.been.calledOnce;
     // regression: encryption Map must be read with .get(), not [] — bracket
     // indexing returns undefined and the secret would be stored UNENCRYPTED.
+    // toRaw: the Map value comes back as a reactive proxy, and chai's `.should`
+    // getter chokes on Vue's __v_isRef probe, so compare the raw target.
     const entry = addCode.lastCall.args[1];
-    entry.encryption.should.equal(fakeEncryption);
+    chai.assert.strictEqual(toRaw(entry.encryption), fakeEncryption);
   });
 });
