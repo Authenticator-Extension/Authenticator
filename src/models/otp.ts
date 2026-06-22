@@ -256,16 +256,17 @@ export class OTPEntry implements OTPEntryInterface {
   }
 
   generate() {
-    const offset = UserSettings.items ? UserSettings.items.offset : 0;
     if (!UserSettings.items) {
-      // browser storage is async, so we need to wait for it to load
-      // and re-generate the code
-      // don't change the code to async, it will break the mutation
-      // for Accounts store to export data
+      // browser storage is async, so wait for it to load and re-generate.
+      // don't change this to async: it would break the Accounts store
+      // mutation that exports data. Return so we don't first generate a
+      // code with offset 0 and then race the reload over it.
       UserSettings.updateItems().then(() => {
         this.generate();
       });
+      return;
     }
+    const offset = UserSettings.items.offset;
 
     if (!this.secret && !this.encData) {
       this.code = CodeState.Invalid;
