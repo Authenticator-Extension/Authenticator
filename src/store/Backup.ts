@@ -2,7 +2,7 @@ import { UserSettings } from "../models/settings";
 
 export class Backup implements Module {
   async getModule() {
-    UserSettings.updateItems();
+    await UserSettings.updateItems();
 
     return {
       state: {
