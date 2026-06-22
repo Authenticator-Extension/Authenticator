@@ -481,7 +481,7 @@ export class Accounts implements Module {
               version: 3,
             };
 
-            const linkedKeys = new Map<string, undefined>();
+            const linkedKeys = new Set<string>();
             for (const entry of state.state.entries) {
               state.commit("applyEntryEncryption", {
                 entry,
@@ -494,10 +494,7 @@ export class Accounts implements Module {
               }
 
               if (entry.encryption?.getEncryptionKeyId()) {
-                linkedKeys.set(
-                  entry.encryption.getEncryptionKeyId(),
-                  undefined
-                );
+                linkedKeys.add(entry.encryption.getEncryptionKeyId());
               }
             }
 
