@@ -7,11 +7,7 @@
     >
       <IconXCircle />
     </div>
-    <component
-      v-if="info"
-      v-bind:is="info"
-      id="infoContent"
-    ></component>
+    <component v-if="info" v-bind:is="info" id="infoContent"></component>
   </div>
 </template>
 <script lang="ts">

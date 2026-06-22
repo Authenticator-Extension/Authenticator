@@ -139,7 +139,10 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
     const account = byteArray2String(accountBytes);
     const issuerBytes = subBytesArray(byteData, isserStart, isserLength);
     const issuer = byteArray2String(issuerBytes);
-    const algorithm = ["SHA1", "SHA1", "SHA256", "SHA512", "MD5"][
+    // index 4 is MD5, which KeyUtilities cannot generate (it would fall back
+    // to SHA1 and emit wrong codes); map it to undefined so the entry is
+    // skipped below instead of imported silently.
+    const algorithm = ["SHA1", "SHA1", "SHA256", "SHA512", undefined][
       byteData[isserEnd + 1]
     ];
     const digits = [6, 6, 8][byteData[isserEnd + 3]];
@@ -160,7 +163,14 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
     let line = `otpauth://${type}/${account}?secret=${secret}&issuer=${issuer}&algorithm=${algorithm}&digits=${digits}`;
     if (type === "hotp") {
       let counter = 1;
-      if (isserEnd + 7 <= lineLength) {
+      // counter byte must sit inside this entry ([offset, offset+lineLength+2))
+      // and inside the buffer; the old `<= lineLength` compared an absolute
+      // index against a relative length, so it never read the counter for any
+      // entry after the first and could read past the buffer on the first.
+      if (
+        isserEnd + 7 < offset + lineLength + 2 &&
+        isserEnd + 7 < byteData.length
+      ) {
         counter = byteData[isserEnd + 7];
       }
       line += `&counter=${counter}`;

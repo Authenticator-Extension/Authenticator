@@ -60,9 +60,10 @@ export default defineComponent({
         return this.$store.state.backup.dropboxEncrypted;
       },
       set(newValue: string) {
-        UserSettings.items.dropboxEncrypted = newValue === "true";
+        const encrypted = newValue === "true";
+        UserSettings.items.dropboxEncrypted = encrypted;
         UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: newValue });
+        this.$store.commit("backup/setEnc", { service, value: encrypted });
       },
     },
     backupToken: function () {

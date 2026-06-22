@@ -21,21 +21,6 @@ export class KeyUtilities {
     return Number(`0x${s}`);
   }
 
-  private static hex2str(hex: string) {
-    let str = "";
-    for (let i = 0; i < hex.length; i += 2) {
-      str += String.fromCharCode(this.hex2dec(hex.substr(i, 2)));
-    }
-    return str;
-  }
-
-  private static leftpad(str: string, len: number, pad: string): string {
-    if (len + 1 >= str.length) {
-      str = new Array(len + 1 - str.length).join(pad) + str;
-    }
-    return str;
-  }
-
   private static base32tohex(base32: string): string {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -48,7 +33,7 @@ export class KeyUtilities {
         padding++;
       } else {
         const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-        bits += this.leftpad(val.toString(2), 5, "0");
+        bits += val.toString(2).padStart(5, "0");
       }
     }
 
@@ -167,7 +152,7 @@ export class KeyUtilities {
       counter = Math.floor(epoch / period);
     }
 
-    const time = this.leftpad(this.dec2hex(counter), 16, "0");
+    const time = this.dec2hex(counter).padStart(16, "0");
 
     if (key.length % 2 === 1) {
       if (key.substr(-1) === "0") {

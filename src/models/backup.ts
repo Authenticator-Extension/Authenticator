@@ -97,6 +97,7 @@ export class Dropbox implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);
@@ -154,6 +155,8 @@ export class Drive implements BackupProvider {
                     UserSettings.items.driveToken = undefined;
                     UserSettings.commitItems();
                     resolve(true);
+                  } else {
+                    resolve(false);
                   }
                 } else {
                   resolve(false);
@@ -205,17 +208,12 @@ export class Drive implements BackupProvider {
           reject: (reason: Error) => void
         ) => {
           const xhr = new XMLHttpRequest();
-          xhr.open(
-            "POST",
-            "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-              getCredentials().drive.client_id +
-              "&client_secret=" +
-              getCredentials().drive.client_secret +
-              "&refresh_token=" +
-              UserSettings.items.driveRefreshToken +
-              "&grant_type=refresh_token"
-          );
+          xhr.open("POST", "https://www.googleapis.com/oauth2/v4/token");
           xhr.setRequestHeader("Accept", "application/json");
+          xhr.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+          );
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
@@ -246,7 +244,12 @@ export class Drive implements BackupProvider {
             }
             return;
           };
-          xhr.send();
+          xhr.send(
+            `client_id=${getCredentials().drive.client_id}` +
+              `&client_secret=${getCredentials().drive.client_secret}` +
+              `&refresh_token=${UserSettings.items.driveRefreshToken}` +
+              `&grant_type=refresh_token`
+          );
         }
       );
     }
@@ -395,7 +398,13 @@ export class Drive implements BackupProvider {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
                 UserSettings.items.driveToken = undefined;
+                UserSettings.items.driveRevoked = true;
                 UserSettings.commitItems();
+                return resolve(false);
+              }
+              if (xhr.status < 200 || xhr.status >= 300) {
+                // a non-2xx is a failed upload; don't fall through and risk
+                // misreading the body as success
                 return resolve(false);
               }
               try {
@@ -461,6 +470,7 @@ export class Drive implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);
@@ -510,6 +520,8 @@ export class OneDrive implements BackupProvider {
                     UserSettings.items.oneDriveToken = undefined;
                     UserSettings.commitItems();
                     resolve(true);
+                  } else {
+                    resolve(false);
                   }
                 } else {
                   resolve(false);
@@ -590,6 +602,7 @@ export class OneDrive implements BackupProvider {
     await UserSettings.updateItems();
     if (UserSettings.items.oneDriveEncrypted === undefined) {
       UserSettings.items.oneDriveEncrypted = true;
+      UserSettings.commitItems();
     }
     const exportData = await EntryStorage.backupGetExport(
       encryption,
@@ -619,7 +632,14 @@ export class OneDrive implements BackupProvider {
           xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
               if (xhr.status === 401) {
-                UserSettings.removeItem("oneDriveToken");
+                UserSettings.items.oneDriveToken = undefined;
+                UserSettings.items.oneDriveRevoked = true;
+                UserSettings.commitItems();
+                return resolve(false);
+              }
+              if (xhr.status < 200 || xhr.status >= 300) {
+                // a non-2xx is a failed upload; don't fall through and risk
+                // misreading the body as success
                 return resolve(false);
               }
               try {
@@ -664,6 +684,7 @@ export class OneDrive implements BackupProvider {
             resolve(
               "Error: Response was 401. You will be logged out the next time you open Authenticator."
             );
+            return;
           }
           try {
             const res = JSON.parse(xhr.responseText);

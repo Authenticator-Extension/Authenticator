@@ -1,12 +1,10 @@
 <template>
   <div class="advisor">
     <div v-if="ignoreList.length > 0" class="show-all-insights">
-      <a href="#" v-on:click="clearIgnoreList">{{
-        this.i18n.show_all_insights
-      }}</a>
+      <a href="#" v-on:click="clearIgnoreList">{{ i18n.show_all_insights }}</a>
     </div>
     <div v-if="insights.length === 0" class="no-insight">
-      {{ this.i18n.no_insight_available }}
+      {{ i18n.no_insight_available }}
     </div>
     <AdvisorInsight
       class="insight"

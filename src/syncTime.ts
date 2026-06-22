@@ -30,9 +30,7 @@ export async function syncTimeWithGoogle() {
 
             if (Math.abs(offset) <= 300) {
               // within 5 minutes
-              UserSettings.items.offset = Math.round(
-                (serverTime - clientTime) / 1000
-              );
+              UserSettings.items.offset = offset;
               UserSettings.commitItems();
               return resolve("updateSuccess");
             } else {
