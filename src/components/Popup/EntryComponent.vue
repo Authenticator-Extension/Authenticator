@@ -7,6 +7,8 @@
       entry: true,
       pinnedEntry: entry.pinned,
       'no-copy': noCopy(entry.code),
+      filtered: filtered,
+      notSearched: notSearched,
     }"
     v-on:click="copyCode(entry)"
     v-on:keydown.enter="copyCode(entry)"
@@ -127,6 +129,8 @@ export default defineComponent({
   props: {
     entry: OTPEntry,
     tabindex: Number,
+    filtered: Boolean,
+    notSearched: Boolean,
   },
   methods: {
     noCopy(code: string) {

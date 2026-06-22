@@ -253,8 +253,8 @@ svg {
     }
   }
 
-  &.filter .entry[filtered],
-  &.search .entry[notSearched] {
+  &.filter .entry.filtered,
+  &.search .entry.notSearched {
     height: 0;
     margin: 0;
     padding: 0;
