@@ -119,8 +119,9 @@ export default defineComponent({
       }
 
       const defaultEncyptionKey = this.$store.state.accounts.defaultEncryption;
-      const encryption =
-        this.$store.state.accounts.encryption.get(defaultEncyptionKey);
+      const encryption = this.$store.state.accounts.encryption.get(
+        defaultEncyptionKey
+      );
 
       const entry = new OTPEntry(
         {

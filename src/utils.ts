@@ -34,8 +34,7 @@ export async function getSiteName() {
   // ip address
   if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
     nameFromDomain = hostname;
-  }else{
-    
+  } else {
     // local network
     if (hostname.indexOf(".") === -1) {
       nameFromDomain = hostname;
