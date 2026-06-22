@@ -133,6 +133,12 @@ function grayLayoutMove(event: MouseEvent) {
     event.preventDefault();
     return;
   }
+  // Only redraw while the left button is actually held. Without this the box
+  // tracked every bare pointer move (before the first click and after release),
+  // so the selection felt jumpy and "undraggable".
+  if (event.buttons !== 1) {
+    return;
+  }
   const captureBox = document.getElementById("__ga_captureBox__");
   if (!captureBox) {
     return;
@@ -271,7 +277,8 @@ async function qrDecode(
       ) => {
         let qrRes = "";
         if (error) {
-          console.error(error);
+          // qrcode-reader reports "no finder patterns" for any non-QR region;
+          // that's expected, so don't log it as an error -- fall back to jsQR.
           const jsQrCode = jsQR(
             imageData.data,
             imageData.width,
