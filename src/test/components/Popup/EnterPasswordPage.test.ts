@@ -89,7 +89,9 @@ describe("EnterPasswordPage", () => {
   });
 
   it("should not show incorrect password message", () => {
-    const wrapper = mountPage();
+    // isVisible() reads getComputedStyle, which only reflects v-show's
+    // display:none for elements attached to the live document, so attach.
+    const wrapper = mountPage(true);
 
     const errorText = wrapper.find("label.warning");
 

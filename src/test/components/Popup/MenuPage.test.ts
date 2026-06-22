@@ -5,7 +5,6 @@ import * as sinonChai from "sinon-chai";
 import { mount, VueWrapper } from "@vue/test-utils";
 import { createStore, Store } from "vuex";
 
-import { loadI18nMessages } from "../../../store/i18n";
 import MenuPage from "../../../components/Popup/MenuPage.vue";
 
 import { Style } from "../../../store/Style";
@@ -25,8 +24,11 @@ mocha.setup("bdd");
 describe("MenuPage", () => {
   let i18n: { [key: string]: string };
 
-  before(async () => {
-    i18n = await loadI18nMessages();
+  before(() => {
+    // chrome.i18n.getMessage returns "" in the test extension, so titles bound
+    // to i18n.* render empty. Use a fixed map; only `feedback` is asserted on
+    // (the feedback button is found via *[title='Feedback']).
+    i18n = { feedback: "Feedback" };
   });
 
   const storeOpts = {
