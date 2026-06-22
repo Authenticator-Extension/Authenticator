@@ -46,22 +46,25 @@
         </p>
       </div>
       <div class="menuList">
-        <p v-bind:title="i18n.feedback" v-on:click="openHelp()">
+        <p
+          v-bind:title="i18n.feedback"
+          v-on:click="
+            openLink('https://github.com/Hank076/Authenticator/issues')
+          "
+        >
           <span><IconComments /></span>{{ i18n.feedback }}
         </p>
         <p
-          v-bind:title="i18n.translate"
-          v-on:click="openLink('https://otp.ee/translate')"
-        >
-          <span><IconGlobe /></span>{{ i18n.translate }}
-        </p>
-        <p
           v-bind:title="i18n.source"
-          v-on:click="openLink('https://otp.ee/sourcecode')"
+          v-on:click="openLink('https://github.com/Hank076/Authenticator')"
         >
           <span><IconCode /></span>{{ i18n.source }}
         </p>
-        <a href="licenses.html" target="_blank" style="text-decoration: none">
+        <a
+          href="https://github.com/Hank076/Authenticator/blob/dev/LICENSE"
+          target="_blank"
+          style="text-decoration: none"
+        >
           <p v-bind:title="i18n.about">
             <span><IconInfo /></span>{{ i18n.about }}
           </p>
@@ -83,7 +86,6 @@ import IconSync from "../../../svg/sync.svg";
 import IconWrench from "../../../svg/wrench.svg";
 import IconAdvisor from "../../../svg/lightbulb.svg";
 import IconComments from "../../../svg/comments.svg";
-import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
@@ -99,7 +101,6 @@ export default defineComponent({
     IconWrench,
     IconAdvisor,
     IconComments,
-    IconGlobe,
     IconCode,
     IconClipboardCheck,
   },
@@ -114,22 +115,6 @@ export default defineComponent({
   methods: {
     hideMenu() {
       this.$store.dispatch("style/hideMenu");
-    },
-    openHelp() {
-      let url = "https://otp.ee/chromeissues";
-
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
-        url = "https://otp.ee/firefoxissues";
-      } else if (navigator.userAgent.indexOf("Edg") !== -1) {
-        url = "https://otp.ee/edgeissues";
-      }
-
-      const feedbackURL = this.$store.state.menu.feedbackURL;
-      if (typeof feedbackURL === "string" && feedbackURL) {
-        url = feedbackURL;
-      }
-
-      chrome.tabs.create({ url });
     },
     openLink(url: string) {
       window.open(url, "_blank");
