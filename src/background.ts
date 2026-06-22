@@ -14,8 +14,6 @@ import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
 import { UserSettings } from "./models/settings";
 
-let contentTab: chrome.tabs.Tab | undefined;
-
 chrome.runtime.onMessage.addListener((message, sender) => {
   // Only act on messages from our own extension pages / content scripts, never
   // another extension. (No externally_connectable is set, so web pages can't
@@ -34,9 +32,9 @@ chrome.runtime.onMessage.addListener((message, sender) => {
     await UserSettings.updateItems();
 
     if (message.action === "getCapture") {
-      // Use sender.tab, not the module-level contentTab: in MV3 the service
-      // worker can be torn down between framing the QR region and this message
-      // arriving, leaving contentTab undefined -- so the capture reply was
+      // Use sender.tab, not a module-level tab ref: in MV3 the service worker
+      // can be torn down between framing the QR region and this message
+      // arriving, leaving such a ref undefined -- so the capture reply was
       // never sent back and the scan silently did nothing. sender.tab is the
       // content script that asked, so it is always the right (and live) tab.
       if (!sender.tab || sender.tab.id === undefined) {
@@ -65,7 +63,9 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       chrome.alarms.clear("autolock");
       setAutolock();
     } else if (message.action === "updateContentTab") {
-      contentTab = message.data;
+      // Persist in session storage so the autolock alarm can still reach this
+      // tab to dismiss the capture overlay after the MV3 worker recycles.
+      chrome.storage.session.set({ captureTabId: message.data?.id });
     } else if (message.action === "updateContextMenu") {
       updateContextMenu();
     }
@@ -73,14 +73,24 @@ chrome.runtime.onMessage.addListener((message, sender) => {
 });
 
 chrome.alarms.onAlarm.addListener(() => {
-  chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
-  if (contentTab && contentTab.id) {
-    chrome.tabs.sendMessage(contentTab.id, { action: "stopCapture" });
-  }
-  chrome.runtime.sendMessage({ action: "stopImport" });
-
-  // https://stackoverflow.com/a/56483156
-  return true;
+  void (async () => {
+    await chrome.storage.session.set({
+      cachedPassphrase: null,
+      cachedKeyId: null,
+    });
+    // captureTabId is persisted in session storage (like the cached passphrase)
+    // so it survives MV3 service-worker recycling. The old module-level tab ref
+    // was undefined in a fresh worker, so a QR capture overlay left open stayed
+    // stuck on the page after autolock. Dismiss it if a tab is still recorded.
+    const { captureTabId } = await chrome.storage.session.get("captureTabId");
+    if (typeof captureTabId === "number") {
+      chrome.tabs
+        .sendMessage(captureTabId, { action: "stopCapture" })
+        .catch(() => undefined);
+      await chrome.storage.session.remove("captureTabId");
+    }
+    chrome.runtime.sendMessage({ action: "stopImport" }).catch(() => undefined);
+  })();
 });
 
 async function getCapture(tab: chrome.tabs.Tab) {
@@ -93,8 +103,8 @@ async function getCapture(tab: chrome.tabs.Tab) {
 
 async function getTotp(text: string, tabId?: number, silent = false) {
   // tabId is the content tab that initiated the scan (sender.tab.id). Relying on
-  // the module-level contentTab here broke scans whenever the MV3 service worker
-  // had been recycled (contentTab undefined -> silent return).
+  // a module-level tab ref here broke scans whenever the MV3 service worker had
+  // been recycled (it was undefined -> silent return).
   if (tabId === undefined || !text) {
     return false;
   }
@@ -511,7 +521,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
           files: ["/css/content.css"],
         });
 
-        contentTab = tab;
+        chrome.storage.session.set({ captureTabId: tab.id });
         chrome.tabs.sendMessage(tab.id, { action: "capture" });
       }
       break;
@@ -527,8 +537,6 @@ chrome.commands.onCommand.addListener(async (command: string) => {
           target: { tabId: tab.id },
           files: ["/css/content.css"],
         });
-
-        contentTab = tab;
 
         const siteName = await getSiteName();
         const entries = await EntryStorage.get();
