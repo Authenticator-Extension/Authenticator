@@ -1,6 +1,8 @@
 import "mocha";
 import { expect } from "chai";
 import { getMatchedEntries, cloudBackupAllowed } from "../utils";
+import { EntryStorage } from "../models/storage";
+import { OTPEntry, OTPType } from "../models/otp";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -119,5 +121,31 @@ describe("cloudBackupAllowed (no plaintext cloud upload without a password)", ()
 
   it("blocks cloud upload when no encryption instance is provided", () => {
     expect(cloudBackupAllowed(undefined)).to.equal(false);
+  });
+});
+
+// The bound host must survive a storage round-trip (save -> reload). Without a
+// master password an entry is stored as plaintext and rebuilt via the explicit
+// field list in EntryStorage.get(), which used to drop the host field.
+describe("EntryStorage preserves the bound host across reload", () => {
+  it("keeps entry.host after add() and get()", async () => {
+    const entry = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: "MyBank",
+      host: "accounts.example.com",
+      account: "user",
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+    });
+    try {
+      await EntryStorage.add(entry);
+      const reloaded = (await EntryStorage.get()).find(
+        (e) => e.hash === entry.hash
+      );
+      expect(reloaded && reloaded.host).to.equal("accounts.example.com");
+    } finally {
+      await EntryStorage.delete(entry);
+    }
   });
 });

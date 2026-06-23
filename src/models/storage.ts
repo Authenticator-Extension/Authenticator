@@ -688,6 +688,7 @@ export class EntryStorage {
         hash: entryData.hash,
         index: entryData.index,
         issuer: entryData.issuer,
+        host: entryData.host,
         secret: entryData.secret,
         type,
         counter: entryData.counter,
