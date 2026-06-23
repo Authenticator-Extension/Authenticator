@@ -1,6 +1,6 @@
 import "mocha";
 import { expect } from "chai";
-import { getMatchedEntries } from "../utils";
+import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -94,5 +94,30 @@ describe("getMatchedEntries loose (display filtering, unchanged)", () => {
       false
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
+  });
+});
+
+// A cloud backup must never carry plaintext secrets off the device. Uploading
+// is only permitted once a master password is set, so the export is encrypted
+// before it leaves for Dropbox / Drive / OneDrive. cloudBackupAllowed only
+// reads getEncryptionStatus(), so a tiny stub stands in for a real Encryption.
+describe("cloudBackupAllowed (no plaintext cloud upload without a password)", () => {
+  const withPassword = ({
+    getEncryptionStatus: () => true,
+  } as unknown) as EncryptionInterface;
+  const withoutPassword = ({
+    getEncryptionStatus: () => false,
+  } as unknown) as EncryptionInterface;
+
+  it("blocks cloud upload when no master password is set", () => {
+    expect(cloudBackupAllowed(withoutPassword)).to.equal(false);
+  });
+
+  it("allows cloud upload once a master password is set", () => {
+    expect(cloudBackupAllowed(withPassword)).to.equal(true);
+  });
+
+  it("blocks cloud upload when no encryption instance is provided", () => {
+    expect(cloudBackupAllowed(undefined)).to.equal(false);
   });
 });

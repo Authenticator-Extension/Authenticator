@@ -178,6 +178,15 @@ export function normalizeHost(input: string): string {
   }
 }
 
+// A cloud backup must never carry plaintext secrets off the device. Uploading
+// is only allowed once a master password is set, so the export is encrypted
+// before it leaves for Dropbox / Drive / OneDrive. Lives here (a leaf module)
+// rather than in backup.ts so tests can exercise it without dragging in the
+// storage <-> otp import cycle.
+export function cloudBackupAllowed(encryption?: EncryptionInterface): boolean {
+  return Boolean(encryption && encryption.getEncryptionStatus());
+}
+
 export async function getCurrentTab() {
   const currentWindow = await chrome.windows.getCurrent();
   const queryOptions = { active: true, windowId: currentWindow.id };

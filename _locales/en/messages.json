@@ -357,6 +357,10 @@
     "message": "Cloud sync",
     "description": "Backup section: cloud"
   },
+  "backup_requires_password": {
+    "message": "Set a password first to use cloud backup, so your secrets are encrypted before they leave this device.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "backup_connected": {
     "message": "Connected",
     "description": "Cloud provider connected status"
