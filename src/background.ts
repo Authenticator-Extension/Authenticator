@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
         info: message.info,
       });
     } else if (message.action === "getTotp") {
-      getTotp(message.info, sender.tab?.id);
+      getTotp(message.info, sender.tab?.id, false, hostnameFromTab(sender.tab));
     } else if (message.action === "cachePassphrase") {
       chrome.storage.session.set({
         cachedPassphrase: message.value,
@@ -93,6 +93,19 @@ chrome.alarms.onAlarm.addListener(() => {
   })();
 });
 
+// The host of the tab a QR scan was initiated from, used to pre-bind a newly
+// imported entry to the site the user scanned it on.
+function hostnameFromTab(tab?: chrome.tabs.Tab): string | undefined {
+  if (!tab || !tab.url) {
+    return undefined;
+  }
+  try {
+    return new URL(tab.url).hostname.toLowerCase();
+  } catch {
+    return undefined;
+  }
+}
+
 async function getCapture(tab: chrome.tabs.Tab) {
   const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, {
     format: "png",
@@ -101,7 +114,12 @@ async function getCapture(tab: chrome.tabs.Tab) {
   return dataUrl;
 }
 
-async function getTotp(text: string, tabId?: number, silent = false) {
+async function getTotp(
+  text: string,
+  tabId?: number,
+  silent = false,
+  host?: string
+) {
   // tabId is the content tab that initiated the scan (sender.tab.id). Relying on
   // a module-level tab ref here broke scans whenever the MV3 service worker had
   // been recycled (it was undefined -> silent return).
@@ -120,7 +138,7 @@ async function getTotp(text: string, tabId?: number, silent = false) {
 
       const getTotpPromises: Array<Promise<boolean>> = [];
       for (const otpUrl of otpUrls) {
-        getTotpPromises.push(getTotp(otpUrl, id, true));
+        getTotpPromises.push(getTotp(otpUrl, id, true, host));
       }
 
       const getTotpResults = await Promise.allSettled(getTotpPromises);
@@ -240,6 +258,7 @@ async function getTotp(text: string, tabId?: number, silent = false) {
           account,
           hash,
           issuer,
+          host,
           secret,
           type,
           encrypted: false,

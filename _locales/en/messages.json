@@ -71,6 +71,10 @@
     "message": "Issuer",
     "description": "Issuer."
   },
+  "host": {
+    "message": "Website",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
   "secret": {
     "message": "Secret",
     "description": "Secret."

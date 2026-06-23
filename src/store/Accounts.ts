@@ -197,7 +197,7 @@ export class Accounts implements Module {
           state: AccountsState,
           payload: {
             entry: OTPEntryInterface;
-            field: "issuer" | "account";
+            field: "issuer" | "account" | "host";
             value: string;
           }
         ) {

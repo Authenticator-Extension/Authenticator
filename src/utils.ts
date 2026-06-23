@@ -117,30 +117,41 @@ function isMatchedEntry(
   entry: OTPEntryInterface,
   strict = false
 ) {
-  if (!entry.issuer) {
-    return false;
-  }
-
-  const issuerHostMatches = entry.issuer.split("::");
-  const issuer = issuerHostMatches[0].replace(/[^0-9a-z]/gi, "").toLowerCase();
-
-  if (!issuer) {
-    return false;
-  }
-
   const siteTitle = siteName[0] || "";
   const siteNameFromHost = siteName[1] || "";
   const siteHost = siteName[2] || "";
 
-  if (issuerHostMatches.length > 1 && issuerHostMatches[1]) {
-    if (siteHost && hostMatchesDomain(siteHost, issuerHostMatches[1])) {
-      return true;
+  // The bound host lives in entry.host; fall back to the legacy "issuer::host"
+  // encoding for entries not yet migrated (e.g. raw storage objects).
+  const issuerParts = (entry.issuer || "").split("::");
+  let boundHost = entry.host || "";
+  if (!boundHost && issuerParts.length > 1 && issuerParts[1]) {
+    boundHost = issuerParts[1];
+  }
+  boundHost = boundHost.replace(/^\.+/, "").toLowerCase();
+
+  // strict (autofill): only ever inject a live code when the page's real host
+  // matches an explicitly bound host. No bound host => never autofill, so a
+  // hostile page can't harvest a code the user didn't mean for it.
+  if (strict) {
+    if (!boundHost) {
+      return false;
     }
+    return Boolean(siteHost && hostMatchesDomain(siteHost, boundHost));
   }
 
-  // The page-controlled <title> is only a weak hint: never let it authorize an
-  // autofill paste, but keep it for display filtering.
-  if (!strict && siteTitle && siteTitle.indexOf(issuer) !== -1) {
+  // loose (display filtering): bound host match, else issuer-name heuristics.
+  if (boundHost && siteHost && hostMatchesDomain(siteHost, boundHost)) {
+    return true;
+  }
+
+  const issuer = issuerParts[0].replace(/[^0-9a-z]/gi, "").toLowerCase();
+  if (!issuer) {
+    return false;
+  }
+
+  // The page-controlled <title> is only a weak hint, kept for display filtering.
+  if (siteTitle && siteTitle.indexOf(issuer) !== -1) {
     return true;
   }
 
@@ -150,6 +161,21 @@ function isMatchedEntry(
   }
 
   return false;
+}
+
+// Normalize a user- or page-provided host into a bare lowercase hostname so it
+// can be compared with hostMatchesDomain. Accepts a full URL or a bare host.
+export function normalizeHost(input: string): string {
+  const trimmed = input.trim().toLowerCase();
+  if (!trimmed) {
+    return "";
+  }
+  try {
+    return new URL(trimmed.includes("://") ? trimmed : "https://" + trimmed)
+      .hostname;
+  } catch {
+    return trimmed.replace(/^\.+/, "").replace(/\/.*$/, "");
+  }
 }
 
 export async function getCurrentTab() {
