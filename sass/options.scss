@@ -1,0 +1,69 @@
+@import "ui";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+#options {
+  min-height: 100vh;
+  background: var(--canvas);
+  color: var(--text);
+  padding: 48px 24px;
+
+  .options-card {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--app-bg);
+    border: var(--border) 1px solid;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+    padding: 32px 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-dim);
+    margin: 0 0 16px;
+  }
+
+  label {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  button {
+    margin-top: 18px;
+    padding: 13px 18px;
+    border: none;
+    border-radius: var(--radius-row);
+    background: var(--danger);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:disabled {
+      background: var(--row);
+      color: var(--text-faint);
+      cursor: default;
+    }
+  }
+}

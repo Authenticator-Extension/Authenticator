@@ -1,30 +1,77 @@
 <template>
-  <div>
-    <div class="text warning">{{ i18n.security_warning }}</div>
-    <a-text-input
-      :label="i18n.current_phrase"
-      type="password"
-      v-model="currentPhrase"
-      v-show="!!defaultEncryption"
-    />
-    <a-text-input :label="i18n.phrase" type="password" v-model="phrase" />
-    <a-text-input
-      :label="i18n.confirm_phrase"
-      type="password"
-      v-model="confirm"
-      @enter="changePassphrase()"
-    />
-    <div v-show="!enforcePassword">
-      <a-button id="security-save" @click="changePassphrase()">
-        {{ i18n.ok }}
-      </a-button>
-      <a-button id="security-remove" @click="removePassphrase()">
-        {{ i18n.remove }}
-      </a-button>
+  <div class="pw-page">
+    <div class="page-title">{{ i18n.security }}</div>
+
+    <div class="pw-warning">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"
+        ></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12" y2="17"></line>
+      </svg>
+      <div>{{ i18n.security_warning }}</div>
     </div>
-    <a-button type="small" v-show="enforcePassword" @click="changePassphrase()">
+
+    <div class="pw-field" v-show="!!defaultEncryption">
+      <label>{{ i18n.current_phrase }}</label>
+      <input class="pw-input" type="password" v-model="currentPhrase" />
+    </div>
+
+    <div class="pw-field">
+      <label>{{ i18n.phrase }}</label>
+      <input class="pw-input" type="password" v-model="phrase" />
+      <div class="pw-strength">
+        <span
+          v-for="n in 4"
+          :key="n"
+          class="seg"
+          v-bind:style="{
+            background:
+              n <= pwStrength ? pwStrengthColor : 'var(--border-strong)',
+          }"
+        ></span>
+      </div>
+    </div>
+
+    <div class="pw-field">
+      <label>{{ i18n.confirm_phrase }}</label>
+      <input
+        class="pw-input"
+        type="password"
+        v-model="confirm"
+        v-on:keyup.enter="changePassphrase()"
+      />
+    </div>
+
+    <button class="pw-save" v-on:click="changePassphrase()">
       {{ i18n.ok }}
-    </a-button>
+    </button>
+    <button
+      class="pw-remove"
+      v-show="!enforcePassword && !!defaultEncryption"
+      v-on:click="removePassphrase()"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <rect x="4" y="11" width="16" height="10" rx="2.5"></rect>
+        <path d="M8 11V8a4 4 0 0 1 7-2.6"></path>
+      </svg>
+      {{ i18n.remove }}
+    </button>
   </div>
 </template>
 <script lang="ts">
@@ -42,6 +89,28 @@ export default defineComponent({
   computed: {
     enforcePassword: function () {
       return this.$store.state.menu.enforcePassword;
+    },
+    // Rough 0-4 strength score for visual feedback only.
+    pwStrength(): number {
+      const p = this.phrase;
+      if (!p) {
+        return 0;
+      }
+      let s = 0;
+      if (p.length >= 8) s++;
+      if (p.length >= 12) s++;
+      if (/[0-9]/.test(p) && /[a-z]/i.test(p)) s++;
+      if (/[^a-z0-9]/i.test(p)) s++;
+      return s;
+    },
+    pwStrengthColor(): string {
+      if (this.pwStrength >= 3) {
+        return "var(--ok)";
+      }
+      if (this.pwStrength === 2) {
+        return "var(--warn)";
+      }
+      return "var(--danger)";
     },
     passwordPolicy: function () {
       if (!this.$store.state.menu.passwordPolicy) {

@@ -1,49 +1,69 @@
 <template>
-  <div>
-    <a-text-input
-      :label="i18n.issuer"
-      v-model="newAccount.issuer"
-    ></a-text-input>
-    <a-text-input
-      :label="i18n.secret"
-      v-model="newAccount.secret"
-    ></a-text-input>
-    <details>
-      <summary>{{ i18n.advanced }}</summary>
-      <a-text-input
-        :label="i18n.accountName"
-        v-model="newAccount.account"
-      ></a-text-input>
-      <label>{{ i18n.period }}</label>
-      <input
-        type="number"
-        min="1"
-        class="input"
-        v-model.number="newAccount.period"
-        :disabled="newAccount.type === OTPType.hotp"
-      />
-      <a-select-input :label="i18n.digits" v-model.number="newAccount.digits">
-        <option value="6">6</option>
-        <option value="8">8</option>
-      </a-select-input>
-      <a-select-input
-        :label="i18n.algorithm"
-        v-model.number="newAccount.algorithm"
-      >
-        <option :value="OTPAlgorithm.SHA1">SHA-1</option>
-        <option :value="OTPAlgorithm.SHA256">SHA-256</option>
-        <option :value="OTPAlgorithm.SHA512">SHA-512</option>
-        <option :value="OTPAlgorithm.GOST3411_2012_256">GOST 34.11 256</option>
-        <option :value="OTPAlgorithm.GOST3411_2012_512">GOST 34.11 512</option>
-      </a-select-input>
-      <a-select-input :label="i18n.type" v-model.number="newAccount.type">
+  <div class="manual-form">
+    <div class="page-title">{{ i18n.add_secret }}</div>
+
+    <div class="field">
+      <label class="field-label">{{ i18n.issuer }}</label>
+      <input class="field-input" v-model="newAccount.issuer" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">{{ i18n.secret }}</label>
+      <input class="field-input mono" v-model="newAccount.secret" />
+    </div>
+
+    <div class="field">
+      <label class="field-label">{{ i18n.type }}</label>
+      <select class="field-input" v-model.number="newAccount.type">
         <option :value="OTPType.totp">{{ i18n.based_on_time }}</option>
         <option :value="OTPType.hotp">{{ i18n.based_on_counter }}</option>
         <option :value="OTPType.battle">Battle.net</option>
         <option :value="OTPType.steam">Steam</option>
-      </a-select-input>
+      </select>
+    </div>
+
+    <details class="advanced">
+      <summary>{{ i18n.advanced }}</summary>
+      <div class="field">
+        <label class="field-label">{{ i18n.accountName }}</label>
+        <input class="field-input" v-model="newAccount.account" />
+      </div>
+      <div class="field">
+        <label class="field-label">{{ i18n.period }}</label>
+        <input
+          class="field-input"
+          type="number"
+          min="1"
+          v-model.number="newAccount.period"
+          :disabled="newAccount.type === OTPType.hotp"
+        />
+      </div>
+      <div class="field">
+        <label class="field-label">{{ i18n.digits }}</label>
+        <select class="field-input" v-model.number="newAccount.digits">
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="field-label">{{ i18n.algorithm }}</label>
+        <select class="field-input" v-model.number="newAccount.algorithm">
+          <option :value="OTPAlgorithm.SHA1">SHA-1</option>
+          <option :value="OTPAlgorithm.SHA256">SHA-256</option>
+          <option :value="OTPAlgorithm.SHA512">SHA-512</option>
+          <option :value="OTPAlgorithm.GOST3411_2012_256">
+            GOST 34.11 256
+          </option>
+          <option :value="OTPAlgorithm.GOST3411_2012_512">
+            GOST 34.11 512
+          </option>
+        </select>
+      </div>
     </details>
-    <a-button type="small" @click="addNewAccount()">{{ i18n.ok }}</a-button>
+
+    <button class="add-submit" v-on:click="addNewAccount()">
+      {{ i18n.add_code }}
+    </button>
   </div>
 </template>
 <script lang="ts">

@@ -1,6 +1,19 @@
-import { isSafari } from "../browser";
 import { UserSettings } from "../models/settings";
 import { ManagedStorage } from "../models/storage";
+
+// Map any stored theme (incl. the retired normal/simple/flat) to a current one.
+function normalizeTheme(value?: string): string {
+  switch (value) {
+    case "dark":
+    case "auto":
+    case "accessibility":
+    case "compact":
+    case "light":
+      return value;
+    default:
+      return "light";
+  }
+}
 
 export class Menu implements Module {
   async getModule() {
@@ -13,7 +26,8 @@ export class Menu implements Module {
         useAutofill: UserSettings.items.autofill === true,
         smartFilter: UserSettings.items.smartFilter === true,
         enableContextMenu: UserSettings.items.enableContextMenu === true,
-        theme: UserSettings.items.theme || (isSafari ? "flat" : "normal"),
+        theme: normalizeTheme(UserSettings.items.theme),
+        onboardingComplete: UserSettings.items.onboardingComplete === true,
         autolock: Number(UserSettings.items.autolock) || 30,
         backupDisabled: await ManagedStorage.get("disableBackup", false),
         exportDisabled: await ManagedStorage.get("disableExport", false),
@@ -53,6 +67,11 @@ export class Menu implements Module {
           UserSettings.items.theme = theme;
           UserSettings.commitItems();
         },
+        setOnboardingComplete(state: MenuState, complete: boolean) {
+          state.onboardingComplete = complete;
+          UserSettings.items.onboardingComplete = complete;
+          UserSettings.commitItems();
+        },
         setAutolock(state: MenuState, autolock: number) {
           state.autolock = autolock;
           UserSettings.items.autolock = autolock;
@@ -69,8 +88,8 @@ export class Menu implements Module {
 
   private resize(zoom: number) {
     if (zoom !== 100) {
-      document.body.style.marginBottom = 480 * (zoom / 100 - 1) + "px";
-      document.body.style.marginRight = 320 * (zoom / 100 - 1) + "px";
+      document.body.style.marginBottom = 580 * (zoom / 100 - 1) + "px";
+      document.body.style.marginRight = 360 * (zoom / 100 - 1) + "px";
       document.body.style.transform = "scale(" + zoom / 100 + ")";
     }
   }

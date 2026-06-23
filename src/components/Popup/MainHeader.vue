@@ -1,7 +1,23 @@
 <template>
   <div class="header">
-    <span v-on:dblclick="popOut()">{{ i18n.extName }}</span>
-    <div v-show="!isPopup()">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <span class="brand-name" v-on:dblclick="popOut()">{{
+        style.isEditing ? i18n.edit_accounts : i18n.extName
+      }}</span>
+    </div>
+    <div class="header-actions" v-show="!isPopup()">
       <div
         class="icon"
         id="i-menu"

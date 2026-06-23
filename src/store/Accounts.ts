@@ -83,6 +83,9 @@ export class Accounts implements Module {
         stopFilter(state: AccountsState) {
           state.filter = false;
         },
+        startFilter(state: AccountsState) {
+          state.filter = true;
+        },
         showSearch(state: AccountsState) {
           state.showSearch = true;
         },

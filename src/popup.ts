@@ -145,7 +145,9 @@ async function init() {
         if (!searchInput || !searchDiv) {
           return;
         }
-        searchDiv.style.display = "block";
+        // force-show before Vue re-renders so focus() lands; must match the
+        // search box's flex layout (display:block would break it — #1)
+        searchDiv.style.display = "flex";
         searchInput.focus();
       }
     },

@@ -305,6 +305,102 @@
     "message": "Theme",
     "description": "Theme"
   },
+  "settings_appearance": {
+    "message": "Appearance",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "General",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Edit accounts",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Show QR code",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Pin to top",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Unpin",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Vault locked",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Unlock",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transfer this account",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scan this code with Authenticator on another device to move this account across — it never leaves your devices.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "On this device",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloud sync",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Connected",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Not connected",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Showing codes for",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Other accounts",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filter to",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Codes that travel with you",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generate secure two-factor codes for every account — encrypted, offline, and always one tap from copy.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Works fully offline — nothing leaves your device",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Encrypted vault with optional password lock",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Scan a QR or import an existing backup",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Get started",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "I have a backup to import",
+    "description": "Onboarding secondary button"
+  },
   "theme_light": {
     "message": "Light",
     "description": "Light theme"
@@ -312,6 +408,10 @@
   "theme_dark": {
     "message": "Dark",
     "description": "Dark theme"
+  },
+  "theme_auto": {
+    "message": "Auto",
+    "description": "Follow the system light/dark setting"
   },
   "theme_simple": {
     "message": "Simple",
