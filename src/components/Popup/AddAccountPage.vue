@@ -8,6 +8,15 @@
     </div>
 
     <div class="field">
+      <label class="field-label">{{ i18n.host }}</label>
+      <input
+        class="field-input"
+        v-model="newAccount.host"
+        placeholder="example.com"
+      />
+    </div>
+
+    <div class="field">
       <label class="field-label">{{ i18n.secret }}</label>
       <input class="field-input mono" v-model="newAccount.secret" />
     </div>
@@ -70,11 +79,13 @@
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
+import { normalizeHost } from "../../utils";
 
 export default defineComponent({
   data: function (): {
     newAccount: {
       issuer: string;
+      host: string;
       account: string;
       secret: string;
       type: OTPType;
@@ -86,6 +97,7 @@ export default defineComponent({
     return {
       newAccount: {
         issuer: "",
+        host: "",
         account: "",
         secret: "",
         type: OTPType.totp,
@@ -148,6 +160,7 @@ export default defineComponent({
           type,
           index: 0,
           issuer: this.newAccount.issuer,
+          host: normalizeHost(this.newAccount.host),
           account: this.newAccount.account,
           encrypted: false,
           secret: this.newAccount.secret,

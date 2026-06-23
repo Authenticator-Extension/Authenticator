@@ -2,6 +2,7 @@ interface OTPEntryInterface {
   type: number; // OTPType
   index: number;
   issuer: string;
+  host: string;
   secret: string | null;
   account: string;
   hash: string;
@@ -41,6 +42,7 @@ interface RawOTPStorage {
   hash: string;
   index: number;
   issuer?: string;
+  host?: string;
   secret: string;
   type: string;
   counter?: number;

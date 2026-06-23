@@ -47,10 +47,28 @@ export class OTPUtil {
   }
 }
 
+// Upstream encoded an autofill-bound host inside the issuer field as
+// "Name::host". Split that into the dedicated host field on read so old
+// entries keep working and get normalized on the next save.
+function migrateLegacyHost(
+  issuer: string,
+  host: string
+): { issuer: string; host: string } {
+  if (!host && issuer.includes("::")) {
+    const parts = issuer.split("::");
+    return {
+      issuer: parts[0],
+      host: (parts[1] || "").replace(/^\.+/, "").toLowerCase(),
+    };
+  }
+  return { issuer, host };
+}
+
 export class OTPEntry implements OTPEntryInterface {
   type: OTPType;
   index: number;
   issuer: string;
+  host: string;
   secret: string | null;
   account: string;
   hash: string;
@@ -72,6 +90,7 @@ export class OTPEntry implements OTPEntryInterface {
           encrypted: boolean;
           index: number;
           issuer?: string;
+          host?: string;
           secret: string;
           type: OTPType;
           counter?: number;
@@ -102,6 +121,7 @@ export class OTPEntry implements OTPEntryInterface {
       // defaults
       this.type = OTPType.totp;
       this.issuer = "";
+      this.host = "";
       this.account = "";
       this.counter = 0;
       this.period = 30;
@@ -122,6 +142,11 @@ export class OTPEntry implements OTPEntryInterface {
       this.issuer = entry.issuer;
     } else {
       this.issuer = "";
+    }
+    {
+      const migrated = migrateLegacyHost(this.issuer, entry.host || "");
+      this.issuer = migrated.issuer;
+      this.host = migrated.host;
     }
     if (entry.account) {
       this.account = entry.account;
@@ -220,6 +245,12 @@ export class OTPEntry implements OTPEntryInterface {
     this.counter = decryptedData.counter || 0;
     this.digits = decryptedData.digits || 6;
     this.issuer = decryptedData.issuer || "";
+    this.host = decryptedData.host || "";
+    {
+      const migrated = migrateLegacyHost(this.issuer, this.host);
+      this.issuer = migrated.issuer;
+      this.host = migrated.host;
+    }
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;

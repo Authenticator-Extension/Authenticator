@@ -253,6 +253,10 @@ export class EntryStorage {
       storageItem.issuer = entry.issuer;
     }
 
+    if (entry.host) {
+      storageItem.host = entry.host;
+    }
+
     if (entry.account) {
       storageItem.account = entry.account;
     }
@@ -421,6 +425,10 @@ export class EntryStorage {
         delete entry.issuer;
       }
 
+      if (!entry.host) {
+        delete entry.host;
+      }
+
       if (!entry.account) {
         delete entry.account;
       }
@@ -494,6 +502,7 @@ export class EntryStorage {
         encrypted: false;
         index: number;
         issuer: string;
+        host: string;
         secret: string;
         type: OTPType;
         counter: number;
@@ -506,6 +515,7 @@ export class EntryStorage {
         type: typeof typeFromName === "number" ? typeFromName : OTPType.totp,
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
+        host: data[hash].host || "",
         account: data[hash].account || "",
         encrypted: false,
         secret: data[hash].secret,

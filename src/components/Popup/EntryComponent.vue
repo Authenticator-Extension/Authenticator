@@ -46,6 +46,16 @@
           v-on:change="entry.update()"
         />
       </div>
+      <div class="issuerEdit issuerEdit-host">
+        <input
+          v-bind:placeholder="i18n.host"
+          type="text"
+          v-bind:value="entry.host"
+          v-on:input="setEntryField(entry, 'host', $event.target.value)"
+          v-on:keydown.stop
+          v-on:change="updateHost(entry)"
+        />
+      </div>
     </div>
 
     <div
@@ -117,7 +127,13 @@ import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
-import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import {
+  getCurrentTab,
+  getSiteName,
+  getMatchedEntries,
+  normalizeHost,
+  okToInjectContentScript,
+} from "../../utils";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -306,8 +322,20 @@ export default defineComponent({
       }, 3000);
       return;
     },
-    setEntryField(entry: OTPEntry, field: "issuer" | "account", value: string) {
+    setEntryField(
+      entry: OTPEntry,
+      field: "issuer" | "account" | "host",
+      value: string
+    ) {
       this.$store.commit("accounts/setEntryField", { entry, field, value });
+    },
+    updateHost(entry: OTPEntry) {
+      this.$store.commit("accounts/setEntryField", {
+        entry,
+        field: "host",
+        value: normalizeHost(entry.host),
+      });
+      entry.update();
     },
     async copyCode(entry: OTPEntry) {
       if (
@@ -339,10 +367,17 @@ export default defineComponent({
               await insertContentScript();
               const tab = await getCurrentTab();
               if (tab && tab.id) {
-                chrome.tabs.sendMessage(tab.id, {
-                  action: "pastecode",
-                  code: entry.code,
-                });
+                // Only inject a live code when the page's real host matches the
+                // entry's bound host; otherwise fall through to clipboard copy
+                // so a hostile page can't harvest a code it doesn't own.
+                const siteName = await getSiteName();
+                const matched = getMatchedEntries(siteName, [entry], true);
+                if (matched && matched.length === 1) {
+                  chrome.tabs.sendMessage(tab.id, {
+                    action: "pastecode",
+                    code: entry.code,
+                  });
+                }
               }
             }
 
