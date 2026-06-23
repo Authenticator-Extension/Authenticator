@@ -241,6 +241,38 @@
     "message": "匯入 OTP 網址",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "拖曳備份檔到此，或點擊瀏覽",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "支援 .json 與 .txt 匯出檔",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "選擇檔案",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "若檔案已加密，選取後將會要求輸入密碼。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "已加密——需要密碼",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "輸入此檔案的密碼",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "這是你建立備份時設定的密碼。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "解密並匯入",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "匯入成功，但部分 QR Code 無法辨識。",
     "description": "Import successful, but some QR image cannot be recognized."

@@ -26,79 +26,118 @@ p {
   background: var(--canvas);
   color: var(--text);
   padding: 48px 24px;
-
-  > div {
-    max-width: 560px;
-    margin: 0 auto;
-    background: var(--app-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow);
-    padding: 28px;
-  }
 }
 
-#import_info {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--text-dim);
-  margin-bottom: 18px;
+.import-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--app-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
-.import_tab {
+.import-header {
   display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
+  align-items: center;
+  gap: 13px;
+  padding: 34px 44px 0;
 
-  input {
-    display: none;
+  .import-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
 
-    &:checked + label {
-      background: var(--accent);
-      color: var(--accent-fg);
-      border-color: var(--accent);
+    svg {
+      width: 18px;
+      height: 18px;
     }
   }
 
-  label {
-    flex: 1;
-    text-align: center;
-    padding: 11px 8px;
-    border-radius: var(--radius-row);
-    border: 1px solid var(--border);
-    background: var(--row);
-    color: var(--text-dim);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-
-    &:hover {
-      background: var(--row-hover);
-    }
+  h1 {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0;
   }
 }
 
-button,
-.import_file label {
+.import-desc {
+  padding: 8px 44px 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 620px;
+}
+
+// Interactive underline tabs
+.import-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 24px 44px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.import-tab {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: -1px;
+  padding: 13px 20px;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  &:hover {
+    color: var(--text);
+  }
+
+  &.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+}
+
+.import-panel {
+  padding: 30px 44px 38px;
+}
+
+.import-panel button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 220px;
-  height: 48px;
-  padding: 0 18px;
-  border: 1px solid var(--border-strong);
+  min-width: 200px;
+  height: 46px;
+  padding: 0 22px;
+  border: none;
   border-radius: var(--radius-row);
-  background: var(--app-bg);
-  color: var(--text);
+  background: var(--accent);
+  color: var(--accent-fg);
   font-family: var(--font-sans);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   outline: none;
 
   &:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    filter: brightness(1.06);
   }
 }
 
@@ -107,6 +146,219 @@ button,
 
   input {
     display: none;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 44px 20px;
+    border: 2px dashed var(--border-strong);
+    border-radius: 18px;
+    background: var(--row);
+    color: var(--text-dim);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+  }
+}
+
+// File import panel (design "18 IMPORT" — file tab)
+.file-import {
+  .dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 46px 20px;
+    border: 2px dashed var(--border-strong);
+    border-radius: 18px;
+    background: var(--row);
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .dropzone-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .dropzone-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .dropzone-hint {
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+
+  .dropzone-btn {
+    padding: 11px 22px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  .import-note {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 13px;
+    background: var(--row);
+    color: var(--text-dim);
+
+    svg {
+      flex: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    div {
+      flex: 1;
+      font-size: 13px;
+    }
+  }
+
+  .file-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 16px;
+    border-radius: 14px;
+    background: var(--row);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+
+  .file-card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    flex: none;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  .file-card-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .file-card-name {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .file-card-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--warn);
+
+    svg {
+      width: 12px;
+      height: 12px;
+      flex: none;
+    }
+  }
+
+  .file-card-remove {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    flex: none;
+    background: var(--app-bg);
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    &:hover {
+      color: var(--text);
+    }
+  }
+
+  .field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .pass-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 13px;
+    border: 1px solid var(--accent);
+    background: var(--app-bg);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: 2px;
+    outline: none;
+  }
+
+  .pass-hint {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-top: 8px;
+  }
+
+  .pass-submit {
+    margin-top: 18px;
   }
 }
 

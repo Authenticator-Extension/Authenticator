@@ -1,22 +1,115 @@
 <template>
-  <div>
-    <a-file-input
-      button-type="file"
-      accept="application/json, text/plain"
-      v-if="!getFilePassphrase"
-      @change="importFile($event, true)"
-      :label="i18n.import_backup_file"
-    />
-    <div class="import_file_passphrase" v-else>
-      <p class="error_password">{{ i18n.passphrase_info }}</p>
-      <a-text-input
-        :label="i18n.phrase"
+  <div class="file-import">
+    <!-- Dropzone -->
+    <template v-if="!getFilePassphrase">
+      <label class="dropzone">
+        <input
+          type="file"
+          accept="application/json, text/plain"
+          @change="importFile($event, true)"
+        />
+        <div class="dropzone-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3v12"></path>
+            <polyline points="7 8 12 3 17 8"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+        </div>
+        <div class="dropzone-text">
+          <div class="dropzone-title">{{ i18n.import_drop_file }}</div>
+          <div class="dropzone-hint">{{ i18n.import_file_accepts }}</div>
+        </div>
+        <span class="dropzone-btn">{{ i18n.import_choose_file }}</span>
+      </label>
+      <div class="import-note">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="4" y="11" width="16" height="10" rx="2.5"></rect>
+          <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+        </svg>
+        <div>{{ i18n.import_encrypted_note }}</div>
+      </div>
+    </template>
+
+    <!-- Encrypted file picked → passphrase -->
+    <template v-else>
+      <div class="file-card">
+        <div class="file-card-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M14 3v5h5"></path>
+            <path
+              d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2z"
+            ></path>
+          </svg>
+        </div>
+        <div class="file-card-text">
+          <div class="file-card-name">{{ fileName }}</div>
+          <div class="file-card-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="4" y="11" width="16" height="10" rx="2.5"></rect>
+              <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+            </svg>
+            {{ i18n.import_enc_required }}
+          </div>
+        </div>
+        <div
+          class="file-card-remove"
+          role="button"
+          tabindex="0"
+          v-on:click="resetFile()"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+          >
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+          </svg>
+        </div>
+      </div>
+      <label class="field-label">{{ i18n.phrase }}</label>
+      <input
+        class="pass-input"
         type="password"
-        @enter="readFilePassphrase = true"
         v-model="importFilePassphrase"
+        v-bind:placeholder="i18n.import_pass_placeholder"
+        v-on:keyup.enter="readFilePassphrase = true"
       />
-      <a-button @click="readFilePassphrase = true">{{ i18n.ok }}</a-button>
-    </div>
+      <div class="pass-hint">{{ i18n.import_pass_hint }}</div>
+      <button class="pass-submit" v-on:click="readFilePassphrase = true">
+        {{ i18n.import_decrypt }}
+      </button>
+    </template>
   </div>
 </template>
 <script lang="ts">
@@ -35,15 +128,27 @@ export default defineComponent({
       getFilePassphrase: false,
       readFilePassphrase: false,
       importFilePassphrase: "",
+      fileName: "",
+      cancelImport: false,
     };
   },
   methods: {
+    resetFile() {
+      // back out of the passphrase prompt and abort the pending read
+      this.cancelImport = true;
+      this.getFilePassphrase = false;
+      this.readFilePassphrase = false;
+      this.importFilePassphrase = "";
+      this.fileName = "";
+    },
     importFile(event: Event, closeWindow: Boolean) {
       const target = event.target as HTMLInputElement;
       if (!target || !target.files) {
         return;
       }
       if (target.files[0]) {
+        this.cancelImport = false;
+        this.fileName = target.files[0].name;
         const reader = new FileReader();
         let decryptedFileData: { [hash: string]: RawOTPStorage } = {};
         reader.onload = async () => {
@@ -152,6 +257,11 @@ export default defineComponent({
               window.close();
             }
           } else {
+            // user backed out of the passphrase prompt — abort quietly
+            if (this.cancelImport) {
+              this.cancelImport = false;
+              return;
+            }
             alert(this.i18n.migration_fail);
             this.getFilePassphrase = false;
             this.importFilePassphrase = "";
@@ -169,6 +279,9 @@ export default defineComponent({
     async getOldPassphrase() {
       this.getFilePassphrase = true;
       while (true) {
+        if (this.cancelImport) {
+          throw new Error("import cancelled");
+        }
         if (this.readFilePassphrase) {
           if (this.importFilePassphrase) {
             this.readFilePassphrase = false;

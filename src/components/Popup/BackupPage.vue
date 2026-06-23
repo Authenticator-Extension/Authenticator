@@ -112,8 +112,8 @@
         </div>
       </template>
 
-      <!-- import -->
-      <a class="backup-row" href="import.html">
+      <!-- import — open in a new tab; the import page is full-width (#1) -->
+      <a class="backup-row" href="import.html" target="_blank">
         <svg
           class="backup-ico"
           viewBox="0 0 24 24"
