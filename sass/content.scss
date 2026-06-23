@@ -6,6 +6,7 @@
   height: 100%;
   background: rgba(255, 255, 255, 0.6);
   z-index: 2147483647;
+  pointer-events: auto !important;
   display: none;
   cursor: crosshair;
 }
