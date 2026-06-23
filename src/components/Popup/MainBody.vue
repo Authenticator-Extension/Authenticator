@@ -1,11 +1,29 @@
 <template>
-  <div
-    id="codes"
-    v-bind:class="{ filter: shouldFilter && filter, search: showSearch }"
-  >
-    <!-- Filter -->
-    <div class="under-header" id="filter" v-on:click="clearFilter()">
-      {{ i18n.show_all_entries }}
+  <div id="codes" v-bind:class="{ search: showSearch }">
+    <!-- Smart-filter banner — toggles the site filter on/off -->
+    <div id="filter" v-if="showFilterBanner" v-on:click="toggleFilter()">
+      <svg
+        class="filter-globe"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="9"></circle>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"></path>
+      </svg>
+      <div class="filter-text">
+        <span class="filter-label">{{
+          filter ? i18n.showing_codes_for : i18n.filter_to_site
+        }}</span>
+        <strong class="filter-domain">{{ siteDomain }}</strong>
+      </div>
+      <span class="filter-showall" v-if="filter">{{
+        i18n.show_all_entries
+      }}</span>
     </div>
     <!-- Search -->
     <div class="under-header" id="search">
@@ -23,7 +41,31 @@
       </div>
     </div>
     <!-- Entries -->
+    <!-- Smart-filter view: matched (highlighted) + Other accounts (dimmed) -->
+    <div class="entries" v-if="filterActive">
+      <EntryComponent
+        v-for="element in matchedList"
+        v-bind:key="element.hash"
+        v-bind:entry="element"
+        v-bind:matched="true"
+        v-bind:notSearched="!isSearchedEntry(element)"
+        v-bind:tabindex="getTabindex(element)"
+      />
+      <div class="other-accounts" v-if="otherList.length">
+        {{ i18n.other_accounts }}
+      </div>
+      <EntryComponent
+        v-for="element in otherList"
+        v-bind:key="element.hash"
+        v-bind:entry="element"
+        v-bind:dimmed="true"
+        v-bind:notSearched="!isSearchedEntry(element)"
+        v-bind:tabindex="-1"
+      />
+    </div>
     <draggable
+      v-else
+      class="entries"
       v-model="draggableEntries"
       item-key="hash"
       handle=".movehandle"
@@ -35,21 +77,47 @@
     >
       <template #item="{ element }">
         <EntryComponent
-          v-bind:filtered="!element.pinned && !isMatchedEntry(element)"
           v-bind:notSearched="!isSearchedEntry(element)"
           v-bind:entry="element"
           v-bind:tabindex="getTabindex(element)"
         />
       </template>
     </draggable>
+    <div class="edit-add" v-if="isEditing" v-on:click="addAccount()">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+      >
+        <line x1="12" y1="6" x2="12" y2="18"></line>
+        <line x1="6" y1="12" x2="18" y2="12"></line>
+      </svg>
+      {{ i18n.add_code }}
+    </div>
     <div class="no-entry" v-if="entries.length === 0 && initComplete">
-      <IconKey />
+      <div class="no-entry-icon">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <line x1="12" y1="6" x2="12" y2="18"></line>
+          <line x1="6" y1="12" x2="18" y2="12"></line>
+        </svg>
+      </div>
+      <div class="no-entry-title">{{ i18n.no_entires }}</div>
       <p>
-        {{ i18n.no_entires }}
         <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
           i18n.learn_more
         }}</a>
       </p>
+      <button class="no-entry-add" v-on:click="addAccount()">
+        {{ i18n.add_code }}
+      </button>
     </div>
   </div>
 </template>
@@ -62,9 +130,6 @@ import { EntryStorage } from "../../models/storage";
 
 import EntryComponent from "./EntryComponent.vue";
 
-// import IconPlus from "../../../svg/plus.svg";
-import IconKey from "../../../svg/key-solid.svg";
-
 export default defineComponent({
   data: function () {
     return {
@@ -72,10 +137,37 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState("accounts", ["filter", "showSearch", "initComplete"]),
+    ...mapState("accounts", [
+      "filter",
+      "showSearch",
+      "initComplete",
+      "siteName",
+    ]),
     ...mapGetters("accounts", ["shouldFilter", "entries"]),
     isEditing(): boolean {
       return this.$store.state.style.style.isEditing;
+    },
+    // Smart-filter split: matched (or pinned) accounts vs. everything else.
+    matchedList(): OTPEntry[] {
+      return this.entries.filter(
+        (e: OTPEntry) => e.pinned || this.isMatchedEntry(e)
+      );
+    },
+    otherList(): OTPEntry[] {
+      return this.entries.filter(
+        (e: OTPEntry) => !e.pinned && !this.isMatchedEntry(e)
+      );
+    },
+    siteDomain(): string {
+      return this.siteName?.[2] || this.siteName?.[1] || "";
+    },
+    // Only offer the filter when it actually segregates the list: there are
+    // matches AND non-matching ("other") accounts to hide/reveal.
+    showFilterBanner(): boolean {
+      return this.shouldFilter && this.otherList.length > 0;
+    },
+    filterActive(): boolean {
+      return this.showFilterBanner && this.filter;
     },
     draggableEntries: {
       get(): OTPEntry[] {
@@ -93,6 +185,17 @@ export default defineComponent({
     openLink(url: string) {
       window.open(url, "_blank");
       return;
+    },
+    addAccount() {
+      let page = "AddMethodPage";
+      if (
+        this.$store.state.menu.enforcePassword &&
+        !this.$store.state.accounts.defaultEncryption
+      ) {
+        page = "SetPasswordPage";
+      }
+      this.$store.commit("style/showInfo");
+      this.$store.commit("currentView/changeView", page);
     },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {
@@ -115,8 +218,13 @@ export default defineComponent({
         return false;
       }
     },
-    clearFilter() {
-      this.$store.dispatch("accounts/clearFilter");
+    toggleFilter() {
+      // clearFilter also reveals search for long lists; startFilter re-applies
+      if (this.filter) {
+        this.$store.dispatch("accounts/clearFilter");
+      } else {
+        this.$store.commit("accounts/startFilter");
+      }
     },
     isEntryVisible(entry: OTPEntry) {
       return (
@@ -180,8 +288,6 @@ export default defineComponent({
   },
   components: {
     EntryComponent,
-    // IconPlus,
-    IconKey,
     draggable,
   },
 });

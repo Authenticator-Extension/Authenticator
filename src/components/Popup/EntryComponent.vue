@@ -7,56 +7,47 @@
       entry: true,
       pinnedEntry: entry.pinned,
       'no-copy': noCopy(entry.code),
-      filtered: filtered,
+      matchedEntry: matched,
+      dimmed: dimmed,
       notSearched: notSearched,
     }"
     v-on:click="copyCode(entry)"
     v-on:keydown.enter="copyCode(entry)"
+    v-on:contextmenu.prevent="openContext($event)"
   >
     <div class="deleteAction" v-on:click="removeEntry(entry)">
       <IconMinusCircle />
     </div>
-    <div
-      class="sector"
-      v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex"
-      v-show="sectorStart"
-      v-bind:key="sectorOffset"
-    >
-      <svg viewBox="0 0 16 16">
-        <circle
-          cx="8"
-          cy="8"
-          r="4"
-          v-bind:style="{
-            animationDuration: entry.period + 's',
-            animationDelay: (sectorOffset % entry.period) + 's',
-          }"
+
+    <div class="monogram" v-bind:style="monoStyle(entry)">
+      {{ monogram(entry) }}
+    </div>
+
+    <div class="entry-text">
+      <div class="issuer">{{ entry.issuer.split("::")[0] }}</div>
+      <div class="account">{{ entry.account }}</div>
+      <div class="issuerEdit issuerEdit-issuer">
+        <input
+          v-bind:placeholder="i18n.issuer"
+          type="text"
+          v-bind:value="entry.issuer"
+          v-on:input="setEntryField(entry, 'issuer', $event.target.value)"
+          v-on:keydown.stop
+          v-on:change="entry.update()"
         />
-      </svg>
+      </div>
+      <div class="issuerEdit issuerEdit-account">
+        <input
+          v-bind:placeholder="i18n.accountName"
+          type="text"
+          v-bind:value="entry.account"
+          v-on:input="setEntryField(entry, 'account', $event.target.value)"
+          v-on:keydown.stop
+          v-on:change="entry.update()"
+        />
+      </div>
     </div>
-    <div
-      v-bind:class="{ counter: true, disabled: style.hotpDisabled }"
-      v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex"
-      v-on:click="nextCode(entry)"
-    >
-      <IconRedo />
-    </div>
-    <div class="issuer">
-      {{
-        entry.issuer.split("::")[0] +
-        (theme === "compact" ? ` (${entry.account})` : "")
-      }}
-    </div>
-    <div class="issuerEdit">
-      <input
-        v-bind:placeholder="i18n.issuer"
-        type="text"
-        v-bind:value="entry.issuer"
-        v-on:input="setEntryField(entry, 'issuer', $event.target.value)"
-        v-on:keydown.stop
-        v-on:change="entry.update()"
-      />
-    </div>
+
     <div
       v-bind:class="{
         code: true,
@@ -66,30 +57,58 @@
     >
       {{ style.isEditing ? showBulls(entry) : showCode(entry.code) }}
     </div>
-    <div class="issuer account">{{ entry.account }}</div>
-    <div class="issuerEdit">
-      <input
-        v-bind:placeholder="i18n.accountName"
-        type="text"
-        v-bind:value="entry.account"
-        v-on:input="setEntryField(entry, 'account', $event.target.value)"
-        v-on:keydown.stop
-        v-on:change="entry.update()"
-      />
+
+    <div class="entry-actions">
+      <div
+        v-bind:class="{ counter: true, disabled: style.hotpDisabled }"
+        v-if="entry.type === OTPType.hotp || entry.type === OTPType.hhex"
+        v-on:click="nextCode(entry)"
+      >
+        <IconRedo />
+      </div>
     </div>
-    <div
-      class="showqr"
-      v-if="shouldShowQrIcon(entry)"
-      v-on:click.stop="showQr(entry)"
-    >
-      <IconQr />
-    </div>
-    <div class="pin" v-on:click.stop="pin(entry)">
-      <IconPin />
-    </div>
+
+    <!-- TOTP countdown: depleting bottom bar + seconds badge -->
+    <template v-if="entry.type !== OTPType.hotp && entry.type !== OTPType.hhex">
+      <span class="remaining-badge">{{ remaining(entry) }}s</span>
+      <div class="timebar">
+        <div
+          class="timebar-fill"
+          v-bind:style="{ width: barPct(entry), background: ringColor(entry) }"
+        ></div>
+      </div>
+    </template>
+
     <div class="movehandle">
       <IconBars />
     </div>
+
+    <!-- Right-click context menu -->
+    <template v-if="contextOpen">
+      <div
+        class="entry-ctx-backdrop"
+        v-on:click.stop="closeContext"
+        v-on:contextmenu.prevent.stop="closeContext"
+      ></div>
+      <div
+        class="entry-ctx"
+        v-bind:style="{ left: contextX + 'px', top: contextY + 'px' }"
+        v-on:click.stop
+      >
+        <div class="entry-ctx-item" v-on:click.stop="ctxPin">
+          <IconPin />
+          {{ entry.pinned ? i18n.unpin : i18n.pin_to_top }}
+        </div>
+        <div
+          class="entry-ctx-item"
+          v-if="shouldShowQrIcon(entry)"
+          v-on:click.stop="ctxShowQr"
+        >
+          <IconQr />
+          {{ i18n.show_qr }}
+        </div>
+      </div>
+    </template>
   </a>
 </template>
 <script lang="ts">
@@ -129,10 +148,46 @@ export default defineComponent({
   props: {
     entry: OTPEntry,
     tabindex: Number,
-    filtered: Boolean,
+    matched: Boolean,
+    dimmed: Boolean,
     notSearched: Boolean,
   },
+  data() {
+    return {
+      contextOpen: false,
+      contextX: 0,
+      contextY: 0,
+    };
+  },
   methods: {
+    openContext(e: MouseEvent) {
+      // No menu while editing (pin is always available, so the menu always opens)
+      if (this.$store.state.style.style.isEditing) {
+        return;
+      }
+      const menuW = 180;
+      this.contextX = Math.max(
+        8,
+        Math.min(e.clientX, window.innerWidth - menuW - 8)
+      );
+      this.contextY = e.clientY;
+      this.contextOpen = true;
+    },
+    closeContext() {
+      this.contextOpen = false;
+    },
+    ctxPin() {
+      this.closeContext();
+      if (this.entry) {
+        this.pin(this.entry);
+      }
+    },
+    ctxShowQr() {
+      this.closeContext();
+      if (this.entry) {
+        this.showQr(this.entry);
+      }
+    },
     noCopy(code: string) {
       return (
         code === CodeState.Encrypted ||
@@ -170,6 +225,36 @@ export default defineComponent({
 
       return new Array(entry.digits).fill("•").join("");
     },
+    monogram(entry: OTPEntry) {
+      const name = entry.issuer.split("::")[0] || entry.account || "";
+      return (name.trim()[0] || "?").toUpperCase();
+    },
+    monoStyle(entry: OTPEntry) {
+      const hue = hueFromString(entry.issuer || entry.account || "");
+      return {
+        background: `oklch(0.86 0.07 ${hue})`,
+        color: `oklch(0.42 0.16 ${hue})`,
+      };
+    },
+    remaining(entry: OTPEntry) {
+      const period = entry.period || 30;
+      return period - (this.second % period);
+    },
+    ringColor(entry: OTPEntry) {
+      const left = this.remaining(entry);
+      if (left > 10) {
+        return "var(--ok)";
+      }
+      if (left > 5) {
+        return "var(--warn)";
+      }
+      return "var(--danger)";
+    },
+    // Width of the depleting countdown bar (full at refresh, shrinks to ~0).
+    barPct(entry: OTPEntry) {
+      const period = entry.period || 30;
+      return ((this.remaining(entry) / period) * 100).toFixed(1) + "%";
+    },
     async removeEntry(entry: OTPEntry) {
       if (
         await this.$store.dispatch(
@@ -191,7 +276,15 @@ export default defineComponent({
       codesEl.scrollTop = 0;
     },
     showQr(entry: OTPEntry) {
-      this.$store.commit("qr/setQr", getQrUrl(entry));
+      const hue = hueFromString(entry.issuer || entry.account || "");
+      this.$store.commit("qr/setQr", {
+        src: getQrUrl(entry),
+        issuer: entry.issuer.split("::")[0],
+        account: entry.account,
+        monogram: this.monogram(entry),
+        monoBg: `oklch(0.86 0.07 ${hue})`,
+        monoFg: `oklch(0.42 0.16 ${hue})`,
+      });
       this.$store.commit("style/showQr");
       return;
     },
@@ -278,6 +371,16 @@ export default defineComponent({
     IconPin,
   },
 });
+
+// Stable 0-359 hue from a string (FNV-1a) for monogram avatar tinting.
+function hueFromString(value: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < value.length; i++) {
+    h ^= value.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h) % 360;
+}
 
 // TODO: move most of this to a models file and reuse for backup stuff
 function getQrUrl(entry: OTPEntry) {

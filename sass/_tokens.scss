@@ -1,0 +1,112 @@
+// Design tokens — CSS custom properties.
+// Replaces the old SCSS $themes map + themify mixin (see _ui.scss).
+// Light is the :root default; theme classes on the app root override it.
+
+:root {
+  // Surfaces
+  --canvas: #e7e5df;
+  --app-bg: #ffffff;
+  --header: #ffffff;
+  --row: #f6f6f3;
+  --row-hover: #eeeeea;
+
+  // Lines
+  --border: rgba(20, 20, 18, 0.08);
+  --border-strong: rgba(20, 20, 18, 0.16);
+
+  // Text
+  --text: #1a1a17;
+  --text-dim: #6c6c66;
+  --text-faint: #a3a39a;
+  --label: #8a8a82;
+
+  // Accent (hue 264 — indigo)
+  --accent: oklch(0.55 0.18 264);
+  --accent-fg: #ffffff;
+  --accent-soft: oklch(0.95 0.04 264);
+
+  // Status
+  --ok: oklch(0.64 0.15 155);
+  --warn: oklch(0.76 0.15 70);
+  --warn-soft: oklch(0.96 0.05 70);
+  --danger: oklch(0.6 0.2 25);
+
+  // Misc
+  --ring-track: rgba(20, 20, 18, 0.1);
+  --shadow: 0 14px 40px rgba(20, 20, 18, 0.16);
+  --overlay: rgba(20, 20, 18, 0.5); // dim scrim over the app (modals)
+  --scrim: rgba(255, 255, 255, 0.5); // light wash (QR overlay)
+
+  // Type & shape
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei",
+    "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code",
+    "Roboto Mono", Consolas, "Liberation Mono", monospace;
+  --radius-card: 22px;
+  --radius-row: 14px;
+  --radius-pill: 999px;
+}
+
+@mixin dark-tokens {
+  --canvas: #19191c;
+  --app-bg: #1a1a1e;
+  --header: #1e1e22;
+  --row: #222227;
+  --row-hover: #2a2a30;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f1f1ef;
+  --text-dim: #9b9ba2;
+  --text-faint: #6a6a72;
+  --label: rgba(255, 255, 255, 0.5);
+  --accent: oklch(0.72 0.15 264);
+  --accent-fg: #16161a;
+  --accent-soft: oklch(0.3 0.07 264);
+  --ok: oklch(0.72 0.15 155);
+  --warn: oklch(0.8 0.14 70);
+  --warn-soft: oklch(0.32 0.06 70);
+  --danger: oklch(0.68 0.19 25);
+  --ring-track: rgba(255, 255, 255, 0.12);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --overlay: rgba(0, 0, 0, 0.6);
+  --scrim: rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark {
+  @include dark-tokens;
+}
+
+// auto = light by default, dark when the OS asks for it
+.theme-auto {
+  @media (prefers-color-scheme: dark) {
+    @include dark-tokens;
+  }
+}
+
+// High-contrast (was the old "accessibility" theme): white-on-black + yellow.
+.theme-accessibility {
+  --canvas: #000;
+  --app-bg: #000;
+  --header: #000;
+  --row: #000;
+  --row-hover: #1a1a1a;
+  --border: #fff;
+  --border-strong: #fff;
+  --text: #fff;
+  --text-dim: #fff;
+  --text-faint: #fff;
+  --label: #fff;
+  --accent: #ffff00;
+  --accent-fg: #000;
+  --accent-soft: #333300;
+  --ok: #33ff66;
+  --warn: #ffd400;
+  --warn-soft: #332600;
+  --danger: #ff5040;
+  --ring-track: rgba(255, 255, 255, 0.45);
+  --shadow: none;
+  --overlay: rgba(0, 0, 0, 0.85);
+  --scrim: rgba(0, 0, 0, 0.7);
+}
+
+// Compact reuses the light palette; only density changes (see popup.scss).

@@ -1,15 +1,122 @@
 <template>
-  <div>
-    <a-button @click="beginCapture()">{{ i18n.add_qr }}</a-button>
-    <a-button @click="showInfo('AddAccountPage')">
-      {{ i18n.add_secret }}
-    </a-button>
-    <a-button-link href="import.html?QrImport">{{
-      i18n.import_qr_images
-    }}</a-button-link>
-    <a-button-link href="import.html?TextImport">{{
-      i18n.import_otp_urls
-    }}</a-button-link>
+  <div class="add-page">
+    <div class="page-title">{{ i18n.add_code }}</div>
+
+    <div class="method-card method-card--primary" @click="beginCapture()">
+      <div class="method-ico">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="7" width="18" height="13" rx="3"></rect>
+          <circle cx="12" cy="13.5" r="3.4"></circle>
+          <path d="M8 7l1.6-2.6h4.8L16 7"></path>
+        </svg>
+      </div>
+      <div class="method-text">{{ i18n.add_qr }}</div>
+      <svg
+        class="method-chevron"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </div>
+
+    <div class="method-card" @click="showInfo('AddAccountPage')">
+      <div class="method-ico">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="8" cy="8" r="4.5"></circle>
+          <line x1="11.2" y1="11.2" x2="20" y2="20"></line>
+          <line x1="20" y1="16" x2="20" y2="20"></line>
+          <line x1="16" y1="20" x2="20" y2="20"></line>
+        </svg>
+      </div>
+      <div class="method-text">{{ i18n.add_secret }}</div>
+      <svg
+        class="method-chevron"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </div>
+
+    <div class="method-card" @click="openImport('QrImport')">
+      <div class="method-ico">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+          <circle cx="9" cy="10" r="1.8"></circle>
+          <polyline points="6 18 11 13 14 16 18 12 21 15"></polyline>
+        </svg>
+      </div>
+      <div class="method-text">{{ i18n.import_qr_images }}</div>
+      <svg
+        class="method-chevron"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </div>
+
+    <div class="method-card" @click="openImport('TextImport')">
+      <div class="method-ico">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"></path>
+          <path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"></path>
+        </svg>
+      </div>
+      <div class="method-text">{{ i18n.import_otp_urls }}</div>
+      <svg
+        class="method-chevron"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -24,6 +131,9 @@ export default defineComponent({
       }
       this.$store.commit("style/showInfo");
       this.$store.commit("currentView/changeView", page);
+    },
+    openImport(query: string) {
+      window.open(`import.html?${query}`, "_blank");
     },
     async beginCapture() {
       if (this.$store.getters["accounts/currentlyEncrypted"]) {

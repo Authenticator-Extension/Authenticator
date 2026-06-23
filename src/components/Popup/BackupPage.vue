@@ -1,70 +1,237 @@
 <template>
-  <div>
-    <!-- File Backup -->
-    <div v-show="!exportDisabled">
-      <div class="text warning" v-if="!defaultEncryption">
-        {{ i18n.export_info }}
-      </div>
-      <div class="text">
-        {{ i18n.backup_file_info }}
-      </div>
-      <div class="text warning" v-if="unsupportedAccounts">
-        {{ i18n.otp_unsupported_warn }}
-      </div>
-      <div class="text warning" v-if="currentlyEncrypted">
-        {{ i18n.phrase_incorrect_export }}
-      </div>
-      <a-button-link
-        download="authenticator.txt"
-        :href="exportOneLineOtpAuthFile"
-        v-if="!unsupportedAccounts && isDataLinkSupported"
-        >{{ i18n.download_backup }}</a-button-link
-      >
-      <button
-        v-on:click="downloadBackUpOneLineOtpAuthFile()"
-        v-if="!unsupportedAccounts && !isDataLinkSupported"
-        class="button"
-      >
-        {{ i18n.download_backup }}
-      </button>
-      <a-button-link
-        download="authenticator.json"
-        :href="exportFile"
-        v-if="unsupportedAccounts && isDataLinkSupported"
-        >{{ i18n.download_backup }}</a-button-link
-      >
-      <button
-        v-on:click="downloadBackUpExportFile()"
-        v-if="unsupportedAccounts && !isDataLinkSupported"
-        class="button"
-      >
-        {{ i18n.download_backup }}
-      </button>
-      <a-button-link
-        download="authenticator.json"
-        :href="exportEncryptedFile"
-        v-if="!!defaultEncryption && isDataLinkSupported"
-        >{{ i18n.download_enc_backup }}</a-button-link
-      >
-      <button
-        v-on:click="downloadBackUpExportEncryptedFile()"
-        v-if="!!defaultEncryption && !isDataLinkSupported"
-        class="button"
-      >
-        {{ i18n.download_enc_backup }}
-      </button>
+  <div class="backup-page">
+    <div class="page-title">{{ i18n.backup }}</div>
+
+    <div class="backup-warning" v-if="!exportDisabled && !defaultEncryption">
+      {{ i18n.export_info }}
     </div>
-    <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
-    <br />
-    <!-- 3rd Party Backup Services -->
+    <div class="backup-warning" v-if="!exportDisabled && currentlyEncrypted">
+      {{ i18n.phrase_incorrect_export }}
+    </div>
+
+    <!-- On this device -->
+    <div class="backup-section-title">{{ i18n.backup_on_device }}</div>
+    <div class="backup-list">
+      <template v-if="!exportDisabled">
+        <!-- plain backup -->
+        <a
+          v-if="isDataLinkSupported"
+          class="backup-row"
+          :download="
+            unsupportedAccounts ? 'authenticator.json' : 'authenticator.txt'
+          "
+          :href="unsupportedAccounts ? exportFile : exportOneLineOtpAuthFile"
+        >
+          <svg
+            class="backup-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3v12"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+          <div class="backup-row-text">
+            <div class="backup-row-title">{{ i18n.download_backup }}</div>
+          </div>
+        </a>
+        <div
+          v-else
+          class="backup-row"
+          v-on:click="
+            unsupportedAccounts
+              ? downloadBackUpExportFile()
+              : downloadBackUpOneLineOtpAuthFile()
+          "
+        >
+          <svg
+            class="backup-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3v12"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+          <div class="backup-row-text">
+            <div class="backup-row-title">{{ i18n.download_backup }}</div>
+          </div>
+        </div>
+
+        <!-- encrypted backup -->
+        <a
+          v-if="!!defaultEncryption && isDataLinkSupported"
+          class="backup-row"
+          download="authenticator.json"
+          :href="exportEncryptedFile"
+        >
+          <svg
+            class="backup-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="11" width="16" height="10" rx="2.5"></rect>
+            <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+          </svg>
+          <div class="backup-row-text">
+            <div class="backup-row-title">{{ i18n.download_enc_backup }}</div>
+          </div>
+        </a>
+        <div
+          v-else-if="!!defaultEncryption"
+          class="backup-row"
+          v-on:click="downloadBackUpExportEncryptedFile()"
+        >
+          <svg
+            class="backup-ico"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="4" y="11" width="16" height="10" rx="2.5"></rect>
+            <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+          </svg>
+          <div class="backup-row-text">
+            <div class="backup-row-title">{{ i18n.download_enc_backup }}</div>
+          </div>
+        </div>
+      </template>
+
+      <!-- import -->
+      <a class="backup-row" href="import.html">
+        <svg
+          class="backup-ico"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 21V9"></path>
+          <polyline points="7 14 12 9 17 14"></polyline>
+          <path d="M5 3h14"></path>
+        </svg>
+        <div class="backup-row-text">
+          <div class="backup-row-title">{{ i18n.import_backup }}</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Cloud sync -->
     <div v-show="!backupDisabled && isBackupServiceSupported">
-      <div class="text">
-        {{ i18n.storage_sync_info }}
+      <div class="backup-section-title">{{ i18n.backup_cloud_sync }}</div>
+      <div class="backup-list">
+        <div class="backup-row" v-on:click="showInfo('DropboxPage')">
+          <div class="cloud-chip" style="background: oklch(0.6 0.16 245)">
+            <svg viewBox="0 0 24 24" fill="#fff">
+              <path
+                d="M6 2l6 4-6 4-6-4zM18 2l6 4-6 4-6-4zM0 14l6-4 6 4-6 4zM12 18l6-4 6 4-6 4-6-4z"
+              ></path>
+            </svg>
+          </div>
+          <div class="backup-row-text">
+            <div class="backup-row-title">Dropbox</div>
+            <div class="backup-row-sub" :class="{ connected: dropboxToken }">
+              {{
+                dropboxToken ? i18n.backup_connected : i18n.backup_not_connected
+              }}
+            </div>
+          </div>
+          <svg
+            class="backup-chevron"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </div>
+
+        <div class="backup-row" v-on:click="showInfo('DrivePage')">
+          <div class="cloud-chip" style="background: oklch(0.7 0.17 140)">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 17l5-9 5 9z"></path>
+              <path d="M9 8l5 9h6l-5-9z"></path>
+            </svg>
+          </div>
+          <div class="backup-row-text">
+            <div class="backup-row-title">Google Drive</div>
+            <div class="backup-row-sub" :class="{ connected: driveToken }">
+              {{
+                driveToken ? i18n.backup_connected : i18n.backup_not_connected
+              }}
+            </div>
+          </div>
+          <svg
+            class="backup-chevron"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </div>
+
+        <div class="backup-row" v-on:click="showInfo('OneDrivePage')">
+          <div class="cloud-chip" style="background: oklch(0.6 0.14 230)">
+            <svg viewBox="0 0 24 24" fill="#fff">
+              <path
+                d="M3 13a4 4 0 0 1 3.5-4 5 5 0 0 1 9.5-1 4 4 0 0 1 1 7.9V16H6a3 3 0 0 1-3-3z"
+              ></path>
+            </svg>
+          </div>
+          <div class="backup-row-text">
+            <div class="backup-row-title">OneDrive</div>
+            <div class="backup-row-sub" :class="{ connected: oneDriveToken }">
+              {{
+                oneDriveToken
+                  ? i18n.backup_connected
+                  : i18n.backup_not_connected
+              }}
+            </div>
+          </div>
+          <svg
+            class="backup-chevron"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </div>
       </div>
-      <p></p>
-      <a-button @click="showInfo('DrivePage')"> Google Drive </a-button>
-      <a-button @click="showInfo('OneDrivePage')"> OneDrive </a-button>
-      <a-button @click="showInfo('DropboxPage')"> Dropbox </a-button>
     </div>
   </div>
 </template>
@@ -103,6 +270,15 @@ export default defineComponent({
     },
     isBackupServiceSupported: function () {
       return !isSafari;
+    },
+    dropboxToken: function () {
+      return this.$store.state.backup.dropboxToken;
+    },
+    driveToken: function () {
+      return this.$store.state.backup.driveToken;
+    },
+    oneDriveToken: function () {
+      return this.$store.state.backup.oneDriveToken;
     },
   },
   methods: {

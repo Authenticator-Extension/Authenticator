@@ -2,84 +2,115 @@
   <div
     v-cloak
     v-bind:class="{
-      'theme-normal':
-        theme !== 'accessibility' &&
-        theme !== 'dark' &&
-        theme !== 'simple' &&
-        theme !== 'compact' &&
-        theme !== 'flat',
-      'theme-accessibility': theme === 'accessibility',
+      'theme-light': theme === 'light',
       'theme-dark': theme === 'dark',
-      'theme-simple': theme === 'simple',
+      'theme-auto': theme === 'auto',
+      'theme-accessibility': theme === 'accessibility',
       'theme-compact': theme === 'compact',
-      'theme-flat': theme === 'flat',
       hideoutline,
     }"
     v-on:mousedown="hideoutline = true"
     v-on:keydown="hideoutline = false"
   >
-    <MainHeader />
-    <MainBody
-      v-bind:class="{
-        timeout: style.timeout && !style.isEditing,
-        edit: style.isEditing,
-      }"
+    <Onboarding
+      v-if="initComplete && !onboardingComplete && entries.length === 0"
     />
+    <template v-else>
+      <MainHeader />
+      <MainBody
+        v-bind:class="{
+          timeout: style.timeout && !style.isEditing,
+          edit: style.isEditing,
+        }"
+      />
 
-    <MenuPage
-      id="menu"
-      v-show="style.slidein || style.slideout"
-      v-bind:class="{ slidein: style.slidein, slideout: style.slideout }"
-    />
+      <MenuPage
+        id="menu"
+        v-show="style.slidein || style.slideout"
+        v-bind:class="{ slidein: style.slidein, slideout: style.slideout }"
+      />
 
-    <PageHandler
-      v-bind:class="{
-        fadein: style.fadein,
-        fadeout: style.fadeout,
-        show: style.show,
-      }"
-    />
+      <PageHandler
+        v-bind:class="{
+          fadein: style.fadein,
+          fadeout: style.fadeout,
+          show: style.show,
+        }"
+      />
 
-    <NotificationHandler />
+      <NotificationHandler />
 
-    <!-- EPHERMAL MESSAGE -->
-    <div
-      id="notification"
-      v-bind:class="{
-        fadein: style.notificationFadein,
-        fadeout: style.notificationFadeout,
-      }"
-    >
-      {{ notification }}
-    </div>
+      <!-- EPHERMAL MESSAGE -->
+      <div
+        id="notification"
+        v-bind:class="{
+          fadein: style.notificationFadein,
+          fadeout: style.notificationFadeout,
+        }"
+      >
+        {{ notification }}
+      </div>
 
-    <!-- QR -->
-    <div
-      id="qr"
-      v-bind:class="{ qrfadein: style.qrfadein, qrfadeout: style.qrfadeout }"
-      v-bind:style="{ 'background-image': qr }"
-      v-on:click="hideQr()"
-    ></div>
+      <!-- QR -->
+      <div
+        id="qr"
+        v-bind:class="{ qrfadein: style.qrfadein, qrfadeout: style.qrfadeout }"
+        v-on:click="hideQr()"
+      >
+        <div class="qr-sheet" v-if="qr" v-on:click.stop>
+          <div class="qr-head">
+            <div
+              class="qr-mono"
+              v-bind:style="{ background: qr.monoBg, color: qr.monoFg }"
+            >
+              {{ qr.monogram }}
+            </div>
+            <div class="qr-headtext">
+              <div class="qr-issuer">{{ qr.issuer }}</div>
+              <div class="qr-account">{{ qr.account }}</div>
+            </div>
+            <button class="qr-close" v-on:click="hideQr()">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+              >
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <div class="qr-img"><img v-bind:src="qr.src" alt="" /></div>
+          <div class="qr-caption-title">{{ i18n.qr_transfer_title }}</div>
+          <div class="qr-caption">{{ i18n.qr_transfer_desc }}</div>
+        </div>
+      </div>
 
-    <!-- CLIPBOARD -->
-    <input type="text" id="codeClipboard" tabindex="-1" />
+      <!-- CLIPBOARD -->
+      <input type="text" id="codeClipboard" tabindex="-1" />
+    </template>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 
 import MainHeader from "./Popup/MainHeader.vue";
 import MainBody from "./Popup/MainBody.vue";
 import MenuPage from "./Popup/MenuPage.vue";
 import PageHandler from "./Popup/PageHandler.vue";
 import NotificationHandler from "./Popup/NotificationHandler.vue";
+import Onboarding from "./Popup/Onboarding.vue";
 
 const computedPrototype = [
   mapState("style", ["style"]),
-  mapState("menu", ["theme"]),
+  mapState("menu", ["theme", "onboardingComplete"]),
   mapState("qr", ["qr"]),
   mapState("notification", ["notification"]),
+  mapState("accounts", ["initComplete"]),
+  mapGetters("accounts", ["entries"]),
 ];
 
 let computed = {};
@@ -106,6 +137,7 @@ export default defineComponent({
     MenuPage,
     PageHandler,
     NotificationHandler,
+    Onboarding,
   },
 });
 </script>

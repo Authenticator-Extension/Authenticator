@@ -28,6 +28,7 @@ interface UserSettingsData {
   autolock?: number;
   enableContextMenu?: boolean;
   encodedPhrase?: string;
+  onboardingComplete?: boolean;
   smartFilter?: boolean;
   theme?: string;
   zoom?: number;
@@ -184,6 +185,7 @@ type BooleanOption =
   | "oneDriveBusiness"
   | "oneDriveEncrypted"
   | "oneDriveRevoked"
+  | "onboardingComplete"
   | "smartFilter";
 
 type NumberOption = "autolock" | "lastRemindingBackupTime" | "offset" | "zoom";
@@ -201,6 +203,7 @@ function isBooleanOption(key: string): key is BooleanOption {
     "oneDriveBusiness",
     "oneDriveEncrypted",
     "oneDriveRevoked",
+    "onboardingComplete",
     "smartFilter",
   ].includes(key);
 }

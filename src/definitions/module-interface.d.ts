@@ -37,6 +37,7 @@ interface MenuState {
   smartFilter: boolean;
   enableContextMenu: boolean;
   theme: string;
+  onboardingComplete: boolean;
   backupDisabled: boolean;
   storageArea: "sync" | "local";
 }

@@ -1,6 +1,7 @@
 <template>
-  <div class="text">
-    {{ i18n.loading }}
+  <div class="loading-page">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">{{ i18n.loading }}</div>
   </div>
 </template>
 <script lang="ts">
