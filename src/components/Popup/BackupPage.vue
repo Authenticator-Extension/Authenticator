@@ -136,7 +136,10 @@
     <!-- Cloud sync -->
     <div v-show="!backupDisabled && isBackupServiceSupported">
       <div class="backup-section-title">{{ i18n.backup_cloud_sync }}</div>
-      <div class="backup-list">
+      <div class="backup-warning" v-if="!defaultEncryption">
+        {{ i18n.backup_requires_password }}
+      </div>
+      <div class="backup-list" v-else>
         <div class="backup-row" v-on:click="showInfo('DropboxPage')">
           <div class="cloud-chip" style="background: oklch(0.6 0.16 245)">
             <svg viewBox="0 0 24 24" fill="#fff">

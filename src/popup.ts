@@ -204,6 +204,11 @@ async function runScheduledBackup(
   clientTime: number,
   instance: ComponentPublicInstance
 ) {
+  // A scheduled cloud backup without a master password would upload plaintext
+  // secrets; skip it entirely. The UI prompts the user to set a password first.
+  if (!instance.$store.state.accounts.defaultEncryption) {
+    return;
+  }
   if (instance.$store.state.backup.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },

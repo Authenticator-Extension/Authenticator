@@ -2,6 +2,7 @@ import { getCredentials } from "./credentials";
 import { Encryption } from "./encryption";
 import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
+import { cloudBackupAllowed } from "../utils";
 
 export class Dropbox implements BackupProvider {
   private async getToken() {
@@ -10,6 +11,11 @@ export class Dropbox implements BackupProvider {
   }
 
   async upload(encryption: Encryption) {
+    // Never let a cloud backup carry plaintext secrets: require a master
+    // password (which encrypts the export) before uploading anything.
+    if (!cloudBackupAllowed(encryption)) {
+      return false;
+    }
     await UserSettings.updateItems();
 
     if (UserSettings.items.dropboxEncrypted === undefined) {
@@ -361,6 +367,9 @@ export class Drive implements BackupProvider {
   }
 
   async upload(encryption: Encryption) {
+    if (!cloudBackupAllowed(encryption)) {
+      return false;
+    }
     await UserSettings.updateItems();
     if (UserSettings.items.driveEncrypted === undefined) {
       UserSettings.items.driveEncrypted = true;
@@ -599,6 +608,9 @@ export class OneDrive implements BackupProvider {
   }
 
   async upload(encryption: Encryption) {
+    if (!cloudBackupAllowed(encryption)) {
+      return false;
+    }
     await UserSettings.updateItems();
     if (UserSettings.items.oneDriveEncrypted === undefined) {
       UserSettings.items.oneDriveEncrypted = true;
