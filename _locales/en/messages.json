@@ -245,6 +245,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Drop a backup file or click to browse",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Accepts .json and .txt exports",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Choose file",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "If the file is encrypted, you'll be asked for its passphrase after selecting it.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Encrypted — passphrase required",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Enter the file's passphrase",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "This is the password you set when you created the backup.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Decrypt & import",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import successful, but some QR codes could not be recognized.",
     "description": "Import successful, but some QR image cannot be recognized."
