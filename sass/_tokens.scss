@@ -20,10 +20,10 @@
   --text-faint: #a3a39a;
   --label: #8a8a82;
 
-  // Accent (hue 264 — indigo)
-  --accent: oklch(0.55 0.18 264);
+  // Accent (hue 258 — cobalt)
+  --accent: oklch(0.53 0.19 258);
   --accent-fg: #ffffff;
-  --accent-soft: oklch(0.95 0.04 264);
+  --accent-soft: oklch(0.95 0.04 258);
 
   // Status
   --ok: oklch(0.64 0.15 155);
@@ -59,9 +59,9 @@
   --text-dim: #9b9ba2;
   --text-faint: #6a6a72;
   --label: rgba(255, 255, 255, 0.5);
-  --accent: oklch(0.72 0.15 264);
+  --accent: oklch(0.72 0.15 258);
   --accent-fg: #16161a;
-  --accent-soft: oklch(0.3 0.07 264);
+  --accent-soft: oklch(0.3 0.07 258);
   --ok: oklch(0.72 0.15 155);
   --warn: oklch(0.8 0.14 70);
   --warn-soft: oklch(0.32 0.06 70);
