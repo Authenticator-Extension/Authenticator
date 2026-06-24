@@ -31,57 +31,43 @@ export class Dropbox implements BackupProvider {
 
     const url = "https://content.dropboxapi.com/2/files/upload";
     const token = await this.getToken();
-    return new Promise(
-      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
-        if (!token) {
-          return resolve(false);
-        }
-        try {
-          const xhr = new XMLHttpRequest();
-          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-          const apiArg = {
-            path: `/${now}.json`,
-            mode: "add",
-            autorename: true,
-          };
-          xhr.open("POST", url);
-          xhr.setRequestHeader("Authorization", "Bearer " + token);
-          xhr.setRequestHeader("Content-type", "application/octet-stream");
-          xhr.setRequestHeader("Dropbox-API-Arg", JSON.stringify(apiArg));
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                UserSettings.items.dropboxToken = undefined;
-                UserSettings.items.dropboxRevoked = true;
-                UserSettings.commitItems();
-                return resolve(false);
-              }
-              if (xhr.status < 200 || xhr.status >= 300) {
-                // a non-2xx (5xx, HTML error page, ...) is a failed upload, not
-                // something to JSON.parse and maybe misread as success
-                return reject(
-                  new Error("Dropbox upload failed: HTTP " + xhr.status)
-                );
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (res.name) {
-                  resolve(true);
-                } else {
-                  resolve(false);
-                }
-              } catch (error) {
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          xhr.send(backup);
-        } catch (error) {
-          return reject(error as Error);
-        }
-      }
-    );
+    if (!token) {
+      return false;
+    }
+    const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    const apiArg = {
+      path: `/${now}.json`,
+      mode: "add",
+      autorename: true,
+    };
+    // fetch (not XMLHttpRequest) because upload runs in the MV3 background
+    // service worker, where XHR is not defined.
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/octet-stream",
+        "Dropbox-API-Arg": JSON.stringify(apiArg),
+      },
+      body: backup,
+    });
+    if (res.status === 401) {
+      UserSettings.items.dropboxToken = undefined;
+      UserSettings.items.dropboxRevoked = true;
+      UserSettings.commitItems();
+      return false;
+    }
+    if (!res.ok) {
+      // a non-2xx (5xx, HTML error page, ...) is a failed upload, not
+      // something to JSON.parse and maybe misread as success. Surface
+      // Dropbox's body so the actual cause (bad path / arg / scope) is visible.
+      const detail = await res.text();
+      throw new Error(
+        "Dropbox upload failed: HTTP " + res.status + " " + detail
+      );
+    }
+    const body = await res.json();
+    return Boolean(body.name);
   }
   async getUser() {
     await UserSettings.updateItems();
@@ -101,7 +87,7 @@ export class Dropbox implements BackupProvider {
             UserSettings.items.dropboxRevoked = true;
             UserSettings.commitItems();
             resolve(
-              "Error: Response was 401. You will be logged out the next time you open Authenticator."
+              "Error: Response was 401. You will be logged out the next time you open OTPilot."
             );
             return;
           }
@@ -477,7 +463,7 @@ export class Drive implements BackupProvider {
             UserSettings.items.driveToken = undefined;
             UserSettings.commitItems();
             resolve(
-              "Error: Response was 401. You will be logged out the next time you open Authenticator."
+              "Error: Response was 401. You will be logged out the next time you open OTPilot."
             );
             return;
           }
@@ -694,7 +680,7 @@ export class OneDrive implements BackupProvider {
             UserSettings.items.oneDriveToken = undefined;
             UserSettings.commitItems();
             resolve(
-              "Error: Response was 401. You will be logged out the next time you open Authenticator."
+              "Error: Response was 401. You will be logged out the next time you open OTPilot."
             );
             return;
           }
