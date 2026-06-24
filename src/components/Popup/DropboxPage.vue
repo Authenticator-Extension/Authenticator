@@ -1,32 +1,115 @@
 <template>
-  <div>
-    <div>
-      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
-        {{ i18n.dropbox_risk }}
+  <div class="cloud-page">
+    <div class="cloud-head">
+      <div class="cloud-brand">
+        <svg viewBox="0 0 24 24" fill="#fff">
+          <path
+            d="M6 2l6 4-6 4-6-4zM18 2l6 4-6 4-6-4zM0 14l6-4 6 4-6 4zM12 18l6-4 6 4-6 4-6-4z"
+          ></path>
+        </svg>
       </div>
-      <div v-show="backupToken">
-        <div style="margin: 10px 0px 0px 20px; overflow-wrap: break-word">
-          {{ i18n.account }} - {{ email }}
+      <div class="cloud-title">Dropbox</div>
+    </div>
+
+    <!-- Connected -->
+    <template v-if="backupToken">
+      <div class="cloud-account">
+        <div class="cloud-avatar">{{ avatarLetter }}</div>
+        <div class="cloud-account-text">
+          <div class="cloud-email">{{ email }}</div>
+          <div class="cloud-status">
+            <span class="cloud-dot"></span>{{ i18n.backup_connected }}
+          </div>
         </div>
       </div>
-      <a-select-input
-        v-show="!!defaultEncryption && backupToken"
-        :label="i18n.encrypted"
-        v-model="isEncrypted"
-      >
-        <option value="true">{{ i18n.yes }}</option>
-        <option value="false">{{ i18n.no }}</option>
-      </a-select-input>
-      <a-button v-show="backupToken" @click="backupLogout()">
-        {{ i18n.log_out }}
-      </a-button>
-      <a-button v-show="!backupToken" @click="getBackupToken()">
-        {{ i18n.sign_in }}
-      </a-button>
-      <a-button v-show="backupToken" @click="backupUpload()">
-        {{ i18n.manual_dropbox }}
-      </a-button>
-    </div>
+
+      <div class="cloud-field" v-show="!!defaultEncryption">
+        <label class="field-label">{{ i18n.encrypted }}</label>
+        <div class="cloud-select-wrap">
+          <select
+            class="cloud-select"
+            v-bind:value="String(isEncrypted)"
+            v-on:change="isEncrypted = $event.target.value"
+          >
+            <option value="true">{{ i18n.yes }}</option>
+            <option value="false">{{ i18n.no }}</option>
+          </select>
+          <svg
+            class="cloud-select-chevron"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      </div>
+
+      <div class="cloud-warning" v-show="!isEncrypted || !defaultEncryption">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"
+          ></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12" y2="17"></line>
+        </svg>
+        <div>{{ i18n.dropbox_risk }}</div>
+      </div>
+
+      <div class="cloud-actions">
+        <button class="cloud-primary" v-on:click="backupUpload()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 3v12"></path>
+            <polyline points="7 8 12 3 17 8"></polyline>
+            <path d="M5 21h14"></path>
+          </svg>
+          {{ i18n.manual_dropbox }}
+        </button>
+        <button class="cloud-logout" v-on:click="backupLogout()">
+          {{ i18n.log_out }}
+        </button>
+      </div>
+    </template>
+
+    <!-- Not connected -->
+    <template v-else>
+      <div class="cloud-connect">
+        <div class="cloud-brand-lg">
+          <svg viewBox="0 0 24 24" fill="#fff">
+            <path
+              d="M6 2l6 4-6 4-6-4zM18 2l6 4-6 4-6-4zM0 14l6-4 6 4-6 4zM12 18l6-4 6 4-6 4-6-4z"
+            ></path>
+          </svg>
+        </div>
+        <div v-show="connecting" class="cloud-connecting">
+          <span class="dropbox-spinner"></span>{{ i18n.loading }}
+        </div>
+        <button
+          v-show="!connecting"
+          class="cloud-primary"
+          v-on:click="getBackupToken()"
+        >
+          {{ i18n.sign_in }}
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 <script lang="ts">
@@ -40,6 +123,7 @@ export default defineComponent({
   data: function () {
     return {
       email: this.i18n.loading,
+      connecting: false,
     };
   },
   created() {
@@ -51,12 +135,6 @@ export default defineComponent({
     },
     isEncrypted: {
       get(): boolean {
-        if (UserSettings.items[`${service}Encrypted`] === null) {
-          this.$store.commit("backup/setEnc", { service, value: true });
-          UserSettings.items[`${service}Encrypted`] = true;
-          UserSettings.commitItems();
-          return true;
-        }
         return this.$store.state.backup.dropboxEncrypted;
       },
       set(newValue: string) {
@@ -69,9 +147,14 @@ export default defineComponent({
     backupToken: function () {
       return this.$store.state.backup.dropboxToken;
     },
+    avatarLetter(): string {
+      const e = this.email || "";
+      return /^[a-z0-9]/i.test(e) ? e[0].toUpperCase() : "?";
+    },
   },
   methods: {
     getBackupToken() {
+      this.connecting = true;
       chrome.runtime.sendMessage({ action: service });
     },
     async backupLogout() {
@@ -96,7 +179,11 @@ export default defineComponent({
     },
     async backupUpload() {
       const dbox = new Dropbox();
-      const response = await dbox.upload(this.$store.state.accounts.encryption);
+      const response = await dbox.upload(
+        this.$store.state.accounts.encryption.get(
+          this.$store.state.accounts.defaultEncryption
+        )
+      );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (UserSettings.items.dropboxRevoked === true) {
@@ -114,11 +201,30 @@ export default defineComponent({
       const dbox = new Dropbox();
       return await dbox.getUser();
     },
+    onAuthDone(message: { action?: string }) {
+      if (message.action !== "dropboxauthdone") {
+        return;
+      }
+      void this.refreshConnection();
+    },
+    async refreshConnection() {
+      await UserSettings.updateItems();
+      const connected = Boolean(UserSettings.items.dropboxToken);
+      this.$store.commit("backup/setToken", { service, value: connected });
+      if (connected) {
+        this.email = await this.getUser();
+      }
+      this.connecting = false;
+    },
   },
   mounted: async function () {
+    chrome.runtime.onMessage.addListener(this.onAuthDone);
     if (this.backupToken) {
       this.email = await this.getUser();
     }
+  },
+  beforeUnmount() {
+    chrome.runtime.onMessage.removeListener(this.onAuthDone);
   },
 });
 </script>

@@ -1,7 +1,10 @@
 <template>
   <div>
     <div>
-      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
+      <div
+        class="text warning"
+        v-show="backupToken && (!isEncrypted || !defaultEncryption)"
+      >
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
@@ -52,12 +55,6 @@ export default defineComponent({
     },
     isEncrypted: {
       get(): boolean {
-        if (UserSettings.items[`${service}Encrypted`] === null) {
-          this.$store.commit("backup/setEnc", { service, value: true });
-          UserSettings.items[`${service}Encrypted`] = true;
-          UserSettings.commitItems();
-          return true;
-        }
         return this.$store.state.backup.driveEncrypted;
       },
       set(newValue: string) {
@@ -107,7 +104,9 @@ export default defineComponent({
     async backupUpload() {
       const drive = new Drive();
       const response = await drive.upload(
-        this.$store.state.accounts.encryption
+        this.$store.state.accounts.encryption.get(
+          this.$store.state.accounts.defaultEncryption
+        )
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);

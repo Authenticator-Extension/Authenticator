@@ -1520,6 +1520,254 @@ svg {
   }
 }
 
+// ── Cloud provider connected page (design "17b DROPBOX CONNECTED") ───────
+#info .cloud-page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .cloud-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cloud-title {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  .cloud-brand {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    flex: none;
+    background: oklch(0.6 0.16 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  .cloud-account {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--row);
+    border: 1px solid var(--border);
+  }
+
+  .cloud-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    flex: none;
+    background: oklch(0.86 0.07 245);
+    color: oklch(0.42 0.16 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .cloud-account-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cloud-email {
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cloud-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ok);
+
+    .cloud-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: var(--radius-pill);
+      background: var(--ok);
+    }
+  }
+
+  .field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dim);
+    margin-bottom: 7px;
+  }
+
+  .cloud-select-wrap {
+    position: relative;
+  }
+
+  .cloud-select {
+    width: 100%;
+    padding: 13px 36px 13px 13px;
+    border-radius: 12px;
+    border: 1px solid var(--border-strong);
+    background: var(--row);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: var(--accent);
+    }
+  }
+
+  .cloud-select-chevron {
+    position: absolute;
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    color: var(--text-faint);
+    pointer-events: none;
+  }
+
+  .cloud-warning {
+    display: flex;
+    gap: 10px;
+    padding: 13px;
+    border-radius: 13px;
+    background: var(--warn-soft);
+    color: var(--text-dim);
+
+    svg {
+      flex: none;
+      width: 17px;
+      height: 17px;
+      stroke: var(--warn);
+      margin-top: 1px;
+    }
+
+    div {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  }
+
+  .cloud-actions {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .cloud-primary {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 13px;
+    background: var(--accent);
+    color: var(--accent-fg);
+    font-family: var(--font-sans);
+    font-size: 14.5px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    &:hover {
+      filter: brightness(1.06);
+    }
+  }
+
+  .cloud-logout {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-strong);
+    border-radius: 13px;
+    background: transparent;
+    color: var(--text-dim);
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+  }
+
+  .cloud-connect {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .cloud-brand-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    flex: none;
+    background: oklch(0.6 0.16 245);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .cloud-connecting {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dim);
+  }
+
+  .dropbox-spinner {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-pill);
+    border: 3px solid var(--ring-track);
+    border-top-color: var(--accent);
+    animation: spin 0.8s linear infinite;
+  }
+}
+
 // ── Slide-in menu ───────────────────────────────────────────────────────
 #menu {
   width: $popup-w;
@@ -1851,6 +2099,24 @@ svg {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+// Inline "connecting…" indicator on the cloud backup sign-in pages.
+.dropbox-connecting {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0 20px;
+  color: var(--text-dim);
+
+  .dropbox-spinner {
+    width: 14px;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    border: 2px solid var(--ring-track);
+    border-top-color: var(--accent);
+    animation: spin 0.8s linear infinite;
   }
 }
 

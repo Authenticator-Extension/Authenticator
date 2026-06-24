@@ -344,6 +344,10 @@ function getBackupToken(service: string) {
       { url: authUrl, interactive: true },
       async (url) => {
         if (!url) {
+          // auth window was closed/cancelled — let an open popup reset its UI
+          chrome.runtime
+            .sendMessage({ action: `${service}authdone` })
+            .catch(() => undefined);
           return;
         }
         let hashMatches = url.split("#");
@@ -373,6 +377,11 @@ function getBackupToken(service: string) {
               if (service === "dropbox") {
                 UserSettings.items.dropboxToken = value;
                 UserSettings.commitItems();
+                // tell an open popup the connection finished so it can leave
+                // the sign-in view and stop the connecting indicator.
+                chrome.runtime
+                  .sendMessage({ action: "dropboxauthdone" })
+                  .catch(() => undefined);
                 uploadBackup("dropbox");
                 return;
               }

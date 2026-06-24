@@ -6,9 +6,11 @@ export class Backup implements Module {
 
     return {
       state: {
-        dropboxEncrypted: UserSettings.items.dropboxEncrypted === true,
-        driveEncrypted: UserSettings.items.driveEncrypted === true,
-        oneDriveEncrypted: UserSettings.items.oneDriveEncrypted === true,
+        // default to encrypted when unset, matching backup.ts upload behaviour
+        // (an unset preference uploads encrypted, so the UI must reflect that)
+        dropboxEncrypted: UserSettings.items.dropboxEncrypted !== false,
+        driveEncrypted: UserSettings.items.driveEncrypted !== false,
+        oneDriveEncrypted: UserSettings.items.oneDriveEncrypted !== false,
         dropboxToken: Boolean(UserSettings.items.dropboxToken),
         driveToken: Boolean(UserSettings.items.driveToken),
         oneDriveToken: Boolean(UserSettings.items.oneDriveToken),
