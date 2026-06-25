@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "إعادة تعيين Authenticator"
+    "message": "إعادة تعيين OTPilot"
   },
   "delete_all_warning": {
-    "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين Authenticator بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين Authenticator."
+    "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين OTPilot بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين OTPilot."
   },
   "security_warning": {
     "message": "هذا الكود الخاص سوف يستخدم لتشفير حسابك.\nلا نقدر على مساعدتك إذا فقدت هذا الكود الخاص.",
@@ -489,7 +489,7 @@
     "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
   },
   "permission_context_menus": {
-    "message": "يضيف Authenticator إلى القائمة."
+    "message": "يضيف OTPilot إلى القائمة."
   },
   "permission_sync_clock": {
     "message": "يسمح بمزامنة الساعة مع جوجل."

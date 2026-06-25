@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator tạo mã xác thực hai yếu tố trong trình duyệt của bạn",
+    "message": "OTPilot tạo mã xác thực hai yếu tố trong trình duyệt của bạn",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Thiết lập lại Authenticator"
+    "message": "Thiết lập lại OTPilot"
   },
   "delete_all_warning": {
-    "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập Authenticator về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại Authenticator."
+    "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập OTPilot về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại OTPilot."
   },
   "security_warning": {
     "message": "Mật khẩu này sẽ được sử dụng để mã hóa tài khoản của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
@@ -489,7 +489,7 @@
     "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
   },
   "permission_context_menus": {
-    "message": "Adds Authenticator to context menu."
+    "message": "Adds OTPilot to context menu."
   },
   "permission_sync_clock": {
     "message": "Allows clock sync with Google."

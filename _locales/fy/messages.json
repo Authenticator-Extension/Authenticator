@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generearret 2-stapsferifikaasjekoades yn jo browser.",
+    "message": "OTPilot generearret 2-stapsferifikaasjekoades yn jo browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Authenticator opnij inisjalisearje"
+    "message": "OTPilot opnij inisjalisearje"
   },
   "delete_all_warning": {
-    "message": "Dit sil al jo gegevens fuortsmite en de Authenticator folslein opnij inisjalisearje. Jo binne net yn steat om fuortsmiten gegevens te werstellen! Oerwaagje om in reservekopy te bewarjen eardat jo de Authenticator opnij inisjalisearje."
+    "message": "Dit sil al jo gegevens fuortsmite en de OTPilot folslein opnij inisjalisearje. Jo binne net yn steat om fuortsmiten gegevens te werstellen! Oerwaagje om in reservekopy te bewarjen eardat jo de OTPilot opnij inisjalisearje."
   },
   "security_warning": {
     "message": "Dit wachtwurd wurdt brûkt foar it fersiferjen fan jo accounts. Net ien kin jo helpe as jo it wachtwurd ferjitte.",
@@ -489,7 +489,7 @@
     "message": "Jout allinnich-skriuwrjochttagong ta it klamboerd om koaden nei it klamboerd te kopiearjen wannear’t jo op de account klikke."
   },
   "permission_context_menus": {
-    "message": "Foeget Authenticator ta oan kontekstmenu."
+    "message": "Foeget OTPilot ta oan kontekstmenu."
   },
   "permission_sync_clock": {
     "message": "Tiidssyngronisaasje mei Google tastean."

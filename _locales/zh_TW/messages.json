@@ -7,8 +7,16 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "網站",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "請先設定密碼才能使用雲端備份，您的密鑰會在離開此裝置前先行加密。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator 在您的瀏覽器中產生兩步驟驗證碼。",
+    "message": "OTPilot 在您的瀏覽器中產生兩步驟驗證碼。",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "重設 Authenticator"
+    "message": "重設 OTPilot"
   },
   "delete_all_warning": {
-    "message": "這會刪除您所有的資料並重設 Authenticator。您將無法復原任何已刪除的資料！在重設 Authenticator 之前，建議您先備份資料。"
+    "message": "這會刪除您所有的資料並重設 OTPilot。您將無法復原任何已刪除的資料！在重設 OTPilot 之前，建議您先備份資料。"
   },
   "security_warning": {
     "message": "此密碼將用於加密您的帳號。如果忘記密碼，將沒有人能夠幫助您。",
@@ -374,7 +382,7 @@
     "description": "QR sheet caption title"
   },
   "qr_transfer_desc": {
-    "message": "在另一台裝置上用 Authenticator 掃描此碼即可轉移此帳號——資料不會離開你的裝置。",
+    "message": "在另一台裝置上用 OTPilot 掃描此碼即可轉移此帳號——資料不會離開你的裝置。",
     "description": "QR sheet caption body"
   },
   "backup_on_device": {
@@ -621,7 +629,7 @@
     "message": "授權在您點選帳號時將驗證碼複製到剪貼簿。"
   },
   "permission_context_menus": {
-    "message": "將 Authenticator 加入右鍵選單。"
+    "message": "將 OTPilot 加入右鍵選單。"
   },
   "permission_sync_clock": {
     "message": "允許與 Google 連線校時。"

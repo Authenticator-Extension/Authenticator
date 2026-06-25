@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genererar 2-stegs verifieringskoder i din webbläsare.",
+    "message": "OTPilot genererar 2-stegs verifieringskoder i din webbläsare.",
     "description": "Extension Description."
   },
   "added": {
@@ -123,7 +123,7 @@
     "message": "Återställ autentiserare"
   },
   "delete_all_warning": {
-    "message": "Det här kommer att radera alla dina data och återställa Authenticator helt. Du kommer inte kunna återskapa några raderade data! Du bör överväga att spara en säkerhetskopia innan du återställer Authenticator."
+    "message": "Det här kommer att radera alla dina data och återställa OTPilot helt. Du kommer inte kunna återskapa några raderade data! Du bör överväga att spara en säkerhetskopia innan du återställer OTPilot."
   },
   "security_warning": {
     "message": "Detta lösenord kommer att användas för att kryptera dina konton. Ingen kan hjälpa dig om du glömmer lösenordet.",
@@ -489,7 +489,7 @@
     "message": "Ger enbart skrivbehörighet till urklipp för att kopiera koder till urklipp när du klickar på kontot."
   },
   "permission_context_menus": {
-    "message": "Lägger till Authenticator till snabbvalsmenyn."
+    "message": "Lägger till OTPilot till snabbvalsmenyn."
   },
   "permission_sync_clock": {
     "message": "Tillåter klocksynkronisering med Google."

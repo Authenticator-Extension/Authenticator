@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generuje w przeglądarce kody uwierzytelniania dwuskładnikowego.",
+    "message": "OTPilot generuje w przeglądarce kody uwierzytelniania dwuskładnikowego.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Zresetuj dodatek Authenticator"
+    "message": "Zresetuj dodatek OTPilot"
   },
   "delete_all_warning": {
-    "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie dodatku Authenticator. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem dodatku Authenticator należy rozważyć zapisanie kopii zapasowej."
+    "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie dodatku OTPilot. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem dodatku OTPilot należy rozważyć zapisanie kopii zapasowej."
   },
   "security_warning": {
     "message": "To hasło będzie służyć szyfrowaniu Twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
@@ -489,7 +489,7 @@
     "message": "Przyznaje dostęp tylko do zapisu do schowka w celu skopiowania kodów do schowka po kliknięciu konta."
   },
   "permission_context_menus": {
-    "message": "Dodaje dodatek Authenticator do menu kontekstowego."
+    "message": "Dodaje dodatek OTPilot do menu kontekstowego."
   },
   "permission_sync_clock": {
     "message": "Umożliwia synchronizację zegara z Google."

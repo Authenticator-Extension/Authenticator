@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Kthe në gjendje fillestare Authenticator-in"
+    "message": "Kthe në gjendje fillestare OTPilot-in"
   },
   "delete_all_warning": {
-    "message": "Kjo do të fshijë të gjithë plotësisht të dhënat tuaja dhe kthejë Authenticator në gjendje fillestare. Ju nuk do të jeni në gjendje të riktheni të dhënat e fshira! Ju duhet të konsideroni ruajtjen e një kopje rezervë përpara rikthimit në gjëndje fillestare të Authenticator-it."
+    "message": "Kjo do të fshijë të gjithë plotësisht të dhënat tuaja dhe kthejë OTPilot në gjendje fillestare. Ju nuk do të jeni në gjendje të riktheni të dhënat e fshira! Ju duhet të konsideroni ruajtjen e një kopje rezervë përpara rikthimit në gjëndje fillestare të OTPilot-it."
   },
   "security_warning": {
     "message": "Ky fjalëkalim do të përdoret për të kriptuar llogarinë tënde. Askush nuk mund tju ndihmojë ju nëse ju harroni fjalëkalimin.",

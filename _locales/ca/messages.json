@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genera codis d'autenticació en dos passos al vostre navegador.",
+    "message": "OTPilot genera codis d'autenticació en dos passos al vostre navegador.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Reinicialitza l'Authenticator"
+    "message": "Reinicialitza l'OTPilot"
   },
   "delete_all_warning": {
-    "message": "Això esborrarà totes les vostres dades i reiniciarà completament l'Authenticator. No podreu recuperar cap dada un cop esborrades! Considereu de fer una còpia de seguretat abans de reiniciar l'Authenticator."
+    "message": "Això esborrarà totes les vostres dades i reiniciarà completament l'OTPilot. No podreu recuperar cap dada un cop esborrades! Considereu de fer una còpia de seguretat abans de reiniciar l'OTPilot."
   },
   "security_warning": {
     "message": "Aquesta contrasenya s'emprarà per xifrar els vostres comptes. Ningú us podrà ajudar si oblideu la contrasenya.",
@@ -489,7 +489,7 @@
     "message": "Atorga accés només d'escriptura al porta-retalls per copiar codis al porta-retalls quan feu clic al compte."
   },
   "permission_context_menus": {
-    "message": "Afegeix Authenticator al menú contextual."
+    "message": "Afegeix OTPilot al menú contextual."
   },
   "permission_sync_clock": {
     "message": "Permet la sincronització del rellotge amb Google."

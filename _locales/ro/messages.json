@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generează coduri de verificare pentru al doilea pas în browserul tău.",
+    "message": "OTPilot generează coduri de verificare pentru al doilea pas în browserul tău.",
     "description": "Extension Description."
   },
   "added": {
@@ -489,7 +489,7 @@
     "message": "Oferă acces doar la scriere în clipboard pentru a copia coduri în clipboard atunci când faceți clic pe cont."
   },
   "permission_context_menus": {
-    "message": "Adds Authenticator to context menu."
+    "message": "Adds OTPilot to context menu."
   },
   "permission_sync_clock": {
     "message": "Allows clock sync with Google."

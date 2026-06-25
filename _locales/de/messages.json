@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
+    "message": "OTPilot erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Authenticator zurücksetzen"
+    "message": "OTPilot zurücksetzen"
   },
   "delete_all_warning": {
-    "message": "Dies wird alle Ihre Daten löschen und den Authenticator komplett zurücksetzen. Sie werden keine gelöschten Daten wiederherstellen können! Sie sollten erwägen, ein Backup zu speichern, bevor Sie den Authenticator zurücksetzen."
+    "message": "Dies wird alle Ihre Daten löschen und den OTPilot komplett zurücksetzen. Sie werden keine gelöschten Daten wiederherstellen können! Sie sollten erwägen, ein Backup zu speichern, bevor Sie den OTPilot zurücksetzen."
   },
   "security_warning": {
     "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
@@ -489,7 +489,7 @@
     "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
   },
   "permission_context_menus": {
-    "message": "Fügt Authenticator dem Kontextmenü hinzu."
+    "message": "Fügt OTPilot dem Kontextmenü hinzu."
   },
   "permission_sync_clock": {
     "message": "Synchronisierung mit Google zulassen."

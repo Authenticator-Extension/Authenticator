@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genererer to-faktor autentiseringskoder i nettleseren din.",
+    "message": "OTPilot genererer to-faktor autentiseringskoder i nettleseren din.",
     "description": "Extension Description."
   },
   "added": {

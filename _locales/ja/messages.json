@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
+    "message": "OTPilot はお使いのブラウザーで2段階認証コードを生成します。",
     "description": "Extension Description."
   },
   "added": {
@@ -520,5 +520,145 @@
   },
   "activate_auto_filter": {
     "message": "警告：スマートフィルタはアカウントのドメイン名とほぼ一致します。常にあなたが正しいウェブサイトにいることを確認してください！"
+  },
+  "backup_cloud_sync": {
+    "message": "クラウド同期",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "接続済み",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "未接続",
+    "description": "Cloud provider not-connected status"
+  },
+  "backup_on_device": {
+    "message": "この端末",
+    "description": "Backup section: local"
+  },
+  "backup_requires_password": {
+    "message": "クラウドバックアップを使うには、先にパスワードを設定してください。シークレットはこの端末を離れる前に暗号化されます。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
+  "edit_accounts": {
+    "message": "アカウントを編集",
+    "description": "Header title while in edit mode"
+  },
+  "filter_to_site": {
+    "message": "絞り込み：",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "host": {
+    "message": "ウェブサイト",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "import_choose_file": {
+    "message": "ファイルを選択",
+    "description": "File import dropzone button"
+  },
+  "import_decrypt": {
+    "message": "復号してインポート",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
+  "import_drop_file": {
+    "message": "バックアップファイルをドロップ、またはクリックして選択",
+    "description": "File import dropzone title"
+  },
+  "import_enc_required": {
+    "message": "暗号化済み — パスフレーズが必要",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_encrypted_note": {
+    "message": "ファイルが暗号化されている場合、選択後にパスフレーズの入力を求められます。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_file_accepts": {
+    "message": ".json と .txt のエクスポートに対応",
+    "description": "File import dropzone hint"
+  },
+  "import_pass_hint": {
+    "message": "バックアップ作成時に設定したパスワードです。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_pass_placeholder": {
+    "message": "ファイルのパスフレーズを入力",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "パスワードロック（任意）付きの暗号化保管庫",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_offline": {
+    "message": "完全オフラインで動作 — データは端末から出ません",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "QR コードをスキャン、または既存のバックアップをインポート",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "はじめる",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "インポートするバックアップがあります",
+    "description": "Onboarding secondary button"
+  },
+  "onboarding_subtitle": {
+    "message": "すべてのアカウントに安全な2要素認証コードを生成 — 暗号化、オフライン、ワンタップでコピー。",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_title": {
+    "message": "持ち歩ける認証コード",
+    "description": "Onboarding headline"
+  },
+  "other_accounts": {
+    "message": "その他のアカウント",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "pin_to_top": {
+    "message": "上部に固定",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "qr_transfer_desc": {
+    "message": "別の端末の OTPilot でこのコードをスキャンすると、このアカウントを移行できます — データが端末の外に出ることはありません。",
+    "description": "QR sheet caption body"
+  },
+  "qr_transfer_title": {
+    "message": "このアカウントを移行",
+    "description": "QR sheet caption title"
+  },
+  "settings_appearance": {
+    "message": "外観",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "一般",
+    "description": "Settings section: general"
+  },
+  "show_qr": {
+    "message": "QR コードを表示",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "showing_codes_for": {
+    "message": "次のサイトのコードを表示中：",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "theme_auto": {
+    "message": "自動",
+    "description": "Follow the system light/dark setting"
+  },
+  "unlock": {
+    "message": "ロック解除",
+    "description": "Unlock button"
+  },
+  "unpin": {
+    "message": "固定を解除",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "保管庫はロックされています",
+    "description": "Title on the unlock screen"
   }
 }

@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genera codici di verifica a due fattori nel tuo browser.",
+    "message": "OTPilot genera codici di verifica a due fattori nel tuo browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -123,7 +123,7 @@
     "message": "Resetta Autenticatore"
   },
   "delete_all_warning": {
-    "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente l'Authenticator. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup, prima di ripristinare l'Authenticator."
+    "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente l'OTPilot. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup, prima di ripristinare l'OTPilot."
   },
   "security_warning": {
     "message": "Questa password verrà usata per cifrare i tuoi account. Se dimentichi la password non ti potrà aiutare nessuno.",
@@ -489,7 +489,7 @@
     "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
   },
   "permission_context_menus": {
-    "message": "Aggiungi Authenticatori al menu contestuale."
+    "message": "Aggiungi OTPiloti al menu contestuale."
   },
   "permission_sync_clock": {
     "message": "Consenti la sincronizzazione dell'orario con Google."

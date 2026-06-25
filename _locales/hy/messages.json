@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generates two-factor authentication codes in your browser.",
+    "message": "OTPilot generates two-factor authentication codes in your browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Զրոյացնել «Authenticator»-ը"
+    "message": "Զրոյացնել «OTPilot»-ը"
   },
   "delete_all_warning": {
-    "message": "Այս գործողության արդյունքում վերջնականապես կջնջվեն Ձեր բոլոր տվյալները և «Authenticator»-ի կարգավորումները։ Զրոյացում կատարելուց առաջ խորհուրդ է տրվում կատարել կրկնօրինակում։"
+    "message": "Այս գործողության արդյունքում վերջնականապես կջնջվեն Ձեր բոլոր տվյալները և «OTPilot»-ի կարգավորումները։ Զրոյացում կատարելուց առաջ խորհուրդ է տրվում կատարել կրկնօրինակում։"
   },
   "security_warning": {
     "message": "Այս գաղտնաբառը կօգտագործվի Ձեր բոլոր հաշիվները կոդավորելու համար։ Ոչ ոք Ձեզ չի կարող օգնել, եթե հանկարծ մոռանաք այն։",
@@ -489,7 +489,7 @@
     "message": "Թույլատրում է փոփոխություններ կատարել կցատարում՝ հաշիվների կոդերը պատճենելու համար"
   },
   "permission_context_menus": {
-    "message": "Ավելացնում է «Authenticator»-ը՝ կոնտեքստ ընտրացանկում"
+    "message": "Ավելացնում է «OTPilot»-ը՝ կոնտեքստ ընտրացանկում"
   },
   "permission_sync_clock": {
     "message": "Թույլատրում է համաժամեցում՝ «Google»-ից"

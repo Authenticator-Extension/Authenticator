@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
+    "message": "OTPilot-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Palauta Authenticator"
+    "message": "Palauta OTPilot"
   },
   "delete_all_warning": {
-    "message": "Tämä poistaa kaikki tiedot ja palauttaa Authenticatorin täysin. Poistettujen tietojen palautus ei ole mahdollista! Ennen palautusta on syytä harkita varmuuskopiointia."
+    "message": "Tämä poistaa kaikki tiedot ja palauttaa OTPilotin täysin. Poistettujen tietojen palautus ei ole mahdollista! Ennen palautusta on syytä harkita varmuuskopiointia."
   },
   "security_warning": {
     "message": "Salasanaa käytetään tiliesi salaukseen. Kukaan ei voi auttaa, jos unohdat sen.",
@@ -489,7 +489,7 @@
     "message": "Myöntää pelkän kirjoitusoikeuden leikepöydälle koodien kopiointiin tilejä painettaessa."
   },
   "permission_context_menus": {
-    "message": "Lisää Authenticator sisältövalikkoon."
+    "message": "Lisää OTPilot sisältövalikkoon."
   },
   "permission_sync_clock": {
     "message": "Sallii kellon synkronoinnin Googlen kanssa."

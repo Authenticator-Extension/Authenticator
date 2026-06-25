@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genereert 2-stapsverificatiecodes in uw browser.",
+    "message": "OTPilot genereert 2-stapsverificatiecodes in uw browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Authenticator herinitialiseren"
+    "message": "OTPilot herinitialiseren"
   },
   "delete_all_warning": {
-    "message": "Dit zal al uw gegevens verwijderen en de Authenticator volledig herinitialiseren. U bent niet in staat om verwijderde gegevens te herstellen! Overweeg om een back-up op te slaan voordat u de Authenticator herinitialiseert."
+    "message": "Dit zal al uw gegevens verwijderen en de OTPilot volledig herinitialiseren. U bent niet in staat om verwijderde gegevens te herstellen! Overweeg om een back-up op te slaan voordat u de OTPilot herinitialiseert."
   },
   "security_warning": {
     "message": "Dit wachtwoord wordt gebruikt voor het versleutelen van uw accounts. Niemand kan u helpen als u het wachtwoord vergeet.",
@@ -489,7 +489,7 @@
     "message": "Geeft alleen-schrijventoegang tot het klembord om codes naar het klembord te kopiëren wanneer u op de account klikt."
   },
   "permission_context_menus": {
-    "message": "Voegt Authenticator toe aan contextmenu."
+    "message": "Voegt OTPilot toe aan contextmenu."
   },
   "permission_sync_clock": {
     "message": "Tijdssynchronisatie met Google toestaan."

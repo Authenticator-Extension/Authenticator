@@ -520,5 +520,145 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_cloud_sync": {
+    "message": "云同步",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "已连接",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "未连接",
+    "description": "Cloud provider not-connected status"
+  },
+  "backup_on_device": {
+    "message": "本机",
+    "description": "Backup section: local"
+  },
+  "backup_requires_password": {
+    "message": "请先设置密码才能使用云备份，您的密钥会在离开此设备前先行加密。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
+  "edit_accounts": {
+    "message": "编辑账户",
+    "description": "Header title while in edit mode"
+  },
+  "filter_to_site": {
+    "message": "筛选至",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "host": {
+    "message": "网站",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "import_choose_file": {
+    "message": "选择文件",
+    "description": "File import dropzone button"
+  },
+  "import_decrypt": {
+    "message": "解密并导入",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
+  "import_drop_file": {
+    "message": "拖放备份文件到此，或点击浏览",
+    "description": "File import dropzone title"
+  },
+  "import_enc_required": {
+    "message": "已加密 — 需要密码",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_encrypted_note": {
+    "message": "若文件已加密，选择后会要求输入其密码。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_file_accepts": {
+    "message": "支持 .json 和 .txt 导出文件",
+    "description": "File import dropzone hint"
+  },
+  "import_pass_hint": {
+    "message": "这是您创建备份时设置的密码。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_pass_placeholder": {
+    "message": "输入文件的密码",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "加密保险库，可选密码锁",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_offline": {
+    "message": "完全离线运行 — 数据不会离开您的设备",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "扫描二维码或导入现有备份",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "开始使用",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "我有备份要导入",
+    "description": "Onboarding secondary button"
+  },
+  "onboarding_subtitle": {
+    "message": "为每个账户生成安全的两步验证码 — 加密、离线，且始终一键复制。",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_title": {
+    "message": "随身携带的验证码",
+    "description": "Onboarding headline"
+  },
+  "other_accounts": {
+    "message": "其他账户",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "pin_to_top": {
+    "message": "置顶",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "qr_transfer_desc": {
+    "message": "在另一台设备上用 OTPilot 扫描此二维码即可转移此账户 — 数据绝不离开您的设备。",
+    "description": "QR sheet caption body"
+  },
+  "qr_transfer_title": {
+    "message": "转移此账户",
+    "description": "QR sheet caption title"
+  },
+  "settings_appearance": {
+    "message": "外观",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "常规",
+    "description": "Settings section: general"
+  },
+  "show_qr": {
+    "message": "显示二维码",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "showing_codes_for": {
+    "message": "正在显示以下网站的验证码：",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "theme_auto": {
+    "message": "自动",
+    "description": "Follow the system light/dark setting"
+  },
+  "unlock": {
+    "message": "解锁",
+    "description": "Unlock button"
+  },
+  "unpin": {
+    "message": "取消置顶",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "保险库已锁定",
+    "description": "Title on the unlock screen"
   }
 }

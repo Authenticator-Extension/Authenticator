@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genererer to-faktor autentificeringskoder i din browser.",
+    "message": "OTPilot genererer to-faktor autentificeringskoder i din browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -123,7 +123,7 @@
     "message": "Nulstil Autentificering"
   },
   "delete_all_warning": {
-    "message": "Dette vil slette alle dine data og helt nulstille Authenticator. Du vil ikke være i stand til at gendanne slettede data! Du bør overveje at gemme en sikkerhedskopi, før du nulstiller Authenticator."
+    "message": "Dette vil slette alle dine data og helt nulstille OTPilot. Du vil ikke være i stand til at gendanne slettede data! Du bør overveje at gemme en sikkerhedskopi, før du nulstiller OTPilot."
   },
   "security_warning": {
     "message": "Denne adgangskode bruges til at kryptere dine konti. Ingen kan hjælpe dig, hvis du glemmer adgangskoden.",
@@ -489,7 +489,7 @@
     "message": "Giver skrivebeskyttet adgang til udklipsholderen for at kopiere koder til udklipsholderen, når du klikker på kontoen."
   },
   "permission_context_menus": {
-    "message": "Tilføjer Authenticator til kontekstmenuen."
+    "message": "Tilføjer OTPilot til kontekstmenuen."
   },
   "permission_sync_clock": {
     "message": "Tillader ur-synkronisering med Google."

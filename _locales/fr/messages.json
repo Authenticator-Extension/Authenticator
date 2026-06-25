@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
+    "message": "OTPilot génère des codes d'authentification à deux facteurs dans votre navigateur.",
     "description": "Extension Description."
   },
   "added": {
@@ -489,7 +489,7 @@
     "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
   },
   "permission_context_menus": {
-    "message": "Ajoute Authenticator au menu contextuel."
+    "message": "Ajoute OTPilot au menu contextuel."
   },
   "permission_sync_clock": {
     "message": "Autoriser la synchronisation de l'horloge avec Google."

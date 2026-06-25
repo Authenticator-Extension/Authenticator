@@ -124,10 +124,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Reset Authenticator"
+    "message": "Reset OTPilot"
   },
   "delete_all_warning": {
-    "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    "message": "This will delete all of your data and completely reset OTPilot. You will not be able to recover any deleted data! You should consider saving a backup before resetting OTPilot."
   },
   "security_warning": {
     "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
@@ -378,7 +378,7 @@
     "description": "QR sheet caption title"
   },
   "qr_transfer_desc": {
-    "message": "Scan this code with Authenticator on another device to move this account across — it never leaves your devices.",
+    "message": "Scan this code with OTPilot on another device to move this account across — it never leaves your devices.",
     "description": "QR sheet caption body"
   },
   "backup_on_device": {
@@ -629,7 +629,7 @@
     "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
   },
   "permission_context_menus": {
-    "message": "Adds Authenticator to context menu."
+    "message": "Adds OTPilot to context menu."
   },
   "permission_sync_clock": {
     "message": "Allows clock sync with Google."

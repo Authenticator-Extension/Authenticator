@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator menghasilkan kode verifikasi 2 langkah di browser anda.",
+    "message": "OTPilot menghasilkan kode verifikasi 2 langkah di browser anda.",
     "description": "Extension Description."
   },
   "added": {
@@ -120,7 +120,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Reset Authenticator"
+    "message": "Reset OTPilot"
   },
   "delete_all_warning": {
     "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat Backup terlebih dahulu sebelum mereset ulang Authentikator."
@@ -489,7 +489,7 @@
     "message": "Memberikan akses write-only ke clipboard untuk menyalin kode ke clipboard saat Anda meng-klik akun."
   },
   "permission_context_menus": {
-    "message": "Menambahkan Authenticator ke menu konteks."
+    "message": "Menambahkan OTPilot ke menu konteks."
   },
   "permission_sync_clock": {
     "message": "Mengizinkan sinkronisasi jam dengan Google."

@@ -123,7 +123,7 @@
     "message": "Hitelesítő visszaállítása"
   },
   "delete_all_warning": {
-    "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az Authenticator alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
+    "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az OTPilot alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
   },
   "security_warning": {
     "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
