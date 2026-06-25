@@ -203,6 +203,9 @@ async function getTotp(text: string, silent = false) {
         ) {
           type = "hhex";
         }
+        if (secret.length % 8) {
+          secret += "=".repeat(8 - (secret.length % 8));
+        }
         const entryData: { [hash: string]: RawOTPStorage } = {};
         entryData[hash] = {
           account,
