@@ -2,7 +2,7 @@
   <div class="file-import">
     <!-- Dropzone -->
     <template v-if="!getFilePassphrase">
-      <label class="dropzone">
+      <label class="dropzone" @dragover.prevent @drop.prevent="dropFile">
         <input
           type="file"
           accept="application/json, text/plain"
@@ -140,6 +140,14 @@ export default defineComponent({
       this.readFilePassphrase = false;
       this.importFilePassphrase = "";
       this.fileName = "";
+    },
+    dropFile(event: DragEvent) {
+      const files = event.dataTransfer?.files;
+      if (files && files[0]) {
+        // a dropped file lives on dataTransfer; importFile only reads
+        // event.target.files, so hand it a shimmed event and reuse it.
+        this.importFile(({ target: { files } } as unknown) as Event, true);
+      }
     },
     importFile(event: Event, closeWindow: Boolean) {
       const target = event.target as HTMLInputElement;
