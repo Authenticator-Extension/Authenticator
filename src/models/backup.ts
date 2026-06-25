@@ -114,56 +114,20 @@ export class Dropbox implements BackupProvider {
 export class Drive implements BackupProvider {
   private async getToken() {
     await UserSettings.updateItems();
-    if (
-      !UserSettings.items.driveToken ||
-      (await new Promise(
-        (
-          resolve: (value: boolean) => void,
-          reject: (reason: Error) => void
-        ) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open("GET", "https://www.googleapis.com/drive/v3/files");
-          xhr.setRequestHeader(
-            "Authorization",
-            "Bearer " + UserSettings.items.driveToken
-          );
-          xhr.onreadystatechange = async () => {
-            if (xhr.readyState === 4) {
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (res.error) {
-                  if (res.error.code === 401) {
-                    if (
-                      navigator.userAgent.indexOf("Chrome") !== -1 &&
-                      navigator.userAgent.indexOf("OPR") === -1 &&
-                      navigator.userAgent.indexOf("Edg") === -1
-                    ) {
-                      // Clear invalid token from
-                      // chrome://identity-internals/
-                      await chrome.identity.removeCachedAuthToken({
-                        token: UserSettings.items.driveToken as string,
-                      });
-                    }
-                    UserSettings.items.driveToken = undefined;
-                    UserSettings.commitItems();
-                    resolve(true);
-                  } else {
-                    resolve(false);
-                  }
-                } else {
-                  resolve(false);
-                }
-              } catch (error) {
-                console.error(error);
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          xhr.send();
-        }
-      ))
-    ) {
+    let needsRefresh = !UserSettings.items.driveToken;
+    if (UserSettings.items.driveToken) {
+      // validate the cached access token; a 401 means it expired/was revoked.
+      // fetch (not XHR) so this works in the MV3 service worker too.
+      const res = await fetch("https://www.googleapis.com/drive/v3/files", {
+        headers: { Authorization: "Bearer " + UserSettings.items.driveToken },
+      });
+      if (res.status === 401) {
+        UserSettings.items.driveToken = undefined;
+        UserSettings.commitItems();
+        needsRefresh = true;
+      }
+    }
+    if (needsRefresh) {
       await this.refreshToken();
     }
     return UserSettings.items.driveToken;
@@ -171,80 +135,44 @@ export class Drive implements BackupProvider {
 
   private async refreshToken() {
     await UserSettings.updateItems();
-
-    if (
-      navigator.userAgent.indexOf("Chrome") !== -1 &&
-      navigator.userAgent.indexOf("OPR") === -1 &&
-      navigator.userAgent.indexOf("Edg") === -1
-    ) {
-      return new Promise((resolve: (value: boolean) => void) => {
-        return chrome.identity.getAuthToken(
-          {
-            interactive: false,
-            scopes: ["https://www.googleapis.com/auth/drive.file"],
-          },
-          (token) => {
-            UserSettings.items.driveToken = token;
-            if (!token) {
-              UserSettings.items.driveRevoked = true;
-            }
-            UserSettings.commitItems();
-            resolve(Boolean(token));
-          }
-        );
-      });
-    } else {
-      return new Promise(
-        (
-          resolve: (value: boolean) => void,
-          reject: (reason: Error) => void
-        ) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open("POST", "https://www.googleapis.com/oauth2/v4/token");
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.setRequestHeader(
-            "Content-Type",
-            "application/x-www-form-urlencoded"
-          );
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                UserSettings.items.driveRefreshToken = undefined;
-                UserSettings.items.driveRevoked = true;
-                UserSettings.commitItems();
-                return resolve(false);
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (res.error) {
-                  if (res.error === "invalid_grant") {
-                    UserSettings.items.driveRefreshToken = undefined;
-                    UserSettings.items.driveRevoked = true;
-                    UserSettings.commitItems();
-                  }
-                  console.error(res.error_description);
-                  resolve(false);
-                } else {
-                  UserSettings.items.driveToken = res.access_token;
-                  UserSettings.commitItems();
-                  resolve(true);
-                }
-              } catch (error) {
-                console.error(error);
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          xhr.send(
-            `client_id=${getCredentials().drive.client_id}` +
-              `&client_secret=${getCredentials().drive.client_secret}` +
-              `&refresh_token=${UserSettings.items.driveRefreshToken}` +
-              `&grant_type=refresh_token`
-          );
-        }
-      );
+    if (!UserSettings.items.driveRefreshToken) {
+      UserSettings.items.driveRevoked = true;
+      UserSettings.commitItems();
+      return;
     }
+    // Refresh-token flow via fetch. getAuthToken is no longer usable (Google
+    // blocks custom-URI-scheme OAuth clients for new apps) and fetch works in
+    // both the popup and the MV3 service worker (XHR is undefined there).
+    const res = await fetch("https://www.googleapis.com/oauth2/v4/token", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body:
+        `client_id=${getCredentials().drive.client_id}` +
+        `&client_secret=${getCredentials().drive.client_secret}` +
+        `&refresh_token=${UserSettings.items.driveRefreshToken}` +
+        `&grant_type=refresh_token`,
+    });
+    if (res.status === 401) {
+      UserSettings.items.driveRefreshToken = undefined;
+      UserSettings.items.driveRevoked = true;
+      UserSettings.commitItems();
+      return;
+    }
+    const data = await res.json();
+    if (data.error) {
+      if (data.error === "invalid_grant") {
+        UserSettings.items.driveRefreshToken = undefined;
+        UserSettings.items.driveRevoked = true;
+        UserSettings.commitItems();
+      }
+      console.error(data.error_description);
+      return;
+    }
+    UserSettings.items.driveToken = data.access_token;
+    UserSettings.commitItems();
   }
 
   private async getFolder() {
@@ -254,100 +182,62 @@ export class Drive implements BackupProvider {
     }
     await UserSettings.updateItems();
     if (UserSettings.items.driveFolder) {
-      await new Promise(
-        (
-          resolve: (value: boolean) => void,
-          reject: (reason: Error) => void
-        ) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open(
-            "GET",
-            "https://www.googleapis.com/drive/v3/files/" +
-              UserSettings.items.driveFolder +
-              "?fields=trashed"
-          );
-          xhr.setRequestHeader("Authorization", "Bearer " + token);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                UserSettings.items.driveToken = undefined;
-                UserSettings.commitItems();
-                return resolve(false);
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (res.error) {
-                  if (res.error.code === 404) {
-                    UserSettings.items.driveFolder = undefined;
-                    UserSettings.commitItems();
-                    resolve(true);
-                  } else {
-                    console.error(res.error.message);
-                    resolve(false);
-                  }
-                } else if (res.trashed) {
-                  UserSettings.items.driveFolder = undefined;
-                  UserSettings.commitItems();
-                  resolve(true);
-                } else {
-                  resolve(true);
-                }
-              } catch (error) {
-                console.error(error);
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          xhr.send();
+      const res = await fetch(
+        "https://www.googleapis.com/drive/v3/files/" +
+          UserSettings.items.driveFolder +
+          "?fields=trashed",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+            Accept: "application/json",
+          },
         }
       );
+      if (res.status === 401) {
+        UserSettings.items.driveToken = undefined;
+        UserSettings.commitItems();
+        return false;
+      }
+      const data = await res.json();
+      if (data.error) {
+        if (data.error.code === 404) {
+          UserSettings.items.driveFolder = undefined;
+          UserSettings.commitItems();
+        } else {
+          console.error(data.error.message);
+          return false;
+        }
+      } else if (data.trashed) {
+        UserSettings.items.driveFolder = undefined;
+        UserSettings.commitItems();
+      }
     }
     if (!UserSettings.items.driveFolder) {
-      await new Promise(
-        (
-          resolve: (value: boolean) => void,
-          reject: (reason: Error) => void
-        ) => {
-          // create folder
-          const xhr = new XMLHttpRequest();
-          xhr.open("POST", "https://www.googleapis.com/drive/v3/files/");
-          xhr.setRequestHeader("Authorization", "Bearer " + token);
-          xhr.setRequestHeader("Accept", "application/json");
-          xhr.setRequestHeader("Content-Type", "application/json");
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                UserSettings.items.driveToken = undefined;
-                UserSettings.commitItems();
-                return resolve(false);
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (!res.error) {
-                  UserSettings.items.driveFolder = res.id;
-                  UserSettings.commitItems();
-                  resolve(true);
-                } else {
-                  console.error(res.error.message);
-                  resolve(false);
-                }
-              } catch (error) {
-                console.error(error);
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          xhr.send(
-            JSON.stringify({
-              name: "Authenticator Backups",
-              mimeType: "application/vnd.google-apps.folder",
-            })
-          );
-        }
-      );
+      const res = await fetch("https://www.googleapis.com/drive/v3/files/", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Authenticator Backups",
+          mimeType: "application/vnd.google-apps.folder",
+        }),
+      });
+      if (res.status === 401) {
+        UserSettings.items.driveToken = undefined;
+        UserSettings.commitItems();
+        return false;
+      }
+      const data = await res.json();
+      if (!data.error) {
+        UserSettings.items.driveFolder = data.id;
+        UserSettings.commitItems();
+      } else {
+        console.error(data.error.message);
+        return false;
+      }
     }
     return UserSettings.items.driveFolder;
   }
@@ -372,75 +262,51 @@ export class Drive implements BackupProvider {
       return false;
     }
     const folderId = await this.getFolder();
-    return new Promise(
-      (resolve: (value: boolean) => void, reject: (reason: Error) => void) => {
-        if (!token || !folderId) {
-          return resolve(false);
-        }
-        try {
-          const xhr = new XMLHttpRequest();
-          const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-          xhr.open(
-            "POST",
-            "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart"
-          );
-          xhr.setRequestHeader("Authorization", "Bearer " + token);
-          xhr.setRequestHeader(
-            "Content-type",
-            "multipart/related; boundary=segment_marker"
-          );
-          xhr.onreadystatechange = () => {
-            if (xhr.readyState === 4) {
-              if (xhr.status === 401) {
-                UserSettings.items.driveToken = undefined;
-                UserSettings.items.driveRevoked = true;
-                UserSettings.commitItems();
-                return resolve(false);
-              }
-              if (xhr.status < 200 || xhr.status >= 300) {
-                // a non-2xx is a failed upload; don't fall through and risk
-                // misreading the body as success
-                return resolve(false);
-              }
-              try {
-                const res = JSON.parse(xhr.responseText);
-                if (!res.error) {
-                  resolve(true);
-                } else {
-                  console.error(res.error.message);
-                  resolve(false);
-                }
-              } catch (error) {
-                reject(error as Error);
-              }
-            }
-            return;
-          };
-          const requestDataPrototype = [
-            "--segment_marker",
-            "Content-Type: application/json; charset=UTF-8",
-            "",
-            JSON.stringify({
-              name: `${now}.json`,
-              parents: [UserSettings.items.driveFolder],
-            }),
-            "",
-            "--segment_marker",
-            "Content-Type: application/octet-stream",
-            "",
-            backup,
-            "--segment_marker--",
-          ];
-          let requestData = "";
-          requestDataPrototype.forEach((line) => {
-            requestData = requestData + line + "\n";
-          });
-          xhr.send(requestData);
-        } catch (error) {
-          return reject(error as Error);
-        }
+    if (!folderId) {
+      return false;
+    }
+    const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    const requestData =
+      [
+        "--segment_marker",
+        "Content-Type: application/json; charset=UTF-8",
+        "",
+        JSON.stringify({ name: `${now}.json`, parents: [folderId] }),
+        "",
+        "--segment_marker",
+        "Content-Type: application/octet-stream",
+        "",
+        backup,
+        "--segment_marker--",
+      ].join("\n") + "\n";
+    // fetch (not XMLHttpRequest) because upload runs in the MV3 service worker.
+    const res = await fetch(
+      "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "multipart/related; boundary=segment_marker",
+        },
+        body: requestData,
       }
     );
+    if (res.status === 401) {
+      UserSettings.items.driveToken = undefined;
+      UserSettings.items.driveRevoked = true;
+      UserSettings.commitItems();
+      return false;
+    }
+    if (!res.ok) {
+      // a non-2xx is a failed upload, not something to JSON.parse as success
+      return false;
+    }
+    const data = await res.json();
+    if (!data.error) {
+      return true;
+    }
+    console.error(data.error.message);
+    return false;
   }
 
   async getUser() {

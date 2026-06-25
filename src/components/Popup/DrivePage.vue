@@ -23,7 +23,10 @@
       <a-button v-show="backupToken" @click="backupLogout()">
         {{ i18n.log_out }}
       </a-button>
-      <a-button v-show="!backupToken" @click="getBackupToken()">
+      <div v-show="connecting && !backupToken" class="dropbox-connecting">
+        <span class="dropbox-spinner"></span>{{ i18n.loading }}
+      </div>
+      <a-button v-show="!backupToken && !connecting" @click="getBackupToken()">
         {{ i18n.sign_in }}
       </a-button>
       <a-button v-show="backupToken" @click="backupUpload()">
@@ -44,6 +47,7 @@ export default defineComponent({
   data: function () {
     return {
       email: this.i18n.loading,
+      connecting: false,
     };
   },
   created() {
@@ -70,6 +74,7 @@ export default defineComponent({
   },
   methods: {
     getBackupToken() {
+      this.connecting = true;
       chrome.runtime.sendMessage({ action: service });
     },
     async backupLogout() {
@@ -125,11 +130,30 @@ export default defineComponent({
       const drive = new Drive();
       return await drive.getUser();
     },
+    onAuthDone(message: { action?: string }) {
+      if (message.action !== "driveauthdone") {
+        return;
+      }
+      void this.refreshConnection();
+    },
+    async refreshConnection() {
+      await UserSettings.updateItems();
+      const connected = Boolean(UserSettings.items.driveToken);
+      this.$store.commit("backup/setToken", { service, value: connected });
+      if (connected) {
+        this.email = await this.getUser();
+      }
+      this.connecting = false;
+    },
   },
   mounted: async function () {
+    chrome.runtime.onMessage.addListener(this.onAuthDone);
     if (this.backupToken) {
       this.email = await this.getUser();
     }
+  },
+  beforeUnmount() {
+    chrome.runtime.onMessage.removeListener(this.onAuthDone);
   },
 });
 </script>

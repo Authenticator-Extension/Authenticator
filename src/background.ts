@@ -292,23 +292,7 @@ async function getTotp(
 }
 
 function getBackupToken(service: string) {
-  if (isChrome && service === "drive") {
-    chrome.identity.getAuthToken(
-      {
-        interactive: true,
-        scopes: ["https://www.googleapis.com/auth/drive.file"],
-      },
-      (value) => {
-        if (!value) {
-          return false;
-        }
-        UserSettings.items.driveToken = value;
-        UserSettings.commitItems();
-        chrome.runtime.sendMessage({ action: "drivetoken", value });
-        return true;
-      }
-    );
-  } else {
+  {
     let authUrl = "";
     let redirUrl = "";
     if (service === "dropbox") {
@@ -319,13 +303,10 @@ function getBackupToken(service: string) {
         "&redirect_uri=" +
         redirUrl;
     } else if (service === "drive") {
-      if (navigator.userAgent.indexOf("Edg") !== -1) {
-        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
-      } else if (isFirefox) {
-        redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
-      } else {
-        redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
-      }
+      // The fork has no authenticator.cc redirect handler, and getAuthToken is
+      // blocked for new OAuth clients (custom-URI-scheme restriction), so Drive
+      // uses launchWebAuthFlow with the extension's own chromiumapp.org redirect.
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
 
       authUrl =
         "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
@@ -424,6 +405,9 @@ function getBackupToken(service: string) {
                   throw error;
                 }
 
+                chrome.runtime
+                  .sendMessage({ action: "driveauthdone" })
+                  .catch(() => undefined);
                 uploadBackup("drive");
                 return success;
               } else if (service === "onedrive") {
