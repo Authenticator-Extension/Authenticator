@@ -18,7 +18,7 @@ import { defineComponent, PropType } from "vue";
 export default defineComponent({
   props: {
     label: String,
-    modelValue: [String, Number],
+    modelValue: [String, Number, Boolean],
     disabled: Boolean,
     // Vue 3 passes v-model modifiers (e.g. .number) here for the child to apply
     modelModifiers: {

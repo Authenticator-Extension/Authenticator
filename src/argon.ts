@@ -51,8 +51,10 @@ class Argon {
           encoded: hash,
         })
         .then(() => resolve(true))
-        .catch((e: { message: string; code: number }) => {
-          console.error("Error decoding hash", e);
+        .catch(() => {
+          // verify() rejects on a wrong passphrase (the common case) as well as
+          // on a malformed hash; both just mean "cannot unlock", so report a
+          // non-match instead of logging an error for every mistyped password.
           resolve(false);
         });
     });
