@@ -660,5 +660,9 @@
   "vault_locked": {
     "message": "保险库已锁定",
     "description": "Title on the unlock screen"
+  },
+  "backup_unavailable": {
+    "message": "暂不支持",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

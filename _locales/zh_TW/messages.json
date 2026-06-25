@@ -676,5 +676,9 @@
   },
   "activate_auto_filter": {
     "message": "警告：智慧過濾會以較寬鬆的方式比對網域名稱與帳號。輸入驗證碼前，請務必確認您位於正確的網站！"
+  },
+  "backup_unavailable": {
+    "message": "暫不支援",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

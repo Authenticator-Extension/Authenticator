@@ -676,5 +676,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Not available yet",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

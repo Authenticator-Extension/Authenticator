@@ -86,8 +86,8 @@ svg {
     flex: none;
 
     svg {
-      width: 16px;
-      height: 16px;
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -1288,6 +1288,19 @@ svg {
 
     &:hover {
       background: var(--row-hover);
+    }
+  }
+
+  .backup-row.disabled {
+    cursor: default;
+    opacity: 0.55;
+
+    &:hover {
+      background: var(--row);
+    }
+
+    .backup-chevron {
+      display: none;
     }
   }
 

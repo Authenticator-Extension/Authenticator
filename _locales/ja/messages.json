@@ -660,5 +660,9 @@
   "vault_locked": {
     "message": "保管庫はロックされています",
     "description": "Title on the unlock screen"
+  },
+  "backup_unavailable": {
+    "message": "未対応",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }
