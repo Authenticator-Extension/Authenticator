@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "الموثق",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "المدقق",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {

@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "身份验证器",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "身份验证器",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {

@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "인증 도구",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "인증 도구",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {

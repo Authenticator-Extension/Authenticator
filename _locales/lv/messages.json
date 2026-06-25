@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Divpakāpju kodu ģenerators",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Divpakāpju kodu ģenerators",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {

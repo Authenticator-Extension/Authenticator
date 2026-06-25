@@ -1,10 +1,10 @@
 {
   "extName": {
-    "message": "Authenticator\n",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Uwierzytelnianie",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {
