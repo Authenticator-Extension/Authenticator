@@ -481,6 +481,22 @@
     "message": "Sign in",
     "description": "Sign in to 3rd party storage services"
   },
+  "drive_sync_title": {
+    "message": "Sync with Google Drive",
+    "description": "Drive connect page title"
+  },
+  "drive_sync_desc": {
+    "message": "Keep an encrypted copy of your accounts in your own Google Drive. Codes are encrypted before they leave this device.",
+    "description": "Drive connect page description"
+  },
+  "cloud_e2e_note": {
+    "message": "End-to-end encrypted before upload",
+    "description": "Reassurance note on the cloud connect page"
+  },
+  "drive_sign_in": {
+    "message": "Sign in to Google",
+    "description": "Drive sign-in button"
+  },
   "sign_in_business": {
     "message": "Sign in (Business)",
     "description": "Sign in to 3rd party storage services"

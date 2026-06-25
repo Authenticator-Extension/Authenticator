@@ -481,6 +481,22 @@
     "message": "登入",
     "description": "Sign in to 3rd party storage services"
   },
+  "drive_sync_title": {
+    "message": "與 Google Drive 同步",
+    "description": "Drive connect page title"
+  },
+  "drive_sync_desc": {
+    "message": "在你自己的 Google Drive 保留一份加密的帳號備份。驗證碼會在離開此裝置前先加密。",
+    "description": "Drive connect page description"
+  },
+  "cloud_e2e_note": {
+    "message": "上傳前端對端加密",
+    "description": "Reassurance note on the cloud connect page"
+  },
+  "drive_sign_in": {
+    "message": "登入 Google",
+    "description": "Drive sign-in button"
+  },
   "sign_in_business": {
     "message": "登入（企業）",
     "description": "Sign in to 3rd party storage services"

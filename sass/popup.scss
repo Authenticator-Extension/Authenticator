@@ -1766,6 +1766,84 @@ svg {
     border-top-color: var(--accent);
     animation: spin 0.8s linear infinite;
   }
+
+  // Google Drive branding (multicolor logo on a neutral chip; red-ish avatar)
+  &.drive {
+    .cloud-brand {
+      background: var(--row);
+      border: 1px solid var(--border);
+    }
+
+    .cloud-avatar {
+      background: oklch(0.86 0.07 25);
+      color: oklch(0.45 0.18 25);
+    }
+  }
+
+  // Connect prompt (design "17c CONNECT DRIVE")
+  .cloud-hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cloud-hero-logo {
+    width: 78px;
+    height: 78px;
+    border-radius: 22px;
+    background: var(--row);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+
+    svg {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .cloud-hero-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+
+  .cloud-hero-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-dim);
+    max-width: 270px;
+  }
+
+  .cloud-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cloud-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 13px;
+    border-radius: 12px;
+    background: var(--row);
+    color: var(--text-dim);
+    font-size: 12.5px;
+
+    svg {
+      flex: none;
+      width: 15px;
+      height: 15px;
+      stroke: var(--ok);
+    }
+  }
 }
 
 // ── Slide-in menu ───────────────────────────────────────────────────────
