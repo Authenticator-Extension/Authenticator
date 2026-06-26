@@ -238,11 +238,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Import Text Backup",
+    "message": "Import OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Import OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {

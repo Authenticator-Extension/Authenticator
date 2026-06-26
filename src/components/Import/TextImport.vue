@@ -14,12 +14,10 @@ otpauth://hotp/...
       <input type="checkbox" id="encryptedCode" v-model="importEncrypted" />
       <label for="encryptedCode">{{ i18n.encrypted }}</label>
     </div>
-    <a-text-input
-      :label="i18n.phrase"
-      v-model="importPassphrase"
-      type="password"
-      v-show="importEncrypted"
-    />
+    <div class="import_code_passphrase" v-show="importEncrypted">
+      <label class="field-label">{{ i18n.phrase }}</label>
+      <input class="pass-input" type="password" v-model="importPassphrase" />
+    </div>
     <a-button @click="importBackupCode()">
       {{ i18n.import_backup_code }}
     </a-button>

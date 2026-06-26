@@ -242,11 +242,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "匯入文字",
+    "message": "匯入 OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "匯入 OTP 網址",
+    "message": "匯入 OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {

@@ -332,27 +332,6 @@ p {
     }
   }
 
-  .field-label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-  }
-
-  .pass-input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 13px;
-    border: 1px solid var(--accent);
-    background: var(--app-bg);
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 15px;
-    letter-spacing: 2px;
-    outline: none;
-  }
-
   .pass-hint {
     font-size: 12px;
     color: var(--text-faint);
@@ -362,6 +341,31 @@ p {
   .pass-submit {
     margin-top: 18px;
   }
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.pass-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 13px;
+  border: 1px solid var(--accent);
+  background: var(--app-bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 2px;
+  outline: none;
+}
+
+.import_code_passphrase {
+  margin-bottom: 18px;
 }
 
 .import_encrypted {
