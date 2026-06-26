@@ -61,6 +61,36 @@
       </svg>
     </div>
 
+    <div class="method-card" @click="openImport('FileImport')">
+      <div class="method-ico">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 3v5h5"></path>
+          <path
+            d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2z"
+          ></path>
+        </svg>
+      </div>
+      <div class="method-text">{{ i18n.import_backup_file }}</div>
+      <svg
+        class="method-chevron"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 6 15 12 9 18"></polyline>
+      </svg>
+    </div>
+
     <div class="method-card" @click="openImport('QrImport')">
       <div class="method-ico">
         <svg

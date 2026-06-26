@@ -164,7 +164,8 @@ p {
     font-weight: 700;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.dragover {
       border-color: var(--accent);
     }
   }
@@ -185,7 +186,8 @@ p {
     text-align: center;
     cursor: pointer;
 
-    &:hover {
+    &:hover,
+    &.dragover {
       border-color: var(--accent);
     }
 
