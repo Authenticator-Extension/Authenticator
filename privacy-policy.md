@@ -1,6 +1,6 @@
 # Privacy Policy — OTPilot Authenticator
 
-_Last updated: 「請填入日期」_
+_Last updated: 2026-06-26_
 
 OTPilot Authenticator ("the extension") is a browser extension that generates two-factor
 authentication (2FA) one-time codes. This policy explains what data the extension handles
@@ -54,4 +54,4 @@ We may update this policy; the "Last updated" date will change accordingly.
 
 ## Contact
 
-Questions: 「請填入聯絡 email」
+Questions: kyvevcwmm@mozmail.com
