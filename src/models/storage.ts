@@ -205,7 +205,8 @@ function isKey(key: unknown): key is Key {
 export class EntryStorage {
   private static async getOTPStorageFromEntry(
     entry: OTPEntry,
-    unencrypted?: boolean
+    unencrypted?: boolean,
+    forBackup?: boolean
   ): Promise<OTPStorage> {
     let secret: string;
     if (!entry.secret && entry.encData && entry.keyId) {
@@ -249,12 +250,22 @@ export class EntryStorage {
       storageItem.period = entry.period;
     }
 
-    if (entry.issuer) {
-      storageItem.issuer = entry.issuer;
-    }
+    if (forBackup && entry.host) {
+      // Backups encode the bound host as "issuer::host" (the upstream
+      // convention import's migrateLegacyHost understands) rather than a
+      // separate host field, so the website round-trips through importers
+      // that only keep issuer.
+      storageItem.issuer = entry.issuer
+        ? `${entry.issuer}::${entry.host}`
+        : `::${entry.host}`;
+    } else {
+      if (entry.issuer) {
+        storageItem.issuer = entry.issuer;
+      }
 
-    if (entry.host) {
-      storageItem.host = entry.host;
+      if (entry.host) {
+        storageItem.host = entry.host;
+      }
     }
 
     if (entry.account) {
@@ -381,7 +392,8 @@ export class EntryStorage {
 
         exportData[entry.hash] = await this.getOTPStorageFromEntry(
           entry,
-          !encrypted
+          !encrypted,
+          true
         );
       }
       return exportData;
@@ -421,12 +433,16 @@ export class EntryStorage {
         delete entry.period;
       }
 
-      if (!entry.issuer) {
-        delete entry.issuer;
-      }
-
-      if (!entry.host) {
+      // Encode the bound host as "issuer::host" (upstream convention) so the
+      // website survives import, and drop the separate host field. Mirrors
+      // getOTPStorageFromEntry's forBackup branch.
+      if (entry.host) {
+        entry.issuer = entry.issuer
+          ? `${entry.issuer}::${entry.host}`
+          : `::${entry.host}`;
         delete entry.host;
+      } else if (!entry.issuer) {
+        delete entry.issuer;
       }
 
       if (!entry.account) {

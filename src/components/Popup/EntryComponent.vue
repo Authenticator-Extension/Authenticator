@@ -439,8 +439,10 @@ function getQrUrl(entry: OTPEntry) {
     label +
     "?secret=" +
     entry.secret +
-    (entry.issuer
-      ? "&issuer=" + encodeURIComponent(entry.issuer.split("::")[0])
+    (issuer || entry.host
+      ? "&issuer=" +
+        encodeURIComponent(issuer) +
+        (entry.host ? "::" + encodeURIComponent(entry.host) : "")
       : "") +
     (entry.type === OTPType.hotp || entry.type === OTPType.hhex
       ? "&counter=" + entry.counter

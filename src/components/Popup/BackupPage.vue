@@ -399,6 +399,13 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
     const safeIssuer = otpStorage.issuer
       ? removeUnsafeData(otpStorage.issuer)
       : "";
+    // getExport encodes the bound host as "issuer::host"; keep it off the label
+    // but put it back on the issuer parameter so the website round-trips.
+    const boundHost = otpStorage.issuer
+      ? otpStorage.issuer.split("::")[1] || ""
+      : "";
+    const issuerParam =
+      safeIssuer + (boundHost ? "::" + encodeURIComponent(boundHost) : "");
     const safeAccount = otpStorage.account
       ? removeUnsafeData(otpStorage.account)
       : "";
@@ -419,7 +426,7 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
       label +
       "?secret=" +
       otpStorage.secret +
-      (safeIssuer ? "&issuer=" + safeIssuer : "") +
+      (issuerParam ? "&issuer=" + issuerParam : "") +
       (type === "hotp" ? "&counter=" + otpStorage.counter : "") +
       (type === "totp" && otpStorage.period
         ? "&period=" + otpStorage.period

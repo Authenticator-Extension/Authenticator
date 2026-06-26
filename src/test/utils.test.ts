@@ -3,6 +3,7 @@ import { expect } from "chai";
 import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 import { EntryStorage } from "../models/storage";
 import { OTPEntry, OTPType } from "../models/otp";
+import { getEntryDataFromOTPAuthPerLine } from "../import";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -147,5 +148,66 @@ describe("EntryStorage preserves the bound host across reload", () => {
     } finally {
       await EntryStorage.delete(entry);
     }
+  });
+});
+
+// Backups encode the bound host into issuer as "issuer::host" (upstream
+// convention) instead of a separate host field, so the website survives a
+// round-trip through import's migrateLegacyHost.
+describe("EntryStorage.getExport encodes the bound host into issuer", () => {
+  it("emits issuer::host with no separate host field, and it round-trips", async () => {
+    const entry = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: "MyBank",
+      host: "accounts.example.com",
+      account: "user",
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+    });
+    const exported = (await EntryStorage.getExport([entry], false)) as {
+      [hash: string]: RawOTPStorage;
+    };
+    const item = exported[entry.hash];
+    expect(item.issuer).to.equal("MyBank::accounts.example.com");
+    expect(item.host).to.equal(undefined);
+
+    // import side restores the dedicated host field
+    const restored = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: item.issuer,
+      host: item.host,
+      account: "user",
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+    });
+    expect(restored.issuer).to.equal("MyBank");
+    expect(restored.host).to.equal("accounts.example.com");
+  });
+});
+
+// The otpauth:// URI export carries the bound host on the issuer parameter as
+// "issuer::host"; import must parse it back and migrateLegacyHost splits it
+// into the dedicated host field.
+describe("getEntryDataFromOTPAuthPerLine parses issuer::host", () => {
+  it("restores the bound host from the issuer parameter", async () => {
+    const uri =
+      "otpauth://totp/Mozilla:user%2Bfirefox%40gmail.com" +
+      "?secret=AAAAAAAAAAAAAAAA&issuer=Mozilla::accounts.example.com";
+    const { exportData } = await getEntryDataFromOTPAuthPerLine(uri);
+    const item = Object.values(exportData)[0];
+    expect(item.issuer).to.equal("Mozilla::accounts.example.com");
+
+    const entry = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: item.issuer,
+      account: item.account,
+      encrypted: false,
+      secret: item.secret,
+    });
+    expect(entry.issuer).to.equal("Mozilla");
+    expect(entry.host).to.equal("accounts.example.com");
   });
 });
