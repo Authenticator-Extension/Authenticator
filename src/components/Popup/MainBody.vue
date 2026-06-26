@@ -97,7 +97,7 @@
       {{ i18n.add_code }}
     </div>
     <div class="no-entry" v-if="entries.length === 0 && initComplete">
-      <div class="no-entry-icon">
+      <div class="no-entry-icon" v-on:click="addAccount()">
         <svg
           viewBox="0 0 24 24"
           fill="none"
