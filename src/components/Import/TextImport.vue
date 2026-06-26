@@ -64,11 +64,17 @@ export default defineComponent({
         try {
           exportData = JSON.parse(content);
         } catch (error) {
-          console.warn(error);
-          const result = await getEntryDataFromOTPAuthPerLine(content);
-          exportData = result.exportData;
-          failedCount = result.failedCount;
-          succeededCount = result.succeededCount;
+          if (!(error instanceof SyntaxError)) {
+            console.warn("Import:", error);
+          }
+          try {
+            const result = await getEntryDataFromOTPAuthPerLine(content);
+            exportData = result.exportData;
+            failedCount = result.failedCount;
+            succeededCount = result.succeededCount;
+          } catch (_e) {
+            // nothing parseable — exportData stays as {}
+          }
         }
       }
 

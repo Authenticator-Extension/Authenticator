@@ -192,11 +192,17 @@ export default defineComponent({
                 (key) => ["key", "enc", "hash"].indexOf(key) === -1
               ).length;
             } catch (e) {
-              console.warn(e);
-              const result = await getEntryDataFromOTPAuthPerLine(content);
-              importData = result.exportData;
-              failedCount = result.failedCount;
-              succeededCount = result.succeededCount;
+              if (!(e instanceof SyntaxError)) {
+                console.warn("Import:", e);
+              }
+              try {
+                const result = await getEntryDataFromOTPAuthPerLine(content);
+                importData = result.exportData;
+                failedCount = result.failedCount;
+                succeededCount = result.succeededCount;
+              } catch (_e) {
+                // nothing parseable — importData stays as {}
+              }
             }
           }
 

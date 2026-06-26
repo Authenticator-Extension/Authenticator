@@ -9,39 +9,43 @@ import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { argonHash, argonVerify } from "./models/password";
 
 async function init() {
-  const app = createApp(ImportView);
-  // i18n
-  app.config.globalProperties.i18n = await loadI18nMessages();
-
-  // Load common components globally
-  for (const component of CommonComponents) {
-    app.component(component.name, component.component);
-  }
-
-  // Load entries to global
-  const cachedSecrets = await getCachedSecrets();
-  const encryption = new Encryption(
-    cachedSecrets.cachedPassphrase,
-    cachedSecrets.cachedKeyId
-  );
-  const entries = await EntryStorage.get();
-
-  if (encryption.getEncryptionStatus()) {
-    for (const entry of entries) {
-      await entry.applyEncryption(encryption);
-    }
-  }
-
-  app.config.globalProperties.$entries = entries;
-  app.config.globalProperties.$encryption = encryption;
-
-  const instance = app.mount("#import");
-
-  // Set title
   try {
-    document.title = instance.i18n.extName;
+    const app = createApp(ImportView);
+    // i18n
+    app.config.globalProperties.i18n = await loadI18nMessages();
+
+    // Load common components globally
+    for (const component of CommonComponents) {
+      app.component(component.name, component.component);
+    }
+
+    // Load entries to global
+    const cachedSecrets = await getCachedSecrets();
+    const encryption = new Encryption(
+      cachedSecrets.cachedPassphrase,
+      cachedSecrets.cachedKeyId
+    );
+    const entries = await EntryStorage.get();
+
+    if (encryption.getEncryptionStatus()) {
+      for (const entry of entries) {
+        await entry.applyEncryption(encryption);
+      }
+    }
+
+    app.config.globalProperties.$entries = entries;
+    app.config.globalProperties.$encryption = encryption;
+
+    const instance = app.mount("#import");
+
+    // Set title
+    try {
+      document.title = instance.i18n.extName;
+    } catch (e) {
+      console.error(e);
+    }
   } catch (e) {
-    console.error(e);
+    console.error("Import page init failed:", e);
   }
 }
 
