@@ -110,6 +110,11 @@ export default defineComponent({
   computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
   methods: {
     async addNewAccount() {
+      if (this.newAccount.issuer.includes("::")) {
+        this.$store.commit("notification/alert", this.i18n.errorissuer);
+        return;
+      }
+
       this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
 
       if (this.newAccount.secret.length < 16) {

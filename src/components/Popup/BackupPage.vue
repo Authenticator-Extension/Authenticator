@@ -253,6 +253,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { isSafari } from "../../browser";
+import { stripBoundHost } from "../../utils";
 
 export default defineComponent({
   data: function () {
@@ -397,13 +398,17 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
     // it here corrupted the stored issuer/account (stripped colons, %-encoded)
     // for later JSON backups and double-encoded on a repeat .txt download.
     const safeIssuer = otpStorage.issuer
-      ? removeUnsafeData(otpStorage.issuer)
+      ? removeUnsafeData(stripBoundHost(otpStorage.issuer))
       : "";
     // getExport encodes the bound host as "issuer::host"; keep it off the label
-    // but put it back on the issuer parameter so the website round-trips.
-    const boundHost = otpStorage.issuer
-      ? otpStorage.issuer.split("::")[1] || ""
-      : "";
+    // but put it back on the issuer parameter so the website round-trips. The
+    // issuer name itself may contain "::", so only the last "::" is the
+    // separator (matches migrateLegacyHost in models/otp.ts).
+    const sepIndex = otpStorage.issuer
+      ? otpStorage.issuer.lastIndexOf("::")
+      : -1;
+    const boundHost =
+      sepIndex !== -1 ? otpStorage.issuer.slice(sepIndex + 2) : "";
     const issuerParam =
       safeIssuer + (boundHost ? "::" + encodeURIComponent(boundHost) : "");
     const safeAccount = otpStorage.account
@@ -446,6 +451,6 @@ function downloadFileUrlBuilder(content: string) {
 }
 
 function removeUnsafeData(data: string) {
-  return encodeURIComponent(data.split("::")[0].replace(/:/g, ""));
+  return encodeURIComponent(data.replace(/:/g, ""));
 }
 </script>

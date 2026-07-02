@@ -24,7 +24,7 @@
     </div>
 
     <div class="entry-text">
-      <div class="issuer">{{ entry.issuer.split("::")[0] }}</div>
+      <div class="issuer">{{ displayIssuer(entry) }}</div>
       <div class="account">{{ entry.account }}</div>
       <div class="issuerEdit issuerEdit-issuer">
         <input
@@ -33,7 +33,7 @@
           v-bind:value="entry.issuer"
           v-on:input="setEntryField(entry, 'issuer', $event.target.value)"
           v-on:keydown.stop
-          v-on:change="entry.update()"
+          v-on:change="updateIssuer(entry)"
         />
       </div>
       <div class="issuerEdit issuerEdit-account">
@@ -132,6 +132,7 @@ import {
   getSiteName,
   getMatchedEntries,
   normalizeHost,
+  stripBoundHost,
   okToInjectContentScript,
 } from "../../utils";
 
@@ -241,8 +242,11 @@ export default defineComponent({
 
       return new Array(entry.digits).fill("•").join("");
     },
+    displayIssuer(entry: OTPEntry) {
+      return stripBoundHost(entry.issuer);
+    },
     monogram(entry: OTPEntry) {
-      const name = entry.issuer.split("::")[0] || entry.account || "";
+      const name = stripBoundHost(entry.issuer) || entry.account || "";
       return (name.trim()[0] || "?").toUpperCase();
     },
     monoStyle(entry: OTPEntry) {
@@ -295,7 +299,7 @@ export default defineComponent({
       const hue = hueFromString(entry.issuer || entry.account || "");
       this.$store.commit("qr/setQr", {
         src: getQrUrl(entry),
-        issuer: entry.issuer.split("::")[0],
+        issuer: stripBoundHost(entry.issuer),
         account: entry.account,
         monogram: this.monogram(entry),
         monoBg: `oklch(0.86 0.07 ${hue})`,
@@ -335,6 +339,24 @@ export default defineComponent({
         field: "host",
         value: normalizeHost(entry.host),
       });
+      entry.update();
+    },
+    async updateIssuer(entry: OTPEntry) {
+      if (entry.issuer.includes("::")) {
+        // storage only ever holds a previously-accepted (valid) issuer, so
+        // reload it from there to restore the pre-edit value and refuse the
+        // write, mirroring AddAccountPage's "::" rejection.
+        this.$store.commit("notification/alert", this.i18n.errorissuer);
+        const stored = (await EntryStorage.get()).find(
+          (e) => e.hash === entry.hash
+        );
+        this.$store.commit("accounts/setEntryField", {
+          entry,
+          field: "issuer",
+          value: stored ? stored.issuer : "",
+        });
+        return;
+      }
       entry.update();
     },
     async copyCode(entry: OTPEntry) {
@@ -419,7 +441,7 @@ function hueFromString(value: string): number {
 
 // TODO: move most of this to a models file and reuse for backup stuff
 function getQrUrl(entry: OTPEntry) {
-  const issuer = entry.issuer.split("::")[0];
+  const issuer = stripBoundHost(entry.issuer);
   // Encode issuer and account separately so the "issuer:account" separator
   // stays a literal colon. Encoding the whole label turned it into %3A, which
   // several authenticators (incl. Google) fail to parse. (#1302)

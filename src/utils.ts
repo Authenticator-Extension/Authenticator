@@ -122,11 +122,14 @@ function isMatchedEntry(
   const siteHost = siteName[2] || "";
 
   // The bound host lives in entry.host; fall back to the legacy "issuer::host"
-  // encoding for entries not yet migrated (e.g. raw storage objects).
-  const issuerParts = (entry.issuer || "").split("::");
+  // encoding for entries not yet migrated (e.g. raw storage objects). The
+  // issuer itself may contain "::", so only the last "::" is the separator.
+  const rawIssuer = entry.issuer || "";
+  const sepIndex = rawIssuer.lastIndexOf("::");
+  const issuerName = sepIndex === -1 ? rawIssuer : rawIssuer.slice(0, sepIndex);
   let boundHost = entry.host || "";
-  if (!boundHost && issuerParts.length > 1 && issuerParts[1]) {
-    boundHost = issuerParts[1];
+  if (!boundHost && sepIndex !== -1) {
+    boundHost = rawIssuer.slice(sepIndex + 2);
   }
   boundHost = boundHost.replace(/^\.+/, "").toLowerCase();
 
@@ -145,7 +148,7 @@ function isMatchedEntry(
     return true;
   }
 
-  const issuer = issuerParts[0].replace(/[^0-9a-z]/gi, "").toLowerCase();
+  const issuer = issuerName.replace(/[^0-9a-z]/gi, "").toLowerCase();
   if (!issuer) {
     return false;
   }
@@ -161,6 +164,14 @@ function isMatchedEntry(
   }
 
   return false;
+}
+
+// Strip a legacy "issuer::host" binding down to the display issuer name. The
+// issuer text itself may legitimately contain "::", so only the last "::" is
+// treated as the host separator (matches migrateLegacyHost in models/otp.ts).
+export function stripBoundHost(issuer: string): string {
+  const sepIndex = issuer.lastIndexOf("::");
+  return sepIndex === -1 ? issuer : issuer.slice(0, sepIndex);
 }
 
 // Normalize a user- or page-provided host into a bare lowercase hostname so it

@@ -4,6 +4,7 @@ import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 import { EntryStorage } from "../models/storage";
 import { OTPEntry, OTPType } from "../models/otp";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
+import { KeyUtilities } from "../models/key-utilities";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -81,6 +82,18 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const entries = [entry("Google::google.com", undefined)];
     const matched = getMatchedEntries(
       site("accounts.google.com", "google"),
+      entries,
+      true
+    );
+    expect(matched).to.be.an("array").with.lengthOf(1);
+  });
+
+  it("splits on the LAST :: when the issuer name itself contains ::", () => {
+    // "My::Bank" is the issuer, "example.com" is the bound host. A naive
+    // split("::") would wrongly cut it into issuer "My" + host "bank::example.com".
+    const entries = [entry("My::Bank::example.com", undefined)];
+    const matched = getMatchedEntries(
+      site("example.com", "example"),
       entries,
       true
     );
@@ -185,6 +198,37 @@ describe("EntryStorage.getExport encodes the bound host into issuer", () => {
     expect(restored.issuer).to.equal("MyBank");
     expect(restored.host).to.equal("accounts.example.com");
   });
+
+  it("round-trips an issuer that itself contains :: by splitting on the LAST ::", async () => {
+    // A naive split("::") on "My::Bank::example.com" would wrongly produce
+    // issuer "My" + host "bank::example.com" and corrupt the issuer name.
+    const entry = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: "My::Bank",
+      host: "example.com",
+      account: "user",
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+    });
+    const exported = (await EntryStorage.getExport([entry], false)) as {
+      [hash: string]: RawOTPStorage;
+    };
+    const item = exported[entry.hash];
+    expect(item.issuer).to.equal("My::Bank::example.com");
+
+    const restored = new OTPEntry({
+      type: OTPType.totp,
+      index: 0,
+      issuer: item.issuer,
+      host: item.host,
+      account: "user",
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+    });
+    expect(restored.issuer).to.equal("My::Bank");
+    expect(restored.host).to.equal("example.com");
+  });
 });
 
 // The otpauth:// URI export carries the bound host on the issuer parameter as
@@ -209,5 +253,22 @@ describe("getEntryDataFromOTPAuthPerLine parses issuer::host", () => {
     });
     expect(entry.issuer).to.equal("Mozilla");
     expect(entry.host).to.equal("accounts.example.com");
+  });
+});
+
+// base32tohex used to map any character outside [A-Z2-7=] to indexOf's -1
+// sentinel and silently fold that into the key bits, producing a
+// wrong-but-well-formed OTP with no indication anything was wrong.
+describe("KeyUtilities.generate rejects invalid Base32 secrets", () => {
+  it("throws for a character outside the Base32 alphabet", () => {
+    expect(() =>
+      KeyUtilities.generate(OTPType.totp, "AAAAAAA1", 0, 30)
+    ).to.throw("Invalid Base32 string");
+  });
+
+  it("still accepts a valid Base32 secret", () => {
+    expect(() =>
+      KeyUtilities.generate(OTPType.totp, "AAAAAAAAAAAAAAAA", 0, 30)
+    ).to.not.throw();
   });
 });

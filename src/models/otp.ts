@@ -54,11 +54,14 @@ function migrateLegacyHost(
   issuer: string,
   host: string
 ): { issuer: string; host: string } {
-  if (!host && issuer.includes("::")) {
-    const parts = issuer.split("::");
+  const sepIndex = issuer.lastIndexOf("::");
+  if (!host && sepIndex !== -1) {
     return {
-      issuer: parts[0],
-      host: (parts[1] || "").replace(/^\.+/, "").toLowerCase(),
+      issuer: issuer.slice(0, sepIndex),
+      host: issuer
+        .slice(sepIndex + 2)
+        .replace(/^\.+/, "")
+        .toLowerCase(),
     };
   }
   return { issuer, host };
