@@ -200,15 +200,28 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       continue;
     }
 
-    let uri = item.split("otpauth://")[1];
-    let type = uri.substr(0, 4).toLowerCase();
-    uri = uri.substr(5);
-    let label = uri.split("?")[0];
-    const parameterPart = uri.split("?")[1];
+    // "otpauth://" is not a special scheme in the WHATWG URL Standard, so
+    // browsers are NOT required to (and in practice don't consistently)
+    // parse the "//type/label" part into url.host/url.pathname — Chrome 126
+    // leaves url.host empty and dumps everything into pathname, while Node's
+    // URL parses host as "type". Only the "?query" part is parsed reliably
+    // everywhere, so the type/label split stays manual and only parameter
+    // parsing below is upgraded to URLSearchParams.
+    const afterScheme = item.split("otpauth://")[1];
+    if (!afterScheme) {
+      // malformed URI (e.g. missing "//") must not abort the batch
+      failedCount++;
+      continue;
+    }
+    let type = afterScheme.substr(0, 4).toLowerCase();
+    const rest = afterScheme.substr(5);
+    let label = rest.split("?")[0];
+    const parameterPart = rest.split("?")[1];
     if (!parameterPart) {
       failedCount++;
       continue;
     } else {
+      const params = new URLSearchParams(parameterPart);
       let secret = "";
       let account: string | undefined;
       let issuer: string | undefined;
@@ -227,36 +240,34 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       } else {
         account = label;
       }
-      const parameters = parameterPart.split("&");
-      parameters.forEach((item) => {
-        const parameter = item.split("=");
-        if (parameter[0].toLowerCase() === "secret") {
-          secret = parameter[1];
-        } else if (parameter[0].toLowerCase() === "issuer") {
-          try {
-            issuer = decodeURIComponent(parameter[1]);
-          } catch {
-            issuer = parameter[1];
-          }
-          issuer = issuer.replace(/\+/g, " ");
-        } /* else if (parameter[0].toLowerCase() === "counter") {
-          let counter = Number(parameter[1]);
-          counter = isNaN(counter) || counter < 0 ? 0 : counter;
-        } */ else if (
-          parameter[0].toLowerCase() === "period"
-        ) {
-          period = Number(parameter[1]);
-          // accept any positive integer period; the old "> 60" / "60 % period"
-          // checks silently dropped valid periods (45, 60, 90, 120...) so those
-          // OTPs fell back to 30s and produced wrong codes (#1271, #1508)
-          period = !Number.isInteger(period) || period < 1 ? undefined : period;
-        } else if (parameter[0].toLowerCase() === "digits") {
-          digits = Number(parameter[1]);
-          digits = isNaN(digits) ? 6 : digits;
-        } else if (parameter[0].toLowerCase() === "algorithm") {
-          algorithm = parameter[1];
-        }
-      });
+
+      // secret must be read as the raw parameter value: URLSearchParams
+      // already decodes "+" as a space for every field, which matches the
+      // old manual issuer handling but NOT the old secret handling (the old
+      // code never unescaped "+" in secret). Base32/hex secrets never
+      // contain "+", so this only matters for malformed input, which falls
+      // through to the format check below and is rejected the same way.
+      secret = params.get("secret") || "";
+      if (params.has("issuer")) {
+        // URLSearchParams already decodes "+" as a space, matching the old
+        // manual decodeURIComponent + replace(/\+/g, " ") behavior.
+        issuer = params.get("issuer") || "";
+      }
+      /* counter is intentionally not parsed here, matching prior behavior */
+      if (params.has("period")) {
+        period = Number(params.get("period"));
+        // accept any positive integer period; the old "> 60" / "60 % period"
+        // checks silently dropped valid periods (45, 60, 90, 120...) so those
+        // OTPs fell back to 30s and produced wrong codes (#1271, #1508)
+        period = !Number.isInteger(period) || period < 1 ? undefined : period;
+      }
+      if (params.has("digits")) {
+        digits = Number(params.get("digits"));
+        digits = isNaN(digits) ? 6 : digits;
+      }
+      if (params.has("algorithm")) {
+        algorithm = params.get("algorithm") || undefined;
+      }
 
       if (!secret) {
         failedCount++;
