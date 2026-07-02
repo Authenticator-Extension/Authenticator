@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Lines Travel Agency | Votre Agence de Voyage en Algérie</title>
+    <meta name="description" content="Agence de voyage à Alger - Circuits organisés, billets d'avion, séjours, visas.">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+:root { --primary: #1a365d; --secondary: #c9a84c; --accent: #e74c3c; --light: #f8f9fa; --dark: #0f172a; --gradient: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; overflow-x: hidden; background: var(--light); }
+.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(26, 54, 93, 0.95); backdrop-filter: blur(10px); padding: 15px 0; transition: all 0.3s ease; }
+.navbar.scrolled { padding: 10px 0; box-shadow: 0 5px 30px rgba(0,0,0,0.2); }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo img { height: 55px; width: auto; border-radius: 8px; }
+.logo-text { color: white; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; }
+.logo-text span { color: var(--secondary); font-size: 0.9rem; display: block; font-family: 'Poppins', sans-serif; font-weight: 300; }
+.nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
+.nav-links a { color: white; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--secondary); transition: width 0.3s; }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--secondary); }
+.lang-switcher { display: flex; gap: 8px; margin-left: 20px; }
+.lang-btn { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.8rem; transition: all 0.3s; }
+.lang-btn.active, .lang-btn:hover { background: var(--secondary); border-color: var(--secondary); color: var(--primary); }
+.mobile-menu-btn { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+.hero { height: 100vh; min-height: 700px; background: linear-gradient(rgba(26, 54, 93, 0.7), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920') center/cover; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; overflow: hidden; }
+.hero-content { position: relative; z-index: 2; max-width: 900px; padding: 0 20px; }
+.hero-badge { display: inline-block; background: var(--secondary); color: var(--primary); padding: 8px 25px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; margin-bottom: 25px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 20px; line-height: 1.1; }
+.hero h1 span { color: var(--secondary); }
+.hero p { font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9; }
+.hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; }
+.btn-primary { background: var(--secondary); color: var(--primary); box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201, 168, 76, 0.4); }
+.btn-outline { background: transparent; color: white; border: 2px solid white; }
+.btn-outline:hover { background: white; color: var(--primary); }
+.btn-small { padding: 10px 25px; font-size: 0.9rem; }
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; }
+.scroll-indicator i { font-size: 2rem; color: white; opacity: 0.7; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); } 40% { transform: translateX(-50%) translateY(-15px); } 60% { transform: translateX(-50%) translateY(-7px); } }
+section { padding: 100px 0; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 30px; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primary); margin-bottom: 15px; }
+.section-header p { color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+.section-header .line { width: 80px; height: 4px; background: var(--secondary); margin: 20px auto; border-radius: 2px; }
+.destinations { background: white; }
+.destinations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.destination-card { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); transition: all 0.4s ease; cursor: pointer; height: 450px; }
+.destination-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+.destination-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.destination-card:hover img { transform: scale(1.1); }
+.destination-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; }
+.destination-tag { display: inline-block; background: var(--secondary); color: var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+.destination-overlay h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; }
+.destination-overlay p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 15px; }
+.price-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); padding: 10px 20px; border-radius: 30px; font-weight: 600; }
+.price-tag i { color: var(--secondary); }
+.services { background: var(--gradient); color: white; position: relative; overflow: hidden; }
+.services .section-header h2, .services .section-header p { color: white; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.service-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s ease; cursor: pointer; }
+.service-card:hover { background: rgba(255,255,255,0.15); transform: translateY(-5px); }
+.service-icon { width: 80px; height: 80px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; font-size: 2rem; color: var(--primary); }
+.service-card h3 { font-size: 1.3rem; margin-bottom: 15px; }
+.service-card p { opacity: 0.8; font-size: 0.95rem; line-height: 1.6; }
+.offers { background: #f0f4f8; }
+.offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.offer-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+.offer-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+.offer-image { height: 220px; overflow: hidden; position: relative; }
+.offer-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.offer-card:hover .offer-image img { transform: scale(1.1); }
+.offer-badge { position: absolute; top: 20px; right: 20px; background: var(--accent); color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.85rem; }
+.offer-content { padding: 25px; }
+.offer-content h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 10px; }
+.offer-meta { display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap; }
+.offer-meta span { display: flex; align-items: center; gap: 5px; font-size: 0.9rem; color: #666; }
+.offer-meta i { color: var(--secondary); }
+.offer-price { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee; }
+.offer-price .price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+.offer-price .price span { font-size: 0.9rem; color: #999; font-weight: 400; }
+
+.devis { background: white; position: relative; }
+.devis-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.devis-info { padding-right: 40px; }
+.devis-info h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+.devis-info p { color: #666; line-height: 1.8; margin-bottom: 30px; }
+.contact-list { list-style: none; }
+.contact-list li { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; color: #444; }
+.contact-list i { width: 45px; height: 45px; background: var(--secondary); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.form-container { background: var(--gradient); padding: 50px; border-radius: 25px; color: white; box-shadow: 0 20px 60px rgba(26, 54, 93, 0.3); }
+.form-container h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; }
+.form-container p { opacity: 0.8; margin-bottom: 30px; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.95rem; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 18px; border: none; border-radius: 12px; font-family: 'Poppins', sans-serif; font-size: 0.95rem; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.6); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; background: rgba(255,255,255,0.15); border-color: var(--secondary); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.submit-btn { width: 100%; padding: 16px; background: var(--secondary); color: var(--primary); border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 168, 76, 0.4); }
+.testimonials { background: #f0f4f8; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); position: relative; }
+.testimonial-card::before { content: '"'; position: absolute; top: 20px; right: 30px; font-size: 5rem; color: var(--secondary); opacity: 0.3; font-family: 'Playfair Display', serif; line-height: 1; }
+.stars { color: var(--secondary); margin-bottom: 15px; font-size: 1.1rem; }
+.testimonial-text { color: #555; line-height: 1.8; margin-bottom: 25px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 15px; }
+.author-avatar { width: 55px; height: 55px; border-radius: 50%; background: var(--gradient); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.2rem; }
+.author-info h4 { color: var(--primary); font-size: 1.1rem; }
+.author-info span { color: #999; font-size: 0.9rem; }
+.stats { background: var(--gradient); padding: 80px 0; color: white; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+.stat-item i { font-size: 2.5rem; color: var(--secondary); margin-bottom: 15px; }
+.stat-number { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
+.stat-label { opacity: 0.8; font-size: 1rem; }
+.footer { background: var(--dark); color: white; padding: 80px 0 30px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; margin-bottom: 60px; }
+.footer-brand img { height: 60px; margin-bottom: 20px; border-radius: 10px; }
+.footer-brand p { opacity: 0.7; line-height: 1.8; margin-bottom: 25px; }
+.social-links { display: flex; gap: 15px; }
+.social-links a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s; }
+.social-links a:hover { background: var(--secondary); color: var(--primary); transform: translateY(-3px); }
+.footer-column h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--secondary); }
+.footer-column ul { list-style: none; }
+.footer-column ul li { margin-bottom: 12px; }
+.footer-column ul li a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; gap: 10px; }
+.footer-column ul li a:hover { color: var(--secondary); }
+.footer-column ul li a i { font-size: 0.8rem; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; opacity: 0.6; font-size: 0.9rem; }
+@media (max-width: 1024px) { .devis-container { grid-template-columns: 1fr; } .devis-info { padding-right: 0; } .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--primary); flex-direction: column; padding: 30px; gap: 20px; } .nav-links.active { display: flex; } .mobile-menu-btn { display: block; } .hero h1 { font-size: 2.5rem; } .section-header h2 { font-size: 2rem; } .destinations-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; gap: 30px; } .stats-grid { grid-template-columns: 1fr 1fr; } }
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.8rem; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); z-index: 999; transition: all 0.3s; text-decoration: none; }
+.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 2000; align-items: center; justify-content: center; }
+.modal.active { display: flex; }
+.modal-content { background: white; padding: 40px; border-radius: 20px; max-width: 500px; text-align: center; animation: scaleIn 0.3s ease; }
+@keyframes scaleIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.modal-content i { font-size: 4rem; color: #25d366; margin-bottom: 20px; }
+.modal-content h3 { color: var(--primary); margin-bottom: 15px; }
+.modal-content p { color: #666; margin-bottom: 25px; }
+.close-modal { padding: 12px 30px; background: var(--primary); color: white; border: none; border-radius: 10px; cursor: pointer; font-family: 'Poppins', sans-serif; }
+.contact-section { background: #f0f4f8; }
+.contact-section .form-container { background: white; color: var(--dark); }
+.contact-section .form-container h3 { color: var(--primary); }
+.contact-section .form-container p { color: #666; }
+.contact-section .form-group label { color: #444; }
+.contact-section .form-group input, .contact-section .form-group textarea { background: #f0f4f8; color: #333; border-color: #ddd; }
+.contact-section .form-group input::placeholder, .contact-section .form-group textarea::placeholder { color: #999; }
+.contact-section .submit-btn { background: var(--primary); color: white; }
+.contact-info-box { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); margin-top: 30px; }
+.contact-info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; }
+.contact-info-item:last-child { margin-bottom: 0; }
+.contact-info-icon { width: 50px; height: 50px; background: var(--secondary); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; flex-shrink: 0; }
+.contact-info-text h4 { color: var(--primary); margin-bottom: 5px; font-size: 1rem; }
+.contact-info-text p, .contact-info-text a { color: #666; line-height: 1.6; text-decoration: none; }
+.contact-info-text a:hover { color: var(--primary); }
+
+/* VISA / BILLETTERIE / HOTEL */
+.visa-section { background: linear-gradient(135deg, #1a365d 0%, #0f172a 100%); color: white; padding: 100px 0; }
+.visa-section .section-header h2 { color: white; }
+.visa-section .section-header p { color: rgba(255,255,255,0.8); }
+.visa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.visa-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px; transition: all 0.3s ease; }
+.visa-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-5px); }
+.visa-card h3 { font-size: 1.2rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.visa-card h3 i { color: var(--secondary); }
+.visa-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.visa-item:last-child { border-bottom: none; }
+.visa-item span { opacity: 0.9; }
+.visa-item .price { color: var(--secondary); font-weight: 700; font-size: 1.1rem; }
+.visa-btn { width: 100%; margin-top: 20px; padding: 12px; background: var(--secondary); color: var(--primary); border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.visa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201, 168, 76, 0.3); }
+
+/* PAYMENT */
+.payment-section { background: white; padding: 80px 0; }
+.payment-box { background: var(--gradient); color: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 600px; margin: 0 auto; }
+.payment-box h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; }
+.payment-box p { opacity: 0.9; margin-bottom: 25px; }
+.payment-methods { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 25px; }
+.payment-method { background: rgba(255,255,255,0.15); padding: 15px 30px; border-radius: 12px; display: flex; align-items: center; gap: 10px; }
+.payment-method i { font-size: 1.5rem; color: var(--secondary); }
+.satim-notice { background: rgba(231, 76, 60, 0.2); border: 1px solid rgba(231, 76, 60, 0.3); padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 0.9rem; }
+.satim-notice i { color: var(--accent); margin-right: 8px; }
+
+/* OFFER DETAIL */
+.offer-detail { display: none; background: white; padding: 80px 0; }
+.offer-detail.active { display: block; }
+.offer-detail-header { background: var(--gradient); color: white; padding: 80px 0 60px; margin-top: 70px; position: relative; overflow: hidden; }
+.offer-detail-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1920') center/cover; opacity: 0.2; }
+.offer-detail-header .container { position: relative; z-index: 2; }
+.offer-detail-header h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 15px; }
+.offer-detail-header .subtitle { font-size: 1.3rem; opacity: 0.9; }
+.offer-detail-header .meta { display: flex; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
+.offer-detail-header .meta-item { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.15); padding: 12px 25px; border-radius: 30px; }
+.offer-detail-header .meta-item i { font-size: 1.2rem; color: var(--secondary); }
+.back-btn { display: inline-flex; align-items: center; gap: 10px; color: white; text-decoration: none; margin-bottom: 30px; font-weight: 500; transition: color 0.3s; }
+.back-btn:hover { color: var(--secondary); }
+.offer-content-detail { padding: 60px 0; }
+.offer-grid-detail { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+.offer-main h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2rem; margin-bottom: 25px; }
+.offer-main h3 { color: var(--primary); font-size: 1.3rem; margin: 30px 0 15px; }
+.offer-main p { color: #555; line-height: 1.8; margin-bottom: 15px; }
+.offer-main ul { list-style: none; padding: 0; }
+.offer-main ul li { padding: 10px 0; padding-left: 30px; position: relative; color: #555; }
+.offer-main ul li::before { content: '\2713'; position: absolute; left: 0; color: var(--secondary); font-weight: bold; }
+.day-card { background: #f8f9fa; border-radius: 15px; padding: 25px; margin-bottom: 20px; border-left: 4px solid var(--secondary); }
+.day-card h4 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
+.day-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+.offer-sidebar { position: sticky; top: 100px; }
+.sidebar-card { background: white; border-radius: 20px; padding: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); margin-bottom: 25px; }
+.sidebar-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 20px; }
+.price-box { background: var(--gradient); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom: 20px; }
+.price-box .price-big { font-size: 2.5rem; font-weight: 700; }
+.price-box .price-note { opacity: 0.8; font-size: 0.9rem; }
+.price-box .price-child { font-size: 1.2rem; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.2); }
+.sidebar-btn { width: 100%; padding: 15px; border-radius: 12px; border: none; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; text-decoration: none; }
+.sidebar-btn-primary { background: var(--secondary); color: var(--primary); }
+.sidebar-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 168, 76, 0.4); }
+.sidebar-btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.sidebar-btn-outline:hover { background: var(--primary); color: white; }
+.info-list { list-style: none; }
+.info-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; color: #555; }
+.info-list li:last-child { border-bottom: none; }
+.info-list li i { color: var(--secondary); width: 20px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 30px; }
+.gallery-grid img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; transition: transform 0.3s; }
+.gallery-grid img:hover { transform: scale(1.05); }
+.hotel-card { display: flex; gap: 15px; background: #f8f9fa; padding: 15px; border-radius: 12px; margin-bottom: 15px; }
+.hotel-card img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+.hotel-card h4 { color: var(--primary); font-size: 1rem; margin-bottom: 5px; }
+.hotel-card p { color: #666; font-size: 0.85rem; }
+.hotel-card .stars-small { color: var(--secondary); font-size: 0.8rem; }
+.tab-nav { display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 15px; overflow-x: auto; }
+.tab-btn { padding: 10px 25px; background: none; border: none; color: #666; font-family: 'Poppins', sans-serif; font-weight: 500; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.3s; white-space: nowrap; }
+.tab-btn.active { color: var(--primary); border-bottom-color: var(--secondary); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+@media (max-width: 1024px) { .offer-grid-detail { grid-template-columns: 1fr; } .offer-sidebar { position: static; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <img src="./LOGO%203D.jpeg" alt="Light Lines Travel">
+                <div class="logo-text">
+                    Light Lines
+                    <span>Travel Agency</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#accueil" onclick="showPage('home')">Accueil</a></li>
+                <li><a href="#destinations" onclick="showPage('home')">Destinations</a></li>
+                <li><a href="#services" onclick="showPage('home')">Services</a></li>
+                <li><a href="#offres" onclick="showPage('home')">Nos Offres</a></li>
+                <li><a href="#visa" onclick="showPage('home')">Visa & Billetterie</a></li>
+                <li><a href="#devis" onclick="showPage('home')">Devis</a></li>
+                <li><a href="#contact" onclick="showPage('home')">Contact</a></li>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" onclick="changeLang('fr')">FR</button>
+                    <button class="lang-btn" onclick="changeLang('en')">EN</button>
+                    <button class="lang-btn" onclick="changeLang('ar')">AR</button>
+                </div>
+            </ul>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div id="page-home">
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <div class="hero-badge">✈️ Voyagez avec Confiance</div>
+                <h1>Découvrez le Monde avec <span>Light Lines</span></h1>
+                <p>Votre agence de voyage à Alger spécialisée dans les circuits organisés, billets d'avion, séjours et visas. Des expériences uniques à prix compétitifs.</p>
+                <div class="hero-buttons">
+                    <a href="#devis" class="btn btn-primary" onclick="showPage('home')">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Demander un Devis</span>
+                    </a>
+                    <a href="#destinations" class="btn btn-outline" onclick="showPage('home')">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Explorer nos Destinations</span>
+                    </a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item fade-in">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-number" data-count="5000">0</div>
+                        <div class="stat-label">Clients Satisfaits</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <i class="fas fa-plane-departure"></i>
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">Destinations</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <i class="fas fa-award"></i>
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Années d'Expérience</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <i class="fas fa-headset"></i>
+                        <div class="stat-number" data-count="24">0</div>
+                        <div class="stat-label">/7 Support</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Nos Destinations Phares</h2>
+                    <div class="line"></div>
+                    <p>Des voyages organisés vers les plus belles destinations du monde</p>
+                </div>
+                <div class="destinations-grid">
+                    <div class="destination-card fade-in" onclick="showOffer('malaisie')">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800" alt="Malaisie">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Circuit Organisé</span>
+                            <h3>Malaisie</h3>
+                            <p>Kuala Lumpur & Langkawi - 10 nuits / 12 jours</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>À partir de 339 000 DA</span></div>
+                        </div>
+                    </div>
+                    <div class="destination-card fade-in" onclick="showOffer('azerbaidjan')">
+                        <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800" alt="Azerbaïdjan">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Circuit Organisé</span>
+                            <h3>Azerbaïdjan</h3>
+                            <p>Bakou & Gabala - 7 nuits / 8 jours</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>À partir de 249 900 DA</span></div>
+                        </div>
+                    </div>
+                    <div class="destination-card fade-in" onclick="showOffer('russie')">
+                        <img src="https://images.unsplash.com/photo-1527838832700-505925240ea8?w=800" alt="Russie">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Circuit Organisé</span>
+                            <h3>Russie</h3>
+                            <p>Moscou & Saint-Pétersbourg - 9 nuits / 10 jours</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>À partir de 329 000 DA</span></div>
+                        </div>
+                    </div>
+                    <div class="destination-card fade-in" onclick="showOffer('turquie')">
+                        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800" alt="Turquie">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Circuit Organisé</span>
+                            <h3>Turquie - Istanbul</h3>
+                            <p>7 nuits / 8 jours avec Turkish Airlines</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>À partir de 115 000 DA</span></div>
+                        </div>
+                    </div>
+                    <div class="destination-card fade-in" onclick="showOffer('tunisie')">
+                        <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?w=800" alt="Tunisie">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Séjour Organisé</span>
+                            <h3>Tunisie</h3>
+                            <p>Par avion ou bus - 7 nuits / 8 jours</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>À partir de 41 900 DA</span></div>
+                        </div>
+                    </div>
+                    <div class="destination-card fade-in" onclick="showOffer('custom')">
+                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" alt="Europe">
+                        <div class="destination-overlay">
+                            <span class="destination-tag">Sur Mesure</span>
+                            <h3>Europe & Autres Destinations</h3>
+                            <p>Voyages à la carte selon vos préférences</p>
+                            <div class="price-tag"><i class="fas fa-tag"></i><span>Sur Devis</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Nos Services</h2>
+                    <div class="line"></div>
+                    <p>Une gamme complète de services pour vous accompagner dans tous vos voyages</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card fade-in" onclick="scrollToSection('devis')">
+                        <div class="service-icon"><i class="fas fa-plane"></i></div>
+                        <h3>Billets d'Avion</h3>
+                        <p>Réservation de billets d'avion vers toutes les destinations avec les meilleures compagnies aériennes au meilleur prix.</p>
+                    </div>
+                    <div class="service-card fade-in" onclick="scrollToSection('devis')">
+                        <div class="service-icon"><i class="fas fa-route"></i></div>
+                        <h3>Circuits Organisés</h3>
+                        <p>Des circuits complets avec hébergement, transferts, guide et excursions pour une expérience sans souci.</p>
+                    </div>
+                    <div class="service-card fade-in" onclick="scrollToSection('devis')">
+                        <div class="service-icon"><i class="fas fa-hotel"></i></div>
+                        <h3>Séjours & Hôtels</h3>
+                        <p>Réservation d'hôtels 3★ à 5★ dans le monde entier. Séjours tout compris, demi-pension ou petit-déjeuner.</p>
+                    </div>
+                    <div class="service-card fade-in" onclick="scrollToSection('visa')">
+                        <div class="service-icon"><i class="fas fa-passport"></i></div>
+                        <h3>Visas & Documents</h3>
+                        <p>Assistance complète pour l'obtention de visas et préparation des documents.</p>
+                    </div>
+                    <div class="service-card fade-in" onclick="scrollToSection('devis')">
+                        <div class="service-icon"><i class="fas fa-map-marked"></i></div>
+                        <h3>Voyages à la Carte</h3>
+                        <p>Des voyages sur mesure adaptés à vos envies : destinations, durée, budget et activités selon vos préférences.</p>
+                    </div>
+                    <div class="service-card fade-in" onclick="scrollToSection('devis')">
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Assurance Voyage</h3>
+                        <p>Assurances voyage complètes pour votre tranquillité : annulation, rapatriement, bagages et assistance médicale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="offers" id="offres">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Nos Offres du Moment</h2>
+                    <div class="line"></div>
+                    <p>Profitez de nos meilleures offres avec départs garantis</p>
+                </div>
+                <div class="offers-grid">
+                    <div class="offer-card fade-in">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600" alt="Malaisie">
+                            <span class="offer-badge">POPULAIRE</span>
+                        </div>
+                        <div class="offer-content">
+                            <h3>Malaisie - Kuala Lumpur & Langkawi</h3>
+                            <div class="offer-meta">
+                                <span><i class="fas fa-calendar"></i> 10 nuits / 12 jours</span>
+                                <span><i class="fas fa-plane"></i> Air Algérie</span>
+                            </div>
+                            <p>Hôtels 5★, petit-déjeuner, transferts et excursions inclus.</p>
+                            <div class="offer-price">
+                                <div class="price">339 000 DA <span>/personne</span></div>
+                                <button class="btn btn-primary btn-small" onclick="showOffer('malaisie')">Voir Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-card fade-in">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600" alt="Azerbaïdjan">
+                            <span class="offer-badge">NOUVEAU</span>
+                        </div>
+                        <div class="offer-content">
+                            <h3>Azerbaïdjan - Bakou & Gabala</h3>
+                            <div class="offer-meta">
+                                <span><i class="fas fa-calendar"></i> 7 nuits / 8 jours</span>
+                                <span><i class="fas fa-plane"></i> Turkish Airlines</span>
+                            </div>
+                            <p>Visa électronique inclus, guide arabisant, hôtels 4★ & 5★.</p>
+                            <div class="offer-price">
+                                <div class="price">249 900 DA <span>/personne</span></div>
+                                <button class="btn btn-primary btn-small" onclick="showOffer('azerbaidjan')">Voir Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-card fade-in">
+                        <div class="offer-image">
+                            <img src="https://images.unsplash.com/photo-1527838832700-505925240ea8?w=600" alt="Russie">
+                        </div>
+                        <div class="offer-content">
+                            <h3>Russie - Moscou & Saint-Pétersbourg</h3>
+                            <div class="offer-meta">
+                                <span><i class="fas fa-calendar"></i> 9 nuits / 10 jours</span>
+                                <span><i class="fas fa-train"></i> Train Sapsan</span>
+                            </div>
+                            <p>Hôtels 4★, petit-déjeuner, train rapide, assistance francophone.</p>
+                            <div class="offer-price">
+                                <div class="price">329 000 DA <span>/personne</span></div>
+                                <button class="btn btn-primary btn-small" onclick="showOffer('russie')">Voir Détails</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="visa-section" id="visa">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Visa, Billetterie & Réservation Hôtel</h2>
+                    <div class="line"></div>
+                    <p>Services rapides et fiables pour tous vos besoins de voyage</p>
+                </div>
+                <div class="visa-grid">
+                    <div class="visa-card fade-in">
+                        <h3><i class="fas fa-passport"></i> Visas</h3>
+                        <div class="visa-item"><span>Visa Jordanie</span><span class="price">1 000 DZD</span></div>
+                        <div class="visa-item"><span>Visa Égypte</span><span class="price">2 500 DZD</span></div>
+                        <div class="visa-item"><span>Visa Azerbaïdjan</span><span class="price">12 000 DZD</span></div>
+                        <div class="visa-item"><span>Visa Qatar</span><span class="price">11 000 DZD</span></div>
+                        <div class="visa-item"><span>Visa Indonésie</span><span class="price">25 000 DZD</span></div>
+                        <button class="visa-btn" onclick="scrollToSection('devis')">
+                            <i class="fas fa-paper-plane"></i> Demander un Devis
+                        </button>
+                    </div>
+                    <div class="visa-card fade-in">
+                        <h3><i class="fas fa-calendar-check"></i> Rendez-vous Consulats</h3>
+                        <div class="visa-item"><span>RDV Espagne (à domicile)</span><span class="price">10 000 DZD</span></div>
+                        <div class="visa-item"><span>RDV France</span><span class="price">15 000 DZD</span></div>
+                        <div class="visa-item"><span>RDV Norvège</span><span class="price">15 000 DZD</span></div>
+                        <div class="visa-item"><span>RDV Allemagne</span><span class="price">12 000 DZD</span></div>
+                        <div class="visa-item"><span>RDV Belgique</span><span class="price">18 000 DZD</span></div>
+                        <div class="visa-item"><span>RDV Hollande</span><span class="price">45 000 DZD</span></div>
+                        <button class="visa-btn" onclick="scrollToSection('devis')">
+                            <i class="fas fa-paper-plane"></i> Demander un Devis
+                        </button>
+                    </div>
+                    <div class="visa-card fade-in">
+                        <h3><i class="fas fa-plane"></i> Billetterie</h3>
+                        <p style="opacity:0.8; margin-bottom:15px; line-height:1.6;">Réservation de billets d'avion vers toutes les destinations avec les meilleures compagnies aériennes. Tarifs compétitifs garantis.</p>
+                        <div class="visa-item"><span>Billet d'avion</span><span class="price">Sur Devis</span></div>
+                        <button class="visa-btn" onclick="scrollToSection('devis')">
+                            <i class="fas fa-paper-plane"></i> Demander un Devis
+                        </button>
+                    </div>
+                    <div class="visa-card fade-in">
+                        <h3><i class="fas fa-hotel"></i> Réservation Hôtel</h3>
+                        <p style="opacity:0.8; margin-bottom:15px; line-height:1.6;">Réservation d'hôtels 3★ à 5★ dans le monde entier. Séjours tout compris, demi-pension ou petit-déjeuner.</p>
+                        <div class="visa-item"><span>Hôtel / Séjour</span><span class="price">Sur Devis</span></div>
+                        <button class="visa-btn" onclick="scrollToSection('devis')">
+                            <i class="fas fa-paper-plane"></i> Demander un Devis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="payment-section" id="paiement">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Paiement Sécurisé</h2>
+                    <div class="line"></div>
+                    <p>Payez votre voyage en toute sécurité</p>
+                </div>
+                <div class="payment-box fade-in">
+                    <h3><i class="fas fa-credit-card"></i> Options de Paiement</h3>
+                    <p>Choisissez le mode de paiement qui vous convient le mieux</p>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Paiement Espèces</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-university"></i>
+                            <span>Virement Bancaire</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>CCP / BaridiMob</span>
+                        </div>
+                    </div>
+                    <div class="satim-notice">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>SATIM :</strong> Le paiement par carte bancaire en ligne (SATIM) est temporairement indisponible. Nous travaillons à sa remise en service prochainement. Merci de votre compréhension.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="devis" id="devis">
+            <div class="container">
+                <div class="devis-container">
+                    <div class="devis-info fade-in">
+                        <h3>Demandez votre Devis Gratuit</h3>
+                        <p>Remplissez le formulaire ci-contre pour recevoir un devis personnalisé sous 24h. Notre équipe d'experts vous accompagne dans l'organisation de votre voyage idéal.</p>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-envelope"></i><div><strong>Email</strong><br>lightlines.travel20@gmail.com<br>lightlines@lightlinestravel.pro</div></li>
+                            <li><i class="fas fa-clock"></i><div><strong>Horaires</strong><br>Dim - Jeu : 09h00 - 17h00</div></li>
+                        </ul>
+                    </div>
+                    <div class="form-container fade-in">
+                        <h3>Formulaire de Devis</h3>
+                        <p>Choisissez le type de service et recevez votre devis personnalisé</p>
+                        <form id="devisForm" action="https://formspree.io/f/xnqevwpy" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nom & Prénom *</label>
+                                    <input type="text" name="name" required placeholder="Ex: Mohamed Amine">
+                                </div>
+                                <div class="form-group">
+                                    <label>Téléphone *</label>
+                                    <input type="tel" name="phone" required placeholder="Ex: 0554 141 669">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" placeholder="Ex: email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Type de Service *</label>
+                                    <select name="service" id="serviceSelect" required onchange="updateServiceDetails()">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="billet">Billet d'Avion</option>
+                                        <option value="hotel">Hôtel / Séjour</option>
+                                        <option value="circuit">Circuit Organisé</option>
+                                        <option value="visa">Visa</option>
+                                        <option value="rdv">Rendez-vous Consulat</option>
+                                        <option value="custom">Voyage à la Carte</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row" id="visaTypeRow" style="display:none;">
+                                <div class="form-group">
+                                    <label>Type de Visa</label>
+                                    <select name="visa_type">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="jordanie">Visa Jordanie (1 000 DZD)</option>
+                                        <option value="egypte">Visa Égypte (2 500 DZD)</option>
+                                        <option value="azerbaidjan">Visa Azerbaïdjan (12 000 DZD)</option>
+                                        <option value="qatar">Visa Qatar (11 000 DZD)</option>
+                                        <option value="indonesie">Visa Indonésie (25 000 DZD)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row" id="rdvTypeRow" style="display:none;">
+                                <div class="form-group">
+                                    <label>Type de Rendez-vous</label>
+                                    <select name="rdv_type">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="espagne">RDV Espagne à domicile (10 000 DZD)</option>
+                                        <option value="france">RDV France (15 000 DZD)</option>
+                                        <option value="norvege">RDV Norvège (15 000 DZD)</option>
+                                        <option value="allemagne">RDV Allemagne (12 000 DZD)</option>
+                                        <option value="belgique">RDV Belgique (18 000 DZD)</option>
+                                        <option value="hollande">RDV Hollande (45 000 DZD)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Destination</label>
+                                    <input type="text" name="destination" placeholder="Ex: Malaisie, Turquie...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date de départ souhaitée</label>
+                                    <input type="date" name="date">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nombre d'adultes</label>
+                                    <input type="number" name="adults" min="1" placeholder="Ex: 2">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombre d'enfants (2-12 ans)</label>
+                                    <input type="number" name="children" min="0" placeholder="Ex: 1">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Budget approximatif (DA)</label>
+                                    <input type="number" name="budget" placeholder="Ex: 200000">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mode de Paiement préféré</label>
+                                    <select name="payment">
+                                        <option value="">Sélectionnez...</option>
+                                        <option value="especes">Espèces</option>
+                                        <option value="virement">Virement Bancaire</option>
+                                        <option value="ccp">CCP / BaridiMob</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Message / Détails supplémentaires</label>
+                                <textarea name="message" placeholder="Décrivez votre projet de voyage..."></textarea>
+                            </div>
+                            <input type="hidden" name="_subject" value="Nouvelle demande de devis - Light Lines Travel">
+                            <input type="hidden" name="_replyto" value="lightlines.travel20@gmail.com">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Envoyer ma Demande</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Avis de nos Clients</h2>
+                    <div class="line"></div>
+                    <p>Découvrez ce que nos voyageurs disent de leur expérience avec Light Lines</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">Un voyage incroyable en Malaisie ! L'organisation était parfaite, les hôtels 5 étoiles étaient magnifiques et notre guide était très professionnel. Je recommande vivement Light Lines !</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info"><h4>Sofiane K.</h4><span>Voyage en Malaisie</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-text">Nous avons fait le circuit Azerbaïdjan en famille. Tout était parfaitement organisé, du visa électronique aux transferts. La croisière sur la Caspienne était un moment magique. Merci Light Lines !</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AB</div>
+                            <div class="author-info"><h4>Amira B.</h4><span>Circuit Azerbaïdjan</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in">
+                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                        <p class="testimonial-text">Service impeccable pour la réservation de nos billets d'avion et hôtel à Istanbul. Prix compétitifs et accompagnement de qualité. Light Lines est devenue notre agence de référence.</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">YM</div>
+                            <div class="author-info"><h4>Yacine M.</h4><span>Séjour Istanbul</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="devis contact-section" id="contact">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Contactez-Nous</h2>
+                    <div class="line"></div>
+                    <p>Notre équipe est à votre disposition pour toute question</p>
+                </div>
+                <div class="devis-container">
+                    <div class="form-container fade-in">
+                        <h3>Envoyez-nous un Message</h3>
+                        <p>lightlines.travel20@gmail.com | lightlines@lightlinestravel.pro</p>
+                        <form action="https://formspree.io/f/xnqevwpy" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Nom</label>
+                                    <input type="text" name="name" placeholder="Votre nom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" placeholder="votre@email.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Sujet</label>
+                                <input type="text" name="subject" placeholder="Sujet de votre message" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="message" placeholder="Votre message..." rows="5" required></textarea>
+                            </div>
+                            <input type="hidden" name="_subject" value="Nouveau message - Light Lines Travel">
+                            <input type="hidden" name="_replyto" value="lightlines.travel20@gmail.com">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Envoyer le Message</span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="devis-info fade-in" style="padding-left: 40px; padding-right: 0;">
+                        <h3>Informations de Contact</h3>
+                        <p>N'hésitez pas à nous contacter par email. Notre équipe vous répondra dans les plus brefs délais.</p>
+                        <div class="contact-info-box">
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-info-text">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:lightlines.travel20@gmail.com">lightlines.travel20@gmail.com</a><br><a href="mailto:lightlines@lightlinestravel.pro">lightlines@lightlinestravel.pro</a></p>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+                                <div class="contact-info-text">
+                                    <h4>Horaires d'ouverture</h4>
+                                    <p>Dimanche - Jeudi : 09h00 - 17h00<br>Vendredi - Samedi : Fermé</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 30px; text-align: center;">
+                            <h4 style="color: var(--primary); margin-bottom: 15px;">Suivez-nous</h4>
+                            <div class="social-links" style="justify-content: center;">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <p>Light Lines Travel Agency est votre partenaire de confiance pour tous vos voyages depuis Alger. Circuits organisés, billets d'avion, séjours et visas vers les plus belles destinations du monde.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Billets d'Avion</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Circuits Organisés</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Hôtels & Séjours</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Visas</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Voyages sur Mesure</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Destinations</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Malaisie</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Azerbaïdjan</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Turquie</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Russie</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Tunisie</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Liens Rapides</h4>
+                        <ul>
+                            <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                            <li><a href="#destinations"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+                            <li><a href="#devis"><i class="fas fa-chevron-right"></i> Devis Gratuit</a></li>
+                            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                            <li><a href="#"><i class="fas fa-chevron-right"></i> Mentions Légales</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 Light Lines Travel Agency. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+
+        <a href="https://wa.me/213554141669" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <div class="modal" id="successModal">
+            <div class="modal-content">
+                <i class="fas fa-check-circle"></i>
+                <h3>Demande Envoyée !</h3>
+                <p>Merci pour votre confiance. Notre équipe vous contactera dans les 24 heures avec un devis personnalisé.</p>
+                <button class="close-modal" onclick="closeModal()">Fermer</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-malaisie">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Voyage Organisé en Malaisie</h1>
+                <p class="subtitle">Kuala Lumpur & Langkawi - Entre modernité, nature et détente</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-calendar"></i> 10 nuits / 12 jours</div>
+                    <div class="meta-item"><i class="fas fa-plane"></i> Vol avec Air Algérie</div>
+                    <div class="meta-item"><i class="fas fa-hotel"></i> Hôtels 5★</div>
+                    <div class="meta-item"><i class="fas fa-utensils"></i> Petit-déjeuner inclus</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('malaisie-programme')">Programme</button>
+                            <button class="tab-btn" onclick="showTab('malaisie-inclus')">Inclus</button>
+                            <button class="tab-btn" onclick="showTab('malaisie-hotels')">Hôtels</button>
+                            <button class="tab-btn" onclick="showTab('malaisie-dates')">Dates</button>
+                        </div>
+                        <div class="tab-content active" id="tab-malaisie-programme">
+                            <h2>Programme Détaillé</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-arrival"></i> Jour 1 : Arrivée à Kuala Lumpur</h4>
+                                <p>Accueil à l'aéroport et transfert vers l'hôtel Renaissance Kuala Lumpur 5★. Temps libre pour une première découverte de la ville.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-city"></i> Jour 2 : Kuala Lumpur - Visite de la ville</h4>
+                                <p>Visite des Tours Petronas, du quartier chinois Petaling Street, du temple Thean Hou et du marché central.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-mountain"></i> Jour 3 : Batu Caves & Genting Highlands</h4>
+                                <p>Excursion aux grottes de Batu Caves. Ascension en téléphérique à Genting Highlands.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-leaf"></i> Jour 4 : Jardin Botanique & Shopping</h4>
+                                <p>Visite du jardin botanique de Kuala Lumpur et du lac Symphony. Après-midi libre pour shopping.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane"></i> Jour 5 : Vol vers Langkawi</h4>
+                                <p>Transfert à l'aéroport et vol intérieur vers Langkawi. Installation au Pelangi Beach Resort & Spa 5★.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-water"></i> Jour 6-9 : Langkawi - Détente & Excursions</h4>
+                                <p>Journées libres à la plage. Excursions incluses : tour en bateau des îles, mangroves de Kilim, téléphérique Sky Bridge.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-spa"></i> Jour 10 : Dernier jour à Langkawi</h4>
+                                <p>Journée libre. Option massage spa à l'hôtel. Dîner d'adieu avec vue sur le coucher de soleil.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-departure"></i> Jour 11-12 : Retour à Alger</h4>
+                                <p>Vol Langkawi → Kuala Lumpur → Alger avec Air Algérie. Arrivée le jour 12 avec souvenirs plein la tête !</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-malaisie-inclus">
+                            <h2>Le Prix Comprend</h2>
+                            <ul>
+                                <li>Billet d'avion aller-retour Alger - Kuala Lumpur avec Air Algérie</li>
+                                <li>Hébergement : 6 nuits à Kuala Lumpur (Renaissance 5★) + 4 nuits à Langkawi (Pelangi Beach Resort & Spa 5★)</li>
+                                <li>Petit-déjeuner quotidien</li>
+                                <li>Transferts aéroport - hôtel - aéroport</li>
+                                <li>Vol intérieur Kuala Lumpur - Langkawi</li>
+                                <li>Excursions et visites selon programme</li>
+                                <li>Assistance durant tout le séjour</li>
+                                <li>Guide francophone local</li>
+                            </ul>
+                            <h3>Non Inclus</h3>
+                            <ul>
+                                <li>Visa Malaisie (obtenable en ligne ~$20)</li>
+                                <li>Déjeuners et dîners (sauf mentionnés)</li>
+                                <li>Boissons et dépenses personnelles</li>
+                                <li>Assurance voyage (recommandée)</li>
+                                <li>Excursions optionnelles</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-malaisie-hotels">
+                            <h2>Nos Hôtels Partenaires</h2>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200" alt="Renaissance">
+                                <div>
+                                    <h4>Renaissance Kuala Lumpur Hotel <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Situé au cœur de la capitale, à proximité des Tours Petronas. Chambres spacieuses avec vue panoramique, piscine extérieure, spa et restaurants internationaux.</p>
+                                </div>
+                            </div>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=200" alt="Pelangi">
+                                <div>
+                                    <h4>Pelangi Beach Resort & Spa <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Resort 5 étoiles en bord de mer à Langkawi. Bungalows traditionnels, plage privée, spa de luxe, piscine lagoon et activités nautiques variées.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-malaisie-dates">
+                            <h2>Dates de Départ 2026</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Juillet 2026</h4>
+                                <p>Départs garantis : 5, 12, 19, 26 juillet 2026. Places limitées - réserver 45 jours à l'avance.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Août 2026</h4>
+                                <p>Départs garantis : 2, 9, 16, 23, 30 août 2026. Haute saison - réserver 60 jours à l'avance.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Septembre - Octobre 2026</h4>
+                                <p>Départs garantis : 6, 13, 20 septembre | 4, 11, 18 octobre 2026. Meilleure période pour éviter la foule.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-info-circle"></i> Conditions de Réservation</h4>
+                                <p>Acompte de 30% à la réservation. Solde à payer 30 jours avant le départ. Annulation gratuite jusqu'à 45 jours avant le départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big">339 000 DA</div>
+                                <div class="price-note">par adulte en chambre double</div>
+                                <div class="price-child">Enfant (2-12 ans) : 271 200 DA</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20suis%20interesse%20par%20le%20circuit%20Malaisie" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Questions WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Informations Pratiques</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-passport"></i> Visa électronique requis (~20 dollars)</li>
+                                <li><i class="fas fa-suitcase"></i> Bagage 30kg inclus</li>
+                                <li><i class="fas fa-users"></i> Groupe de 15-25 personnes</li>
+                                <li><i class="fas fa-language"></i> Guide francophone</li>
+                                <li><i class="fas fa-plane"></i> Vols Air Algérie</li>
+                                <li><i class="fas fa-utensils"></i> Petit-déjeuner inclus</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Galerie Photos</h3>
+                            <div class="gallery-grid">
+                                <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=300" alt="Malaisie 1">
+                                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=300" alt="Malaisie 2">
+                                <img src="https://images.unsplash.com/photo-1527838832700-505925240ea8?w=300" alt="Malaisie 3">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300" alt="Malaisie 4">
+                                <img src="https://images.unsplash.com/photo-1540206395-688085723adb?w=300" alt="Malaisie 5">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Malaisie 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-azerbaidjan">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Circuit Azerbaïdjan</h1>
+                <p class="subtitle">Bakou, Gabala & Sheki - Entre modernité et traditions du Caucase</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-calendar"></i> 7 nuits / 8 jours</div>
+                    <div class="meta-item"><i class="fas fa-plane"></i> Turkish Airlines</div>
+                    <div class="meta-item"><i class="fas fa-hotel"></i> Hôtels 4★ & 5★</div>
+                    <div class="meta-item"><i class="fas fa-passport"></i> Visa électronique inclus</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('azerbaidjan-programme')">Programme</button>
+                            <button class="tab-btn" onclick="showTab('azerbaidjan-inclus')">Inclus</button>
+                            <button class="tab-btn" onclick="showTab('azerbaidjan-hotels')">Hôtels</button>
+                            <button class="tab-btn" onclick="showTab('azerbaidjan-dates')">Dates</button>
+                        </div>
+                        <div class="tab-content active" id="tab-azerbaidjan-programme">
+                            <h2>Programme Détaillé</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-arrival"></i> Jour 1 : Arrivée à Bakou</h4>
+                                <p>Accueil à l'aéroport Heydar Aliyev et transfert vers l'hôtel Four Seasons 5★. Découverte de la Corniche de Bakou et dîner dans un restaurant traditionnel.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-landmark"></i> Jour 2 : Bakou - Ville Ancienne & Moderne</h4>
+                                <p>Visite de la Vieille Ville (UNESCO) : Palais des Shirvanshahs, Tour de la Vierge. Après-midi : Flame Towers, Centre Heydar Aliyev.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-fire"></i> Jour 3 : Gobustan & Yanar Dag</h4>
+                                <p>Excursion à Gobustan : pétroglyphes millénaires classés UNESCO, volcans de boue. Visite de Yanar Dag (la Montagne de Feu).</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-mountain"></i> Jour 4 : Route vers Gabala</h4>
+                                <p>Départ pour Gabala (220 km). En route : visite du village de Lahic, célèbre pour ses artisans cuivre. Installation au Qafqaz Riverside Hotel 4★.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-skiing"></i> Jour 5 : Gabala - Tufandag & Nohur</h4>
+                                <p>Téléphérique à Tufandag. Lac Nohur en après-midi : bateau, pédalo et détente. Dîner avec musique traditionnelle azerbaïdjanaise.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-palace"></i> Jour 6 : Sheki - Palais des Khans</h4>
+                                <p>Route vers Sheki (80 km). Visite du Palais des Khans de Sheki (UNESCO) avec ses vitraux colorés. Marché artisanal : soie, cuivre et confiseries.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-ship"></i> Jour 7 : Bakou - Croisière sur la Caspienne</h4>
+                                <p>Retour à Bakou. Soirée : croisière offerte sur la mer Caspienne avec dîner buffet et spectacle folklorique.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-departure"></i> Jour 8 : Départ</h4>
+                                <p>Transfert à l'aéroport et vol retour via Istanbul. Arrivée à Alger avec des souvenirs inoubliables du Caucase.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-azerbaidjan-inclus">
+                            <h2>Le Prix Comprend</h2>
+                            <ul>
+                                <li>Billet d'avion aller-retour Alger - Bakou via Istanbul avec Turkish Airlines</li>
+                                <li>Hébergement : 4 nuits à Bakou (Four Seasons 5★) + 3 nuits à Gabala (Qafqaz Riverside 4★)</li>
+                                <li>Petit-déjeuner quotidien + 3 dîners (dont croisière sur la Caspienne)</li>
+                                <li>Transferts aéroport - hôtel - aéroport en véhicule climatisé</li>
+                                <li>Excursions selon programme avec guide arabisant francophone</li>
+                                <li>Visa électronique Azerbaïdjan (e-visa)</li>
+                                <li>Croisière sur la mer Caspienne avec dîner spectacle</li>
+                                <li>Téléphérique Tufandag inclus</li>
+                                <li>Assistance durant tout le séjour</li>
+                            </ul>
+                            <h3>Non Inclus</h3>
+                            <ul>
+                                <li>Déjeuners et dîners non mentionnés</li>
+                                <li>Boissons et dépenses personnelles</li>
+                                <li>Assurance voyage (recommandée)</li>
+                                <li>Pourboires guide et chauffeur</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-azerbaidjan-hotels">
+                            <h2>Nos Hôtels Partenaires</h2>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200" alt="Four Seasons">
+                                <div>
+                                    <h4>Four Seasons Hotel Baku <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Hôtel de luxe situé sur la Corniche avec vue imprenable sur la mer Caspienne. Architecture néoclassique, spa, piscine intérieure et restaurants gastronomiques.</p>
+                                </div>
+                            </div>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=200" alt="Qafqaz">
+                                <div>
+                                    <h4>Qafqaz Riverside Hotel <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Resort 4 étoiles au cœur de la nature de Gabala. Chambres avec balcon, piscine extérieure, spa, restaurant avec vue sur la rivière.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-azerbaidjan-dates">
+                            <h2>Dates de Départ 2026</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Juin - Juillet 2026</h4>
+                                <p>Départs garantis : 13, 20, 27 juin | 4, 11, 18, 25 juillet 2026. Visa électronique traité sous 3 jours ouvrés.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Août - Septembre 2026</h4>
+                                <p>Départs garantis : 1, 8, 15, 22, 29 août | 5, 12, 19 septembre 2026. Meilleure période pour le climat.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-info-circle"></i> Conditions de Réservation</h4>
+                                <p>Acompte de 30% à la réservation. Solde à payer 30 jours avant le départ. Visa électronique inclus dans le prix - documents à fournir 15 jours avant le départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big">249 900 DA</div>
+                                <div class="price-note">par adulte en chambre double</div>
+                                <div class="price-child">Enfant (2-12 ans) : 199 920 DA</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20suis%20interesse%20par%20le%20circuit%20Azerbaidjan" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Questions WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Informations Pratiques</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-passport"></i> Visa électronique inclus</li>
+                                <li><i class="fas fa-suitcase"></i> Bagage 30kg inclus</li>
+                                <li><i class="fas fa-users"></i> Groupe de 12-20 personnes</li>
+                                <li><i class="fas fa-language"></i> Guide arabisant francophone</li>
+                                <li><i class="fas fa-plane"></i> Vols Turkish Airlines</li>
+                                <li><i class="fas fa-gift"></i> Croisière Caspienne offerte</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Galerie Photos</h3>
+                            <div class="gallery-grid">
+                                <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=300" alt="Azerbaïdjan 1">
+                                <img src="https://images.unsplash.com/photo-1527838832700-505925240ea8?w=300" alt="Azerbaïdjan 2">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300" alt="Azerbaïdjan 3">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300" alt="Azerbaïdjan 4">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Azerbaïdjan 5">
+                                <img src="https://images.unsplash.com/photo-1540206395-688085723adb?w=300" alt="Azerbaïdjan 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-russie">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Circuit Russie Impériale</h1>
+                <p class="subtitle">Moscou & Saint-Pétersbourg - Entre histoire, art et grandeur</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-calendar"></i> 9 nuits / 10 jours</div>
+                    <div class="meta-item"><i class="fas fa-train"></i> Train Sapsan rapide</div>
+                    <div class="meta-item"><i class="fas fa-hotel"></i> Hôtels 4★</div>
+                    <div class="meta-item"><i class="fas fa-language"></i> Assistance francophone 24h/24</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('russie-programme')">Programme</button>
+                            <button class="tab-btn" onclick="showTab('russie-inclus')">Inclus</button>
+                            <button class="tab-btn" onclick="showTab('russie-hotels')">Hôtels</button>
+                            <button class="tab-btn" onclick="showTab('russie-dates')">Dates</button>
+                        </div>
+                        <div class="tab-content active" id="tab-russie-programme">
+                            <h2>Programme Détaillé</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-arrival"></i> Jour 1 : Arrivée à Moscou</h4>
+                                <p>Accueil à l'aéroport de Moscou et transfert vers l'hôtel Marriott Grand 4★. Dîner de bienvenue dans un restaurant russe traditionnel avec spectacle folklorique.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-landmark"></i> Jour 2 : Moscou - Place Rouge & Kremlin</h4>
+                                <p>Visite de la Place Rouge : cathédrale Saint-Basile, mausolée de Lénine, GUM. Après-midi : visite du Kremlin.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-metro"></i> Jour 3 : Moscou - Métro & Arbat</h4>
+                                <p>Visite des stations de métro les plus belles du monde. Promenade sur l'Arbat, rue piétonne historique.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-church"></i> Jour 4 : Serguiev Possad & Monastère</h4>
+                                <p>Excursion à Serguiev Possad (UNESCO) : monastère de la Trinité-Saint-Serge, centre spirituel de l'Église orthodoxe russe.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-train"></i> Jour 5 : Train Sapsan vers Saint-Pétersbourg</h4>
+                                <p>Départ en train Sapsan (4h de trajet). Arrivée à Saint-Pétersbourg, installation au Corinthia Hotel 4★.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-palette"></i> Jour 6 : Hermitage & Place du Palais</h4>
+                                <p>Visite du Musée de l'Hermitage (3 millions d'œuvres !). Place du Palais, colonne d'Alexandre. Soirée : croisière sur la Neva.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-church"></i> Jour 7 : Cathédrale Saint-Isaac & Peterhof</h4>
+                                <p>Visite de la cathédrale Saint-Isaac. Après-midi : excursion à Peterhof (Versailles russe) : fontaines, jardins, palais.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-water"></i> Jour 8 : Canaux & Pouchkine</h4>
+                                <p>Promenade en bateau sur les canaux de Saint-Pétersbourg. Visite du palais de Catherine à Pouchkine. Dîner d'adieu.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-departure"></i> Jour 9-10 : Retour à Alger</h4>
+                                <p>Jour 9 : temps libre pour derniers achats. Transfert à l'aéroport. Vol retour avec escale. Arrivée à Alger le jour 10.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-russie-inclus">
+                            <h2>Le Prix Comprend</h2>
+                            <ul>
+                                <li>Billet d'avion aller-retour Alger - Moscou / Saint-Pétersbourg - Alger</li>
+                                <li>Hébergement : 4 nuits à Moscou (Marriott Grand 4★) + 5 nuits à Saint-Pétersbourg (Corinthia 4★)</li>
+                                <li>Petit-déjeuner quotidien</li>
+                                <li>Train rapide Sapsan Moscou - Saint-Pétersbourg (classe affaires)</li>
+                                <li>Transferts aéroport - hôtel - gare - aéroport</li>
+                                <li>Visites guidées : Kremlin, Hermitage, Peterhof, Serguiev Possad</li>
+                                <li>Croisière sur la Neva incluse</li>
+                                <li>Assistance francophone 24h/24</li>
+                                <li>Invitation de voyage (lettre) pour le visa russe</li>
+                            </ul>
+                            <h3>Non Inclus</h3>
+                            <ul>
+                                <li>Visa russe (à obtenir auprès du consulat - nous assistons dans la préparation du dossier)</li>
+                                <li>Déjeuners et dîners (sauf mentionnés)</li>
+                                <li>Boissons et dépenses personnelles</li>
+                                <li>Assurance voyage (recommandée)</li>
+                                <li>Pourboires guide et chauffeur</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-russie-hotels">
+                            <h2>Nos Hôtels Partenaires</h2>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200" alt="Marriott">
+                                <div>
+                                    <h4>Marriott Grand Hotel Moscow <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Hôtel 4 étoiles situé au cœur de Moscou, à proximité du Kremlin. Chambres élégantes, spa, restaurant panoramique.</p>
+                                </div>
+                            </div>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=200" alt="Corinthia">
+                                <div>
+                                    <h4>Corinthia Hotel St Petersburg <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Hôtel de prestige sur le Nevsky Prospekt. Architecture néoclassique, chambres luxueuses, spa, restaurants gastronomiques.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-russie-dates">
+                            <h2>Dates de Départ 2026</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Mai - Juin 2026</h4>
+                                <p>Départs garantis : 9, 16, 23, 30 mai | 6, 13, 20, 27 juin 2026. Nuits blanches à Saint-Pétersbourg en juin.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Juillet - Août 2026</h4>
+                                <p>Départs garantis : 4, 11, 18, 25 juillet | 1, 8, 15, 22 août 2026. Haute saison - réserver 60 jours à l'avance.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Septembre - Octobre 2026</h4>
+                                <p>Départs garantis : 5, 12, 19, 26 septembre | 3, 10, 17 octobre 2026. Meilleure période pour les couleurs automnales.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-info-circle"></i> Conditions de Réservation</h4>
+                                <p>Acompte de 40% à la réservation (visa russe requiert des délais). Solde à payer 45 jours avant le départ. Dossier visa à constituer 60 jours avant le départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big">329 000 DA</div>
+                                <div class="price-note">par adulte en chambre double</div>
+                                <div class="price-child">Enfant (2-12 ans) : 263 200 DA</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20suis%20interesse%20par%20le%20circuit%20Russie" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Questions WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Informations Pratiques</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-passport"></i> Visa russe requis (assistance dossier)</li>
+                                <li><i class="fas fa-suitcase"></i> Bagage 30kg inclus</li>
+                                <li><i class="fas fa-users"></i> Groupe de 10-18 personnes</li>
+                                <li><i class="fas fa-language"></i> Assistance francophone 24h/24</li>
+                                <li><i class="fas fa-train"></i> Train Sapsan inclus</li>
+                                <li><i class="fas fa-ship"></i> Croisière Neva incluse</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Galerie Photos</h3>
+                            <div class="gallery-grid">
+                                <img src="https://images.unsplash.com/photo-1527838832700-505925240ea8?w=300" alt="Russie 1">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300" alt="Russie 2">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300" alt="Russie 3">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Russie 4">
+                                <img src="https://images.unsplash.com/photo-1540206395-688085723adb?w=300" alt="Russie 5">
+                                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=300" alt="Russie 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-turquie">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Séjour Istanbul</h1>
+                <p class="subtitle">Entre deux continents - Histoire, culture et gastronomie</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-calendar"></i> 7 nuits / 8 jours</div>
+                    <div class="meta-item"><i class="fas fa-plane"></i> Turkish Airlines</div>
+                    <div class="meta-item"><i class="fas fa-hotel"></i> Hôtel 4★</div>
+                    <div class="meta-item"><i class="fas fa-utensils"></i> Petit-déjeuner inclus</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('turquie-programme')">Programme</button>
+                            <button class="tab-btn" onclick="showTab('turquie-inclus')">Inclus</button>
+                            <button class="tab-btn" onclick="showTab('turquie-hotels')">Hôtels</button>
+                            <button class="tab-btn" onclick="showTab('turquie-dates')">Dates</button>
+                        </div>
+                        <div class="tab-content active" id="tab-turquie-programme">
+                            <h2>Programme Détaillé</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-arrival"></i> Jour 1 : Arrivée à Istanbul</h4>
+                                <p>Accueil à l'aéroport d'Istanbul et transfert vers l'hôtel Radisson Blu Sisli 4★. Dîner libre dans le quartier animé de Taksim.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-mosque"></i> Jour 2 : Sultanahmet - Cœur Historique</h4>
+                                <p>Visite de la Mosquée Bleue, Sainte-Sophie (Hagia Sophia), le Palais Topkapi et l'Hippodrome. Déjeuner dans un restaurant ottoman traditionnel.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-ship"></i> Jour 3 : Croisière Bosphore & Palais</h4>
+                                <p>Croisière sur le Bosphore entre l'Europe et l'Asie. Visite du Palais Dolmabahce. Tour de Galata et vue panoramique.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-shopping-bag"></i> Jour 4 : Grand Bazar & Spice Market</h4>
+                                <p>Journée shopping et découverte : Grand Bazar (4000 boutiques), Marché aux Épices, quartier de Beyoglu. Option hammam turc traditionnel.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-mountain"></i> Jour 5 : Excursion Bursa (Optionnel)</h4>
+                                <p>Option excursion à Bursa (traversée en ferry) : mosquée Verte, téléphérique Uludag. Déjeuner kebab iskender.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-palette"></i> Jour 6 : Art & Culture Istanbul</h4>
+                                <p>Visite du musée de l'innocence, quartier Balat (maisons colorées), cimetière d'Eyup et vue depuis la colline de Pierre Loti.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-spa"></i> Jour 7 : Détente & Derniers Achats</h4>
+                                <p>Journée libre. Option hammam historique. Derniers achats sur Istiklal Caddesi. Dîner d'adieu avec spectacle de danse du ventre (option).</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-departure"></i> Jour 8 : Départ</h4>
+                                <p>Transfert à l'aéroport et vol retour avec Turkish Airlines. Arrivée à Alger.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-turquie-inclus">
+                            <h2>Le Prix Comprend</h2>
+                            <ul>
+                                <li>Billet d'avion aller-retour Alger - Istanbul avec Turkish Airlines</li>
+                                <li>Hébergement : 7 nuits à l'hôtel Radisson Blu Sisli 4★ en chambre double</li>
+                                <li>Petit-déjeuner quotidien</li>
+                                <li>Transferts aéroport - hôtel - aéroport</li>
+                                <li>Croisière sur le Bosphore incluse</li>
+                                <li>Visites guidées selon programme avec guide francophone</li>
+                                <li>Assistance durant tout le séjour</li>
+                            </ul>
+                            <h3>Non Inclus</h3>
+                            <ul>
+                                <li>Visa Turquie (non requis pour les détenteurs de passeport algérien - séjour 90 jours)</li>
+                                <li>Déjeuners et dîners (sauf mentionnés)</li>
+                                <li>Boissons et dépenses personnelles</li>
+                                <li>Assurance voyage (recommandée)</li>
+                                <li>Excursion optionnelle à Bursa</li>
+                                <li>Hammam et spectacles optionnels</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-turquie-hotels">
+                            <h2>Nos Hôtels Partenaires</h2>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=200" alt="Radisson">
+                                <div>
+                                    <h4>Radisson Blu Hotel Sisli <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Hôtel 4 étoiles moderne au cœur du quartier d'affaires de Sisli. Chambres contemporaines, spa, piscine intérieure, restaurant panoramique.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-turquie-dates">
+                            <h2>Dates de Départ 2026</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Toute l'année 2026</h4>
+                                <p>Départs garantis toutes les semaines. Vols Turkish Airlines quotidiens Alger - Istanbul. Réserver 30 jours à l'avance pour les meilleurs tarifs.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-info-circle"></i> Conditions de Réservation</h4>
+                                <p>Acompte de 25% à la réservation. Solde à payer 21 jours avant le départ. Annulation gratuite jusqu'à 30 jours avant le départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big">115 000 DA</div>
+                                <div class="price-note">par adulte en chambre double</div>
+                                <div class="price-child">Enfant (2-12 ans) : 92 000 DA</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20suis%20interesse%20par%20le%20sejour%20Istanbul" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Questions WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Informations Pratiques</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-passport"></i> Pas de visa requis (90 jours)</li>
+                                <li><i class="fas fa-suitcase"></i> Bagage 30kg inclus</li>
+                                <li><i class="fas fa-users"></i> Groupe de 10-25 personnes</li>
+                                <li><i class="fas fa-language"></i> Guide francophone</li>
+                                <li><i class="fas fa-plane"></i> Vols Turkish Airlines</li>
+                                <li><i class="fas fa-ship"></i> Croisière Bosphore incluse</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Galerie Photos</h3>
+                            <div class="gallery-grid">
+                                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=300" alt="Turquie 1">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300" alt="Turquie 2">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300" alt="Turquie 3">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Turquie 4">
+                                <img src="https://images.unsplash.com/photo-1540206395-688085723adb?w=300" alt="Turquie 5">
+                                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=300" alt="Turquie 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-tunisie">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Séjour Tunisie</h1>
+                <p class="subtitle">Hammamet & Djerba - Soleil, mer et traditions</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-calendar"></i> 7 nuits / 8 jours</div>
+                    <div class="meta-item"><i class="fas fa-plane"></i> Avion ou Bus</div>
+                    <div class="meta-item"><i class="fas fa-hotel"></i> Hôtel 4★ All Inclusive</div>
+                    <div class="meta-item"><i class="fas fa-utensils"></i> Tout compris</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('tunisie-programme')">Programme</button>
+                            <button class="tab-btn" onclick="showTab('tunisie-inclus')">Inclus</button>
+                            <button class="tab-btn" onclick="showTab('tunisie-hotels')">Hôtels</button>
+                            <button class="tab-btn" onclick="showTab('tunisie-dates')">Dates</button>
+                        </div>
+                        <div class="tab-content active" id="tab-tunisie-programme">
+                            <h2>Programme Détaillé</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-arrival"></i> Jour 1 : Arrivée</h4>
+                                <p>Accueil à l'aéroport d'Enfidha (ou gare routière) et transfert vers l'hôtel. Installation en chambre tout confort. Dîner buffet de bienvenue.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-umbrella-beach"></i> Jour 2-6 : Détente & Activités</h4>
+                                <p>Journées libres à profiter de la plage, de la piscine et des animations de l'hôtel. Activités incluses : aquagym, beach-volley, mini-golf, club enfant.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-ship"></i> Jour 7 : Excursion & Souvenirs</h4>
+                                <p>Excursion à la médina de Tunis (option) ou journée libre pour derniers achats : poterie de Nabeul, tapis berbères, huile d'olive, dattes de Deglet Nour.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-plane-departure"></i> Jour 8 : Départ</h4>
+                                <p>Transfert à l'aéroport ou gare routière. Retour à Alger.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-tunisie-inclus">
+                            <h2>Le Prix Comprend</h2>
+                            <ul>
+                                <li>Transport aller-retour Alger - Tunisie (avion ou bus climatisé)</li>
+                                <li>Hébergement : 7 nuits en hôtel 4★ All Inclusive</li>
+                                <li>Petit-déjeuner, déjeuner et dîner buffet</li>
+                                <li>Boissons locales incluses (soft, bière, vin)</li>
+                                <li>Transferts aéroport/gare - hôtel - aéroport/gare</li>
+                                <li>Animations et activités de l'hôtel</li>
+                                <li>Club enfant (4-12 ans)</li>
+                                <li>Assistance durant tout le séjour</li>
+                            </ul>
+                            <h3>Non Inclus</h3>
+                            <ul>
+                                <li>Excursions optionnelles (Carthage, désert, etc.)</li>
+                                <li>Boissons importées et cocktails</li>
+                                <li>Dépenses personnelles et pourboires</li>
+                                <li>Assurance voyage (recommandée)</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-tunisie-hotels">
+                            <h2>Nos Hôtels Partenaires</h2>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=200" alt="Hammamet">
+                                <div>
+                                    <h4>Hotel Bel Azur Thalasso & Spa <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Resort 4 étoiles à Hammamet en bord de mer. Chambres avec vue mer ou jardin, piscine extérieure, spa thalasso, restaurants buffet et à la carte.</p>
+                                </div>
+                            </div>
+                            <div class="hotel-card">
+                                <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=200" alt="Djerba">
+                                <div>
+                                    <h4>Djerba Plaza Hotel & Spa <span class="stars-small"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></h4>
+                                    <p>Hôtel 4 étoiles sur l'île de Djerba. Plage privée, piscine lagoon, spa, restaurants thématiques, discothèque. Ambiance festive et familiale.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-tunisie-dates">
+                            <h2>Dates de Départ 2026</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-calendar-check"></i> Juin - Septembre 2026</h4>
+                                <p>Départs hebdomadaires tous les samedis. Option avion (1h) ou bus (12h). Tarifs spéciaux famille et groupes.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-info-circle"></i> Conditions de Réservation</h4>
+                                <p>Acompte de 20% à la réservation. Solde à payer 15 jours avant le départ. Annulation gratuite jusqu'à 21 jours avant le départ.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big">41 900 DA</div>
+                                <div class="price-note">par adulte en chambre double (bus)</div>
+                                <div class="price-child" style="margin-top:5px; font-size:0.85rem;">À partir de 59 900 DA (avion)</div>
+                                <div class="price-child">Enfant (2-12 ans) : 33 520 DA (bus)</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20suis%20interesse%20par%20le%20sejour%20Tunisie" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Questions WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Informations Pratiques</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-passport"></i> Pas de visa requis</li>
+                                <li><i class="fas fa-bus"></i> Option bus ou avion</li>
+                                <li><i class="fas fa-users"></i> Adapté familles & groupes</li>
+                                <li><i class="fas fa-utensils"></i> Formule All Inclusive</li>
+                                <li><i class="fas fa-child"></i> Club enfant gratuit</li>
+                                <li><i class="fas fa-cocktail"></i> Boissons locales incluses</li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Galerie Photos</h3>
+                            <div class="gallery-grid">
+                                <img src="https://images.unsplash.com/photo-1553603227-2358aabe821e?w=300" alt="Tunisie 1">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=300" alt="Tunisie 2">
+                                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=300" alt="Tunisie 3">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=300" alt="Tunisie 4">
+                                <img src="https://images.unsplash.com/photo-1540206395-688085723adb?w=300" alt="Tunisie 5">
+                                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=300" alt="Tunisie 6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offer-detail" id="offer-custom">
+        <div class="offer-detail-header">
+            <div class="container">
+                <a href="#" class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Retour aux offres</a>
+                <h1>Voyage sur Mesure</h1>
+                <p class="subtitle">Votre voyage, à votre image - Europe, Asie, Amériques & plus</p>
+                <div class="meta">
+                    <div class="meta-item"><i class="fas fa-globe"></i> Toutes destinations</div>
+                    <div class="meta-item"><i class="fas fa-calendar"></i> Durée flexible</div>
+                    <div class="meta-item"><i class="fas fa-users"></i> Groupe privé</div>
+                    <div class="meta-item"><i class="fas fa-euro-sign"></i> Sur devis</div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-content-detail">
+            <div class="container">
+                <div class="offer-grid-detail">
+                    <div class="offer-main">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" onclick="showTab('custom-concept')">Notre Concept</button>
+                            <button class="tab-btn" onclick="showTab('custom-destinations')">Destinations</button>
+                            <button class="tab-btn" onclick="showTab('custom-processus')">Processus</button>
+                            <button class="tab-btn" onclick="showTab('custom-exemples')">Exemples</button>
+                        </div>
+                        <div class="tab-content active" id="tab-custom-concept">
+                            <h2>Votre Voyage, Vos Règles</h2>
+                            <p>Chez Light Lines, nous croyons que chaque voyageur est unique. C'est pourquoi nous proposons des voyages entièrement personnalisés, conçus sur mesure selon vos envies, votre budget et votre rythme.</p>
+                            <p>Que vous rêviez d'un road trip en Europe, d'une lune de miel aux Maldives, d'un safari en Afrique ou d'un tour du monde, notre équipe d'experts met son savoir-faire à votre service.</p>
+                            <h3>Pourquoi choisir un voyage sur mesure ?</h3>
+                            <ul>
+                                <li><strong>Flexibilité totale</strong> : Choisissez vos dates, votre durée, vos destinations</li>
+                                <li><strong>Itinéraire personnalisé</strong> : Activités adaptées à vos intérêts (culture, aventure, détente, gastronomie)</li>
+                                <li><strong>Hébergement sur mesure</strong> : Hôtels de luxe, riads, lodges, appartements selon vos préférences</li>
+                                <li><strong>Budget maîtrisé</strong> : De l'économique au luxe, nous adaptons chaque détail à votre enveloppe</li>
+                                <li><strong>Accompagnement dédié</strong> : Un conseiller personnel vous suit de la conception au retour</li>
+                                <li><strong>Groupes privés</strong> : Voyagez en famille, entre amis ou en couple sans inconnu</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content" id="tab-custom-destinations">
+                            <h2>Nos Destinations Sur Mesure</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-globe-europe"></i> Europe</h4>
+                                <p>France, Italie, Espagne, Portugal, Grèce, Croatie, Suisse, Pays-Bas, Scandinavie, Europe de l'Est. Circuits culturels, gastronomiques, balnéaires ou montagne.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-globe-asia"></i> Asie</h4>
+                                <p>Thaïlande, Vietnam, Japon, Corée du Sud, Inde, Sri Lanka, Maldives, Bali, Émirats Arabes Unis. Mille et une nuits entre tradition et modernité.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-globe-africa"></i> Afrique</h4>
+                                <p>Maroc, Égypte, Kenya, Tanzanie, Afrique du Sud, Maurice, Seychelles. Safari, plages paradisiaques, civilisations anciennes.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-globe-americas"></i> Amériques</h4>
+                                <p>États-Unis, Canada, Mexique, Brésil, Pérou, Argentine, Chili. Road trips, nature grandiose, cultures vibrantes.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-custom-processus">
+                            <h2>Comment ça marche ?</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-comments"></i> Étape 1 : Consultation Gratuite</h4>
+                                <p>Contactez-nous par email ou via le formulaire de devis. Décrivez-nous votre projet de voyage : destinations rêvées, budget, dates, nombre de voyageurs, envies particulières.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-pen-fancy"></i> Étape 2 : Proposition Personnalisée</h4>
+                                <p>Notre équipe d'experts prépare un itinéraire détaillé sous 48h avec : vols, hébergements, transferts, activités et budget précis. Vous pouvez modifier chaque détail.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-check-circle"></i> Étape 3 : Validation & Réservation</h4>
+                                <p>Une fois le programme validé, nous procédons aux réservations. Vous recevez tous vos documents de voyage : billets, vouchers, guide pratique et contacts d'urgence.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-headset"></i> Étape 4 : Assistance 24h/24</h4>
+                                <p>Pendant votre voyage, notre équipe reste joignable 24h/24 pour toute question ou imprévu. Voyagez l'esprit tranquille avec Light Lines.</p>
+                            </div>
+                        </div>
+                        <div class="tab-content" id="tab-custom-exemples">
+                            <h2>Exemples de Voyages Sur Mesure</h2>
+                            <div class="day-card">
+                                <h4><i class="fas fa-heart"></i> Lune de Miel aux Maldives</h4>
+                                <p>7 nuits dans un bungalow sur pilotis, pension complète, spa couple, croisière dauphins, dîner romantique sur la plage. À partir de 450 000 DA/personne.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-car"></i> Road Trip Côte Amalfitaine</h4>
+                                <p>10 jours en Italie : Rome, Naples, Côte Amalfitaine, Capri. Location de voiture, hôtels boutique, cours de cuisine napolitaine. À partir de 280 000 DA/personne.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-paw"></i> Safari Kenya & Tanzanie</h4>
+                                <p>12 jours : Nairobi, Masai Mara, Serengeti, Ngorongoro. Lodges de luxe, safaris en 4x4, rencontre avec les Masais. À partir de 520 000 DA/personne.</p>
+                            </div>
+                            <div class="day-card">
+                                <h4><i class="fas fa-torii-gate"></i> Japon Tradition & Modernité</h4>
+                                <p>14 jours : Tokyo, Kyoto, Osaka, Nara, Mont Fuji. Shinkansen, ryokan traditionnel, cours de thé, temple bouddhique. À partir de 380 000 DA/personne.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-sidebar">
+                        <div class="sidebar-card">
+                            <div class="price-box">
+                                <div class="price-big" style="font-size:1.8rem;">Sur Devis</div>
+                                <div class="price-note">personnalisé selon votre projet</div>
+                            </div>
+                            <button class="sidebar-btn sidebar-btn-primary" onclick="showPage('home'); setTimeout(()=>{document.getElementById('devis').scrollIntoView({behavior:'smooth'})},100)">
+                                <i class="fas fa-paper-plane"></i> Demander un Devis
+                            </button>
+                            <a href="https://wa.me/213554141669?text=Bonjour%20je%20souhaite%20un%20voyage%20sur%20mesure" class="sidebar-btn sidebar-btn-outline" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Discuter sur WhatsApp
+                            </a>
+                        </div>
+                        <div class="sidebar-card">
+                            <h3>Pourquoi Light Lines ?</h3>
+                            <ul class="info-list">
+                                <li><i class="fas fa-check"></i> Expertise depuis 8 ans</li>
+                                <li><i class="fas fa-check"></i> Partenaires locaux fiables</li>
+                                <li><i class="fas fa-check"></i> Prix compétitifs garantis</li>
+                                <li><i class="fas fa-check"></i> Assistance 24h/24</li>
+                                <li><i class="fas fa-check"></i> Paiement échelonné possible</li>
+                                <li><i class="fas fa-check"></i> Assurance voyage partenaire</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function showPage(page) {
+            document.querySelectorAll('.offer-detail').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            if (page === 'home') {
+                document.getElementById('page-home').style.display = 'block';
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        function showOffer(offerId) {
+            document.getElementById('page-home').style.display = 'none';
+            document.querySelectorAll('.offer-detail').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            var offerElement = document.getElementById('offer-' + offerId);
+            if (offerElement) offerElement.classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function showTab(tabId) {
+            var clickedBtn = event.target;
+            var parent = clickedBtn.closest('.offer-main');
+            if (!parent) return;
+            parent.querySelectorAll('.tab-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            parent.querySelectorAll('.tab-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            clickedBtn.classList.add('active');
+            var tabContent = document.getElementById('tab-' + tabId);
+            if (tabContent) tabContent.classList.add('active');
+        }
+
+        function scrollToSection(id) {
+            showPage('home');
+            setTimeout(function() {
+                var el = document.getElementById(id);
+                if (el) el.scrollIntoView({behavior: 'smooth'});
+            }, 100);
+        }
+
+        function changeLang(lang) {
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            alert('Changement de langue : ' + lang.toUpperCase() + ' - Cette fonctionnalité sera bientôt disponible !');
+        }
+
+        // Fade in animation on scroll
+        var observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            var counters = document.querySelectorAll('.stat-number');
+            counters.forEach(function(counter) {
+                var target = parseInt(counter.getAttribute('data-count'));
+                var duration = 2000;
+                var step = target / (duration / 16);
+                var current = 0;
+                function updateCounter() {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                }
+                updateCounter();
+            });
+        }
+
+        var statsObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.5});
+
+        var statsSection = document.querySelector('.stats');
+        if (statsSection) statsObserver.observe(statsSection);
+
+        // Modal functions
+        function showModal() {
+            document.getElementById('successModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Form submission handling
+        var devisForm = document.getElementById('devisForm');
+        if (devisForm) {
+            devisForm.addEventListener('submit', function(e) {
+                setTimeout(function() {
+                    showModal();
+                }, 1000);
+            });
+        }
+
+        // Update service details in form
+        function updateServiceDetails() {
+            var select = document.getElementById('serviceSelect');
+            var visaRow = document.getElementById('visaTypeRow');
+            var rdvRow = document.getElementById('rdvTypeRow');
+            if (select.value === 'visa') {
+                visaRow.style.display = 'grid';
+                rdvRow.style.display = 'none';
+            } else if (select.value === 'rdv') {
+                visaRow.style.display = 'none';
+                rdvRow.style.display = 'grid';
+            } else {
+                visaRow.style.display = 'none';
+                rdvRow.style.display = 'none';
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    var target = document.querySelector(href);
+                    if (target) target.scrollIntoView({behavior: 'smooth'});
+                }
+            });
+        });
+
+        // Close modal on outside click
+        var modal = document.getElementById('successModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        }
+
+        // Navbar hide/show on scroll direction
+        var lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            var currentScroll = window.pageYOffset;
+            var navbar = document.getElementById('navbar');
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
