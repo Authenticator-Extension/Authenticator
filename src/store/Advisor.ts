@@ -96,7 +96,7 @@ export class Advisor implements Module {
         ) => {
           context.commit("pushIgnore", insightId);
           UserSettings.items.advisorIgnoreList = context.state.ignoreList;
-          UserSettings.commitItems();
+          await UserSettings.commitItems();
 
           context.commit("setInsights", await this.getInsights());
         },
@@ -105,7 +105,7 @@ export class Advisor implements Module {
         ) => {
           context.commit("setIgnoreList", []);
           UserSettings.items.advisorIgnoreList = undefined;
-          UserSettings.commitItems();
+          await UserSettings.commitItems();
 
           context.commit("setInsights", await this.getInsights());
         },
