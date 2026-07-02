@@ -33,6 +33,9 @@ export class KeyUtilities {
         padding++;
       } else {
         const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
+        if (val === -1) {
+          throw new Error("Invalid Base32 string");
+        }
         bits += val.toString(2).padStart(5, "0");
       }
     }
