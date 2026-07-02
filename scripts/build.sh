@@ -19,7 +19,7 @@ if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM !
 fi
 
 echo "Removing old build files..."
-rm -rf build dist
+rm -rf build js
 rm -rf firefox chrome edge release test
 echo "Checking style..."
 if ./node_modules/.bin/prettier --check $STYLEFILES 1> /dev/null ; then
@@ -70,7 +70,7 @@ fi
 
 postCompile () {
     mkdir $1
-    cp -r dist css images _locales LICENSE view $1
+    cp -r js css images _locales LICENSE view $1
 
     if [[ $PLATFORM == "test" ]]; then
         cp manifests/manifest-$1-testing.json $1/manifest.json

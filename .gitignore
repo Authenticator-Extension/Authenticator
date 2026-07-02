@@ -3,7 +3,7 @@ build
 chrome*
 firefox*
 edge*
-dist
+js
 .vscode
 .atom-build.yml
 scripts/authenticator-build-key.enc

@@ -176,7 +176,7 @@ export default defineComponent({
       if (okToInjectContentScript(tab)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
-          files: ["/dist/content.js"],
+          files: ["/js/content.js"],
         });
         await chrome.scripting.insertCSS({
           target: { tabId: tab.id },

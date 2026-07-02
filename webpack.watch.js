@@ -32,7 +32,7 @@ module.exports = merge(dev, {
     ignored: /node_modules/
   },
   output: {
-    path: path.resolve(__dirname, 'test/chrome/dist'),
-    publicPath: '/test/chrome/dist/'
+    path: path.resolve(__dirname, 'test/chrome/js'),
+    publicPath: '/test/chrome/js/'
   }
 });

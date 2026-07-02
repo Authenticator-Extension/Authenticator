@@ -42,7 +42,7 @@
         ]
     },
     "background": {
-        "service_worker": "dist/background.js"
+        "service_worker": "js/background.js"
     },
     "sandbox": {
         "pages": [
