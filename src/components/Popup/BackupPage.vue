@@ -169,59 +169,6 @@
           </svg>
         </div>
 
-        <div class="backup-row" v-on:click="showInfo('DrivePage')">
-          <div
-            class="cloud-chip"
-            style="background: var(--row); border: 1px solid var(--border)"
-          >
-            <svg viewBox="0 0 87 78">
-              <path
-                fill="#0066da"
-                d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z"
-              ></path>
-              <path
-                fill="#00ac47"
-                d="M43.65 25L29.9 1.2c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0-1.2 4.5h27.5z"
-              ></path>
-              <path
-                fill="#ea4335"
-                d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75L86.8 57.1c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z"
-              ></path>
-              <path
-                fill="#00832d"
-                d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.9 0H34.4c-1.6 0-3.15.45-4.5 1.2z"
-              ></path>
-              <path
-                fill="#2684fc"
-                d="M59.8 53H27.5L13.75 76.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z"
-              ></path>
-              <path
-                fill="#ffba00"
-                d="M73.4 26.5l-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3L43.65 25l16.15 28h27.45c0-1.55-.4-3.1-1.2-4.5z"
-              ></path>
-            </svg>
-          </div>
-          <div class="backup-row-text">
-            <div class="backup-row-title">Google Drive</div>
-            <div class="backup-row-sub" :class="{ connected: driveToken }">
-              {{
-                driveToken ? i18n.backup_connected : i18n.backup_not_connected
-              }}
-            </div>
-          </div>
-          <svg
-            class="backup-chevron"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <polyline points="9 6 15 12 9 18"></polyline>
-          </svg>
-        </div>
-
         <div class="backup-row disabled">
           <div class="cloud-chip" style="background: oklch(0.6 0.14 230)">
             <svg viewBox="0 0 24 24" fill="#fff">
@@ -290,9 +237,6 @@ export default defineComponent({
     dropboxToken: function () {
       return this.$store.state.backup.dropboxToken;
     },
-    driveToken: function () {
-      return this.$store.state.backup.driveToken;
-    },
     oneDriveToken: function () {
       return this.$store.state.backup.oneDriveToken;
     },
@@ -307,23 +251,6 @@ export default defineComponent({
               this.$store.commit("style/showInfo");
               this.$store.commit("currentView/changeView", tab);
             }
-          }
-        );
-        return;
-      } else if (tab === "DrivePage") {
-        chrome.permissions.request(
-          {
-            origins: [
-              "https://www.googleapis.com/*",
-              "https://accounts.google.com/o/oauth2/revoke",
-            ],
-          },
-          async (granted) => {
-            if (granted) {
-              this.$store.commit("style/showInfo");
-              this.$store.commit("currentView/changeView", tab);
-            }
-            return;
           }
         );
         return;

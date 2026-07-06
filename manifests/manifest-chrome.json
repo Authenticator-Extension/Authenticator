@@ -35,12 +35,6 @@
     "storage": {
         "managed_schema": "schema.json"
     },
-    "oauth2": {
-        "client_id": "593829937694-vmijc4tj4q3j0oss6dpilv5o2e3d2jbo.apps.googleusercontent.com",
-        "scopes": [
-            "https://www.googleapis.com/auth/drive.file"
-        ]
-    },
     "background": {
         "service_worker": "js/background.js"
     },

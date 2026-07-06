@@ -16,7 +16,7 @@ import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
 import { Advisor } from "./store/Advisor";
-import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { Dropbox, OneDrive } from "./models/backup";
 import { syncTimeWithGoogle } from "./syncTime";
 import { StorageLocation, UserSettings } from "./models/settings";
 
@@ -234,49 +234,6 @@ async function runScheduledBackup(
               );
               UserSettings.items.dropboxRevoked = undefined;
               UserSettings.removeItem("dropboxRevoked");
-            }
-          } catch (error) {
-            // a failed scheduled backup shouldn't be completely silent
-            console.error("Scheduled backup failed", error);
-          }
-        }
-        instance.$store.commit(
-          "notification/alert",
-          instance.i18n.remind_backup
-        );
-        UserSettings.items.lastRemindingBackupTime = clientTime;
-        UserSettings.commitItems();
-      }
-    );
-  }
-  if (instance.$store.state.backup.driveToken) {
-    chrome.permissions.contains(
-      {
-        origins: [
-          "https://www.googleapis.com/*",
-          "https://accounts.google.com/o/oauth2/revoke",
-        ],
-      },
-      async (hasPermission) => {
-        if (hasPermission) {
-          try {
-            const drive = new Drive();
-            const res = await drive.upload(
-              instance.$store.state.accounts.encryption.get(
-                instance.$store.state.accounts.defaultEncryption
-              )
-            );
-            if (res) {
-              UserSettings.items.lastRemindingBackupTime = clientTime;
-              UserSettings.commitItems();
-              return;
-            } else if (UserSettings.items.driveRevoked === true) {
-              instance.$store.commit(
-                "notification/alert",
-                chrome.i18n.getMessage("token_revoked", ["Google Drive"])
-              );
-              UserSettings.items.driveRevoked = undefined;
-              UserSettings.removeItem("driveRevoked");
             }
           } catch (error) {
             // a failed scheduled backup shouldn't be completely silent

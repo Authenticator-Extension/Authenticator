@@ -1,7 +1,7 @@
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
-import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { Dropbox, OneDrive } from "./models/backup";
 import {
   getSiteName,
   getMatchedEntries,
@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       });
       chrome.alarms.clear("autolock");
       setAutolock();
-    } else if (["dropbox", "drive", "onedrive"].indexOf(message.action) > -1) {
+    } else if (["dropbox", "onedrive"].indexOf(message.action) > -1) {
       getBackupToken(message.action);
     } else if (message.action === "lock") {
       chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
@@ -291,59 +291,138 @@ async function getTotp(
   }
 }
 
-function getBackupToken(service: string) {
-  {
-    let authUrl = "";
-    let redirUrl = "";
-    if (service === "dropbox") {
-      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
-      authUrl =
-        "https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=" +
-        getCredentials().dropbox.client_id +
-        "&redirect_uri=" +
-        redirUrl;
-    } else if (service === "drive") {
-      // The fork has no authenticator.cc redirect handler, and getAuthToken is
-      // blocked for new OAuth clients (custom-URI-scheme restriction), so Drive
-      // uses launchWebAuthFlow with the extension's own chromiumapp.org redirect.
-      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
+// Generate a PKCE code_verifier (43+ random URL-safe chars) and its
+// code_challenge (base64url-encoded SHA-256 of the verifier).
+async function generatePkce(): Promise<{
+  codeVerifier: string;
+  codeChallenge: string;
+}> {
+  const array = new Uint8Array(48);
+  crypto.getRandomValues(array);
+  // base64url-encode the random bytes for the verifier
+  const codeVerifier = btoa(String.fromCharCode(...array))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "");
 
-      authUrl =
-        "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
-        getCredentials().drive.client_id +
-        "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" +
-        redirUrl;
-    } else if (service === "onedrive") {
-      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
-      authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
-        getCredentials().onedrive.client_id
-      }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
-        UserSettings.items.oneDriveBusiness !== true ? ".AppFolder" : ""
-      }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
-    }
+  const encoder = new TextEncoder();
+  const data = encoder.encode(codeVerifier);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  const codeChallenge = btoa(String.fromCharCode(...new Uint8Array(digest)))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=/g, "");
+
+  return { codeVerifier, codeChallenge };
+}
+
+function getBackupToken(service: string) {
+  if (service === "dropbox") {
+    // Upgrade from implicit flow to Authorization Code + PKCE (no secret).
+    void (async () => {
+      const { codeVerifier, codeChallenge } = await generatePkce();
+      const redirUrl = chrome.identity.getRedirectURL();
+      const authUrl =
+        "https://www.dropbox.com/oauth2/authorize" +
+        "?response_type=code" +
+        "&client_id=" +
+        encodeURIComponent(getCredentials().dropbox.client_id) +
+        "&redirect_uri=" +
+        encodeURIComponent(redirUrl) +
+        "&code_challenge=" +
+        encodeURIComponent(codeChallenge) +
+        "&code_challenge_method=S256" +
+        "&token_access_type=offline";
+
+      chrome.identity.launchWebAuthFlow(
+        { url: authUrl, interactive: true },
+        async (redirectedTo) => {
+          if (!redirectedTo) {
+            chrome.runtime
+              .sendMessage({ action: "dropboxauthdone" })
+              .catch(() => undefined);
+            return;
+          }
+          // Authorization Code is in the query string: ?code=...
+          let code: string | undefined;
+          try {
+            const parsedUrl = new URL(redirectedTo);
+            code = parsedUrl.searchParams.get("code") ?? undefined;
+          } catch {
+            /* invalid URL — fall through */
+          }
+          if (!code) {
+            chrome.runtime
+              .sendMessage({ action: "dropboxauthdone" })
+              .catch(() => undefined);
+            return;
+          }
+
+          // Exchange code for tokens (PKCE — no client_secret)
+          try {
+            const response = await fetch(
+              "https://api.dropboxapi.com/oauth2/token",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body:
+                  "code=" +
+                  encodeURIComponent(code) +
+                  "&code_verifier=" +
+                  encodeURIComponent(codeVerifier) +
+                  "&client_id=" +
+                  encodeURIComponent(getCredentials().dropbox.client_id) +
+                  "&redirect_uri=" +
+                  encodeURIComponent(redirUrl) +
+                  "&grant_type=authorization_code",
+              }
+            );
+            const res = await response.json();
+            if (res.error) {
+              console.error(res.error_description);
+            } else {
+              UserSettings.items.dropboxToken = res.access_token;
+              UserSettings.items.dropboxRefreshToken = res.refresh_token;
+              UserSettings.items.dropboxRevoked = false;
+              await UserSettings.commitItems();
+              uploadBackup("dropbox");
+            }
+          } catch (error) {
+            console.error(error);
+          }
+          chrome.runtime
+            .sendMessage({ action: "dropboxauthdone" })
+            .catch(() => undefined);
+        }
+      );
+    })();
+    return;
+  }
+
+  if (service === "onedrive") {
+    const redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
+    const authUrl = `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${
+      getCredentials().onedrive.client_id
+    }&response_type=code&redirect_uri=${redirUrl}&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
+      UserSettings.items.oneDriveBusiness !== true ? ".AppFolder" : ""
+    }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access&response_mode=query&prompt=consent`;
+
     chrome.identity.launchWebAuthFlow(
       { url: authUrl, interactive: true },
       async (url) => {
         if (!url) {
-          // auth window was closed/cancelled — let an open popup reset its UI
           chrome.runtime
-            .sendMessage({ action: `${service}authdone` })
+            .sendMessage({ action: "onedriveauthdone" })
             .catch(() => undefined);
           return;
         }
-        let hashMatches = url.split("#");
-        if (service === "drive") {
-          hashMatches = url.slice(0, -1).split("?");
-        } else if (service === "onedrive") {
-          hashMatches = url.split("?");
-        }
-
+        const hashMatches = url.split("?");
         if (hashMatches.length < 2) {
           return;
         }
-
         const hash = hashMatches[1];
-
         const resData = hash.split("&");
         for (let i = 0; i < resData.length; i++) {
           const kv = resData[i];
@@ -354,67 +433,8 @@ function getBackupToken(service: string) {
             }
             const key = kvMatches[1];
             const value = kvMatches[2];
-            if (key === "access_token") {
-              if (service === "dropbox") {
-                UserSettings.items.dropboxToken = value;
-                UserSettings.commitItems();
-                // tell an open popup the connection finished so it can leave
-                // the sign-in view and stop the connecting indicator.
-                chrome.runtime
-                  .sendMessage({ action: "dropboxauthdone" })
-                  .catch(() => undefined);
-                uploadBackup("dropbox");
-                return;
-              }
-            } else if (key === "code") {
-              if (service === "drive") {
-                let success = false;
-
-                const response = await fetch(
-                  "https://www.googleapis.com/oauth2/v4/token?client_id=" +
-                    getCredentials().drive.client_id +
-                    "&client_secret=" +
-                    getCredentials().drive.client_secret +
-                    "&code=" +
-                    value +
-                    "&redirect_uri=" +
-                    redirUrl +
-                    "&grant_type=authorization_code",
-                  {
-                    method: "POST",
-                    headers: {
-                      Accept: "application/json",
-                      "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                  }
-                );
-
-                try {
-                  const res = await response.json();
-
-                  if (res.error) {
-                    console.error(res.error_description);
-                  } else {
-                    UserSettings.items.driveToken = res.access_token;
-                    UserSettings.items.driveRefreshToken = res.refresh_token;
-                    UserSettings.commitItems();
-                    success = true;
-                  }
-                } catch (error) {
-                  console.error(error);
-                  throw error;
-                }
-
-                chrome.runtime
-                  .sendMessage({ action: "driveauthdone" })
-                  .catch(() => undefined);
-                uploadBackup("drive");
-                return success;
-              } else if (service === "onedrive") {
-                // Need to trade code we got from launchWebAuthFlow for a
-                // token & refresh token
-                let success = false;
-
+            if (key === "code") {
+              try {
                 const response = await fetch(
                   "https://login.microsoftonline.com/common/oauth2/v2.0/token",
                   {
@@ -423,9 +443,6 @@ function getBackupToken(service: string) {
                       Accept: "application/json",
                       "Content-Type": "application/x-www-form-urlencoded",
                     },
-                    // Microsoft's token endpoint requires the parameters in the
-                    // request body; without it the exchange always failed and
-                    // OneDrive sign-in never completed.
                     body:
                       "client_id=" +
                       getCredentials().onedrive.client_id +
@@ -438,30 +455,23 @@ function getBackupToken(service: string) {
                       "&grant_type=authorization_code",
                   }
                 );
-
-                try {
-                  const res = await response.json();
-                  if (res.error) {
-                    console.error(res.error_description);
-                  } else {
-                    UserSettings.items.oneDriveToken = res.access_token;
-                    UserSettings.items.oneDriveRefreshToken = res.refresh_token;
-                    UserSettings.commitItems();
-                    success = true;
-                  }
-                } catch (error) {
-                  console.error(error);
-                  throw error;
+                const res = await response.json();
+                if (res.error) {
+                  console.error(res.error_description);
+                } else {
+                  UserSettings.items.oneDriveToken = res.access_token;
+                  UserSettings.items.oneDriveRefreshToken = res.refresh_token;
+                  UserSettings.commitItems();
+                  uploadBackup("onedrive");
                 }
-
-                uploadBackup("onedrive");
-                return success;
+              } catch (error) {
+                console.error(error);
+                throw error;
               }
+              return;
             }
           }
         }
-
-        return;
       }
     );
   }
@@ -474,10 +484,6 @@ async function uploadBackup(service: string) {
   switch (service) {
     case "dropbox":
       await new Dropbox().upload(encryption);
-      break;
-
-    case "drive":
-      await new Drive().upload(encryption);
       break;
 
     case "onedrive":

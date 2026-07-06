@@ -5,8 +5,55 @@ import { EntryStorage } from "./storage";
 import { cloudBackupAllowed } from "../utils";
 
 export class Dropbox implements BackupProvider {
-  private async getToken() {
+  private async refreshToken(): Promise<boolean> {
     await UserSettings.updateItems();
+    if (!UserSettings.items.dropboxRefreshToken) {
+      UserSettings.items.dropboxRevoked = true;
+      UserSettings.commitItems();
+      return false;
+    }
+    // PKCE-upgraded flow: refresh without client_secret
+    const res = await fetch("https://api.dropboxapi.com/oauth2/token", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body:
+        "grant_type=refresh_token" +
+        "&refresh_token=" +
+        encodeURIComponent(UserSettings.items.dropboxRefreshToken) +
+        "&client_id=" +
+        encodeURIComponent(getCredentials().dropbox.client_id),
+    });
+    if (res.status === 401) {
+      UserSettings.items.dropboxRefreshToken = undefined;
+      UserSettings.items.dropboxRevoked = true;
+      UserSettings.commitItems();
+      return false;
+    }
+    const data = await res.json();
+    if (data.error) {
+      if (data.error === "invalid_grant") {
+        UserSettings.items.dropboxRefreshToken = undefined;
+        UserSettings.items.dropboxRevoked = true;
+        UserSettings.commitItems();
+      }
+      console.error(data.error_description);
+      return false;
+    }
+    UserSettings.items.dropboxToken = data.access_token;
+    UserSettings.commitItems();
+    return true;
+  }
+
+  private async getToken(): Promise<string> {
+    await UserSettings.updateItems();
+    if (!UserSettings.items.dropboxToken) {
+      const refreshed = await this.refreshToken();
+      if (!refreshed) {
+        return "";
+      }
+    }
     return UserSettings.items.dropboxToken || "";
   }
 
@@ -52,10 +99,36 @@ export class Dropbox implements BackupProvider {
       body: backup,
     });
     if (res.status === 401) {
+      // Token expired: try refresh once, then retry
       UserSettings.items.dropboxToken = undefined;
-      UserSettings.items.dropboxRevoked = true;
       UserSettings.commitItems();
-      return false;
+      const refreshed = await this.refreshToken();
+      if (!refreshed) {
+        return false;
+      }
+      const newToken = UserSettings.items.dropboxToken || "";
+      if (!newToken) {
+        return false;
+      }
+      const retryRes = await fetch(url, {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + newToken,
+          "Content-Type": "application/octet-stream",
+          "Dropbox-API-Arg": JSON.stringify(apiArg),
+        },
+        body: backup,
+      });
+      if (!retryRes.ok) {
+        if (retryRes.status === 401) {
+          UserSettings.items.dropboxToken = undefined;
+          UserSettings.items.dropboxRevoked = true;
+          UserSettings.commitItems();
+        }
+        return false;
+      }
+      const retryBody = await retryRes.json();
+      return Boolean(retryBody.name);
     }
     if (!res.ok) {
       // a non-2xx (5xx, HTML error page, ...) is a failed upload, not
@@ -69,287 +142,40 @@ export class Dropbox implements BackupProvider {
     const body = await res.json();
     return Boolean(body.name);
   }
+
   async getUser() {
     await UserSettings.updateItems();
     const url = "https://api.dropboxapi.com/2/users/get_current_account";
     const token = await this.getToken();
-    return new Promise((resolve: (value: string) => void) => {
-      if (!token) {
-        return resolve("Error: No token");
-      }
-      const xhr = new XMLHttpRequest();
-      xhr.open("POST", url);
-      xhr.setRequestHeader("Authorization", "Bearer " + token);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 401) {
-            UserSettings.items.dropboxToken = undefined;
-            UserSettings.items.dropboxRevoked = true;
-            UserSettings.commitItems();
-            resolve(
-              "Error: Response was 401. You will be logged out the next time you open OTPilot."
-            );
-            return;
-          }
-          try {
-            const res = JSON.parse(xhr.responseText);
-            if (res.email) {
-              resolve(res.email);
-            } else {
-              console.error("Could not find email in response.", res);
-              resolve("Error: res.email was undefined.");
-            }
-          } catch (e) {
-            console.error(e);
-            resolve("Error");
-          }
-        }
-        return;
-      };
-      xhr.send(null);
-    });
-  }
-}
-
-export class Drive implements BackupProvider {
-  private async getToken() {
-    await UserSettings.updateItems();
-    let needsRefresh = !UserSettings.items.driveToken;
-    if (UserSettings.items.driveToken) {
-      // validate the cached access token; a 401 means it expired/was revoked.
-      // fetch (not XHR) so this works in the MV3 service worker too.
-      const res = await fetch("https://www.googleapis.com/drive/v3/files", {
-        headers: { Authorization: "Bearer " + UserSettings.items.driveToken },
-      });
-      if (res.status === 401) {
-        UserSettings.items.driveToken = undefined;
-        UserSettings.commitItems();
-        needsRefresh = true;
-      }
+    if (!token) {
+      return "Error: No token";
     }
-    if (needsRefresh) {
-      await this.refreshToken();
-    }
-    return UserSettings.items.driveToken;
-  }
-
-  private async refreshToken() {
-    await UserSettings.updateItems();
-    if (!UserSettings.items.driveRefreshToken) {
-      UserSettings.items.driveRevoked = true;
-      UserSettings.commitItems();
-      return;
-    }
-    // Refresh-token flow via fetch. getAuthToken is no longer usable (Google
-    // blocks custom-URI-scheme OAuth clients for new apps) and fetch works in
-    // both the popup and the MV3 service worker (XHR is undefined there).
-    const res = await fetch("https://www.googleapis.com/oauth2/v4/token", {
+    const res = await fetch(url, {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: "Bearer " + token,
+        "Content-Type": "application/json",
       },
-      body:
-        `client_id=${getCredentials().drive.client_id}` +
-        `&client_secret=${getCredentials().drive.client_secret}` +
-        `&refresh_token=${UserSettings.items.driveRefreshToken}` +
-        `&grant_type=refresh_token`,
+      body: "null",
     });
     if (res.status === 401) {
-      UserSettings.items.driveRefreshToken = undefined;
-      UserSettings.items.driveRevoked = true;
+      UserSettings.items.dropboxToken = undefined;
+      UserSettings.items.dropboxRevoked = true;
       UserSettings.commitItems();
-      return;
+      return "Error: Response was 401. You will be logged out the next time you open OTPilot.";
     }
-    const data = await res.json();
-    if (data.error) {
-      if (data.error === "invalid_grant") {
-        UserSettings.items.driveRefreshToken = undefined;
-        UserSettings.items.driveRevoked = true;
-        UserSettings.commitItems();
-      }
-      console.error(data.error_description);
-      return;
-    }
-    UserSettings.items.driveToken = data.access_token;
-    UserSettings.commitItems();
-  }
-
-  private async getFolder() {
-    const token = await this.getToken();
-    if (!token) {
-      return false;
-    }
-    await UserSettings.updateItems();
-    if (UserSettings.items.driveFolder) {
-      const res = await fetch(
-        "https://www.googleapis.com/drive/v3/files/" +
-          UserSettings.items.driveFolder +
-          "?fields=trashed",
-        {
-          headers: {
-            Authorization: "Bearer " + token,
-            Accept: "application/json",
-          },
-        }
-      );
-      if (res.status === 401) {
-        UserSettings.items.driveToken = undefined;
-        UserSettings.commitItems();
-        return false;
-      }
+    try {
       const data = await res.json();
-      if (data.error) {
-        if (data.error.code === 404) {
-          UserSettings.items.driveFolder = undefined;
-          UserSettings.commitItems();
-        } else {
-          console.error(data.error.message);
-          return false;
-        }
-      } else if (data.trashed) {
-        UserSettings.items.driveFolder = undefined;
-        UserSettings.commitItems();
-      }
-    }
-    if (!UserSettings.items.driveFolder) {
-      const res = await fetch("https://www.googleapis.com/drive/v3/files/", {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token,
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: "Authenticator Backups",
-          mimeType: "application/vnd.google-apps.folder",
-        }),
-      });
-      if (res.status === 401) {
-        UserSettings.items.driveToken = undefined;
-        UserSettings.commitItems();
-        return false;
-      }
-      const data = await res.json();
-      if (!data.error) {
-        UserSettings.items.driveFolder = data.id;
-        UserSettings.commitItems();
+      if (data.email) {
+        return data.email as string;
       } else {
-        console.error(data.error.message);
-        return false;
+        console.error("Could not find email in response.", data);
+        return "Error: res.email was undefined.";
       }
+    } catch (e) {
+      console.error(e);
+      return "Error";
     }
-    return UserSettings.items.driveFolder;
-  }
-
-  async upload(encryption: Encryption) {
-    if (!cloudBackupAllowed(encryption)) {
-      return false;
-    }
-    await UserSettings.updateItems();
-    if (UserSettings.items.driveEncrypted === undefined) {
-      UserSettings.items.driveEncrypted = true;
-      UserSettings.commitItems();
-    }
-    const exportData = await EntryStorage.backupGetExport(
-      encryption,
-      UserSettings.items.driveEncrypted === true
-    );
-    const backup = JSON.stringify(exportData, null, 2);
-
-    const token = await this.getToken();
-    if (!token) {
-      return false;
-    }
-    const folderId = await this.getFolder();
-    if (!folderId) {
-      return false;
-    }
-    const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
-    const requestData =
-      [
-        "--segment_marker",
-        "Content-Type: application/json; charset=UTF-8",
-        "",
-        JSON.stringify({ name: `${now}.json`, parents: [folderId] }),
-        "",
-        "--segment_marker",
-        "Content-Type: application/octet-stream",
-        "",
-        backup,
-        "--segment_marker--",
-      ].join("\n") + "\n";
-    // fetch (not XMLHttpRequest) because upload runs in the MV3 service worker.
-    const res = await fetch(
-      "https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart",
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "multipart/related; boundary=segment_marker",
-        },
-        body: requestData,
-      }
-    );
-    if (res.status === 401) {
-      UserSettings.items.driveToken = undefined;
-      UserSettings.items.driveRevoked = true;
-      UserSettings.commitItems();
-      return false;
-    }
-    if (!res.ok) {
-      // a non-2xx is a failed upload, not something to JSON.parse as success
-      return false;
-    }
-    const data = await res.json();
-    if (!data.error) {
-      return true;
-    }
-    console.error(data.error.message);
-    return false;
-  }
-
-  async getUser() {
-    const token = await this.getToken();
-    if (!token) {
-      return "Error: Access revoked or expired.";
-    }
-
-    await UserSettings.updateItems();
-    return new Promise((resolve: (value: string) => void) => {
-      if (!token) {
-        resolve("Error: Access revoked or expired.");
-      }
-      const xhr = new XMLHttpRequest();
-      xhr.open("GET", "https://www.googleapis.com/drive/v2/about?fields=user");
-      xhr.setRequestHeader("Authorization", "Bearer " + token);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 401) {
-            UserSettings.items.driveToken = undefined;
-            UserSettings.commitItems();
-            resolve(
-              "Error: Response was 401. You will be logged out the next time you open OTPilot."
-            );
-            return;
-          }
-          try {
-            const res = JSON.parse(xhr.responseText);
-            if (!res.error) {
-              resolve(res.user.emailAddress);
-            } else {
-              console.error(res.error.message);
-              resolve("Error");
-            }
-          } catch (e) {
-            console.error(e);
-            resolve("Error");
-          }
-        }
-        return;
-      };
-      xhr.send();
-    });
   }
 }
 

@@ -21,7 +21,6 @@ import SetPasswordPage from "./SetPasswordPage.vue";
 import EnterPasswordPage from "./EnterPasswordPage.vue";
 import BackupPage from "./BackupPage.vue";
 import DropboxPage from "./DropboxPage.vue";
-import DrivePage from "./DrivePage.vue";
 import OneDrivePage from "./OneDrivePage.vue";
 import PreferencesPage from "./PreferencesPage.vue";
 import AdvisorPage from "./AdvisorPage.vue";
@@ -46,7 +45,6 @@ export default defineComponent({
     EnterPasswordPage,
     BackupPage,
     DropboxPage,
-    DrivePage,
     OneDrivePage,
     PreferencesPage,
     AdvisorPage,
