@@ -25,10 +25,10 @@ idle period you configure.
 ## Optional cloud backup
 
 If you explicitly enable cloud backup, the extension uploads your **encrypted** vault to a
-cloud drive **you own and authorize** — Google Drive or Dropbox. The backup is encrypted
-with your master password; the developer cannot read it and never receives a copy. The
-extension connects only to the chosen provider's official API endpoints, and only after
-you opt in. You can disconnect at any time.
+cloud account **you own and authorize** — Dropbox. The backup is encrypted with your master
+password; the developer cannot read it and never receives a copy. The extension connects
+only to Dropbox's official API endpoints, and only after you opt in. You can disconnect at
+any time.
 
 ## Autofill
 
