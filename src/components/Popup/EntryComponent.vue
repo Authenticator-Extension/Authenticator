@@ -39,6 +39,14 @@
       <IconRedo />
     </div>
     <div class="issuer">
+      <img
+        class="issuerFavicon"
+        v-if="shouldShowFavicon && entry.issuer.split('::')[1]"
+        v-bind:src="getFaviconUrl(entry.issuer.split('::')[1])"
+      /><IconMedal
+        class="issuerFavicon"
+        v-if="shouldShowFavicon && !entry.issuer.split('::')[1]"
+      />
       {{
         entry.issuer.split("::")[0] +
         (theme === "compact" ? ` (${entry.account})` : "")
@@ -90,6 +98,7 @@ import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
+import { isFirefox, isSafari } from "../../browser";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
@@ -97,6 +106,7 @@ import IconRedo from "../../../svg/redo.svg";
 import IconQr from "../../../svg/qrcode.svg";
 import IconBars from "../../../svg/bars.svg";
 import IconPin from "../../../svg/pin.svg";
+import IconMedal from "../../../svg/medal.svg";
 
 const computedPrototype = [
   mapState("accounts", [
@@ -110,7 +120,11 @@ const computedPrototype = [
   mapState("menu", ["theme"]),
 ];
 
-let computed = {};
+let computed = {
+  shouldShowFavicon(this: any) {
+    return !isFirefox && !isSafari && this.$store.state.menu.showFavicon;
+  },
+};
 
 for (const module of computedPrototype) {
   Object.assign(computed, module);
@@ -137,6 +151,12 @@ export default Vue.extend({
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
       );
+    },
+    getFaviconUrl(u: string) {
+      const url = new URL(chrome.runtime.getURL("/_favicon/"));
+      url.searchParams.set("pageUrl", "https://" + u);
+      url.searchParams.set("size", "16");
+      return url.toString();
     },
     showCode(code: string) {
       if (code === CodeState.Encrypted) {
@@ -254,6 +274,7 @@ export default Vue.extend({
     IconQr,
     IconBars,
     IconPin,
+    IconMedal,
   },
 });
 

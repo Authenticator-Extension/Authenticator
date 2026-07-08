@@ -317,6 +317,20 @@ svg {
     width: 80%;
     text-overflow: ellipsis;
     overflow: hidden;
+
+    .issuerFavicon {
+      vertical-align: bottom;
+      margin-right: 5px;
+      height: 16px;
+      width: 16px;
+      border-radius: 3px;
+      border: 1px solid transparent;
+    }
+  }
+
+  .issuerFavicon {
+    background-color: #fff;
+    border: 1px solid #fff;
   }
 
   .code {

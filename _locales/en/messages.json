@@ -301,6 +301,10 @@
     "message": "Use High Contrast",
     "description": "Use High Contrast"
   },
+  "show_favicon": {
+    "message": "Show Website Icon",
+    "description": "Show Issuer Icon"
+  },
   "theme": {
     "message": "Theme",
     "description": "Theme"
@@ -511,6 +515,9 @@
   },
   "permission_onedrive_cannot_revoke": {
     "message": "You must disable OneDrive backup first."
+  },
+  "permission_favicon": {
+    "message": "Allows fetching website icons."
   },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."

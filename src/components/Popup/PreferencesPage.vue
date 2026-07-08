@@ -43,6 +43,11 @@
       @change="requireContextMenuPermission()"
       v-if="isSupported"
     />
+    <a-toggle-input
+      :label="i18n.show_favicon"
+      v-model="showFavicon"
+      v-if="isSupported"
+    />
     <div class="control-group" v-show="!!defaultEncryption">
       <label class="combo-label">{{ i18n.autolock }}</label>
       <input
@@ -101,6 +106,22 @@ export default Vue.extend({
       },
       set(enableContextMenu: boolean) {
         this.$store.commit("menu/setEnableContextMenu", enableContextMenu);
+      },
+    },
+    showFavicon: {
+      get(): boolean {
+        return this.$store.state.menu.showFavicon;
+      },
+      set(showFavicon: boolean) {
+        chrome.permissions.request(
+          { permissions: ["favicon"] },
+          (granted) => {
+            this.$store.commit(
+              "menu/setShowFavicon",
+              granted ? showFavicon : false
+            );
+          }
+        );
       },
     },
     theme: {

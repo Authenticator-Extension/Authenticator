@@ -57,7 +57,8 @@
     ],
     "optional_permissions": [
         "clipboardWrite",
-        "contextMenus"
+        "contextMenus",
+        "favicon"
     ],
     "optional_host_permissions": [
         "https://www.google.com/",

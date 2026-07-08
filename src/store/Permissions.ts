@@ -38,6 +38,11 @@ const permissions: Permission[] = [
     revocable: true,
   },
   {
+    id: "favicon",
+    description: chrome.i18n.getMessage("permission_favicon"),
+    revocable: true,
+  },
+  {
     id: "https://www.google.com/*",
     description: chrome.i18n.getMessage("permission_sync_clock"),
     revocable: true,
