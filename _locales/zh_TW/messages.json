@@ -31,6 +31,10 @@
     "message": "帳號金鑰無效",
     "description": "Secret Error."
   },
+  "errorissuer": {
+    "message": "發行者不可包含「::」",
+    "description": "Issuer Error."
+  },
   "add_code": {
     "message": "新增帳號",
     "description": "Add account."
@@ -50,10 +54,6 @@
   "migration_partly_fail": {
     "message": "部分帳號資料未成功匯入。",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "關閉",
-    "description": "Close."
   },
   "ok": {
     "message": "確定",
@@ -107,10 +107,6 @@
     "message": "目前密碼",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "新密碼",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "密碼",
     "description": "Passphrase."
@@ -137,10 +133,6 @@
     "message": "此密碼將用於加密您的帳號。如果忘記密碼，將沒有人能夠幫助您。",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "更新",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "在所有帳號解密之前，您無法新增帳號。請先輸入正確的密碼再繼續。",
     "description": "Passphrase Incorrect."
@@ -165,10 +157,6 @@
     "message": "意見回饋",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "參與翻譯",
-    "description": "Translate."
-  },
   "source": {
     "message": "原始碼",
     "description": "Source Code."
@@ -180,10 +168,6 @@
   "sync_clock": {
     "message": "透過 Google 校準時間",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "記住密碼",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "注意！您本機的時鐘時間誤差過大，請先校正後再繼續操作。",
@@ -337,10 +321,6 @@
     "message": "啟用自動填入",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "使用高對比",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "主題",
     "description": "Theme"
@@ -453,10 +433,6 @@
     "message": "自動（跟隨系統）",
     "description": "Follow the system light/dark setting"
   },
-  "theme_simple": {
-    "message": "簡易",
-    "description": "Simple theme"
-  },
   "theme_compact": {
     "message": "緊湊",
     "description": "Compact theme"
@@ -465,14 +441,6 @@
     "message": "高對比度",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "扁平",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "自動備份您的資料至第三方儲存服務。",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
     "message": "瀏覽器同步",
     "description": "Storage location"
@@ -480,22 +448,6 @@
   "sign_in": {
     "message": "登入",
     "description": "Sign in to 3rd party storage services"
-  },
-  "drive_sync_title": {
-    "message": "與 Google Drive 同步",
-    "description": "Drive connect page title"
-  },
-  "drive_sync_desc": {
-    "message": "在你自己的 Google Drive 保留一份加密的帳號備份。驗證碼會在離開此裝置前先加密。",
-    "description": "Drive connect page description"
-  },
-  "cloud_e2e_note": {
-    "message": "上傳前端對端加密",
-    "description": "Reassurance note on the cloud connect page"
-  },
-  "drive_sign_in": {
-    "message": "登入 Google",
-    "description": "Drive sign-in button"
   },
   "sign_in_business": {
     "message": "登入（企業）",
@@ -517,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "您有一個或多個 Steam 或 Blizzard 帳號。未加密的備份將不會使用標準化的備份格式。",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "您可以從其他一些應用程式匯入備份。",
@@ -562,9 +510,6 @@
   },
   "backup": {
     "message": "備份"
-  },
-  "backup_file_info": {
-    "message": "將您的資料備份至檔案。"
   },
   "password_policy_default_hint": {
     "message": "您的密碼不符合貴組織的安全要求。如需更多資訊，請聯絡您的系統管理員。"
@@ -655,18 +600,6 @@
   },
   "permission_dropbox_cannot_revoke": {
     "message": "請先停用 Dropbox 備份。"
-  },
-  "permission_drive": {
-    "message": "允許備份到 Google Drive。"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "請先停用 Google Drive 備份。"
-  },
-  "permission_onedrive": {
-    "message": "允許備份到 OneDrive。"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "請先停用 OneDrive 備份。"
   },
   "permission_unknown_permission": {
     "message": "未知的權限。如果您看到此訊息，請回報程式錯誤。"
