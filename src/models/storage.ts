@@ -414,11 +414,42 @@ export class EntryStorage {
         continue;
       }
 
-      const entry = _data[hash];
+      let entry = _data[hash];
 
-      // TODO: fix this
       if (entry.dataType === "EncOTPStorage") {
-        continue;
+        if (encrypted) {
+          // Encrypted backup: keep the ciphertext as-is (plus the keys
+          // appended below) so decryptBackupData can unlock it on restore.
+          continue;
+        }
+
+        // Plaintext export: this entry is still AES-GCM ciphertext and must
+        // be decrypted here, otherwise it ends up mixed into a supposedly
+        // "unencrypted" backup - either lost on restore (no passphrase to
+        // unlock it) or leaked as raw ciphertext mislabeled as plaintext.
+        const decryptedData = await encryption.decryptEncSecret({
+          encData: entry.data,
+        } as OTPEntryInterface);
+
+        if (!decryptedData) {
+          // Can't unlock this entry (no/incorrect master password) - drop it
+          // rather than emit ciphertext disguised as a plaintext entry.
+          delete _data[hash];
+          continue;
+        }
+
+        const plainEntry: RawOTPStorage = {
+          ...decryptedData,
+          encrypted: false,
+        };
+        // Must not carry keyId/dataType forward: FileImport.vue treats any
+        // entry with a keyId (or encrypted=true) as ciphertext requiring a
+        // passphrase, which this plaintext entry no longer needs or has.
+        delete plainEntry.keyId;
+        delete plainEntry.dataType;
+
+        _data[hash] = plainEntry;
+        entry = plainEntry;
       }
 
       // remove unnecessary fields

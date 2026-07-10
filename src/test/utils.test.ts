@@ -3,6 +3,7 @@ import { expect } from "chai";
 import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 import { EntryStorage } from "../models/storage";
 import { OTPEntry, OTPType } from "../models/otp";
+import { Encryption } from "../models/encryption";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
 import { KeyUtilities } from "../models/key-utilities";
 
@@ -253,6 +254,69 @@ describe("getEntryDataFromOTPAuthPerLine parses issuer::host", () => {
     });
     expect(entry.issuer).to.equal("Mozilla");
     expect(entry.host).to.equal("accounts.example.com");
+  });
+});
+
+// backupGetExport used to unconditionally `continue` on EncOTPStorage entries
+// (encrypted accounts), even when asked for a *plaintext* export. That left
+// AES-GCM ciphertext sitting inside an "unencrypted" backup: the importer has
+// no passphrase to unlock it, so the account was silently lost on restore.
+describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plaintext export", () => {
+  it("round-trips an encrypted account through a plaintext backup export and back through import", async () => {
+    const encryption = new Encryption(
+      "p0-round-trip-test-password-hash",
+      "p0-round-trip-test-key-id"
+    );
+    const originalSecret = "AAAAAAAAAAAAAAAA";
+
+    const entry = new OTPEntry(
+      {
+        type: OTPType.totp,
+        index: 0,
+        issuer: "P0TestBank",
+        account: "user",
+        encrypted: false,
+        secret: originalSecret,
+      },
+      encryption
+    );
+
+    try {
+      // With a password-bearing encryption instance, this is persisted as an
+      // EncOTPStorage (AES-GCM ciphertext) record, not a plain RawOTPStorage.
+      await EntryStorage.add(entry);
+
+      const exported = (await EntryStorage.backupGetExport(
+        encryption,
+        false // encrypted=false -> plaintext export
+      )) as { [hash: string]: RawOTPStorage };
+
+      const item = exported[entry.hash];
+      expect(item, "exported entry should be present").to.exist;
+      expect(item.secret).to.equal(originalSecret);
+      expect(item.encrypted).to.equal(false);
+      // Must not carry dataType/keyId forward, or FileImport.vue will treat
+      // this plaintext entry as ciphertext requiring a passphrase.
+      expect((item as { dataType?: string }).dataType).to.equal(undefined);
+      expect(item.keyId).to.equal(undefined);
+
+      // Restore side: import must accept it as a plain entry, no passphrase.
+      const importEncryption = new Encryption("", "");
+      await EntryStorage.import(importEncryption, { [entry.hash]: item });
+
+      const restored = (await EntryStorage.get()).find(
+        (e) => e.hash === entry.hash
+      );
+      expect(restored, "restored entry should be present").to.exist;
+      expect(restored && restored.secret).to.equal(originalSecret);
+      expect(restored && restored.issuer).to.equal("P0TestBank");
+
+      if (restored) {
+        await EntryStorage.delete(restored);
+      }
+    } finally {
+      await EntryStorage.delete(entry);
+    }
   });
 });
 
