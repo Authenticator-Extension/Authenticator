@@ -158,24 +158,36 @@ export default defineComponent({
       chrome.runtime.sendMessage({ action: service });
     },
     async backupLogout() {
-      await new Promise((resolve: (value: boolean) => void) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://api.dropboxapi.com/2/auth/token/revoke");
-        xhr.setRequestHeader(
-          "Authorization",
-          "Bearer " + UserSettings.items.dropboxToken
-        );
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-            resolve(true);
-            return;
-          }
-        };
-        xhr.send();
-      });
-      UserSettings.removeItem(`${service}Token`);
+      // removeItem() is read-modify-write (reload the whole settings blob,
+      // delete one key, write it all back). Two un-awaited calls race: each
+      // reads the same snapshot holding both tokens, deletes its own, and the
+      // later write restores the other. Clear both keys in a single commit.
+      await UserSettings.updateItems();
+      const tokenToRevoke = UserSettings.items.dropboxToken;
+      delete UserSettings.items.dropboxToken;
+      delete UserSettings.items.dropboxRefreshToken;
+      await UserSettings.commitItems();
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.dispatch("style/hideInfo");
+      if (!tokenToRevoke) {
+        return;
+      }
+      // best-effort remote revoke; local tokens are already gone either way
+      try {
+        await new Promise((resolve: (value: boolean) => void) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open("POST", "https://api.dropboxapi.com/2/auth/token/revoke");
+          xhr.setRequestHeader("Authorization", "Bearer " + tokenToRevoke);
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              resolve(true);
+            }
+          };
+          xhr.send();
+        });
+      } catch (e) {
+        console.error("Dropbox token revoke failed", e);
+      }
     },
     async backupUpload() {
       const dbox = new Dropbox();

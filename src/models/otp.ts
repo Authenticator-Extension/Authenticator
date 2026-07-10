@@ -232,6 +232,7 @@ export class OTPEntry implements OTPEntryInterface {
 
     if (decryptedData?.dataType !== "OTPStorage") {
       console.warn("Decrypt successful, but malformed encData!", this.hash);
+      return;
     }
 
     if (decryptedData.hash !== this.hash) {
@@ -240,6 +241,7 @@ export class OTPEntry implements OTPEntryInterface {
         this.hash,
         decryptedData.hash
       );
+      return;
     }
 
     this.account = decryptedData.account || "";
