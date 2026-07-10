@@ -52,10 +52,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
 
       - name: Test code
-        uses: mymindstorm/puppeteer-headful@8f745c770f7f4c0f9f332d7c43a775f90e53779a
-        with:
-          args: npm test
+        run: xvfb-run --auto-servernum -- npm test
