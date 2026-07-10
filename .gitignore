@@ -14,3 +14,4 @@ view/licenses.html
 /test
 scripts/authenticator-build-key
 scripts/test-runner.js
+docs/
