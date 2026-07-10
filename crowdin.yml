@@ -1,8 +1,0 @@
-files:
-  - source: /_locales/en/messages.json
-    translation: /_locales/%two_letters_code%/messages.json
-    languages_mapping:
-      two_letters_code:
-        zh-CN: zh_CN
-        zh-TW: zh_TW
-        pt-BR: pt_BR
