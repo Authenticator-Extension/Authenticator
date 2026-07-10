@@ -36,3 +36,22 @@ body:
       description: The extension version is found by clicking the cog at the top left and looking at the bottom of the page.
     validations:
       required: true
+  - type: dropdown
+    attributes:
+      label: Affected area
+      description: Optional — helps us triage which part of the extension is involved.
+      options:
+        - Not sure / general
+        - Generating codes
+        - Cloud backup (Dropbox)
+        - Autofill on websites
+        - Import / export
+        - Security advisor
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Console errors
+      description: Optional. Open the extension page, press F12 → Console, and paste any red errors. Remove any OTP codes or secrets before posting.
+    validations:
+      required: false
