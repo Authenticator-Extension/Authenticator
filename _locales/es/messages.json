@@ -475,7 +475,7 @@
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
-    "message": "Aprende más",
+    "message": "Más información",
     "description": "learn more link on import page. Placed after otp_backup_inform"
   },
   "loading": {

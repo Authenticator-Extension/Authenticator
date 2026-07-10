@@ -226,11 +226,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "OTP URL 가져오기",
+    "message": "OTPAuth URI 가져오기",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "OTP URL 가져오기",
+    "message": "OTPAuth URI 가져오기",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -515,7 +515,7 @@
     "message": "비밀번호가 조직의 보안 요구 사항을 충족하지 않아요. 자세한 정보는 관리자에게 문의해 주세요."
   },
   "advisor": {
-    "message": "권장 작업"
+    "message": "보안 도우미"
   },
   "advisor_insight_password_not_set": {
     "message": "내 데이터를 보호하려면 비밀번호를 설정하세요."

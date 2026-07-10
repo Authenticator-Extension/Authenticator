@@ -533,10 +533,10 @@
     "message": "Activer le filtre intelligent permet un accès rapide aux comptes."
   },
   "show_all_insights": {
-    "message": "Afficher tous les aperçus."
+    "message": "Afficher toutes les recommandations."
   },
   "no_insight_available": {
-    "message": "Aucun aperçu trouvé, tout semble bien !"
+    "message": "Aucune recommandation, tout est en ordre !"
   },
   "danger": {
     "message": "Danger"

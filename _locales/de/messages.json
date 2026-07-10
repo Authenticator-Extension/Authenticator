@@ -80,7 +80,7 @@
     "description": "Issuer."
   },
   "secret": {
-    "message": "Schlüssel",
+    "message": "Geheimnis",
     "description": "Secret."
   },
   "updateSuccess": {

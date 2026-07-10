@@ -20,7 +20,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "無効なアカウントのシークレットキー",
+    "message": "無効なアカウントのシークレット",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -378,10 +378,10 @@
     "message": "アドバイザー"
   },
   "advisor_insight_password_not_set": {
-    "message": "データを保護するためにパスワードを設定します。"
+    "message": "データを保護するために、パスワードを設定しましょう。"
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "自動ロックを有効にしてデータを保護します。"
+    "message": "データを保護するために、自動ロックを有効にしましょう。"
   },
   "advisor_insight_browser_sync_not_enabled": {
     "message": "ブラウザ同期が無効になっています。有効にすると、アカウントをブラウザ間で同期できるようになります。"
@@ -411,7 +411,7 @@
     "message": "閉じる"
   },
   "learn_more": {
-    "message": "続きを読む"
+    "message": "詳細"
   },
   "enable_context_menu": {
     "message": "コンテキストメニューに追加"

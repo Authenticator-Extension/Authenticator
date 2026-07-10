@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Недопустимый секрет учётной записи.",
+    "message": "Недопустимый секрет учётной записи",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -68,7 +68,7 @@
     "description": "No."
   },
   "account": {
-    "message": "Учетная запись",
+    "message": "Учётная запись",
     "description": "Account."
   },
   "accountName": {
@@ -116,7 +116,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Вы уверены, что хотите удалить эту учетную запись? Это действие нельзя отменить.",
+    "message": "Вы уверены, что хотите удалить эту учётную запись? Это действие нельзя отменить.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -130,7 +130,7 @@
     "message": "Это удалит все ваши данные и полностью сбросит OTPilot. Вы не сможете восстановить какие-либо удалённые данные! Вам следует сохранить резервную копию перед сбросом OTPilot."
   },
   "security_warning": {
-    "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не может помочь вам, если вы забыли пароль.",
+    "message": "Этот пароль будет использоваться для шифрования ваших учётных записей. Никто не может помочь вам, если вы забыли пароль.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
@@ -138,7 +138,7 @@
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Учетные записи, которые не были расшифрованы, не будут включены в эту резервную копию.",
+    "message": "Учётные записи, которые не были расшифрованы, не будут включены в эту резервную копию.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -162,7 +162,7 @@
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "Введите пароль для расшифровки данных учетной записи.",
+    "message": "Введите пароль для расшифровки данных учётной записи.",
     "description": "Passphrase Info"
   },
   "sync_clock": {
@@ -174,7 +174,7 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "У вас есть резервная копия для ваших учетных записей? Создайте резервную копию, пока не поздно!",
+    "message": "У вас есть резервная копия для ваших учётных записей? Создайте резервную копию, пока не поздно!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -461,7 +461,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "При подключении к вашей учетной записи $SERVICE$ произошла ошибка. Пожалуйста, войдите снова.",
+    "message": "При подключении к вашей учётной записи $SERVICE$ произошла ошибка. Пожалуйста, войдите снова.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -524,7 +524,7 @@
     "message": "Включите автоблокировку для защиты своих данных."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Синхронизация браузера отключена. Включение этой опции позволяет синхронизировать учетные записи между браузерами."
+    "message": "Синхронизация браузера отключена. Включение этой опции позволяет синхронизировать учётные записи между браузерами."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "Автозаполнение может быть включено для автоматического заполнения кодов на веб-сайтах."
@@ -548,7 +548,7 @@
     "message": "Информация"
   },
   "dismiss": {
-    "message": "Пропустить"
+    "message": "Скрыть"
   },
   "learn_more": {
     "message": "Узнать больше"
@@ -575,7 +575,7 @@
     "message": "Доступ к текущей вкладке для сканирования QR-кодов."
   },
   "permission_storage": {
-    "message": "Доступ к хранилищу браузера для хранения данных учетной записи."
+    "message": "Доступ к хранилищу браузера для хранения данных учётной записи."
   },
   "permission_identity": {
     "message": "Позволяет войти в сторонние службы хранения."

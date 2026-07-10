@@ -497,7 +497,7 @@
     "message": "类型"
   },
   "invalid": {
-    "message": "无效代码"
+    "message": "无效"
   },
   "digits": {
     "message": "位数"
@@ -515,7 +515,7 @@
     "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系组织管理员。"
   },
   "advisor": {
-    "message": "建议"
+    "message": "安全建议"
   },
   "advisor_insight_password_not_set": {
     "message": "设置密码以保护您的数据。"
@@ -533,10 +533,10 @@
     "message": "开启智能过滤以便快速访问账户。"
   },
   "show_all_insights": {
-    "message": "显示所有见解。"
+    "message": "显示所有建议。"
   },
   "no_insight_available": {
-    "message": "没有可供参考的见解，一切看起来都很好！"
+    "message": "暂无可参考的建议，一切看起来都很好！"
   },
   "danger": {
     "message": "危险"
