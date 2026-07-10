@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
+    "message": "OTPilot Authenticator generuje kódy dvoufázového ověření (2FA) a nabízí šifrovanou cloudovou zálohu, automatické vyplňování vázané na konkrétní web a bezpečnostní doporučení.",
     "description": "Extension Description."
   },
   "added": {
@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Neplatné číslo účtu",
+    "message": "Neplatný tajný klíč účtu",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -72,7 +72,7 @@
     "description": "Account."
   },
   "accountName": {
-    "message": "Název účtu",
+    "message": "Uživatelské jméno",
     "description": "Account Name."
   },
   "issuer": {
@@ -80,7 +80,7 @@
     "description": "Issuer."
   },
   "secret": {
-    "message": "Secret",
+    "message": "Tajný klíč",
     "description": "Secret."
   },
   "updateSuccess": {
@@ -88,7 +88,7 @@
     "description": "Update Success."
   },
   "updateFailure": {
-    "message": "Došlo k chybě.",
+    "message": "Selhání.",
     "description": "Update Failure."
   },
   "about": {
@@ -124,10 +124,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetovat autentifikátor"
+    "message": "Resetovat OTPilot"
   },
   "delete_all_warning": {
-    "message": "Tímto smažete všechna vaše data a kompletně obnovíte autentifikátor. Nebudete moci obnovit žádná odstraněná data! Před resetováním autentifikátoru byste měli zvážit uložení zálohy."
+    "message": "Tímto smažete všechna svá data a kompletně resetujete aplikaci OTPilot. Žádná odstraněná data nebude možné obnovit! Před resetováním aplikace OTPilot byste měli zvážit uložení zálohy."
   },
   "security_warning": {
     "message": "Toto heslo bude použito k šifrování vašich účtů. Nikdo vám nemůže pomoci, pokud zapomenete heslo.",
@@ -138,7 +138,7 @@
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Účty které nebylo možno dešifrovat nebudou zahrnuty v této záloze.",
+    "message": "Účty, které nebylo možné dešifrovat, nebudou zahrnuty v této záloze.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -174,7 +174,7 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Máte zálohu vašich účtů? Nečekejte než je příliš pozdě!",
+    "message": "Máte zálohu svých účtů? Nečekejte, až bude příliš pozdě!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -182,7 +182,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Snažíte se naskenovat QR kód z místního souboru? Použijte raději Import QR Image Backup.",
+    "message": "Snažíte se naskenovat QR kód z místního souboru? Použijte raději možnost „Importovat zálohu z QR obrázku“.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -190,11 +190,11 @@
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Založeno na počítadle",
+    "message": "Na základě počítadla",
     "description": "Counter Based"
   },
   "resize_popup_page": {
-    "message": "Vyskakovací stránka",
+    "message": "Předvolby",
     "description": "Popup Page Settings"
   },
   "scale": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Upozornění: Všechny zálohy jsou nešifrované. Chcete přidat účet do jiné aplikace? Najeďte na pravou horní část libovolného účtu a stiskněte na skryté tlačítko.",
+    "message": "Upozornění: všechny zálohy jsou nešifrované. Chcete přidat účet do jiné aplikace? Najeďte myší na pravou horní část libovolného účtu a klikněte na skryté tlačítko.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -218,7 +218,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Import QR Image Backup",
+    "message": "Importovat zálohu z QR obrázku",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -226,11 +226,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importovat textovou zálohu",
+    "message": "Importovat OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Importovat OTP URL",
+    "message": "Importovat OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -274,7 +274,7 @@
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
-    "message": "Show all entries",
+    "message": "Zobrazit všechny položky",
     "description": "Show all entries."
   },
   "dropbox_risk": {
@@ -286,7 +286,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Vaše heslo je lokálně uloženo, prosím změňte to ihned v menu zabezpečení.",
+    "message": "Vaše heslo je uloženo lokálně, ihned je prosím změňte v sekci Zabezpečení.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -294,7 +294,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Stáhnout zálohy chráněné heslem",
+    "message": "Stáhnout zálohu chráněnou heslem",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -302,11 +302,11 @@
     "description": "Search"
   },
   "popout": {
-    "message": "Popup mód",
+    "message": "Popup režim",
     "description": "Make window turn into persistent popup"
   },
   "lock": {
-    "message": "Zámek",
+    "message": "Zamknout",
     "description": "Lock accounts"
   },
   "edit": {
@@ -318,7 +318,7 @@
     "description": "Manual backup"
   },
   "use_autofill": {
-    "message": "Použití automatického vyplňování",
+    "message": "Používat automatické vyplňování",
     "description": "Use Autofill"
   },
   "theme": {
@@ -434,7 +434,7 @@
     "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
-    "message": "Krátký",
+    "message": "Kompaktní",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
@@ -442,7 +442,7 @@
     "description": "High Contrast theme"
   },
   "browser_sync": {
-    "message": "Browser Sync",
+    "message": "Synchronizace prohlížeče",
     "description": "Storage location"
   },
   "sign_in": {
@@ -450,11 +450,11 @@
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
-    "message": "Sign in (Business)",
+    "message": "Přihlásit se (firemní účet)",
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "Why do business accounts require more permissions?"
+    "message": "Proč firemní účty vyžadují více oprávnění?"
   },
   "log_out": {
     "message": "Odhlásit se",
@@ -471,11 +471,11 @@
     }
   },
   "otp_backup_inform": {
-    "message": "You can import backups from some other applications.",
+    "message": "Zálohy můžete importovat i z některých dalších aplikací.",
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
-    "message": "Číst více",
+    "message": "Zjistit více",
     "description": "learn more link on import page. Placed after otp_backup_inform"
   },
   "loading": {
@@ -491,7 +491,7 @@
     "message": "Pokročilé"
   },
   "period": {
-    "message": "Sekunda"
+    "message": "Perioda"
   },
   "type": {
     "message": "Typ"
@@ -500,7 +500,7 @@
     "message": "Neplatné"
   },
   "digits": {
-    "message": "Klávesa"
+    "message": "Číslice"
   },
   "algorithm": {
     "message": "Algoritmus"
@@ -521,22 +521,22 @@
     "message": "Nastavte si heslo pro ochranu vašich dat."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "Enable auto-lock to protect your data."
+    "message": "Povolte automatické zamykání pro ochranu vašich dat."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Synchronizace prohlížeče je vypnuta. Zapnutím zapnete synchronizaci účtu napříč prohlížeči."
+    "message": "Synchronizace prohlížeče je vypnuta. Jejím zapnutím umožníte synchronizaci účtů napříč prohlížeči."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autofill can be enabled to automatically fill codes into websites."
+    "message": "Povolte automatické vyplňování, aby se kódy na webových stránkách vyplňovaly automaticky."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Povolení smart filtru umožňuje rychlý přístup k účtům."
+    "message": "Povolení chytrého filtru umožňuje rychlý přístup k účtům."
   },
   "show_all_insights": {
-    "message": "Zobrazit všechny náhledy."
+    "message": "Zobrazit všechna doporučení."
   },
   "no_insight_available": {
-    "message": "Nebyly nalezeny žádné náhledy, vše vypadá dobře!"
+    "message": "Nebyla nalezena žádná doporučení, vše vypadá dobře!"
   },
   "danger": {
     "message": "Nebezpečí"
@@ -563,13 +563,13 @@
     "message": "Oprávnění"
   },
   "permission_revoke": {
-    "message": "Odvoláno"
+    "message": "Odvolat"
   },
   "permission_show_required_permissions": {
     "message": "Zobrazit neodvolatelná oprávnění"
   },
   "permission_required": {
-    "message": "Tato složka je vyžadována systémem, proto nemůže být odstraněna."
+    "message": "Toto oprávnění je povinné a nelze je odvolat."
   },
   "permission_active_tab": {
     "message": "Přístup k aktuální záložce pro skenování QR kódů."
@@ -608,7 +608,7 @@
     "message": "Neplatné heslo"
   },
   "activate_auto_filter": {
-    "message": "Varování: Inteligentní filtr volně přiřazuje název domény k účtu. Před zadáním kódu vždy zkontrolujte, zda jste na správné webové stránce!"
+    "message": "Varování: Chytrý filtr volně přiřazuje název domény k účtu. Před zadáním kódu vždy zkontrolujte, zda jste na správné webové stránce!"
   },
   "backup_unavailable": {
     "message": "Zatím není k dispozici",

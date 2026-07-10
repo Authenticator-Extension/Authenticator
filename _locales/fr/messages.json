@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot génère des codes d'authentification à deux facteurs dans votre navigateur.",
+    "message": "OTPilot Authenticator génère des codes d'authentification à deux facteurs (2FA), avec sauvegarde chiffrée dans le cloud, remplissage automatique associé au site et conseils de sécurité.",
     "description": "Extension Description."
   },
   "added": {
@@ -112,7 +112,7 @@
     "description": "Passphrase."
   },
   "confirm_phrase": {
-    "message": "Confirmer le Mot de Passe",
+    "message": "Confirmer le mot de passe",
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
@@ -124,13 +124,13 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Réinitialiser Authentificator"
+    "message": "Réinitialiser OTPilot"
   },
   "delete_all_warning": {
-    "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
+    "message": "Cela supprimera toutes vos données et réinitialisera complètement OTPilot. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser OTPilot."
   },
   "security_warning": {
-    "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
+    "message": "Ce mot de passe sera utilisé pour chiffrer vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
@@ -142,7 +142,7 @@
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "Le mot de passe est incorrect.",
+    "message": "Les mots de passe ne correspondent pas.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -226,7 +226,7 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importation au format texte",
+    "message": "Importer une URI OTPAuth",
     "description": "Import backup code."
   },
   "import_otp_urls": {
@@ -282,7 +282,7 @@
     "description": "Backup risk warning."
   },
   "import_error_password": {
-    "message": "Vous devez fournir le mot de passe pour importer une sauvegarde.",
+    "message": "Vous devez fournir le mot de passe correct pour importer une sauvegarde.",
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
@@ -461,7 +461,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "Il y a eu un problème de connexion à votre compte $SERVICE$ , veuillez vous connecter à nouveau.",
+    "message": "Il y a eu un problème de connexion à votre compte $SERVICE$, veuillez vous connecter à nouveau.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -506,7 +506,7 @@
     "message": "Algorithme"
   },
   "smart_filter": {
-    "message": "Filtre Intelligent"
+    "message": "Filtre intelligent"
   },
   "backup": {
     "message": "Sauvegarde"
@@ -524,7 +524,7 @@
     "message": "Activer le verrouillage automatique pour protéger vos données."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "La synchronisation avec le navigateur est désactivée. Activez-la pour autoriser cette synchronisation."
+    "message": "La synchronisation du navigateur est désactivée. L'activer permet de synchroniser les comptes entre plusieurs navigateurs."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "Le remplissage automatique peut être activé pour remplir automatiquement les codes dans les sites web."
@@ -536,7 +536,7 @@
     "message": "Afficher tous les aperçus."
   },
   "no_insight_available": {
-    "message": "Aucun aperçu trouvé, tout semble bien!"
+    "message": "Aucun aperçu trouvé, tout semble bien !"
   },
   "danger": {
     "message": "Danger"
@@ -548,7 +548,7 @@
     "message": "Information"
   },
   "dismiss": {
-    "message": "Fermer"
+    "message": "Ignorer"
   },
   "learn_more": {
     "message": "En savoir plus"
@@ -569,7 +569,7 @@
     "message": "Afficher les permissions non révocables"
   },
   "permission_required": {
-    "message": "Il s'agit d'une autorisation nécessaire et ne peut pas être révoquée."
+    "message": "Cette permission est obligatoire et ne peut pas être révoquée."
   },
   "permission_active_tab": {
     "message": "Accéder à l'onglet actuel pour scanner le code QR."
@@ -578,7 +578,7 @@
     "message": "Accès au stockage du navigateur pour y stocker les données du compte."
   },
   "permission_identity": {
-    "message": "Permet de se connecter à des services de stockage tiers (ex: Google Drive, Dropbox...)."
+    "message": "Permet de se connecter à des services de stockage tiers."
   },
   "permission_alarms": {
     "message": "Permet au verrouillage automatique de fonctionner."
@@ -593,10 +593,10 @@
     "message": "Ajoute OTPilot au menu contextuel."
   },
   "permission_sync_clock": {
-    "message": "Autoriser la synchronisation de l'horloge avec Google."
+    "message": "Permet la synchronisation de l'horloge avec Google."
   },
   "permission_dropbox": {
-    "message": "Autoriser la sauvegarde vers Dropbox."
+    "message": "Permet la sauvegarde vers Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
     "message": "Vous devez d'abord désactiver la sauvegarde Dropbox."
@@ -608,7 +608,7 @@
     "message": "Mot de passe incorrect"
   },
   "activate_auto_filter": {
-    "message": "Avertissement: Le filtre intelligent associe grosso modo le nom de domaine à un compte. Vérifiez toujours que vous êtes sur le bon site avant d'entrer un code !"
+    "message": "Attention : le filtre intelligent associe grosso modo le nom de domaine à un compte. Vérifiez toujours que vous êtes sur le bon site avant d'entrer un code !"
   },
   "backup_unavailable": {
     "message": "Pas encore disponible",

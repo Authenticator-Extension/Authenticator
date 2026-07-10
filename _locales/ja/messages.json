@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "OTPilot はお使いのブラウザーで2段階認証コードを生成します。",
+    "message": "OTPilot Authenticatorは、暗号化クラウドバックアップ、サイトに応じた自動入力、セキュリティアドバイスを備えた2段階認証（2FA）コード生成アプリです。",
     "description": "Extension Description."
   },
   "added": {
@@ -16,7 +16,7 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "QR コードが認識できません。",
+    "message": "QRコードが認識できません。",
     "description": "QR Error."
   },
   "errorsecret": {
@@ -112,17 +112,17 @@
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
-    "message": "私はすべてのデータが削除されて復旧できないことを承知しています。",
+    "message": "すべてのデータが完全に削除され、復元できないことを理解しています。",
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "認証システムをリセット"
+    "message": "OTPilotをリセット"
   },
   "delete_all_warning": {
-    "message": "これにより、すべてのデータが削除され、認証システムが完全にリセットされます。 削除されたデータを復元することはできません。 認証システムをリセットする前にバックアップを保存することをお勧めします。"
+    "message": "これにより、すべてのデータが削除され、OTPilotが完全にリセットされます。削除されたデータを復元することはできません。OTPilotをリセットする前にバックアップを保存することをお勧めします。"
   },
   "security_warning": {
-    "message": "このパスワードであなたのアカウントを暗号化します。パスワードを紛失すると復旧できなくなりますのでご注意ください。",
+    "message": "このパスワードはアカウントの暗号化に使用されます。パスワードを忘れると、誰にも復旧できません。",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
@@ -138,7 +138,7 @@
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "暗号化",
+    "message": "暗号化済み",
     "description": "Encrypted."
   },
   "copied": {
@@ -146,11 +146,11 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "ご意見",
+    "message": "フィードバック",
     "description": "Feedback."
   },
   "source": {
-    "message": "ソース コード",
+    "message": "ソースコード",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -158,7 +158,7 @@
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "Google と時刻を同期\n",
+    "message": "Google と時刻を同期",
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
@@ -174,15 +174,15 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "ローカルファイルからQRコードをスキャンしようとしていますか？ 代わりにQRイメージバックアップをインポートしてください。",
+    "message": "ローカルファイルからQRコードをスキャンしようとしていますか？ 代わりに「QR画像のバックアップをインポート」をご利用ください。",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "タイム ベース",
+    "message": "タイムベース",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "カウンター ベース",
+    "message": "カウンターベース",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -210,19 +210,19 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "QR 画像のバックアップをインポート",
+    "message": "QR画像のバックアップをインポート",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "QRコード画像をインポート",
+    "message": "QR画像をインポート",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "テキストのバックアップのインポート",
+    "message": "OTPAuth URIをインポート",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "OTP URLをインポート",
+    "message": "OTPAuth URIをインポート",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
@@ -230,15 +230,15 @@
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "バッチでバックアップをインポートするファイルを複数選択できます。",
+    "message": "複数のファイルを選択して、バックアップを一括インポートできます。",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
-    "message": "すべての登録を表示",
+    "message": "すべての項目を表示",
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "警告: バックアップは暗号化されていません。お気をつけください。",
+    "message": "警告: バックアップは暗号化されていません。自己責任でご使用ください。",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -302,7 +302,7 @@
     "description": "High Contrast theme"
   },
   "browser_sync": {
-    "message": "ブラウザ間で同期",
+    "message": "ブラウザ同期",
     "description": "Storage location"
   },
   "sign_in": {
@@ -310,11 +310,11 @@
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
-    "message": "Sign in (Business)",
+    "message": "サインイン（ビジネス）",
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "なぜビジネスアカウントにはより多くの権限が必要なのですか?"
+    "message": "なぜビジネスアカウントにはより多くの権限が必要なのですか？"
   },
   "log_out": {
     "message": "ログアウト",
@@ -342,13 +342,13 @@
     "message": "読み込み中..."
   },
   "autolock": {
-    "message": "ロック時間"
+    "message": "自動ロックまでの時間"
   },
   "minutes": {
     "message": "分"
   },
   "advanced": {
-    "message": "その他"
+    "message": "詳細設定"
   },
   "period": {
     "message": "期間"
@@ -384,13 +384,13 @@
     "message": "自動ロックを有効にしてデータを保護します。"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "ブラウザの同期が無効になっています。アカウントを有効にするとブラウザ間で同期することができます。"
+    "message": "ブラウザ同期が無効になっています。有効にすると、アカウントをブラウザ間で同期できるようになります。"
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "自動入力を有効にすると、ウェブサイトで自動的にコードを入力できます。"
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "スマートフィルタを有効にすると、アカウントへ素早くアクセスできます。"
+    "message": "スマートフィルターを有効にすると、アカウントへ素早くアクセスできます。"
   },
   "show_all_insights": {
     "message": "すべてのインサイトを表示します。"
@@ -402,13 +402,13 @@
     "message": "危険"
   },
   "warning": {
-    "message": "注意"
+    "message": "警告"
   },
   "info": {
-    "message": "お知らせ"
+    "message": "情報"
   },
   "dismiss": {
-    "message": "消去する"
+    "message": "閉じる"
   },
   "learn_more": {
     "message": "続きを読む"
@@ -441,22 +441,22 @@
     "message": "サードパーティのストレージサービスへのサインインを許可します。"
   },
   "permission_alarms": {
-    "message": "機能を有効化するには、画面の自動ロックを有効にします。"
+    "message": "自動ロック機能を動作させるために使用します。"
   },
   "permission_scripting": {
-    "message": "現在のタブにスクリプトを挿入してQRコードをスキャンし、自動入力がが機能するようにする。"
+    "message": "現在のタブにスクリプトを挿入してQRコードをスキャンし、自動入力が機能するようにします。"
   },
   "permission_clipboard_write": {
     "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
   },
   "permission_context_menus": {
-    "message": "コンテキストメニューに認証システムを追加します。"
+    "message": "コンテキストメニューにOTPilotを追加します。"
   },
   "permission_sync_clock": {
     "message": "Google との時刻の同期を許可します。"
   },
   "permission_dropbox": {
-    "message": "Dropboxへバックアップを行います。"
+    "message": "Dropboxへのバックアップを許可します。"
   },
   "permission_dropbox_cannot_revoke": {
     "message": "最初にDropboxのバックアップを無効にする必要があります。"
@@ -465,10 +465,10 @@
     "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "パスワードが違います。"
   },
   "activate_auto_filter": {
-    "message": "警告：スマートフィルタはアカウントのドメイン名とほぼ一致します。常にあなたが正しいウェブサイトにいることを確認してください！"
+    "message": "警告：スマートフィルターは、ドメイン名のゆるやかな一致でアカウントを判定します。コードを入力する前に、必ず正しいウェブサイトにいることを確認してください！"
   },
   "backup_cloud_sync": {
     "message": "クラウド同期",
@@ -543,7 +543,7 @@
     "description": "Onboarding feature bullet"
   },
   "onboarding_feature_scan": {
-    "message": "QR コードをスキャン、または既存のバックアップをインポート",
+    "message": "QRコードをスキャン、または既存のバックアップをインポート",
     "description": "Onboarding feature bullet"
   },
   "onboarding_get_started": {
@@ -555,7 +555,7 @@
     "description": "Onboarding secondary button"
   },
   "onboarding_subtitle": {
-    "message": "すべてのアカウントに安全な2要素認証コードを生成 — 暗号化、オフライン、ワンタップでコピー。",
+    "message": "すべてのアカウントに安全な2段階認証コードを生成 — 暗号化、オフライン、ワンタップでコピー。",
     "description": "Onboarding subtitle"
   },
   "onboarding_title": {
@@ -587,7 +587,7 @@
     "description": "Settings section: general"
   },
   "show_qr": {
-    "message": "QR コードを表示",
+    "message": "QRコードを表示",
     "description": "Context-menu action to show an account's QR code"
   },
   "showing_codes_for": {

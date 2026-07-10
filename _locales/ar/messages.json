@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "يقوم المصادق بإنشاء رموز المصادقة ذات عاملين في المتصفح الخاص بك.",
+    "message": "يُنشئ OTPilot Authenticator رموز المصادقة الثنائية (2FA)، مع نسخ احتياطي سحابي مشفّر، وتعبئة تلقائية مرتبطة بالموقع، ونصائح أمنية.",
     "description": "Extension Description."
   },
   "added": {
@@ -24,11 +24,11 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "رمز استجابة سريع غير معروف.",
+    "message": "رمز QR غير معروف.",
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "الإجابة السرية الخاص غير مطابق",
+    "message": "المفتاح السري للحساب غير صالح",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -52,7 +52,7 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "بعض من بيانات الحساب لم يتم استيرادها بنجاح.",
+    "message": "بعض بيانات الحساب لم يتم استيرادها بنجاح.",
     "description": "Some migration data is broken."
   },
   "ok": {
@@ -60,7 +60,7 @@
     "description": "OK."
   },
   "yes": {
-    "message": "إجابه",
+    "message": "نعم",
     "description": "Yes."
   },
   "no": {
@@ -80,7 +80,7 @@
     "description": "Issuer."
   },
   "secret": {
-    "message": "سري",
+    "message": "المفتاح السري",
     "description": "Secret."
   },
   "updateSuccess": {
@@ -92,15 +92,15 @@
     "description": "Update Failure."
   },
   "about": {
-    "message": "نبذه عن",
+    "message": "حول",
     "description": "About."
   },
   "settings": {
-    "message": "الاعدادات",
+    "message": "الإعدادات",
     "description": "Settings."
   },
   "security": {
-    "message": "حماية الخصوصية",
+    "message": "الأمان",
     "description": "Security."
   },
   "current_phrase": {
@@ -130,19 +130,19 @@
     "message": "سيؤدي هذا إلى حذف جميع بياناتك وإعادة تعيين OTPilot بالكامل. لن تتمكن من استعادة أي بيانات محذوفة! يجب مراعاة حفظ نسخة احتياطية قبل إعادة تعيين OTPilot."
   },
   "security_warning": {
-    "message": "هذا الكود الخاص سوف يستخدم لتشفير حسابك.\nلا نقدر على مساعدتك إذا فقدت هذا الكود الخاص.",
+    "message": "ستُستخدم كلمة المرور هذه لتشفير حساباتك. لن يتمكن أحد من مساعدتك إذا نسيت كلمة المرور.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
-    "message": "لن تقدر على فتح حساب جديد حتى يتم فك تشفير كل الحسابات. الرجاء إضافة كلمة المرور الصحيحة لاستكمال العملية.",
+    "message": "لا يمكنك إضافة حساب جديد حتى يتم فك تشفير جميع الحسابات. يرجى إدخال كلمة المرور الصحيحة قبل المتابعة.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "الحسابات الغير قابله لفك التشفير لان يتم تضمينها إلى النسخة الاحتياطية.",
+    "message": "الحسابات التي تعذّر فك تشفيرها لن يتم تضمينها في هذه النسخة الاحتياطية.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "كلمة السر غير صحيحة.",
+    "message": "كلمتا المرور غير متطابقتين.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -150,15 +150,15 @@
     "description": "Encrypted."
   },
   "copied": {
-    "message": "تَمَّ النَّسخ",
+    "message": "تم النسخ",
     "description": "Copied."
   },
   "feedback": {
-    "message": "التقييم والملاحظات",
+    "message": "الملاحظات",
     "description": "Feedback."
   },
   "source": {
-    "message": "المصدر",
+    "message": "الكود المصدري",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -174,15 +174,15 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى تصبح متأخرًا",
+    "message": "هل لديك نسخة احتياطية للحسابات الخاصة بك؟ لا تنتظر حتى يفوت الأوان!",
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "فشل في التقاط الرمز, يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.",
+    "message": "فشل التقاط الرمز، يرجى إعادة تحميل الصفحة والمحاولة مرة أخرى.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Are you trying to scan QR code from a local file? Use Import QR Image Backup instead.",
+    "message": "هل تحاول مسح رمز QR من ملف محلي؟ استخدم خيار «استيراد نسخة احتياطية لصورة QR» بدلاً من ذلك.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -190,7 +190,7 @@
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Counter Based",
+    "message": "على أساس العداد",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -222,11 +222,11 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "قم بادخال صورة الكود",
+    "message": "استيراد صور QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "استيراد نسخة احتياطية نصية",
+    "message": "استيراد عناوين OTP",
     "description": "Import backup code."
   },
   "import_otp_urls": {
@@ -422,11 +422,11 @@
     "description": "Onboarding secondary button"
   },
   "theme_light": {
-    "message": "مضيء",
+    "message": "فاتح",
     "description": "Light theme"
   },
   "theme_dark": {
-    "message": "مظلم",
+    "message": "داكن",
     "description": "Dark theme"
   },
   "theme_auto": {
@@ -482,7 +482,7 @@
     "message": "جاري التحميل..."
   },
   "autolock": {
-    "message": "القفْل بعد"
+    "message": "القفل بعد"
   },
   "minutes": {
     "message": "دقائق"
@@ -497,13 +497,13 @@
     "message": "نوع"
   },
   "invalid": {
-    "message": "معطل"
+    "message": "غير صالح"
   },
   "digits": {
-    "message": "وحدات"
+    "message": "أرقام"
   },
   "algorithm": {
-    "message": "‮الخوارزمية"
+    "message": "الخوارزمية"
   },
   "smart_filter": {
     "message": "الفلتر الذكي"
@@ -524,7 +524,7 @@
     "message": "تفعيل القفل التلقائي لحماية بياناتك."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "مزامنة المتصفح معطلة. تمكينه يسمح للمزامنة بين الحسابات عبر المتصفحات."
+    "message": "مزامنة المتصفح معطّلة. تفعيلها يتيح مزامنة الحسابات بين المتصفحات."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "يمكن تمكين التعبئة التلقائية لملء الرموز تلقائياً في مواقع الويب."
@@ -536,7 +536,7 @@
     "message": "إظهار جميع الرؤى."
   },
   "no_insight_available": {
-    "message": "لم يتم العثور على رؤية، كل شيء يبدو جيدًا!"
+    "message": "لم يتم العثور على أي رؤى، كل شيء يبدو جيدًا!"
   },
   "danger": {
     "message": "خطر"
@@ -563,13 +563,13 @@
     "message": "الصلاحيات"
   },
   "permission_revoke": {
-    "message": "تعطيل"
+    "message": "إلغاء"
   },
   "permission_show_required_permissions": {
-    "message": "إظهار الأذونات غير القابلة للتعطيل"
+    "message": "إظهار الصلاحيات غير القابلة للإلغاء"
   },
   "permission_required": {
-    "message": "هذه الصلاحية اساسية و لا يمكن تعطيلها."
+    "message": "هذه الصلاحية أساسية ولا يمكن إلغاؤها."
   },
   "permission_active_tab": {
     "message": "الوصول إلى علامة التبويب الحالية لمسح رموز QR."
@@ -584,7 +584,7 @@
     "message": "يسمح للقفل التلقائي بالعمل."
   },
   "permission_scripting": {
-    "message": "أدخل النص في الشريط الظاهر لمسح رمز الاستجابة السريع والسماح للملء التلقائي بالعمل."
+    "message": "يُدرج نصوصًا برمجية في علامة التبويب الحالية لمسح رموز QR والسماح بعمل الملء التلقائي."
   },
   "permission_clipboard_write": {
     "message": "يمنح صلاحية الكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر على الحساب."
@@ -605,10 +605,10 @@
     "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "كلمة المرور غير صحيحة"
   },
   "activate_auto_filter": {
-    "message": "تحذير: يقوم المدقق الذكي بمطابقة اسم الاختصاص مع الحساب بشكل غير جيد. تأكد دائمًا من أنك على موقع التبويب الصحيح قبل إدخال الرمز!"
+    "message": "تحذير: يقوم الفلتر الذكي بمطابقة اسم النطاق مع الحساب بشكل تقريبي. تأكد دائمًا من أنك على الموقع الإلكتروني الصحيح قبل إدخال الرمز!"
   },
   "backup_unavailable": {
     "message": "غير متوفر بعد",

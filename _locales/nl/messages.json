@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot genereert 2-stapsverificatiecodes in uw browser.",
+    "message": "OTPilot Authenticator genereert tweefactorcodes (2FA), met versleutelde cloudback-up, host-gebonden automatisch invullen en beveiligingsadvies.",
     "description": "Extension Description."
   },
   "added": {
@@ -104,7 +104,7 @@
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Huidig ​​wachtwoord",
+    "message": "Huidig wachtwoord",
     "description": "Current Passphrase."
   },
   "phrase": {
@@ -124,21 +124,21 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "OTPilot herinitialiseren"
+    "message": "OTPilot resetten"
   },
   "delete_all_warning": {
-    "message": "Dit zal al uw gegevens verwijderen en de OTPilot volledig herinitialiseren. U bent niet in staat om verwijderde gegevens te herstellen! Overweeg om een back-up op te slaan voordat u de OTPilot herinitialiseert."
+    "message": "Dit verwijdert al uw gegevens en herstelt OTPilot volledig naar de beginstaat. Verwijderde gegevens kunt u niet meer terugkrijgen! Overweeg om een back-up te maken voordat u OTPilot reset."
   },
   "security_warning": {
     "message": "Dit wachtwoord wordt gebruikt voor het versleutelen van uw accounts. Niemand kan u helpen als u het wachtwoord vergeet.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
-    "message": "U kunt niet een nieuw account toevoegen tot alle accounts zijn ontcijferd. Voer het juiste wachtwoord in voordat u verder gaat.",
+    "message": "U kunt geen nieuw account toevoegen totdat alle accounts zijn ontsleuteld. Voer het juiste wachtwoord in voordat u verdergaat.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Accounts die niet kunnen worden ontcijferd, worden niet in deze back-up opgenomen.",
+    "message": "Accounts die niet ontsleuteld konden worden, worden niet in deze back-up opgenomen.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -162,7 +162,7 @@
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "Voer het wachtwoord in om de accountgegevens te ontcijferen.",
+    "message": "Voer het wachtwoord in om de accountgegevens te ontsleutelen.",
     "description": "Passphrase Info"
   },
   "sync_clock": {
@@ -170,7 +170,7 @@
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
-    "message": "Let op! De klok van uw lokale computer is te ver voor/achter, gelieve het te herstellen voordat u doorgaat.",
+    "message": "Let op! De klok van uw computer loopt te ver voor of achter. Corrigeer dit voordat u verdergaat.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Waarschuwing: alle back-ups zijn niet versleuteld. Wilt u een account toevoegen aan een andere app? Beweeg over de rechterbovenkant van een account en druk op de verborgen knop.",
+    "message": "Waarschuwing: alle back-ups zijn niet versleuteld. Wilt u een account aan een andere app toevoegen? Beweeg de muis over de rechterbovenkant van een account en klik op de verborgen knop.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -214,7 +214,7 @@
     "description": "Import backup."
   },
   "import_backup_file": {
-    "message": "Back-up importeren",
+    "message": "Back-upbestand importeren",
     "description": "Import backup file."
   },
   "import_backup_qr": {
@@ -226,11 +226,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Tekstback-up importeren ",
+    "message": "OTPAuth-URI importeren",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "OTP-URL’s importeren",
+    "message": "OTPAuth-URI importeren",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -266,7 +266,7 @@
     "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
-    "message": "Import succesvol, maar sommige QR-codes kunnen niet worden herkend.",
+    "message": "Import succesvol, maar sommige QR-codes konden niet worden herkend.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -274,7 +274,7 @@
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
-    "message": "Laat alle invoer zien",
+    "message": "Alle vermeldingen weergeven",
     "description": "Show all entries."
   },
   "dropbox_risk": {
@@ -286,7 +286,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Uw wachtwoord is lokaal opgeslagen, wijzig deze direct in het menu beveiliging.",
+    "message": "Uw wachtwoord is lokaal opgeslagen. Wijzig dit onmiddellijk in het beveiligingsmenu.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -382,7 +382,7 @@
     "description": "Cloud provider not-connected status"
   },
   "showing_codes_for": {
-    "message": "Codes weergegeven voor",
+    "message": "Toont codes voor",
     "description": "Smart-filter banner prefix, followed by the site domain"
   },
   "other_accounts": {
@@ -500,7 +500,7 @@
     "message": "Ongeldig"
   },
   "digits": {
-    "message": "Digits"
+    "message": "Cijfers"
   },
   "algorithm": {
     "message": "Algoritme"
@@ -530,7 +530,7 @@
     "message": "Automatisch invullen kan worden ingeschakeld om automatisch codes op websites in te vullen."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Het inschakelen van een slim filter zorgt voor snelle toegang tot accounts."
+    "message": "Het inschakelen van Slimme filter zorgt voor snelle toegang tot accounts."
   },
   "show_all_insights": {
     "message": "Alle inzichten tonen."
@@ -569,7 +569,7 @@
     "message": "Niet-herroepbare toestemmingen weergeven"
   },
   "permission_required": {
-    "message": "Dit is een vereiste toestemming die niet is te verwijderen."
+    "message": "Dit is een vereiste toestemming die niet kan worden ingetrokken."
   },
   "permission_active_tab": {
     "message": "Toegang tot het huidige tabblad om QR-codes te scannen."

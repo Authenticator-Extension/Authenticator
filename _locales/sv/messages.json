@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot genererar 2-stegs verifieringskoder i din webbläsare.",
+    "message": "OTPilot Authenticator genererar tvåfaktorskoder (2FA) med krypterad molnsäkerhetskopiering, värdmatchad autofyll och säkerhetsrådgivning.",
     "description": "Extension Description."
   },
   "added": {
@@ -48,7 +48,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Import misslyckades. Om du migrerar från Google Authenticator; exportera dina data från Google Authenticator på nytt och försök igen.",
+    "message": "Import misslyckades. Om du migrerar data från Google Authenticator, exportera dina data från Google Authenticator på nytt och försök igen.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -124,7 +124,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Återställ autentiserare"
+    "message": "Återställ OTPilot"
   },
   "delete_all_warning": {
     "message": "Det här kommer att radera alla dina data och återställa OTPilot helt. Du kommer inte kunna återskapa några raderade data! Du bör överväga att spara en säkerhetskopia innan du återställer OTPilot."
@@ -166,19 +166,19 @@
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "Synka Klockan med Google",
+    "message": "Synka klockan med Google",
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
-    "message": "Varning! Din lokala klocka är för långt ifrån, snälla fixa den innan du fortsätter.",
+    "message": "Varning! Din lokala klocka går för fel, korrigera den innan du fortsätter.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Har du en säkerhetskopia på dina konton? Vänta inte tills det är för sent!",
+    "message": "Har du en säkerhetskopia av dina konton? Vänta inte tills det är för sent!",
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "Det gick inte att infånga, ladda om sidan och försök igen.",
+    "message": "Det gick inte att fånga bilden, ladda om sidan och försök igen.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
@@ -186,11 +186,11 @@
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "Tidsbaserade",
+    "message": "Tidsbaserad",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Räknarebaserade",
+    "message": "Räknarbaserad",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -202,11 +202,11 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Varning: alla säkerhetskopieringar är okrypterade. Vill du lägga till ett konto till en annan app? Håll över den högra högra delen av något konto och tryck på den dolda knappen.",
+    "message": "Varning: alla säkerhetskopieringar är okrypterade. Vill du lägga till ett konto till en annan app? Håll muspekaren över den övre högra delen av något konto och tryck på den dolda knappen.",
     "description": "Export menu info text"
   },
   "download_backup": {
-    "message": "Ladda ner säkerhetskopieringsfilen",
+    "message": "Ladda ner säkerhetskopieringsfil",
     "description": "Download backup file."
   },
   "import_backup": {
@@ -214,7 +214,7 @@
     "description": "Import backup."
   },
   "import_backup_file": {
-    "message": "Importera säkerhetskopieringsfilen",
+    "message": "Importera säkerhetskopieringsfil",
     "description": "Import backup file."
   },
   "import_backup_qr": {
@@ -226,11 +226,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importera okrypterad säkerhetskopia",
+    "message": "Importera OTPAuth-URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Importera OTP-URL:er",
+    "message": "Importera OTPAuth-URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -266,7 +266,7 @@
     "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
-    "message": "Import lyckades men vissa QR-koder kunde inte kännas igen.",
+    "message": "Importen lyckades, men vissa QR-koder kunde inte kännas igen.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -294,7 +294,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Ladda ner lösenordsskyddad säkerhetskopiering",
+    "message": "Ladda ner lösenordsskyddad säkerhetskopia",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -509,7 +509,7 @@
     "message": "Smart filter"
   },
   "backup": {
-    "message": "Säkerhetskopiera"
+    "message": "Säkerhetskopiering"
   },
   "password_policy_default_hint": {
     "message": "Ditt lösenord uppfyller inte din organisations säkerhetskrav. Kontakta din administratör för mer information."
@@ -521,7 +521,7 @@
     "message": "Ställ in ett lösenord för att skydda din data."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "Aktivera automatisk låsning för att skydda dina data."
+    "message": "Aktivera automatisk låsning för att skydda din data."
   },
   "advisor_insight_browser_sync_not_enabled": {
     "message": "Webbläsarsynkronisering är inaktiverad. Vid aktivering kan konton synkas mellan webbläsare."
@@ -554,7 +554,7 @@
     "message": "Lär dig mer"
   },
   "enable_context_menu": {
-    "message": "Lägg till i snabbvalsmeny"
+    "message": "Lägg till i snabbmeny"
   },
   "no_entires": {
     "message": "Inga konton att visa. Lägg till ditt första konto nu."
@@ -578,19 +578,19 @@
     "message": "Åtkomst till webbläsarlagring för att lagra kontodata."
   },
   "permission_identity": {
-    "message": "Tillåt inloggning till lagringstjänster från tredje part."
+    "message": "Tillåter inloggning till lagringstjänster från tredje part."
   },
   "permission_alarms": {
     "message": "Gör att automatisk låsning fungerar."
   },
   "permission_scripting": {
-    "message": "Injicerar skript i nuvarande flik för att skanna QR-koder och göra att autofyll fungerar."
+    "message": "Injicerar skript i den nuvarande fliken för att skanna QR-koder och göra att autofyll fungerar."
   },
   "permission_clipboard_write": {
     "message": "Ger enbart skrivbehörighet till urklipp för att kopiera koder till urklipp när du klickar på kontot."
   },
   "permission_context_menus": {
-    "message": "Lägger till OTPilot till snabbvalsmenyn."
+    "message": "Lägger till OTPilot i snabbmenyn."
   },
   "permission_sync_clock": {
     "message": "Tillåter klocksynkronisering med Google."
@@ -608,7 +608,7 @@
     "message": "Lösenord felaktigt"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Varning: Smart filter matchar domännamnet löst mot ett konto. Kontrollera alltid att du är på rätt webbplats innan du anger en kod!"
   },
   "backup_unavailable": {
     "message": "Inte tillgänglig än",

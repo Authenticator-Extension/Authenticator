@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot genera codici di verifica a due fattori nel tuo browser.",
+    "message": "OTPilot Authenticator genera codici di verifica a due fattori (2FA), con backup cloud criptato, autocompletamento basato sul sito e consigli di sicurezza.",
     "description": "Extension Description."
   },
   "added": {
@@ -76,7 +76,7 @@
     "description": "Account Name."
   },
   "issuer": {
-    "message": "Emittente del codice",
+    "message": "Emittente",
     "description": "Issuer."
   },
   "secret": {
@@ -124,13 +124,13 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetta Autenticatore"
+    "message": "Reimposta OTPilot"
   },
   "delete_all_warning": {
-    "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente l'OTPilot. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup, prima di ripristinare l'OTPilot."
+    "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente OTPilot. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup prima di ripristinare OTPilot."
   },
   "security_warning": {
-    "message": "Questa password verrà usata per cifrare i tuoi account. Se dimentichi la password non ti potrà aiutare nessuno.",
+    "message": "Questa password verrà usata per criptare i tuoi account. Se dimentichi la password non ti potrà aiutare nessuno.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
@@ -170,7 +170,7 @@
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
-    "message": "Attenzione! C'è una differenza troppo grande con l'orologio locale, risolvere prima di continuare.",
+    "message": "Attenzione! Il tuo orologio locale è troppo disallineato, correggilo prima di continuare.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Attenzione: tutti i backup sono non criptati. Vuoi aggiungere un account a un'altra app? Passa il mouse sopra la parte superiore destra di qualsiasi account e premi il pulsante nascosto.",
+    "message": "Attenzione: tutti i backup non sono criptati. Vuoi aggiungere un account a un'altra app? Passa il mouse sopra la parte superiore destra di qualsiasi account e premi il pulsante nascosto.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -226,11 +226,11 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importa Backup testuale",
+    "message": "Importa URI OTPAuth",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Importa URL OTP",
+    "message": "Importa URI OTPAuth",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -454,7 +454,7 @@
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "Perché i profili business richiedono più permessi?"
+    "message": "Perché gli account business richiedono più permessi?"
   },
   "log_out": {
     "message": "Disconnetti",
@@ -500,7 +500,7 @@
     "message": "Non valido"
   },
   "digits": {
-    "message": "Caratteri"
+    "message": "Cifre"
   },
   "algorithm": {
     "message": "Algoritmo"
@@ -524,19 +524,19 @@
     "message": "Abilita il blocco automatico per proteggere i tuoi dati."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "La sincronizzazione del browser è disabilitata. Abilitarla consente ai profili di esser sincronizzati tra i browser."
+    "message": "La sincronizzazione del browser è disabilitata. Abilitarla consente di sincronizzare gli account tra i browser."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Il riempimento automatico è abilitabile per compilare automaticamente i codici nei siti web."
+    "message": "Puoi abilitare l'autocompletamento per inserire automaticamente i codici nei siti web."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Abilitare il filtro smart consente l'accesso rapido ai profili."
+    "message": "Abilitare il filtro intelligente consente l'accesso rapido agli account."
   },
   "show_all_insights": {
-    "message": "Mostra tutti i dettagli."
+    "message": "Mostra tutti i suggerimenti."
   },
   "no_insight_available": {
-    "message": "Nessun dettaglio trovato, sembra andare tutto bene!"
+    "message": "Nessun suggerimento trovato, sembra andare tutto bene!"
   },
   "danger": {
     "message": "Pericolo"
@@ -575,22 +575,22 @@
     "message": "Accedi alla scheda corrente per scansionare i codici QR."
   },
   "permission_storage": {
-    "message": "Accedi all'archiviazione del browser per memorizzare i dati del profilo."
+    "message": "Accedi all'archiviazione del browser per memorizzare i dati dell'account."
   },
   "permission_identity": {
     "message": "Consenti l'accesso a servizi d'archiviazione di terze parti."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Consenti il funzionamento del blocco automatico."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Inserisci script nella scheda corrente per scansionare i codici QR e consentire il funzionamento dell'autocompletamento."
   },
   "permission_clipboard_write": {
-    "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
+    "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sull'account."
   },
   "permission_context_menus": {
-    "message": "Aggiungi OTPiloti al menu contestuale."
+    "message": "Aggiungi OTPilot al menu contestuale."
   },
   "permission_sync_clock": {
     "message": "Consenti la sincronizzazione dell'orario con Google."
@@ -605,10 +605,10 @@
     "message": "Autorizzazione sconosciuta. Se vedi questo messaggio, sei pregato di inviare una segnalazione di bug."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Password errata"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Attenzione: il filtro intelligente associa il dominio a un account in modo approssimativo. Verifica sempre di trovarti sul sito corretto prima di inserire un codice!"
   },
   "backup_unavailable": {
     "message": "Non ancora disponibile",

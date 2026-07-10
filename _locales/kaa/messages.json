@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "Autentifikator brauzerińizde eki faktorlı autentifikaciya kodların payda etedi.",
+    "message": "OTPilot Authenticator eki faktorlı (2FA) kodlar jaratadı, shifrlanǵan bult arqalı qosımsha qor nusqası, saytqa sáykes avtomatik toltırıw hám qáwipsizlik boyınsha keńesler beredi.",
     "description": "Extension Description."
   },
   "added": {
@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Esap sırı belgisiz",
+    "message": "Esap sırı jaramsız",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -48,7 +48,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Import ámelge aspadı. Egerde siz Google Autentifikatordan maģlıwmatlardı kóshirip atırģan bolsańız, maģlıwmatlarıńızdı Google Autentifikatordan qaytadan eksport qılıń hám qaytadan háreket etip kóriń.",
+    "message": "Import ámelge aspadı. Egerde siz Google Authenticator-dan maģlıwmatlardı kóshirip atırģan bolsańız, maģlıwmatlarıńızdı Google Authenticator-dan qaytadan eksport qılıń hám qaytadan háreket etip kóriń.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -124,10 +124,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Autentifikatordı dáslepki jaģdayına qaytarıw"
+    "message": "OTPilot-tı dáslepki jaģdayına qaytarıw"
   },
   "delete_all_warning": {
-    "message": "Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde Autentifikator tolıqlay qayta tiklenedi. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! Autentifikator-dı qayta tiklewden aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
+    "message": "Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde OTPilot-tı tolıqlay dáslepki jaģdayına qaytaradı. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! OTPilot-tı dáslepki jaģdayına qaytarıwdan aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
   },
   "security_warning": {
     "message": "Usı parol esaplarıńızdı shifrlaw ushın qollanıladı. Eger paroldi umıtıp qalsańız hesh kim sizge járdem bere almaydı.",
@@ -138,11 +138,11 @@
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Shifrdı ashıw imkáni bolmaģan esaplar, bul qosımshaģa kirgizilmiydi.",
+    "message": "Shifrdı ashıw imkáni bolmaģan esaplar, bul qosımsha qor nusqasına kirgizilmeydi.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "Jasırın sóz mas kelmedi.",
+    "message": "Parol sáykes kelmedi.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -162,7 +162,7 @@
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "Esap maģlıwmatlardı shifrlaw ushın paroldi kirgiziń.",
+    "message": "Esap maģlıwmatlarınıń shifrin ashıw ushın paroldi kirgiziń.",
     "description": "Passphrase Info"
   },
   "sync_clock": {
@@ -178,11 +178,11 @@
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "Súwretke alıw múmkin bolmadı, betti qaytadan júkleń yáki jáne háreket etip kóriń.",
+    "message": "Súwretke alıw múmkin bolmadı, betti qaytadan júkleń hám qayta háreket etip kóriń.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "QR-kodtı fayldan skaner qılmaqshısızba? Bunıń ornına Import QR Image Backup-tan paydalanıń.",
+    "message": "QR-kodtı fayldan skaner qılmaqshı bolıp atırsızba? Bunıń ornına «QR súwret qosımsha qor nusqasın import qılıw»dan paydalanıń.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -194,7 +194,7 @@
     "description": "Counter Based"
   },
   "resize_popup_page": {
-    "message": "Qosımsha",
+    "message": "Qálewler",
     "description": "Popup Page Settings"
   },
   "scale": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Eskeriw: barlıq qosımsha qorlar shifrlanbaģan. Esaptı basqa baģdarlamaģa qosıwdı qáliysizbe? Qálegen esaptıń joqarı oń bólegine kursordı alıp barıń hám jasırın túymeni basıń.",
+    "message": "Eskeriw: barlıq qosımsha qorlar shifrlanbaģan. Esaptı basqa baģdarlamaģa qosıwdı qálaysız ba? Qálegen esaptıń joqarı oń bólegine kursordı alıp barıń hám jasırın túymeni basıń.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -222,15 +222,15 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "QR súwretlerin importlaw",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Tekst qosımshasın import qılıw",
+    "message": "OTPAuth URI importlaw",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "OTPAuth URI importlaw",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -270,7 +270,7 @@
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "Qosımsha qor nusqasın toplamlarda import qılıw ushın bir neshe fayllardı saylawińiz múmkin.",
+    "message": "Qosımsha qor nusqasın toplamlarda import qılıw ushın bir neshe fayllardı saylawıńız múmkin.",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
@@ -278,7 +278,7 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "Eskeriw: qosımsha qor nusqaları shifrlanbaģan. Ózińizdiń qáwip-qáterińizsiz paydalanıń.",
+    "message": "Eskeriw: qosımsha qor nusqaları shifrlanbaģan. Óz qáwip-qáterińizben paydalanıń.",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -294,7 +294,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Parol menen qorģalģan qosımsha nusqasın júklep alıń",
+    "message": "Parol menen qorǵalǵan qosımsha qor nusqasın júklep alıń",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -314,7 +314,7 @@
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "Qolda qosımshalaw",
+    "message": "Qolda qosımsha qor nusqasın alıw",
     "description": "Manual backup"
   },
   "use_autofill": {
@@ -406,7 +406,7 @@
     "description": "Onboarding feature bullet"
   },
   "onboarding_feature_encrypted": {
-    "message": "Qálegenshe parol qulpı bar shifrlanǵan saqlaw ornı",
+    "message": "Qálasańız parol qulpı qosılatuǵın shifrlanǵan saqlaw ornı",
     "description": "Onboarding feature bullet"
   },
   "onboarding_feature_scan": {
@@ -422,7 +422,7 @@
     "description": "Onboarding secondary button"
   },
   "theme_light": {
-    "message": "Nurlı",
+    "message": "Jaqtı",
     "description": "Light theme"
   },
   "theme_dark": {
@@ -434,7 +434,7 @@
     "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
-    "message": "Kompast",
+    "message": "Kompakt",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
@@ -461,7 +461,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "$SERVICE$ esabıńızģa jalģanıwda mashqala júz berdi, qaytadan kiriń.\n",
+    "message": "$SERVICE$ esabıńızģa jalģanıwda mashqala júz berdi, qaytadan kiriń.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -509,7 +509,7 @@
     "message": "Aqıllı filtr"
   },
   "backup": {
-    "message": "Awısıq qor"
+    "message": "Qosımsha qor"
   },
   "password_policy_default_hint": {
     "message": "Parolińiz shólkemińizdiń qáwipsizlik talaplarına juwap bermiydi. Qosımsha maǵlıwmat alıw ushın adminstratorıńız benen baylanısıń."
@@ -533,7 +533,7 @@
     "message": "Aqıllı filtrdi qosıw esaplarģa tez kiriw imkániyatın beredi."
   },
   "show_all_insights": {
-    "message": "Barlıq túsnidirmelerdi kórsetiw."
+    "message": "Barlıq túsiniklerdi kórsetiw."
   },
   "no_insight_available": {
     "message": "Hesh qanday túsinik tabılmadı, hámmesi jaqsi!"
@@ -581,16 +581,16 @@
     "message": "Úshinshi tárep saqlaw xizmetlerine kiriwge ruxsat beredi."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Avtomatik qulıplawdıń islewine imkániyat beredi."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "QR-kodlardı skanerlew hám avtomatik toltırıwdıń islewi ushın usı betke skriptler engiziw."
   },
   "permission_clipboard_write": {
-    "message": "Esap betin basqanıńızda kodlardı almastırıw buferine nusqalaw ushın tek ģana jazıw ushın buferge ruxsat beredi."
+    "message": "Esaptı basqanıńızda kodlardı almastırıw buferine kóshiriw ushın buferge tek jazıw ruxsatın beredi."
   },
   "permission_context_menus": {
-    "message": "Konteks menyusına Autentifikator qosadı."
+    "message": "Konteks menyusına OTPilot qosadı."
   },
   "permission_sync_clock": {
     "message": "Google menen saattı sinxronlaw imkániyatın beredi."
@@ -605,10 +605,10 @@
     "message": "Belgisiz ruxsat. Eger usı xabardı kórseńiz, qátelik haqqında esabat jiberiń."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Parol qáte"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Eskertiw: Aqıllı filtr domen atın esapqa juwıq túrde sáykestiredi. Kod kirgiziwden aldın hámishe durıs saytta turǵanıńızdı tekseriń!"
   },
   "backup_unavailable": {
     "message": "Házirshe qoljetimsiz",

@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "host": {
-    "message": "Website",
+    "message": "Webside",
     "description": "Bound website host used to restrict autofill to a matching page."
   },
   "backup_requires_password": {
@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot generearret 2-stapsferifikaasjekoades yn jo browser.",
+    "message": "OTPilot Authenticator generearret twafaktor (2FA) koades, mei fersifere cloud-reservekopy, host-keppele automatysk ynfoljen, en befeiligingsadvys.",
     "description": "Extension Description."
   },
   "added": {
@@ -28,11 +28,11 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Net krekt accountgeheim",
+    "message": "Ûnjildich accountgeheim",
     "description": "Secret Error."
   },
   "errorissuer": {
-    "message": "Utjouwer mei net \"::\" befetsje",
+    "message": "Útjouwer mei net \"::\" befetsje",
     "description": "Issuer Error."
   },
   "add_code": {
@@ -76,7 +76,7 @@
     "description": "Account Name."
   },
   "issuer": {
-    "message": "Utjouwer",
+    "message": "Útjouwer",
     "description": "Issuer."
   },
   "secret": {
@@ -104,7 +104,7 @@
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Aktueel ​​wachtwurd",
+    "message": "Hjoeddeistich wachtwurd",
     "description": "Current Passphrase."
   },
   "phrase": {
@@ -120,14 +120,14 @@
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
-    "message": "Ik begryp dat al myn gegevens sûnder te werstellen fuortsmiten wurde sille.",
+    "message": "Ik begryp dat al myn gegevens ûnwerstelber fuortsmiten wurde sille.",
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
     "message": "OTPilot opnij inisjalisearje"
   },
   "delete_all_warning": {
-    "message": "Dit sil al jo gegevens fuortsmite en de OTPilot folslein opnij inisjalisearje. Jo binne net yn steat om fuortsmiten gegevens te werstellen! Oerwaagje om in reservekopy te bewarjen eardat jo de OTPilot opnij inisjalisearje."
+    "message": "Dit sil al jo gegevens fuortsmite en OTPilot folslein opnij inisjalisearje. Jo binne net yn steat om fuortsmiten gegevens te werstellen! Oerwaagje om in reservekopy te bewarjen eardat jo OTPilot opnij inisjalisearje."
   },
   "security_warning": {
     "message": "Dit wachtwurd wurdt brûkt foar it fersiferjen fan jo accounts. Net ien kin jo helpe as jo it wachtwurd ferjitte.",
@@ -190,7 +190,7 @@
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Teller bûn",
+    "message": "Tellerbûn",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -198,7 +198,7 @@
     "description": "Popup Page Settings"
   },
   "scale": {
-    "message": "Skeal",
+    "message": "Skaal",
     "description": "Scale"
   },
   "export_info": {
@@ -226,7 +226,7 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Tekstreservekopy ymportearje",
+    "message": "OTP-URL's ymportearje",
     "description": "Import backup code."
   },
   "import_otp_urls": {
@@ -246,7 +246,7 @@
     "description": "File import dropzone button"
   },
   "import_encrypted_note": {
-    "message": "As it bestân fersifere is, wurdt jo nei seleksje om it wachtwurd frege.",
+    "message": "As it bestân fersifere is, wurde jo nei seleksje om it wachtwurd frege.",
     "description": "File import note about encrypted backups"
   },
   "import_enc_required": {
@@ -262,7 +262,7 @@
     "description": "Hint under the import passphrase field"
   },
   "import_decrypt": {
-    "message": "Untsiferje en ymportearje",
+    "message": "Ûntsiferje en ymportearje",
     "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
@@ -274,7 +274,7 @@
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
-    "message": "Lit alle ynfier sjen",
+    "message": "Lit alle ynfieren sjen",
     "description": "Show all entries."
   },
   "dropbox_risk": {
@@ -286,7 +286,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Jo wachtwurd is lokaal bewarre, wizigje dizze daliks yn it menu befeiliging.",
+    "message": "Jo wachtwurd is lokaal bewarre, wizigje it daliks yn it menu befeiliging.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -318,7 +318,7 @@
     "description": "Manual backup"
   },
   "use_autofill": {
-    "message": "Automatysk oanfolje brûke",
+    "message": "Automatysk ynfolje brûke",
     "description": "Use Autofill"
   },
   "theme": {
@@ -342,7 +342,7 @@
     "description": "Context-menu action to show an account's QR code"
   },
   "pin_to_top": {
-    "message": "Boppe oan fêstsette",
+    "message": "Boppeoan fêstsette",
     "description": "Context-menu action to pin an account to the top"
   },
   "unpin": {
@@ -354,7 +354,7 @@
     "description": "Title on the unlock screen"
   },
   "unlock": {
-    "message": "Untskoattelje",
+    "message": "Ûntskoattelje",
     "description": "Unlock button"
   },
   "qr_transfer_title": {
@@ -402,7 +402,7 @@
     "description": "Onboarding subtitle"
   },
   "onboarding_feature_offline": {
-    "message": "Wurket folslein offline — der ferlit neat jo apparaat",
+    "message": "Wurket folslein offline — neat ferlit jo apparaat",
     "description": "Onboarding feature bullet"
   },
   "onboarding_feature_encrypted": {
@@ -430,7 +430,7 @@
     "description": "Dark theme"
   },
   "theme_auto": {
-    "message": "Auto (systeem folgje)",
+    "message": "Auto",
     "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
@@ -454,10 +454,10 @@
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "Wêrom hawwe saaklike accounts mear tastimming nedich?"
+    "message": "Wêrom hawwe saaklike accounts mear tastimmingen nedich?"
   },
   "log_out": {
-    "message": "Ofmelde",
+    "message": "Ôfmelde",
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
@@ -471,7 +471,7 @@
     }
   },
   "otp_backup_inform": {
-    "message": "Jo kinne reservekopyen fan inkelde andere tapassingen ymportearje.",
+    "message": "Jo kinne reservekopyen fan guon oare tapassingen ymportearje.",
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
@@ -497,10 +497,10 @@
     "message": "Type"
   },
   "invalid": {
-    "message": "Unjildich"
+    "message": "Ûnjildich"
   },
   "digits": {
-    "message": "Digits"
+    "message": "Sifers"
   },
   "algorithm": {
     "message": "Algoritme"
@@ -569,7 +569,7 @@
     "message": "Net-werropbere tastimmingen werjaan"
   },
   "permission_required": {
-    "message": "Dit is in fereaske tastimming dy’t net fuort te smiten is."
+    "message": "Dit is in fereaske tastimming dy’t net ynlutsen wurde kin."
   },
   "permission_active_tab": {
     "message": "Tagong ta it aktuele ljepblêd om QR-koaden te scannen."
@@ -602,13 +602,13 @@
     "message": "Jo moatte earst reservekopy nei Dropbox útskeakelje."
   },
   "permission_unknown_permission": {
-    "message": "Unbekende tastimming. As dit bericht werjûn wurdt, stjoer dan in bugrapport."
+    "message": "Ûnbekende tastimming. As dit berjocht werjûn wurdt, stjoer dan in bugrapport."
   },
   "phrase_wrong": {
-    "message": "Wachtwurd net korrekt"
+    "message": "Wachtwurd net krekt"
   },
   "activate_auto_filter": {
-    "message": "Warskôging: Tûk filter keppelet op in frij losse manier de domeinnamme oan in account. Kontrolearje altyd oft jo op de krekte website binne eardat jo in koade ynfiere!"
+    "message": "Warskôging: Tûk filter keppelet op in frij losse manier de domeinnamme oan in account. Kontrolearje altyd oft jo op de krekte webside binne eardat jo in koade ynfiere!"
   },
   "backup_unavailable": {
     "message": "Noch net beskikber",

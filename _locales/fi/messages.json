@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
+    "message": "OTPilot Authenticator tuottaa kaksivaiheisen todennuksen (2FA) tunnuslukuja ja tarjoaa salatun pilvivarmuuskopioinnin, sivustokohtaisen automaattitäytön sekä suojausvinkkejä.",
     "description": "Extension Description."
   },
   "added": {
@@ -52,7 +52,7 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "Joitakin tilitietojen tuonti epäonnistui.",
+    "message": "Joidenkin tilien tietoja ei tuotu onnistuneesti.",
     "description": "Some migration data is broken."
   },
   "ok": {
@@ -178,7 +178,7 @@
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "Kaappaus epäonnistu. Päivitä sivu ja yritä uudelleen.",
+    "message": "Kaappaus epäonnistui. Päivitä sivu ja yritä uudelleen.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
@@ -222,15 +222,15 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Tuo QR-koodikuvia",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Tuo tekstivarmuuskopio",
+    "message": "Tuo OTPAuth-URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Tuo OTPAuth-URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -491,7 +491,7 @@
     "message": "Lisäasetukset"
   },
   "period": {
-    "message": "Piste"
+    "message": "Jakso"
   },
   "type": {
     "message": "Tyyppi"
@@ -515,7 +515,7 @@
     "message": "Salasanasi ei vastaa organisaatiosi suojausvaatimuksia. Lisätietoja saat järjestelmänvalvojaltasi."
   },
   "advisor": {
-    "message": "Opas"
+    "message": "Neuvonantaja"
   },
   "advisor_insight_password_not_set": {
     "message": "Aseta salasana tietojesi suojaamiseksi."
@@ -539,13 +539,13 @@
     "message": "Huomautettavaa ei löytynyt ja kaikki näyttää hyvältä!"
   },
   "danger": {
-    "message": "Vaarallinen"
+    "message": "Vaara"
   },
   "warning": {
     "message": "Varoitus"
   },
   "info": {
-    "message": "Informatiiviinen"
+    "message": "Tieto"
   },
   "dismiss": {
     "message": "Sulje"
@@ -581,10 +581,10 @@
     "message": "Sallii kirjautumisen ulkoisiin tallennuspalveluihin."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Mahdollistaa automaattisen lukituksen toiminnan."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Lisää skriptejä nykyiselle välilehdelle, jotta QR-koodien lukeminen ja automaattitäyttö toimivat."
   },
   "permission_clipboard_write": {
     "message": "Myöntää pelkän kirjoitusoikeuden leikepöydälle koodien kopiointiin tilejä painettaessa."
@@ -605,10 +605,10 @@
     "message": "Tuntematon käyttöoikeus. Jos näet tämän viestin, lähetä virheilmoitus."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Väärä salasana"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Varoitus: Älykäs suodatin täsmää verkkotunnuksen tiliin vain löyhästi. Varmista aina, että olet oikealla sivustolla ennen kuin syötät koodin!"
   },
   "backup_unavailable": {
     "message": "Ei vielä saatavilla",

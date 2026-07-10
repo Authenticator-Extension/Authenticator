@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
+    "message": "OTPilot Authenticator, şifreli bulut yedekleme, siteye özel otomatik doldurma ve güvenlik önerileri sunarak iki faktörlü (2FA) kimlik doğrulama kodları oluşturur.",
     "description": "Extension Description."
   },
   "added": {
@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Geçersiz hesap anahtarı",
+    "message": "Geçersiz hesap gizli anahtarı",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -40,11 +40,11 @@
     "description": "Add account."
   },
   "add_qr": {
-    "message": "Karekodunu tara",
+    "message": "Karekod tara",
     "description": "Scan QR Code."
   },
   "add_secret": {
-    "message": "Elle kayıt",
+    "message": "Elle giriş",
     "description": "Manual Entry."
   },
   "migration_fail": {
@@ -124,10 +124,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Kimlik Doğrulayıcıyı sıfırla"
+    "message": "OTPilot'u sıfırla"
   },
   "delete_all_warning": {
-    "message": "Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydedin."
+    "message": "Bu işlem tüm verilerinizi silecek ve OTPilot'u tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. OTPilot'u sıfırlamadan önce bir yedekleme kaydedin."
   },
   "security_warning": {
     "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
@@ -146,7 +146,7 @@
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "Şifrelendi",
+    "message": "Şifreli",
     "description": "Encrypted."
   },
   "copied": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Uyarı: Tüm yedeklemeler şifrelenmemiştir. Başka bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmındaki gizli karekod simgesine tıklayın.",
+    "message": "Uyarı: Tüm yedeklemeler şifrelenmemiştir. Başka bir uygulamaya hesap eklemek ister misiniz? Herhangi bir hesabın sağ üst kısmına gelin ve gizli düğmeye tıklayın.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -226,7 +226,7 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Metin yedeklemeden içe aktar",
+    "message": "OTPAuth URI'sini içe aktar",
     "description": "Import backup code."
   },
   "import_otp_urls": {
@@ -250,7 +250,7 @@
     "description": "File import note about encrypted backups"
   },
   "import_enc_required": {
-    "message": "Şifrelendi — parola gerekli",
+    "message": "Şifreli — parola gerekli",
     "description": "Badge on a picked encrypted backup file"
   },
   "import_pass_placeholder": {
@@ -314,7 +314,7 @@
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "Elle yedekle",
+    "message": "Elle yedekleme",
     "description": "Manual backup"
   },
   "use_autofill": {
@@ -434,7 +434,7 @@
     "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
-    "message": "Yoğun",
+    "message": "Kompakt",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
@@ -482,7 +482,7 @@
     "message": "Yükleniyor..."
   },
   "autolock": {
-    "message": "Sonrasında kilitle"
+    "message": "Kilitleme süresi"
   },
   "minutes": {
     "message": "dakika"
@@ -509,7 +509,7 @@
     "message": "Akıllı filtre"
   },
   "backup": {
-    "message": "Yedekle"
+    "message": "Yedekleme"
   },
   "password_policy_default_hint": {
     "message": "Parolanız kuruluşunuzun güvenlik gereksinimlerini karşılamıyor. Daha fazla bilgi için yöneticinize başvurun."
@@ -548,7 +548,7 @@
     "message": "Bilgi"
   },
   "dismiss": {
-    "message": "Reddet"
+    "message": "Kapat"
   },
   "learn_more": {
     "message": "Daha fazla bilgi edinin"
@@ -560,19 +560,19 @@
     "message": "Görüntülenecek hesap yok. İlk hesabınızı şimdi ekleyin."
   },
   "permissions": {
-    "message": "Yetkiler"
+    "message": "İzinler"
   },
   "permission_revoke": {
     "message": "İptal et"
   },
   "permission_show_required_permissions": {
-    "message": "Geri alınamayan yekileri göster"
+    "message": "Geri alınamayan izinleri göster"
   },
   "permission_required": {
-    "message": "Bu gerekli bir yetkidir ve iptal edilemez."
+    "message": "Bu gerekli bir izindir ve iptal edilemez."
   },
   "permission_active_tab": {
-    "message": "Karekodlarını taramak için geçerli sekmeye erişim."
+    "message": "Karekodları taramak için geçerli sekmeye erişim."
   },
   "permission_storage": {
     "message": "Hesap verilerini saklamak için tarayıcı depolama alanına erişim."
@@ -584,13 +584,13 @@
     "message": "Otomatik kilitlemenin çalışmasını sağlar."
   },
   "permission_scripting": {
-    "message": "Karekodları taramak ve otomatik doldurmanın çalışmasını sağlamak için geçerli sekmeye komut dosyaları yerleştirin."
+    "message": "Karekodları taramak ve otomatik doldurmanın çalışmasını sağlamak için geçerli sekmeye komut dosyaları yerleştirir."
   },
   "permission_clipboard_write": {
     "message": "Hesaba tıkladığınızda kodları panoya kopyalamak için panoya yalnızca yazma erişimi verir."
   },
   "permission_context_menus": {
-    "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
+    "message": "İçerik menüsüne OTPilot'u ekler."
   },
   "permission_sync_clock": {
     "message": "Google ile saat eşitlemesine izin verir."
@@ -602,13 +602,13 @@
     "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
   },
   "permission_unknown_permission": {
-    "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
+    "message": "Bilinmeyen izin. Bu mesajı görürseniz bir hata raporu gönderin."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Parola yanlış"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Uyarı: Akıllı filtre, alan adını bir hesapla gevşek biçimde eşleştirir. Kod girmeden önce her zaman doğru web sitesinde olduğunuzdan emin olun!"
   },
   "backup_unavailable": {
     "message": "Henüz kullanılamıyor",

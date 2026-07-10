@@ -16,11 +16,11 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "Аутентификатор генерирует коды двухфакторной аутентификации в вашем браузере.",
+    "message": "OTPilot Authenticator создаёт коды двухфакторной аутентификации (2FA), с зашифрованным резервным копированием в облако, автозаполнением по сайту и рекомендациями по безопасности.",
     "description": "Extension Description."
   },
   "added": {
-    "message": " Был добавлен.",
+    "message": " добавлен.",
     "description": "Added Account."
   },
   "errorqr": {
@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Недопустимое имя учётной записи.",
+    "message": "Недопустимый секрет учётной записи.",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -56,7 +56,7 @@
     "description": "Some migration data is broken."
   },
   "ok": {
-    "message": "Готово",
+    "message": "ОК",
     "description": "OK."
   },
   "yes": {
@@ -112,7 +112,7 @@
     "description": "Passphrase."
   },
   "confirm_phrase": {
-    "message": "Подтвердить Пароль",
+    "message": "Подтверждение пароля",
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
@@ -124,17 +124,17 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Сбросить ключ идентификации."
+    "message": "Сбросить OTPilot"
   },
   "delete_all_warning": {
-    "message": "Это удалит все ваши данные и полностью сбросит OTPilot. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
+    "message": "Это удалит все ваши данные и полностью сбросит OTPilot. Вы не сможете восстановить какие-либо удалённые данные! Вам следует сохранить резервную копию перед сбросом OTPilot."
   },
   "security_warning": {
     "message": "Этот пароль будет использоваться для шифрования ваших учетных записей. Никто не может помочь вам, если вы забыли пароль.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
-    "message": "Вы не можете добавить аккаунт, пока все аккаунты не расшифрованы. Введите правильный пароль, чтобы продолжить.",
+    "message": "Вы не можете добавить новую учётную запись, пока не расшифрованы все учётные записи. Введите правильный пароль, чтобы продолжить.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -142,11 +142,11 @@
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "Не совпадает парольная фраза.",
+    "message": "Пароли не совпадают.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "Данные зашифрованы",
+    "message": "Зашифровано",
     "description": "Encrypted."
   },
   "copied": {
@@ -170,7 +170,7 @@
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
-    "message": "Внимание! Ваши данные местного времени не совпадают, пожалуйста синхронизируйте время перед тем как продолжить.",
+    "message": "Внимание! Часы на вашем устройстве сильно рассинхронизированы, пожалуйста, синхронизируйте время, прежде чем продолжить.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
@@ -182,15 +182,15 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Сканируете QR код из файла? Используйте команду Импортировать QR из резервного файла.",
+    "message": "Пытаетесь отсканировать QR-код из локального файла? Используйте вместо этого «Импорт резервной копии QR-изображений».",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "Время",
+    "message": "По времени",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Счетчик",
+    "message": "По счётчику",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учетную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учетной записи и нажмите скрытую кнопку с QR кодом",
+    "message": "Предупреждение: все резервные копии не зашифрованы. Хотите добавить учётную запись в другое приложение? Наведите курсор на верхнюю правую часть любой учётной записи и нажмите скрытую кнопку.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -210,7 +210,7 @@
     "description": "Download backup file."
   },
   "import_backup": {
-    "message": "Восстановить копию.",
+    "message": "Восстановить резервную копию",
     "description": "Import backup."
   },
   "import_backup_file": {
@@ -218,19 +218,19 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Импортировать резервную копию QR изображений",
+    "message": "Импортировать резервную копию QR-изображений",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Импортировать QR-изображения",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Восстановить  из текста.",
+    "message": "Импортировать OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Импортировать OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -266,11 +266,11 @@
     "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
-    "message": "Импорт успешный, но некоторые QR-коды не могут быть распознаны.",
+    "message": "Импорт выполнен успешно, но некоторые QR-коды не удалось распознать.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "Вы можете выбрать несколько файлов изображения для импорта резервных копий в пакетном режиме.",
+    "message": "Вы можете выбрать несколько файлов изображений для импорта резервных копий в пакетном режиме.",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
@@ -286,7 +286,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Ваши данные хоронятся в открытом виде, для защиты установите пароль в настройках безопасности.",
+    "message": "Ваш пароль хранится локально в незашифрованном виде, пожалуйста, немедленно смените его в меню безопасности.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -294,7 +294,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Сохранить защищенную паролем резервную копию",
+    "message": "Скачать защищённую паролем резервную копию",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -306,7 +306,7 @@
     "description": "Make window turn into persistent popup"
   },
   "lock": {
-    "message": "Защищено паролем",
+    "message": "Заблокировать",
     "description": "Lock accounts"
   },
   "edit": {
@@ -434,15 +434,15 @@
     "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
-    "message": "Компактный",
+    "message": "Компактная",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
-    "message": "Высокая контрастность",
+    "message": "Высококонтрастная",
     "description": "High Contrast theme"
   },
   "browser_sync": {
-    "message": "Browser Sync",
+    "message": "Синхронизация браузера",
     "description": "Storage location"
   },
   "sign_in": {
@@ -494,10 +494,10 @@
     "message": "Период"
   },
   "type": {
-    "message": "Тип\n"
+    "message": "Тип"
   },
   "invalid": {
-    "message": "Больной"
+    "message": "Недействительно"
   },
   "digits": {
     "message": "Цифры"
@@ -506,13 +506,13 @@
     "message": "Алгоритм"
   },
   "smart_filter": {
-    "message": "\"Умный\" фильтр"
+    "message": "Умный фильтр"
   },
   "backup": {
-    "message": "Резервная копия"
+    "message": "Резервное копирование"
   },
   "password_policy_default_hint": {
-    "message": "Ваш пароль не соответствует требованием безопасности вашей организации. Свяжитесь с вашим администратором для получения дополнительной информации."
+    "message": "Ваш пароль не соответствует требованиям безопасности вашей организации. Свяжитесь с вашим администратором для получения дополнительной информации."
   },
   "advisor": {
     "message": "Советник"
@@ -530,13 +530,13 @@
     "message": "Автозаполнение может быть включено для автоматического заполнения кодов на веб-сайтах."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Включение смарт фильтра позволяет быстро получить доступ к аккаунтам."
+    "message": "Включение умного фильтра позволяет быстро получить доступ к учётным записям."
   },
   "show_all_insights": {
-    "message": "Показать все действия."
+    "message": "Показать все рекомендации."
   },
   "no_insight_available": {
-    "message": "Никаких действий не найдено, всё хорошо!"
+    "message": "Рекомендаций не найдено — всё в порядке!"
   },
   "danger": {
     "message": "Опасность"
@@ -545,7 +545,7 @@
     "message": "Предупреждение"
   },
   "info": {
-    "message": "ℹ️ Информация"
+    "message": "Информация"
   },
   "dismiss": {
     "message": "Пропустить"
@@ -557,19 +557,19 @@
     "message": "Добавить в контекстное меню"
   },
   "no_entires": {
-    "message": "Нет аккаунтов для отображения. Добавьте свой первый аккаунт сейчас."
+    "message": "Нет учётных записей для отображения. Добавьте свою первую учётную запись прямо сейчас."
   },
   "permissions": {
     "message": "Разрешения"
   },
   "permission_revoke": {
-    "message": "Отменить"
+    "message": "Отозвать"
   },
   "permission_show_required_permissions": {
-    "message": "Показать неотменимые разрешения"
+    "message": "Показать разрешения, которые нельзя отозвать"
   },
   "permission_required": {
-    "message": "Это требуемое разрешение и не может быть отменено."
+    "message": "Это обязательное разрешение, его нельзя отозвать."
   },
   "permission_active_tab": {
     "message": "Доступ к текущей вкладке для сканирования QR-кодов."
@@ -581,16 +581,16 @@
     "message": "Позволяет войти в сторонние службы хранения."
   },
   "permission_alarms": {
-    "message": "Разрешить автоблокировку."
+    "message": "Позволяет работать автоблокировке."
   },
   "permission_scripting": {
-    "message": "Вставляйте скрипты в текущую вкладку для сканирования QR-кодов и автоматического заполнения для работы."
+    "message": "Внедряет скрипты в текущую вкладку для сканирования QR-кодов и обеспечивает работу автозаполнения."
   },
   "permission_clipboard_write": {
-    "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
+    "message": "Предоставляет доступ только на запись в буфер обмена, чтобы копировать коды при нажатии на учётную запись."
   },
   "permission_context_menus": {
-    "message": "Добавляет аутентификатор в меню контекста."
+    "message": "Добавляет OTPilot в контекстное меню."
   },
   "permission_sync_clock": {
     "message": "Позволяет синхронизировать часы с Google."
@@ -599,16 +599,16 @@
     "message": "Позволяет делать резервную копию в Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "Сначала необходимо отключить резервную копию Dropbox."
+    "message": "Сначала необходимо отключить резервное копирование в Dropbox."
   },
   "permission_unknown_permission": {
-    "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте сообщение об ошибке."
+    "message": "Неизвестное разрешение. Если вы видите это сообщение, отправьте отчёт об ошибке."
   },
   "phrase_wrong": {
     "message": "Неверный пароль"
   },
   "activate_auto_filter": {
-    "message": "Внимание: Интеллектуальный фильтр точно сопоставляет доменное имя с учетной записью. Всегда проверяйте, что вы находитесь на правильном веб-сайте, прежде чем вводить код!"
+    "message": "Внимание: умный фильтр лишь приблизительно сопоставляет доменное имя с учётной записью. Всегда проверяйте, что вы находитесь на правильном веб-сайте, прежде чем вводить код!"
   },
   "backup_unavailable": {
     "message": "Пока недоступно",

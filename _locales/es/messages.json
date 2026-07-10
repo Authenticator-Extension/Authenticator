@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "OTPilot genera códigos de autenticación de dos factores en su navegador.",
+    "message": "OTPilot Authenticator genera códigos de autenticación de dos factores (2FA), con copia de seguridad cifrada en la nube, autocompletado según el sitio web y recomendaciones de seguridad.",
     "description": "Extension Description."
   },
   "added": {
@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Clave secreta de la cuenta invalida",
+    "message": "Clave secreta de la cuenta inválida",
     "description": "Secret Error."
   },
   "errorissuer": {
@@ -48,7 +48,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Error al importar. Si intentas migrar datos desde el Autenticador de Google, exporta de nuevo los datos y vuelve a intentarlo.",
+    "message": "Error al importar. Si estás migrando datos desde Google Authenticator, exporta de nuevo tus datos desde Google Authenticator e inténtalo otra vez.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -88,7 +88,7 @@
     "description": "Update Success."
   },
   "updateFailure": {
-    "message": "Falla.",
+    "message": "Fallo.",
     "description": "Update Failure."
   },
   "about": {
@@ -116,7 +116,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "¿Estás seguro que deseas borrar esta cuenta? Esta acción no se puede deshacer.",
+    "message": "¿Estás seguro de que deseas eliminar esta cuenta? Esta acción no se puede deshacer.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -124,17 +124,17 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Restablecer auntenticador"
+    "message": "Restablecer OTPilot"
   },
   "delete_all_warning": {
-    "message": "Esto eliminará todos tus datos y restablecerá completamente OTPilot. ¡No podrás recuperar ningún dato eliminado! Deberías considerar guardar una copia de seguridad antes de resetear OTPilot."
+    "message": "Esto eliminará todos tus datos y restablecerá completamente OTPilot. ¡No podrás recuperar ningún dato eliminado! Deberías considerar guardar una copia de seguridad antes de restablecer OTPilot."
   },
   "security_warning": {
     "message": "Esta contraseña se utilizará para cifrar tus cuentas. Nadie puede ayudarte si olvidas la contraseña.",
     "description": "Passphrase Warning."
   },
   "phrase_incorrect": {
-    "message": "No puedes añadir una nueva cuenta hasta que todas las demás cuentas estén descifradas. Por favor introduzca la contraseña correcta antes de continuar.",
+    "message": "No puedes añadir una nueva cuenta hasta que todas las demás cuentas estén descifradas. Por favor, introduce la contraseña correcta antes de continuar.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -154,15 +154,15 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "Su opinión",
+    "message": "Comentarios",
     "description": "Feedback."
   },
   "source": {
-    "message": "Código Fuente",
+    "message": "Código fuente",
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "Introduzca la contraseña para descifrar los datos de la cuenta.",
+    "message": "Introduce la contraseña para descifrar los datos de la cuenta.",
     "description": "Passphrase Info"
   },
   "sync_clock": {
@@ -170,11 +170,11 @@
     "description": "Sync Clock"
   },
   "clock_too_far_off": {
-    "message": "¡Peligro! Tu reloj local está demasiado desfasado, corrígelo antes de continuar.",
+    "message": "¡Atención! Tu reloj local está demasiado desfasado, corrígelo antes de continuar.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "¿Tienes una copia de seguridad cuentas¡No esperes hasta que sea demasiado tarde!",
+    "message": "¿Tienes una copia de seguridad de tus cuentas? ¡No esperes hasta que sea demasiado tarde!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -202,7 +202,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Advertencia: todas las copias de seguridad están sin encriptar. ¿Quieres añadir una cuenta para otra aplicación? Pasa el ratón por encima de la esquina superior-derecha de cualquier cuenta y pulsa el botón oculto.",
+    "message": "Advertencia: todas las copias de seguridad están sin cifrar. ¿Quieres añadir una cuenta a otra aplicación? Pasa el ratón por encima de la esquina superior derecha de cualquier cuenta y pulsa el botón oculto.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -222,15 +222,15 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Importar imágenes QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importar el Texto de la Copia de Seguridad",
+    "message": "Importar URI de OTPAuth",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Importar URI de OTPAuth",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_drop_file": {
@@ -278,7 +278,7 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "Advertencia: las copias de seguridad no están encriptadas. Lo cuál no se recomienda, pero es bajo tu propio riesgo.",
+    "message": "Advertencia: las copias de seguridad no están cifradas. Úsalas bajo tu propia responsabilidad.",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -318,7 +318,7 @@
     "description": "Manual backup"
   },
   "use_autofill": {
-    "message": "Usar auto-completado",
+    "message": "Usar autocompletado",
     "description": "Use Autofill"
   },
   "theme": {
@@ -461,7 +461,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "Ha habido un problema al conectarse a tu cuenta $SERVICE$. Inténtalo de nuevo.",
+    "message": "Ha habido un problema al conectar con tu cuenta de $SERVICE$. Vuelve a iniciar sesión.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -578,16 +578,16 @@
     "message": "Acceder al almacenamiento del navegador para guardar los datos de la cuenta."
   },
   "permission_identity": {
-    "message": "Permitir iniciar sesión en servicios para almacenamiento de terceros."
+    "message": "Permitir iniciar sesión en servicios de almacenamiento de terceros."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Habilitar el bloqueo automático."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Insertar scripts en la pestaña actual para escanear códigos QR y permitir que funcione el autocompletado."
   },
   "permission_clipboard_write": {
-    "message": "Otorga acceso de sólo escritura al portapapeles para copiar codigos al portapapeles cuando haga clic en la cuenta."
+    "message": "Otorgar acceso de solo escritura al portapapeles para copiar los códigos al hacer clic en la cuenta."
   },
   "permission_context_menus": {
     "message": "Agregar OTPilot al menú contextual."
@@ -599,16 +599,16 @@
     "message": "Habilitar copias de seguridad con Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "Primero debe deshabilitar la copia de seguridad de Dropbox."
+    "message": "Primero debes deshabilitar la copia de seguridad de Dropbox."
   },
   "permission_unknown_permission": {
-    "message": "Permiso desconocido. Si ve este mensaje, por favor envíe un informe de error."
+    "message": "Permiso desconocido. Si ves este mensaje, por favor, envía un informe de error."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Contraseña incorrecta"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Advertencia: el filtro inteligente relaciona el nombre de dominio con una cuenta de forma aproximada. ¡Verifica siempre que estás en el sitio web correcto antes de introducir un código!"
   },
   "backup_unavailable": {
     "message": "No disponible todavía",

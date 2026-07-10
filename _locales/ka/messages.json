@@ -16,7 +16,7 @@
     "description": "Shown in the cloud backup section when no master password is set."
   },
   "extDesc": {
-    "message": "აუთენთიფიკატორი აგენერირებს ორფაქტორიან აუთენთიფიკაციის კოდებს თქვენს ბრაუზერში.",
+    "message": "OTPilot Authenticator აგენერირებს ორფაქტორიან (2FA) კოდებს, დაშიფრული ღრუბლოვანი სარეზერვო ასლით, ჰოსტთან შესაბამისი ავტომატური შევსებით და უსაფრთხოების რჩევებით.",
     "description": "Extension Description."
   },
   "added": {
@@ -48,7 +48,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "იმპორტირება ვერ მოხერხდა. თუ თქვენ მონაცემები Google აუთენთიფიკატორიდან გადაგაქვთ, გთხოვთ, ხელახლა მოახდინოთ მონაცემების ექსპორტი და სცადოთ თავიდან.",
+    "message": "იმპორტირება ვერ მოხერხდა. თუ თქვენ მონაცემებს Google Authenticator-იდან გადააქვთ, გთხოვთ, ხელახლა მოახდინოთ მონაცემების ექსპორტი Google Authenticator-იდან და სცადოთ თავიდან.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -124,10 +124,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "აუთენთიფიკატორის აღდგენა"
+    "message": "OTPilot-ის აღდგენა"
   },
   "delete_all_warning": {
-    "message": "ეს მოქმედება წაშლის თქვენს ყველა მონაცემს და აღადგენს აუთენთიფიკატორის ყველა პარამეტრს. თქვენ ვერ შეძლებთ წაშლილი მონაცემების აღდგენას! აუთენთიფიკატორის აღდგენამდე, თქვენ უნდა შეინახოთ სარეზერვო ასლი."
+    "message": "ეს მოქმედება წაშლის თქვენს ყველა მონაცემს და აღადგენს OTPilot-ის ყველა პარამეტრს. თქვენ ვერ შეძლებთ წაშლილი მონაცემების აღდგენას! OTPilot-ის აღდგენამდე, თქვენ უნდა შეინახოთ სარეზერვო ასლი."
   },
   "security_warning": {
     "message": "ეს პაროლი გამოყენებული იქნება თქვენი ანგარიშების დაშიფვრისთვის. ვერავინ დაგეხმარებათ, თუ დაგავიწყდათ პაროლი.",
@@ -182,7 +182,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "QR კოდის ლოკალური ფაილიდან დასკანერებას ცდილობთ? QR კოდის ლოკალური ფაილიდან დასკანერების ნაცვლად, გამოიყენეთ სარეზერვო QR სურათის იმპორტირება.",
+    "message": "QR კოდის ლოკალური ფაილიდან დასკანერებას ცდილობთ? ამის ნაცვლად გამოიყენეთ „სარეზერვო QR სურათის იმპორტირება“.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -226,7 +226,7 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "ტექსტური სარეზერვო ასლის იმპორტირება",
+    "message": "OTPAuth URI-ის იმპორტირება",
     "description": "Import backup code."
   },
   "import_otp_urls": {
@@ -286,7 +286,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "თქვენი პაროლი შენახულია ლოკალურად. გთხოვთ, დაუყოვნებლივ შეცვალოთ პაროლის ადგილმდებარეობა უსაფრთხოების მენიუში.",
+    "message": "თქვენი პაროლი ინახება ლოკალურად, გთხოვთ, დაუყოვნებლივ შეცვალოთ იგი უსაფრთხოების მენიუში.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -314,7 +314,7 @@
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "მექანიკური სარეზერვო ასლი",
+    "message": "ხელით სარეზერვო ასლი",
     "description": "Manual backup"
   },
   "use_autofill": {
@@ -581,16 +581,16 @@
     "message": "საშუალებას გაძლევთ შეხვიდეთ მესამე მხარის შენახვის სერვისებში."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "საშუალებას გაძლევთ, ავტომატურმა დაბლოკვამ იმუშაოს."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "შეაქვს სკრიპტები მიმდინარე ჩანართში QR კოდების დასკანერებისა და ავტომატური შევსების მუშაობისთვის."
   },
   "permission_clipboard_write": {
     "message": "ანიჭებს მხოლოდ ჩაწერის წვდომას გაცვლის ბუფერზე, რათა დააკოპიროთ კოდები, ანგარიშზე დაჭერის დროს."
   },
   "permission_context_menus": {
-    "message": "ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
+    "message": "ამატებს OTPilot-ს კონტექსტურ მენიუში."
   },
   "permission_sync_clock": {
     "message": "საშუალებას გაძლევთ, მოახდინოთ დროის სინქრონიზაცია Google-თან."
@@ -605,10 +605,10 @@
     "message": "უცნობი ნებართვა. თუ ამ შეტყობინებას ხედავთ, გთხოვთ, შეგვატყობინოთ პრობლემის შესახებ."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "პაროლი არასწორია"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "გაფრთხილება: ჭკვიანი ფილტრი დაახლოებით ადარებს დომენის სახელს ანგარიშს. კოდის შეყვანამდე ყოველთვის დარწმუნდით, რომ სწორ ვებსაიტზე იმყოფებით!"
   },
   "backup_unavailable": {
     "message": "ჯერ არ არის ხელმისაწვდომი",
