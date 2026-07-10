@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Webbplats",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Ställ in ett lösenord först för att använda molnsäkerhetskopiering, så att dina hemligheter krypteras innan de lämnar den här enheten.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot genererar 2-stegs verifieringskoder i din webbläsare.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Ogiltig kontohemlighet",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Utgivaren får inte innehålla \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Lägg till konto",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Vissa kontodata importerades inte.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Stäng",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Nuvarande lösenord",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nytt lösenord",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Lösenord",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Detta lösenord kommer att användas för att kryptera dina konton. Ingen kan hjälpa dig om du glömmer lösenordet.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Uppdatera",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Du kan inte lägga till ett nytt konto förrän alla konton har dekrypterats. Ange rätt lösenord innan du fortsätter.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Feedback",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Översätt",
-    "description": "Translate."
-  },
   "source": {
     "message": "Källkod",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Synka Klockan med Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Kom ihåg lösenord",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Varning! Din lokala klocka är för långt ifrån, snälla fixa den innan du fortsätter.",
@@ -241,6 +233,38 @@
     "message": "Importera OTP-URL:er",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Släpp en säkerhetskopieringsfil här, eller klicka för att bläddra",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Stöder exportfiler i .json- och .txt-format",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Välj fil",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Om filen är krypterad blir du ombedd att ange dess lösenord efter att du valt den.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Krypterad — lösenord krävs",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Ange filens lösenord",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Det här är lösenordet du angav när du skapade säkerhetskopian.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dekryptera och importera",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import lyckades men vissa QR-koder kunde inte kännas igen.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Använd autofyll",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Använd hög kontrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Utseende",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Allmänt",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Redigera konton",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Visa QR-kod",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Fäst överst",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Lossa",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Valvet är låst",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Lås upp",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Överför detta konto",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Skanna denna kod med OTPilot på en annan enhet för att flytta över detta konto — det lämnar aldrig dina enheter.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "På denna enhet",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Molnsynkronisering",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Ansluten",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Inte ansluten",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Visar koder för",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Övriga konton",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrera till",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Koder som följer med dig",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generera säkra tvåfaktorskoder för alla dina konton — krypterat, offline och alltid bara ett tryck från att kopieras.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Fungerar helt offline — inget lämnar din enhet",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Krypterat valv med valfritt lösenordsskydd",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Skanna en QR-kod eller importera en befintlig säkerhetskopia",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Kom igång",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Jag har en säkerhetskopia att importera",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Ljus",
@@ -313,9 +429,9 @@
     "message": "Mörk",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Enkel",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Auto",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompakt",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Hög kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Säkerhetskopiera dina data automatiskt till lagringstjänster från tredje part.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Webbläsarsynkronisering",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Du har ett eller flera konton hos Steam eller Blizzard. Okrypterade säkerhetskopior kommer inte att använda ett standardiserat format för säkerhetskopior.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Du kan importera säkerhetskopior från vissa andra applikationer.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Säkerhetskopiera"
-  },
-  "backup_file_info": {
-    "message": "Säkerhetskopiera dina data till en fil."
   },
   "password_policy_default_hint": {
     "message": "Ditt lösenord uppfyller inte din organisations säkerhetskrav. Kontakta din administratör för mer information."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Du måste inaktivera Dropbox-säkerhetskopiering först."
   },
-  "permission_drive": {
-    "message": "Tillåter säkerhetskopiering till Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Du måste inaktivera Google Drive-säkerhetskopiering först."
-  },
-  "permission_onedrive": {
-    "message": "Tillåter säkerhetskopiering till OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Du måste inaktivera OneDrive-säkerhetskopiering först."
-  },
   "permission_unknown_permission": {
     "message": "Okänd behörighet. Om du ser detta meddelande, skicka en felrapport."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Inte tillgänglig än",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

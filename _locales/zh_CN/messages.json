@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "网站",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "请先设置密码才能使用云备份，您的密钥会在离开此设备前先行加密。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "身份验证器用以在浏览器中生成二步认证代码。",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "无效的密钥",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "签发方不能包含“::”",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "添加账号",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "某些帐户数据未成功导入。",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "关闭",
-    "description": "Close."
   },
   "ok": {
     "message": "确定",
@@ -99,10 +107,6 @@
     "message": "当前密码",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "新密码",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "密码",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "您的账户数据将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "更新",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "部分账户与密码不匹配，您无法添加新账户或者更改密码。请提供正确的密码后重试。",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "问题反馈",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "参与翻译",
-    "description": "Translate."
-  },
   "source": {
     "message": "源代码",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "通过Google校准时间",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "记住密码",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "注意！您的本地时钟时间差过大，请修正后再进行操作。",
@@ -241,6 +233,38 @@
     "message": "导入OTP链接",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "拖放备份文件到此，或点击浏览",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "支持 .json 和 .txt 导出文件",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "选择文件",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "若文件已加密，选择后会要求输入其密码。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "已加密 — 需要密码",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "输入文件的密码",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "这是您创建备份时设置的密码。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "解密并导入",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "导入成功，但部分二维码无法识别。",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "启用自动填充",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "使用高对比度",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "主题",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "外观",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "常规",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "编辑账户",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "显示二维码",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "置顶",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "取消置顶",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "保险库已锁定",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "解锁",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "转移此账户",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "在另一台设备上用 OTPilot 扫描此二维码即可转移此账户 — 数据绝不离开您的设备。",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "本机",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "云同步",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "已连接",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "未连接",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "正在显示以下网站的验证码：",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "其他账户",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "筛选至",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "随身携带的验证码",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "为每个账户生成安全的两步验证码 — 加密、离线，且始终一键复制。",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "完全离线运行 — 数据不会离开您的设备",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "加密保险库，可选密码锁",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "扫描二维码或导入现有备份",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "开始使用",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "我有备份要导入",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "浅色",
@@ -313,9 +429,9 @@
     "message": "深色",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "简约",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "自动",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "精简视图",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "高对比度",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "扁平",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "自动备份您的数据至第三方服务。",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "浏览器数据同步",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "您添加了Steam或战网账号，所以备份文件将不会使用标准输出格式。",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "您可以从一些其它的应用中导入备份。",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "备份"
-  },
-  "backup_file_info": {
-    "message": "备份数据到文件。"
   },
   "password_policy_default_hint": {
     "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系组织管理员。"
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "您必须先停用 Dropbox 备份。"
   },
-  "permission_drive": {
-    "message": "允许备份到 Google Drive。"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "您必须先停用 Google Drive 备份。"
-  },
-  "permission_onedrive": {
-    "message": "允许备份到 OneDrive。"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "您必须先停用 OneDrive 备份。"
-  },
   "permission_unknown_permission": {
     "message": "未知权限。如果您看到此消息，请发送错误报告。"
   },
@@ -520,146 +609,6 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
-  },
-  "backup_cloud_sync": {
-    "message": "云同步",
-    "description": "Backup section: cloud"
-  },
-  "backup_connected": {
-    "message": "已连接",
-    "description": "Cloud provider connected status"
-  },
-  "backup_not_connected": {
-    "message": "未连接",
-    "description": "Cloud provider not-connected status"
-  },
-  "backup_on_device": {
-    "message": "本机",
-    "description": "Backup section: local"
-  },
-  "backup_requires_password": {
-    "message": "请先设置密码才能使用云备份，您的密钥会在离开此设备前先行加密。",
-    "description": "Shown in the cloud backup section when no master password is set."
-  },
-  "edit_accounts": {
-    "message": "编辑账户",
-    "description": "Header title while in edit mode"
-  },
-  "filter_to_site": {
-    "message": "筛选至",
-    "description": "Banner prefix to re-apply the site filter, followed by the domain"
-  },
-  "host": {
-    "message": "网站",
-    "description": "Bound website host used to restrict autofill to a matching page."
-  },
-  "import_choose_file": {
-    "message": "选择文件",
-    "description": "File import dropzone button"
-  },
-  "import_decrypt": {
-    "message": "解密并导入",
-    "description": "Button to decrypt and import an encrypted backup"
-  },
-  "import_drop_file": {
-    "message": "拖放备份文件到此，或点击浏览",
-    "description": "File import dropzone title"
-  },
-  "import_enc_required": {
-    "message": "已加密 — 需要密码",
-    "description": "Badge on a picked encrypted backup file"
-  },
-  "import_encrypted_note": {
-    "message": "若文件已加密，选择后会要求输入其密码。",
-    "description": "File import note about encrypted backups"
-  },
-  "import_file_accepts": {
-    "message": "支持 .json 和 .txt 导出文件",
-    "description": "File import dropzone hint"
-  },
-  "import_pass_hint": {
-    "message": "这是您创建备份时设置的密码。",
-    "description": "Hint under the import passphrase field"
-  },
-  "import_pass_placeholder": {
-    "message": "输入文件的密码",
-    "description": "Passphrase input placeholder for encrypted import"
-  },
-  "onboarding_feature_encrypted": {
-    "message": "加密保险库，可选密码锁",
-    "description": "Onboarding feature bullet"
-  },
-  "onboarding_feature_offline": {
-    "message": "完全离线运行 — 数据不会离开您的设备",
-    "description": "Onboarding feature bullet"
-  },
-  "onboarding_feature_scan": {
-    "message": "扫描二维码或导入现有备份",
-    "description": "Onboarding feature bullet"
-  },
-  "onboarding_get_started": {
-    "message": "开始使用",
-    "description": "Onboarding primary button"
-  },
-  "onboarding_import": {
-    "message": "我有备份要导入",
-    "description": "Onboarding secondary button"
-  },
-  "onboarding_subtitle": {
-    "message": "为每个账户生成安全的两步验证码 — 加密、离线，且始终一键复制。",
-    "description": "Onboarding subtitle"
-  },
-  "onboarding_title": {
-    "message": "随身携带的验证码",
-    "description": "Onboarding headline"
-  },
-  "other_accounts": {
-    "message": "其他账户",
-    "description": "Divider above non-matching accounts in the filter view"
-  },
-  "pin_to_top": {
-    "message": "置顶",
-    "description": "Context-menu action to pin an account to the top"
-  },
-  "qr_transfer_desc": {
-    "message": "在另一台设备上用 OTPilot 扫描此二维码即可转移此账户 — 数据绝不离开您的设备。",
-    "description": "QR sheet caption body"
-  },
-  "qr_transfer_title": {
-    "message": "转移此账户",
-    "description": "QR sheet caption title"
-  },
-  "settings_appearance": {
-    "message": "外观",
-    "description": "Settings section: appearance"
-  },
-  "settings_general": {
-    "message": "常规",
-    "description": "Settings section: general"
-  },
-  "show_qr": {
-    "message": "显示二维码",
-    "description": "Context-menu action to show an account's QR code"
-  },
-  "showing_codes_for": {
-    "message": "正在显示以下网站的验证码：",
-    "description": "Smart-filter banner prefix, followed by the site domain"
-  },
-  "theme_auto": {
-    "message": "自动",
-    "description": "Follow the system light/dark setting"
-  },
-  "unlock": {
-    "message": "解锁",
-    "description": "Unlock button"
-  },
-  "unpin": {
-    "message": "取消置顶",
-    "description": "Context-menu action to unpin an account"
-  },
-  "vault_locked": {
-    "message": "保险库已锁定",
-    "description": "Title on the unlock screen"
   },
   "backup_unavailable": {
     "message": "暂不支持",

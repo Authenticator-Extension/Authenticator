@@ -23,6 +23,10 @@
     "message": "無効なアカウントのシークレットキー",
     "description": "Secret Error."
   },
+  "errorissuer": {
+    "message": "発行者に「::」を含めることはできません",
+    "description": "Issuer Error."
+  },
   "add_code": {
     "message": "アカウントを追加",
     "description": "Add account."
@@ -42,10 +46,6 @@
   "migration_partly_fail": {
     "message": "いくつかのアカウントデータは正常にインポートされませんでした。",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "閉じる",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +99,6 @@
     "message": "現在のパスワード",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "新しいパスワード",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "パスワード",
     "description": "Passphrase."
@@ -129,10 +125,6 @@
     "message": "このパスワードであなたのアカウントを暗号化します。パスワードを紛失すると復旧できなくなりますのでご注意ください。",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "更新",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "すべてのアカウントが復号化されるまで、新しいアカウントを追加することはできません。続行する前に正しいパスワードを入力してください。",
     "description": "Passphrase Incorrect."
@@ -157,10 +149,6 @@
     "message": "ご意見",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "翻訳",
-    "description": "Translate."
-  },
   "source": {
     "message": "ソース コード",
     "description": "Source Code."
@@ -172,10 +160,6 @@
   "sync_clock": {
     "message": "Google と時刻を同期\n",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "パスワードを記憶させる",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "危険！お使いの環境の日時が実際の日時と離れすぎています。続ける前にまずは修正してください。",
@@ -297,10 +281,6 @@
     "message": "自動入力を使用する",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "高コントラストにする",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "テーマ",
     "description": "Theme"
@@ -313,10 +293,6 @@
     "message": "ダーク",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "シンプル",
-    "description": "Simple theme"
-  },
   "theme_compact": {
     "message": "コンパクト",
     "description": "Compact theme"
@@ -324,14 +300,6 @@
   "theme_high_contrast": {
     "message": "高コントラスト",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "フラット",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "サードパーティのストレージサービスへ自動的にデータをバックアップします。",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "ブラウザ間で同期",
@@ -361,10 +329,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "使用できないアカウントが含まれています。暗号化されていないバックアップでは、標準のバックアップ形式を使用できません。",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "他のアプリのバックアップをインポートできます。",
@@ -406,9 +370,6 @@
   },
   "backup": {
     "message": "バックアップ"
-  },
-  "backup_file_info": {
-    "message": "データをファイルにバックアップします。"
   },
   "password_policy_default_hint": {
     "message": "パスワードが組織のセキュリティ要件を満たしていません。詳しくは管理者にお問い合わせください。"
@@ -499,18 +460,6 @@
   },
   "permission_dropbox_cannot_revoke": {
     "message": "最初にDropboxのバックアップを無効にする必要があります。"
-  },
-  "permission_drive": {
-    "message": "Google ドライブへバックアップを行います。"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "まず、Google ドライブのバックアップを無効にする必要があります。"
-  },
-  "permission_onedrive": {
-    "message": "OneDriveへバックアップを行います。"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "最初にOneDriveへのバックアップを無効にする必要があります。"
   },
   "permission_unknown_permission": {
     "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"

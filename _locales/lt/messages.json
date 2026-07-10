@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Svetainė",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Pirmiausia nustatykite slaptažodį, kad galėtumėte naudoti debesijos atsarginę kopiją – jūsų paslaptys bus užšifruotos, prieš joms paliekant šį įrenginį.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Autentifikatorius generuoja dviejų veiksnių autentifikavimo kodus naršyklėje.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Netinkama paskyros paslaptis",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Emitentas negali turėti \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Pridėti paskyrą",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Kai kurie paskyros duomenys nebuvo sėkmingai importuoti.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Uždaryti",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Dabartinis slaptažodis",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Naujas slaptažodis",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Slaptažodis",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Šis slaptažodis bus naudojamas jūsų paskyroms šifruoti. Jei slaptažodį pamiršite, niekas jums nepadės.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Atnaujinti",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Negalite pridėti naujos paskyros, kol visos paskyros neiššifruotos. Prieš tęsdami įveskite teisingą slaptažodį.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Atsiliepimai",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Versti",
-    "description": "Translate."
-  },
   "source": {
     "message": "Programinis kodas",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Laikrodžio sinchronizavimas su \"Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Įsiminti slaptažodį",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Dėmesio! Jūsų vietinis laikrodis yra per daug nutolęs, prieš tęsdami darbą jį pataisykite.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Nuvilkite atsarginės kopijos failą arba spustelėkite, kad naršytumėte",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Priimami .json ir .txt eksportuoti failai",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Pasirinkti failą",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Jei failas užšifruotas, pasirinkę jį būsite paprašyti įvesti slaptažodį.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Užšifruota — reikalingas slaptažodis",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Įveskite failo slaptažodį",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Tai slaptažodis, kurį nustatėte kurdami atsarginę kopiją.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Iššifruoti ir importuoti",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Importas pavyko, tačiau kai kurių QR kodų nepavyko atpažinti.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Naudoti automatinį pildymą",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Naudokite didelį kontrastą",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Išvaizda",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Bendra",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Redaguoti paskyras",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Rodyti QR kodą",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Prisegti viršuje",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Atsegti",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Saugykla užrakinta",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Atrakinti",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Perkelti šią paskyrą",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Nuskaitykite šį kodą su OTPilot kitame įrenginyje, kad perkeltumėte šią paskyrą — ji niekada nepalieka jūsų įrenginių.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Šiame įrenginyje",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Debesijos sinchronizavimas",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Prisijungta",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Neprisijungta",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Rodomi kodai svetainei:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Kitos paskyros",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtruoti pagal:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kodai, kurie visada su jumis",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generuokite saugius dviejų veiksnių kodus kiekvienai paskyrai — užšifruotus, veikiančius neprisijungus ir visada pasiekiamus vienu palietimu.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Veikia visiškai neprisijungus — niekas nepalieka jūsų įrenginio",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Užšifruota saugykla su neprivalomu slaptažodžio užraktu",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Nuskaitykite QR kodą arba importuokite esamą atsarginę kopiją",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Pradėti",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Turiu atsarginę kopiją, kurią noriu importuoti",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Šviesa",
@@ -313,9 +429,9 @@
     "message": "Tamsus",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Paprastas",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatinis",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompaktiškas",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Didelis kontrastas",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Plokščias",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatiškai kurkite atsargines duomenų kopijas į trečiųjų šalių saugojimo paslaugas.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Naršyklės sinchronizavimas",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Turite vieną ar daugiau \"Steam\" arba \"Blizzard\" paskyrų. Neužšifruotoms atsarginėms kopijoms nebus naudojamas standartinis atsarginių kopijų formatas.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Galite importuoti atsargines kopijas iš kai kurių kitų programų.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Atsarginė kopija"
-  },
-  "backup_file_info": {
-    "message": "Sukurkite atsarginę duomenų kopiją į failą."
   },
   "password_policy_default_hint": {
     "message": "Jūsų slaptažodis neatitinka jūsų organizacijos saugumo reikalavimų. Dėl papildomos informacijos kreipkitės į administratorių."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Pirmiausia turite išjungti \"Dropbox\" atsarginę kopiją."
   },
-  "permission_drive": {
-    "message": "Leidžia kurti atsarginę kopiją \"Google\" diske."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Pirmiausia turite išjungti \"Google Drive\" atsarginę kopiją."
-  },
-  "permission_onedrive": {
-    "message": "Leidžia kurti atsarginę kopiją \"OneDrive\"."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Pirmiausia turite išjungti \"OneDrive\" atsarginę kopiją."
-  },
   "permission_unknown_permission": {
     "message": "Nežinomas leidimas. Jei matote šį pranešimą, atsiųskite pranešimą apie klaidą."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Kol kas nepasiekiama",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

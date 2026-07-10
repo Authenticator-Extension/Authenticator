@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Site web",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Setează mai întâi o parolă pentru a folosi backup-ul în cloud, astfel încât cheile tale secrete să fie criptate înainte de a părăsi acest dispozitiv.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot generează coduri de verificare pentru al doilea pas în browserul tău.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Cheia secretă a contului este invalidă",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Emitentul nu poate conține \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Adăugare cont",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Unele date ale contului nu au fost importate corect.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Închide",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Parola curentă",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Parolă nouă",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Parolă",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Actualizează",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Nu poți adăuga un nou cont înainte ca toate conturile să fie decriptate. Te rog introdu parola corectă înainte de a continua.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Opinii",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Traducere",
-    "description": "Translate."
-  },
   "source": {
     "message": "Cod sursă",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sincronizează ceasul cu Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Memorează parola",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Atenție! Ceasul local are o abatere foarte mare. Te rugăm să remediezi problema înainte de a continua.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Trage un fișier de backup aici sau apasă pentru a răsfoi",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Acceptă exporturi .json și .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Alege fișier",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Dacă fișierul este criptat, ți se va cere parola după ce îl selectezi.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Criptat — este necesară parola",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Introdu parola fișierului",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Aceasta este parola pe care ai stabilit-o când ai creat copia de siguranță.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Decriptează și importă",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Importul a reușit, dar unele coduri QR nu au putut fi recunoscute.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Folosește Autocompletarea",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Folosește contrast sporit",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Temă",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Aspect",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "General",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Editează conturile",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Arată codul QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Fixează sus",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Anulează fixarea",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Seif blocat",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Deblochează",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transferă acest cont",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scanează acest cod cu OTPilot pe alt dispozitiv pentru a transfera acest cont — nu părăsește niciodată dispozitivele tale.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Pe acest dispozitiv",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sincronizare în cloud",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Conectat",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Neconectat",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Se afișează codurile pentru",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Alte conturi",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrează după",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Coduri care te însoțesc oriunde",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generează coduri sigure de autentificare în doi pași pentru fiecare cont — criptate, offline și mereu la o atingere distanță de a fi copiate.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funcționează complet offline — nimic nu părăsește dispozitivul tău",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Seif criptat, cu blocare opțională prin parolă",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Scanează un cod QR sau importă o copie de siguranță existentă",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Începe",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Am o copie de siguranță de importat",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Luminoasă",
@@ -313,9 +429,9 @@
     "message": "Întunecată",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "simplă",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automat",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compact",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Contrast sporit",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Creează copii de siguranță automate folosind servicii de stocare de la terți.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Sincronizare date browser",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Ai unul sau mai multe conturi Steam ori Blizzard. Copiile de siguranță necriptate nu vor putea utiliza formatul standardizat.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Poți importa copii de siguranță din câteva alte aplicații.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Copie de rezervă"
-  },
-  "backup_file_info": {
-    "message": "Salvați datele într-un fișier."
   },
   "password_policy_default_hint": {
     "message": "Parola dvs. nu îndeplinește cerințele de securitate ale organizației. Contactați administratorul pentru mai multe informații."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Ti duhet të çaktivizosh backup-in e Google Drive si fillim."
   },
-  "permission_drive": {
-    "message": "Lejon backup drejt Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Ti duhet të çaktivizosh backup-in e Google Drive si fillim."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
-  },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Nu este disponibil încă",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

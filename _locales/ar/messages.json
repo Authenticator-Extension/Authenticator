@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "الموقع الإلكتروني",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "قم بتعيين كلمة مرور أولاً لاستخدام النسخ الاحتياطي السحابي، حتى يتم تشفير أسرارك قبل مغادرتها هذا الجهاز.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "يقوم المصادق بإنشاء رموز المصادقة ذات عاملين في المتصفح الخاص بك.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "الإجابة السرية الخاص غير مطابق",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "لا يمكن أن يحتوي المصدر على \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "إضافة حساب",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "بعض من بيانات الحساب لم يتم استيرادها بنجاح.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "إغلاق",
-    "description": "Close."
   },
   "ok": {
     "message": "موافق",
@@ -99,10 +107,6 @@
     "message": "كلمة المرور الحالية",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "كلمة السرّ الجديدة",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "كلمة المرور",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "هذا الكود الخاص سوف يستخدم لتشفير حسابك.\nلا نقدر على مساعدتك إذا فقدت هذا الكود الخاص.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "تطوير",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "لن تقدر على فتح حساب جديد حتى يتم فك تشفير كل الحسابات. الرجاء إضافة كلمة المرور الصحيحة لاستكمال العملية.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "التقييم والملاحظات",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "ترجمة",
-    "description": "Translate."
-  },
   "source": {
     "message": "المصدر",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "مزامنة الساعة مع جوجل",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "تذكر كلمة السر",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "تحذير! التوقيت المحلي بعيد جدًا، الرجاء إصلاحه قبل المتابعة.",
@@ -241,6 +233,38 @@
     "message": "استيراد عناوين OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "أفلت ملف النسخة الاحتياطية هنا أو انقر للتصفح",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "يقبل ملفات التصدير بصيغة ‎.json و‎.txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "اختر ملفًا",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "إذا كان الملف مشفرًا، سيُطلب منك إدخال كلمة المرور الخاصة به بعد تحديده.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "مشفَّر — يتطلب كلمة مرور",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "أدخل كلمة مرور الملف",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "هذه هي كلمة المرور التي قمت بتعيينها عند إنشاء النسخة الاحتياطية.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "فك التشفير والاستيراد",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "تم الاستيراد بنجاح، ولكن لم يتم التعرف على بعض رموز QR.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "استخدام الملء التلقائي",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "استخدام التباين العالي",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "السمة",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "المظهر",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "عام",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "تحرير الحسابات",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "إظهار رمز QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "تثبيت في الأعلى",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "إلغاء التثبيت",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "الخزنة مقفلة",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "فتح القفل",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "نقل هذا الحساب",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "امسح هذا الرمز باستخدام OTPilot على جهاز آخر لنقل هذا الحساب — فهو لا يغادر أجهزتك أبدًا.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "على هذا الجهاز",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "المزامنة السحابية",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "متصل",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "غير متصل",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "عرض الرموز الخاصة بـ",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "حسابات أخرى",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "تصفية إلى",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "رموز تصاحبك أينما ذهبت",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "أنشئ رموز مصادقة ثنائية آمنة لكل حساب — مشفّرة، تعمل دون اتصال، وعلى بُعد نقرة واحدة من النسخ دائمًا.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "يعمل بالكامل دون اتصال بالإنترنت — لا شيء يغادر جهازك",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "خزنة مشفّرة مع قفل اختياري بكلمة مرور",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "امسح رمز QR أو استورد نسخة احتياطية موجودة",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "ابدأ الآن",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "لدي نسخة احتياطية لاستيرادها",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "مضيء",
@@ -313,9 +429,9 @@
     "message": "مظلم",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "بسيط",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "تلقائي (حسب النظام)",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "مدمج",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "تباين عالي",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "مسطحة",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "النسخ الاحتياطي التلقائي لبياناتك إلى خِدْمَات تخزين طرف ثالث.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "مزامنة المتصفح",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "لديك حساب أو أكثر من Steam أو Blizzard لن تستخدم النسخ الاحتياطية غير المشفرة تنسيق النسخ الاحتياطي الموحد.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "يمكنك استيراد نسخ احتياطية من بعض التطبيقات الأخرى.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "نسخ احتياطي"
-  },
-  "backup_file_info": {
-    "message": "قم بالنسخ الاحتياطي لبياناتك إلى ملف."
   },
   "password_policy_default_hint": {
     "message": "كلمة المرور الخاصة بك لا تفي بمتطلبات أمان مؤسستك. اتصل بالمسؤول للحصول على مزيد من المعلومات."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Dropbox أولاً."
   },
-  "permission_drive": {
-    "message": "يسمح بالنسخ الاحتياطي لGoogle Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "يجب عليك تعطيل النسخ الاحتياطي لـ Google Drive أولاً."
-  },
-  "permission_onedrive": {
-    "message": "يسمح بالنسخ الاحتياطي لـ OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "يجب عليك تعطيل النسخ الاحتياطي لـ OneDrive أولاً."
-  },
   "permission_unknown_permission": {
     "message": "صلاحية غير معروفة. إذا وجدت هذه الرسالة، يرجى إرسال تقرير عن الأخطاء."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "تحذير: يقوم المدقق الذكي بمطابقة اسم الاختصاص مع الحساب بشكل غير جيد. تأكد دائمًا من أنك على موقع التبويب الصحيح قبل إدخال الرمز!"
+  },
+  "backup_unavailable": {
+    "message": "غير متوفر بعد",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

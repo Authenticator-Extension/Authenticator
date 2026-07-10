@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Уебсайт",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Първо задайте парола, за да използвате облачно архивиране — така секретите ви се криптират, преди да напуснат това устройство.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Удостоверителя генерира 2-фактурна защита, за вашият браузър.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Невалиден клон на сметка",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Издателят не може да съдържа „::“",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Добави акаунт",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Някои данни за акаунта не бяха импортирани успешно.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Затвори",
-    "description": "Close."
   },
   "ok": {
     "message": "Добре",
@@ -99,10 +107,6 @@
     "message": "Сегашна парола",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Нова парола",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Парола",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Тази парола ще се използва за кодиране на вашите акаунти. Никой не може да ви помогне, ако си забравите паролата.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Актуализация",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Не можете да добавите нов акаунт, докато акаунтът не се декриптира. Въведете правилната парола.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Обратна връзка",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Превод",
-    "description": "Translate."
-  },
   "source": {
     "message": "Изходен код",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Синхронизиране на часовника с Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Запомни паролата",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Внимание! Вашият часовник не е верен, моля го оправя преди да продължите.",
@@ -241,6 +233,38 @@
     "message": "Импорт на OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Пуснете архивен файл тук или кликнете за преглед",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Приема .json и .txt файлове",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Изберете файл",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Ако файлът е криптиран, ще бъдете помолени за паролата му след избирането му.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Криптиран — изисква се парола",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Въведете паролата на файла",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Това е паролата, която сте задали при създаването на резервното копие.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Декриптирай и импортирай",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Успешен импорт, но някои QR кодове не бяха разпознати.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Използване на автоматичното попълване",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Висок контраст",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Тема",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Изглед",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Общи",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Редактиране на акаунти",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Покажи QR код",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Закачи най-отгоре",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Откачи",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Хранилището е заключено",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Отключи",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Прехвърли този акаунт",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Сканирайте този код с OTPilot на друго устройство, за да прехвърлите този акаунт — той никога не напуска вашите устройства.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "На това устройство",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Облачна синхронизация",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Свързан",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Не е свързан",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Показване на кодове за:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Други акаунти",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Филтър към:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Кодове, които пътуват с вас",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Генерирайте сигурни двуфакторни кодове за всеки акаунт — криптирани, офлайн и винаги на едно докосване от копиране.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Работи изцяло офлайн — нищо не напуска устройството ви",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Криптирано хранилище с незадължително заключване с парола",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Сканирайте QR код или импортирайте съществуващо резервно копие",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Започнете",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Имам резервно копие за импортиране",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Светъл",
@@ -313,9 +429,9 @@
     "message": "Тъмен",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Проста",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Автоматично",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Компактна",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Висок контраст",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Плоска",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Автоматично архивиране на вашите данни на външна памет.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Синхронизация на браузера",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Имате един или повече Steam или Blizzard акаунти. Некриптираните резервни копия няма да използват стандартизиран формат за архивиране.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Можете да импортирате резервни копия от други приложения.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Резервно копие"
-  },
-  "backup_file_info": {
-    "message": "Архивирайте данните си във файл."
   },
   "password_policy_default_hint": {
     "message": "Паролата ви не отговоря на стандартите за сигурност на организацията ви. Свържете сес администратора си за повече информация."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Първо трябва да деактивирате архивирането в Dropbox."
   },
-  "permission_drive": {
-    "message": "Позволява архивиране в Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Първо трябва да деактивирате архивирането в Google Drive."
-  },
-  "permission_onedrive": {
-    "message": "Позволява архивиране в OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Първо трябва да деактивирате архивирането в OneDrive."
-  },
   "permission_unknown_permission": {
     "message": "Неизвестно разрешение. Ако виждате това съобщение, изпратете доклад за грешка."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Предупреждение: Интелигентният филтър търси приблизително съвпадение на името на домейна с акаунта. Преди да въведете код, винаги проверявайте дали сте в правилния уебсайт!"
+  },
+  "backup_unavailable": {
+    "message": "Все още не е налично",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

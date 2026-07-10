@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Vietne",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Lai izmantotu mākoņa rezerves kopiju, vispirms iestatiet paroli — tādējādi jūsu slepenās atslēgas tiek šifrētas, pirms tās pamet šo ierīci.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Divpakāpju kodu ģenerators atvieglo darbu ar 2FA (divpakāpju) autentifikācijas kodu izveidošanu un aizpildīšanu jūsu pārlūkprogrammā",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Konta slepenā atslēga nav derīga",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Izsniedzējs nedrīkst saturēt \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Pievienot kontu",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Daži konta dati netika veiksmīgi importēti.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Aizvērt",
-    "description": "Close."
   },
   "ok": {
     "message": "Labi",
@@ -99,10 +107,6 @@
     "message": "Pašreizējā parole",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Jaunā parole",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Parole",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Šī parole tiks izmantota jūsu kontu šifrēšanai. Neviens nevarēs jums palīdzēt, ja aizmirsīsiet paroli.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Atjaunināt",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Jūs nevarat pievienot jaunu kontu, kamēr visi konti nav atšifrēti. Lai turpināt, lūdzu, ievadiet pareizo paroli.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Atsauksmes",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Tulkot",
-    "description": "Translate."
-  },
   "source": {
     "message": "Avota kods",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sinhronizēt laiku ar Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Atcerēties paroli",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Uzmanību bīstami! Jūsu vietējais laiks ir ar pārāk lielu laika nobīdi. Lūdzu, sinhronizējiet laiku ar kādu laika serveri, pirms turpināt.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Nometiet rezerves kopijas failu šeit vai noklikšķiniet, lai pārlūkotu",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Pieņem .json un .txt eksportus",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Izvēlēties failu",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Ja fails ir šifrēts, pēc tā atlasīšanas jums tiks pieprasīta tā parole.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Šifrēts — nepieciešama parole",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Ievadiet faila paroli",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Šī ir parole, kuru iestatījāt, izveidojot rezerves kopiju.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Atšifrēt un importēt",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Importēšana bija veiksmīga, taču dažus kvadrātkodus (QR kodus) nevarēja atpazīt.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Izmantot automātisko aizpildīšanu",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Izmantot spilgtu kontrastu",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Izskats",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Ārējais izskats",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Vispārīgi",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Rediģēt kontus",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Rādīt kvadrātkodu (QR kodu)",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Piespraust augšpusē",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Atspraust",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Glabātuve aizslēgta",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Atslēgt",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Pārsūtīt šo kontu",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Noskenējiet šo kodu ar OTPilot citā ierīcē, lai pārvietotu šo kontu — tas nekad nepamet jūsu ierīces.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Šajā ierīcē",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Mākoņa sinhronizācija",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Savienots",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nav savienots",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Rāda kodus vietnei:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Citi konti",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrēt vietnei:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kodi, kas ceļo līdzi jums",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Ģenerējiet drošus divpakāpju kodus katram kontam — šifrētus, bezsaistes un vienmēr tikai vienu pieskārienu no kopēšanas.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Darbojas pilnībā bezsaistē — nekas nepamet jūsu ierīci",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Šifrēta glabātuve ar izvēles paroles aizsardzību",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Noskenējiet kvadrātkodu (QR kodu) vai importējiet esošu rezerves kopiju",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Sākt darbu",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Man ir rezerves kopija, ko importēt",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Gaišais",
@@ -313,9 +429,9 @@
     "message": "Tumšais",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Vienkāršais",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automātiski",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompaktais",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Spilgta kontrasta",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Plakanais",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automātiski veikt datu rezerves kopiju trešās puses krātuves pakalpojumos.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Pārlūkprogrammas sinhronizēšana",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Jums ir viens vai vairāki Steam vai Blizzard konti. Nešifrētās rezerves kopijas neizmantos standartizēto rezerves kopijas formātu.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Varat importēt rezerves kopijas no dažām citām programmām.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Rezerves kopija"
-  },
-  "backup_file_info": {
-    "message": "Izveidot datu rezerves kopiju failā."
   },
   "password_policy_default_hint": {
     "message": "Jūsu parole neatbilst jūsu organizācijas drošības prasībām. Lai iegūtu papildinformāciju, sazinieties ar savu administratoru."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Jums vispirms ir jāatslēdz Dropbox rezerves kopija."
   },
-  "permission_drive": {
-    "message": "Atļauj veikt rezerves kopiju Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Jums vispirms ir jāatslēdz Google Drive rezerves kopija."
-  },
-  "permission_onedrive": {
-    "message": "Atļauj veikt rezerves kopiju OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Jums vispirms ir jāatslēdz OneDrive rezerves kopija."
-  },
   "permission_unknown_permission": {
     "message": "Nezināma atļauja. Ja redzat šo ziņojumu, lūdzu, nosūtiet kļūdu ziņojumu."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Vēl nav pieejams",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

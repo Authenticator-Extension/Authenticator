@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "ওয়েবসাইট",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "ক্লাউড ব্যাকআপ ব্যবহার করতে প্রথমে একটি পাসওয়ার্ড সেট করুন, যাতে আপনার সিক্রেট এই ডিভাইস ছাড়ার আগেই এনক্রিপ্ট করা হয়।",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "অথেন্টিকেটর আপনার ব্রাউজারে টু-ফ্যাক্টর অথেন্টিকেশন কোড উৎপন্ন করে।",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "অবৈধ অ্যাকাউন্ট সিক্রেট",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "প্রদানকারীতে \"::\" থাকতে পারবে না",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "অ্যাকাউন্ট যোগ করুন",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "কিছু অ্যাকাউন্ট ডেটা সফলভাবে আমদানি করা হয়নি।",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "বন্ধ করুন",
-    "description": "Close."
   },
   "ok": {
     "message": "ঠিক আছে",
@@ -99,10 +107,6 @@
     "message": "চলতি পাসওয়ার্ড",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "নতুন পাসওয়ার্ড",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "পাসওয়ার্ড",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "এই পাসওয়ার্ড আপনার অ্যাকাউন্টকে এনক্রিপ্ট করতে কাজে লাগবে। কেউ আপনাকে সাহায্য করবে না যদি আপনি পাসওয়ার্ড ভুলে যান।",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "আপডেট",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "যতক্ষণ না পর্যন্ত আপনার অ্যাকাউন্টগুলো ডিক্রিপ্ট (খোলা) হবে ততক্ষণ পর্যন্ত আপনি আর নতুন অ্যাকাউন্ট যোগ করতে পারবেন না। অনুগ্রহ করে চালিয়ে যাওয়ার আগে সঠিক পাসওয়ার্ড প্রবেশ করান।",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "মতামত",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "অনুবাদ",
-    "description": "Translate."
-  },
   "source": {
     "message": "সোর্স কোড",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "গুগলের সাথে ক্লক সুসংগত করুন",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "পাসওয়ার্ড মনে রাখুন",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "সাবধান! আপনার স্থানীয় ঘড়ি অনেক আগে গিয়েছে, অনুগ্রহ করে চালিয়ে যেতে সংশোধন করুন।",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "একটি ব্যাকআপ ফাইল ড্র্যাগ করে ছাড়ুন অথবা ব্রাউজ করতে ক্লিক করুন",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": ".json এবং .txt এক্সপোর্ট গ্রহণযোগ্য",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "ফাইল নির্বাচন করুন",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "ফাইলটি এনক্রিপ্টেড হলে, নির্বাচন করার পর এর পাসওয়ার্ড জিজ্ঞাসা করা হবে।",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "এনক্রিপ্টেড — পাসওয়ার্ড প্রয়োজন",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "ফাইলের পাসওয়ার্ড প্রবেশ করান",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "এটি সেই পাসওয়ার্ড যা আপনি ব্যাকআপ তৈরি করার সময় সেট করেছিলেন।",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "ডিক্রিপ্ট করে আমদানি করুন",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "সফলভাবে আমদানি করা হয়েছে, কিন্তু কিছু কিউ-আর ইমেজ চেনা যাচ্ছে না।.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "অটোফিল ব্যবহার করুন",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "উচ্চ কন্ট্র্যাস্ট ব্যবহার করুন",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "থিম",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "চেহারা",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "সাধারণ",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "অ্যাকাউন্ট সম্পাদনা করুন",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "কিউ-আর কোড দেখান",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "উপরে পিন করুন",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "আনপিন করুন",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "ভল্ট লক করা আছে",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "আনলক করুন",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "এই অ্যাকাউন্ট স্থানান্তর করুন",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "এই অ্যাকাউন্টটি স্থানান্তর করতে অন্য একটি ডিভাইসে OTPilot দিয়ে এই কোডটি স্ক্যান করুন — এটি কখনো আপনার ডিভাইসের বাইরে যায় না।",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "এই ডিভাইসে",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "ক্লাউড সিঙ্ক",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "সংযুক্ত",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "সংযুক্ত নয়",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "নিচের সাইটের কোড দেখানো হচ্ছে:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "অন্যান্য অ্যাকাউন্ট",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "শুধু এই সাইট দেখান:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "আপনার সাথে থাকা কোড",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "প্রতিটি অ্যাকাউন্টের জন্য নিরাপদ টু-ফ্যাক্টর কোড তৈরি করুন — এনক্রিপ্টেড, অফলাইন এবং সবসময় এক ট্যাপেই কপি করার জন্য প্রস্তুত।",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "সম্পূর্ণভাবে অফলাইনে কাজ করে — কিছুই আপনার ডিভাইস ছেড়ে যায় না",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "এনক্রিপ্টেড ভল্ট, ঐচ্ছিক পাসওয়ার্ড লক সহ",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "কিউ-আর কোড স্ক্যান করুন অথবা বিদ্যমান ব্যাকআপ আমদানি করুন",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "শুরু করুন",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "আমার কাছে আমদানি করার মতো একটি ব্যাকআপ আছে",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "লাইট",
@@ -313,9 +429,9 @@
     "message": "ডার্ক",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "সিম্পল",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "স্বয়ংক্রিয়",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "কমপ্যাক্ট",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "উচ্চ কন্ট্র্যাস্ট",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "তৃতীয় পক্ষের স্টোরেজ সেবাসমূহে আপনার ডেটা স্বয়ংক্রিয়ভাবে ব্যাকআপ করুন।",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "ব্রাউজার সিঙ্ক",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "আপনার কাছে এক বা একাধিক স্টিম অথবা ব্লিজার্ড অ্যাকাউন্ট আছে। খোলা বা আনএনক্রিপ্টেড ব্যাকআপগুলো প্রমিত ব্যাকআপ ফরমেট ব্যবহার করবে না।",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "অন্য কিছু অ্যাপ্লিকেশনগুলো থেকে আপনি ব্যাকআপ আমদানি করতে পারবেন।",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "ব্যাকআপ"
-  },
-  "backup_file_info": {
-    "message": "একটি ফাইলে আপনার ডেটা ব্যাকআপ করুন।"
   },
   "password_policy_default_hint": {
     "message": "আপনার পাসওয়ার্ড আপনার প্রতিষ্ঠানের নিরাপত্তা প্রয়োজনীয়তায় মিলছে না। আরো তথ্য জানতে আপনার পরিচালকের সাথে যোগাযোগ করুন।"
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "আপনাকে অবশ্যই ড্রপবক্সের ব্যাকআপ বন্ধ করতে হবে"
   },
-  "permission_drive": {
-    "message": "গুগল ড্রাইভের ব্যাকআপ চালু করুন।"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "আপনাকে অবশ্যই গুগ্রল ড্রাইভের ব্যাকআপ বন্ধ করতে হবে।"
-  },
-  "permission_onedrive": {
-    "message": "ওয়ানড্রাইভ এর ব্যাকআপ চালু করুন।"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "আপনাকে অবশ্যই ওয়ানড্রাইভ এর ব্যাকআপ বন্ধ করতে হবে."
-  },
   "permission_unknown_permission": {
     "message": "অনুমতি অজানা। আপনি যদি এই লেখাটি দেখে থাকেন, তাহলে দয়া করে বাগ রিপোর্ট পাঠান"
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "এখনো উপলব্ধ নয়",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Sivusto",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Aseta ensin salasana käyttääksesi pilvivarmuuskopiointia, jotta salaisuutesi salataan ennen kuin ne lähtevät tältä laitteelta.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot-laajennus tuottaa kaksivaiheisen todennuksen tunnuslukuja selaimessasi.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Virheellinen tilin salaisuus",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Myöntäjä ei voi sisältää merkkejä \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Lisää tili",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Joitakin tilitietojen tuonti epäonnistui.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Sulje",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Nykyinen salasana",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Uusi salasana",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Salasana",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Salasanaa käytetään tiliesi salaukseen. Kukaan ei voi auttaa, jos unohdat sen.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Päivitä",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Et voi lisätä uutta tiliä ennen kaikkien tilien salauksen purkua. Syötä oikea salasana ennen jatkamista.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Palaute",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Käännä",
-    "description": "Translate."
-  },
   "source": {
     "message": "Lähdekoodi",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Synkronoi kello Googlen kanssa",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Muista salasana",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Varoitus! Aseta kellosi oikeaan aikaan ennen jatkamista.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Pudota varmuuskopiotiedosto tähän tai valitse selaamalla",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Hyväksyy .json- ja .txt-vientitiedostot",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Valitse tiedosto",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Jos tiedosto on salattu, sinulta kysytään sen salasanaa valinnan jälkeen.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Salattu — salasana vaaditaan",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Syötä tiedoston salasana",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Tämä on salasana, jonka asetit varmuuskopiota luodessasi.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Pura salaus ja tuo",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Tuonti onnistui, mutta joitakin QR-koodeja ei tunnistettu.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Käytä automaattitäyttöä",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Suuri kontrasti",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Teema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Ulkoasu",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Yleiset",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Muokkaa tilejä",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Näytä QR-koodi",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Kiinnitä ylimmäksi",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Poista kiinnitys",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Holvi lukittu",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Avaa lukitus",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Siirrä tämä tili",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Lue tämä koodi OTPilotilla toisella laitteella siirtääksesi tilin — se ei koskaan poistu laitteiltasi.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Tällä laitteella",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Pilvisynkronointi",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Yhdistetty",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Ei yhdistetty",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Näytetään koodit sivustolle",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Muut tilit",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Suodata sivustoon",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Koodit, jotka kulkevat mukanasi",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Luo turvalliset kaksivaiheisen todennuksen koodit jokaiselle tilille — salattuna, offline-tilassa ja aina yhden napautuksen päässä kopioinnista.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Toimii täysin offline-tilassa — mikään ei poistu laitteeltasi",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Salattu holvi valinnaisella salasanalukolla",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Lue QR-koodi tai tuo olemassa oleva varmuuskopio",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Aloita",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Minulla on varmuuskopio tuotavana",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Vaalea",
@@ -313,9 +429,9 @@
     "message": "Tumma",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Yksinkertainen",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automaattinen",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Tiivis",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Suuri kontrasti",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Tasainen",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Varmuuskopioi tietosi ulkoisiin tallennuspalveluihin automaattisesti.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Selaimen synkronointi",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Sinulla on ainakin yksi Steam- tai Blizzard-tili. Salaamattomat varmuuskopiot eivät ole normaalissa varmuuskopiomuodossa.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Voit tuoda myös joidenkin muiden sovellusten varmuuskopioita.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Varmuuskopiointi"
-  },
-  "backup_file_info": {
-    "message": "Varmuuskopioi tietosi tiedostoon."
   },
   "password_policy_default_hint": {
     "message": "Salasanasi ei vastaa organisaatiosi suojausvaatimuksia. Lisätietoja saat järjestelmänvalvojaltasi."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Dropbox-varmuuskopiointi on ensin poistettava käytöstä."
   },
-  "permission_drive": {
-    "message": "Sallii varmuuskopioinnin Google Driveen."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Google Drive -varmuuskopiointi on ensin poistettava käytöstä."
-  },
-  "permission_onedrive": {
-    "message": "Sallii varmuuskopioinnin OneDriveen."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "OneDrive-varmuuskopiointi on ensin poistettava käytöstä."
-  },
   "permission_unknown_permission": {
     "message": "Tuntematon käyttöoikeus. Jos näet tämän viestin, lähetä virheilmoitus."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Ei vielä saatavilla",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

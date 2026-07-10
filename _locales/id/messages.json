@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Situs Web",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Atur kata sandi terlebih dahulu untuk menggunakan cadangan cloud, sehingga data rahasia Anda dienkripsi sebelum meninggalkan perangkat ini.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot menghasilkan kode verifikasi 2 langkah di browser anda.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Nama account tidak valid",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Penerbit tidak boleh mengandung \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Tambah Akun",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Beberapa data akun tidak berhasil diimpor.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Tutup",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Kata sandi saat ini",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Kata sandi baru",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Kata sandi",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Perbaharui",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Anda tidak dapat menambahkan akun baru atau mengekspor data hingga semua akun dienkripsi. Tolong masukkan kata sandi yang tepat sebelum melanjutkan.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Umpan Balik",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Terjemahkan",
-    "description": "Translate."
-  },
   "source": {
     "message": "Kode sumber",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sinkronisasi riwayat dengan Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Ingat kata sandi",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Hati hati! Jam lokal anda terlalu jauh, tolong perbarui sebelum melanjutkan.",
@@ -241,6 +233,38 @@
     "message": "Impor URL OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Seret berkas cadangan ke sini atau klik untuk menelusuri",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Menerima ekspor .json dan .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Pilih berkas",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Jika berkas terenkripsi, Anda akan diminta memasukkan kata sandinya setelah memilihnya.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Terenkripsi — kata sandi diperlukan",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Masukkan kata sandi berkas ini",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Ini adalah kata sandi yang Anda atur saat membuat cadangan.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dekripsi & impor",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Impor berhasil, tapi beberapa gambar QR tidak dapat dikenali.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "IsiOtomatis",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Gunakan Kontras yang Tinggi",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Tampilan",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Umum",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Ubah akun",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Tampilkan kode QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Sematkan ke atas",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Lepas sematan",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Brankas terkunci",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Buka kunci",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transfer akun ini",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Pindai kode ini dengan OTPilot di perangkat lain untuk memindahkan akun ini — data tidak pernah meninggalkan perangkat Anda.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Di perangkat ini",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sinkronisasi cloud",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Terhubung",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Tidak terhubung",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Menampilkan kode untuk",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Akun lainnya",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filter ke",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kode yang selalu menyertaimu",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Hasilkan kode dua langkah yang aman untuk setiap akun — terenkripsi, offline, dan selalu siap disalin dengan satu ketukan.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Berfungsi sepenuhnya offline — tidak ada data yang meninggalkan perangkat Anda",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Brankas terenkripsi dengan kunci kata sandi opsional",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Pindai kode QR atau impor cadangan yang sudah ada",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Mulai",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Saya punya cadangan untuk diimpor",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Terang",
@@ -313,9 +429,9 @@
     "message": "Gelap",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Sederhana",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Otomatis",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Sederhana",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Kontras Tinggi",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Rata",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Otomatis mencadangkan data kamu ke layanan penyimpanan pihak ke-3.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Sinkronisasi browser",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Anda memiliki satu atau lebih akun Steam atau Blizzard. Cadangan yang tidak terenkripsi tidak akan menggunakan format cadangan terstandarisasi.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Anda dapat mengimpor cadangan dari aplikasi lain.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Cadangan"
-  },
-  "backup_file_info": {
-    "message": "Cadangkan data Anda ke file."
   },
   "password_policy_default_hint": {
     "message": "Kata sandi tidak memenuhi persyaratan keamanan organisasi anda. Hubungi administrator untuk informasi lebih lanjut."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Anda harus me-non-aktifkan cadangan Dropbox terlebih dahulu."
   },
-  "permission_drive": {
-    "message": "Izinkan pencadangan ke Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Anda harus me-non-aktifkan cadangan Google Drive terlebih dahulu."
-  },
-  "permission_onedrive": {
-    "message": "Izinkan pencadangan ke OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Anda harus me-non-aktifkan cadangan OneDrive terlebih dahulu."
-  },
   "permission_unknown_permission": {
     "message": "Izin tidak diketahui. Jika melihat pesan ini, kirimkan laporan kesalahan."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Belum tersedia",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

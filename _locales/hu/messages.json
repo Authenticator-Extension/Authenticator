@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Webhely",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Először állítson be jelszót a felhőalapú biztonsági mentés használatához – a titkos kulcsai már titkosítva hagyják el ezt az eszközt.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Invalid account secret",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "A kibocsátó nem tartalmazhat „::” karaktersorozatot",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Fiók hozzáadása",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "A fiók adatok importálása csak részben volt sikeres.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Bezár",
-    "description": "Close."
   },
   "ok": {
     "message": "Rendben",
@@ -99,10 +107,6 @@
     "message": "Jelenlegi jelszó",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Új jelszó",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Jelszó",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Frissítés",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Nem adhat hozzá új fiókot vagy exportálhat adatot míg az összes fiók titkosítva van. Kérjük, írja be a helyes jelszót a folytatáshoz.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Visszajelzés",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Fordítás",
-    "description": "Translate."
-  },
   "source": {
     "message": "Forráskód",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Előzmények szinkronizálása Google-val",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Jelszó megjegyzése",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Vigyázat! A helyi óra túl pontatlan, javítsa a folytatás előtt.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Húzza ide a biztonsági mentés fájlját, vagy kattintson a tallózáshoz",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Elfogadott formátumok: .json és .txt exportfájlok",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Fájl kiválasztása",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Ha a fájl titkosított, a kiválasztása után a rendszer bekéri a jelszavát.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Titkosítva — jelszó szükséges",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Adja meg a fájl jelszavát",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Ez az a jelszó, amelyet a biztonsági mentés készítésekor adott meg.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Visszafejtés és importálás",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Sikeresen importálva, de néhány QR-kód nem ismerhető fel.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Automatikus kitöltés használata",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Nagy kontraszt használata",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Téma",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Megjelenés",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Általános",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Fiókok szerkesztése",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "QR-kód megjelenítése",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Kitűzés felülre",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Kitűzés visszavonása",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "A tároló zárolva",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Feloldás",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Fiók átvitele",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Olvassa be ezt a kódot az OTPilot alkalmazással egy másik eszközön a fiók átviteléhez — az adat soha nem hagyja el az eszközeit.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Ezen az eszközön",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Felhőszinkronizálás",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Csatlakozva",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nincs csatlakoztatva",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Kódok megjelenítve ehhez:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Egyéb fiókok",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Szűrés erre:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kódok, amelyek önnel tartanak",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Biztonságos kétlépcsős kódokat generál minden fiókhoz — titkosítva, offline, és mindig egy érintésre a másolástól.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Teljesen offline működik — semmi sem hagyja el az eszközét",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Titkosított tároló, választható jelszavas zárral",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "QR-kód beolvasása vagy meglévő biztonsági mentés importálása",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Kezdés",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Van egy biztonsági mentésem, amit importálni szeretnék",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Világos",
@@ -313,9 +429,9 @@
     "message": "Sötét",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Egyszerű téma",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatikus",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompakt téma",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Nagy kontrasztú",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatikusan menti az ön adatait a harmadik fél által üzemeltetett tároló szolgáltatásnál.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Böngésző szinronizálása",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Egy vagy több Steam vagy Blizzard fiókokkal rendelkezik. A titkosítatlan biztonsági mentések nem fogják használni a szabványos biztonsági mentési formátumot.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Imprtálhat biztonsági mentéseket pár másik alkalmazásból.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Biztonsági mentés"
-  },
-  "backup_file_info": {
-    "message": "Mentse el adatait egy fájlba!"
   },
   "password_policy_default_hint": {
     "message": "A jelszava nem fele meg az előírt biztonsági követelményeknek. Vegye fel a kapcsolatot a rendszergazdával további információk érdekében!"
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Először tiltsa le a DropBox-ra történő biztonsági adatmentést!"
   },
-  "permission_drive": {
-    "message": "Biztonsági adatmentés Google Drive-ra."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Először tiltsa le a Google Drive-ra történő biztonsági adatmentést!"
-  },
-  "permission_onedrive": {
-    "message": "Biztonsági adatmentés engedélyezése OneDrive-ra."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Először tiltsa le a OneDrive-ra történő biztonsági adatmentést!"
-  },
   "permission_unknown_permission": {
     "message": "Ismeretlen engedély. Ha ez az üzenet jelenik meg, kérem küldjön hibajelentést!"
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Még nem elérhető",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

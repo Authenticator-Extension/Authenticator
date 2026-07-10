@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Veebisait",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Pilvvarunduse kasutamiseks seadistage kõigepealt salasõna – nii krüpteeritakse teie saladused enne seadmest lahkumist.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Autentikaator genereerib teie brauseris mitmikautentimise koode.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Kehtetu konto saladus",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Väljastaja ei tohi sisaldada märki \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Lisa konto",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Osa konto andmeid ei õnnestunud importida.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Sulge",
-    "description": "Close."
   },
   "ok": {
     "message": "Olgu",
@@ -99,10 +107,6 @@
     "message": "Kehtiv salasõna",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Uus salasõna",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Salasõna",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Seda salasõna kasutatakse teie kontode krüpteerimiseks. Kui unustate salasõna, ei saa keegi teid aidata.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Uuenda",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Uut kontot ei saa lisada kuni kõik kontod on dekrüpteeritud. Palun sisestage enne jätkamist õige salasõna.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Tagasiside",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Tõlkimine",
-    "description": "Translate."
-  },
   "source": {
     "message": "Lähtekood",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sünkrooni kell Google'ga",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Mäleta salasõna",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Ettevaatust! Teie kohalik kell liiga mööda, palun parandage enne jätkamist.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Lohistage varukoopia fail siia või klõpsake failide sirvimiseks",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Toetab .json ja .txt eksportfaile",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Vali fail",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Kui fail on krüpteeritud, küsitakse selle valimisel salasõna.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Krüpteeritud — vajalik on salasõna",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Sisestage faili salasõna",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "See on salasõna, mille määrasite varukoopia loomisel.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dekrüpteeri ja impordi",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Importimine õnnestus, kuid mõnesid QR'i koode ei suudetud tuvastada.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Automaatne täitmine",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Kõrge kontrastsus",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Teema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Välimus",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Üldine",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Muuda kontosid",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Kuva QR kood",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Kinnita algusesse",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Eemalda kinnitus",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Hoidla lukustatud",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Ava lukustus",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Kanna see konto üle",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Skaneerige see kood OTPilotiga teises seadmes, et see konto üle kanda — see ei lahku kunagi teie seadmetest.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Selles seadmes",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Pilvsünkroonimine",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Ühendatud",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Pole ühendatud",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Kuvatavad koodid saidile",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Muud kontod",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtreeri saidile",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Koodid, mis on alati kaasas",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Genereeri turvalisi kaheastmelisi koode iga konto jaoks — krüpteeritud, võrguühenduseta ja alati ühe puudutuse kaugusel kopeerimisest.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Töötab täielikult võrguühenduseta — miski ei lahku teie seadmest",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Krüpteeritud hoidla valikulise salasõnalukuga",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Skaneeri QR kood või impordi olemasolev varukoopia",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Alusta",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Mul on varukoopia, mida importida",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Hele",
@@ -313,9 +429,9 @@
     "message": "Tume",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Lihtne",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automaatne",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompaktne",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Kõrge kontrastsus",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Tasane",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Varundage oma andmed automaatselt kolmanda osapoole salvestusteenustesse.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Brauseri sünk",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Teil on üks või mitu Steami või Blizzardi kontot. Krüpteerimata varukoopiad ei kasuta standardiseeritud varundusvormingut.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Varukoopiaid saate importida ka mõnedest teisest rakendustest.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Varundus"
-  },
-  "backup_file_info": {
-    "message": "Varundage enda andmed failiks."
   },
   "password_policy_default_hint": {
     "message": "Teie salasõna ei vasta teie organisatsiooni turvanõuetele. Lisateabe saamiseks kontakteeruge oma administraatoriga."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "You must disable Dropbox backup first."
   },
-  "permission_drive": {
-    "message": "Allows backup to Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
-  },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Pole veel saadaval",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

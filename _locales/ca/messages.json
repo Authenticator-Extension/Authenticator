@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Lloc web",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Configureu primer una contrasenya per utilitzar la còpia de seguretat al núvol, així els vostres secrets es xifraran abans de sortir d'aquest dispositiu.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot genera codis d'autenticació en dos passos al vostre navegador.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Clau secreta del compte no vàlida",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "L'emissor no pot contenir «::»",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Afegeix compte",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Algunes dades del compte no s'han importat correctament.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Tanca",
-    "description": "Close."
   },
   "ok": {
     "message": "D'acord",
@@ -99,10 +107,6 @@
     "message": "Contrasenya actual",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nova contrasenya",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Contrasenya",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Aquesta contrasenya s'emprarà per xifrar els vostres comptes. Ningú us podrà ajudar si oblideu la contrasenya.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Actualitza",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "No podeu afegir un nou compte fins que s'hagin desxifrat tots els comptes. Escriviu la contrasenya correcta abans de continuar.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Retroacció",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Tradueix",
-    "description": "Translate."
-  },
   "source": {
     "message": "Codi font",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sincronitzar el rellotge amb Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Recorda la contrasenya",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Compte! El rellotge del vostre sistema està massa desajustat, solucioneu-ho abans de continuar.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Deixeu anar un fitxer de còpia de seguretat o feu clic per explorar",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Accepta exportacions .json i .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Tria un fitxer",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Si el fitxer està xifrat, se us demanarà la contrasenya després de seleccionar-lo.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Xifrat — cal contrasenya",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Introduïu la contrasenya del fitxer",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Aquesta és la contrasenya que vau establir en crear la còpia de seguretat.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Desxifra i importa",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "S'ha importat correctament, però alguns codis QR no s'han reconegut.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Utilitza l'emplenament automàtic",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Contrast alt",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Aparença",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "General",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Edita els comptes",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Mostra el codi QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Fixa a dalt",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Deixa de fixar",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Cofre bloquejat",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Desbloqueja",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transfereix aquest compte",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Escanegeu aquest codi amb l'OTPilot en un altre dispositiu per moure aquest compte — mai surt dels vostres dispositius.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "En aquest dispositiu",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sincronització al núvol",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Connectat",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "No connectat",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Mostrant codis per a",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Altres comptes",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtra a",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Codis que us acompanyen",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Genereu codis de dos factors segurs per a cada compte — xifrats, sense connexió i sempre a un toc de copiar.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funciona totalment sense connexió — res surt del vostre dispositiu",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Cofre xifrat amb bloqueig per contrasenya opcional",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Escanegeu un codi QR o importeu una còpia de seguretat existent",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Comença",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Tinc una còpia de seguretat per importar",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Clar",
@@ -313,9 +429,9 @@
     "message": "Fosc",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Senzill",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automàtic",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compacte",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Alt contrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Planer",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Fes una còpia de seguretat automàtica de les dades a un servei d'emmagatzematge de tercers.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Sincronització amb el Navegador",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Teniu un o més comptes de Steam o de Blizzard. Les còpies de seguretat sense xifrar no utilitzaran un format estàndard de còpia de seguretat.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Podeu importar còpies de seguretat d'altres aplicacions.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Còpia de seguretat"
-  },
-  "backup_file_info": {
-    "message": "Fes una còpia de les dades a un fitxer."
   },
   "password_policy_default_hint": {
     "message": "La contrasenya no compleix els requeriments de seguretat de la teva companyia. Contacta amb el teu administrador per a més informació."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Primer heu de desactivar la còpia de seguretat a Dropbox."
   },
-  "permission_drive": {
-    "message": "Permet còpies de seguretat a Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Primer heu de desactivar la còpia de seguretat a Google Drive."
-  },
-  "permission_onedrive": {
-    "message": "Permet còpies de seguretat a OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Primer heu de desactivar la còpia de seguretat a OneDrive."
-  },
   "permission_unknown_permission": {
     "message": "Permís desconegut. Si veieu aquest missatge, envieu un informe d'error."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Encara no disponible",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

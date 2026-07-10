@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Site",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Defina uma senha primeiro para usar o backup na nuvem, assim seus segredos são criptografados antes de saírem deste dispositivo.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "O autenticador gera códigos de verificação em dois fatores no seu navegador.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Segredo da conta inválido",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "O emissor não pode conter \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Adicionar conta",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Alguns dados da conta não foram importados com sucesso.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Fechar",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +107,6 @@
     "message": "Senha Atual",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nova Senha",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Senha",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Essa senha será usada para criptografar as suas contas. Ninguém poderá te ajudar se você esquecer a senha.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Atualizar",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Você não pode adicionar uma nova conta até que todas as contas estejam descriptografadas. Por favor digite a senha correta antes de continuar.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Dê sua opinião",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Traduzir",
-    "description": "Translate."
-  },
   "source": {
     "message": "Código Fonte",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sincronizar Relógio com o Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Lembrar Senha",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Cuidado! Seu relógio local está parado há muito tempo, por favor ajuste-o antes de continuar.",
@@ -241,6 +233,38 @@
     "message": "Importar URLs OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Solte um arquivo de backup ou clique para procurar",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Aceita exportações .json e .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Escolher arquivo",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Se o arquivo estiver criptografado, a senha dele será solicitada após selecioná-lo.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Criptografado — senha necessária",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Digite a senha do arquivo",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Esta é a senha que você definiu ao criar o backup.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Descriptografar e importar",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Importado com sucesso, mas alguns códigos QR não puderam ser reconhecidos.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Usar o preenchimento automático",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Usar alto contraste",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Aparência",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Geral",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Editar contas",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Mostrar código QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Fixar no topo",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Desafixar",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Cofre bloqueado",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Desbloquear",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transferir esta conta",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Escaneie este código com o OTPilot em outro dispositivo para transferir esta conta — ela nunca sai dos seus dispositivos.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Neste dispositivo",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sincronização na nuvem",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Conectado",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Não conectado",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Mostrando códigos para",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Outras contas",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrar por",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Códigos que viajam com você",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Gere códigos de dois fatores seguros para cada conta — criptografados, off-line e sempre a um toque de distância para copiar.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funciona totalmente off-line — nada sai do seu dispositivo",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Cofre criptografado com bloqueio por senha opcional",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Escaneie um QR ou importe um backup existente",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Começar",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Tenho um backup para importar",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Claro",
@@ -313,9 +429,9 @@
     "message": "Escuro",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Simples",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automático",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compacto",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Alto contraste",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Plano",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automaticamente fazer backup dos seus dados para serviços de armazenamento de terceiros.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Sincronização do Navegador",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Você tem uma ou mais contas Steam ou Blizzard. Os backups não criptografados não usarão o formato padronizado de backup.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Você pode importar os backups de alguns outros aplicativos.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Backup"
-  },
-  "backup_file_info": {
-    "message": "Faça backup dos seus dados para um arquivo."
   },
   "password_policy_default_hint": {
     "message": "Sua senha não atende aos requisitos de segurança de sua organização. Contate seu administrador para mais informações."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Você deve desativar o backup do Dropbox primeiro."
   },
-  "permission_drive": {
-    "message": "Permite backup para o Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Você deve desativar o backup do Google Drive primeiro."
-  },
-  "permission_onedrive": {
-    "message": "Permite backup para o OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Você deve desativar o backup do OneDrive primeiro."
-  },
   "permission_unknown_permission": {
     "message": "Permissão desconhecida. Se você ver esta mensagem, por favor envie um relatório de erros."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Aviso: O filtro inteligente corresponde pouco ao nome de domínio de uma conta. Verifique sempre se você está no site correto antes de inserir um código!"
+  },
+  "backup_unavailable": {
+    "message": "Ainda não disponível",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

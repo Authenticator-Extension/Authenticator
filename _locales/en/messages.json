@@ -47,10 +47,6 @@
     "message": "Some account data was not imported successfully.",
     "description": "Some migration data is broken."
   },
-  "close": {
-    "message": "Close",
-    "description": "Close."
-  },
   "ok": {
     "message": "Ok",
     "description": "OK."
@@ -107,10 +103,6 @@
     "message": "Current Password",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "New Password",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Password",
     "description": "Passphrase."
@@ -137,10 +129,6 @@
     "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Update",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
     "description": "Passphrase Incorrect."
@@ -165,10 +153,6 @@
     "message": "Feedback",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Translate",
-    "description": "Translate."
-  },
   "source": {
     "message": "Source Code",
     "description": "Source Code."
@@ -180,10 +164,6 @@
   "sync_clock": {
     "message": "Sync Clock with Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Remember Password",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Caution! Your local clock is too far off, please fix it before continuing.",
@@ -337,10 +317,6 @@
     "message": "Use Autofill",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Use High Contrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Theme",
     "description": "Theme"
@@ -457,10 +433,6 @@
     "message": "Auto",
     "description": "Follow the system light/dark setting"
   },
-  "theme_simple": {
-    "message": "Simple",
-    "description": "Simple theme"
-  },
   "theme_compact": {
     "message": "Compact",
     "description": "Compact theme"
@@ -469,14 +441,6 @@
     "message": "High Contrast",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatically backup your data to 3rd party storage services.",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
     "message": "Browser Sync",
     "description": "Storage location"
@@ -484,22 +448,6 @@
   "sign_in": {
     "message": "Sign in",
     "description": "Sign in to 3rd party storage services"
-  },
-  "drive_sync_title": {
-    "message": "Sync with Google Drive",
-    "description": "Drive connect page title"
-  },
-  "drive_sync_desc": {
-    "message": "Keep an encrypted copy of your accounts in your own Google Drive. Codes are encrypted before they leave this device.",
-    "description": "Drive connect page description"
-  },
-  "cloud_e2e_note": {
-    "message": "End-to-end encrypted before upload",
-    "description": "Reassurance note on the cloud connect page"
-  },
-  "drive_sign_in": {
-    "message": "Sign in to Google",
-    "description": "Drive sign-in button"
   },
   "sign_in_business": {
     "message": "Sign in (Business)",
@@ -521,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "You can import backups from some other applications.",
@@ -566,9 +510,6 @@
   },
   "backup": {
     "message": "Backup"
-  },
-  "backup_file_info": {
-    "message": "Backup your data to a file."
   },
   "password_policy_default_hint": {
     "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
@@ -659,18 +600,6 @@
   },
   "permission_dropbox_cannot_revoke": {
     "message": "You must disable Dropbox backup first."
-  },
-  "permission_drive": {
-    "message": "Allows backup to Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
   },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."

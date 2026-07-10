@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Web sitesi",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Bulut yedeklemeyi kullanmak için önce bir parola belirleyin; böylece gizli anahtarlarınız bu cihazdan ayrılmadan önce şifrelenir.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Geçersiz hesap anahtarı",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Uygulama adı \"::\" içeremez",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Hesap ekle",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Bazı hesap verileri başarıyla içe aktarılamadı.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Kapat",
-    "description": "Close."
   },
   "ok": {
     "message": "Tamam",
@@ -99,10 +107,6 @@
     "message": "Mevcut parola",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Yeni parola",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Parola",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Güncelle",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Tüm hesapların şifrelemesi çözülene kadar yeni bir hesap ekleyemezsiniz. Devam etmeden önce lütfen doğru parolayı girin.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Geri bildirim",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Tercüme et",
-    "description": "Translate."
-  },
   "source": {
     "message": "Kaynak kodu",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Saati Google ile eşitle",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Parolayı hatırla",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Dikkat! Yerel saatiniz yanlış, lütfen devam etmeden önce düzeltin.",
@@ -241,6 +233,38 @@
     "message": "OTP URL'lerini içe aktar",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Yedekleme dosyasını buraya sürükleyin veya göz atmak için tıklayın",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": ".json ve .txt dışa aktarımlarını kabul eder",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Dosya seç",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Dosya şifrelenmişse, seçtikten sonra parolası sorulacaktır.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Şifrelendi — parola gerekli",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Dosyanın parolasını girin",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Bu, yedeklemeyi oluştururken belirlediğiniz paroladır.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Şifresini çöz ve içe aktar",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "İçe aktarma başarılı ancak bazı karekodlar tanınamadı.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Otomatik doldurmayı kullanın",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Yüksek kontrast kullan",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Görünüm",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Genel",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Hesapları düzenle",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Karekodu göster",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "En üste sabitle",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Sabitlemeyi kaldır",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Kasa kilitli",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Kilidi aç",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Bu hesabı aktar",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Bu hesabı aktarmak için başka bir cihazda OTPilot ile bu kodu tarayın — veriler cihazlarınızdan hiç ayrılmaz.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Bu cihazda",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Bulut eşitleme",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Bağlandı",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Bağlı değil",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Gösterilen kodlar:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Diğer hesaplar",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrele:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Sizinle birlikte giden kodlar",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Her hesap için güvenli iki faktörlü kodlar oluşturun — şifreli, çevrimdışı ve kopyalamaya her zaman bir dokunuş uzaklıkta.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Tamamen çevrimdışı çalışır — hiçbir şey cihazınızdan ayrılmaz",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "İsteğe bağlı parola kilidiyle şifreli kasa",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Karekod tarayın veya mevcut bir yedeklemeyi içe aktarın",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Başlayın",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "İçe aktaracağım bir yedeklemem var",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Açık",
@@ -313,9 +429,9 @@
     "message": "Karanlık",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Düz",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Otomatik",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Yoğun",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Yüksek kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Mat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Verilerinizi otomatik olarak 3. taraf depolama servislerine yedekleyin.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Tarayıcı eşitlemesi",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Bir veya daha fazla Steam veya Blizzard hesabınız var. Şifrelenmemiş yedeklemeler standart yedekleme formatını kullanmayacaktır.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Başka uygulamalardan da yedekleri içe aktarabilirsiniz.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Yedekle"
-  },
-  "backup_file_info": {
-    "message": "Verilerinizi bir dosyaya yedekleyin."
   },
   "password_policy_default_hint": {
     "message": "Parolanız kuruluşunuzun güvenlik gereksinimlerini karşılamıyor. Daha fazla bilgi için yöneticinize başvurun."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Önce Dropbox yedeklemesini devre dışı bırakmalısınız."
   },
-  "permission_drive": {
-    "message": "Google Drive'a yedeklemeye izin verir."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Önce Google Drive yedeklemesini devre dışı bırakmalısınız."
-  },
-  "permission_onedrive": {
-    "message": "OneDrive'a yedeklemeye izin verir."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Önce OneDrive yedeklemesini devre dışı bırakmalısınız."
-  },
   "permission_unknown_permission": {
     "message": "Bilinmeyen yetki. Bu mesajı görürseniz bir hata raporu gönderin."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Henüz kullanılamıyor",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

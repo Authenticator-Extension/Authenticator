@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Website",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Stel eerst een wachtwoord in om cloudback-up te gebruiken, zodat uw geheimen worden versleuteld voordat ze dit apparaat verlaten.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot genereert 2-stapsverificatiecodes in uw browser.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Ongeldig accountgeheim",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Uitgever mag geen \"::\" bevatten",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Account toevoegen",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Sommige accountgegevens zijn niet geïmporteerd.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Sluiten",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +107,6 @@
     "message": "Huidig ​​wachtwoord",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nieuw wachtwoord",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Wachtwoord",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Dit wachtwoord wordt gebruikt voor het versleutelen van uw accounts. Niemand kan u helpen als u het wachtwoord vergeet.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Bijwerken",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "U kunt niet een nieuw account toevoegen tot alle accounts zijn ontcijferd. Voer het juiste wachtwoord in voordat u verder gaat.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Feedback",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Vertalen",
-    "description": "Translate."
-  },
   "source": {
     "message": "Broncode",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Klok synchroniseren met Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Wachtwoord onthouden",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Let op! De klok van uw lokale computer is te ver voor/achter, gelieve het te herstellen voordat u doorgaat.",
@@ -241,6 +233,38 @@
     "message": "OTP-URL’s importeren",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Sleep een back-upbestand hierheen of klik om te bladeren",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Accepteert .json- en .txt-exports",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Bestand kiezen",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Als het bestand versleuteld is, wordt u na het selecteren om het wachtwoord gevraagd.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Versleuteld — wachtwoord vereist",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Voer het wachtwoord van het bestand in",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Dit is het wachtwoord dat u hebt ingesteld toen u de back-up maakte.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Ontsleutelen en importeren",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import succesvol, maar sommige QR-codes kunnen niet worden herkend.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Automatisch aanvullen gebruiken",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Hoog contrast gebruiken",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Thema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Uiterlijk",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Algemeen",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Accounts bewerken",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "QR-code weergeven",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Vastzetten bovenaan",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Losmaken",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Kluis vergrendeld",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Ontgrendelen",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Dit account overzetten",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scan deze code met OTPilot op een ander apparaat om dit account over te zetten — het verlaat nooit uw apparaten.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Op dit apparaat",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloudsynchronisatie",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Verbonden",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Niet verbonden",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Codes weergegeven voor",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Overige accounts",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filteren op",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Codes die met u meereizen",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Genereer veilige tweefactorcodes voor elk account — versleuteld, offline en altijd met één tik te kopiëren.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Werkt volledig offline — niets verlaat uw apparaat",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Versleutelde kluis met optionele wachtwoordvergrendeling",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Scan een QR-code of importeer een bestaande back-up",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Aan de slag",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Ik heb een back-up om te importeren",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Licht",
@@ -313,9 +429,9 @@
     "message": "Donker",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Eenvoudig",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatisch",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compact",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Hoog contrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Vlak",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatisch een back-up maken van uw gegevens naar opslagdiensten van derden.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browsersynchronisatie",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "U hebt een of meer Steam- of Blizzard-accounts. Niet-versleutelde back-ups zullen geen gestandaardiseerde backup-indeling gebruiken.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "U kunt back-ups van enkele andere toepassingen importeren.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Back-up"
-  },
-  "backup_file_info": {
-    "message": "Back-up uw gegevens naar een bestand."
   },
   "password_policy_default_hint": {
     "message": "Uw wachtwoord voldoet niet aan de beveiligingseisen van uw organisatie. Neem contact op met uw beheerder voor meer informatie."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "U moet eerst back-up naar Dropbox uitschakelen."
   },
-  "permission_drive": {
-    "message": "Back-up naar Google Drive toestaan."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "U moet eerst back-up naar Google Drive uitschakelen."
-  },
-  "permission_onedrive": {
-    "message": "Back-up naar OneDrive toestaan."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "U moet eerst back-up naar OneDrive uitschakelen."
-  },
   "permission_unknown_permission": {
     "message": "Onbekende toestemming. Indien dit bericht wordt weergegeven, stuur dan een bugrapport."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Waarschuwing: Slim filter koppelt op een vrij losse manier de domeinnaam aan een account. Controleer altijd of u op de juiste website bent voordat u een code invoert!"
+  },
+  "backup_unavailable": {
+    "message": "Nog niet beschikbaar",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

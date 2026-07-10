@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Websted",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Angiv en adgangskode først for at bruge cloud-sikkerhedskopiering, så dine hemmeligheder krypteres, før de forlader denne enhed.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot genererer to-faktor autentificeringskoder i din browser.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Ugyldig kontohemmelighed",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Udstederen må ikke indeholde \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Tilføj konti",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Nogle kontodata blev ikke importeret.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Luk",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Nuværende Adgangskode",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Ny adgangskode",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Adgangskode",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Denne adgangskode bruges til at kryptere dine konti. Ingen kan hjælpe dig, hvis du glemmer adgangskoden.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Opdatér",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Du kan ikke tilføje en ny konto før alle konti er dekrypteret. Indtast den korrekte adgangskode, før du fortsætter.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Feedback",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Oversæt",
-    "description": "Translate."
-  },
   "source": {
     "message": "Kildekode",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Synk. historik med Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Husk adgangskoder",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Advarsel!!!! Dit lokale ur er for langt væk, du skal rette det, inden du fortsætter.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Slip en sikkerhedskopifil her, eller klik for at gennemse",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Understøtter .json- og .txt-eksporter",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Vælg fil",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Hvis filen er krypteret, bliver du bedt om dens adgangskode, efter du har valgt den.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Krypteret — adgangskode påkrævet",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Indtast filens adgangskode",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Dette er den adgangskode, du angav, da du oprettede sikkerhedskopien.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dekryptér og importér",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import lykkedes, men nogle QR-koder kunne ikke genkendes.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Brug autofyld",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Brug høj kontrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Udseende",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Generelt",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Rediger konti",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Vis QR-kode",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Fastgør øverst",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Frigør",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Boksen er låst",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Lås op",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Overfør denne konto",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Skan denne kode med OTPilot på en anden enhed for at overføre denne konto — den forlader aldrig dine enheder.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "På denne enhed",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloud-synkronisering",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Forbundet",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Ikke forbundet",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Viser koder for",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Andre konti",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrer til",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Koder, der følger med dig",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generér sikre to-faktor-koder til alle dine konti — krypteret, offline og altid kun ét tryk fra at blive kopieret.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Fungerer helt offline — intet forlader din enhed",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Krypteret boks med valgfri adgangskodelås",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Skan en QR-kode, eller importér en eksisterende sikkerhedskopi",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Kom i gang",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Jeg har en sikkerhedskopi, der skal importeres",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Lys",
@@ -313,9 +429,9 @@
     "message": "Mørk",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Simpel",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatisk",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompakt",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Høj Kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flad",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Sikkerhedskopier automatisk dine data til tredjepartslagertjenester.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browser Synkronisering",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Du har en eller flere Steam- eller Blizzard-konti. Ikke-krypterede sikkerhedskopier bruger ikke et standardiseret backupformat.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Du kan importere sikkerhedskopier fra nogle andre applikationer.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Sikkerhedskopi"
-  },
-  "backup_file_info": {
-    "message": "Sikkerhedskopier dine data til en fil."
   },
   "password_policy_default_hint": {
     "message": "Din adgangskode opfylder ikke din organisations sikkerhedskrav. Kontakt din administrator for mere information."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Du skal deaktivere Dropbox backup først."
   },
-  "permission_drive": {
-    "message": "Tillader backup til Google Drev."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Du skal deaktivere Google Drev backup først."
-  },
-  "permission_onedrive": {
-    "message": "Tillader backup til OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Du skal deaktivere OneDrive backup først."
-  },
   "permission_unknown_permission": {
     "message": "Ukendt tilladelse. Hvis du ser denne besked, så send venligst en fejlrapport."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Endnu ikke tilgængelig",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

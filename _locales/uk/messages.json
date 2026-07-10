@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Сайт",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Спочатку встановіть пароль для використання хмарного резервного копіювання, щоб ваші секрети шифрувалися ще до того, як залишать цей пристрій.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Неприпустимий ідентифікатор аккаунта",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Видавець не може містити \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Додати обліковий запис",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Частина данних облікового запису не була імпортована.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Закрити",
-    "description": "Close."
   },
   "ok": {
     "message": "ОК",
@@ -99,10 +107,6 @@
     "message": "Поточний пароль",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Новий пароль",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Пароль",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не зможе допомогти вам, якщо ви забудете пароль.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Оновити",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Ви не можете додати новий обліковий запис, поки всі облікові записи не будуть розшифровані. Будь ласка, введіть правильний пароль перед продовженням.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Відгук",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Переклад",
-    "description": "Translate."
-  },
   "source": {
     "message": "Вихідний код",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Синхронізувати годинник з Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Запам'ятати пароль",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Увага! Ваш місцевий годинник налаштовано неправильно. Будь ласка, виправте його, перш ніж продовжити.",
@@ -241,6 +233,38 @@
     "message": "Імпорт URL-адрес OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Перетягніть файл резервної копії або натисніть, щоб вибрати",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Підтримуються експорти .json та .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Вибрати файл",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Якщо файл зашифровано, після вибору вас попросять ввести пароль.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Зашифровано — потрібен пароль",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Введіть пароль файлу",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Це пароль, який ви встановили під час створення резервної копії.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Розшифрувати та імпортувати",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Імпорт завершено, але деякі QR-коди не вдалося розпізнати.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Використовувати автозаповнення",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Використовувати високу контрастність",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Тема",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Зовнішній вигляд",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Загальні",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Редагувати облікові записи",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Показати QR-код",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Закріпити вгорі",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Відкріпити",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Сховище заблоковано",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Розблокувати",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Перенести цей обліковий запис",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Відскануйте цей код у OTPilot на іншому пристрої, щоб перенести цей обліковий запис — дані ніколи не залишають ваші пристрої.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "На цьому пристрої",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Хмарна синхронізація",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Підключено",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Не підключено",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Показано коди для",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Інші облікові записи",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Фільтр за",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Коди, які завжди з вами",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Генеруйте надійні коди двофакторної автентифікації для кожного облікового запису — зашифровано, офлайн і завжди на відстані одного дотику для копіювання.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Повністю офлайн-робота — нічого не залишає ваш пристрій",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Зашифроване сховище з опціональним захистом паролем",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Скануйте QR-код або імпортуйте наявну резервну копію",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Почати",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "У мене є резервна копія для імпорту",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Світла",
@@ -313,9 +429,9 @@
     "message": "Темна",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Проста",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Автоматично",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Компактне",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Висока контрастність",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Фіат",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Автоматично створювати резервні копії Ваших даних у сторонніх сервісах-сховищах.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browser Sync",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "У вас є один або кілька облікових записів Steam або Blizzard. Незашифровані резервні копії не будуть використовувати стандартизований формат.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Ви можете імпортувати резервні копії з деяких інших програм.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Backup"
-  },
-  "backup_file_info": {
-    "message": "Backup your data to a file."
   },
   "password_policy_default_hint": {
     "message": "Ваш пароль не відповідає вимогам безпеки вашої організації. Для отримання додаткової інформації зверніться до адміністратора."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Спочатку необхідно вимкнути резервне копіювання Dropbox."
   },
-  "permission_drive": {
-    "message": "Дозволяє створювати резервні копії на Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Спочатку необхідно вимкнути резервне копіювання Google Drive."
-  },
-  "permission_onedrive": {
-    "message": "Дозволяє створювати резервні копії на OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Спочатку необхідно вимкнути резервне копіювання OneDrive."
-  },
   "permission_unknown_permission": {
     "message": "Невідомий дозвіл. Якщо ви бачите це повідомлення, будь ласка, надішліть повідомлення про помилку."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Попередження: Розумний фільтр неточно співставляє доменне ім’я з акаунтом. Завжди перевіряйте, що ви перебуваєте на правильному вебсайті, перш ніж вводити код!"
+  },
+  "backup_unavailable": {
+    "message": "Поки що недоступно",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

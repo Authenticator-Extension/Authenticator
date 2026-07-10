@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "ვებსაიტი",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "ჯერ დააყენეთ პაროლი ღრუბლოვანი სარეზერვო ასლის გამოსაყენებლად — თქვენი გასაღებები დაშიფრული იქნება ამ მოწყობილობის დატოვებამდე.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "აუთენთიფიკატორი აგენერირებს ორფაქტორიან აუთენთიფიკაციის კოდებს თქვენს ბრაუზერში.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "არასწორი გასაღები",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "მომწოდებელი არ შეიძლება შეიცავდეს „::“",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "ანგარიშის დამატება",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "ანგარიშის ზოგიერთი მონაცემის იმპორტირება წარმატებით ვერ მოხერხდა.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "დახურვა",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "მიმდინარე პაროლი",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "ახალი პაროლი",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "პაროლი",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "ეს პაროლი გამოყენებული იქნება თქვენი ანგარიშების დაშიფვრისთვის. ვერავინ დაგეხმარებათ, თუ დაგავიწყდათ პაროლი.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "განახლება",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "თქვენ ვერ შეძლებთ ახალი ანგარიშის დამატებას, სანამ ყველა ანგარიში არ იქნება გაშიფრული. გაგრძელებამდე, გთხოვთ, შეიყვანოთ სწორი პაროლი.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "უკუკავშირი",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "თარგმნა",
-    "description": "Translate."
-  },
   "source": {
     "message": "წყაროს კოდი",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "საათის Google-თან სინქრონიზაცია",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "პაროლის დამახსოვრება",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "ყურადღება! თქვენი ადგილობრივი დრო არასწორია. გაგრძელებამდე, გთხოვთ, გაასწოროთ საათი.",
@@ -241,6 +233,38 @@
     "message": "OTP URL მისამართების იმპორტირება",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "გადმოათრიეთ სარეზერვო ასლის ფაილი აქ ან დააჭირეთ დასათვალიერებლად",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "მხარდაჭერილია .json და .txt ექსპორტის ფაილები",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "ფაილის არჩევა",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "თუ ფაილი დაშიფრულია, არჩევის შემდეგ მოგეთხოვებათ მისი პაროლის შეყვანა.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "დაშიფრულია — საჭიროა პაროლი",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "შეიყვანეთ ამ ფაილის პაროლი",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "ეს არის პაროლი, რომელიც დააყენეთ სარეზერვო ასლის შექმნისას.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "გაშიფვრა და იმპორტირება",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "იმპორტირება წარმატებით დასრულდა, მაგრამ ზოგიერთი QR კოდის ამოცნობა ვერ მოხერხდა.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "ავტომატური შევსების გამოყენება",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "მაღალი კონტრასტის გამოყენება",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "თემა",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "გარეგნობა",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "ზოგადი",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "ანგარიშების რედაქტირება",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "QR კოდის ჩვენება",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "თავში დამაგრება",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "დამაგრების მოხსნა",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "საცავი დაბლოკილია",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "განბლოკვა",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "ამ ანგარიშის გადატანა",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "დაასკანერეთ ეს კოდი OTPilot-ით სხვა მოწყობილობაზე, რათა გადაიტანოთ ეს ანგარიში — მონაცემები არასდროს ტოვებს თქვენს მოწყობილობებს.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "ამ მოწყობილობაზე",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "ღრუბლოვანი სინქრონიზაცია",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "დაკავშირებულია",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "დაუკავშირებელია",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "კოდები ნაჩვენებია საიტისთვის:",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "სხვა ანგარიშები",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "გაფილტვრა:",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "კოდები, რომლებიც თან დაგყვებათ",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "შექმენით უსაფრთხო ორფაქტორიანი კოდები ყველა ანგარიშისთვის — დაშიფრული, ოფლაინ და ყოველთვის ერთი შეხებით დასაკოპირებელი.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "მუშაობს სრულად ოფლაინ რეჟიმში — არაფერი ტოვებს თქვენს მოწყობილობას",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "დაშიფრული საცავი, სურვილისამებრ პაროლის დაბლოკვით",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "დაასკანერეთ QR კოდი ან შემოიტანეთ არსებული სარეზერვო ასლი",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "დაწყება",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "მაქვს სარეზერვო ასლი შემოსატანად",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "ღია",
@@ -313,9 +429,9 @@
     "message": "მუქი",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "მარტივი",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "ავტომატური",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "კომპაქტური",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "მაღალი კონტრასტი",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "სწორი",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "ავტომატურად შექმენით თქვენი მონაცემების სარეზერვო ასლი მესამე მხარის შენახვის სერვისებში.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "ბრაუზერის სინქრონიზაცია",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "თქვენ გაქვთ ერთი ან მეტი Steam ან Blizzard ანგარიში. დაუშიფრავი სარეზერვო ასლების შემთხვევაში არ მოხდება სტანდარტიზირებული სარეზერვო ასლის ფორმატის გამოყენება.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "თქვენ შეგიძლიათ სარეზერვო ასლების იმპორტირება სხვა აპლიკაციიდან.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "სარეზერვო ასლი"
-  },
-  "backup_file_info": {
-    "message": "შექმენით თქვენი მონაცემების შემცველი სარეზერვო ასლის ფაილი."
   },
   "password_policy_default_hint": {
     "message": "თქვენი პაროლი არ აკმაყოფილებს თქვენი ორგანიზაციის უსაფრთხოების მოთხოვნებს. დაუკავშირდით თქვენს ადმინისტრატორს დამატებითი ინფორმაციისთვის."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "თავდაპირველად, უნდა გამორთოთ Dropbox-ში სარეზერვო ასლის შექმნა."
   },
-  "permission_drive": {
-    "message": "საშუალებას გაძლევთ, შექმნათ სარეზერვო ასლი Google Drive-ში."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "თავდაპირველად, უნდა გამორთოთ Google Drive-ში სარეზერვო ასლის შექმნა."
-  },
-  "permission_onedrive": {
-    "message": "საშუალებას გაძლევთ, შექმნათ სარეზერვო ასლი OneDrive-ში."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "თავდაპირველად, უნდა გამორთოთ OneDrive-ში სარეზერვო ასლის შექმნა."
-  },
   "permission_unknown_permission": {
     "message": "უცნობი ნებართვა. თუ ამ შეტყობინებას ხედავთ, გთხოვთ, შეგვატყობინოთ პრობლემის შესახებ."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "ჯერ არ არის ხელმისაწვდომი",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

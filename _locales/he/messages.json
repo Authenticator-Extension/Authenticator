@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "אתר",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "כדי להשתמש בגיבוי בענן יש להגדיר סיסמה תחילה, כך שהסודות שלך יוצפנו לפני שהם יוצאים מהמכשיר הזה.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "המאמת מחולל קודי אימות דו שלבי ישירות מהדפדפן.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "קוד סודי שגוי",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "שם המנפיק אינו יכול להכיל \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "הוספת חשבון",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "חלק ממידע החשבון לא יובא בהצלחה.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "סגירה",
-    "description": "Close."
   },
   "ok": {
     "message": "אישור",
@@ -99,10 +107,6 @@
     "message": "סיסמה נוכחית",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "סיסמה חדשה",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "סיסמה",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "סיסמה זו תשמש להצפנת חשבונותיך. אין דרך לשחזר את הסיסמה אם היא תשכח.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "עדכון",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "לא ניתן להוסיף חשבון חדש עד שכל החשבונות יפוענחו. נא להכניס סיסמא נכונה כדי להמשיך.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "משוב",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "תרגם",
-    "description": "Translate."
-  },
   "source": {
     "message": "קוד מקור",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "סינכרון שעון עם גוגל",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "זכור את הסיסמה",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "זהירות! השעון המקומי שלך רחוק מדי, יש לתקן אותו לפני שנמשיך.",
@@ -241,6 +233,38 @@
     "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "גרור קובץ גיבוי לכאן או לחץ לעיון",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "תומך בקובצי ייצוא .json ו-.txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "בחר קובץ",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "אם הקובץ מוצפן, תתבקש להזין את הסיסמה שלו לאחר הבחירה.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "מוצפן — נדרשת סיסמה",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "הזן את הסיסמה של הקובץ",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "זוהי הסיסמה שהגדרת בעת יצירת הגיבוי.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "פענוח וייבוא",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import successful, but some QR codes could not be recognized.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "השתמש במילוי אוטומטי",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "השתמש בניגודיות גבוהה",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "עיצוב",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "מראה",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "כללי",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "עריכת חשבונות",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "הצגת קוד QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "הצמד למעלה",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "בטל הצמדה",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "הכספת נעולה",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "בטל נעילה",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "העברת חשבון זה",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "סרוק קוד זה באמצעות OTPilot במכשיר אחר כדי להעביר את החשבון הזה — הוא לעולם לא עוזב את המכשירים שלך.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "במכשיר זה",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "סנכרון בענן",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "מחובר",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "לא מחובר",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "מציג קודים עבור",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "חשבונות אחרים",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "סנן לפי",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "קודים שמלווים אותך לכל מקום",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "צור קודי אימות דו-שלביים מאובטחים לכל חשבון — מוצפנים, ללא חיבור לאינטרנט, ותמיד במרחק הקשה אחת מהעתקה.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "פועל לחלוטין ללא חיבור לאינטרנט — שום דבר לא עוזב את המכשיר שלך",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "כספת מוצפנת עם נעילת סיסמה אופציונלית",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "סרוק קוד QR או ייבא גיבוי קיים",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "התחל",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "יש לי גיבוי לייבוא",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "בהיר",
@@ -313,9 +429,9 @@
     "message": "כהה",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Simple",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "אוטומטי (בהתאם למערכת)",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compact",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "ניגודיות גבוהה",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "גבה אוטומטית את הנתונים שלך לשירותי אחסון של צד ג '.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "סינכרון דפדפן",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "יש לך חשבון Steam או Blizzard אחד או יותר. גיבויים לא מוצפנים לא ישתמשו בתבנית גיבוי סטנדרטית.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "ניתן לייבא גיבויים מיישומים אחרים.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "גיבוי"
-  },
-  "backup_file_info": {
-    "message": "גיבוי הנתונים שלך לקובץ."
   },
   "password_policy_default_hint": {
     "message": "הסיסמא שסיפקת אינו עומדת בדרישות האבטחה של ארגונך. למידע נוסף, צור קשר עם המנהל."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "You must disable Dropbox backup first."
   },
-  "permission_drive": {
-    "message": "Allows backup to Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
-  },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "עדיין לא זמין",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

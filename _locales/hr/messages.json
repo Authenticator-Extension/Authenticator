@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Web-mjesto",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Najprije postavi lozinku za korištenje sigurnosne kopije u oblaku, tako da se tvoje tajne šifriraju prije nego što napuste ovaj uređaj.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "Autentifikator generira dvofaktorske autentifikacijske kodove u tvom pregledniku.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Neispravna tajna računa",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Izdavatelj ne smije sadržavati „::”.",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Dodaj račun",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Neki podaci računa nisu uspješno uvezeni.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Zatvori",
-    "description": "Close."
   },
   "ok": {
     "message": "U redu",
@@ -99,10 +107,6 @@
     "message": "Trenutačna lozinka",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nova lozinka",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Lozinka",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Ova će se lozinka koristiti za šifriranje tvog računa. Nitko ti neće moći pomoći ako ju zaboraviš.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Aktualiziranje",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Ne možeš dodati novi račun, sve dok svi računi nisu dešifrirani. Za nastavljanje upiši ispravnu lozinku.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Povratne informacije",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Prevedi",
-    "description": "Translate."
-  },
   "source": {
     "message": "Izvorni kod",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sinkroniziraj sat s Google-om",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Zapamti lozinku",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Pažnja! Tvoj lokalni sat nije usklađen. Najmjesti ga prije nastavljanja.",
@@ -241,6 +233,38 @@
     "message": "Uvoz OTP URL-ova",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Ispusti datoteku sigurnosne kopije ili klikni za pregled",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Prihvaća izvoze u .json i .txt formatu",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Odaberi datoteku",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Ako je datoteka šifrirana, nakon odabira ćeš morati unijeti njezinu lozinku.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Šifrirano — potrebna lozinka",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Upiši lozinku datoteke",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Ovo je lozinka postavljena prilikom izrade sigurnosne kopije.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dešifriraj i uvezi",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Uvoz je uspio, ali neki QR kodovi nisu prepoznati.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Koristi automatsko ispunjavanje",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Koristi visoki kontrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Izgled",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Općenito",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Uredi račune",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Prikaži QR kod",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Prikvači na vrh",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Otkvači",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Trezor zaključan",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Otključaj",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Prenesi ovaj račun",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Skeniraj ovaj kod OTPilotom na drugom uređaju da preneseš ovaj račun — nikada ne napušta tvoje uređaje.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Na ovom uređaju",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sinkronizacija u oblaku",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Povezano",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nije povezano",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Prikaz kodova za",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Ostali računi",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtriraj na",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kodovi koji putuju s tobom",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generiraj sigurne dvofaktorske kodove za svaki račun — šifrirano, offline i uvijek spremno za kopiranje jednim dodirom.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Radi potpuno offline — ništa ne napušta tvoj uređaj",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Šifrirani trezor s opcionalnim zaključavanjem lozinkom",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Skeniraj QR kod ili uvezi postojeću sigurnosnu kopiju",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Započni",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Imam sigurnosnu kopiju za uvoz",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Svijetla",
@@ -313,9 +429,9 @@
     "message": "Tamna",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Jednostavna",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatski",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompaktna",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Visoki kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Plošna",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatski spremi sigurnosnu kopiju tvojih podataka u stranoj usluzi za spremanje podataka.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Sinkronizacija preglednika",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Imaš jedan ili više Steam ili Blizzard računa. Nešifrirane sigurnosne kopije neće koristiti standardni format sigurnosne kopije.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Možeš uvesti sigurnosne kopije iz drugih aplikacija.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Sigurnosna kopija"
-  },
-  "backup_file_info": {
-    "message": "Spremi sigurnosnu kopiju tvojih podataka u datoteku."
   },
   "password_policy_default_hint": {
     "message": "Tvoja lozinka ne zadovoljava sigurnosne zahtjeve tvoje organizacije. Kontaktiraj administratora za daljnje informacije."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Najprije moraš deaktivirati Dropbox sigurnosne kopije."
   },
-  "permission_drive": {
-    "message": "Dozvoljava spremanje sigurnosne kopije na Google Driveu."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Najprije moraš deaktivirati Google Drive sigurnosne kopije."
-  },
-  "permission_onedrive": {
-    "message": "Dozvoljava spremanje sigurnosne kopije na OneDriveu."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Najprije moraš deaktivirati OneDrive sigurnosne kopije."
-  },
   "permission_unknown_permission": {
     "message": "Nepoznata dozvola. Ako vidiš ovu poruku pošalji izvještaj o grešci."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Upozorenje: Pametni filtar slabo povezuje naziv domene s računom. Prije unosa koda uvijek provjerite jeste li na ispravnoj web stranici!"
+  },
+  "backup_unavailable": {
+    "message": "Još nije dostupno",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

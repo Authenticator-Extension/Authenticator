@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Web",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Pro použití cloudové zálohy nejprve nastavte heslo, aby byly vaše tajné klíče zašifrovány ještě předtím, než opustí toto zařízení.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Neplatné číslo účtu",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Vydavatel nesmí obsahovat „::“",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Přidat účet",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Některá data účtu nebyla úspěšně importována.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Zavřít",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -99,10 +107,6 @@
     "message": "Stávající heslo",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nové heslo",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Heslo",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Toto heslo bude použito k šifrování vašich účtů. Nikdo vám nemůže pomoci, pokud zapomenete heslo.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Aktualizovat",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Nelze přidat nový účet, dokud nejsou všechny účty dešifrovány. Před pokračováním zadejte prosím správné heslo.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Zpětná vazba",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Přeložit",
-    "description": "Translate."
-  },
   "source": {
     "message": "Zdrojový kód",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Synchronizovat hodiny s Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Zapamatovat si heslo",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Pozor! Váš místní čas se velmi liší, před pokračováním jej prosím opravte.",
@@ -241,6 +233,38 @@
     "message": "Importovat OTP URL",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Přetáhněte záložní soubor nebo klikněte pro procházení",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Podporuje exporty .json a .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Vybrat soubor",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Pokud je soubor šifrovaný, po jeho výběru budete požádáni o heslo.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Šifrováno — vyžadováno heslo",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Zadejte heslo k souboru",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Toto je heslo, které jste nastavili při vytváření zálohy.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dešifrovat a importovat",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Import proběhl úspěšně, ale některé kódy QR se nepodařilo rozpoznat.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Použití automatického vyplňování",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Použít vysoký kontrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Motiv",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Vzhled",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Obecné",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Upravit účty",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Zobrazit QR kód",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Připnout nahoru",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Odepnout",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Trezor uzamčen",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Odemknout",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Přenést tento účet",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Naskenujte tento kód pomocí OTPilot na jiném zařízení a přeneste tento účet — nikdy neopustí vaše zařízení.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Na tomto zařízení",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloudová synchronizace",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Připojeno",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nepřipojeno",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Zobrazují se kódy pro",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Ostatní účty",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtrovat na",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kódy, které jsou vždy s vámi",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generujte bezpečné dvoufaktorové kódy pro každý účet — šifrované, offline a vždy jen jedno klepnutí od zkopírování.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funguje zcela offline — nic neopustí vaše zařízení",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Šifrovaný trezor s volitelným zámkem heslem",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Naskenujte QR kód nebo importujte existující zálohu",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Začít",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Mám zálohu k importu",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Světlý",
@@ -313,9 +429,9 @@
     "message": "Tmavý",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Jednoduché",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automaticky",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Krátký",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Vysoký kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Ploché",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatically backup your data to 3rd party storage services.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browser Sync",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Máte jeden nebo více Steam nebo Blizzard účtů. Nešifrované zálohy nebudou využívat standardní formát.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "You can import backups from some other applications.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Záloha"
-  },
-  "backup_file_info": {
-    "message": "Zálohovat data do souboru."
   },
   "password_policy_default_hint": {
     "message": "Vaše heslo nesplňuje bezpečnostní požadavky vaší organizace. Pro více informací kontaktujte svého správce."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Nejdříve musíte zakázat zálohu Dropboxu."
   },
-  "permission_drive": {
-    "message": "Umožňuje zálohování na Disk Google."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Nejdříve musíte zakázat zálohu Google drive."
-  },
-  "permission_onedrive": {
-    "message": "Umožňuje zálohu do One drive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Nejdříve musíte zakázat zálohu One drive."
-  },
   "permission_unknown_permission": {
     "message": "Neznámé oprávnění. Pokud uvidíte tuto zprávu, pošlete prosím hlášení o chybě."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Varování: Inteligentní filtr volně přiřazuje název domény k účtu. Před zadáním kódu vždy zkontrolujte, zda jste na správné webové stránce!"
+  },
+  "backup_unavailable": {
+    "message": "Zatím není k dispozici",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

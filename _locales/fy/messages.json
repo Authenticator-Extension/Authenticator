@@ -7,6 +7,14 @@
     "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Website",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Stel earst in wachtwurd yn om cloud-reservekopy te brûken, sadat jo geheimen fersifere binne foardat se dit apparaat ferlitte.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
     "message": "OTPilot generearret 2-stapsferifikaasjekoades yn jo browser.",
     "description": "Extension Description."
@@ -22,6 +30,10 @@
   "errorsecret": {
     "message": "Net krekt accountgeheim",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Utjouwer mei net \"::\" befetsje",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Account tafoegje",
@@ -42,10 +54,6 @@
   "migration_partly_fail": {
     "message": "Guon accountgegevens binne net ymportearre.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Slute",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +107,6 @@
     "message": "Aktueel ​​wachtwurd",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nij wachtwurd",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Wachtwurd",
     "description": "Passphrase."
@@ -129,10 +133,6 @@
     "message": "Dit wachtwurd wurdt brûkt foar it fersiferjen fan jo accounts. Net ien kin jo helpe as jo it wachtwurd ferjitte.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Fernije",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Jo kinne net in nij account tafoegje oant alle accounts ûntsifere binne. Fier it krekte wachtwurd yn eardat jo fierder gean.",
     "description": "Passphrase Incorrect."
@@ -157,10 +157,6 @@
     "message": "Kommentaar",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Oersette",
-    "description": "Translate."
-  },
   "source": {
     "message": "Boarnekoade",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Klok syngronisearje mei Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Wachtwurd ûnthâlde",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Let op! De klok fan jo lokale kompjûter is te fier foar/efter, werstel dit eardat jo trochgean.",
@@ -241,6 +233,38 @@
     "message": "OTP-URL’s ymportearje",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Sleep in reservekopybestân hjirhinne, of klik om te blêdzjen",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Akseptearret .json- en .txt-eksporten",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Bestân kieze",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "As it bestân fersifere is, wurdt jo nei seleksje om it wachtwurd frege.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Fersifere — wachtwurd fereaske",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Fier it wachtwurd fan it bestân yn",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Dit is it wachtwurd dat jo ynsteld hawwe doe't jo de reservekopy makken.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Untsiferje en ymportearje",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
     "message": "Ymport suksesfol, mar guon QR-koaden kinne net werkend wurde.",
     "description": "Import successful, but some QR image cannot be recognized."
@@ -297,13 +321,105 @@
     "message": "Automatysk oanfolje brûke",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Heech kontrast brûke",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Uterlik",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Algemien",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Accounts bewurkje",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "QR-koade toane",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Boppe oan fêstsette",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Losmeitsje",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Kluis beskoattele",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Untskoattelje",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Dit account oerdrage",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scan dizze koade mei OTPilot op in oar apparaat om dit account oer te setten — it ferlit noait jo apparaten.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Op dit apparaat",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloudsyngronisaasje",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Ferbûn",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Net ferbûn",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Koaden toand foar",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Oare accounts",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filterje op",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Koaden dy't mei jo reizgje",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generearje feilige twastapskoaden foar elk account — fersifere, offline, en altyd mar ien tik fan kopiearjen.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Wurket folslein offline — der ferlit neat jo apparaat",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Fersifere kluis mei opsjonele wachtwurdbeskoatteling",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Scan in QR-koade of ymportearje in besteande reservekopy",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Begjinne",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Ik haw in reservekopy om te ymportearjen",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Ljocht",
@@ -313,9 +429,9 @@
     "message": "Donker",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Ienfâldich",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Auto (systeem folgje)",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompakt",
@@ -324,14 +440,6 @@
   "theme_high_contrast": {
     "message": "Heech kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flak",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatysk in reservekopy meitsje fan jo gegevens nei opslachtsjinsten fan tredden.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browsersyngronisaasje",
@@ -361,10 +469,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Jo hawwe ien of mear Steam- of Blizzard-accounts. Net-fersifere reservekopyen sille gjin standerdisearre reservekopy-yndieling brûke.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Jo kinne reservekopyen fan inkelde andere tapassingen ymportearje.",
@@ -406,9 +510,6 @@
   },
   "backup": {
     "message": "Reservekopy"
-  },
-  "backup_file_info": {
-    "message": "Meitsje in reservekopy fan jo gegevens nei in bestân."
   },
   "password_policy_default_hint": {
     "message": "Jo wachtwurd foldocht net oan de befeiligingseasken fan jo organisaasje. Nim kontakt op mei jo behearder foar mear ynformaasje."
@@ -500,18 +601,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Jo moatte earst reservekopy nei Dropbox útskeakelje."
   },
-  "permission_drive": {
-    "message": "Reservekopy nei Google Drive tastean."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Jo moatte earst reservekopy nei Google Drive útskeakelje."
-  },
-  "permission_onedrive": {
-    "message": "Reservekopy nei OneDrive tastean."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Jo moatte earst reservekopy nei OneDrive útskeakelje."
-  },
   "permission_unknown_permission": {
     "message": "Unbekende tastimming. As dit bericht werjûn wurdt, stjoer dan in bugrapport."
   },
@@ -520,5 +609,9 @@
   },
   "activate_auto_filter": {
     "message": "Warskôging: Tûk filter keppelet op in frij losse manier de domeinnamme oan in account. Kontrolearje altyd oft jo op de krekte website binne eardat jo in koade ynfiere!"
+  },
+  "backup_unavailable": {
+    "message": "Noch net beskikber",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }
