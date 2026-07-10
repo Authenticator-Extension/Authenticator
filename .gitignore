@@ -1,17 +1,34 @@
+# dependencies
 node_modules
+
+# build output
 build
 chrome*
 firefox*
 edge*
 js
-.vscode
-.atom-build.yml
-scripts/authenticator-build-key.enc
-cert.pfx
 css
+/test
 .license-gen-tmp
 view/licenses.html
-/test
-scripts/authenticator-build-key
 scripts/test-runner.js
+
+# release credentials
+scripts/authenticator-build-key
+scripts/authenticator-build-key.enc
+cert.pfx
+
+# local docs / AI working notes
 docs/
+
+# editor & local tool settings
+.vscode
+.claude/settings.local.json
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# npm logs
+npm-debug.log*
