@@ -7,5 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Check locale key parity
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: node scripts/check-i18n.js
