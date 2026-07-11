@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    name: Build and publish Chrome extension ZIP
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Build
+        run: npm run chrome
+
+      - name: Package
+        run: cd chrome && zip -r "../authenticator-chrome-${GITHUB_REF_NAME}.zip" .
+
+      - name: Create release
+        run: gh release create "$GITHUB_REF_NAME" "authenticator-chrome-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
