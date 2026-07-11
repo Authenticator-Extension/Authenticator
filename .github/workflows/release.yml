@@ -34,6 +34,6 @@ jobs:
         run: cd chrome && zip -r "../authenticator-chrome-${GITHUB_REF_NAME}.zip" .
 
       - name: Create release
-        run: gh release create "$GITHUB_REF_NAME" "authenticator-chrome-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --generate-notes
+        run: gh release create "$GITHUB_REF_NAME" "authenticator-chrome-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --notes-from-tag
         env:
           GH_TOKEN: ${{ github.token }}
