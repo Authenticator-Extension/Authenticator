@@ -1,5 +1,3 @@
-// @ts-expect-error - no typings
-import QRCode from "qrcode-reader";
 import jsQR from "jsqr";
 
 // @ts-expect-error - injected by vue-svg-loader
@@ -270,44 +268,18 @@ async function qrDecode(
       canvas.height = imageData.height;
       ctx?.putImageData(imageData, 0, 0);
 
-      const qrReader = new QRCode();
-      qrReader.callback = (
-        error: string,
-        text: {
-          result: string;
-          points: Array<{
-            x: number;
-            y: number;
-            count: number;
-            estimatedModuleSize: number;
-          }>;
-        }
-      ) => {
-        let qrRes = "";
-        if (error) {
-          // qrcode-reader reports "no finder patterns" for any non-QR region;
-          // that's expected, so don't log it as an error -- fall back to jsQR.
-          const jsQrCode = jsQR(
-            imageData.data,
-            imageData.width,
-            imageData.height
-          );
+      let qrRes = "";
+      const jsQrCode = jsQR(imageData.data, imageData.width, imageData.height);
+      if (jsQrCode) {
+        qrRes = jsQrCode.data;
+      } else {
+        alert(chrome.i18n.getMessage("errorqr"));
+      }
 
-          if (jsQrCode) {
-            qrRes = jsQrCode.data;
-          } else {
-            alert(chrome.i18n.getMessage("errorqr"));
-          }
-        } else {
-          qrRes = text.result;
-        }
-
-        chrome.runtime.sendMessage({
-          action: "getTotp",
-          info: qrRes,
-        });
-      };
-      qrReader.decode(imageData);
+      chrome.runtime.sendMessage({
+        action: "getTotp",
+        info: qrRes,
+      });
     }
   };
   qr.onerror = () => {
