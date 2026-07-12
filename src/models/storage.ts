@@ -27,13 +27,13 @@ export class BrowserStorage {
       return new Promise((resolve, reject) => {
         let amountSync: number;
         let amountLocal: number;
-        chrome.storage.local.get((local) => {
+        chrome.storage.local.get((local: { [key: string]: unknown }) => {
           amountLocal = Object.keys(local).length;
           if (local.LocalStorage) {
             amountLocal--;
           }
           try {
-            chrome.storage.sync.get((sync) => {
+            chrome.storage.sync.get((sync: { [key: string]: unknown }) => {
               amountSync = Object.keys(sync).length;
               // If storage location can't be found try to auto-detect storage
               // location
@@ -778,13 +778,13 @@ export class ManagedStorage {
     const managedStoragePromise = new Promise(
       (resolve: (result: T | undefined) => void) => {
         if (chrome.storage.managed) {
-          chrome.storage.managed.get((data) => {
+          chrome.storage.managed.get((data: { [key: string]: unknown }) => {
             if (chrome.runtime.lastError) {
               return resolve(defaultValue);
             }
             if (data) {
               if (data[key]) {
-                return resolve(data[key]);
+                return resolve(data[key] as T);
               }
             }
             return resolve(defaultValue);

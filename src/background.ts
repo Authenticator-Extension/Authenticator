@@ -238,7 +238,10 @@ async function getTotp(
         !silent && chrome.tabs.sendMessage(id, { action: "secretqr", secret });
         return false;
       } else {
-        const encryption = new Encryption(cachedPassphrase, cachedKeyId);
+        const encryption = new Encryption(
+          cachedPassphrase as string,
+          cachedKeyId as string
+        );
         const hash = crypto.randomUUID();
         if (
           !/^[2-7a-z]+=*$/i.test(secret) &&
@@ -479,7 +482,10 @@ function getBackupToken(service: string) {
 
 async function uploadBackup(service: string) {
   const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
-  const encryption = new Encryption(cachedPassphrase, cachedKeyId);
+  const encryption = new Encryption(
+    cachedPassphrase as string,
+    cachedKeyId as string
+  );
 
   switch (service) {
     case "dropbox":
@@ -563,7 +569,10 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
         if (matchedEntries && matchedEntries.length === 1) {
           const entry = matchedEntries[0];
-          const encryption = new Encryption(cachedPassphrase, cachedKeyId);
+          const encryption = new Encryption(
+            cachedPassphrase as string,
+            cachedKeyId as string
+          );
           // applyEncryption is async now; await so entry.code is decrypted
           await entry.applyEncryption(encryption);
 
@@ -641,7 +650,7 @@ async function updateContextMenu() {
             }
             chrome.windows.create({
               url: chrome.runtime.getURL(popupUrl),
-              type: windowType as chrome.windows.createTypeEnum,
+              type: windowType as chrome.windows.CreateType,
               height: 400,
               width: 320,
             });

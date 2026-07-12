@@ -22,8 +22,8 @@ async function init() {
     // Load entries to global
     const cachedSecrets = await getCachedSecrets();
     const encryption = new Encryption(
-      cachedSecrets.cachedPassphrase,
-      cachedSecrets.cachedKeyId
+      cachedSecrets.cachedPassphrase as string,
+      cachedSecrets.cachedKeyId as string
     );
     const entries = await EntryStorage.get();
 

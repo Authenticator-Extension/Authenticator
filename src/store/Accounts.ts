@@ -18,10 +18,10 @@ export class Accounts implements Module {
     const encryption: Map<string, EncryptionInterface> = new Map();
     if (cachedKeyInfo.cachedKeyId) {
       encryption.set(
-        cachedKeyInfo.cachedKeyId,
+        cachedKeyInfo.cachedKeyId as string,
         new Encryption(
-          cachedKeyInfo.cachedPassphrase,
-          cachedKeyInfo.cachedKeyId
+          cachedKeyInfo.cachedPassphrase as string,
+          cachedKeyInfo.cachedKeyId as string
         )
       );
     }
