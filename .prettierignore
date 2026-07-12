@@ -1,0 +1,3 @@
+# prettier 3 treats files it cannot infer a parser for as fatal errors
+# (prettier 2 only warned); this upstream leftover has no recognizable extension
+*.disabled
