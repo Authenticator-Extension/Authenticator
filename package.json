@@ -40,7 +40,7 @@
     "buffer": "^6.0.3",
     "chai": "^4.2.0",
     "eslint": "^10.7.0",
-    "fork-ts-checker-webpack-plugin": "^6.5.3",
+    "fork-ts-checker-webpack-plugin": "^9.1.0",
     "lodash": "^4.18.1",
     "mocha": "^10.2.0",
     "npm-license-generator": "^2.0.0",
@@ -58,8 +58,8 @@
     "util": "^0.12.5",
     "vue-loader": "^17.4.2",
     "webpack": "^5.108.4",
-    "webpack-cli": "^5.0.0",
-    "webpack-merge": "^5.0.0"
+    "webpack-cli": "^7.2.1",
+    "webpack-merge": "^6.0.1"
   },
   "dependencies": {
     "argon2-browser": "^1.18.0",
