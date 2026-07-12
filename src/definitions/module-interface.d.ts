@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 interface Module {
   getModule(): Promise<VuexConstructor> | VuexConstructor;
 }

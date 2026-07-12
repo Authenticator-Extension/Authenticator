@@ -28,7 +28,7 @@ else
     ./node_modules/.bin/prettier --check $STYLEFILES --write
 fi
 
-./node_modules/.bin/eslint . --ext .js,.ts
+./node_modules/.bin/eslint .
 
 if ! [[ $CREDS =~ $CREDREGEX ]] ; then
     if [[ $PLATFORM = "prod" ]]; then
