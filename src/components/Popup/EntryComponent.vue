@@ -185,7 +185,7 @@ export default defineComponent({
       const menuW = 180;
       this.contextX = Math.max(
         8,
-        Math.min(e.clientX, window.innerWidth - menuW - 8)
+        Math.min(e.clientX, window.innerWidth - menuW - 8),
       );
       this.contextY = e.clientY;
       this.contextOpen = true;
@@ -279,7 +279,7 @@ export default defineComponent({
       if (
         await this.$store.dispatch(
           "notification/confirm",
-          this.i18n.confirm_delete
+          this.i18n.confirm_delete,
         )
       ) {
         await entry.delete();
@@ -329,7 +329,7 @@ export default defineComponent({
     setEntryField(
       entry: OTPEntry,
       field: "issuer" | "account" | "host",
-      value: string
+      value: string,
     ) {
       this.$store.commit("accounts/setEntryField", { entry, field, value });
     },
@@ -348,7 +348,7 @@ export default defineComponent({
         // write, mirroring AddAccountPage's "::" rejection.
         this.$store.commit("notification/alert", this.i18n.errorissuer);
         const stored = (await EntryStorage.get()).find(
-          (e) => e.hash === entry.hash
+          (e) => e.hash === entry.hash,
         );
         this.$store.commit("accounts/setEntryField", {
           entry,
@@ -379,7 +379,7 @@ export default defineComponent({
         async (granted) => {
           if (granted) {
             const codeClipboard = document.getElementById(
-              "codeClipboard"
+              "codeClipboard",
             ) as HTMLInputElement;
             if (!codeClipboard) {
               return;
@@ -411,10 +411,10 @@ export default defineComponent({
             lastActiveElement.focus();
             this.$store.dispatch(
               "notification/ephermalMessage",
-              this.i18n.copied
+              this.i18n.copied,
             );
           }
-        }
+        },
       );
 
       return;
@@ -452,8 +452,8 @@ function getQrUrl(entry: OTPEntry) {
     entry.type === OTPType.hex
       ? OTPType[OTPType.totp]
       : entry.type === OTPType.hhex
-      ? OTPType[OTPType.hotp]
-      : OTPType[entry.type];
+        ? OTPType[OTPType.hotp]
+        : OTPType[entry.type];
   const otpauth =
     "otpauth://" +
     type +

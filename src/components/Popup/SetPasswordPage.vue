@@ -122,7 +122,7 @@ export default defineComponent({
       } catch {
         console.warn(
           "Invalid password policy. The password policy is not a valid regular expression.",
-          this.$store.state.menu.passwordPolicy
+          this.$store.state.menu.passwordPolicy,
         );
         return null;
       }
@@ -141,7 +141,7 @@ export default defineComponent({
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
           this.defaultEncryption,
-          this.currentPhrase
+          this.currentPhrase,
         );
         if (!isCorrectPassword) {
           this.$store.commit("notification/alert", this.i18n.phrase_not_match);
@@ -177,7 +177,7 @@ export default defineComponent({
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
           this.defaultEncryption,
-          this.currentPhrase
+          this.currentPhrase,
         );
         if (!isCorrectPassword) {
           this.$store.commit("notification/alert", this.i18n.phrase_wrong);

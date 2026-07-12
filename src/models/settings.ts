@@ -65,7 +65,7 @@ export class UserSettings {
 
   static async convertFromLocalStorage(
     data: Storage,
-    location: StorageLocation
+    location: StorageLocation,
   ) {
     const settings: UserSettingsData = {};
 
@@ -98,7 +98,7 @@ export class UserSettings {
       });
     } else {
       const { syncableSettings, localSettings } = UserSettings.splitSettings(
-        UserSettings.items
+        UserSettings.items,
       );
 
       await Promise.all([
@@ -116,7 +116,7 @@ export class UserSettings {
 
   static async removeItem(key: keyof UserSettingsData) {
     const localSettings = await UserSettings.getStorageData(
-      StorageLocation.Local
+      StorageLocation.Local,
     );
     const storageLocation =
       localSettings.storageLocation || StorageLocation.Local;
@@ -161,7 +161,7 @@ export class UserSettings {
 
   private static async getAllItems() {
     const localSettings = await UserSettings.getStorageData(
-      StorageLocation.Local
+      StorageLocation.Local,
     );
     const storageLocation =
       localSettings.storageLocation || StorageLocation.Local;
@@ -171,7 +171,7 @@ export class UserSettings {
     }
 
     const syncableSettings = await UserSettings.getStorageData(
-      StorageLocation.Sync
+      StorageLocation.Sync,
     );
     return { ...syncableSettings, ...localSettings };
   }
@@ -212,7 +212,7 @@ function isBooleanOption(key: string): key is BooleanOption {
 
 function isNumberOption(key: string): key is NumberOption {
   return ["autolock", "lastRemindingBackupTime", "offset", "zoom"].includes(
-    key
+    key,
   );
 }
 

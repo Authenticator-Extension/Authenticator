@@ -118,7 +118,7 @@ async function getTotp(
   text: string,
   tabId?: number,
   silent = false,
-  host?: string
+  host?: string,
 ) {
   // tabId is the content tab that initiated the scan (sender.tab.id). Relying on
   // a module-level tab ref here broke scans whenever the MV3 service worker had
@@ -145,7 +145,7 @@ async function getTotp(
       // allSettled entries are always-truthy {status,value} objects, so the
       // old `!res` test was never true and every import reported success.
       const failedCount = getTotpResults.filter(
-        (res) => res.status !== "fulfilled" || !res.value
+        (res) => res.status !== "fulfilled" || !res.value,
       ).length;
       if (failedCount === otpUrls.length) {
         !silent && chrome.tabs.sendMessage(id, { action: "migrationfail" });
@@ -196,10 +196,8 @@ async function getTotp(
         account = label;
       }
       const parameters = parameterPart.split("&");
-      const {
-        cachedPassphrase,
-        cachedKeyId,
-      } = await chrome.storage.session.get();
+      const { cachedPassphrase, cachedKeyId } =
+        await chrome.storage.session.get();
       parameters.forEach((item) => {
         const parameter = item.split("=");
         if (parameter[0].toLowerCase() === "secret") {
@@ -240,7 +238,7 @@ async function getTotp(
       } else {
         const encryption = new Encryption(
           cachedPassphrase as string,
-          cachedKeyId as string
+          cachedKeyId as string,
         );
         const hash = crypto.randomUUID();
         if (
@@ -380,7 +378,7 @@ function getBackupToken(service: string) {
                   "&redirect_uri=" +
                   encodeURIComponent(redirUrl) +
                   "&grant_type=authorization_code",
-              }
+              },
             );
             const res = await response.json();
             if (res.error) {
@@ -398,7 +396,7 @@ function getBackupToken(service: string) {
           chrome.runtime
             .sendMessage({ action: "dropboxauthdone" })
             .catch(() => undefined);
-        }
+        },
       );
     })();
     return;
@@ -456,7 +454,7 @@ function getBackupToken(service: string) {
                       "&redirect_uri=" +
                       redirUrl +
                       "&grant_type=authorization_code",
-                  }
+                  },
                 );
                 const res = await response.json();
                 if (res.error) {
@@ -475,7 +473,7 @@ function getBackupToken(service: string) {
             }
           }
         }
-      }
+      },
     );
   }
 }
@@ -484,7 +482,7 @@ async function uploadBackup(service: string) {
   const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
   const encryption = new Encryption(
     cachedPassphrase as string,
-    cachedKeyId as string
+    cachedKeyId as string,
   );
 
   switch (service) {
@@ -571,7 +569,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
           const entry = matchedEntries[0];
           const encryption = new Encryption(
             cachedPassphrase as string,
-            cachedKeyId as string
+            cachedKeyId as string,
           );
           // applyEncryption is async now; await so entry.code is decrypted
           await entry.applyEncryption(encryption);
@@ -599,7 +597,7 @@ chrome.commands.onCommand.addListener(async (command: string) => {
 
 async function setAutolock() {
   const enforcedAutolock = Number(
-    await ManagedStorage.get("enforceAutolock", false)
+    await ManagedStorage.get("enforceAutolock", false),
   );
 
   if (enforcedAutolock && enforcedAutolock > 0) {
@@ -662,7 +660,7 @@ async function updateContextMenu() {
           chrome.contextMenus.removeAll();
         }
       }
-    }
+    },
   );
 }
 

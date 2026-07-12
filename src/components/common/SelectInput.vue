@@ -32,7 +32,7 @@ export default defineComponent({
       const value = (event.target as HTMLSelectElement).value;
       this.$emit(
         "update:modelValue",
-        this.modelModifiers.number ? Number(value) : value
+        this.modelModifiers.number ? Number(value) : value,
       );
     },
   },

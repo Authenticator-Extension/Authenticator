@@ -38,10 +38,12 @@
   --scrim: rgba(255, 255, 255, 0.5); // light wash (QR overlay)
 
   // Type & shape
-  --font-sans: system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei",
+  --font-sans:
+    system-ui, -apple-system, "Segoe UI", "Microsoft JhengHei",
     "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code",
-    "Roboto Mono", Consolas, "Liberation Mono", monospace;
+  --font-mono:
+    ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Code", "Roboto Mono",
+    Consolas, "Liberation Mono", monospace;
   --radius-card: 22px;
   --radius-row: 14px;
   --radius-pill: 999px;

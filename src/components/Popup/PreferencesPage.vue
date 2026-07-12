@@ -127,7 +127,7 @@ export default defineComponent({
         if (smartFilter) {
           this.$store.commit(
             "notification/alert",
-            this.i18n.activate_auto_filter
+            this.i18n.activate_auto_filter,
           );
         }
       },
@@ -241,10 +241,10 @@ export default defineComponent({
           (r: string) => {
             this.$store.commit(
               "notification/alert",
-              this.i18n.updateFailure + r
+              this.i18n.updateFailure + r,
             );
             this.$store.commit("currentView/changeView", "PreferencesPage");
-          }
+          },
         );
     },
     requireContextMenuPermission() {
@@ -260,7 +260,7 @@ export default defineComponent({
           chrome.runtime.sendMessage({
             action: "updateContextMenu",
           });
-        }
+        },
       );
     },
   },

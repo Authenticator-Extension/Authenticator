@@ -40,7 +40,7 @@ export default defineComponent({
         }
 
         const result = await getEntryDataFromOTPAuthPerLine(
-          otpUrlList.join("\n")
+          otpUrlList.join("\n"),
         );
 
         let importData: {
@@ -56,7 +56,7 @@ export default defineComponent({
         if (Object.keys(decryptedFileData).length) {
           await EntryStorage.import(
             this.$encryption as Encryption,
-            decryptedFileData
+            decryptedFileData,
           );
 
           if (hasFailedResults) {
@@ -99,7 +99,7 @@ async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
       image.onload = () => {
         const canvas: HTMLCanvasElement = document.createElement("canvas");
         const ctx: CanvasRenderingContext2D = canvas.getContext(
-          "2d"
+          "2d",
         ) as CanvasRenderingContext2D;
 
         canvas.width = image.width;

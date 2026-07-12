@@ -63,7 +63,7 @@ describe("EnterPasswordPage", () => {
     await passwordButton.trigger("click");
     storeOpts.modules.accounts.actions.applyPassphrase.should.have.been.calledWith(
       sinon.match.any,
-      "somePassword"
+      "somePassword",
     );
   });
 
@@ -76,7 +76,7 @@ describe("EnterPasswordPage", () => {
     await passwordInput.trigger("keyup.enter");
     storeOpts.modules.accounts.actions.applyPassphrase.should.have.been.calledWith(
       sinon.match.any,
-      "anotherPassword"
+      "anotherPassword",
     );
   });
 

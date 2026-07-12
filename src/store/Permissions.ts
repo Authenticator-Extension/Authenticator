@@ -80,19 +80,19 @@ export class Permissions implements Module {
         // strict mode, so the async work lives in an action now
         revokePermission: async (
           context: ActionContext<PermissionsState, object>,
-          permissionId: string
+          permissionId: string,
         ) => {
           const permissionObject = this.getPermissionById(permissionId);
           const validators = permissionObject.validation ?? [];
           const validationResults = (
             await Promise.all(
-              validators.map(async (validator) => await validator())
+              validators.map(async (validator) => await validator()),
             )
           ).filter((result) => !result.valid);
 
           if (validationResults.length > 0) {
             const messages = validationResults.map(
-              (result) => "• " + result.message
+              (result) => "• " + result.message,
             );
             alert(messages.join("\n"));
             return;
@@ -129,7 +129,7 @@ export class Permissions implements Module {
           });
 
           return resolve(permissionList);
-        }
+        },
       );
     });
   }
@@ -160,7 +160,7 @@ export class Permissions implements Module {
                 },
                 () => {
                   resolve();
-                }
+                },
               );
             }
           }
@@ -173,14 +173,14 @@ export class Permissions implements Module {
                 },
                 () => {
                   resolve();
-                }
+                },
               );
             }
           }
 
           // nothing matched -> nothing to remove
           resolve();
-        }
+        },
       );
     });
   }

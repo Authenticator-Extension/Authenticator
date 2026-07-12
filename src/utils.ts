@@ -52,7 +52,7 @@ export async function getSiteName() {
       // example.com.cn
       if (
         ["com", "net", "org", "edu", "gov", "co"].indexOf(
-          hostLevelUnits[hostLevelUnits.length - 2]
+          hostLevelUnits[hostLevelUnits.length - 2],
         ) !== -1
       ) {
         nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
@@ -75,7 +75,7 @@ export async function getSiteName() {
 export function getMatchedEntries(
   siteName: Array<string | null>,
   entries: OTPEntryInterface[],
-  strict = false
+  strict = false,
 ) {
   if (siteName.length < 2) {
     return false;
@@ -94,7 +94,7 @@ export function getMatchedEntries(
 
 export function getMatchedEntriesHash(
   siteName: Array<string | null>,
-  entries: OTPEntryInterface[]
+  entries: OTPEntryInterface[],
 ) {
   const matchedEnteries = getMatchedEntries(siteName, entries);
   if (matchedEnteries) {
@@ -115,7 +115,7 @@ function hostMatchesDomain(host: string, bound: string) {
 function isMatchedEntry(
   siteName: Array<string | null>,
   entry: OTPEntryInterface,
-  strict = false
+  strict = false,
 ) {
   const siteTitle = siteName[0] || "";
   const siteNameFromHost = siteName[1] || "";
@@ -212,7 +212,7 @@ interface TabWithIdAndURL extends chrome.tabs.Tab {
 }
 
 export function okToInjectContentScript(
-  tab: chrome.tabs.Tab
+  tab: chrome.tabs.Tab,
 ): tab is TabWithIdAndURL {
   return (
     tab.id !== undefined &&

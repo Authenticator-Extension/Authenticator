@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       message.info.top,
       message.info.width,
       message.info.height,
-      message.info.windowWidth
+      message.info.windowWidth,
     );
   }
   // no response is sent, so don't return true (which leaves the sender's
@@ -22,7 +22,7 @@ function getQrDebug(
   top: number,
   width: number,
   height: number,
-  windowWidth: number
+  windowWidth: number,
 ) {
   chrome.tabs.captureVisibleTab(tab.windowId, { format: "png" }, (dataUrl) => {
     const qr = new Image();
@@ -45,7 +45,7 @@ function getQrDebug(
         0,
         0,
         width * devicePixelRatio,
-        height * devicePixelRatio
+        height * devicePixelRatio,
       );
       const url = captureCanvas.toDataURL();
       const infoDom = document.getElementById("info");

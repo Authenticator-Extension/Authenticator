@@ -11,7 +11,7 @@ function callArgonSandbox(message: {
   [key: string]: unknown;
 }): Promise<unknown> {
   const iframe = document.getElementById(
-    "argon-sandbox"
+    "argon-sandbox",
   ) as HTMLIFrameElement | null;
   if (!iframe || !iframe.contentWindow) {
     throw new Error("argon-sandbox missing!");
@@ -41,16 +41,15 @@ function callArgonSandbox(message: {
 
 export async function argonHash(
   value: string,
-  salt: string
+  salt: string,
 ): Promise<string | undefined> {
   return (await callArgonSandbox({ action: "hash", value, salt })) as
-    | string
-    | undefined;
+    string | undefined;
 }
 
 export async function argonVerify(
   value: string,
-  hash: string
+  hash: string,
 ): Promise<boolean> {
   return (await callArgonSandbox({ action: "verify", value, hash })) as boolean;
 }
@@ -58,13 +57,13 @@ export async function argonVerify(
 // Verify a password using keys in BrowserStorage
 export async function verifyPasswordUsingKeyID(
   keyId: string,
-  password: string
+  password: string,
 ): Promise<boolean> {
   // Get key for current encryption
   const keys = await BrowserStorage.getKeys();
   if (isOldKey(keys)) {
     throw new Error(
-      "v3 encryption not being used with verifyPassword. This should never happen!"
+      "v3 encryption not being used with verifyPassword. This should never happen!",
     );
   }
 
@@ -78,7 +77,7 @@ export async function verifyPasswordUsingKeyID(
 
 export async function verifyPasswordUsingKey(
   key: Key,
-  password: string
+  password: string,
 ): Promise<boolean> {
   // Hash password with argon
   const rawHash = await argonHash(password, key.salt);

@@ -72,7 +72,7 @@ export class Dropbox implements BackupProvider {
     }
     const exportData = await EntryStorage.backupGetExport(
       encryption,
-      UserSettings.items.dropboxEncrypted === true
+      UserSettings.items.dropboxEncrypted === true,
     );
     const backup = JSON.stringify(exportData, null, 2);
 
@@ -136,7 +136,7 @@ export class Dropbox implements BackupProvider {
       // Dropbox's body so the actual cause (bad path / arg / scope) is visible.
       const detail = await res.text();
       throw new Error(
-        "Dropbox upload failed: HTTP " + res.status + " " + detail
+        "Dropbox upload failed: HTTP " + res.status + " " + detail,
       );
     }
     const body = await res.json();
@@ -187,16 +187,16 @@ export class OneDrive implements BackupProvider {
       (await new Promise(
         (
           resolve: (value: boolean) => void,
-          reject: (reason: Error) => void
+          reject: (reason: Error) => void,
         ) => {
           const xhr = new XMLHttpRequest();
           xhr.open(
             "GET",
-            "https://graph.microsoft.com/v1.0/me/drive/special/approot"
+            "https://graph.microsoft.com/v1.0/me/drive/special/approot",
           );
           xhr.setRequestHeader(
             "Authorization",
-            "Bearer " + UserSettings.items.oneDriveToken
+            "Bearer " + UserSettings.items.oneDriveToken,
           );
           xhr.onreadystatechange = async () => {
             if (xhr.readyState === 4) {
@@ -221,7 +221,7 @@ export class OneDrive implements BackupProvider {
             return;
           };
           xhr.send();
-        }
+        },
       ))
     ) {
       await this.refreshToken();
@@ -236,11 +236,11 @@ export class OneDrive implements BackupProvider {
         const xhr = new XMLHttpRequest();
         xhr.open(
           "POST",
-          "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+          "https://login.microsoftonline.com/common/oauth2/v2.0/token",
         );
         xhr.setRequestHeader(
           "Content-Type",
-          "application/x-www-form-urlencoded"
+          "application/x-www-form-urlencoded",
         );
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4) {
@@ -276,12 +276,12 @@ export class OneDrive implements BackupProvider {
           `client_id=${getCredentials().onedrive.client_id}&refresh_token=${
             UserSettings.items.oneDriveRefreshToken
           }&client_secret=${encodeURIComponent(
-            getCredentials().onedrive.client_secret
+            getCredentials().onedrive.client_secret,
           )}&grant_type=refresh_token&scope=https%3A%2F%2Fgraph.microsoft.com%2FFiles.ReadWrite${
             UserSettings.items.oneDriveBusiness !== true ? ".AppFolder" : ""
-          }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`
+          }%20https%3A%2F%2Fgraph.microsoft.com%2FUser.Read%20offline_access`,
         );
-      }
+      },
     );
   }
 
@@ -296,7 +296,7 @@ export class OneDrive implements BackupProvider {
     }
     const exportData = await EntryStorage.backupGetExport(
       encryption,
-      UserSettings.items.oneDriveEncrypted === true
+      UserSettings.items.oneDriveEncrypted === true,
     );
     const backup = JSON.stringify(exportData, null, 2);
 
@@ -315,7 +315,7 @@ export class OneDrive implements BackupProvider {
           const now = new Date().toISOString().slice(0, 10).replace(/-/g, "");
           xhr.open(
             "PUT",
-            `https://graph.microsoft.com/v1.0/me/drive/special/approot:/${now}.json:/content`
+            `https://graph.microsoft.com/v1.0/me/drive/special/approot:/${now}.json:/content`,
           );
           xhr.setRequestHeader("Authorization", "Bearer " + token);
           xhr.setRequestHeader("Content-type", "application/octet-stream");
@@ -350,7 +350,7 @@ export class OneDrive implements BackupProvider {
         } catch (error) {
           return reject(error as Error);
         }
-      }
+      },
     );
   }
 
@@ -372,7 +372,7 @@ export class OneDrive implements BackupProvider {
             UserSettings.items.oneDriveToken = undefined;
             UserSettings.commitItems();
             resolve(
-              "Error: Response was 401. You will be logged out the next time you open OTPilot."
+              "Error: Response was 401. You will be logged out the next time you open OTPilot.",
             );
             return;
           }

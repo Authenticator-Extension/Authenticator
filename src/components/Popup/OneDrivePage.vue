@@ -98,15 +98,15 @@ export default defineComponent({
       const oneDrive = new OneDrive();
       const response = await oneDrive.upload(
         this.$store.state.accounts.encryption.get(
-          this.$store.state.accounts.defaultEncryption
-        )
+          this.$store.state.accounts.defaultEncryption,
+        ),
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (UserSettings.items.oneDriveRevoked === true) {
         this.$store.commit(
           "notification/alert",
-          chrome.i18n.getMessage("token_revoked", ["OneDrive"])
+          chrome.i18n.getMessage("token_revoked", ["OneDrive"]),
         );
         UserSettings.removeItem("oneDriveRevoked");
         this.$store.commit("backup/setToken", { service, value: false });

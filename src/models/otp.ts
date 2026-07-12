@@ -52,7 +52,7 @@ export class OTPUtil {
 // entries keep working and get normalized on the next save.
 function migrateLegacyHost(
   issuer: string,
-  host: string
+  host: string,
 ): { issuer: string; host: string } {
   const sepIndex = issuer.lastIndexOf("::");
   if (!host && sepIndex !== -1) {
@@ -110,7 +110,7 @@ export class OTPEntry implements OTPEntryInterface {
           hash: string;
           index: number;
         },
-    encryption?: EncryptionInterface
+    encryption?: EncryptionInterface,
   ) {
     this.encryption = encryption;
     this.index = entry.index;
@@ -239,7 +239,7 @@ export class OTPEntry implements OTPEntryInterface {
       console.warn(
         "Decrypt successful, but hash mismatch!",
         this.hash,
-        decryptedData.hash
+        decryptedData.hash,
       );
       return;
     }
@@ -317,7 +317,7 @@ export class OTPEntry implements OTPEntryInterface {
           this.period,
           this.digits,
           this.algorithm,
-          offset
+          offset,
         );
       } catch (error) {
         this.code = CodeState.Invalid;

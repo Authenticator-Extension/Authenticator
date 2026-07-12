@@ -25,7 +25,7 @@ export class Style implements Module {
         // forbids the setTimeout callbacks mutating state directly)
         setStyleFlag(
           state: StyleState,
-          payload: { key: keyof StyleState["style"]; value: boolean }
+          payload: { key: keyof StyleState["style"]; value: boolean },
         ) {
           state.style[payload.key] = payload.value;
         },
@@ -64,7 +64,7 @@ export class Style implements Module {
         },
         hideInfo(
           { commit }: ActionContext<StyleState, object>,
-          noAnimate?: boolean
+          noAnimate?: boolean,
         ) {
           if (noAnimate) {
             commit("setStyleFlag", { key: "show", value: false });

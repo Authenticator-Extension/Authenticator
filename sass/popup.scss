@@ -124,7 +124,9 @@ svg {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background 0.15s, color 0.15s;
+    transition:
+      background 0.15s,
+      color 0.15s;
 
     &:hover {
       background: var(--row-hover);
@@ -371,7 +373,9 @@ svg {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 
   &:hover {
     background: var(--row-hover);
@@ -513,7 +517,9 @@ svg {
   .timebar-fill {
     height: 100%;
     border-radius: 0 3px 3px 0;
-    transition: width 1s linear, background 0.4s ease;
+    transition:
+      width 1s linear,
+      background 0.4s ease;
   }
 
   .remaining-badge {

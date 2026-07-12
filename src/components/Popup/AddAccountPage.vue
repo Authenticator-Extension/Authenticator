@@ -156,9 +156,8 @@ export default defineComponent({
       }
 
       const defaultEncyptionKey = this.$store.state.accounts.defaultEncryption;
-      const encryption = this.$store.state.accounts.encryption.get(
-        defaultEncyptionKey
-      );
+      const encryption =
+        this.$store.state.accounts.encryption.get(defaultEncyptionKey);
 
       const entry = new OTPEntry(
         {
@@ -174,7 +173,7 @@ export default defineComponent({
           digits: this.newAccount.digits,
           algorithm: this.newAccount.algorithm,
         },
-        encryption
+        encryption,
       );
 
       try {
@@ -183,7 +182,7 @@ export default defineComponent({
         // e.g. sync storage full — don't show a phantom entry that wasn't saved
         this.$store.commit(
           "notification/alert",
-          error instanceof Error ? error.message : String(error)
+          error instanceof Error ? error.message : String(error),
         );
         return;
       }

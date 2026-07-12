@@ -95,7 +95,7 @@ export default defineComponent({
       if (key && passphrase) {
         decryptedbackupData = await decryptBackupData(
           exportData,
-          CryptoJS.AES.decrypt(key.enc, passphrase).toString()
+          CryptoJS.AES.decrypt(key.enc, passphrase).toString(),
         );
       } else {
         decryptedbackupData = await decryptBackupData(exportData, passphrase);
@@ -104,7 +104,7 @@ export default defineComponent({
       if (Object.keys(decryptedbackupData).length) {
         await EntryStorage.import(
           this.$encryption as Encryption,
-          decryptedbackupData
+          decryptedbackupData,
         );
         if (failedCount === 0) {
           alert(this.i18n.updateSuccess);

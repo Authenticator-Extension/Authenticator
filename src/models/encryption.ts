@@ -26,7 +26,7 @@ function base64ToBytes(base64: string): Uint8Array {
 async function deriveKey(password: string): Promise<CryptoKey> {
   const raw = await crypto.subtle.digest(
     "SHA-256",
-    new TextEncoder().encode(password)
+    new TextEncoder().encode(password),
   );
   return crypto.subtle.importKey("raw", raw, "AES-GCM", false, [
     "encrypt",
@@ -39,7 +39,7 @@ async function deriveKey(password: string): Promise<CryptoKey> {
 // like the legacy path. Returns null on any failure.
 export async function decryptString(
   data: string,
-  password: string
+  password: string,
 ): Promise<string | null> {
   if (data.startsWith(GCM_PREFIX)) {
     try {
@@ -50,7 +50,7 @@ export async function decryptString(
       const plaintext = await crypto.subtle.decrypt(
         { name: "AES-GCM", iv },
         key,
-        ciphertext
+        ciphertext,
       );
       return new TextDecoder().decode(plaintext);
     } catch (error) {
@@ -60,7 +60,7 @@ export async function decryptString(
   // legacy AES-CBC (crypto-js)
   try {
     const decrypted = CryptoJS.AES.decrypt(data, password).toString(
-      CryptoJS.enc.Utf8
+      CryptoJS.enc.Utf8,
     );
     return decrypted || null;
   } catch (error) {
@@ -103,7 +103,7 @@ export class Encryption implements EncryptionInterface {
     const ciphertext = await crypto.subtle.encrypt(
       { name: "AES-GCM", iv },
       key,
-      new TextEncoder().encode(data)
+      new TextEncoder().encode(data),
     );
     const combined = new Uint8Array(iv.length + ciphertext.byteLength);
     combined.set(iv, 0);
@@ -135,7 +135,7 @@ export class Encryption implements EncryptionInterface {
   }
 
   async decryptEncSecret(
-    entry: OTPEntryInterface
+    entry: OTPEntryInterface,
   ): Promise<RawOTPStorage | null> {
     if (!entry.encData) {
       return null;

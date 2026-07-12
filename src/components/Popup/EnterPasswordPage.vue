@@ -61,12 +61,12 @@ export default defineComponent({
         this.$store.commit("currentView/changeView", "EnterPasswordPage");
         this.$store.commit(
           "notification/alert",
-          error instanceof Error ? error.message : String(error)
+          error instanceof Error ? error.message : String(error),
         );
         return;
       }
       const firstEntry = document.querySelector(
-        ".entry[tabindex='0']"
+        ".entry[tabindex='0']",
       ) as HTMLElement;
       firstEntry?.focus();
     },

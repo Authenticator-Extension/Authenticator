@@ -14,13 +14,13 @@ import { KeyUtilities } from "../models/key-utilities";
 function site(
   hostname: string,
   nameFromDomain = "",
-  title = ""
+  title = "",
 ): Array<string | null> {
   return [title, nameFromDomain, hostname];
 }
 
 function entry(issuer: string, host?: string): OTPEntryInterface {
-  return ({ issuer, host } as unknown) as OTPEntryInterface;
+  return { issuer, host } as unknown as OTPEntryInterface;
 }
 
 describe("getMatchedEntries strict (host-bound autofill)", () => {
@@ -29,7 +29,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("accounts.google.com", "google"),
       entries,
-      true
+      true,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
   });
@@ -39,7 +39,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("accounts.google.com", "google"),
       entries,
-      true
+      true,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
   });
@@ -51,7 +51,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("accounts.google.com", "google"),
       entries,
-      true
+      true,
     );
     expect(matched).to.deep.equal([]);
   });
@@ -61,7 +61,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("google.com.attacker.com", "attacker"),
       entries,
-      true
+      true,
     );
     expect(matched).to.deep.equal([]);
   });
@@ -73,7 +73,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("google.com", "google"),
       entries,
-      true
+      true,
     );
     expect(matched).to.deep.equal([]);
   });
@@ -84,7 +84,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("accounts.google.com", "google"),
       entries,
-      true
+      true,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
   });
@@ -96,7 +96,7 @@ describe("getMatchedEntries strict (host-bound autofill)", () => {
     const matched = getMatchedEntries(
       site("example.com", "example"),
       entries,
-      true
+      true,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
   });
@@ -108,7 +108,7 @@ describe("getMatchedEntries loose (display filtering, unchanged)", () => {
     const matched = getMatchedEntries(
       site("google.com", "google"),
       entries,
-      false
+      false,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
   });
@@ -119,12 +119,12 @@ describe("getMatchedEntries loose (display filtering, unchanged)", () => {
 // before it leaves for Dropbox / Drive / OneDrive. cloudBackupAllowed only
 // reads getEncryptionStatus(), so a tiny stub stands in for a real Encryption.
 describe("cloudBackupAllowed (no plaintext cloud upload without a password)", () => {
-  const withPassword = ({
+  const withPassword = {
     getEncryptionStatus: () => true,
-  } as unknown) as EncryptionInterface;
-  const withoutPassword = ({
+  } as unknown as EncryptionInterface;
+  const withoutPassword = {
     getEncryptionStatus: () => false,
-  } as unknown) as EncryptionInterface;
+  } as unknown as EncryptionInterface;
 
   it("blocks cloud upload when no master password is set", () => {
     expect(cloudBackupAllowed(withoutPassword)).to.equal(false);
@@ -156,7 +156,7 @@ describe("EntryStorage preserves the bound host across reload", () => {
     try {
       await EntryStorage.add(entry);
       const reloaded = (await EntryStorage.get()).find(
-        (e) => e.hash === entry.hash
+        (e) => e.hash === entry.hash,
       );
       expect(reloaded && reloaded.host).to.equal("accounts.example.com");
     } finally {
@@ -265,7 +265,7 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
   it("round-trips an encrypted account through a plaintext backup export and back through import", async () => {
     const encryption = new Encryption(
       "p0-round-trip-test-password-hash",
-      "p0-round-trip-test-key-id"
+      "p0-round-trip-test-key-id",
     );
     const originalSecret = "AAAAAAAAAAAAAAAA";
 
@@ -278,7 +278,7 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
         encrypted: false,
         secret: originalSecret,
       },
-      encryption
+      encryption,
     );
 
     try {
@@ -288,7 +288,7 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
 
       const exported = (await EntryStorage.backupGetExport(
         encryption,
-        false // encrypted=false -> plaintext export
+        false, // encrypted=false -> plaintext export
       )) as { [hash: string]: RawOTPStorage };
 
       const item = exported[entry.hash];
@@ -305,7 +305,7 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
       await EntryStorage.import(importEncryption, { [entry.hash]: item });
 
       const restored = (await EntryStorage.get()).find(
-        (e) => e.hash === entry.hash
+        (e) => e.hash === entry.hash,
       );
       expect(restored, "restored entry should be present").to.exist;
       expect(restored && restored.secret).to.equal(originalSecret);
@@ -326,13 +326,13 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
 describe("KeyUtilities.generate rejects invalid Base32 secrets", () => {
   it("throws for a character outside the Base32 alphabet", () => {
     expect(() =>
-      KeyUtilities.generate(OTPType.totp, "AAAAAAA1", 0, 30)
+      KeyUtilities.generate(OTPType.totp, "AAAAAAA1", 0, 30),
     ).to.throw("Invalid Base32 string");
   });
 
   it("still accepts a valid Base32 secret", () => {
     expect(() =>
-      KeyUtilities.generate(OTPType.totp, "AAAAAAAAAAAAAAAA", 0, 30)
+      KeyUtilities.generate(OTPType.totp, "AAAAAAAAAAAAAAAA", 0, 30),
     ).to.not.throw();
   });
 });

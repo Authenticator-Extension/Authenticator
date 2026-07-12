@@ -154,7 +154,7 @@ export default defineComponent({
       if (files && files[0]) {
         // a dropped file lives on dataTransfer; importFile only reads
         // event.target.files, so hand it a shimmed event and reuse it.
-        this.importFile(({ target: { files } } as unknown) as Event, true);
+        this.importFile({ target: { files } } as unknown as Event, true);
       }
     },
     importFile(event: Event, closeWindow: Boolean) {
@@ -197,7 +197,7 @@ export default defineComponent({
                 importData = getEntryDataFromAndOTP(importData);
               }
               succeededCount = Object.keys(importData).filter(
-                (key) => ["key", "enc", "hash"].indexOf(key) === -1
+                (key) => ["key", "enc", "hash"].indexOf(key) === -1,
               ).length;
             } catch (e) {
               if (!(e instanceof SyntaxError)) {
@@ -236,21 +236,20 @@ export default defineComponent({
 
             if (possibleEntry.keyId || possibleEntry.encrypted) {
               try {
-                const oldPassphrase:
-                  | string
-                  | null = await this.getOldPassphrase();
+                const oldPassphrase: string | null =
+                  await this.getOldPassphrase();
 
                 if (key) {
                   // v2 encryption
                   decryptedFileData = await decryptBackupData(
                     importData,
-                    CryptoJS.AES.decrypt(key.enc, oldPassphrase).toString()
+                    CryptoJS.AES.decrypt(key.enc, oldPassphrase).toString(),
                   );
                 } else {
                   // v3 and v1 encryption
                   decryptedFileData = await decryptBackupData(
                     importData,
-                    oldPassphrase
+                    oldPassphrase,
                   );
                 }
 
@@ -265,7 +264,7 @@ export default defineComponent({
           if (Object.keys(decryptedFileData).length) {
             await EntryStorage.import(
               this.$encryption as Encryption,
-              decryptedFileData
+              decryptedFileData,
             );
             if (failedCount === 0) {
               alert(this.i18n.updateSuccess);

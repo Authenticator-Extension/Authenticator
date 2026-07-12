@@ -31,7 +31,7 @@ function calculateCounter(date: Date) {
 async function testAlgorithm(
   secret: string,
   counter: number,
-  algorithm: OTPAlgorithm
+  algorithm: OTPAlgorithm,
 ) {
   const previousCounter = counter - 1;
   let alg: AlgorithmIndentifier;
@@ -47,28 +47,28 @@ async function testAlgorithm(
   const signatureArray = new Uint8Array(
     cipher.sign(
       new Uint8Array(parseHexString(secret)),
-      new Uint8Array(counterToArray(counter))
-    )
+      new Uint8Array(counterToArray(counter)),
+    ),
   );
   const signature = toHexString(signatureArray);
   const isSignatureOk = cipher.verify(
     new Uint8Array(parseHexString(secret)),
     signatureArray,
-    new Uint8Array(counterToArray(counter))
+    new Uint8Array(counterToArray(counter)),
   );
   const otp = getOtp(signature);
   //previous counter
   const prevSignatureArray = new Uint8Array(
     cipher.sign(
       new Uint8Array(parseHexString(secret)),
-      new Uint8Array(counterToArray(previousCounter))
-    )
+      new Uint8Array(counterToArray(previousCounter)),
+    ),
   );
   const prevSignature = toHexString(prevSignatureArray);
   const isPrevSignatureOk = cipher.verify(
     new Uint8Array(parseHexString(secret)),
     prevSignatureArray,
-    new Uint8Array(counterToArray(previousCounter))
+    new Uint8Array(counterToArray(previousCounter)),
   );
   const previousOtp = getOtp(prevSignature);
   //check hash algorithm
@@ -85,7 +85,7 @@ async function testAlgorithm(
       "', verifying",
     () => {
       expect(isSignatureOk).to.eq(true);
-    }
+    },
   );
   //check previous hash algorithm
   it(
@@ -101,7 +101,7 @@ async function testAlgorithm(
       "', verifying",
     () => {
       expect(isPrevSignatureOk).to.eq(true);
-    }
+    },
   );
   //check otp is different from previous one
   it(
@@ -115,7 +115,7 @@ async function testAlgorithm(
       "', verifying otp codes are different",
     () => {
       expect(otp).to.not.eq(previousOtp);
-    }
+    },
   );
   //check otp generated is valid
   const _secret = "B1B0AE0E5ADFBF89A5F7DF440592A3AE"; //measuring 'secret'
@@ -127,7 +127,7 @@ async function testAlgorithm(
     _counter,
     30,
     6,
-    algorithm
+    algorithm,
   );
   let _validOtp = "";
   if (algorithm === OTPAlgorithm.GOST3411_2012_256) {
@@ -149,7 +149,7 @@ async function testAlgorithm(
       "', verifying",
     () => {
       expect(_otp).to.eq(_validOtp);
-    }
+    },
   );
 }
 
@@ -176,7 +176,7 @@ function getRandomHEXString(length: number) {
   let result = "";
   for (let i = 0; i < length; i++) {
     result += randomChars.charAt(
-      Math.floor(Math.random() * randomChars.length)
+      Math.floor(Math.random() * randomChars.length),
     );
   }
   return result;

@@ -51,9 +51,9 @@ describe("MenuPage", () => {
       assert.ok(
         openStub.calledWith(
           "https://github.com/Hank076/Authenticator/issues",
-          "_blank"
+          "_blank",
         ),
-        "window.open should be called with the GitHub issues URL"
+        "window.open should be called with the GitHub issues URL",
       );
       openStub.restore();
     });

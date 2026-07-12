@@ -193,15 +193,15 @@ export default defineComponent({
       const dbox = new Dropbox();
       const response = await dbox.upload(
         this.$store.state.accounts.encryption.get(
-          this.$store.state.accounts.defaultEncryption
-        )
+          this.$store.state.accounts.defaultEncryption,
+        ),
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (UserSettings.items.dropboxRevoked === true) {
         this.$store.commit(
           "notification/alert",
-          chrome.i18n.getMessage("token_revoked", ["Dropbox"])
+          chrome.i18n.getMessage("token_revoked", ["Dropbox"]),
         );
         UserSettings.removeItem("dropboxToken");
         this.$store.commit("backup/setToken", { service, value: false });

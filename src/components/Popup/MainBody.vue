@@ -150,12 +150,12 @@ export default defineComponent({
     // Smart-filter split: matched (or pinned) accounts vs. everything else.
     matchedList(): OTPEntry[] {
       return this.entries.filter(
-        (e: OTPEntry) => e.pinned || this.isMatchedEntry(e)
+        (e: OTPEntry) => e.pinned || this.isMatchedEntry(e),
       );
     },
     otherList(): OTPEntry[] {
       return this.entries.filter(
-        (e: OTPEntry) => !e.pinned && !this.isMatchedEntry(e)
+        (e: OTPEntry) => !e.pinned && !this.isMatchedEntry(e),
       );
     },
     siteDomain(): string {
@@ -237,7 +237,7 @@ export default defineComponent({
     },
     getTabindex(entry: OTPEntry) {
       const firstEntry = this.entries.find((entry: OTPEntry) =>
-        this.isEntryVisible(entry)
+        this.isEntryVisible(entry),
       );
 
       return entry === firstEntry ? 0 : -1;
@@ -249,7 +249,7 @@ export default defineComponent({
 
       const activeIndex = Array.prototype.indexOf.call(
         document.querySelectorAll(".entry"),
-        document.activeElement
+        document.activeElement,
       );
       if (activeIndex === -1) {
         return -1;
@@ -262,12 +262,12 @@ export default defineComponent({
         (entry: OTPEntry, index: number) =>
           index >
             (reverse ? this.entries.length - 1 - activeIndex : activeIndex) &&
-          this.isEntryVisible(entry)
+          this.isEntryVisible(entry),
       );
 
       if (nextIndex === -1) {
         nextIndex = _entries.findIndex((entry: OTPEntry) =>
-          this.isEntryVisible(entry)
+          this.isEntryVisible(entry),
         );
       }
 

@@ -141,7 +141,7 @@ export default defineComponent({
             this.$store.commit("notification/alert", this.i18n[message]);
           }
           return;
-        }
+        },
       );
       return;
     },

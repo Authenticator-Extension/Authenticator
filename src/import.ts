@@ -23,7 +23,7 @@ async function init() {
     const cachedSecrets = await getCachedSecrets();
     const encryption = new Encryption(
       cachedSecrets.cachedPassphrase as string,
-      cachedSecrets.cachedKeyId as string
+      cachedSecrets.cachedKeyId as string,
     );
     const entries = await EntryStorage.get();
 
@@ -59,7 +59,7 @@ async function getCachedSecrets() {
 
 export async function decryptBackupData(
   backupData: { [hash: string]: OTPStorage | Key },
-  passphrase: string | null
+  passphrase: string | null,
 ) {
   const decryptedBackupData: { [hash: string]: RawOTPStorage } = {};
   const keys: Map<string, string | null> = new Map();
@@ -83,8 +83,8 @@ export async function decryptBackupData(
           await findAndUnlockKey(
             backupData,
             unknownStorageItem.keyId,
-            passphrase
-          )
+            passphrase,
+          ),
         );
       }
       const decryptKey = keys.get(unknownStorageItem.keyId);
@@ -96,7 +96,7 @@ export async function decryptBackupData(
       // decryptString is prefix-aware (new AES-GCM or legacy AES-CBC backups)
       const decryptedJson = await decryptString(
         unknownStorageItem.data,
-        decryptKey
+        decryptKey,
       );
       if (!decryptedJson) {
         // a single corrupt/undecryptable entry must not abort the whole import
@@ -125,7 +125,7 @@ export async function decryptBackupData(
     if (storageItem.encrypted && passphrase) {
       const decryptedSecret = await decryptString(
         storageItem.secret,
-        passphrase
+        passphrase,
       );
       if (!decryptedSecret) {
         continue;
@@ -146,7 +146,7 @@ export async function decryptBackupData(
 async function findAndUnlockKey(
   importData: { [key: string]: OTPStorage | Key },
   keyId: string,
-  password: string
+  password: string,
 ): Promise<string | null> {
   if (!(keyId in importData)) {
     return null;

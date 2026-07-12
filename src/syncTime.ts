@@ -42,6 +42,6 @@ export async function syncTimeWithGoogle() {
       } catch (error) {
         return reject(error as Error);
       }
-    }
+    },
   );
 }

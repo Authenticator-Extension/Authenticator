@@ -36,9 +36,8 @@ export class Menu implements Module {
         storageArea: await ManagedStorage.get<"sync" | "local">("storageArea"),
         feedbackURL: await ManagedStorage.get<string>("feedbackURL"),
         passwordPolicy: await ManagedStorage.get<string>("passwordPolicy"),
-        passwordPolicyHint: await ManagedStorage.get<string>(
-          "passwordPolicyHint"
-        ),
+        passwordPolicyHint:
+          await ManagedStorage.get<string>("passwordPolicyHint"),
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {
