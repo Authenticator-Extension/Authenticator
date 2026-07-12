@@ -46,7 +46,7 @@
     "mocha": "^10.2.0",
     "npm-license-generator": "^2.0.0",
     "nyc": "^15.1.0",
-    "prettier": "2.2.1",
+    "prettier": "^3.9.5",
     "process": "^0.11.10",
     "puppeteer": "^22.11.2",
     "sass": "^1.101.0",
