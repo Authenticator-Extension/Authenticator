@@ -1,7 +1,7 @@
 // Re-usable ui components.
 // Theming is CSS custom properties (see _tokens.scss).
 
-@import "tokens";
+@use "tokens";
 
 // Classes
 .button {
