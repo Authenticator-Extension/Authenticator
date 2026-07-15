@@ -7,7 +7,7 @@ import { Encryption } from "../models/encryption";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
 import { KeyUtilities } from "../models/key-utilities";
 import { MultiFormatWriter, BarcodeFormat } from "@zxing/library";
-import { decodeQrFromImageData } from "../qr-decoder";
+import { decodeQrFromImageData, computeQrCropRegion } from "../qr-decoder";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -385,5 +385,45 @@ describe("decodeQrFromImageData round-trips an otpauth QR (@zxing)", () => {
     }
     const imageData = new ImageData(data, width, height);
     expect(decodeQrFromImageData(imageData)).to.equal(null);
+  });
+});
+
+// The QR decode moved from the injected content script back into the background
+// (so content.js no longer ships @zxing). computeQrCropRegion is the pure part
+// of that move: it maps the CSS-pixel drag selection onto the captured bitmap's
+// device pixels, clamped to bounds, mirroring the old content-script math.
+describe("computeQrCropRegion (background QR crop math)", () => {
+  it("crops a normal selection at 1x device pixel ratio", () => {
+    // bitmap 1000 wide, viewport 1000 css px => dpr 1, so px map 1:1.
+    const region = computeQrCropRegion(1000, 800, 1000, 100, 50, 200, 150);
+    expect(region).to.deep.equal({ sx: 100, sy: 50, sw: 200, sh: 150 });
+  });
+
+  it("scales the selection by the device pixel ratio (2x)", () => {
+    // bitmap 2000 wide, viewport 1000 css px => dpr 2, so every css px doubles.
+    const region = computeQrCropRegion(2000, 1600, 1000, 100, 50, 200, 150);
+    expect(region).to.deep.equal({ sx: 200, sy: 100, sw: 400, sh: 300 });
+  });
+
+  it("clamps a selection that runs past the bitmap edges", () => {
+    // dpr 1; selection starts near the right/bottom and overflows, so width and
+    // height are trimmed to what remains inside the bitmap.
+    const region = computeQrCropRegion(1000, 800, 1000, 900, 700, 400, 400);
+    expect(region).to.deep.equal({ sx: 900, sy: 700, sw: 100, sh: 100 });
+  });
+
+  it("rejects a zero-size selection (a click or 1px drag)", () => {
+    expect(computeQrCropRegion(1000, 800, 1000, 100, 50, 0, 0)).to.equal(null);
+  });
+
+  it("rejects a selection wholly outside the bitmap", () => {
+    // sx clamps to bitmapWidth so the remaining width is <= 0 => rejected.
+    expect(computeQrCropRegion(1000, 800, 1000, 2000, 50, 100, 100)).to.equal(
+      null,
+    );
+  });
+
+  it("rejects a 0-size bitmap (a failed capture)", () => {
+    expect(computeQrCropRegion(0, 0, 1000, 100, 50, 200, 150)).to.equal(null);
   });
 });

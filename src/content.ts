@@ -1,5 +1,3 @@
-import { decodeQrFromImageData } from "./qr-decoder";
-
 // @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
 
@@ -10,14 +8,8 @@ if (!document.getElementById("__ga_grayLayout__")) {
         sendResponse("beginCapture");
         showGrayLayout();
         break;
-      case "sendCaptureUrl":
-        qrDecode(
-          message.info.url,
-          message.info.captureBoxLeft,
-          message.info.captureBoxTop,
-          message.info.captureBoxWidth,
-          message.info.captureBoxHeight,
-        );
+      case "errorqr":
+        alert(chrome.i18n.getMessage("errorqr"));
         break;
       case "errorsecret":
         alert(chrome.i18n.getMessage("errorsecret") + message.secret);
@@ -61,7 +53,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
     }
     // Only "capture" responds, and it does so synchronously, so don't return
     // true. Returning true kept the channel open waiting for a response that
-    // never came for the other actions (e.g. sendCaptureUrl on a non-QR image),
+    // never came for the other actions (e.g. errorqr when a scan finds no QR),
     // making the background sender's sendMessage promise reject.
   });
 }
@@ -71,12 +63,7 @@ sessionStorage.setItem("captureBoxPositionTop", "0");
 
 function showGrayLayout() {
   let grayLayout = document.getElementById("__ga_grayLayout__");
-  let qrCanvas = document.getElementById("__ga_qrCanvas__");
   if (!grayLayout) {
-    qrCanvas = document.createElement("canvas");
-    qrCanvas.id = "__ga_qrCanvas__";
-    qrCanvas.style.display = "none";
-    document.body.appendChild(qrCanvas);
     grayLayout = document.createElement("div");
     grayLayout.id = "__ga_grayLayout__";
     document.body.appendChild(grayLayout);
@@ -218,74 +205,13 @@ function grayLayoutUp(event: MouseEvent) {
         captureBoxTop,
         captureBoxWidth,
         captureBoxHeight,
+        // Sent so the background can recover the display's device pixel ratio
+        // (bitmap.width / windowInnerWidth) when cropping the captured image.
+        windowInnerWidth: window.innerWidth,
       },
     });
   }, 200);
   return false;
-}
-
-async function qrDecode(
-  url: string,
-  left: number,
-  top: number,
-  width: number,
-  height: number,
-) {
-  const canvas = document.getElementById(
-    "__ga_qrCanvas__",
-  ) as HTMLCanvasElement;
-  const qr = new Image();
-  qr.onload = () => {
-    // A failed/empty capture yields a 0x0 image; bail with feedback rather than
-    // dividing by it and extracting a 0-size region.
-    if (!qr.width || !qr.height) {
-      alert(chrome.i18n.getMessage("errorqr"));
-      return;
-    }
-    const devicePixelRatio = qr.width / window.innerWidth;
-    canvas.width = qr.width;
-    canvas.height = qr.height;
-    // willReadFrequently: we call getImageData below; silences a Chrome perf hint
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-    if (!ctx) {
-      return;
-    }
-    ctx.drawImage(qr, 0, 0);
-    // Clamp the selection to the captured image and require a non-empty area.
-    // A click or 1px drag makes a zero/out-of-bounds region, and getImageData
-    // then throws an uncaught IndexSizeError that kills the scan silently.
-    const sx = Math.max(0, Math.floor(left * devicePixelRatio));
-    const sy = Math.max(0, Math.floor(top * devicePixelRatio));
-    const sw = Math.min(qr.width - sx, Math.floor(width * devicePixelRatio));
-    const sh = Math.min(qr.height - sy, Math.floor(height * devicePixelRatio));
-    if (sw <= 0 || sh <= 0) {
-      alert(chrome.i18n.getMessage("errorqr"));
-      return;
-    }
-    const imageData = ctx.getImageData(sx, sy, sw, sh);
-    if (imageData) {
-      canvas.width = imageData.width;
-      canvas.height = imageData.height;
-      ctx?.putImageData(imageData, 0, 0);
-
-      let qrRes = "";
-      const qrText = decodeQrFromImageData(imageData);
-      if (qrText) {
-        qrRes = qrText;
-      } else {
-        alert(chrome.i18n.getMessage("errorqr"));
-      }
-
-      chrome.runtime.sendMessage({
-        action: "getTotp",
-        info: qrRes,
-      });
-    }
-  };
-  qr.onerror = () => {
-    alert(chrome.i18n.getMessage("errorqr"));
-  };
-  qr.src = url;
 }
 
 // Skip inputs the user can't see (hidden honeypots, off-screen fields) so the

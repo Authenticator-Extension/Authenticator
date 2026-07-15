@@ -13,6 +13,7 @@ import { CodeState } from "./models/otp";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
 import { UserSettings } from "./models/settings";
+import { decodeQrFromImageData, computeQrCropRegion } from "./qr-decoder";
 
 chrome.runtime.onMessage.addListener((message, sender) => {
   // Only act on messages from our own extension pages / content scripts, never
@@ -40,12 +41,16 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       if (!sender.tab || sender.tab.id === undefined) {
         return;
       }
-      const url = await getCapture(sender.tab);
-      message.info.url = url;
-      chrome.tabs.sendMessage(sender.tab.id, {
-        action: "sendCaptureUrl",
-        info: message.info,
-      });
+      // Decode the QR here in the background rather than round-tripping the PNG
+      // dataURL back to the content script: captureVisibleTab already hands us
+      // the image, and keeping the @zxing decoder out of the injected content
+      // script keeps content.js small (it is injected for autofill too, which
+      // never scans a QR).
+      await decodeCapture(
+        sender.tab,
+        message.info,
+        hostnameFromTab(sender.tab),
+      );
     } else if (message.action === "getTotp") {
       getTotp(message.info, sender.tab?.id, false, hostnameFromTab(sender.tab));
     } else if (message.action === "cachePassphrase") {
@@ -112,6 +117,95 @@ async function getCapture(tab: chrome.tabs.Tab) {
   });
 
   return dataUrl;
+}
+
+// Turn a base64 data: URL (as captureVisibleTab returns) into a Blob without a
+// network request. fetch(dataUrl) would be simpler but is blocked by the
+// extension's `default-src 'none'` / narrow connect-src CSP in the service
+// worker; atob is CSP-agnostic.
+function dataUrlToBlob(dataUrl: string): Blob {
+  const commaIdx = dataUrl.indexOf(",");
+  const header = dataUrl.slice(0, commaIdx);
+  const mimeMatch = header.match(/data:([^;]+)/);
+  const mime = mimeMatch ? mimeMatch[1] : "image/png";
+  const binary = atob(dataUrl.slice(commaIdx + 1));
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    bytes[i] = binary.charCodeAt(i);
+  }
+  return new Blob([bytes], { type: mime });
+}
+
+// Capture the visible tab, crop the user's drag-selected region, and decode the
+// QR — all in the background. On success feed the decoded otpauth string into
+// the existing import path; on any failure tell the content script to show the
+// "no QR" alert. createImageBitmap + OffscreenCanvas 2D are supported in both
+// the Chrome MV3 service worker and the Firefox MV3 event page, so no DOM canvas
+// is needed.
+async function decodeCapture(
+  tab: chrome.tabs.Tab,
+  info: {
+    captureBoxLeft: number;
+    captureBoxTop: number;
+    captureBoxWidth: number;
+    captureBoxHeight: number;
+    windowInnerWidth: number;
+  },
+  host?: string,
+) {
+  const tabId = tab.id;
+  if (tabId === undefined) {
+    return;
+  }
+  // The content tab may have navigated/closed; swallow a dead-channel rejection.
+  const notifyError = () =>
+    chrome.tabs
+      .sendMessage(tabId, { action: "errorqr" })
+      .catch(() => undefined);
+
+  try {
+    const dataUrl = await getCapture(tab);
+    // Decode the base64 PNG dataURL to a Blob by hand rather than fetch(dataUrl):
+    // the extension CSP is `default-src 'none'` with a narrow connect-src, so
+    // fetching a data: URL from the service worker throws "Failed to fetch".
+    const blob = dataUrlToBlob(dataUrl);
+    const bitmap = await createImageBitmap(blob);
+    const region = computeQrCropRegion(
+      bitmap.width,
+      bitmap.height,
+      info.windowInnerWidth,
+      info.captureBoxLeft,
+      info.captureBoxTop,
+      info.captureBoxWidth,
+      info.captureBoxHeight,
+    );
+    if (!region) {
+      notifyError();
+      return;
+    }
+    const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) {
+      notifyError();
+      return;
+    }
+    ctx.drawImage(bitmap, 0, 0);
+    const imageData = ctx.getImageData(
+      region.sx,
+      region.sy,
+      region.sw,
+      region.sh,
+    );
+    const qrText = decodeQrFromImageData(imageData);
+    if (!qrText) {
+      notifyError();
+      return;
+    }
+    await getTotp(qrText, tabId, false, host);
+  } catch (error) {
+    console.error(error);
+    notifyError();
+  }
 }
 
 async function getTotp(
