@@ -6,6 +6,8 @@ import { OTPEntry, OTPType } from "../models/otp";
 import { Encryption } from "../models/encryption";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
 import { KeyUtilities } from "../models/key-utilities";
+import { MultiFormatWriter, BarcodeFormat } from "@zxing/library";
+import { decodeQrFromImageData } from "../qr-decoder";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -334,5 +336,54 @@ describe("KeyUtilities.generate rejects invalid Base32 secrets", () => {
     expect(() =>
       KeyUtilities.generate(OTPType.totp, "AAAAAAAAAAAAAAAA", 0, 30),
     ).to.not.throw();
+  });
+});
+
+// The QR migration (jsqr -> @zxing/library) replaced the decoder used by both
+// the popup import flow (QrImport.vue) and the injected content script
+// (content.ts) with the shared decodeQrFromImageData leaf module. Generate a
+// real otpauth QR with @zxing's writer, rasterize its BitMatrix into RGBA
+// ImageData exactly like a <canvas> getImageData would, and assert the shared
+// decoder reads the original string back.
+describe("decodeQrFromImageData round-trips an otpauth QR (@zxing)", () => {
+  it("decodes the same string that was encoded", () => {
+    const content =
+      "otpauth://totp/Example:user@example.com" +
+      "?secret=AAAAAAAAAAAAAAAA&issuer=Example";
+    const matrix = new MultiFormatWriter().encode(
+      content,
+      BarcodeFormat.QR_CODE,
+      300,
+      300,
+      new Map(),
+    );
+    const width = matrix.getWidth();
+    const height = matrix.getHeight();
+    const data = new Uint8ClampedArray(width * height * 4);
+    for (let y = 0; y < height; y++) {
+      for (let x = 0; x < width; x++) {
+        // BitMatrix.get => true for a dark module. Paint dark as black (0) and
+        // light as white (255), fully opaque, matching a canvas render.
+        const value = matrix.get(x, y) ? 0 : 255;
+        const idx = (y * width + x) * 4;
+        data[idx] = value;
+        data[idx + 1] = value;
+        data[idx + 2] = value;
+        data[idx + 3] = 255;
+      }
+    }
+    const imageData = new ImageData(data, width, height);
+    expect(decodeQrFromImageData(imageData)).to.equal(content);
+  });
+
+  it("returns null for an image with no QR code", () => {
+    const width = 64;
+    const height = 64;
+    const data = new Uint8ClampedArray(width * height * 4).fill(255);
+    for (let i = 3; i < data.length; i += 4) {
+      data[i] = 255; // opaque, otherwise all-white
+    }
+    const imageData = new ImageData(data, width, height);
+    expect(decodeQrFromImageData(imageData)).to.equal(null);
   });
 });

@@ -14,7 +14,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import jsQR from "jsqr";
+import { decodeQrFromImageData } from "../../qr-decoder";
 import { getEntryDataFromOTPAuthPerLine } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
@@ -107,16 +107,16 @@ async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
         ctx.drawImage(image, 0, 0);
 
         const qrImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const jsQrCode = jsQR(qrImageData.data, canvas.width, canvas.height);
+        const qrText = decodeQrFromImageData(qrImageData);
 
-        if (jsQrCode && jsQrCode.data) {
+        if (qrText) {
           if (
-            jsQrCode.data.indexOf("otpauth://") !== 0 &&
-            jsQrCode.data.indexOf("otpauth-migration://") !== 0
+            qrText.indexOf("otpauth://") !== 0 &&
+            qrText.indexOf("otpauth-migration://") !== 0
           ) {
             return resolve(null);
           }
-          return resolve(jsQrCode.data);
+          return resolve(qrText);
         } else {
           return resolve(null);
         }

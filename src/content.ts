@@ -1,4 +1,4 @@
-import jsQR from "jsqr";
+import { decodeQrFromImageData } from "./qr-decoder";
 
 // @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
@@ -269,9 +269,9 @@ async function qrDecode(
       ctx?.putImageData(imageData, 0, 0);
 
       let qrRes = "";
-      const jsQrCode = jsQR(imageData.data, imageData.width, imageData.height);
-      if (jsQrCode) {
-        qrRes = jsQrCode.data;
+      const qrText = decodeQrFromImageData(imageData);
+      if (qrText) {
+        qrRes = qrText;
       } else {
         alert(chrome.i18n.getMessage("errorqr"));
       }
