@@ -27,6 +27,10 @@
     "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Ο σαρωμένος κωδικός QR δεν είναι έγκυρος κωδικός otpauth.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Μη έγκυρο μυστικό λογαριασμού",
     "description": "Secret Error."

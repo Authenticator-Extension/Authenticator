@@ -19,6 +19,10 @@
     "message": "QRコードが認識できません。",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "スキャンしたQRコードは有効なotpauthコードではありません。",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "無効なアカウントのシークレット",
     "description": "Secret Error."

@@ -27,6 +27,10 @@
     "message": "Ukendt QR-kode.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Den scannede QR-kode er ikke en gyldig otpauth-kode.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Ugyldig kontohemmelighed",
     "description": "Secret Error."

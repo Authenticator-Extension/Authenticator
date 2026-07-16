@@ -27,6 +27,10 @@
     "message": "رمز QR غير معروف.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "رمز QR الممسوح ضوئياً ليس رمز otpauth صالحاً.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "المفتاح السري للحساب غير صالح",
     "description": "Secret Error."

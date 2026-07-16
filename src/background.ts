@@ -258,7 +258,11 @@ async function getTotp(
       !silent && chrome.tabs.sendMessage(id, { action: "errorqr" });
       return false;
     } else {
-      !silent && chrome.tabs.sendMessage(id, { action: "text", text });
+      !silent &&
+        chrome.tabs.sendMessage(id, {
+          action: "text",
+          text: chrome.i18n.getMessage("error_not_otpauth"),
+        });
       return true;
     }
   } else {

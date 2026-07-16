@@ -27,6 +27,10 @@
     "message": "Tunnistamaton QR-koodi.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Skannattu QR-koodi ei ole kelvollinen otpauth-koodi.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Virheellinen tilin salaisuus",
     "description": "Secret Error."

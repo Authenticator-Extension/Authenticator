@@ -27,6 +27,10 @@
     "message": "Không nhận ra mã QR.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Mã QR đã quét không phải là mã otpauth hợp lệ.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Mã bí mật tài khoản không hợp lệ",
     "description": "Secret Error."

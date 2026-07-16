@@ -27,6 +27,10 @@
     "message": "QR code شناسایی نشد.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "کد QR اسکن‌شده یک کد otpauth معتبر نیست.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "رمز حساب نامعتبر است",
     "description": "Secret Error."

@@ -27,6 +27,10 @@
     "message": "Kode QR tidak diketahui.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Kode QR yang dipindai bukan kode otpauth yang valid.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Rahasia akun tidak valid",
     "description": "Secret Error."

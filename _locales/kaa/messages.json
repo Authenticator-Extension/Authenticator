@@ -27,6 +27,10 @@
     "message": "Belgisiz QR-kod.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "The scanned QR code is not a valid otpauth code.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Esap sırı jaramsız",
     "description": "Secret Error."

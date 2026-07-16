@@ -19,6 +19,10 @@
     "message": "Unrecognized QR code.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "The scanned QR code is not a valid otpauth code.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Invalid account secret",
     "description": "Secret Error."

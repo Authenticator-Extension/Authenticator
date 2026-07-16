@@ -27,6 +27,10 @@
     "message": "無法識別的 QR Code。",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "掃描的 QR Code 不是有效的 otpauth 驗證碼。",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "帳號金鑰無效",
     "description": "Secret Error."

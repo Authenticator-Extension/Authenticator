@@ -27,6 +27,10 @@
     "message": "অচেনা কিউ-আর কোড।",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "স্ক্যান করা কিউআর কোডটি বৈধ otpauth কোড নয়।",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "অবৈধ অ্যাকাউন্ট সিক্রেট",
     "description": "Secret Error."

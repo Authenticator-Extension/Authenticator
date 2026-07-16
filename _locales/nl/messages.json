@@ -27,6 +27,10 @@
     "message": "Niet-herkende QR-code.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "De gescande QR-code is geen geldige otpauth-code.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Ongeldig accountgeheim",
     "description": "Secret Error."

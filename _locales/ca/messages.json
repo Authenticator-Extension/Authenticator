@@ -27,6 +27,10 @@
     "message": "Codi QR no reconegut.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "El codi QR escanejat no és un codi otpauth vàlid.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Clau secreta del compte no vàlida",
     "description": "Secret Error."

@@ -27,6 +27,10 @@
     "message": "Ismeretlen QR-kód.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "A beolvasott QR-kód nem érvényes otpauth-kód.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "A fiók titkos kulcsa érvénytelen",
     "description": "Secret Error."

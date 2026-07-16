@@ -27,6 +27,10 @@
     "message": "Непрепознат QR код.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Скенирани QR код није важећи otpauth код.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Неважећа тајна",
     "description": "Secret Error."
