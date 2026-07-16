@@ -198,18 +198,28 @@ function grayLayoutUp(event: MouseEvent) {
 
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
-    chrome.runtime.sendMessage({
-      action: "getCapture",
-      info: {
-        captureBoxLeft,
-        captureBoxTop,
-        captureBoxWidth,
-        captureBoxHeight,
-        // Sent so the background can recover the display's device pixel ratio
-        // (bitmap.width / windowInnerWidth) when cropping the captured image.
-        windowInnerWidth: window.innerWidth,
-      },
-    });
+    chrome.runtime
+      .sendMessage({
+        action: "getCapture",
+        info: {
+          captureBoxLeft,
+          captureBoxTop,
+          captureBoxWidth,
+          captureBoxHeight,
+          // Sent so the background can recover the display's device pixel ratio
+          // (bitmap.width / windowInnerWidth) when cropping the captured image.
+          windowInnerWidth: window.innerWidth,
+        },
+      })
+      .catch(() => {
+        // The background listener never sendResponse()s or returns true for
+        // getCapture (see background.ts), so a normal round-trip resolves
+        // with undefined and never reaches here. This only rejects when the
+        // service worker itself is unreachable (e.g. failed to start), which
+        // otherwise left the user staring at a capture box that silently did
+        // nothing.
+        alert(chrome.i18n.getMessage("capture_failed"));
+      });
   }, 200);
   return false;
 }
