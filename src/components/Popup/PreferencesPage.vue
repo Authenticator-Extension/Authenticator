@@ -101,6 +101,7 @@ import { UserSettings } from "../../models/settings";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useMenuStore } from "../../store/Menu";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   computed: {
@@ -149,7 +150,7 @@ export default defineComponent({
       },
     },
     defaultEncryption(): string {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     enforceAutolock() {
       return useMenuStore().enforceAutolock;
@@ -230,8 +231,8 @@ export default defineComponent({
     },
     migrateStorage() {
       useCurrentViewStore().changeView("LoadingPage");
-      this.$store
-        .dispatch("accounts/migrateStorage", this.newStorageLocation)
+      useAccountsStore()
+        .migrateStorage(this.newStorageLocation)
         .then(
           (m) => {
             useNotificationStore().alert(this.i18n[m]);

@@ -81,6 +81,7 @@ import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useMenuStore } from "../../store/Menu";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function () {
@@ -135,7 +136,7 @@ export default defineComponent({
       return useMenuStore().passwordPolicyHint;
     },
     defaultEncryption: function (): string | undefined {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
   },
   methods: {
@@ -154,7 +155,7 @@ export default defineComponent({
         }
       }
 
-      await this.$store.dispatch("accounts/changePassphrase", "");
+      await useAccountsStore().changePassphrase("");
       useNotificationStore().alert(this.i18n.updateSuccess);
       useStyleStore().hideInfo();
       return;
@@ -190,7 +191,7 @@ export default defineComponent({
         }
       }
 
-      await this.$store.dispatch("accounts/changePassphrase", this.phrase);
+      await useAccountsStore().changePassphrase(this.phrase);
       useNotificationStore().alert(this.i18n.updateSuccess);
       useStyleStore().hideInfo();
       return;

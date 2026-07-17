@@ -123,7 +123,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
 import { mapState as mapPiniaState } from "pinia";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
@@ -141,6 +140,7 @@ import { useCurrentViewStore } from "../../store/CurrentView";
 import { useQrStore } from "../../store/Qr";
 import { useMenuStore } from "../../store/Menu";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -149,7 +149,7 @@ import IconBars from "../../../svg/bars.svg";
 import IconPin from "../../../svg/pin.svg";
 
 const computedPrototype = [
-  mapState("accounts", [
+  mapPiniaState(useAccountsStore, [
     "OTPType",
     "sectorStart",
     "sectorOffset",
@@ -284,15 +284,15 @@ export default defineComponent({
     async removeEntry(entry: OTPEntry) {
       if (await useNotificationStore().confirm(this.i18n.confirm_delete)) {
         await entry.delete();
-        await this.$store.dispatch("accounts/deleteCode", entry.hash);
+        await useAccountsStore().deleteCode(entry.hash);
       }
       return;
     },
     async pin(entry: OTPEntry) {
-      this.$store.commit("accounts/pinEntry", entry);
+      useAccountsStore().pinEntry(entry);
       // reordering restarts the timer-circle animation; re-sync its phase
-      this.$store.commit("accounts/resyncSector");
-      await EntryStorage.set(this.$store.state.accounts.entries);
+      useAccountsStore().resyncSector();
+      await EntryStorage.set(useAccountsStore().entries);
       const codesEl = document.getElementById("codes") as HTMLDivElement;
       codesEl.scrollTop = 0;
     },
@@ -317,7 +317,7 @@ export default defineComponent({
       // entry.next() mutated the store-held entry directly; do the in-memory
       // counter/code change in a mutation, then persist (storage, not state)
       if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
-        this.$store.commit("accounts/advanceHotpCounter", entry);
+        useAccountsStore().advanceHotpCounter(entry);
         if (entry.secret !== null) {
           await entry.update();
         }
@@ -332,10 +332,10 @@ export default defineComponent({
       field: "issuer" | "account" | "host",
       value: string,
     ) {
-      this.$store.commit("accounts/setEntryField", { entry, field, value });
+      useAccountsStore().setEntryField({ entry, field, value });
     },
     updateHost(entry: OTPEntry) {
-      this.$store.commit("accounts/setEntryField", {
+      useAccountsStore().setEntryField({
         entry,
         field: "host",
         value: normalizeHost(entry.host),
@@ -351,7 +351,7 @@ export default defineComponent({
         const stored = (await EntryStorage.get()).find(
           (e) => e.hash === entry.hash,
         );
-        this.$store.commit("accounts/setEntryField", {
+        useAccountsStore().setEntryField({
           entry,
           field: "issuer",
           value: stored ? stored.issuer : "",

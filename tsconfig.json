@@ -6,10 +6,6 @@
     "module": "es2015",
     "rootDir": "src",
     "moduleResolution": "bundler",
-    "baseUrl": ".",
-    "paths": {
-      "vuex": ["node_modules/vuex/types/index.d.ts"]
-    },
     "outDir": "build",
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

@@ -119,6 +119,7 @@ import { UserSettings } from "../../models/settings";
 import { useStyleStore } from "../../store/Style";
 import { useBackupStore } from "../../store/Backup";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 const service = "dropbox";
 
@@ -134,7 +135,7 @@ export default defineComponent({
   },
   computed: {
     defaultEncryption: function () {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     isEncrypted: {
       get(): boolean {
@@ -194,10 +195,9 @@ export default defineComponent({
     },
     async backupUpload() {
       const dbox = new Dropbox();
+      const accountsStore = useAccountsStore();
       const response = await dbox.upload(
-        this.$store.state.accounts.encryption.get(
-          this.$store.state.accounts.defaultEncryption,
-        ),
+        accountsStore.encryption.get(accountsStore.defaultEncryption),
       );
       if (response === true) {
         useNotificationStore().alert(this.i18n.updateSuccess);

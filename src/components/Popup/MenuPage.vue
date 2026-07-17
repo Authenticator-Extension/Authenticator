@@ -94,6 +94,7 @@ import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useMenuStore } from "../../store/Menu";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   components: {
@@ -125,7 +126,7 @@ export default defineComponent({
       return;
     },
     showInfo(tab: string) {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         if (tab === "SetPasswordPage") {
           useNotificationStore().alert(this.i18n.phrase_incorrect);
           return;

@@ -5,14 +5,13 @@ import * as sinonChai from "sinon-chai";
 
 import { mount } from "@vue/test-utils";
 import { toRaw } from "vue";
-import { createStore, Store } from "vuex";
 import { createTestingPinia } from "@pinia/testing";
 import CommonComponents from "../../../components/common/index";
 
 import AddAccountPage from "../../../components/Popup/AddAccountPage.vue";
 import { EntryStorage } from "../../../models/storage";
-import { OTPType, OTPAlgorithm } from "../../../models/otp";
 import { loadI18nMessages } from "../../../store/i18n";
+import { useAccountsStore } from "../../../store/Accounts";
 
 chai.should();
 chai.use(sinonChai);
@@ -32,56 +31,44 @@ describe("AddAccountPage", () => {
 
   // a minimal stand-in for a real encryption instance held in the Map
   const fakeEncryption = { getEncryptionStatus: () => true };
-  const addCode = sinon.fake();
-
-  const storeOpts = {
-    modules: {
-      accounts: {
-        state: {
-          OTPType,
-          OTPAlgorithm,
-          encryption: new Map([["key-1", fakeEncryption]]),
-          defaultEncryption: "key-1",
-        },
-        actions: { addCode },
-        namespaced: true,
-      },
-      notification: {
-        mutations: { alert: () => undefined },
-        namespaced: true,
-      },
-    },
-  };
-  let store: Store<typeof storeOpts>;
 
   beforeEach(() => {
-    addCode.resetHistory();
     // don't touch real storage when the entry is created
     sinon.stub(EntryStorage, "add").resolves();
-    store = createStore(storeOpts);
+  });
+
+  afterEach(() => {
+    sinon.restore();
   });
 
   it("should construct the new entry with the default encryption instance", async () => {
-    // style module is now a Pinia store (Wave 1 migration); stub its actions
-    // (hideInfo/toggleEdit) so AddAccountPage's post-add calls are no-ops,
-    // matching the previous Vuex sinon.fake()/no-op mutation stand-ins.
-    const pinia = createTestingPinia({
-      createSpy: sinon.spy,
-      stubActions: true,
-    });
+    // accounts, style and notification are all Pinia stores now (Wave 1-3
+    // migration). createTestingPinia stubs every action, so the post-add calls
+    // (addCode/hideInfo/toggleEdit) are no-op spies — matching the previous
+    // Vuex sinon.fake()/no-op mutation stand-ins.
+    const pinia = createTestingPinia({ createSpy: sinon.spy });
+    const accountsStore = useAccountsStore(pinia);
+    accountsStore.encryption = new Map([
+      // regression fixture: the encryption Map must be read with .get(), not []
+      ["key-1", fakeEncryption as unknown as EncryptionInterface],
+    ]);
+    accountsStore.defaultEncryption = "key-1";
+
     const wrapper = mount(AddAccountPage, {
-      global: { plugins: [store, pinia], mocks: { i18n }, components },
+      global: { plugins: [pinia], mocks: { i18n }, components },
     });
 
     wrapper.vm.newAccount.secret = "aaaaaaaaaaaaaaaa"; // valid base32, >= 16 chars
     await wrapper.vm.addNewAccount();
 
+    const addCode = accountsStore.addCode as unknown as sinon.SinonSpy;
     addCode.should.have.been.calledOnce;
     // regression: encryption Map must be read with .get(), not [] — bracket
     // indexing returns undefined and the secret would be stored UNENCRYPTED.
+    // A Pinia action receives the payload as its first arg (no Vuex context).
     // toRaw: the Map value comes back as a reactive proxy, and chai's `.should`
     // getter chokes on Vue's __v_isRef probe, so compare the raw target.
-    const entry = addCode.lastCall.args[1];
+    const entry = addCode.lastCall.args[0];
     chai.assert.strictEqual(toRaw(entry.encryption), fakeEncryption);
   });
 });

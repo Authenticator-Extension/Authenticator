@@ -155,10 +155,11 @@ import { getCurrentTab, okToInjectContentScript } from "../../utils";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 export default defineComponent({
   methods: {
     showInfo(page: string) {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
@@ -169,7 +170,7 @@ export default defineComponent({
       window.open(`import.html?${query}`, "_blank");
     },
     async beginCapture() {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }

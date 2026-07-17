@@ -38,6 +38,7 @@
 import { defineComponent } from "vue";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function () {
@@ -47,7 +48,7 @@ export default defineComponent({
   },
   computed: {
     wrongPassword() {
-      return this.$store.state.accounts.wrongPassword;
+      return useAccountsStore().wrongPassword;
     },
   },
   mounted() {
@@ -56,7 +57,7 @@ export default defineComponent({
   methods: {
     async applyPassphrase() {
       try {
-        await this.$store.dispatch("accounts/applyPassphrase", this.password);
+        await useAccountsStore().applyPassphrase(this.password);
       } catch (error) {
         // applyPassphrase switches to LoadingPage first; if decryption/migration
         // throws, recover the UI instead of leaving the user stuck there.

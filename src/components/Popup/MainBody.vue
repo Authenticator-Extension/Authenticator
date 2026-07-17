@@ -122,13 +122,14 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import { VueDraggable } from "vue-draggable-plus";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useMenuStore } from "../../store/Menu";
+import { useAccountsStore } from "../../store/Accounts";
 
 import EntryComponent from "./EntryComponent.vue";
 
@@ -139,13 +140,15 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState("accounts", [
+    ...mapPiniaState(useAccountsStore, [
       "filter",
       "showSearch",
       "initComplete",
       "siteName",
+      "shouldFilter",
     ]),
-    ...mapGetters("accounts", ["shouldFilter", "entries"]),
+    // sortedEntries is the pinned-first display order (was the "entries" getter)
+    ...mapPiniaState(useAccountsStore, { entries: "sortedEntries" }),
     isEditing(): boolean {
       return useStyleStore().style.isEditing;
     },
@@ -173,13 +176,13 @@ export default defineComponent({
     },
     draggableEntries: {
       get(): OTPEntry[] {
-        return this.$store.getters["accounts/entries"];
+        return useAccountsStore().sortedEntries as OTPEntry[];
       },
       set(reordered: OTPEntry[]) {
-        this.$store.commit("accounts/reorderEntries", reordered);
+        useAccountsStore().reorderEntries(reordered);
         // reordering restarts the timer-circle animation; re-sync its phase
-        this.$store.commit("accounts/resyncSector");
-        EntryStorage.set(this.$store.state.accounts.entries);
+        useAccountsStore().resyncSector();
+        EntryStorage.set(useAccountsStore().entries);
       },
     },
   },
@@ -192,7 +195,7 @@ export default defineComponent({
       let page = "AddMethodPage";
       if (
         useMenuStore().enforcePassword &&
-        !this.$store.state.accounts.defaultEncryption
+        !useAccountsStore().defaultEncryption
       ) {
         page = "SetPasswordPage";
       }
@@ -200,7 +203,7 @@ export default defineComponent({
       useCurrentViewStore().changeView(page);
     },
     isMatchedEntry(entry: OTPEntry) {
-      for (const hash of this.$store.getters["accounts/matchedEntries"]) {
+      for (const hash of useAccountsStore().matchedEntries) {
         if (entry.hash === hash) {
           return true;
         }
@@ -223,9 +226,9 @@ export default defineComponent({
     toggleFilter() {
       // clearFilter also reveals search for long lists; startFilter re-applies
       if (this.filter) {
-        this.$store.dispatch("accounts/clearFilter");
+        useAccountsStore().clearFilter();
       } else {
-        this.$store.commit("accounts/startFilter");
+        useAccountsStore().startFilter();
       }
     },
     isEntryVisible(entry: OTPEntry) {

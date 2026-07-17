@@ -77,11 +77,12 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 import { normalizeHost } from "../../utils";
 import { useStyleStore } from "../../store/Style";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function (): {
@@ -109,7 +110,7 @@ export default defineComponent({
       },
     };
   },
-  computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
+  computed: mapPiniaState(useAccountsStore, ["OTPType", "OTPAlgorithm"]),
   methods: {
     async addNewAccount() {
       if (this.newAccount.issuer.includes("::")) {
@@ -157,9 +158,8 @@ export default defineComponent({
         this.newAccount.period = undefined;
       }
 
-      const defaultEncyptionKey = this.$store.state.accounts.defaultEncryption;
-      const encryption =
-        this.$store.state.accounts.encryption.get(defaultEncyptionKey);
+      const defaultEncyptionKey = useAccountsStore().defaultEncryption;
+      const encryption = useAccountsStore().encryption.get(defaultEncyptionKey);
 
       const entry = new OTPEntry(
         {
@@ -187,7 +187,7 @@ export default defineComponent({
         );
         return;
       }
-      await this.$store.dispatch("accounts/addCode", entry);
+      await useAccountsStore().addCode(entry);
       useStyleStore().hideInfo();
       useStyleStore().toggleEdit();
 

@@ -71,7 +71,6 @@
     "pinia": "^4.0.2",
     "qrcode-generator": "^1.5.2",
     "vue": "^3.5.40",
-    "vue-draggable-plus": "^0.6.1",
-    "vuex": "^4.1.0"
+    "vue-draggable-plus": "^0.6.1"
   }
 }

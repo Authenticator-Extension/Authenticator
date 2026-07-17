@@ -205,29 +205,32 @@ import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useBackupStore } from "../../store/Backup";
 import { useMenuStore } from "../../store/Menu";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function () {
-    const exportData = this.$store.state.accounts.exportData;
-    const exportEncData = this.$store.state.accounts.exportEncData;
-    const key = this.$store.state.accounts.key;
+    const exportData = useAccountsStore().exportData;
+    const exportEncData = useAccountsStore().exportEncData;
+    // NB: the encrypted export never carried a `key` (the Vuex accounts state
+    // had no `key` field, so this was always undefined); getBackupFile's key
+    // arg is optional, so omit it — behaviour is unchanged.
 
     return {
       unsupportedAccounts: hasUnsupportedAccounts(exportData),
       exportFile: getBackupFile(exportData),
-      exportEncryptedFile: getBackupFile(exportEncData, key),
+      exportEncryptedFile: getBackupFile(exportEncData),
       exportOneLineOtpAuthFile: getOneLineOtpBackupFile(exportData),
     };
   },
   computed: {
     defaultEncryption: function () {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     exportDisabled: function () {
       return useMenuStore().exportDisabled;
     },
     currentlyEncrypted: function () {
-      return this.$store.getters["accounts/currentlyEncrypted"];
+      return useAccountsStore().currentlyEncrypted;
     },
     backupDisabled: function () {
       return useMenuStore().backupDisabled;
@@ -278,19 +281,20 @@ export default defineComponent({
       }
     },
     downloadBackUpOneLineOtpAuthFile() {
-      const exportData = this.$store.state.accounts.exportData;
+      const exportData = useAccountsStore().exportData;
       const t = getOneLineOtpBackupFile(exportData);
       window.open(t);
     },
     downloadBackUpExportFile() {
-      const exportData = this.$store.state.accounts.exportData;
+      const exportData = useAccountsStore().exportData;
       const t = getBackupFile(exportData);
       window.open(t);
     },
     downloadBackUpExportEncryptedFile() {
-      const exportEncData = this.$store.state.accounts.exportEncData;
-      const key = this.$store.state.accounts.key;
-      const t = getBackupFile(exportEncData, key);
+      const exportEncData = useAccountsStore().exportEncData;
+      // no `key` on the accounts state (was always undefined); omit the
+      // optional arg — behaviour is unchanged.
+      const t = getBackupFile(exportEncData);
       window.open(t);
     },
   },

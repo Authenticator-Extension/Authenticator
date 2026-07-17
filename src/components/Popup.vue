@@ -95,7 +95,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
 import { mapState as mapPiniaState } from "pinia";
 
 import MainHeader from "./Popup/MainHeader.vue";
@@ -108,14 +107,16 @@ import { useStyleStore } from "../store/Style";
 import { useQrStore } from "../store/Qr";
 import { useMenuStore } from "../store/Menu";
 import { useNotificationStore } from "../store/Notification";
+import { useAccountsStore } from "../store/Accounts";
 
 const computedPrototype = [
   mapPiniaState(useStyleStore, ["style"]),
   mapPiniaState(useMenuStore, ["theme", "onboardingComplete"]),
   mapPiniaState(useQrStore, ["qr"]),
   mapPiniaState(useNotificationStore, ["notification"]),
-  mapState("accounts", ["initComplete"]),
-  mapGetters("accounts", ["entries"]),
+  mapPiniaState(useAccountsStore, ["initComplete"]),
+  // sortedEntries is the pinned-first display order (was the "entries" getter)
+  mapPiniaState(useAccountsStore, { entries: "sortedEntries" }),
 ];
 
 let computed = {};

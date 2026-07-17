@@ -99,7 +99,6 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
 import { mapState as mapPiniaState } from "pinia";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
 import { useStyleStore } from "../../store/Style";
@@ -107,6 +106,7 @@ import { useCurrentViewStore } from "../../store/CurrentView";
 import { useBackupStore } from "../../store/Backup";
 import { useMenuStore } from "../../store/Menu";
 import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -120,7 +120,7 @@ import { isFirefox } from "../../browser";
 
 const computedPrototype = [
   mapPiniaState(useStyleStore, ["style"]),
-  mapState("accounts", ["defaultEncryption"]),
+  mapPiniaState(useAccountsStore, ["defaultEncryption"]),
   mapPiniaState(useBackupStore, [
     "driveToken",
     "dropboxToken",
@@ -163,7 +163,7 @@ export default defineComponent({
       if (page === "AddMethodPage") {
         if (
           useMenuStore().enforcePassword &&
-          !this.$store.state.accounts.defaultEncryption
+          !useAccountsStore().defaultEncryption
         ) {
           page = "SetPasswordPage";
         }
@@ -173,7 +173,7 @@ export default defineComponent({
     },
     editEntry() {
       useStyleStore().toggleEdit();
-      this.$store.commit("accounts/stopFilter");
+      useAccountsStore().stopFilter();
     },
     lock() {
       // The background "lock" handler is fire-and-forget (no sendResponse), so
@@ -188,14 +188,14 @@ export default defineComponent({
     async beginCapture() {
       if (
         useMenuStore().enforcePassword &&
-        !this.$store.state.accounts.defaultEncryption
+        !useAccountsStore().defaultEncryption
       ) {
         useStyleStore().showInfo();
         useCurrentViewStore().changeView("SetPasswordPage");
         return;
       }
 
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
