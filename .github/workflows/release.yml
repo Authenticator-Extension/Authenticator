@@ -11,7 +11,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    name: Build and publish Chrome extension ZIP
+    name: Build and publish Chrome & Firefox extension ZIPs
 
     steps:
       - uses: actions/checkout@v5
@@ -27,15 +27,21 @@ jobs:
         env:
           PUPPETEER_SKIP_DOWNLOAD: "true"
 
-      - name: Build
+      - name: Build Firefox
+        run: npm run firefox
+
+      - name: Package Firefox
+        run: cd firefox && zip -r "../OTPilot-Authenticator-firefox-${GITHUB_REF_NAME}.zip" .
+
+      - name: Build Chrome
         run: npm run chrome
 
-      - name: Package
+      - name: Package Chrome
         run: cd chrome && zip -r "../OTPilot-Authenticator-chrome-${GITHUB_REF_NAME}.zip" .
 
       - name: Create release
         run: |
           git fetch --force origin "refs/tags/${GITHUB_REF_NAME}:refs/tags/${GITHUB_REF_NAME}"
-          gh release create "$GITHUB_REF_NAME" "OTPilot-Authenticator-chrome-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --notes-from-tag
+          gh release create "$GITHUB_REF_NAME" "OTPilot-Authenticator-firefox-${GITHUB_REF_NAME}.zip" "OTPilot-Authenticator-chrome-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --notes-from-tag
         env:
           GH_TOKEN: ${{ github.token }}
