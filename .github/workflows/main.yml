@@ -20,7 +20,7 @@ jobs:
           npm i prettier
 
       - name: Prettier
-        run: ./node_modules/prettier/bin-prettier.js --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
+        run: ./node_modules/.bin/prettier --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
 
   build:
     runs-on: ubuntu-latest
