@@ -100,9 +100,9 @@ export const useAdvisorStore = defineStore("advisor", () => {
   // popup mounts so components never observe the pre-init defaults above.
   async function init() {
     await UserSettings.updateItems();
-    // matches the original getModule() initial state exactly: the raw
-    // (possibly legacy JSON-string) value, not the parsed one used below
-    ignoreList.value = UserSettings.items.advisorIgnoreList || [];
+    // advisorIgnoreList may still be a legacy JSON string for users whose
+    // settings predate the array format; parseIgnoreList() normalises it.
+    ignoreList.value = parseIgnoreList();
     insights.value = await computeInsights();
   }
 
