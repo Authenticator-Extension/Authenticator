@@ -119,7 +119,6 @@
   </div>
 </template>
 <script lang="ts">
-import * as CryptoJS from "crypto-js";
 import { defineComponent } from "vue";
 import {
   decryptBackupData,
@@ -127,6 +126,7 @@ import {
 } from "../../import";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
+import { legacyDecryptToHex } from "../../models/legacy-decrypt";
 
 export default defineComponent({
   data: function () {
@@ -243,7 +243,7 @@ export default defineComponent({
                   // v2 encryption
                   decryptedFileData = await decryptBackupData(
                     importData,
-                    CryptoJS.AES.decrypt(key.enc, oldPassphrase).toString(),
+                    await legacyDecryptToHex(key.enc, oldPassphrase ?? ""),
                   );
                 } else {
                   // v3 and v1 encryption

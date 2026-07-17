@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 import { EntryStorage, BrowserStorage, isOldKey } from "../models/storage";
 import { Encryption } from "../models/encryption";
-import * as CryptoJS from "crypto-js";
+import { legacyDecryptToHex } from "../models/legacy-decrypt";
 import { OTPType, OTPAlgorithm } from "../models/otp";
 import { useCurrentViewStore } from "./CurrentView";
 import { useStyleStore } from "./Style";
@@ -311,7 +311,7 @@ export const useAccountsStore = defineStore("accounts", () => {
     if (isOldKey(encKeys)) {
       // --- handle v2 encryption
       // decrypt using key
-      const key = CryptoJS.AES.decrypt(encKeys.enc, password).toString();
+      const key = await legacyDecryptToHex(encKeys.enc, password);
       const isCorrectPassword = await argonVerify(key, encKeys.hash);
 
       if (!isCorrectPassword) {

@@ -4,8 +4,8 @@ import { createPinia, setActivePinia } from "pinia";
 import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 import { EntryStorage } from "../models/storage";
 import { UserSettings } from "../models/settings";
-import { OTPEntry, OTPType } from "../models/otp";
-import { Encryption } from "../models/encryption";
+import { OTPEntry, OTPType, OTPAlgorithm } from "../models/otp";
+import { Encryption, decryptString } from "../models/encryption";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
 import { KeyUtilities } from "../models/key-utilities";
 import { MultiFormatWriter, BarcodeFormat } from "@zxing/library";
@@ -484,5 +484,232 @@ describe("useAdvisorStore init() parses a legacy JSON-string ignoreList", () => 
     expect(UserSettings.items.advisorIgnoreList)
       .to.be.an("array")
       .that.deep.equals(["autoLockNotSet", "passwordNotSet"]);
+  });
+});
+
+// --- Phase 0 of the crypto-js removal (docs/plans/crypto-js-migration-plan.md):
+// fixture-first baseline before touching any implementation. These ciphertexts
+// were generated once with the current crypto-js (CryptoJS.AES.encrypt(...).
+// toString()) and hardcoded as static constants, so they keep existing after
+// crypto-js is removed and become the cross-check for the replacement
+// EVP_BytesToKey + AES-CBC implementation (Phase 3). decryptString() is the
+// production entry point (encryption.ts) that dispatches "v4:"-prefixed
+// AES-GCM vs. legacy crypto-js AES-CBC ("U2FsdGVkX1..." OpenSSL framing).
+describe("legacy crypto-js AES-CBC fixtures (decryptString baseline)", () => {
+  const fixtures: Array<{
+    name: string;
+    plaintext: string;
+    passphrase: string;
+    ciphertext: string;
+  }> = [
+    {
+      name: "ASCII plaintext x ASCII passphrase",
+      plaintext: "hello world",
+      passphrase: "password123",
+      ciphertext: "U2FsdGVkX1/Ca3NjxUzrBfM7IGOu/uI7vouAZsLrX5o=",
+    },
+    {
+      name: "ASCII plaintext x Chinese passphrase",
+      plaintext: "hello world",
+      passphrase: "測試密碼中文密碼",
+      ciphertext: "U2FsdGVkX1/TypKxAV9yBvmZ346rm3uB6sh/+gsmy6Y=",
+    },
+    {
+      name: "ASCII plaintext x emoji passphrase",
+      plaintext: "hello world",
+      passphrase: "pass🔐word🎉phrase",
+      ciphertext: "U2FsdGVkX19YEEiv/i2L7N7CMKWnRY25qTPO/h+5Phs=",
+    },
+    {
+      name: "ASCII plaintext x long passphrase (>64 bytes)",
+      plaintext: "hello world",
+      passphrase:
+        "a-very-long-passphrase-that-exceeds-sixty-four-bytes-in-length-1234567890",
+      ciphertext: "U2FsdGVkX1+9v3rISV0NQ2r0R+XJRL9E40/yuN7wgco=",
+    },
+    {
+      name: "Chinese/emoji plaintext x ASCII passphrase",
+      plaintext: "測試内容🎉emoji和中文",
+      passphrase: "password123",
+      ciphertext:
+        "U2FsdGVkX1/5Y5jJ2ev68Yddd5wYzOOYUslb+l0Y5RpqCh1IT5+soinK3Px2pmnl",
+    },
+  ];
+
+  for (const f of fixtures) {
+    it(`decrypts: ${f.name}`, async () => {
+      const result = await decryptString(f.ciphertext, f.passphrase);
+      expect(result).to.equal(f.plaintext);
+    });
+  }
+
+  // Empty-plaintext is a documented quirk, not a plain round-trip case:
+  // decryptString does `return decrypted || null`, so a correctly-decrypted
+  // empty string ("") is falsy and gets mapped to null -- indistinguishable
+  // from an actual decryption failure. This assertion locks that CURRENT
+  // behavior (observed directly, not assumed) so a Phase 3 replacement must
+  // reproduce it rather than "fix" it into returning "".
+  it("empty plaintext x ASCII passphrase decrypts to null, not '' (decryptString's `|| null` quirk)", async () => {
+    const result = await decryptString(
+      "U2FsdGVkX18vgaJx+YXWJR1iQ2bUAdDbzT5VaEvG4ZA=", // "" / "password123"
+      "password123",
+    );
+    expect(result).to.equal(null);
+  });
+
+  // This assertion locks the CURRENT crypto-js behavior for a wrong
+  // passphrase: CryptoJS.AES.decrypt(...).toString(CryptoJS.enc.Utf8) does
+  // NOT throw here, it silently returns an empty string ("" observed across
+  // 10 independent ASCII plaintext/passphrase samples during fixture
+  // generation), which decryptString's `decrypted || null` then maps to
+  // null. Any Phase 3 replacement must preserve this null-on-wrong-password
+  // contract (UI treats null as "decryption failed").
+  it("returns null for a wrong passphrase (locks current crypto-js behavior)", async () => {
+    const result = await decryptString(
+      "U2FsdGVkX18XFBuvDiymS9HzX+ItUG+MtnBe4rLiLWU=", // "hello world" / "password123"
+      "totally-wrong-password",
+    );
+    expect(result).to.equal(null);
+  });
+});
+
+// RFC 4226 (HOTP) and RFC 6238 (TOTP) official test vectors -- the acceptance
+// baseline for KeyUtilities.generate's HMAC layer (Phase 2 of the crypto-js
+// removal plan). generate() only accepts a Base32 `secret` for
+// OTPType.totp/hotp (base32tohex), but the RFC vectors' ASCII secrets are not
+// valid Base32 ("12345678901234567890" contains 1/8/9/0, outside
+// A-Z2-7). OTPType.hhex takes `secret` as a raw hex string (no Base32
+// decoding) and, like hotp, uses the given `counter` directly instead of
+// deriving it from the current time (see the `type !== hotp && type !==
+// hhex` epoch branch in key-utilities.ts) -- so hhex is used here to inject
+// the RFC secret and counter exactly, for both the HOTP vectors and (via
+// counter = floor(T / 30), verified equivalent to the TOTP time-stepping
+// since KeyUtilities.generate's time-based path only differs from the direct
+// counter path in how `counter` is computed) the TOTP vectors. This avoids
+// depending on Date.now() / clockOffset injection for TOTP, which the
+// current generate() signature has no seam for beyond wall-clock time.
+function asciiToHex(str: string): string {
+  let hex = "";
+  for (let i = 0; i < str.length; i++) {
+    hex += str.charCodeAt(i).toString(16).padStart(2, "0");
+  }
+  return hex;
+}
+
+describe("RFC 4226 HOTP official test vectors", () => {
+  // RFC 4226 Appendix D, secret = ASCII "12345678901234567890"
+  const secretHex = asciiToHex("12345678901234567890");
+  const expected = [
+    "755224",
+    "287082",
+    "359152",
+    "969429",
+    "338314",
+    "254676",
+    "287922",
+    "162583",
+    "399871",
+    "520489",
+  ];
+
+  expected.forEach((expectedOtp, counter) => {
+    it(`counter=${counter} -> ${expectedOtp}`, () => {
+      const otp = KeyUtilities.generate(
+        OTPType.hhex,
+        secretHex,
+        counter,
+        30,
+        6,
+      );
+      expect(otp).to.equal(expectedOtp);
+    });
+  });
+});
+
+describe("RFC 6238 TOTP official test vectors (SHA1/SHA256/SHA512)", () => {
+  // RFC 6238 Appendix B. period=30, digits=8.
+  const secretSha1 = asciiToHex("12345678901234567890");
+  const secretSha256 = asciiToHex("12345678901234567890123456789012");
+  const secretSha512 = asciiToHex(
+    "1234567890123456789012345678901234567890123456789012345678901234",
+  );
+
+  const cases: Array<{
+    time: number;
+    sha1: string;
+    sha256: string;
+    sha512: string;
+  }> = [
+    { time: 59, sha1: "94287082", sha256: "46119246", sha512: "90693936" },
+    {
+      time: 1111111109,
+      sha1: "07081804",
+      sha256: "68084774",
+      sha512: "25091201",
+    },
+    {
+      time: 1111111111,
+      sha1: "14050471",
+      sha256: "67062674",
+      sha512: "99943326",
+    },
+    {
+      time: 1234567890,
+      sha1: "89005924",
+      sha256: "91819424",
+      sha512: "93441116",
+    },
+    {
+      time: 2000000000,
+      sha1: "69279037",
+      sha256: "90698825",
+      sha512: "38618901",
+    },
+    {
+      time: 20000000000,
+      sha1: "65353130",
+      sha256: "77737706",
+      sha512: "47863826",
+    },
+  ];
+
+  cases.forEach((c) => {
+    const counter = Math.floor(c.time / 30);
+
+    it(`T=${c.time} SHA1 -> ${c.sha1}`, () => {
+      const otp = KeyUtilities.generate(
+        OTPType.hhex,
+        secretSha1,
+        counter,
+        30,
+        8,
+        OTPAlgorithm.SHA1,
+      );
+      expect(otp).to.equal(c.sha1);
+    });
+
+    it(`T=${c.time} SHA256 -> ${c.sha256}`, () => {
+      const otp = KeyUtilities.generate(
+        OTPType.hhex,
+        secretSha256,
+        counter,
+        30,
+        8,
+        OTPAlgorithm.SHA256,
+      );
+      expect(otp).to.equal(c.sha256);
+    });
+
+    it(`T=${c.time} SHA512 -> ${c.sha512}`, () => {
+      const otp = KeyUtilities.generate(
+        OTPType.hhex,
+        secretSha512,
+        counter,
+        30,
+        8,
+        OTPAlgorithm.SHA512,
+      );
+      expect(otp).to.equal(c.sha512);
+    });
   });
 });

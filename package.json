@@ -28,7 +28,6 @@
     "@types/argon2-browser": "^1.18.1",
     "@types/chai": "^4.2.14",
     "@types/chrome": "^0.2.2",
-    "@types/crypto-js": "^4.1.1",
     "@types/lodash": "^4.14.166",
     "@types/mocha": "^10.0.10",
     "@types/sinon": "^22.0.0",
@@ -63,10 +62,10 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
+    "@noble/hashes": "^2.2.0",
     "@zxing/browser": "^0.2.1",
     "@zxing/library": "^0.23.0",
     "argon2-browser": "^1.18.0",
-    "crypto-js": "^4.1.1",
     "node-gost-crypto": "^1.0.2",
     "pinia": "^4.0.2",
     "qrcode-generator": "^1.5.2",

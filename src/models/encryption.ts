@@ -1,4 +1,4 @@
-import * as CryptoJS from "crypto-js";
+import { legacyDecrypt } from "./legacy-decrypt";
 
 // New ciphertext is authenticated AES-GCM via WebCrypto, tagged with this
 // prefix so it is self-describing. Legacy ciphertext is crypto-js AES-CBC
@@ -57,15 +57,9 @@ export async function decryptString(
       return null;
     }
   }
-  // legacy AES-CBC (crypto-js)
-  try {
-    const decrypted = CryptoJS.AES.decrypt(data, password).toString(
-      CryptoJS.enc.Utf8,
-    );
-    return decrypted || null;
-  } catch (error) {
-    return null;
-  }
+  // legacy AES-CBC (was crypto-js; now a crypto-js-free EVP/AES-CBC shim)
+  const decrypted = await legacyDecrypt(data, password);
+  return decrypted || null;
 }
 
 export class Encryption implements EncryptionInterface {

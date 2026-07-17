@@ -1,5 +1,3 @@
-import * as CryptoJS from "crypto-js";
-
 function byteArray2Base32(bytes: number[]) {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
   const len = bytes.length;
@@ -56,15 +54,12 @@ function byteArray2Base32(bytes: number[]) {
   return result + (padlen < 8 ? Array(padlen + 1).join("=") : "");
 }
 
-function wordArrayToByteArray(wordArray: CryptoJS.lib.WordArray) {
-  const byteArray: number[] = [];
-  for (let i = 0; i < wordArray.words.length; ++i) {
-    const word = wordArray.words[i];
-    for (let j = 3; j >= 0; --j) {
-      byteArray.push((word >> (8 * j)) & 0xff);
-    }
+function base64ToByteArray(base64: string) {
+  const binary = atob(base64);
+  const byteArray: number[] = new Array(binary.length);
+  for (let i = 0; i < binary.length; i++) {
+    byteArray[i] = binary.charCodeAt(i);
   }
-  byteArray.length = wordArray.sigBytes;
   return byteArray;
 }
 
@@ -98,8 +93,14 @@ export function getOTPAuthPerLineFromOPTAuthMigration(migrationUri: string) {
     return [];
   }
 
-  const wordArrayData = CryptoJS.enc.Base64.parse(base64Data);
-  const byteData = wordArrayToByteArray(wordArrayData);
+  let byteData: number[];
+  try {
+    byteData = base64ToByteArray(base64Data);
+  } catch {
+    // malformed base64 in the migration URI (atob throws on invalid input,
+    // where CryptoJS.enc.Base64.parse used to degrade silently)
+    return [];
+  }
   const lines: string[] = [];
   let offset = 0;
   while (offset < byteData.length) {
