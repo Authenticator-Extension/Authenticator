@@ -152,22 +152,26 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 export default defineComponent({
   methods: {
     showInfo(page: string) {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+      if (useAccountsStore().currentlyEncrypted) {
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     openImport(query: string) {
       window.open(`import.html?${query}`, "_blank");
     },
     async beginCapture() {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+      if (useAccountsStore().currentlyEncrypted) {
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
 
@@ -186,7 +190,7 @@ export default defineComponent({
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
+            useNotificationStore().alert(this.i18n.capture_failed);
           } else {
             window.close();
           }

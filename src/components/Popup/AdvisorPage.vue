@@ -18,17 +18,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import AdvisorInsight from "./AdvisorInsight.vue";
+import { useAdvisorStore } from "../../store/Advisor";
 
 export default defineComponent({
   mounted: function () {
-    this.$store.dispatch("advisor/updateInsight");
+    useAdvisorStore().updateInsight();
   },
   computed: {
     insights: function () {
-      return this.$store.state.advisor.insights;
+      return useAdvisorStore().insights;
     },
     ignoreList: function () {
-      return this.$store.state.advisor.ignoreList;
+      return useAdvisorStore().ignoreList;
     },
   },
   components: {
@@ -36,7 +37,7 @@ export default defineComponent({
   },
   methods: {
     clearIgnoreList: function () {
-      this.$store.dispatch("advisor/clearIgnoreList");
+      useAdvisorStore().clearIgnoreList();
     },
   },
 });

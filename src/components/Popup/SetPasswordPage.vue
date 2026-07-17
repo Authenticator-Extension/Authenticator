@@ -77,6 +77,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { verifyPasswordUsingKeyID } from "../../models/password";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function () {
@@ -88,7 +93,7 @@ export default defineComponent({
   },
   computed: {
     enforcePassword: function () {
-      return this.$store.state.menu.enforcePassword;
+      return useMenuStore().enforcePassword;
     },
     // Rough 0-4 strength score for visual feedback only.
     pwStrength(): number {
@@ -113,30 +118,30 @@ export default defineComponent({
       return "var(--danger)";
     },
     passwordPolicy: function () {
-      if (!this.$store.state.menu.passwordPolicy) {
+      if (!useMenuStore().passwordPolicy) {
         return null;
       }
 
       try {
-        return new RegExp(this.$store.state.menu.passwordPolicy);
+        return new RegExp(useMenuStore().passwordPolicy);
       } catch {
         console.warn(
           "Invalid password policy. The password policy is not a valid regular expression.",
-          this.$store.state.menu.passwordPolicy,
+          useMenuStore().passwordPolicy,
         );
         return null;
       }
     },
     passwordPolicyHint: function () {
-      return this.$store.state.menu.passwordPolicyHint;
+      return useMenuStore().passwordPolicyHint;
     },
     defaultEncryption: function (): string | undefined {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
   },
   methods: {
     async removePassphrase() {
-      this.$store.commit("currentView/changeView", "LoadingPage");
+      useCurrentViewStore().changeView("LoadingPage");
 
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
@@ -144,15 +149,15 @@ export default defineComponent({
           this.currentPhrase,
         );
         if (!isCorrectPassword) {
-          this.$store.commit("notification/alert", this.i18n.phrase_not_match);
-          this.$store.commit("currentView/changeView", "SetPasswordPage");
+          useNotificationStore().alert(this.i18n.phrase_not_match);
+          useCurrentViewStore().changeView("SetPasswordPage");
           return;
         }
       }
 
-      await this.$store.dispatch("accounts/changePassphrase", "");
-      this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.dispatch("style/hideInfo");
+      await useAccountsStore().changePassphrase("");
+      useNotificationStore().alert(this.i18n.updateSuccess);
+      useStyleStore().hideInfo();
       return;
     },
     async changePassphrase() {
@@ -163,16 +168,16 @@ export default defineComponent({
       if (this.passwordPolicy && !this.passwordPolicy.test(this.phrase)) {
         const hint =
           this.passwordPolicyHint || this.i18n.password_policy_default_hint;
-        this.$store.commit("notification/alert", hint);
+        useNotificationStore().alert(hint);
         return;
       }
 
       if (this.phrase !== this.confirm) {
-        this.$store.commit("notification/alert", this.i18n.phrase_not_match);
+        useNotificationStore().alert(this.i18n.phrase_not_match);
         return;
       }
 
-      this.$store.commit("currentView/changeView", "LoadingPage");
+      useCurrentViewStore().changeView("LoadingPage");
 
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
@@ -180,15 +185,15 @@ export default defineComponent({
           this.currentPhrase,
         );
         if (!isCorrectPassword) {
-          this.$store.commit("notification/alert", this.i18n.phrase_wrong);
-          this.$store.commit("currentView/changeView", "SetPasswordPage");
+          useNotificationStore().alert(this.i18n.phrase_wrong);
+          useCurrentViewStore().changeView("SetPasswordPage");
           return;
         }
       }
 
-      await this.$store.dispatch("accounts/changePassphrase", this.phrase);
-      this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.dispatch("style/hideInfo");
+      await useAccountsStore().changePassphrase(this.phrase);
+      useNotificationStore().alert(this.i18n.updateSuccess);
+      useStyleStore().hideInfo();
       return;
     },
   },

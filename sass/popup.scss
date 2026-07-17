@@ -353,8 +353,9 @@ svg {
   }
 }
 
-// vuedraggable wraps the rows in its own element, so the gap must live here
-// (a gap on #codes only spaces the search/filter/list groups, not the rows).
+// VueDraggable (vue-draggable-plus) renders this class on its own container
+// element wrapping the rows, so the gap must live here (a gap on #codes only
+// spaces the search/filter/list groups, not the rows).
 .entries {
   display: flex;
   flex-direction: column;

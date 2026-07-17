@@ -98,77 +98,78 @@
 import { defineComponent } from "vue";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   computed: {
     zoom: {
       get(): number {
-        return this.$store.state.menu.zoom;
+        return useMenuStore().zoom;
       },
       set(zoom: number) {
-        this.$store.commit("menu/setZoom", zoom);
+        useMenuStore().setZoom(zoom);
       },
     },
     useAutofill: {
       get(): boolean {
-        return this.$store.state.menu.useAutofill;
+        return useMenuStore().useAutofill;
       },
       set(useAutofill: boolean) {
-        this.$store.commit("menu/setAutofill", useAutofill);
+        useMenuStore().setAutofill(useAutofill);
       },
     },
     smartFilter: {
       get(): boolean {
-        return this.$store.state.menu.smartFilter;
+        return useMenuStore().smartFilter;
       },
       set(smartFilter: boolean) {
-        this.$store.commit("menu/setSmartFilter", smartFilter);
+        useMenuStore().setSmartFilter(smartFilter);
         // only explain smart filter when turning it on, not off (#1282)
         if (smartFilter) {
-          this.$store.commit(
-            "notification/alert",
-            this.i18n.activate_auto_filter,
-          );
+          useNotificationStore().alert(this.i18n.activate_auto_filter);
         }
       },
     },
     enableContextMenu: {
       get(): boolean {
-        return this.$store.state.menu.enableContextMenu;
+        return useMenuStore().enableContextMenu;
       },
       set(enableContextMenu: boolean) {
-        this.$store.commit("menu/setEnableContextMenu", enableContextMenu);
+        useMenuStore().setEnableContextMenu(enableContextMenu);
       },
     },
     theme: {
       get(): string {
-        return this.$store.state.menu.theme;
+        return useMenuStore().theme;
       },
       set(theme: string) {
-        this.$store.commit("menu/setTheme", theme);
+        useMenuStore().setTheme(theme);
       },
     },
     defaultEncryption(): string {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     enforceAutolock() {
-      return this.$store.state.menu.enforceAutolock;
+      return useMenuStore().enforceAutolock;
     },
     autolock: {
       get(): number {
-        if (this.$store.state.menu.enforceAutolock) {
-          return this.$store.state.menu.enforceAutolock;
+        if (useMenuStore().enforceAutolock) {
+          return useMenuStore().enforceAutolock;
         } else {
-          return this.$store.state.menu.autolock;
+          return useMenuStore().autolock;
         }
       },
       set(autolock: number) {
-        this.$store.commit("menu/setAutolock", autolock);
+        useMenuStore().setAutolock(autolock);
         chrome.runtime.sendMessage({ action: "resetAutolock" });
       },
     },
     storageArea() {
-      return this.$store.state.menu.storageArea;
+      return useMenuStore().storageArea;
     },
     browserSync: {
       get(): boolean {
@@ -192,8 +193,7 @@ export default defineComponent({
   created() {
     UserSettings.updateItems().then(() => {
       this.newStorageLocation =
-        this.$store.state.menu.storageArea ||
-        UserSettings.items.storageLocation;
+        useMenuStore().storageArea || UserSettings.items.storageLocation;
     });
   },
   methods: {
@@ -230,20 +230,17 @@ export default defineComponent({
       });
     },
     migrateStorage() {
-      this.$store.commit("currentView/changeView", "LoadingPage");
-      this.$store
-        .dispatch("accounts/migrateStorage", this.newStorageLocation)
+      useCurrentViewStore().changeView("LoadingPage");
+      useAccountsStore()
+        .migrateStorage(this.newStorageLocation)
         .then(
           (m) => {
-            this.$store.commit("notification/alert", this.i18n[m]);
-            this.$store.commit("currentView/changeView", "PreferencesPage");
+            useNotificationStore().alert(this.i18n[m]);
+            useCurrentViewStore().changeView("PreferencesPage");
           },
           (r: string) => {
-            this.$store.commit(
-              "notification/alert",
-              this.i18n.updateFailure + r,
-            );
-            this.$store.commit("currentView/changeView", "PreferencesPage");
+            useNotificationStore().alert(this.i18n.updateFailure + r);
+            useCurrentViewStore().changeView("PreferencesPage");
           },
         );
     },

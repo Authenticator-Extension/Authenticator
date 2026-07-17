@@ -77,9 +77,12 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 import { normalizeHost } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   data: function (): {
@@ -107,18 +110,18 @@ export default defineComponent({
       },
     };
   },
-  computed: mapState("accounts", ["OTPType", "OTPAlgorithm"]),
+  computed: mapPiniaState(useAccountsStore, ["OTPType", "OTPAlgorithm"]),
   methods: {
     async addNewAccount() {
       if (this.newAccount.issuer.includes("::")) {
-        this.$store.commit("notification/alert", this.i18n.errorissuer);
+        useNotificationStore().alert(this.i18n.errorissuer);
         return;
       }
 
       this.newAccount.secret = this.newAccount.secret.replace(/ /g, "");
 
       if (this.newAccount.secret.length < 16) {
-        this.$store.commit("notification/alert", this.i18n.errorsecret);
+        useNotificationStore().alert(this.i18n.errorsecret);
         return;
       }
 
@@ -126,7 +129,7 @@ export default defineComponent({
         !/^[a-z2-7]+=*$/i.test(this.newAccount.secret) &&
         !/^[0-9a-f]+$/i.test(this.newAccount.secret)
       ) {
-        this.$store.commit("notification/alert", this.i18n.errorsecret);
+        useNotificationStore().alert(this.i18n.errorsecret);
         return;
       }
       let type: OTPType;
@@ -155,9 +158,8 @@ export default defineComponent({
         this.newAccount.period = undefined;
       }
 
-      const defaultEncyptionKey = this.$store.state.accounts.defaultEncryption;
-      const encryption =
-        this.$store.state.accounts.encryption.get(defaultEncyptionKey);
+      const defaultEncyptionKey = useAccountsStore().defaultEncryption;
+      const encryption = useAccountsStore().encryption.get(defaultEncyptionKey);
 
       const entry = new OTPEntry(
         {
@@ -180,15 +182,14 @@ export default defineComponent({
         await entry.create();
       } catch (error) {
         // e.g. sync storage full — don't show a phantom entry that wasn't saved
-        this.$store.commit(
-          "notification/alert",
+        useNotificationStore().alert(
           error instanceof Error ? error.message : String(error),
         );
         return;
       }
-      await this.$store.dispatch("accounts/addCode", entry);
-      this.$store.dispatch("style/hideInfo");
-      this.$store.commit("style/toggleEdit");
+      await useAccountsStore().addCode(entry);
+      useStyleStore().hideInfo();
+      useStyleStore().toggleEdit();
 
       const codes = document.getElementById("codes");
       if (codes) {

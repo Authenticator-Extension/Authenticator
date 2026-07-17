@@ -116,6 +116,10 @@
 import { defineComponent } from "vue";
 import { Dropbox } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
+import { useBackupStore } from "../../store/Backup";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 const service = "dropbox";
 
@@ -131,21 +135,21 @@ export default defineComponent({
   },
   computed: {
     defaultEncryption: function () {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     isEncrypted: {
       get(): boolean {
-        return this.$store.state.backup.dropboxEncrypted;
+        return useBackupStore().dropboxEncrypted;
       },
       set(newValue: string) {
         const encrypted = newValue === "true";
         UserSettings.items.dropboxEncrypted = encrypted;
         UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: encrypted });
+        useBackupStore().setEnc({ service, value: encrypted });
       },
     },
     backupToken: function () {
-      return this.$store.state.backup.dropboxToken;
+      return useBackupStore().dropboxToken;
     },
     avatarLetter(): string {
       const e = this.email || "";
@@ -167,8 +171,8 @@ export default defineComponent({
       delete UserSettings.items.dropboxToken;
       delete UserSettings.items.dropboxRefreshToken;
       await UserSettings.commitItems();
-      this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.dispatch("style/hideInfo");
+      useBackupStore().setToken({ service, value: false });
+      useStyleStore().hideInfo();
       if (!tokenToRevoke) {
         return;
       }
@@ -191,22 +195,20 @@ export default defineComponent({
     },
     async backupUpload() {
       const dbox = new Dropbox();
+      const accountsStore = useAccountsStore();
       const response = await dbox.upload(
-        this.$store.state.accounts.encryption.get(
-          this.$store.state.accounts.defaultEncryption,
-        ),
+        accountsStore.encryption.get(accountsStore.defaultEncryption),
       );
       if (response === true) {
-        this.$store.commit("notification/alert", this.i18n.updateSuccess);
+        useNotificationStore().alert(this.i18n.updateSuccess);
       } else if (UserSettings.items.dropboxRevoked === true) {
-        this.$store.commit(
-          "notification/alert",
+        useNotificationStore().alert(
           chrome.i18n.getMessage("token_revoked", ["Dropbox"]),
         );
         UserSettings.removeItem("dropboxToken");
-        this.$store.commit("backup/setToken", { service, value: false });
+        useBackupStore().setToken({ service, value: false });
       } else {
-        this.$store.commit("notification/alert", this.i18n.updateFailure);
+        useNotificationStore().alert(this.i18n.updateFailure);
       }
     },
     async getUser() {
@@ -222,7 +224,7 @@ export default defineComponent({
     async refreshConnection() {
       await UserSettings.updateItems();
       const connected = Boolean(UserSettings.items.dropboxToken);
-      this.$store.commit("backup/setToken", { service, value: connected });
+      useBackupStore().setToken({ service, value: connected });
       if (connected) {
         this.email = await this.getUser();
       }

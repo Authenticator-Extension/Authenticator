@@ -43,14 +43,15 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useMenuStore } from "../../store/Menu";
 
 export default defineComponent({
   methods: {
     getStarted() {
-      this.$store.commit("menu/setOnboardingComplete", true);
+      useMenuStore().setOnboardingComplete(true);
     },
     importBackup() {
-      this.$store.commit("menu/setOnboardingComplete", true);
+      useMenuStore().setOnboardingComplete(true);
       window.open("import.html", "_blank");
     },
   },

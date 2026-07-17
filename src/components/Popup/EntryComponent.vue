@@ -123,7 +123,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
@@ -135,6 +135,12 @@ import {
   stripBoundHost,
   okToInjectContentScript,
 } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useQrStore } from "../../store/Qr";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -143,15 +149,15 @@ import IconBars from "../../../svg/bars.svg";
 import IconPin from "../../../svg/pin.svg";
 
 const computedPrototype = [
-  mapState("accounts", [
+  mapPiniaState(useAccountsStore, [
     "OTPType",
     "sectorStart",
     "sectorOffset",
     "second",
     "encryption",
   ]),
-  mapState("style", ["style"]),
-  mapState("menu", ["theme"]),
+  mapPiniaState(useStyleStore, ["style"]),
+  mapPiniaState(useMenuStore, ["theme"]),
 ];
 
 let computed = {};
@@ -179,7 +185,7 @@ export default defineComponent({
   methods: {
     openContext(e: MouseEvent) {
       // No menu while editing (pin is always available, so the menu always opens)
-      if (this.$store.state.style.style.isEditing) {
+      if (useStyleStore().style.isEditing) {
         return;
       }
       const menuW = 180;
@@ -214,7 +220,7 @@ export default defineComponent({
     },
     shouldShowQrIcon(entry: OTPEntry) {
       return (
-        !this.$store.state.menu.exportDisabled &&
+        !useMenuStore().exportDisabled &&
         entry.secret !== null &&
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
@@ -276,28 +282,23 @@ export default defineComponent({
       return ((this.remaining(entry) / period) * 100).toFixed(1) + "%";
     },
     async removeEntry(entry: OTPEntry) {
-      if (
-        await this.$store.dispatch(
-          "notification/confirm",
-          this.i18n.confirm_delete,
-        )
-      ) {
+      if (await useNotificationStore().confirm(this.i18n.confirm_delete)) {
         await entry.delete();
-        await this.$store.dispatch("accounts/deleteCode", entry.hash);
+        await useAccountsStore().deleteCode(entry.hash);
       }
       return;
     },
     async pin(entry: OTPEntry) {
-      this.$store.commit("accounts/pinEntry", entry);
+      useAccountsStore().pinEntry(entry);
       // reordering restarts the timer-circle animation; re-sync its phase
-      this.$store.commit("accounts/resyncSector");
-      await EntryStorage.set(this.$store.state.accounts.entries);
+      useAccountsStore().resyncSector();
+      await EntryStorage.set(useAccountsStore().entries);
       const codesEl = document.getElementById("codes") as HTMLDivElement;
       codesEl.scrollTop = 0;
     },
     showQr(entry: OTPEntry) {
       const hue = hueFromString(entry.issuer || entry.account || "");
-      this.$store.commit("qr/setQr", {
+      useQrStore().setQr({
         src: getQrUrl(entry),
         issuer: stripBoundHost(entry.issuer),
         account: entry.account,
@@ -305,24 +306,24 @@ export default defineComponent({
         monoBg: `oklch(0.86 0.07 ${hue})`,
         monoFg: `oklch(0.42 0.16 ${hue})`,
       });
-      this.$store.commit("style/showQr");
+      useStyleStore().showQr();
       return;
     },
     async nextCode(entry: OTPEntry) {
-      if (this.$store.state.style.style.hotpDisabled) {
+      if (useStyleStore().style.hotpDisabled) {
         return;
       }
-      this.$store.commit("style/toggleHotpDisabled");
+      useStyleStore().toggleHotpDisabled();
       // entry.next() mutated the store-held entry directly; do the in-memory
       // counter/code change in a mutation, then persist (storage, not state)
       if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
-        this.$store.commit("accounts/advanceHotpCounter", entry);
+        useAccountsStore().advanceHotpCounter(entry);
         if (entry.secret !== null) {
           await entry.update();
         }
       }
       setTimeout(() => {
-        this.$store.commit("style/toggleHotpDisabled");
+        useStyleStore().toggleHotpDisabled();
       }, 3000);
       return;
     },
@@ -331,10 +332,10 @@ export default defineComponent({
       field: "issuer" | "account" | "host",
       value: string,
     ) {
-      this.$store.commit("accounts/setEntryField", { entry, field, value });
+      useAccountsStore().setEntryField({ entry, field, value });
     },
     updateHost(entry: OTPEntry) {
-      this.$store.commit("accounts/setEntryField", {
+      useAccountsStore().setEntryField({
         entry,
         field: "host",
         value: normalizeHost(entry.host),
@@ -346,11 +347,11 @@ export default defineComponent({
         // storage only ever holds a previously-accepted (valid) issuer, so
         // reload it from there to restore the pre-edit value and refuse the
         // write, mirroring AddAccountPage's "::" rejection.
-        this.$store.commit("notification/alert", this.i18n.errorissuer);
+        useNotificationStore().alert(this.i18n.errorissuer);
         const stored = (await EntryStorage.get()).find(
           (e) => e.hash === entry.hash,
         );
-        this.$store.commit("accounts/setEntryField", {
+        useAccountsStore().setEntryField({
           entry,
           field: "issuer",
           value: stored ? stored.issuer : "",
@@ -361,7 +362,7 @@ export default defineComponent({
     },
     async copyCode(entry: OTPEntry) {
       if (
-        this.$store.state.style.style.isEditing ||
+        useStyleStore().style.isEditing ||
         entry.code === CodeState.Invalid ||
         entry.code.startsWith("•")
       ) {
@@ -369,8 +370,8 @@ export default defineComponent({
       }
 
       if (entry.code === CodeState.Encrypted) {
-        this.$store.commit("style/showInfo", true);
-        this.$store.commit("currentView/changeView", "EnterPasswordPage");
+        useStyleStore().showInfo(true);
+        useCurrentViewStore().changeView("EnterPasswordPage");
         return;
       }
 
@@ -385,7 +386,7 @@ export default defineComponent({
               return;
             }
 
-            if (this.$store.state.menu.useAutofill) {
+            if (useMenuStore().useAutofill) {
               await insertContentScript();
               const tab = await getCurrentTab();
               if (tab && tab.id) {
@@ -409,10 +410,7 @@ export default defineComponent({
             codeClipboard.select();
             document.execCommand("Copy");
             lastActiveElement.focus();
-            this.$store.dispatch(
-              "notification/ephermalMessage",
-              this.i18n.copied,
-            );
+            useNotificationStore().ephermalMessage(this.i18n.copied);
           }
         },
       );

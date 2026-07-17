@@ -1,8 +1,9 @@
-import { ActionContext } from "vuex";
+import { defineStore } from "pinia";
+import { ref } from "vue";
 import { Permission } from "../models/permission";
 import { UserSettings } from "../models/settings";
 
-const permissions: Permission[] = [
+const permissionDefinitions: Permission[] = [
   {
     id: "activeTab",
     description: chrome.i18n.getMessage("permission_active_tab"),
@@ -64,124 +65,96 @@ const permissions: Permission[] = [
   },
 ];
 
-export class Permissions implements Module {
-  async getModule() {
-    return {
-      state: {
-        permissions: await this.getPermissions(),
-      },
-      mutations: {
-        setPermissions(state: PermissionsState, permissions: Permission[]) {
-          state.permissions = permissions;
-        },
-      },
-      actions: {
-        // was an async mutation; assigning state after an await violates Vuex
-        // strict mode, so the async work lives in an action now
-        revokePermission: async (
-          context: ActionContext<PermissionsState, object>,
-          permissionId: string,
-        ) => {
-          const permissionObject = this.getPermissionById(permissionId);
-          const validators = permissionObject.validation ?? [];
-          const validationResults = (
-            await Promise.all(
-              validators.map(async (validator) => await validator()),
-            )
-          ).filter((result) => !result.valid);
+function getPermissionById(permissionId: string): Permission {
+  const permissionObject = permissionDefinitions.find(
+    (p) => p.id === permissionId,
+  );
 
-          if (validationResults.length > 0) {
-            const messages = validationResults.map(
-              (result) => "• " + result.message,
-            );
-            alert(messages.join("\n"));
-            return;
-          }
-
-          await this.revokePermission(permissionId);
-          context.commit("setPermissions", await this.getPermissions());
-        },
-      },
-      namespaced: true,
-    };
-  }
-
-  private async getPermissions(): Promise<Permission[]> {
-    return new Promise((resolve: (permissions: Permission[]) => void) => {
-      chrome.permissions.getAll(
-        (permissions: chrome.permissions.Permissions) => {
-          const permissionList: Permission[] = [];
-
-          for (const permissionId of permissions.permissions ?? []) {
-            const permissionObject = this.getPermissionById(permissionId);
-
-            permissionList.push(permissionObject);
-          }
-
-          for (const permissionId of permissions.origins ?? []) {
-            const permissionObject = this.getPermissionById(permissionId);
-
-            permissionList.push(permissionObject);
-          }
-
-          permissionList.sort((a, b) => {
-            return a.revocable !== b.revocable ? (a.revocable ? 1 : -1) : 0;
-          });
-
-          return resolve(permissionList);
-        },
-      );
+  if (permissionObject === undefined) {
+    return new Permission({
+      id: permissionId,
+      description: chrome.i18n.getMessage("permission_unknown_permission"),
+      revocable: true,
     });
   }
 
-  private getPermissionById(permissionId: string): Permission {
-    const permissionObject = permissions.find((p) => p.id === permissionId);
+  return permissionObject;
+}
 
-    if (permissionObject === undefined) {
-      return new Permission({
-        id: permissionId,
-        description: chrome.i18n.getMessage("permission_unknown_permission"),
-        revocable: true,
+async function getPermissions(): Promise<Permission[]> {
+  return new Promise((resolve: (permissions: Permission[]) => void) => {
+    chrome.permissions.getAll((permissions: chrome.permissions.Permissions) => {
+      const permissionList: Permission[] = [];
+
+      for (const permissionId of permissions.permissions ?? []) {
+        permissionList.push(getPermissionById(permissionId));
+      }
+
+      for (const permissionId of permissions.origins ?? []) {
+        permissionList.push(getPermissionById(permissionId));
+      }
+
+      permissionList.sort((a, b) => {
+        return a.revocable !== b.revocable ? (a.revocable ? 1 : -1) : 0;
       });
+
+      return resolve(permissionList);
+    });
+  });
+}
+
+async function removePermission(permissionId: string): Promise<void> {
+  return new Promise((resolve: () => void) => {
+    chrome.permissions.getAll((permissions: chrome.permissions.Permissions) => {
+      for (const _permissionId of permissions.permissions ?? []) {
+        if (_permissionId === permissionId) {
+          chrome.permissions.remove({ permissions: [permissionId] }, () => {
+            resolve();
+          });
+          return;
+        }
+      }
+
+      for (const _permissionId of permissions.origins ?? []) {
+        if (_permissionId === permissionId) {
+          chrome.permissions.remove({ origins: [permissionId] }, () => {
+            resolve();
+          });
+          return;
+        }
+      }
+
+      // nothing matched -> nothing to remove
+      resolve();
+    });
+  });
+}
+
+export const usePermissionsStore = defineStore("permissions", () => {
+  const permissions = ref<Permission[]>([]);
+
+  // Populates state from chrome.permissions; the caller must await this
+  // before the popup mounts so components never observe the empty default.
+  async function init() {
+    permissions.value = await getPermissions();
+  }
+
+  async function revokePermission(permissionId: string) {
+    const permissionObject = getPermissionById(permissionId);
+    const validators = permissionObject.validation ?? [];
+    const validationResults = (
+      await Promise.all(validators.map(async (validator) => await validator()))
+    ).filter((result) => !result.valid);
+
+    if (validationResults.length > 0) {
+      const messages = validationResults.map((result) => "• " + result.message);
+      alert(messages.join("\n"));
+      return;
     }
 
-    return permissionObject;
+    await removePermission(permissionId);
+    permissions.value = await getPermissions();
   }
 
-  private async revokePermission(permissionId: string): Promise<void> {
-    return new Promise((resolve: () => void) => {
-      chrome.permissions.getAll(
-        (permissions: chrome.permissions.Permissions) => {
-          for (const _permissionId of permissions.permissions ?? []) {
-            if (_permissionId === permissionId) {
-              return chrome.permissions.remove(
-                {
-                  permissions: [permissionId],
-                },
-                () => {
-                  resolve();
-                },
-              );
-            }
-          }
-
-          for (const _permissionId of permissions.origins ?? []) {
-            if (_permissionId === permissionId) {
-              return chrome.permissions.remove(
-                {
-                  origins: [permissionId],
-                },
-                () => {
-                  resolve();
-                },
-              );
-            }
-          }
-
-          // nothing matched -> nothing to remove
-          resolve();
-        },
-      );
-    });
-  }
-}
+  return { permissions, init, revokePermission };
+});

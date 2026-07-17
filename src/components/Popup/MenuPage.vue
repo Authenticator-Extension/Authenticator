@@ -90,6 +90,11 @@ import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 export default defineComponent({
   components: {
@@ -106,7 +111,7 @@ export default defineComponent({
   },
   computed: {
     version: function () {
-      return this.$store.state.menu.version;
+      return useMenuStore().version;
     },
     isSupported(): boolean {
       return !isSafari;
@@ -114,21 +119,21 @@ export default defineComponent({
   },
   methods: {
     hideMenu() {
-      this.$store.dispatch("style/hideMenu");
+      useStyleStore().hideMenu();
     },
     openLink(url: string) {
       window.open(url, "_blank");
       return;
     },
     showInfo(tab: string) {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         if (tab === "SetPasswordPage") {
-          this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+          useNotificationStore().alert(this.i18n.phrase_incorrect);
           return;
         }
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", tab);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(tab);
       return;
     },
     syncClock() {
@@ -138,7 +143,7 @@ export default defineComponent({
           if (granted) {
             await UserSettings.updateItems();
             const message = await syncTimeWithGoogle();
-            this.$store.commit("notification/alert", this.i18n[message]);
+            useNotificationStore().alert(this.i18n[message]);
           }
           return;
         },

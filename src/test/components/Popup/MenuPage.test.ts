@@ -4,9 +4,10 @@ import { assert } from "chai";
 import * as sinonChai from "sinon-chai";
 import * as sinon from "sinon";
 import { mount, VueWrapper } from "@vue/test-utils";
-import { createStore, Store } from "vuex";
+import { createTestingPinia } from "@pinia/testing";
 
 import MenuPage from "../../../components/Popup/MenuPage.vue";
+import { useMenuStore } from "../../../store/Menu";
 
 chai.should();
 chai.use(sinonChai);
@@ -18,29 +19,21 @@ describe("MenuPage", () => {
   // (the feedback button is found via *[title='Feedback']).
   const i18n: { [key: string]: string } = { feedback: "Feedback" };
 
-  const storeOpts = {
-    menu: {
-      state: {
-        version: "1.2.3",
-      },
-      namespaced: true,
-    },
-  };
-
-  let store: Store<{}>;
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let wrapper: VueWrapper<any>;
 
-  const mountMenu = () =>
-    mount(MenuPage, {
-      global: { plugins: [store], mocks: { i18n } },
+  const mountMenu = () => {
+    const pinia = createTestingPinia({
+      createSpy: sinon.spy,
+      stubActions: true,
     });
+    useMenuStore(pinia).version = "1.2.3";
+    return mount(MenuPage, {
+      global: { plugins: [pinia], mocks: { i18n } },
+    });
+  };
 
   beforeEach(async () => {
-    store = createStore({
-      modules: storeOpts,
-    });
     wrapper = mountMenu();
   });
 

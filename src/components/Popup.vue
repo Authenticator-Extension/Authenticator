@@ -95,7 +95,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 
 import MainHeader from "./Popup/MainHeader.vue";
 import MainBody from "./Popup/MainBody.vue";
@@ -103,14 +103,20 @@ import MenuPage from "./Popup/MenuPage.vue";
 import PageHandler from "./Popup/PageHandler.vue";
 import NotificationHandler from "./Popup/NotificationHandler.vue";
 import Onboarding from "./Popup/Onboarding.vue";
+import { useStyleStore } from "../store/Style";
+import { useQrStore } from "../store/Qr";
+import { useMenuStore } from "../store/Menu";
+import { useNotificationStore } from "../store/Notification";
+import { useAccountsStore } from "../store/Accounts";
 
 const computedPrototype = [
-  mapState("style", ["style"]),
-  mapState("menu", ["theme", "onboardingComplete"]),
-  mapState("qr", ["qr"]),
-  mapState("notification", ["notification"]),
-  mapState("accounts", ["initComplete"]),
-  mapGetters("accounts", ["entries"]),
+  mapPiniaState(useStyleStore, ["style"]),
+  mapPiniaState(useMenuStore, ["theme", "onboardingComplete"]),
+  mapPiniaState(useQrStore, ["qr"]),
+  mapPiniaState(useNotificationStore, ["notification"]),
+  mapPiniaState(useAccountsStore, ["initComplete"]),
+  // sortedEntries is the pinned-first display order (was the "entries" getter)
+  mapPiniaState(useAccountsStore, { entries: "sortedEntries" }),
 ];
 
 let computed = {};
@@ -128,7 +134,7 @@ export default defineComponent({
   computed,
   methods: {
     hideQr() {
-      this.$store.dispatch("style/hideQr");
+      useStyleStore().hideQr();
     },
   },
   components: {

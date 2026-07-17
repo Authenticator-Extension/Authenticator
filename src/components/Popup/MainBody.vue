@@ -63,11 +63,10 @@
         v-bind:tabindex="-1"
       />
     </div>
-    <draggable
+    <VueDraggable
       v-else
       class="entries"
       v-model="draggableEntries"
-      item-key="hash"
       handle=".movehandle"
       :disabled="!isEditing"
       v-on:keydown.down="focusNextEntry()"
@@ -75,14 +74,14 @@
       v-on:keydown.up="focusLastEntry()"
       v-on:keydown.left="focusLastEntry()"
     >
-      <template #item="{ element }">
-        <EntryComponent
-          v-bind:notSearched="!isSearchedEntry(element)"
-          v-bind:entry="element"
-          v-bind:tabindex="getTabindex(element)"
-        />
-      </template>
-    </draggable>
+      <EntryComponent
+        v-for="element in draggableEntries"
+        v-bind:key="element.hash"
+        v-bind:notSearched="!isSearchedEntry(element)"
+        v-bind:entry="element"
+        v-bind:tabindex="getTabindex(element)"
+      />
+    </VueDraggable>
     <div class="edit-add" v-if="isEditing" v-on:click="addAccount()">
       <svg
         viewBox="0 0 24 24"
@@ -123,10 +122,14 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { mapState, mapGetters } from "vuex";
-import draggable from "vuedraggable";
+import { mapState as mapPiniaState } from "pinia";
+import { VueDraggable } from "vue-draggable-plus";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
+import { useAccountsStore } from "../../store/Accounts";
 
 import EntryComponent from "./EntryComponent.vue";
 
@@ -137,15 +140,17 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState("accounts", [
+    ...mapPiniaState(useAccountsStore, [
       "filter",
       "showSearch",
       "initComplete",
       "siteName",
+      "shouldFilter",
     ]),
-    ...mapGetters("accounts", ["shouldFilter", "entries"]),
+    // sortedEntries is the pinned-first display order (was the "entries" getter)
+    ...mapPiniaState(useAccountsStore, { entries: "sortedEntries" }),
     isEditing(): boolean {
-      return this.$store.state.style.style.isEditing;
+      return useStyleStore().style.isEditing;
     },
     // Smart-filter split: matched (or pinned) accounts vs. everything else.
     matchedList(): OTPEntry[] {
@@ -171,13 +176,13 @@ export default defineComponent({
     },
     draggableEntries: {
       get(): OTPEntry[] {
-        return this.$store.getters["accounts/entries"];
+        return useAccountsStore().sortedEntries as OTPEntry[];
       },
       set(reordered: OTPEntry[]) {
-        this.$store.commit("accounts/reorderEntries", reordered);
+        useAccountsStore().reorderEntries(reordered);
         // reordering restarts the timer-circle animation; re-sync its phase
-        this.$store.commit("accounts/resyncSector");
-        EntryStorage.set(this.$store.state.accounts.entries);
+        useAccountsStore().resyncSector();
+        EntryStorage.set(useAccountsStore().entries);
       },
     },
   },
@@ -189,16 +194,16 @@ export default defineComponent({
     addAccount() {
       let page = "AddMethodPage";
       if (
-        this.$store.state.menu.enforcePassword &&
-        !this.$store.state.accounts.defaultEncryption
+        useMenuStore().enforcePassword &&
+        !useAccountsStore().defaultEncryption
       ) {
         page = "SetPasswordPage";
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     isMatchedEntry(entry: OTPEntry) {
-      for (const hash of this.$store.getters["accounts/matchedEntries"]) {
+      for (const hash of useAccountsStore().matchedEntries) {
         if (entry.hash === hash) {
           return true;
         }
@@ -221,9 +226,9 @@ export default defineComponent({
     toggleFilter() {
       // clearFilter also reveals search for long lists; startFilter re-applies
       if (this.filter) {
-        this.$store.dispatch("accounts/clearFilter");
+        useAccountsStore().clearFilter();
       } else {
-        this.$store.commit("accounts/startFilter");
+        useAccountsStore().startFilter();
       }
     },
     isEntryVisible(entry: OTPEntry) {
@@ -288,7 +293,7 @@ export default defineComponent({
   },
   components: {
     EntryComponent,
-    draggable,
+    VueDraggable,
   },
 });
 </script>

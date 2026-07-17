@@ -1,4 +1,5 @@
-import { ActionContext } from "vuex";
+import { defineStore } from "pinia";
+import { ref } from "vue";
 import { EntryStorage } from "../models/storage";
 import { InsightLevel, AdvisorInsight } from "../models/advisor";
 import { StorageLocation, UserSettings } from "../models/settings";
@@ -68,76 +69,70 @@ function parseIgnoreList(): string[] {
   return typeof raw === "string" ? JSON.parse(raw || "[]") : raw || [];
 }
 
-export class Advisor implements Module {
-  async getModule() {
-    await UserSettings.updateItems();
-    return {
-      state: {
-        insights: await this.getInsights(),
-        ignoreList: UserSettings.items.advisorIgnoreList || [],
-      },
-      mutations: {
-        // sync state changes only (these used to be async mutations that
-        // assigned state after an await, which Vuex strict mode forbids)
-        pushIgnore(state: AdvisorState, insightId: string) {
-          state.ignoreList.push(insightId);
-        },
-        setIgnoreList(state: AdvisorState, list: string[]) {
-          state.ignoreList = list;
-        },
-        setInsights(state: AdvisorState, insights: AdvisorInsightInterface[]) {
-          state.insights = insights;
-        },
-      },
-      actions: {
-        dismissInsight: async (
-          context: ActionContext<AdvisorState, object>,
-          insightId: string,
-        ) => {
-          context.commit("pushIgnore", insightId);
-          UserSettings.items.advisorIgnoreList = context.state.ignoreList;
-          await UserSettings.commitItems();
+async function computeInsights(): Promise<AdvisorInsight[]> {
+  await UserSettings.updateItems();
+  const advisorIgnoreList = parseIgnoreList();
 
-          context.commit("setInsights", await this.getInsights());
-        },
-        clearIgnoreList: async (
-          context: ActionContext<AdvisorState, object>,
-        ) => {
-          context.commit("setIgnoreList", []);
-          UserSettings.items.advisorIgnoreList = undefined;
-          await UserSettings.commitItems();
+  const filteredInsightsData: AdvisorInsightInterface[] = [];
 
-          context.commit("setInsights", await this.getInsights());
-        },
-        updateInsight: async (context: ActionContext<AdvisorState, object>) => {
-          context.commit("setInsights", await this.getInsights());
-          context.commit("setIgnoreList", parseIgnoreList());
-        },
-      },
-      namespaced: true,
-    };
-  }
-
-  private async getInsights() {
-    await UserSettings.updateItems();
-    const advisorIgnoreList = parseIgnoreList();
-
-    const filteredInsightsData: AdvisorInsightInterface[] = [];
-
-    for (const insightData of insightsData) {
-      if (advisorIgnoreList.includes(insightData.id)) {
-        continue;
-      }
-
-      const validation = await insightData.validation();
-
-      if (validation) {
-        filteredInsightsData.push(insightData);
-      }
+  for (const insightData of insightsData) {
+    if (advisorIgnoreList.includes(insightData.id)) {
+      continue;
     }
 
-    return filteredInsightsData.map(
-      (insightData) => new AdvisorInsight(insightData),
-    );
+    const validation = await insightData.validation();
+
+    if (validation) {
+      filteredInsightsData.push(insightData);
+    }
   }
+
+  return filteredInsightsData.map(
+    (insightData) => new AdvisorInsight(insightData),
+  );
 }
+
+export const useAdvisorStore = defineStore("advisor", () => {
+  const insights = ref<AdvisorInsight[]>([]);
+  const ignoreList = ref<string[]>([]);
+
+  // Populates state from UserSettings; the caller must await this before the
+  // popup mounts so components never observe the pre-init defaults above.
+  async function init() {
+    await UserSettings.updateItems();
+    // advisorIgnoreList may still be a legacy JSON string for users whose
+    // settings predate the array format; parseIgnoreList() normalises it.
+    ignoreList.value = parseIgnoreList();
+    insights.value = await computeInsights();
+  }
+
+  async function dismissInsight(insightId: string) {
+    ignoreList.value.push(insightId);
+    UserSettings.items.advisorIgnoreList = ignoreList.value;
+    await UserSettings.commitItems();
+
+    insights.value = await computeInsights();
+  }
+
+  async function clearIgnoreList() {
+    ignoreList.value = [];
+    UserSettings.items.advisorIgnoreList = undefined;
+    await UserSettings.commitItems();
+
+    insights.value = await computeInsights();
+  }
+
+  async function updateInsight() {
+    insights.value = await computeInsights();
+    ignoreList.value = parseIgnoreList();
+  }
+
+  return {
+    insights,
+    ignoreList,
+    init,
+    dismissInsight,
+    clearIgnoreList,
+    updateInsight,
+  };
+});

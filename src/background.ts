@@ -51,8 +51,6 @@ chrome.runtime.onMessage.addListener((message, sender) => {
         message.info,
         hostnameFromTab(sender.tab),
       );
-    } else if (message.action === "getTotp") {
-      getTotp(message.info, sender.tab?.id, false, hostnameFromTab(sender.tab));
     } else if (message.action === "cachePassphrase") {
       chrome.storage.session.set({
         cachedPassphrase: message.value,

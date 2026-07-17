@@ -1,13 +1,16 @@
 import "mocha";
 import { expect } from "chai";
+import { createPinia, setActivePinia } from "pinia";
 import { getMatchedEntries, cloudBackupAllowed } from "../utils";
 import { EntryStorage } from "../models/storage";
+import { UserSettings } from "../models/settings";
 import { OTPEntry, OTPType } from "../models/otp";
 import { Encryption } from "../models/encryption";
 import { getEntryDataFromOTPAuthPerLine } from "../import";
 import { KeyUtilities } from "../models/key-utilities";
 import { MultiFormatWriter, BarcodeFormat } from "@zxing/library";
 import { decodeQrFromImageData, computeQrCropRegion } from "../qr-decoder";
+import { useAdvisorStore } from "../store/Advisor";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -425,5 +428,61 @@ describe("computeQrCropRegion (background QR crop math)", () => {
 
   it("rejects a 0-size bitmap (a failed capture)", () => {
     expect(computeQrCropRegion(0, 0, 1000, 100, 50, 200, 150)).to.equal(null);
+  });
+});
+
+// advisorIgnoreList predates the array format: localStorage-era (pre-Pinia)
+// settings stored it as a JSON string, and some users' chrome.storage still
+// holds that string. useAdvisorStore().init() used to assign the raw
+// (possibly-string) value straight into ignoreList, so dismissInsight()'s
+// .push() would throw TypeError on those accounts and could persist the
+// corrupted string back to storage.
+describe("useAdvisorStore init() parses a legacy JSON-string ignoreList", () => {
+  let originalUserSettings: unknown;
+
+  beforeEach(async () => {
+    originalUserSettings = (await chrome.storage.local.get("UserSettings"))
+      .UserSettings;
+  });
+
+  afterEach(async () => {
+    if (originalUserSettings === undefined) {
+      await chrome.storage.local.remove("UserSettings");
+    } else {
+      await chrome.storage.local.set({ UserSettings: originalUserSettings });
+    }
+    await UserSettings.updateItems();
+  });
+
+  it("normalises a legacy JSON-string advisorIgnoreList into an array", async () => {
+    await chrome.storage.local.set({
+      UserSettings: { advisorIgnoreList: '["autoLockNotSet"]' },
+    });
+
+    setActivePinia(createPinia());
+    const store = useAdvisorStore();
+    await store.init();
+
+    expect(store.ignoreList).to.deep.equal(["autoLockNotSet"]);
+  });
+
+  it("dismissInsight() appends onto a legacy string ignoreList without throwing, and persists an array", async () => {
+    await chrome.storage.local.set({
+      UserSettings: { advisorIgnoreList: '["autoLockNotSet"]' },
+    });
+
+    setActivePinia(createPinia());
+    const store = useAdvisorStore();
+    await store.init();
+
+    await store.dismissInsight("passwordNotSet");
+
+    expect(store.ignoreList).to.deep.equal([
+      "autoLockNotSet",
+      "passwordNotSet",
+    ]);
+    expect(UserSettings.items.advisorIgnoreList)
+      .to.be.an("array")
+      .that.deep.equals(["autoLockNotSet", "passwordNotSet"]);
   });
 });
