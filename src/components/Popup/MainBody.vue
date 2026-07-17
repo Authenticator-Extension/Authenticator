@@ -128,6 +128,7 @@ import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
 
 import EntryComponent from "./EntryComponent.vue";
 
@@ -190,7 +191,7 @@ export default defineComponent({
     addAccount() {
       let page = "AddMethodPage";
       if (
-        this.$store.state.menu.enforcePassword &&
+        useMenuStore().enforcePassword &&
         !this.$store.state.accounts.defaultEncryption
       ) {
         page = "SetPasswordPage";

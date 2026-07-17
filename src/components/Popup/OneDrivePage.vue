@@ -47,6 +47,8 @@ import { defineComponent } from "vue";
 import { OneDrive } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
 import { useStyleStore } from "../../store/Style";
+import { useBackupStore } from "../../store/Backup";
+import { useNotificationStore } from "../../store/Notification";
 
 const service = "onedrive";
 
@@ -65,17 +67,17 @@ export default defineComponent({
     },
     isEncrypted: {
       get(): boolean {
-        return this.$store.state.backup.oneDriveEncrypted;
+        return useBackupStore().oneDriveEncrypted;
       },
       set(newValue: string) {
         const encrypted = newValue === "true";
         UserSettings.items.oneDriveEncrypted = encrypted;
         UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: encrypted });
+        useBackupStore().setEnc({ service, value: encrypted });
       },
     },
     backupToken: function () {
-      return this.$store.state.backup.oneDriveToken;
+      return useBackupStore().oneDriveToken;
     },
   },
   methods: {
@@ -92,7 +94,7 @@ export default defineComponent({
       UserSettings.items.oneDriveToken = undefined;
       UserSettings.items.oneDriveRefreshToken = undefined;
       UserSettings.commitItems();
-      this.$store.commit("backup/setToken", { service, value: false });
+      useBackupStore().setToken({ service, value: false });
       useStyleStore().hideInfo();
     },
     async backupUpload() {
@@ -103,16 +105,15 @@ export default defineComponent({
         ),
       );
       if (response === true) {
-        this.$store.commit("notification/alert", this.i18n.updateSuccess);
+        useNotificationStore().alert(this.i18n.updateSuccess);
       } else if (UserSettings.items.oneDriveRevoked === true) {
-        this.$store.commit(
-          "notification/alert",
+        useNotificationStore().alert(
           chrome.i18n.getMessage("token_revoked", ["OneDrive"]),
         );
         UserSettings.removeItem("oneDriveRevoked");
-        this.$store.commit("backup/setToken", { service, value: false });
+        useBackupStore().setToken({ service, value: false });
       } else {
-        this.$store.commit("notification/alert", this.i18n.updateFailure);
+        useNotificationStore().alert(this.i18n.updateFailure);
       }
     },
     async getUser() {

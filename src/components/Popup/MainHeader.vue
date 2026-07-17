@@ -104,6 +104,9 @@ import { mapState as mapPiniaState } from "pinia";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
+import { useBackupStore } from "../../store/Backup";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -118,7 +121,11 @@ import { isFirefox } from "../../browser";
 const computedPrototype = [
   mapPiniaState(useStyleStore, ["style"]),
   mapState("accounts", ["defaultEncryption"]),
-  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
+  mapPiniaState(useBackupStore, [
+    "driveToken",
+    "dropboxToken",
+    "oneDriveToken",
+  ]),
 ];
 
 let computed = {};
@@ -155,7 +162,7 @@ export default defineComponent({
     showInfo(page: string) {
       if (page === "AddMethodPage") {
         if (
-          this.$store.state.menu.enforcePassword &&
+          useMenuStore().enforcePassword &&
           !this.$store.state.accounts.defaultEncryption
         ) {
           page = "SetPasswordPage";
@@ -180,7 +187,7 @@ export default defineComponent({
     },
     async beginCapture() {
       if (
-        this.$store.state.menu.enforcePassword &&
+        useMenuStore().enforcePassword &&
         !this.$store.state.accounts.defaultEncryption
       ) {
         useStyleStore().showInfo();
@@ -189,7 +196,7 @@ export default defineComponent({
       }
 
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
 
@@ -207,8 +214,7 @@ export default defineComponent({
 
         if (tab.url?.startsWith("file:")) {
           if (
-            await this.$store.dispatch(
-              "notification/confirm",
+            await useNotificationStore().confirm(
               this.i18n.capture_local_file_failed,
             )
           ) {
@@ -220,7 +226,7 @@ export default defineComponent({
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
+            useNotificationStore().alert(this.i18n.capture_failed);
           } else {
             window.close();
           }

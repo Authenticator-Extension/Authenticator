@@ -106,12 +106,14 @@ import NotificationHandler from "./Popup/NotificationHandler.vue";
 import Onboarding from "./Popup/Onboarding.vue";
 import { useStyleStore } from "../store/Style";
 import { useQrStore } from "../store/Qr";
+import { useMenuStore } from "../store/Menu";
+import { useNotificationStore } from "../store/Notification";
 
 const computedPrototype = [
   mapPiniaState(useStyleStore, ["style"]),
-  mapState("menu", ["theme", "onboardingComplete"]),
+  mapPiniaState(useMenuStore, ["theme", "onboardingComplete"]),
   mapPiniaState(useQrStore, ["qr"]),
-  mapState("notification", ["notification"]),
+  mapPiniaState(useNotificationStore, ["notification"]),
   mapState("accounts", ["initComplete"]),
   mapGetters("accounts", ["entries"]),
 ];

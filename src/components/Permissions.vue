@@ -54,11 +54,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Permission } from "../models/permission";
+import { usePermissionsStore } from "../store/Permissions";
 
 export default defineComponent({
   computed: {
     permissions: function () {
-      return this.$store.state.permissions.permissions.filter(
+      return usePermissionsStore().permissions.filter(
         (permission: Permission) => {
           return this.showAllPermissions || permission.revocable;
         },
@@ -72,7 +73,7 @@ export default defineComponent({
   },
   methods: {
     revoke(permissionId: string) {
-      this.$store.dispatch("permissions/revokePermission", permissionId);
+      usePermissionsStore().revokePermission(permissionId);
     },
   },
 });

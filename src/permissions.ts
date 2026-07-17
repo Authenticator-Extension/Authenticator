@@ -1,6 +1,6 @@
 // Vue
 import { createApp } from "vue";
-import { createStore } from "vuex";
+import { createPinia, setActivePinia } from "pinia";
 
 // Components
 import PermissionsView from "./components/Permissions.vue";
@@ -8,19 +8,17 @@ import CommonComponents from "./components/common/index";
 
 // Other
 import { loadI18nMessages } from "./store/i18n";
-import { Permissions } from "./store/Permissions";
+import { usePermissionsStore } from "./store/Permissions";
 
 async function init() {
-  // State
-  const store = createStore({
-    strict: process.env.NODE_ENV !== "production",
-    modules: {
-      permissions: await new Permissions().getModule(),
-    },
-  });
+  // Pinia
+  const pinia = createPinia();
+  setActivePinia(pinia);
+  const permissionsStore = usePermissionsStore();
+  await permissionsStore.init();
 
   const app = createApp(PermissionsView);
-  app.use(store);
+  app.use(pinia);
   // i18n
   app.config.globalProperties.i18n = await loadI18nMessages();
   // Load common components globally

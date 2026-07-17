@@ -203,6 +203,8 @@ import { isSafari } from "../../browser";
 import { stripBoundHost } from "../../utils";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
+import { useBackupStore } from "../../store/Backup";
+import { useMenuStore } from "../../store/Menu";
 
 export default defineComponent({
   data: function () {
@@ -222,13 +224,13 @@ export default defineComponent({
       return this.$store.state.accounts.defaultEncryption;
     },
     exportDisabled: function () {
-      return this.$store.state.menu.exportDisabled;
+      return useMenuStore().exportDisabled;
     },
     currentlyEncrypted: function () {
       return this.$store.getters["accounts/currentlyEncrypted"];
     },
     backupDisabled: function () {
-      return this.$store.state.menu.backupDisabled;
+      return useMenuStore().backupDisabled;
     },
     isDataLinkSupported: function () {
       return !isSafari;
@@ -237,10 +239,10 @@ export default defineComponent({
       return !isSafari;
     },
     dropboxToken: function () {
-      return this.$store.state.backup.dropboxToken;
+      return useBackupStore().dropboxToken;
     },
     oneDriveToken: function () {
-      return this.$store.state.backup.oneDriveToken;
+      return useBackupStore().oneDriveToken;
     },
   },
   methods: {

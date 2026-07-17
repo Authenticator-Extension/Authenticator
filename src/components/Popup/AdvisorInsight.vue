@@ -13,6 +13,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { AdvisorInsight } from "../../models/advisor";
+import { useAdvisorStore } from "../../store/Advisor";
 
 export default defineComponent({
   props: {
@@ -20,7 +21,7 @@ export default defineComponent({
   },
   methods: {
     dismiss(insight: AdvisorInsight) {
-      this.$store.dispatch("advisor/dismissInsight", insight.id);
+      useAdvisorStore().dismissInsight(insight.id);
     },
     openLink(url: string) {
       window.open(url, "_blank");

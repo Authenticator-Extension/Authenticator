@@ -154,11 +154,12 @@ import { defineComponent } from "vue";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
+import { useNotificationStore } from "../../store/Notification";
 export default defineComponent({
   methods: {
     showInfo(page: string) {
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
       useStyleStore().showInfo();
@@ -169,7 +170,7 @@ export default defineComponent({
     },
     async beginCapture() {
       if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
 
@@ -188,7 +189,7 @@ export default defineComponent({
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
+            useNotificationStore().alert(this.i18n.capture_failed);
           } else {
             window.close();
           }

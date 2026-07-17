@@ -139,6 +139,8 @@ import {
 import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useQrStore } from "../../store/Qr";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -155,7 +157,7 @@ const computedPrototype = [
     "encryption",
   ]),
   mapPiniaState(useStyleStore, ["style"]),
-  mapState("menu", ["theme"]),
+  mapPiniaState(useMenuStore, ["theme"]),
 ];
 
 let computed = {};
@@ -218,7 +220,7 @@ export default defineComponent({
     },
     shouldShowQrIcon(entry: OTPEntry) {
       return (
-        !this.$store.state.menu.exportDisabled &&
+        !useMenuStore().exportDisabled &&
         entry.secret !== null &&
         entry.type !== OTPType.battle &&
         entry.type !== OTPType.steam
@@ -280,12 +282,7 @@ export default defineComponent({
       return ((this.remaining(entry) / period) * 100).toFixed(1) + "%";
     },
     async removeEntry(entry: OTPEntry) {
-      if (
-        await this.$store.dispatch(
-          "notification/confirm",
-          this.i18n.confirm_delete,
-        )
-      ) {
+      if (await useNotificationStore().confirm(this.i18n.confirm_delete)) {
         await entry.delete();
         await this.$store.dispatch("accounts/deleteCode", entry.hash);
       }
@@ -350,7 +347,7 @@ export default defineComponent({
         // storage only ever holds a previously-accepted (valid) issuer, so
         // reload it from there to restore the pre-edit value and refuse the
         // write, mirroring AddAccountPage's "::" rejection.
-        this.$store.commit("notification/alert", this.i18n.errorissuer);
+        useNotificationStore().alert(this.i18n.errorissuer);
         const stored = (await EntryStorage.get()).find(
           (e) => e.hash === entry.hash,
         );
@@ -389,7 +386,7 @@ export default defineComponent({
               return;
             }
 
-            if (this.$store.state.menu.useAutofill) {
+            if (useMenuStore().useAutofill) {
               await insertContentScript();
               const tab = await getCurrentTab();
               if (tab && tab.id) {
@@ -413,10 +410,7 @@ export default defineComponent({
             codeClipboard.select();
             document.execCommand("Copy");
             lastActiveElement.focus();
-            this.$store.dispatch(
-              "notification/ephermalMessage",
-              this.i18n.copied,
-            );
+            useNotificationStore().ephermalMessage(this.i18n.copied);
           }
         },
       );

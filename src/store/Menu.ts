@@ -1,3 +1,5 @@
+import { defineStore } from "pinia";
+import { ref } from "vue";
 import { UserSettings } from "../models/settings";
 import { ManagedStorage } from "../models/storage";
 
@@ -15,81 +17,127 @@ function normalizeTheme(value?: string): string {
   }
 }
 
-export class Menu implements Module {
-  async getModule() {
-    await UserSettings.updateItems();
-
-    const menuState = {
-      state: {
-        version: chrome.runtime.getManifest()?.version || "0.0.0",
-        zoom: Number(UserSettings.items.zoom) || 100,
-        useAutofill: UserSettings.items.autofill === true,
-        smartFilter: UserSettings.items.smartFilter === true,
-        enableContextMenu: UserSettings.items.enableContextMenu === true,
-        theme: normalizeTheme(UserSettings.items.theme),
-        onboardingComplete: UserSettings.items.onboardingComplete === true,
-        autolock: Number(UserSettings.items.autolock) || 30,
-        backupDisabled: await ManagedStorage.get("disableBackup", false),
-        exportDisabled: await ManagedStorage.get("disableExport", false),
-        enforcePassword: await ManagedStorage.get("enforcePassword", false),
-        enforceAutolock: await ManagedStorage.get("enforceAutolock", false),
-        storageArea: await ManagedStorage.get<"sync" | "local">("storageArea"),
-        feedbackURL: await ManagedStorage.get<string>("feedbackURL"),
-        passwordPolicy: await ManagedStorage.get<string>("passwordPolicy"),
-        passwordPolicyHint:
-          await ManagedStorage.get<string>("passwordPolicyHint"),
-      },
-      mutations: {
-        setZoom: (state: MenuState, zoom: number) => {
-          state.zoom = zoom;
-          UserSettings.items.zoom = zoom;
-          UserSettings.commitItems();
-          this.resize(zoom);
-        },
-        setAutofill(state: MenuState, useAutofill: boolean) {
-          state.useAutofill = useAutofill;
-          UserSettings.items.autofill = useAutofill;
-          UserSettings.commitItems();
-        },
-        setSmartFilter(state: MenuState, smartFilter: boolean) {
-          state.smartFilter = smartFilter;
-          UserSettings.items.smartFilter = smartFilter;
-          UserSettings.commitItems();
-        },
-        setEnableContextMenu(state: MenuState, enableContextMenu: boolean) {
-          state.enableContextMenu = enableContextMenu;
-          UserSettings.items.enableContextMenu = enableContextMenu;
-          UserSettings.commitItems();
-        },
-        setTheme(state: MenuState, theme: string) {
-          state.theme = theme;
-          UserSettings.items.theme = theme;
-          UserSettings.commitItems();
-        },
-        setOnboardingComplete(state: MenuState, complete: boolean) {
-          state.onboardingComplete = complete;
-          UserSettings.items.onboardingComplete = complete;
-          UserSettings.commitItems();
-        },
-        setAutolock(state: MenuState, autolock: number) {
-          state.autolock = autolock;
-          UserSettings.items.autolock = autolock;
-          UserSettings.commitItems();
-        },
-      },
-      namespaced: true,
-    };
-
-    this.resize(menuState.state.zoom);
-
-    return menuState;
-  }
-
-  private resize(zoom: number) {
-    if (zoom !== 100) {
-      document.body.style.marginBottom = 580 * (zoom / 100 - 1) + "px";
-      document.body.style.marginRight = 360 * (zoom / 100 - 1) + "px";
-      document.body.style.transform = "scale(" + zoom / 100 + ")";
-    }
+function resize(zoom: number) {
+  if (zoom !== 100) {
+    document.body.style.marginBottom = 580 * (zoom / 100 - 1) + "px";
+    document.body.style.marginRight = 360 * (zoom / 100 - 1) + "px";
+    document.body.style.transform = "scale(" + zoom / 100 + ")";
   }
 }
+
+export const useMenuStore = defineStore("menu", () => {
+  const version = ref(chrome.runtime.getManifest()?.version || "0.0.0");
+  const zoom = ref(100);
+  const useAutofill = ref(false);
+  const smartFilter = ref(false);
+  const enableContextMenu = ref(false);
+  const theme = ref("light");
+  const onboardingComplete = ref(false);
+  const autolock = ref(30);
+  const backupDisabled = ref(false);
+  const exportDisabled = ref(false);
+  const enforcePassword = ref(false);
+  const enforceAutolock = ref(false);
+  const storageArea = ref<"sync" | "local" | undefined>(undefined);
+  const feedbackURL = ref<string | undefined>(undefined);
+  const passwordPolicy = ref<string | undefined>(undefined);
+  const passwordPolicyHint = ref<string | undefined>(undefined);
+
+  // Populates state from UserSettings/ManagedStorage; the caller must await
+  // this before the popup mounts so components never observe the pre-init
+  // defaults above.
+  async function init() {
+    await UserSettings.updateItems();
+
+    zoom.value = Number(UserSettings.items.zoom) || 100;
+    useAutofill.value = UserSettings.items.autofill === true;
+    smartFilter.value = UserSettings.items.smartFilter === true;
+    enableContextMenu.value = UserSettings.items.enableContextMenu === true;
+    theme.value = normalizeTheme(UserSettings.items.theme);
+    onboardingComplete.value = UserSettings.items.onboardingComplete === true;
+    autolock.value = Number(UserSettings.items.autolock) || 30;
+    backupDisabled.value = await ManagedStorage.get("disableBackup", false);
+    exportDisabled.value = await ManagedStorage.get("disableExport", false);
+    enforcePassword.value = await ManagedStorage.get("enforcePassword", false);
+    enforceAutolock.value = await ManagedStorage.get("enforceAutolock", false);
+    storageArea.value = await ManagedStorage.get<"sync" | "local">(
+      "storageArea",
+    );
+    feedbackURL.value = await ManagedStorage.get<string>("feedbackURL");
+    passwordPolicy.value = await ManagedStorage.get<string>("passwordPolicy");
+    passwordPolicyHint.value =
+      await ManagedStorage.get<string>("passwordPolicyHint");
+
+    resize(zoom.value);
+  }
+
+  function setZoom(newZoom: number) {
+    zoom.value = newZoom;
+    UserSettings.items.zoom = newZoom;
+    UserSettings.commitItems();
+    resize(newZoom);
+  }
+
+  function setAutofill(value: boolean) {
+    useAutofill.value = value;
+    UserSettings.items.autofill = value;
+    UserSettings.commitItems();
+  }
+
+  function setSmartFilter(value: boolean) {
+    smartFilter.value = value;
+    UserSettings.items.smartFilter = value;
+    UserSettings.commitItems();
+  }
+
+  function setEnableContextMenu(value: boolean) {
+    enableContextMenu.value = value;
+    UserSettings.items.enableContextMenu = value;
+    UserSettings.commitItems();
+  }
+
+  function setTheme(value: string) {
+    theme.value = value;
+    UserSettings.items.theme = value;
+    UserSettings.commitItems();
+  }
+
+  function setOnboardingComplete(value: boolean) {
+    onboardingComplete.value = value;
+    UserSettings.items.onboardingComplete = value;
+    UserSettings.commitItems();
+  }
+
+  function setAutolock(value: number) {
+    autolock.value = value;
+    UserSettings.items.autolock = value;
+    UserSettings.commitItems();
+  }
+
+  return {
+    version,
+    zoom,
+    useAutofill,
+    smartFilter,
+    enableContextMenu,
+    theme,
+    onboardingComplete,
+    autolock,
+    backupDisabled,
+    exportDisabled,
+    enforcePassword,
+    enforceAutolock,
+    storageArea,
+    feedbackURL,
+    passwordPolicy,
+    passwordPolicyHint,
+    init,
+    setZoom,
+    setAutofill,
+    setSmartFilter,
+    setEnableContextMenu,
+    setTheme,
+    setOnboardingComplete,
+    setAutolock,
+  };
+});

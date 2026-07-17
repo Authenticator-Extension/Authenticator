@@ -11,11 +11,11 @@ import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
 import { useStyleStore } from "./store/Style";
 import { Accounts } from "./store/Accounts";
-import { Backup } from "./store/Backup";
+import { useBackupStore } from "./store/Backup";
 import { useCurrentViewStore } from "./store/CurrentView";
-import { Menu } from "./store/Menu";
-import { Notification } from "./store/Notification";
-import { Advisor } from "./store/Advisor";
+import { useMenuStore } from "./store/Menu";
+import { useNotificationStore } from "./store/Notification";
+import { useAdvisorStore } from "./store/Advisor";
 import { Dropbox, OneDrive } from "./models/backup";
 import { syncTimeWithGoogle } from "./syncTime";
 import { StorageLocation, UserSettings } from "./models/settings";
@@ -39,20 +39,29 @@ async function init() {
     strict: process.env.NODE_ENV !== "production",
     modules: {
       accounts: await new Accounts().getModule(),
-      advisor: await new Advisor().getModule(),
-      backup: await new Backup().getModule(),
-      menu: await new Menu().getModule(),
-      notification: new Notification().getModule(),
     },
   });
 
-  // Pinia (Wave 1: style/currentView/qr migrated off Vuex). Must be active
-  // before any useXxxStore() call, including the ones below that run outside
-  // a component (this init() function itself).
+  // Pinia (Wave 1: style/currentView/qr; Wave 2: backup/advisor/menu/
+  // notification/permissions migrated off Vuex). Must be active before any
+  // useXxxStore() call, including the ones below that run outside a
+  // component (this init() function itself).
   const pinia = createPinia();
   setActivePinia(pinia);
   const styleStore = useStyleStore();
   const currentViewStore = useCurrentViewStore();
+  const backupStore = useBackupStore();
+  const menuStore = useMenuStore();
+  const notificationStore = useNotificationStore();
+  const advisorStore = useAdvisorStore();
+
+  // Backup/Menu/Advisor read UserSettings/ManagedStorage asynchronously
+  // (the old Vuex modules did the same via async getModule()). Await them
+  // here, in the same order the old `modules: {...}` object literal awaited
+  // them, so mount() never observes the pre-init defaults.
+  await advisorStore.init();
+  await backupStore.init();
+  await menuStore.init();
 
   // Render
   const app = createApp({
@@ -104,10 +113,7 @@ async function init() {
 
   // Warn if legacy password is set
   if (UserSettings.items.encodedPhrase) {
-    instance.$store.commit(
-      "notification/alert",
-      instance.i18n.local_passphrase_warning,
-    );
+    notificationStore.alert(instance.i18n.local_passphrase_warning);
   }
 
   // Backup reminder / run backup
@@ -215,7 +221,9 @@ async function runScheduledBackup(
   if (!instance.$store.state.accounts.defaultEncryption) {
     return;
   }
-  if (instance.$store.state.backup.dropboxToken) {
+  const backupStore = useBackupStore();
+  const notificationStore = useNotificationStore();
+  if (backupStore.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },
       async (hasPermission) => {
@@ -234,8 +242,7 @@ async function runScheduledBackup(
               UserSettings.commitItems();
               return;
             } else if (UserSettings.items.dropboxRevoked === true) {
-              instance.$store.commit(
-                "notification/alert",
+              notificationStore.alert(
                 chrome.i18n.getMessage("token_revoked", ["Dropbox"]),
               );
               UserSettings.items.dropboxRevoked = undefined;
@@ -246,16 +253,13 @@ async function runScheduledBackup(
             console.error("Scheduled backup failed", error);
           }
         }
-        instance.$store.commit(
-          "notification/alert",
-          instance.i18n.remind_backup,
-        );
+        notificationStore.alert(instance.i18n.remind_backup);
         UserSettings.items.lastRemindingBackupTime = clientTime;
         UserSettings.commitItems();
       },
     );
   }
-  if (instance.$store.state.backup.oneDriveToken) {
+  if (backupStore.oneDriveToken) {
     chrome.permissions.contains(
       {
         origins: [
@@ -277,8 +281,7 @@ async function runScheduledBackup(
               UserSettings.commitItems();
               return;
             } else if (UserSettings.items.oneDriveRevoked === true) {
-              instance.$store.commit(
-                "notification/alert",
+              notificationStore.alert(
                 chrome.i18n.getMessage("token_revoked", ["OneDrive"]),
               );
               UserSettings.items.oneDriveRevoked = undefined;
@@ -289,21 +292,18 @@ async function runScheduledBackup(
             console.error("Scheduled backup failed", error);
           }
         }
-        instance.$store.commit(
-          "notification/alert",
-          instance.i18n.remind_backup,
-        );
+        notificationStore.alert(instance.i18n.remind_backup);
         UserSettings.items.lastRemindingBackupTime = clientTime;
         UserSettings.commitItems();
       },
     );
   }
   if (
-    !instance.$store.state.backup.driveToken &&
-    !instance.$store.state.backup.dropboxToken &&
-    !instance.$store.state.backup.oneDriveToken
+    !backupStore.driveToken &&
+    !backupStore.dropboxToken &&
+    !backupStore.oneDriveToken
   ) {
-    instance.$store.commit("notification/alert", instance.i18n.remind_backup);
+    notificationStore.alert(instance.i18n.remind_backup);
     UserSettings.items.lastRemindingBackupTime = clientTime;
     UserSettings.commitItems();
   }
