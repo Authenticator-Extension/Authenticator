@@ -21,6 +21,7 @@ export default [
       "webpack.watch.js",
       "src/test/**",
       "src/models/credentials.ts",
+      "docs/**",
     ],
   },
   js.configs.recommended,
