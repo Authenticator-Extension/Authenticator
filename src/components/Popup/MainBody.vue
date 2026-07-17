@@ -63,11 +63,10 @@
         v-bind:tabindex="-1"
       />
     </div>
-    <draggable
+    <VueDraggable
       v-else
       class="entries"
       v-model="draggableEntries"
-      item-key="hash"
       handle=".movehandle"
       :disabled="!isEditing"
       v-on:keydown.down="focusNextEntry()"
@@ -75,14 +74,14 @@
       v-on:keydown.up="focusLastEntry()"
       v-on:keydown.left="focusLastEntry()"
     >
-      <template #item="{ element }">
-        <EntryComponent
-          v-bind:notSearched="!isSearchedEntry(element)"
-          v-bind:entry="element"
-          v-bind:tabindex="getTabindex(element)"
-        />
-      </template>
-    </draggable>
+      <EntryComponent
+        v-for="element in draggableEntries"
+        v-bind:key="element.hash"
+        v-bind:notSearched="!isSearchedEntry(element)"
+        v-bind:entry="element"
+        v-bind:tabindex="getTabindex(element)"
+      />
+    </VueDraggable>
     <div class="edit-add" v-if="isEditing" v-on:click="addAccount()">
       <svg
         viewBox="0 0 24 24"
@@ -124,7 +123,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapGetters } from "vuex";
-import draggable from "vuedraggable";
+import { VueDraggable } from "vue-draggable-plus";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 
@@ -288,7 +287,7 @@ export default defineComponent({
   },
   components: {
     EntryComponent,
-    draggable,
+    VueDraggable,
   },
 });
 </script>
