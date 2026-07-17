@@ -24,12 +24,12 @@ otpauth://hotp/...
   </div>
 </template>
 <script lang="ts">
-import * as CryptoJS from "crypto-js";
 import { defineComponent } from "vue";
 import {
   decryptBackupData,
   getEntryDataFromOTPAuthPerLine,
 } from "../../import";
+import { legacyDecryptToHex } from "../../models/legacy-decrypt";
 import { EntryStorage } from "../../models/storage";
 import { Encryption } from "../../models/encryption";
 
@@ -95,7 +95,7 @@ export default defineComponent({
       if (key && passphrase) {
         decryptedbackupData = await decryptBackupData(
           exportData,
-          CryptoJS.AES.decrypt(key.enc, passphrase).toString(),
+          await legacyDecryptToHex(key.enc, passphrase),
         );
       } else {
         decryptedbackupData = await decryptBackupData(exportData, passphrase);
