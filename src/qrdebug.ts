@@ -50,22 +50,33 @@ function getQrDebug(
       const url = captureCanvas.toDataURL();
       const infoDom = document.getElementById("info");
       if (infoDom) {
-        infoDom.innerHTML =
-          "<b>Scan Data:</b><br>" +
-          `<br>` +
-          `Window Inner Width: ${windowWidth}<br>` +
-          `Width: ${width}<br>` +
-          `Height: ${height}<br>` +
-          `Left: ${left}<br>` +
-          `Top: ${top}<br>` +
-          `Screen Width: ${window.screen.width}<br>` +
-          `Screen Height: ${window.screen.height}<br>` +
-          `Capture Width: ${qr.width}<br>` +
-          `Capture Height: ${qr.height}<br>` +
-          `Device Pixel Ratio: ${devicePixelRatio} / ${window.devicePixelRatio}<br>` +
-          `Tab ID: ${tab.id}<br>` +
-          "<br>" +
-          "<b>Captured Screenshot:</b>";
+        infoDom.textContent = "";
+        const title = document.createElement("b");
+        title.textContent = "Scan Data:";
+        infoDom.appendChild(title);
+        infoDom.appendChild(document.createElement("br"));
+        infoDom.appendChild(document.createElement("br"));
+        const lines = [
+          `Window Inner Width: ${windowWidth}`,
+          `Width: ${width}`,
+          `Height: ${height}`,
+          `Left: ${left}`,
+          `Top: ${top}`,
+          `Screen Width: ${window.screen.width}`,
+          `Screen Height: ${window.screen.height}`,
+          `Capture Width: ${qr.width}`,
+          `Capture Height: ${qr.height}`,
+          `Device Pixel Ratio: ${devicePixelRatio} / ${window.devicePixelRatio}`,
+          `Tab ID: ${tab.id}`,
+        ];
+        for (const line of lines) {
+          infoDom.appendChild(document.createTextNode(line));
+          infoDom.appendChild(document.createElement("br"));
+        }
+        infoDom.appendChild(document.createElement("br"));
+        const footer = document.createElement("b");
+        footer.textContent = "Captured Screenshot:";
+        infoDom.appendChild(footer);
       }
 
       const qrDom = document.getElementById("qr") as HTMLImageElement;
