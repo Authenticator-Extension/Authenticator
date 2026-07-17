@@ -3,6 +3,8 @@ import { Encryption } from "../models/encryption";
 import * as CryptoJS from "crypto-js";
 import { OTPType, OTPAlgorithm } from "../models/otp";
 import { ActionContext } from "vuex";
+import { useCurrentViewStore } from "./CurrentView";
+import { useStyleStore } from "./Style";
 import { getSiteName, getMatchedEntriesHash } from "../utils";
 import { isChromium } from "../browser";
 import { StorageLocation, UserSettings } from "../models/settings";
@@ -262,7 +264,7 @@ export class Accounts implements Module {
             return;
           }
 
-          state.commit("currentView/changeView", "LoadingPage", { root: true });
+          useCurrentViewStore().changeView("LoadingPage");
 
           // Decrypt entries
           let saltedHash = "";
@@ -276,9 +278,7 @@ export class Accounts implements Module {
 
             if (!isCorrectPassword) {
               state.commit("wrongPassword");
-              state.commit("currentView/changeView", "EnterPasswordPage", {
-                root: true,
-              });
+              useCurrentViewStore().changeView("EnterPasswordPage");
               return;
             }
 
@@ -299,9 +299,7 @@ export class Accounts implements Module {
 
             if (state.getters.currentlyEncrypted) {
               state.commit("wrongPassword");
-              state.commit("currentView/changeView", "EnterPasswordPage", {
-                root: true,
-              });
+              useCurrentViewStore().changeView("EnterPasswordPage");
               return;
             }
 
@@ -342,9 +340,7 @@ export class Accounts implements Module {
 
             if (!saltedHash) {
               state.commit("wrongPassword");
-              state.commit("currentView/changeView", "EnterPasswordPage", {
-                root: true,
-              });
+              useCurrentViewStore().changeView("EnterPasswordPage");
               return;
             }
           }
@@ -451,7 +447,7 @@ export class Accounts implements Module {
             });
           }
 
-          state.dispatch("style/hideInfo", true, { root: true });
+          useStyleStore().hideInfo(true);
           return;
         },
         changePassphrase: async (

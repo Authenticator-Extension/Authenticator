@@ -98,6 +98,7 @@
 import { defineComponent } from "vue";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 export default defineComponent({
   computed: {
@@ -230,20 +231,20 @@ export default defineComponent({
       });
     },
     migrateStorage() {
-      this.$store.commit("currentView/changeView", "LoadingPage");
+      useCurrentViewStore().changeView("LoadingPage");
       this.$store
         .dispatch("accounts/migrateStorage", this.newStorageLocation)
         .then(
           (m) => {
             this.$store.commit("notification/alert", this.i18n[m]);
-            this.$store.commit("currentView/changeView", "PreferencesPage");
+            useCurrentViewStore().changeView("PreferencesPage");
           },
           (r: string) => {
             this.$store.commit(
               "notification/alert",
               this.i18n.updateFailure + r,
             );
-            this.$store.commit("currentView/changeView", "PreferencesPage");
+            useCurrentViewStore().changeView("PreferencesPage");
           },
         );
     },

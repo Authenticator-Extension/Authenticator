@@ -116,6 +116,7 @@
 import { defineComponent } from "vue";
 import { Dropbox } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
 
 const service = "dropbox";
 
@@ -168,7 +169,7 @@ export default defineComponent({
       delete UserSettings.items.dropboxRefreshToken;
       await UserSettings.commitItems();
       this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.dispatch("style/hideInfo");
+      useStyleStore().hideInfo();
       if (!tokenToRevoke) {
         return;
       }

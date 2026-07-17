@@ -36,6 +36,7 @@
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 export default defineComponent({
   data: function () {
@@ -58,7 +59,7 @@ export default defineComponent({
       } catch (error) {
         // applyPassphrase switches to LoadingPage first; if decryption/migration
         // throws, recover the UI instead of leaving the user stuck there.
-        this.$store.commit("currentView/changeView", "EnterPasswordPage");
+        useCurrentViewStore().changeView("EnterPasswordPage");
         this.$store.commit(
           "notification/alert",
           error instanceof Error ? error.message : String(error),

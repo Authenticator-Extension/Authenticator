@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Authenticator-Extension/Authenticator#readme",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@pinia/testing": "^2.0.1",
     "@types/argon2-browser": "^1.18.1",
     "@types/chai": "^4.2.14",
     "@types/chrome": "^0.2.2",
@@ -67,6 +68,7 @@
     "argon2-browser": "^1.18.0",
     "crypto-js": "^4.1.1",
     "node-gost-crypto": "^1.0.2",
+    "pinia": "^4.0.2",
     "qrcode-generator": "^1.5.2",
     "vue": "^3.5.40",
     "vue-draggable-plus": "^0.6.1",

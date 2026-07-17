@@ -90,6 +90,8 @@ import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 export default defineComponent({
   components: {
@@ -114,7 +116,7 @@ export default defineComponent({
   },
   methods: {
     hideMenu() {
-      this.$store.dispatch("style/hideMenu");
+      useStyleStore().hideMenu();
     },
     openLink(url: string) {
       window.open(url, "_blank");
@@ -127,8 +129,8 @@ export default defineComponent({
           return;
         }
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", tab);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(tab);
       return;
     },
     syncClock() {

@@ -80,6 +80,7 @@ import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 import { normalizeHost } from "../../utils";
+import { useStyleStore } from "../../store/Style";
 
 export default defineComponent({
   data: function (): {
@@ -187,8 +188,8 @@ export default defineComponent({
         return;
       }
       await this.$store.dispatch("accounts/addCode", entry);
-      this.$store.dispatch("style/hideInfo");
-      this.$store.commit("style/toggleEdit");
+      useStyleStore().hideInfo();
+      useStyleStore().toggleEdit();
 
       const codes = document.getElementById("codes");
       if (codes) {

@@ -152,6 +152,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 export default defineComponent({
   methods: {
     showInfo(page: string) {
@@ -159,8 +161,8 @@ export default defineComponent({
         this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
         return;
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     openImport(query: string) {
       window.open(`import.html?${query}`, "_blank");

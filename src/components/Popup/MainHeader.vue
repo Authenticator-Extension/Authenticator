@@ -100,7 +100,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -113,7 +116,7 @@ import IconPlus from "../../../svg/plus.svg";
 import { isFirefox } from "../../browser";
 
 const computedPrototype = [
-  mapState("style", ["style"]),
+  mapPiniaState(useStyleStore, ["style"]),
   mapState("accounts", ["defaultEncryption"]),
   mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
 ];
@@ -147,7 +150,7 @@ export default defineComponent({
       window.close();
     },
     showMenu() {
-      this.$store.commit("style/showMenu");
+      useStyleStore().showMenu();
     },
     showInfo(page: string) {
       if (page === "AddMethodPage") {
@@ -158,11 +161,11 @@ export default defineComponent({
           page = "SetPasswordPage";
         }
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     editEntry() {
-      this.$store.commit("style/toggleEdit");
+      useStyleStore().toggleEdit();
       this.$store.commit("accounts/stopFilter");
     },
     lock() {
@@ -180,8 +183,8 @@ export default defineComponent({
         this.$store.state.menu.enforcePassword &&
         !this.$store.state.accounts.defaultEncryption
       ) {
-        this.$store.commit("style/showInfo");
-        this.$store.commit("currentView/changeView", "SetPasswordPage");
+        useStyleStore().showInfo();
+        useCurrentViewStore().changeView("SetPasswordPage");
         return;
       }
 

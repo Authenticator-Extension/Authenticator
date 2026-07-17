@@ -14,6 +14,8 @@
 import { defineComponent } from "vue";
 
 import IconXCircle from "../../../svg/x-circle.svg";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 import AddAccountPage from "./AddAccountPage.vue";
 import AddMethodPage from "./AddMethodPage.vue";
@@ -29,12 +31,12 @@ import LoadingPage from "./LoadingPage.vue";
 export default defineComponent({
   computed: {
     info: function () {
-      return this.$store.state.currentView.info;
+      return useCurrentViewStore().info;
     },
   },
   methods: {
     hideInfo() {
-      this.$store.dispatch("style/hideInfo");
+      useStyleStore().hideInfo();
     },
   },
   components: {

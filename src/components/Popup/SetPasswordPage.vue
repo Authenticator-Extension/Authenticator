@@ -77,6 +77,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { verifyPasswordUsingKeyID } from "../../models/password";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 export default defineComponent({
   data: function () {
@@ -136,7 +138,7 @@ export default defineComponent({
   },
   methods: {
     async removePassphrase() {
-      this.$store.commit("currentView/changeView", "LoadingPage");
+      useCurrentViewStore().changeView("LoadingPage");
 
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
@@ -145,14 +147,14 @@ export default defineComponent({
         );
         if (!isCorrectPassword) {
           this.$store.commit("notification/alert", this.i18n.phrase_not_match);
-          this.$store.commit("currentView/changeView", "SetPasswordPage");
+          useCurrentViewStore().changeView("SetPasswordPage");
           return;
         }
       }
 
       await this.$store.dispatch("accounts/changePassphrase", "");
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.dispatch("style/hideInfo");
+      useStyleStore().hideInfo();
       return;
     },
     async changePassphrase() {
@@ -172,7 +174,7 @@ export default defineComponent({
         return;
       }
 
-      this.$store.commit("currentView/changeView", "LoadingPage");
+      useCurrentViewStore().changeView("LoadingPage");
 
       if (this.defaultEncryption) {
         const isCorrectPassword = await verifyPasswordUsingKeyID(
@@ -181,14 +183,14 @@ export default defineComponent({
         );
         if (!isCorrectPassword) {
           this.$store.commit("notification/alert", this.i18n.phrase_wrong);
-          this.$store.commit("currentView/changeView", "SetPasswordPage");
+          useCurrentViewStore().changeView("SetPasswordPage");
           return;
         }
       }
 
       await this.$store.dispatch("accounts/changePassphrase", this.phrase);
       this.$store.commit("notification/alert", this.i18n.updateSuccess);
-      this.$store.dispatch("style/hideInfo");
+      useStyleStore().hideInfo();
       return;
     },
   },

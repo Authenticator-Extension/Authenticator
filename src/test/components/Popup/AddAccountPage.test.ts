@@ -6,6 +6,7 @@ import * as sinonChai from "sinon-chai";
 import { mount } from "@vue/test-utils";
 import { toRaw } from "vue";
 import { createStore, Store } from "vuex";
+import { createTestingPinia } from "@pinia/testing";
 import CommonComponents from "../../../components/common/index";
 
 import AddAccountPage from "../../../components/Popup/AddAccountPage.vue";
@@ -45,11 +46,6 @@ describe("AddAccountPage", () => {
         actions: { addCode },
         namespaced: true,
       },
-      style: {
-        actions: { hideInfo: sinon.fake() },
-        mutations: { toggleEdit: () => undefined },
-        namespaced: true,
-      },
       notification: {
         mutations: { alert: () => undefined },
         namespaced: true,
@@ -66,8 +62,15 @@ describe("AddAccountPage", () => {
   });
 
   it("should construct the new entry with the default encryption instance", async () => {
+    // style module is now a Pinia store (Wave 1 migration); stub its actions
+    // (hideInfo/toggleEdit) so AddAccountPage's post-add calls are no-ops,
+    // matching the previous Vuex sinon.fake()/no-op mutation stand-ins.
+    const pinia = createTestingPinia({
+      createSpy: sinon.spy,
+      stubActions: true,
+    });
     const wrapper = mount(AddAccountPage, {
-      global: { plugins: [store], mocks: { i18n }, components },
+      global: { plugins: [store, pinia], mocks: { i18n }, components },
     });
 
     wrapper.vm.newAccount.secret = "aaaaaaaaaaaaaaaa"; // valid base32, >= 16 chars

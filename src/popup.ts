@@ -1,6 +1,7 @@
 // Vue
 import { createApp, h, ComponentPublicInstance } from "vue";
 import { createStore } from "vuex";
+import { createPinia, setActivePinia } from "pinia";
 
 // Components
 import Popup from "./components/Popup.vue";
@@ -8,13 +9,12 @@ import CommonComponents from "./components/common/index";
 
 // Other
 import { loadI18nMessages } from "./store/i18n";
-import { Style } from "./store/Style";
+import { useStyleStore } from "./store/Style";
 import { Accounts } from "./store/Accounts";
 import { Backup } from "./store/Backup";
-import { CurrentView } from "./store/CurrentView";
+import { useCurrentViewStore } from "./store/CurrentView";
 import { Menu } from "./store/Menu";
 import { Notification } from "./store/Notification";
-import { Qr } from "./store/Qr";
 import { Advisor } from "./store/Advisor";
 import { Dropbox, OneDrive } from "./models/backup";
 import { syncTimeWithGoogle } from "./syncTime";
@@ -41,13 +41,18 @@ async function init() {
       accounts: await new Accounts().getModule(),
       advisor: await new Advisor().getModule(),
       backup: await new Backup().getModule(),
-      currentView: new CurrentView().getModule(),
       menu: await new Menu().getModule(),
       notification: new Notification().getModule(),
-      qr: new Qr().getModule(),
-      style: new Style().getModule(),
     },
   });
+
+  // Pinia (Wave 1: style/currentView/qr migrated off Vuex). Must be active
+  // before any useXxxStore() call, including the ones below that run outside
+  // a component (this init() function itself).
+  const pinia = createPinia();
+  setActivePinia(pinia);
+  const styleStore = useStyleStore();
+  const currentViewStore = useCurrentViewStore();
 
   // Render
   const app = createApp({
@@ -61,6 +66,7 @@ async function init() {
     },
   });
 
+  app.use(pinia);
   app.use(store);
   // Add globals
   app.config.globalProperties.i18n = await loadI18nMessages();
@@ -75,11 +81,11 @@ async function init() {
   if (instance.$store.state.accounts.shouldShowPassphrase) {
     // If we have cached password, use that
     if (instance.$store.state.accounts.defaultEncryption) {
-      instance.$store.commit("currentView/changeView", "LoadingPage");
+      currentViewStore.changeView("LoadingPage");
       await instance.$store.dispatch("accounts/updateEntries");
     } else {
-      instance.$store.commit("style/showInfo", true);
-      instance.$store.commit("currentView/changeView", "EnterPasswordPage");
+      styleStore.showInfo(true);
+      currentViewStore.changeView("EnterPasswordPage");
     }
   } else {
     // Set init complete if no encryption is present, otherwise this will be set in updateEntries.
@@ -134,7 +140,7 @@ async function init() {
     "keyup",
     (e) => {
       if (e.key === "/") {
-        if (instance.$store.getters["style/isMenuShown"]) {
+        if (styleStore.isMenuShown) {
           return;
         }
         instance.$store.commit("accounts/stopFilter");

@@ -46,6 +46,7 @@
 import { defineComponent } from "vue";
 import { OneDrive } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
 
 const service = "onedrive";
 
@@ -92,7 +93,7 @@ export default defineComponent({
       UserSettings.items.oneDriveRefreshToken = undefined;
       UserSettings.commitItems();
       this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.dispatch("style/hideInfo");
+      useStyleStore().hideInfo();
     },
     async backupUpload() {
       const oneDrive = new OneDrive();

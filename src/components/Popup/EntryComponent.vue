@@ -124,6 +124,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
@@ -135,6 +136,9 @@ import {
   stripBoundHost,
   okToInjectContentScript,
 } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useQrStore } from "../../store/Qr";
 
 import IconMinusCircle from "../../../svg/minus-circle.svg";
 import IconRedo from "../../../svg/redo.svg";
@@ -150,7 +154,7 @@ const computedPrototype = [
     "second",
     "encryption",
   ]),
-  mapState("style", ["style"]),
+  mapPiniaState(useStyleStore, ["style"]),
   mapState("menu", ["theme"]),
 ];
 
@@ -179,7 +183,7 @@ export default defineComponent({
   methods: {
     openContext(e: MouseEvent) {
       // No menu while editing (pin is always available, so the menu always opens)
-      if (this.$store.state.style.style.isEditing) {
+      if (useStyleStore().style.isEditing) {
         return;
       }
       const menuW = 180;
@@ -297,7 +301,7 @@ export default defineComponent({
     },
     showQr(entry: OTPEntry) {
       const hue = hueFromString(entry.issuer || entry.account || "");
-      this.$store.commit("qr/setQr", {
+      useQrStore().setQr({
         src: getQrUrl(entry),
         issuer: stripBoundHost(entry.issuer),
         account: entry.account,
@@ -305,14 +309,14 @@ export default defineComponent({
         monoBg: `oklch(0.86 0.07 ${hue})`,
         monoFg: `oklch(0.42 0.16 ${hue})`,
       });
-      this.$store.commit("style/showQr");
+      useStyleStore().showQr();
       return;
     },
     async nextCode(entry: OTPEntry) {
-      if (this.$store.state.style.style.hotpDisabled) {
+      if (useStyleStore().style.hotpDisabled) {
         return;
       }
-      this.$store.commit("style/toggleHotpDisabled");
+      useStyleStore().toggleHotpDisabled();
       // entry.next() mutated the store-held entry directly; do the in-memory
       // counter/code change in a mutation, then persist (storage, not state)
       if (entry.type === OTPType.hotp || entry.type === OTPType.hhex) {
@@ -322,7 +326,7 @@ export default defineComponent({
         }
       }
       setTimeout(() => {
-        this.$store.commit("style/toggleHotpDisabled");
+        useStyleStore().toggleHotpDisabled();
       }, 3000);
       return;
     },
@@ -361,7 +365,7 @@ export default defineComponent({
     },
     async copyCode(entry: OTPEntry) {
       if (
-        this.$store.state.style.style.isEditing ||
+        useStyleStore().style.isEditing ||
         entry.code === CodeState.Invalid ||
         entry.code.startsWith("•")
       ) {
@@ -369,8 +373,8 @@ export default defineComponent({
       }
 
       if (entry.code === CodeState.Encrypted) {
-        this.$store.commit("style/showInfo", true);
-        this.$store.commit("currentView/changeView", "EnterPasswordPage");
+        useStyleStore().showInfo(true);
+        useCurrentViewStore().changeView("EnterPasswordPage");
         return;
       }
 

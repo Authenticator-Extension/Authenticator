@@ -96,6 +96,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState, mapGetters } from "vuex";
+import { mapState as mapPiniaState } from "pinia";
 
 import MainHeader from "./Popup/MainHeader.vue";
 import MainBody from "./Popup/MainBody.vue";
@@ -103,11 +104,13 @@ import MenuPage from "./Popup/MenuPage.vue";
 import PageHandler from "./Popup/PageHandler.vue";
 import NotificationHandler from "./Popup/NotificationHandler.vue";
 import Onboarding from "./Popup/Onboarding.vue";
+import { useStyleStore } from "../store/Style";
+import { useQrStore } from "../store/Qr";
 
 const computedPrototype = [
-  mapState("style", ["style"]),
+  mapPiniaState(useStyleStore, ["style"]),
   mapState("menu", ["theme", "onboardingComplete"]),
-  mapState("qr", ["qr"]),
+  mapPiniaState(useQrStore, ["qr"]),
   mapState("notification", ["notification"]),
   mapState("accounts", ["initComplete"]),
   mapGetters("accounts", ["entries"]),
@@ -128,7 +131,7 @@ export default defineComponent({
   computed,
   methods: {
     hideQr() {
-      this.$store.dispatch("style/hideQr");
+      useStyleStore().hideQr();
     },
   },
   components: {

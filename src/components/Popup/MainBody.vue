@@ -126,6 +126,8 @@ import { mapState, mapGetters } from "vuex";
 import { VueDraggable } from "vue-draggable-plus";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 import EntryComponent from "./EntryComponent.vue";
 
@@ -144,7 +146,7 @@ export default defineComponent({
     ]),
     ...mapGetters("accounts", ["shouldFilter", "entries"]),
     isEditing(): boolean {
-      return this.$store.state.style.style.isEditing;
+      return useStyleStore().style.isEditing;
     },
     // Smart-filter split: matched (or pinned) accounts vs. everything else.
     matchedList(): OTPEntry[] {
@@ -193,8 +195,8 @@ export default defineComponent({
       ) {
         page = "SetPasswordPage";
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     isMatchedEntry(entry: OTPEntry) {
       for (const hash of this.$store.getters["accounts/matchedEntries"]) {

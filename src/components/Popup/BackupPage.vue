@@ -201,6 +201,8 @@
 import { defineComponent } from "vue";
 import { isSafari } from "../../browser";
 import { stripBoundHost } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 export default defineComponent({
   data: function () {
@@ -248,8 +250,8 @@ export default defineComponent({
           { origins: ["https://*.dropboxapi.com/*"] },
           async (granted) => {
             if (granted) {
-              this.$store.commit("style/showInfo");
-              this.$store.commit("currentView/changeView", tab);
+              useStyleStore().showInfo();
+              useCurrentViewStore().changeView(tab);
             }
           },
         );
@@ -264,8 +266,8 @@ export default defineComponent({
           },
           async (granted) => {
             if (granted) {
-              this.$store.commit("style/showInfo");
-              this.$store.commit("currentView/changeView", tab);
+              useStyleStore().showInfo();
+              useCurrentViewStore().changeView(tab);
             }
             return;
           },

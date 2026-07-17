@@ -1,4 +1,5 @@
 import { ActionContext } from "vuex";
+import { useStyleStore } from "./Style";
 
 export class Notification implements Module {
   getModule() {
@@ -63,7 +64,7 @@ export class Notification implements Module {
           message: string,
         ) => {
           state.commit("setNotification", message);
-          state.dispatch("style/showNotification", null, { root: true });
+          useStyleStore().showNotification();
         },
       },
       namespaced: true,
