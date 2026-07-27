@@ -28,7 +28,7 @@
     "description": "QR Error."
   },
   "error_not_otpauth": {
-    "message": "The scanned QR code is not a valid otpauth code.",
+    "message": "De scande QR-koade is gjin jildige otpauth-koade.",
     "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
   },
   "errorsecret": {
