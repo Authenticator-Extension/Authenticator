@@ -44,7 +44,6 @@
     "lodash": "^4.18.1",
     "mocha": "^11.7.6",
     "npm-license-generator": "^2.0.0",
-    "nyc": "^15.1.0",
     "prettier": "^3.9.5",
     "process": "^0.11.10",
     "puppeteer": "^24.43.1",
@@ -68,8 +67,11 @@
     "argon2-browser": "^1.18.0",
     "node-gost-crypto": "^1.0.2",
     "pinia": "^4.0.2",
-    "qrcode-generator": "^1.5.2",
+    "qrcode-generator": "^2.0.4",
     "vue": "^3.5.40",
     "vue-draggable-plus": "^0.6.1"
+  },
+  "allowScripts": {
+    "puppeteer@24.43.1": true
   }
 }
