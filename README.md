@@ -14,7 +14,7 @@ This is a fork of [Authenticator-Extension/Authenticator](https://github.com/Aut
 ## Build Setup
 
 ```bash
-# install dependencies (~2 min, downloads puppeteer Chromium)
+# install dependencies (~2 min)
 npm ci
 
 # build for a target
@@ -23,7 +23,13 @@ npm run [chrome, firefox, edge, prod]
 
 Notes:
 
-- Build output goes to `chrome/` (bundles under `chrome/js/`); these directories are gitignored.
+- Build output goes to `chrome/` / `firefox/` / `edge/` (bundles under `<target>/js/`); these directories are gitignored. Each target build wipes the other targets' output directories first.
+- npm 12+ blocks dependency install scripts by default, so `npm ci` does **not** download puppeteer's Chromium. Before the first `npm test`, run:
+
+  ```bash
+  npm install-scripts approve puppeteer
+  npm rebuild puppeteer
+  ```
 - `npm run prod` aborts if `src/models/credentials.ts` is empty (OAuth credentials are kept out of the repo). `chrome`/`test` builds only warn — everything works except live cloud backup.
 - **Windows**: builds run through `bash scripts/build.sh`, so use a full [Git Bash](https://git-scm.com/download/win) (with complete coreutils). Running `npm test` from plain PowerShell fails with `'bash' is not recognized`.
 
@@ -34,6 +40,8 @@ Notes:
 npm run dev:chrome
 # then load the unpacked extension from the `chrome/` directory
 ```
+
+There is no auto-reload: reload the extension manually after each rebuild. The test suite runs automatically after every rebuild.
 
 ## Testing
 
