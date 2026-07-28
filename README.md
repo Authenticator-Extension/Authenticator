@@ -6,9 +6,12 @@
 
 This is a fork of [Authenticator-Extension/Authenticator](https://github.com/Authenticator-Extension/Authenticator) ([source of this fork](https://github.com/Hank076/Authenticator)). On top of upstream, this fork adds:
 
-- **Encrypted cloud backup to Dropbox** — OAuth Authorization Code + PKCE via `chrome.identity.launchWebAuthFlow`; no client secret ships in the extension. (Google Drive backup was removed in 2026-07; OneDrive is a disabled placeholder.)
-- **Advisor** — security recommendations for your accounts.
-- **Host-bound autofill** — codes are only injected when the page host matches the account.
+- **Native Web Crypto encryption** — crypto-js is no longer maintained, so the vault moved to Web Crypto AES-GCM (Argon2id-derived key, a fresh random IV per record, GCM auth tag). A wrong password or tampered data now fails loudly instead of decrypting into a silently wrong code; legacy CBC ciphertext stays readable and upgrades on the next write.
+- **Host-bound autofill** — codes are only injected when the page's real host matches the account. Upstream matched on the page title, which the visited site controls.
+- **Master password required for cloud backup** — uploads are blocked entirely until one is set, so an unencrypted vault can never leave the device.
+- **Dropbox backup via OAuth PKCE** — Authorization Code + PKCE through `chrome.identity.launchWebAuthFlow`; no client secret ships in the extension. (Google Drive backup was removed in 2026-07; OneDrive is a disabled placeholder.)
+- **Smaller footprint in your tabs** — QR decoding moved from the content script into the background worker, cutting injected code from ~1.9 MiB to ~55 KiB. Four unused OAuth host permissions and their CSP `connect-src` entries were removed.
+- **Modernized QR stack** — the parallel `qrcode-reader` / `jsqr` decoders were consolidated onto `@zxing/library`; `qrcode-generator` upgraded to v2.
 - **Redesigned import flow** and a CSS custom-property design system (`sass/_tokens.scss`).
 
 ## Build Setup
