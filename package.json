@@ -1,6 +1,6 @@
 {
   "name": "authenticator-extension",
-  "version": "8.0.4",
+  "version": "8.0.5",
   "description": "Authenticator generates 2-Step Verification codes in your browser.",
   "scripts": {
     "compile": "bash scripts/build.sh firefox",
