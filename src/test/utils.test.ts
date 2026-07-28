@@ -325,6 +325,97 @@ describe("EntryStorage.backupGetExport decrypts EncOTPStorage entries for a plai
   });
 });
 
+// EntryStorage.import() used to run parseInt() on the type and algorithm
+// fields, but both are persisted as their enum *names* ("hotp", "SHA512"), so
+// parseInt returned NaN and the entry silently fell back to TOTP/SHA1. A
+// SHA-512 account added by QR scan / otpauth URI / backup restore therefore
+// generated SHA-1 codes while the UI still claimed SHA-512
+// (Authenticator-Extension/Authenticator#1442, #1294, #1089, #1559; imported
+// HOTP/Steam entries becoming TOTP is the same bug: #1292, #405).
+describe("EntryStorage.import maps type/algorithm names back to their enums", () => {
+  const importEncryption = new Encryption("", "");
+
+  function rawEntry(overrides: Partial<RawOTPStorage>): RawOTPStorage {
+    return {
+      hash: crypto.randomUUID(),
+      index: 0,
+      encrypted: false,
+      secret: "AAAAAAAAAAAAAAAA",
+      issuer: "EnumImportTest",
+      account: "user",
+      type: OTPType[OTPType.totp],
+      ...overrides,
+    };
+  }
+
+  async function importAndRead(item: RawOTPStorage) {
+    await EntryStorage.import(importEncryption, { [item.hash]: item });
+    const restored = (await EntryStorage.get()).find(
+      (e) => e.hash === item.hash,
+    );
+    expect(restored, "imported entry should be present").to.exist;
+    return restored as OTPEntryInterface;
+  }
+
+  it("keeps SHA512 instead of falling back to SHA1", async () => {
+    const item = rawEntry({ algorithm: OTPAlgorithm[OTPAlgorithm.SHA512] });
+    const restored = await importAndRead(item);
+    try {
+      expect(restored.algorithm).to.equal(OTPAlgorithm.SHA512);
+    } finally {
+      await EntryStorage.delete(restored);
+    }
+  });
+
+  it("accepts a lower-cased algorithm name, as written in otpauth:// URIs", async () => {
+    const item = rawEntry({ algorithm: "sha256" });
+    const restored = await importAndRead(item);
+    try {
+      expect(restored.algorithm).to.equal(OTPAlgorithm.SHA256);
+    } finally {
+      await EntryStorage.delete(restored);
+    }
+  });
+
+  it("keeps the hotp type instead of falling back to totp", async () => {
+    const item = rawEntry({ type: OTPType[OTPType.hotp], counter: 7 });
+    const restored = await importAndRead(item);
+    try {
+      expect(restored.type).to.equal(OTPType.hotp);
+      expect(restored.counter).to.equal(7);
+    } finally {
+      await EntryStorage.delete(restored);
+    }
+  });
+
+  it("still defaults to SHA1 when no algorithm is stored", async () => {
+    const item = rawEntry({});
+    const restored = await importAndRead(item);
+    try {
+      expect(restored.algorithm).to.equal(OTPAlgorithm.SHA1);
+    } finally {
+      await EntryStorage.delete(restored);
+    }
+  });
+
+  // The consequence of the fallback: SHA1 and SHA512 are not interchangeable,
+  // so a silently downgraded entry hands the user a code the server rejects.
+  it("SHA1 and SHA512 produce different codes for the same secret and counter", () => {
+    const args = ["AAAAAAAAAAAAAAAA", 7, 30, 6] as const;
+    const sha1 = KeyUtilities.generate(
+      OTPType.hotp,
+      ...args,
+      OTPAlgorithm.SHA1,
+    );
+    const sha512 = KeyUtilities.generate(
+      OTPType.hotp,
+      ...args,
+      OTPAlgorithm.SHA512,
+    );
+    expect(sha1).to.not.equal(sha512);
+  });
+});
+
 // base32tohex used to map any character outside [A-Z2-7=] to indexOf's -1
 // sentinel and silently fold that into the key bits, producing a
 // wrong-but-well-formed OTP with no indication anything was wrong.
