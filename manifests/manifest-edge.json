@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Authenticator: 2FA Client",
-    "version": "8.0.2",
+    "version": "8.0.5",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -40,7 +40,7 @@
         ]
     },
     "background": {
-        "service_worker": "dist/background.js"
+        "service_worker": "js/background.js"
     },
     "sandbox": {
         "pages": [

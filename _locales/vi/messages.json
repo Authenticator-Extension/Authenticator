@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Trình xác thực",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Trang web",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Vui lòng đặt mật khẩu trước khi sử dụng sao lưu đám mây, để dữ liệu bí mật của bạn được mã hóa trước khi rời khỏi thiết bị này.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator tạo mã xác thực hai yếu tố trong trình duyệt của bạn",
+    "message": "OTPilot Authenticator tạo mã xác thực hai yếu tố (2FA), có sao lưu đám mây được mã hóa, tự động điền theo trang web và gợi ý bảo mật.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "Không nhận ra mã QR.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Mã QR đã quét không phải là mã otpauth hợp lệ.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
-    "message": "Lỗi bảo mật không hợp lệ",
+    "message": "Mã bí mật tài khoản không hợp lệ",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Nhà phát hành không được chứa \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Thêm tài khoản",
@@ -42,10 +58,6 @@
   "migration_partly_fail": {
     "message": "Một vài dữ liệu tài khoản không nhập vào thành công.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Đóng",
-    "description": "Close."
   },
   "ok": {
     "message": "Xác nhận",
@@ -99,10 +111,6 @@
     "message": "Mật khẩu hiện tại",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Mật khẩu mới",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Mật khẩu",
     "description": "Passphrase."
@@ -112,7 +120,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Bạn có chắc sẽ xóa tài khoản này? Yêu cầu này không thể hoàn tác.",
+    "message": "Bạn có chắc chắn muốn xóa tài khoản này không? Hành động này không thể hoàn tác.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -120,25 +128,21 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Thiết lập lại Authenticator"
+    "message": "Thiết lập lại OTPilot"
   },
   "delete_all_warning": {
-    "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập Authenticator về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại Authenticator."
+    "message": "Hành động này sẽ xóa toàn bộ dữ liệu của bạn và thiết lập OTPilot về trạng thái ban đầu. Bạn sẽ không thể khôi phục dữ liệu đã xóa. Bạn nên cân nhắc việc sao lưu lại dữ liệu trước khi đặt lại OTPilot."
   },
   "security_warning": {
     "message": "Mật khẩu này sẽ được sử dụng để mã hóa tài khoản của bạn. Không ai có thể giúp bạn nếu bạn quên mật khẩu.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Cập nhật",
-    "description": "Update."
-  },
   "phrase_incorrect": {
-    "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
+    "message": "Bạn không thể thêm tài khoản mới cho đến khi tất cả tài khoản đã được giải mã. Vui lòng nhập đúng mật khẩu trước khi tiếp tục.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Accounts that were not able to be decrypted will not be included in this backup.",
+    "message": "Các tài khoản không thể giải mã sẽ không được đưa vào bản sao lưu này.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -157,10 +161,6 @@
     "message": "Phản hồi",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Dịch thuật",
-    "description": "Translate."
-  },
   "source": {
     "message": "Mã nguồn",
     "description": "Source Code."
@@ -172,10 +172,6 @@
   "sync_clock": {
     "message": "Đồng bộ đồng hồ với Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Nhớ mật khẩu",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Chú ý! Đồng hồ trên máy của bạn bị sai, xin hãy điều chỉnh lại trước khi tiếp tục.",
@@ -190,7 +186,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Bạn có thử quét mã QR từ file trên máy của bạn? Sử dụng ảnh chứa mã QR để thay thế.",
+    "message": "Bạn đang thử quét mã QR từ tệp trên máy tính? Hãy dùng chức năng Nhập sao lưu hình ảnh QR để thay thế.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -230,16 +226,48 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Nhập hình ảnh QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Nhập bản sao lưu",
+    "message": "Nhập OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
     "message": "Nhập các đường liên kết chứa OTP",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Kéo thả tệp sao lưu vào đây, hoặc nhấn để duyệt tệp",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Hỗ trợ tệp xuất .json và .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Chọn tệp",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Nếu tệp đã được mã hóa, bạn sẽ được yêu cầu nhập mật khẩu sau khi chọn tệp.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Đã mã hóa — cần mật khẩu",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Nhập mật khẩu của tệp",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Đây là mật khẩu bạn đã đặt khi tạo bản sao lưu này.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Giải mã & nhập",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Nhập thành công, nhưng không thể nhận dạng một số hình ảnh QR.",
@@ -297,13 +325,105 @@
     "message": "Sử dụng tự động điền",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Độ tương phản cao",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Chủ đề",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Giao diện",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Chung",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Sửa tài khoản",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Hiển thị mã QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Ghim lên đầu",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Bỏ ghim",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Kho dữ liệu đã khóa",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Mở khóa",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Chuyển tài khoản này",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Quét mã này bằng OTPilot trên thiết bị khác để chuyển tài khoản này sang — dữ liệu không bao giờ rời khỏi thiết bị của bạn.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Trên thiết bị này",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Đồng bộ đám mây",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Đã kết nối",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Chưa kết nối",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Đang hiển thị mã cho",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Tài khoản khác",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Lọc theo",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Mã xác thực luôn bên bạn",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Tạo mã xác thực hai yếu tố an toàn cho mọi tài khoản — được mã hóa, hoạt động ngoại tuyến, chỉ cần một chạm để sao chép.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Hoạt động hoàn toàn ngoại tuyến — không có gì rời khỏi thiết bị của bạn",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Kho dữ liệu được mã hóa với khóa mật khẩu tùy chọn",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Quét mã QR hoặc nhập bản sao lưu có sẵn",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Bắt đầu",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Tôi đã có bản sao lưu để nhập",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Sáng",
@@ -313,9 +433,9 @@
     "message": "Tối",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Đơn giản",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Tự động",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Rút gọn",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "Tương phản cao",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Căn hộ",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Tự động sao lưu dữ liệu của bạn với dịch vụ lưu trữ bên thứ 3.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Đồng bộ trình duyệt",
@@ -342,7 +454,7 @@
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
-    "message": "Đăng nhập",
+    "message": "Đăng nhập (Doanh nghiệp)",
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
@@ -362,10 +474,6 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "Bạn có một hoặc nhiều tài khoản Steam hoặc Blizzard. Các bản sao lưu chưa được mã hóa sẽ không sử dụng định dạng sao lưu tiêu chuẩn.",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
     "message": "Bạn có thể nhập bản sao lưu từ các ứng dụng khác.",
     "description": "Info text on import page"
@@ -375,7 +483,7 @@
     "description": "learn more link on import page. Placed after otp_backup_inform"
   },
   "loading": {
-    "message": "Đang tải ..."
+    "message": "Đang tải..."
   },
   "autolock": {
     "message": "Khóa sau"
@@ -387,7 +495,7 @@
     "message": "Nâng cao"
   },
   "period": {
-    "message": "Thời hạn"
+    "message": "Chu kỳ"
   },
   "type": {
     "message": "Loại"
@@ -396,7 +504,7 @@
     "message": "Không hợp lệ"
   },
   "digits": {
-    "message": "Đồng hồ số"
+    "message": "Chữ số"
   },
   "algorithm": {
     "message": "Thuật toán"
@@ -406,9 +514,6 @@
   },
   "backup": {
     "message": "Sao lưu"
-  },
-  "backup_file_info": {
-    "message": "Sao chép dữ liệu thành 1 tệp tin."
   },
   "password_policy_default_hint": {
     "message": "Mật khẩu của bạn không phù hợp với yêu cầu bảo mật từ tổ chức của bạn. Liên hệ người quản lý của bạn để biết thêm thông tin."
@@ -426,7 +531,7 @@
     "message": "Việc đồng bộ hóa trình duyệt đã bị tắt. Hãy kích hoạt nó để cho phép các tài khoản được đồng bộ trên các trình duyệt."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autofill có thể được cho phép để tự động điền dữ liệu vào các website."
+    "message": "Tự động điền có thể được bật để tự động điền mã vào các trang web."
   },
   "advisor_insight_smart_filter_not_enabled": {
     "message": "Bật bộ lọc thông minh cho phép truy cập nhanh vào tài khoản."
@@ -450,34 +555,34 @@
     "message": "Bỏ qua"
   },
   "learn_more": {
-    "message": "Xem thêm"
+    "message": "Tìm hiểu thêm"
   },
   "enable_context_menu": {
-    "message": "Thêm vào context menu"
+    "message": "Thêm vào menu ngữ cảnh"
   },
   "no_entires": {
-    "message": "Không có tài khoản nào để hiển thị. Hãy thêm tài khoản của bạn."
+    "message": "Không có tài khoản nào để hiển thị. Hãy thêm tài khoản đầu tiên của bạn ngay."
   },
   "permissions": {
-    "message": "Permissions"
+    "message": "Quyền"
   },
   "permission_revoke": {
-    "message": "Revoke"
+    "message": "Thu hồi"
   },
   "permission_show_required_permissions": {
-    "message": "Show non-revocable permissions"
+    "message": "Hiển thị các quyền không thể thu hồi"
   },
   "permission_required": {
-    "message": "This is a required permission and cannot be revoked."
+    "message": "Đây là quyền bắt buộc và không thể thu hồi."
   },
   "permission_active_tab": {
-    "message": "Access to the current tab to scan QR codes."
+    "message": "Truy cập tab hiện tại để quét mã QR."
   },
   "permission_storage": {
-    "message": "Access to browser storage to store account data."
+    "message": "Truy cập bộ nhớ trình duyệt để lưu trữ dữ liệu tài khoản."
   },
   "permission_identity": {
-    "message": "Allows sign in to 3rd party storage services."
+    "message": "Cho phép đăng nhập vào các dịch vụ lưu trữ của bên thứ ba."
   },
   "permission_alarms": {
     "message": "Cho phép khóa tự động."
@@ -486,39 +591,31 @@
     "message": "Đưa tệp lệnh vào tab hiện tại để quét mã QR và cho phép tự động điền."
   },
   "permission_clipboard_write": {
-    "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
+    "message": "Cấp quyền chỉ ghi vào bộ nhớ tạm để sao chép mã khi bạn nhấn vào tài khoản."
   },
   "permission_context_menus": {
-    "message": "Adds Authenticator to context menu."
+    "message": "Thêm OTPilot vào menu ngữ cảnh."
   },
   "permission_sync_clock": {
-    "message": "Allows clock sync with Google."
+    "message": "Cho phép đồng bộ đồng hồ với Google."
   },
   "permission_dropbox": {
-    "message": "Allows backup to Dropbox."
+    "message": "Cho phép sao lưu lên Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "You must disable Dropbox backup first."
-  },
-  "permission_drive": {
-    "message": "Allows backup to Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
+    "message": "Bạn phải tắt sao lưu Dropbox trước."
   },
   "permission_unknown_permission": {
-    "message": "Unknown permission. If see this message, please send a bug report."
+    "message": "Quyền không xác định. Nếu bạn thấy thông báo này, vui lòng gửi báo cáo lỗi."
   },
   "phrase_wrong": {
     "message": "Mật khẩu sai"
   },
   "activate_auto_filter": {
-    "message": "Cảnh báo: Bộ lọc thông minh không khớp với tên của tài khoản. Hãy xác nhận bạn đang ở trang web chính xác trước khi nhập mã!"
+    "message": "Cảnh báo: Bộ lọc thông minh chỉ khớp gần đúng tên miền với tài khoản. Luôn xác minh bạn đang ở đúng trang web trước khi nhập mã!"
+  },
+  "backup_unavailable": {
+    "message": "Chưa hỗ trợ",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

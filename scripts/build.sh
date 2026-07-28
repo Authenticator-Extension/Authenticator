@@ -19,7 +19,7 @@ if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM !
 fi
 
 echo "Removing old build files..."
-rm -rf build dist
+rm -rf build js
 rm -rf firefox chrome edge release test
 echo "Checking style..."
 if ./node_modules/.bin/prettier --check $STYLEFILES 1> /dev/null ; then
@@ -28,7 +28,7 @@ else
     ./node_modules/.bin/prettier --check $STYLEFILES --write
 fi
 
-./node_modules/.bin/eslint . --ext .js,.ts
+./node_modules/.bin/eslint .
 
 if ! [[ $CREDS =~ $CREDREGEX ]] ; then
     if [[ $PLATFORM = "prod" ]]; then
@@ -46,8 +46,6 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
     echo -e "Thanks for forking Authenticator! If you plan on redistributing your own version of Authenticator please generate your own API keys and put them in ./src/models/credentials.ts and ./manifest-chrome.json"
     echo "Clear this warning by commenting it out in ./scripts/build.sh"
     echo
-    read -rsp $'Press any key to continue...\n' -n1 key
-    echo
 fi
 
 echo "Compiling..."
@@ -55,7 +53,7 @@ if [[ $PLATFORM = "prod" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
 elif [[ $PLATFORM = "test" ]]; then
     ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
-    ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution nodenext --module commonjs scripts/test-runner.ts
+    ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution nodenext --module nodenext --skipLibCheck scripts/test-runner.ts
 else
     ./node_modules/webpack-cli/bin/cli.js
 fi
@@ -72,7 +70,7 @@ fi
 
 postCompile () {
     mkdir $1
-    cp -r dist css images _locales LICENSE view $1
+    cp -r js css images _locales LICENSE view $1
 
     if [[ $PLATFORM == "test" ]]; then
         cp manifests/manifest-$1-testing.json $1/manifest.json

@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Կայք",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Նախ սահմանեք գաղտնաբառ՝ ամպային կրկնօրինակումն օգտագործելու համար, որպեսզի Ձեր գաղտնիքները գաղտնագրվեն նախքան այս սարքից դուրս գալը։",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator generates two-factor authentication codes in your browser.",
+    "message": "OTPilot Authenticator-ը ստեղծում է երկգործոն նույնականացման (2FA) կոդեր՝ գաղտնագրված ամպային կրկնօրինակմամբ, կայքին համապատասխանեցված ավտոմուտքագրմամբ և անվտանգության խորհուրդներով։",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "Անվավեր QR կոդ։",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Սկանավորված QR կոդը վավեր otpauth կոդ չէ։",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "«Գաղտնիք» դաշտը անվավեր է։",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Թողարկիչը չի կարող պարունակել «::»",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Ավելացնել հաշիվ",
@@ -43,12 +59,8 @@
     "message": "Հաշվի տվյալների ներմուծումը մասամբ ձախողվեց։",
     "description": "Some migration data is broken."
   },
-  "close": {
-    "message": "Փակել",
-    "description": "Close."
-  },
   "ok": {
-    "message": "Պարզ է",
+    "message": "Լավ",
     "description": "OK."
   },
   "yes": {
@@ -92,23 +104,19 @@
     "description": "Settings."
   },
   "security": {
-    "message": "Անվտանգության",
+    "message": "Անվտանգություն",
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Այժմյա Գաղտնաբառ",
+    "message": "Ընթացիկ Գաղտնաբառ",
     "description": "Current Passphrase."
-  },
-  "new_phrase": {
-    "message": "Նոր Գաղտնաբառ",
-    "description": "New Passphrase."
   },
   "phrase": {
     "message": "Գաղտնաբառ",
     "description": "Passphrase."
   },
   "confirm_phrase": {
-    "message": "Նոր Գաղտնաբառ (Կրկին)",
+    "message": "Հաստատեք Գաղտնաբառը",
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
@@ -120,18 +128,14 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Զրոյացնել «Authenticator»-ը"
+    "message": "Զրոյացնել «OTPilot»-ը"
   },
   "delete_all_warning": {
-    "message": "Այս գործողության արդյունքում վերջնականապես կջնջվեն Ձեր բոլոր տվյալները և «Authenticator»-ի կարգավորումները։ Զրոյացում կատարելուց առաջ խորհուրդ է տրվում կատարել կրկնօրինակում։"
+    "message": "Այս գործողության արդյունքում վերջնականապես կջնջվեն Ձեր բոլոր տվյալները և «OTPilot»-ի կարգավորումները։ Զրոյացում կատարելուց առաջ խորհուրդ է տրվում կատարել կրկնօրինակում։"
   },
   "security_warning": {
     "message": "Այս գաղտնաբառը կօգտագործվի Ձեր բոլոր հաշիվները կոդավորելու համար։ Ոչ ոք Ձեզ չի կարող օգնել, եթե հանկարծ մոռանաք այն։",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "Թարմացնել",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "Բոլոր հաշիվները պետք է ապակոդավորվեն՝ նախքան նոր հաշիվ ավելացնելը: Շարունակելուց առաջ՝ նախ մուտքագրեք ճիշտ գաղտնաբառը:",
@@ -157,10 +161,6 @@
     "message": "Հետադարձ Կապ",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Թարգմանել",
-    "description": "Translate."
-  },
   "source": {
     "message": "Ելակետային Կոդ",
     "description": "Source Code."
@@ -172,10 +172,6 @@
   "sync_clock": {
     "message": "Համաժամեցնել Google-ից",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Հիշել գաղտնաբառերը",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Զգուշացում՝ Ձեր լոկալ ժամացույցը չափազանց սխալ է։ Խնդրում ենք ուղղել այն՝ շարունակելուց առաջ։",
@@ -230,7 +226,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Ներմուծել QR Պատկերներ",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -238,8 +234,40 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Ներմուծել OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Քաշեք կրկնօրինակման ֆայլը այստեղ կամ սեղմեք՝ ընտրելու համար",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Ընդունում է .json և .txt ձևաչափի արտահանված ֆայլեր",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Ընտրել ֆայլ",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Եթե ֆայլը գաղտնագրված է, ընտրելուց հետո Ձեզանից կպահանջվի մուտքագրել դրա գաղտնաբառը։",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Գաղտնագրված — պահանջվում է գաղտնաբառ",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Մուտքագրեք ֆայլի գաղտնաբառը",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Սա այն գաղտնաբառն է, որը սահմանել եք կրկնօրինակումը ստեղծելիս։",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Ապակոդավորել և ներմուծել",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Ներմուծումը հաջողությամբ կատարվեց։ Որոշ QR-կոդեր չեն ճանաչվել։",
@@ -254,7 +282,7 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "Զգուշացում՝ Կրկնօրինակումները չեն գաղտնագրվում։",
+    "message": "Զգուշացում՝ կրկնօրինակումները չեն գաղտնագրվում։ Օգտագործեք ի սեփական պատասխանատվություն։",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -270,7 +298,7 @@
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Ներբեռնել Կոդավորված Կրկնօրինակում",
+    "message": "Ներբեռնել Գաղտնագրված Կրկնօրինակում",
     "description": "Download Encrypted Backup"
   },
   "search": {
@@ -297,25 +325,117 @@
     "message": "Ավտոմուտքագրում",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Բարձր Կոնտրաստ",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Գեղատեսք",
     "description": "Theme"
   },
+  "settings_appearance": {
+    "message": "Տեսք",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Ընդհանուր",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Խմբագրել հաշիվները",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Ցույց տալ QR կոդը",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Ամրակցել վերևում",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Ապակցել",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Պահոցը կողպված է",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Ապակողպել",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Փոխանցել այս հաշիվը",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Սկանավորեք այս կոդը մեկ այլ սարքի «OTPilot»-ով՝ այս հաշիվը փոխանցելու համար — այն երբեք դուրս չի գալիս Ձեր սարքերից։",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Այս սարքում",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Ամպային համաժամեցում",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Կապակցված է",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Կապակցված չէ",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Ցուցադրվում են կոդերը՝",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Այլ հաշիվներ",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Զտել ըստ՝",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Կոդեր, որոնք միշտ Ձեզ հետ են",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Ստեղծեք անվտանգ երկգործոն կոդեր յուրաքանչյուր հաշվի համար՝ գաղտնագրված, անցանց և միշտ մեկ հպումով պատճենվող։",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Աշխատում է լիովին անցանց — ոչինչ դուրս չի գալիս Ձեր սարքից",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Գաղտնագրված պահոց՝ ընտրովի գաղտնաբառային կողպումով",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Սկանավորեք QR կոդ կամ ներմուծեք առկա կրկնօրինակում",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Սկսել",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Ես ունեմ ներմուծելու կրկնօրինակում",
+    "description": "Onboarding secondary button"
+  },
   "theme_light": {
-    "message": "Առավոտյան",
+    "message": "Բաց",
     "description": "Light theme"
   },
   "theme_dark": {
-    "message": "Գիշերային",
+    "message": "Մուգ",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Հասարակ",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Ինքնաշխատ",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Կոմպակտ",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "Բարձր Կոնտրաստ",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Հարթ",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Ավտոկրկնօրինակեք Ձեր տվյալները՝ հիշողության ծառայություններում։",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Կայքզննարկիչի Համաժամեցում",
@@ -362,10 +474,6 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "Ձեր հաշիվների ցանկի մեջ մտնում է «Steam» կամ «Blizzard» ծառայության հաշիվ։ Ոչ-կոդավորված կրկնօրինակումները չեն օգտագործի ստանդարտ ձևաչափ։",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
     "message": "Կարող եք ներմուծել կրկնօրինակումներ այլ հավելվածներից։",
     "description": "Info text on import page"
@@ -384,7 +492,7 @@
     "message": "րոպեից"
   },
   "advanced": {
-    "message": "Կոմպլեքս"
+    "message": "Ընդլայնված"
   },
   "period": {
     "message": "Ժամանակաշրջան"
@@ -406,9 +514,6 @@
   },
   "backup": {
     "message": "Կրկնօրինակում"
-  },
-  "backup_file_info": {
-    "message": "Արխիվացրեք Ձեր տվյալները՝ ֆայլի մեջ։"
   },
   "password_policy_default_hint": {
     "message": "Ձեր գաղտնաբառը չի հետևում կազմակերպության կողմից սահմանված կանոններին։ Հարցերի դեպքում՝ կապնվեք Ձեր ադմինիստրատորի հետ։"
@@ -444,10 +549,10 @@
     "message": "Զգուշացում"
   },
   "info": {
-    "message": "Ծանուցում"
+    "message": "Տեղեկություն"
   },
   "dismiss": {
-    "message": "Ջնջել"
+    "message": "Անտեսել"
   },
   "learn_more": {
     "message": "Իմանալ ավելին"
@@ -462,7 +567,7 @@
     "message": "Թույլտվություններ"
   },
   "permission_revoke": {
-    "message": "Զրոյացնել"
+    "message": "Հետկանչել"
   },
   "permission_show_required_permissions": {
     "message": "Ցույց տալ անչեղարկելի թույլտվությունները"
@@ -477,19 +582,19 @@
     "message": "Կայքզննարկիչի հիշողության օգտագործում՝ որպես հաշիվների տվյալների պահեստ"
   },
   "permission_identity": {
-    "message": "Թույլատրում է մուտք գործել հիշողության ծառայություններ"
+    "message": "Թույլատրում է մուտք գործել երրորդ կողմի պահեստավորման ծառայություններ"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Թույլատրում է ավտոկողպումի աշխատանքը"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Ներարկում է սկրիպտներ ընթացիկ ներդիրում՝ QR կոդերը սկանավորելու և ավտոմուտքագրումը հնարավոր դարձնելու համար"
   },
   "permission_clipboard_write": {
-    "message": "Թույլատրում է փոփոխություններ կատարել կցատարում՝ հաշիվների կոդերը պատճենելու համար"
+    "message": "Տրամադրում է միայն գրառման հասանելիություն փոխանակման բուֆերին՝ հաշվի վրա սեղմելիս կոդը այնտեղ պատճենելու համար"
   },
   "permission_context_menus": {
-    "message": "Ավելացնում է «Authenticator»-ը՝ կոնտեքստ ընտրացանկում"
+    "message": "Ավելացնում է «OTPilot»-ը՝ կոնտեքստ ընտրացանկում"
   },
   "permission_sync_clock": {
     "message": "Թույլատրում է համաժամեցում՝ «Google»-ից"
@@ -500,25 +605,17 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Նախ՝ անջատեք «Dropbox»-ում կրկնօրինակումը։"
   },
-  "permission_drive": {
-    "message": "Թույլատրում է կրկնօրինակել «Google Drive»-ում"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Նախ՝ անջատեք «Google Drive»-ում կրկնօրինակումը։"
-  },
-  "permission_onedrive": {
-    "message": "Թույլատրում է կրկնօրինակել «OneDrive»-ում"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Նախ՝ անջատեք «OneDrive»-ում կրկնօրինակումը։"
-  },
   "permission_unknown_permission": {
     "message": "Անհայտ թույլտվություն։ Խնդրում ենք կապնվել ծրագրի մշակողների հետ։"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Գաղտնաբառը սխալ է"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Զգուշացում՝ Խելացի ֆիլտրը մոտավորապես համապատասխանեցնում է տիրույթի անվանումը հաշվի հետ։ Միշտ ստուգեք, որ գտնվում եք ճիշտ կայքում՝ նախքան կոդը մուտքագրելը։"
+  },
+  "backup_unavailable": {
+    "message": "Դեռ հասանելի չէ",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

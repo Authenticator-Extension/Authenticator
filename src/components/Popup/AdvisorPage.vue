@@ -1,12 +1,10 @@
 <template>
   <div class="advisor">
     <div v-if="ignoreList.length > 0" class="show-all-insights">
-      <a href="#" v-on:click="clearIgnoreList">{{
-        this.i18n.show_all_insights
-      }}</a>
+      <a href="#" v-on:click="clearIgnoreList">{{ i18n.show_all_insights }}</a>
     </div>
     <div v-if="insights.length === 0" class="no-insight">
-      {{ this.i18n.no_insight_available }}
+      {{ i18n.no_insight_available }}
     </div>
     <AdvisorInsight
       class="insight"
@@ -18,19 +16,20 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import AdvisorInsight from "./AdvisorInsight.vue";
+import { useAdvisorStore } from "../../store/Advisor";
 
-export default Vue.extend({
+export default defineComponent({
   mounted: function () {
-    this.$store.commit("advisor/updateInsight");
+    useAdvisorStore().updateInsight();
   },
   computed: {
     insights: function () {
-      return this.$store.state.advisor.insights;
+      return useAdvisorStore().insights;
     },
     ignoreList: function () {
-      return this.$store.state.advisor.ignoreList;
+      return useAdvisorStore().ignoreList;
     },
   },
   components: {
@@ -38,7 +37,7 @@ export default Vue.extend({
   },
   methods: {
     clearIgnoreList: function () {
-      this.$store.commit("advisor/clearIgnoreList");
+      useAdvisorStore().clearIgnoreList();
     },
   },
 });

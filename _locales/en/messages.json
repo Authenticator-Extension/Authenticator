@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generates two-factor authentication codes in your browser.",
+    "message": "OTPilot Authenticator generates two-factor (2FA) codes, with encrypted cloud backup, host-matched autofill, and security advice.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +19,17 @@
     "message": "Unrecognized QR code.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "The scanned QR code is not a valid otpauth code.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Invalid account secret",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Issuer cannot contain \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Add account",
@@ -42,10 +50,6 @@
   "migration_partly_fail": {
     "message": "Some account data was not imported successfully.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Close",
-    "description": "Close."
   },
   "ok": {
     "message": "Ok",
@@ -70,6 +74,10 @@
   "issuer": {
     "message": "Issuer",
     "description": "Issuer."
+  },
+  "host": {
+    "message": "Website",
+    "description": "Bound website host used to restrict autofill to a matching page."
   },
   "secret": {
     "message": "Secret",
@@ -99,10 +107,6 @@
     "message": "Current Password",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "New Password",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Password",
     "description": "Passphrase."
@@ -120,18 +124,14 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Reset Authenticator"
+    "message": "Reset OTPilot"
   },
   "delete_all_warning": {
-    "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
+    "message": "This will delete all of your data and completely reset OTPilot. You will not be able to recover any deleted data! You should consider saving a backup before resetting OTPilot."
   },
   "security_warning": {
     "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "Update",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "You cannot add a new account until all accounts are decrypted. Please enter the correct password before continuing.",
@@ -157,10 +157,6 @@
     "message": "Feedback",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Translate",
-    "description": "Translate."
-  },
   "source": {
     "message": "Source Code",
     "description": "Source Code."
@@ -172,10 +168,6 @@
   "sync_clock": {
     "message": "Sync Clock with Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Remember Password",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Caution! Your local clock is too far off, please fix it before continuing.",
@@ -234,12 +226,44 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Import Text Backup",
+    "message": "Import OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Import OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Drop a backup file or click to browse",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Accepts .json and .txt exports",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Choose file",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "If the file is encrypted, you'll be asked for its passphrase after selecting it.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Encrypted — passphrase required",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Enter the file's passphrase",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "This is the password you set when you created the backup.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Decrypt & import",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Import successful, but some QR codes could not be recognized.",
@@ -297,13 +321,109 @@
     "message": "Use Autofill",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Use High Contrast",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Theme",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Appearance",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "General",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Edit accounts",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Show QR code",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Pin to top",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Unpin",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Vault locked",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Unlock",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transfer this account",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scan this code with OTPilot on another device to move this account across — it never leaves your devices.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "On this device",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloud sync",
+    "description": "Backup section: cloud"
+  },
+  "backup_requires_password": {
+    "message": "Set a password first to use cloud backup, so your secrets are encrypted before they leave this device.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
+  "backup_connected": {
+    "message": "Connected",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Not connected",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Showing codes for",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Other accounts",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filter to",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Codes that travel with you",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generate secure two-factor codes for every account — encrypted, offline, and always one tap from copy.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Works fully offline — nothing leaves your device",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Encrypted vault with optional password lock",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Scan a QR or import an existing backup",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Get started",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "I have a backup to import",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Light",
@@ -313,9 +433,9 @@
     "message": "Dark",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Simple",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Auto",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Compact",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "High Contrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flat",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatically backup your data to 3rd party storage services.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browser Sync",
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "You have one or more Steam or Blizzard accounts. Unencrypted backups will not use standardized backup format.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "You can import backups from some other applications.",
@@ -406,9 +514,6 @@
   },
   "backup": {
     "message": "Backup"
-  },
-  "backup_file_info": {
-    "message": "Backup your data to a file."
   },
   "password_policy_default_hint": {
     "message": "Your password does not meet your organization's security requirements. Contact your administrator for more information."
@@ -489,7 +594,7 @@
     "message": "Grants write-only access to the clipboard to copy codes to clipboard when you click on the account."
   },
   "permission_context_menus": {
-    "message": "Adds Authenticator to context menu."
+    "message": "Adds OTPilot to context menu."
   },
   "permission_sync_clock": {
     "message": "Allows clock sync with Google."
@@ -500,18 +605,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "You must disable Dropbox backup first."
   },
-  "permission_drive": {
-    "message": "Allows backup to Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "You must disable Google Drive backup first."
-  },
-  "permission_onedrive": {
-    "message": "Allows backup to OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "You must disable OneDrive backup first."
-  },
   "permission_unknown_permission": {
     "message": "Unknown permission. If see this message, please send a bug report."
   },
@@ -520,5 +613,9 @@
   },
   "activate_auto_filter": {
     "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+  },
+  "backup_unavailable": {
+    "message": "Not available yet",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

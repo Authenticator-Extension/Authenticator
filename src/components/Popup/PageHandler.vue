@@ -7,13 +7,15 @@
     >
       <IconXCircle />
     </div>
-    <component v-bind:is="info" id="infoContent"></component>
+    <component v-if="info" v-bind:is="info" id="infoContent"></component>
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 
 import IconXCircle from "../../../svg/x-circle.svg";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
 
 import AddAccountPage from "./AddAccountPage.vue";
 import AddMethodPage from "./AddMethodPage.vue";
@@ -21,21 +23,20 @@ import SetPasswordPage from "./SetPasswordPage.vue";
 import EnterPasswordPage from "./EnterPasswordPage.vue";
 import BackupPage from "./BackupPage.vue";
 import DropboxPage from "./DropboxPage.vue";
-import DrivePage from "./DrivePage.vue";
 import OneDrivePage from "./OneDrivePage.vue";
 import PreferencesPage from "./PreferencesPage.vue";
 import AdvisorPage from "./AdvisorPage.vue";
 import LoadingPage from "./LoadingPage.vue";
 
-export default Vue.extend({
+export default defineComponent({
   computed: {
     info: function () {
-      return this.$store.state.currentView.info;
+      return useCurrentViewStore().info;
     },
   },
   methods: {
     hideInfo() {
-      this.$store.commit("style/hideInfo");
+      useStyleStore().hideInfo();
     },
   },
   components: {
@@ -46,7 +47,6 @@ export default Vue.extend({
     EnterPasswordPage,
     BackupPage,
     DropboxPage,
-    DrivePage,
     OneDrivePage,
     PreferencesPage,
     AdvisorPage,

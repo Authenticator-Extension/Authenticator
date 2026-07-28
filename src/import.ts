@@ -1,48 +1,51 @@
-import Vue from "vue";
+import { createApp } from "vue";
 import ImportView from "./components/Import.vue";
 import CommonComponents from "./components/common/index";
 import { loadI18nMessages } from "./store/i18n";
 
-import { Encryption } from "./models/encryption";
+import { Encryption, decryptString } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
-import * as CryptoJS from "crypto-js";
+import { argonHash, argonVerify } from "./models/password";
 
 async function init() {
-  // i18n
-  Vue.prototype.i18n = await loadI18nMessages();
-
-  // Load common components globally
-  for (const component of CommonComponents) {
-    Vue.component(component.name, component.component);
-  }
-
-  // Load entries to global
-  const cachedSecrets = await getCachedSecrets();
-  const encryption = new Encryption(
-    cachedSecrets.cachedPassphrase,
-    cachedSecrets.cachedKeyId
-  );
-  const entries = await EntryStorage.get();
-
-  if (encryption.getEncryptionStatus()) {
-    for (const entry of entries) {
-      await entry.applyEncryption(encryption);
-    }
-  }
-
-  Vue.prototype.$entries = entries;
-  Vue.prototype.$encryption = encryption;
-
-  const instance = new Vue({
-    render: (h) => h(ImportView),
-  }).$mount("#import");
-
-  // Set title
   try {
-    document.title = instance.i18n.extName;
+    const app = createApp(ImportView);
+    // i18n
+    app.config.globalProperties.i18n = await loadI18nMessages();
+
+    // Load common components globally
+    for (const component of CommonComponents) {
+      app.component(component.name, component.component);
+    }
+
+    // Load entries to global
+    const cachedSecrets = await getCachedSecrets();
+    const encryption = new Encryption(
+      cachedSecrets.cachedPassphrase as string,
+      cachedSecrets.cachedKeyId as string,
+    );
+    const entries = await EntryStorage.get();
+
+    if (encryption.getEncryptionStatus()) {
+      for (const entry of entries) {
+        await entry.applyEncryption(encryption);
+      }
+    }
+
+    app.config.globalProperties.$entries = entries;
+    app.config.globalProperties.$encryption = encryption;
+
+    const instance = app.mount("#import");
+
+    // Set title
+    try {
+      document.title = instance.i18n.extName;
+    } catch (e) {
+      console.error(e);
+    }
   } catch (e) {
-    console.error(e);
+    console.error("Import page init failed:", e);
   }
 }
 
@@ -56,7 +59,7 @@ async function getCachedSecrets() {
 
 export async function decryptBackupData(
   backupData: { [hash: string]: OTPStorage | Key },
-  passphrase: string | null
+  passphrase: string | null,
 ) {
   const decryptedBackupData: { [hash: string]: RawOTPStorage } = {};
   const keys: Map<string, string | null> = new Map();
@@ -80,8 +83,8 @@ export async function decryptBackupData(
           await findAndUnlockKey(
             backupData,
             unknownStorageItem.keyId,
-            passphrase
-          )
+            passphrase,
+          ),
         );
       }
       const decryptKey = keys.get(unknownStorageItem.keyId);
@@ -90,13 +93,24 @@ export async function decryptBackupData(
         continue;
       }
 
+      // decryptString is prefix-aware (new AES-GCM or legacy AES-CBC backups)
+      const decryptedJson = await decryptString(
+        unknownStorageItem.data,
+        decryptKey,
+      );
+      if (!decryptedJson) {
+        // a single corrupt/undecryptable entry must not abort the whole import
+        continue;
+      }
+      let decryptedData;
+      try {
+        decryptedData = JSON.parse(decryptedJson);
+      } catch {
+        continue;
+      }
       storageItem = {
         ...unknownStorageItem,
-        ...JSON.parse(
-          CryptoJS.AES.decrypt(unknownStorageItem.data, decryptKey).toString(
-            CryptoJS.enc.Utf8
-          )
-        ),
+        ...decryptedData,
         encrypted: false,
       };
     } else {
@@ -109,15 +123,15 @@ export async function decryptBackupData(
       continue;
     }
     if (storageItem.encrypted && passphrase) {
-      try {
-        storageItem.secret = CryptoJS.AES.decrypt(
-          storageItem.secret,
-          passphrase
-        ).toString(CryptoJS.enc.Utf8);
-        storageItem.encrypted = false;
-      } catch (error) {
+      const decryptedSecret = await decryptString(
+        storageItem.secret,
+        passphrase,
+      );
+      if (!decryptedSecret) {
         continue;
       }
+      storageItem.secret = decryptedSecret;
+      storageItem.encrypted = false;
     }
     // storageItem.secret may be empty after decrypt with wrong
     // passphrase
@@ -132,7 +146,7 @@ export async function decryptBackupData(
 async function findAndUnlockKey(
   importData: { [key: string]: OTPStorage | Key },
   keyId: string,
-  password: string
+  password: string,
 ): Promise<string | null> {
   if (!(keyId in importData)) {
     return null;
@@ -143,47 +157,17 @@ async function findAndUnlockKey(
     return null;
   }
 
-  const rawHash = await new Promise((resolve: (value: string) => void) => {
-    const iframe = document.getElementById("argon-sandbox");
-    const message = {
-      action: "hash",
-      value: password,
-      salt: key.salt,
-    };
-    if (iframe) {
-      window.addEventListener("message", (response) => {
-        resolve(response.data.response);
-      });
-      // @ts-expect-error bad typings
-      iframe.contentWindow.postMessage(message, "*");
-    }
-  });
+  const rawHash = await argonHash(password, key.salt);
 
   // https://passlib.readthedocs.io/en/stable/lib/passlib.hash.argon2.html#format-algorithm
-  const possibleHash = rawHash.split("$")[5];
+  const possibleHash = rawHash ? rawHash.split("$")[5] : "";
   if (!possibleHash) {
     throw new Error("argon2 did not return a hash!");
   }
 
   // verify user password by comparing their password hash with the
   // hash of their password's hash
-  const isCorrectPassword = await new Promise(
-    (resolve: (value: string) => void) => {
-      const iframe = document.getElementById("argon-sandbox");
-      const message = {
-        action: "verify",
-        value: possibleHash,
-        hash: key.hash,
-      };
-      if (iframe) {
-        window.addEventListener("message", (response) => {
-          resolve(response.data.response);
-        });
-        // @ts-expect-error bad typings
-        iframe.contentWindow.postMessage(message, "*");
-      }
-    }
-  );
+  const isCorrectPassword = await argonVerify(possibleHash, key.hash);
 
   if (!isCorrectPassword) {
     return null;
@@ -200,7 +184,13 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
   for (let item of lines) {
     item = item.trim();
     if (item.startsWith("otpauth-migration:")) {
-      const migrationData = getOTPAuthPerLineFromOPTAuthMigration(item);
+      let migrationData: string[] = [];
+      try {
+        migrationData = getOTPAuthPerLineFromOPTAuthMigration(item);
+      } catch (error) {
+        // one malformed migration payload must not abort the whole batch
+        console.warn("Failed to parse migration payload", error);
+      }
       for (const line of migrationData) {
         lines.push(line);
       }
@@ -210,15 +200,28 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       continue;
     }
 
-    let uri = item.split("otpauth://")[1];
-    let type = uri.substr(0, 4).toLowerCase();
-    uri = uri.substr(5);
-    let label = uri.split("?")[0];
-    const parameterPart = uri.split("?")[1];
+    // "otpauth://" is not a special scheme in the WHATWG URL Standard, so
+    // browsers are NOT required to (and in practice don't consistently)
+    // parse the "//type/label" part into url.host/url.pathname — Chrome 126
+    // leaves url.host empty and dumps everything into pathname, while Node's
+    // URL parses host as "type". Only the "?query" part is parsed reliably
+    // everywhere, so the type/label split stays manual and only parameter
+    // parsing below is upgraded to URLSearchParams.
+    const afterScheme = item.split("otpauth://")[1];
+    if (!afterScheme) {
+      // malformed URI (e.g. missing "//") must not abort the batch
+      failedCount++;
+      continue;
+    }
+    let type = afterScheme.substr(0, 4).toLowerCase();
+    const rest = afterScheme.substr(5);
+    let label = rest.split("?")[0];
+    const parameterPart = rest.split("?")[1];
     if (!parameterPart) {
       failedCount++;
       continue;
     } else {
+      const params = new URLSearchParams(parameterPart);
       let secret = "";
       let account: string | undefined;
       let issuer: string | undefined;
@@ -237,36 +240,34 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
       } else {
         account = label;
       }
-      const parameters = parameterPart.split("&");
-      parameters.forEach((item) => {
-        const parameter = item.split("=");
-        if (parameter[0].toLowerCase() === "secret") {
-          secret = parameter[1];
-        } else if (parameter[0].toLowerCase() === "issuer") {
-          try {
-            issuer = decodeURIComponent(parameter[1]);
-          } catch {
-            issuer = parameter[1];
-          }
-          issuer = issuer.replace(/\+/g, " ");
-        } /* else if (parameter[0].toLowerCase() === "counter") {
-          let counter = Number(parameter[1]);
-          counter = isNaN(counter) || counter < 0 ? 0 : counter;
-        } */ else if (
-          parameter[0].toLowerCase() === "period"
-        ) {
-          period = Number(parameter[1]);
-          period =
-            isNaN(period) || period < 0 || period > 60 || 60 % period !== 0
-              ? undefined
-              : period;
-        } else if (parameter[0].toLowerCase() === "digits") {
-          digits = Number(parameter[1]);
-          digits = isNaN(digits) ? 6 : digits;
-        } else if (parameter[0].toLowerCase() === "algorithm") {
-          algorithm = parameter[1];
-        }
-      });
+
+      // secret must be read as the raw parameter value: URLSearchParams
+      // already decodes "+" as a space for every field, which matches the
+      // old manual issuer handling but NOT the old secret handling (the old
+      // code never unescaped "+" in secret). Base32/hex secrets never
+      // contain "+", so this only matters for malformed input, which falls
+      // through to the format check below and is rejected the same way.
+      secret = params.get("secret") || "";
+      if (params.has("issuer")) {
+        // URLSearchParams already decodes "+" as a space, matching the old
+        // manual decodeURIComponent + replace(/\+/g, " ") behavior.
+        issuer = params.get("issuer") || "";
+      }
+      /* counter is intentionally not parsed here, matching prior behavior */
+      if (params.has("period")) {
+        period = Number(params.get("period"));
+        // accept any positive integer period; the old "> 60" / "60 % period"
+        // checks silently dropped valid periods (45, 60, 90, 120...) so those
+        // OTPs fell back to 30s and produced wrong codes (#1271, #1508)
+        period = !Number.isInteger(period) || period < 1 ? undefined : period;
+      }
+      if (params.has("digits")) {
+        digits = Number(params.get("digits"));
+        digits = isNaN(digits) ? 6 : digits;
+      }
+      if (params.has("algorithm")) {
+        algorithm = params.get("algorithm") || undefined;
+      }
 
       if (!secret) {
         failedCount++;

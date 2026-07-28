@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authentifizierung",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Website",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Legen Sie zuerst ein Passwort fest, um die Cloud-Sicherung zu nutzen, damit Ihre Geheimnisse verschlüsselt werden, bevor sie dieses Gerät verlassen.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
+    "message": "OTPilot Authenticator generiert Zwei-Faktor-Codes (2FA) mit verschlüsselter Cloud-Sicherung, hostgebundenem Autofill und Sicherheitsempfehlungen.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,16 +27,24 @@
     "message": "Unbekannter QR-Code.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Der gescannte QR-Code ist kein gültiger otpauth-Code.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Ungültiges Kontogeheimnis",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Herausgeber darf \"::\" nicht enthalten",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Konto hinzufügen",
     "description": "Add account."
   },
   "add_qr": {
-    "message": "QR Code scannen",
+    "message": "QR-Code scannen",
     "description": "Scan QR Code."
   },
   "add_secret": {
@@ -43,10 +59,6 @@
     "message": "Einige Kontodaten wurden nicht erfolgreich importiert.",
     "description": "Some migration data is broken."
   },
-  "close": {
-    "message": "Schließen",
-    "description": "Close."
-  },
   "ok": {
     "message": "Ok",
     "description": "OK."
@@ -60,7 +72,7 @@
     "description": "No."
   },
   "account": {
-    "message": "Benutzerkonto",
+    "message": "Konto",
     "description": "Account."
   },
   "accountName": {
@@ -72,7 +84,7 @@
     "description": "Issuer."
   },
   "secret": {
-    "message": "Schlüssel",
+    "message": "Geheimnis",
     "description": "Secret."
   },
   "updateSuccess": {
@@ -99,10 +111,6 @@
     "message": "Aktuelles Passwort",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Neues Passwort",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Passwort",
     "description": "Passphrase."
@@ -112,7 +120,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Sind Sie sicher, dass Sie diesen Account löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "message": "Sind Sie sicher, dass Sie dieses Konto löschen wollen? Diese Aktion kann nicht rückgängig gemacht werden.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -120,18 +128,14 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Authenticator zurücksetzen"
+    "message": "OTPilot zurücksetzen"
   },
   "delete_all_warning": {
-    "message": "Dies wird alle Ihre Daten löschen und den Authenticator komplett zurücksetzen. Sie werden keine gelöschten Daten wiederherstellen können! Sie sollten erwägen, ein Backup zu speichern, bevor Sie den Authenticator zurücksetzen."
+    "message": "Dies wird alle Ihre Daten löschen und OTPilot komplett zurücksetzen. Sie werden keine gelöschten Daten wiederherstellen können! Sie sollten erwägen, ein Backup zu speichern, bevor Sie OTPilot zurücksetzen."
   },
   "security_warning": {
-    "message": "Dieses Passwort wird für die Verschlüsselung ihrer Konten/Accounts benutzt werden. Niemand kann ihnen helfen, wenn Sie dieses Passwort vergessen.",
+    "message": "Dieses Passwort wird verwendet, um Ihre Konten zu verschlüsseln. Niemand kann Ihnen helfen, wenn Sie dieses Passwort vergessen.",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "Aktualisieren",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "Sie können kein neues Konto hinzufügen, bis alle Konten entschlüsselt sind. Bitte geben Sie das richtige Passwort ein, bevor Sie fortfahren.",
@@ -157,32 +161,24 @@
     "message": "Rückmeldung",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Übersetzen",
-    "description": "Translate."
-  },
   "source": {
     "message": "Quellcode",
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "Kennwort eingeben um Kontoinformationen zu entschlüsseln.",
+    "message": "Passwort eingeben, um Kontodaten zu entschlüsseln.",
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "Zeitgeber mit Google synchronisieren",
+    "message": "Uhrzeit mit Google synchronisieren",
     "description": "Sync Clock"
   },
-  "remember_phrase": {
-    "message": "Passwort merken",
-    "description": "Remember Passphrase"
-  },
   "clock_too_far_off": {
-    "message": "Achtung! Ihre lokale Uhrzeit hat eine zu große Abweichung, bitte beheben bevor Sie fortfahren.",
+    "message": "Achtung! Ihre lokale Uhrzeit weicht zu stark ab. Bitte beheben Sie dies, bevor Sie fortfahren.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Haben Sie ein Backup für ihre Accounts? Warten Sie nicht bis es zu spät ist!",
+    "message": "Haben Sie ein Backup für Ihre Konten? Warten Sie nicht, bis es zu spät ist!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -190,7 +186,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "Wollen Sie QR-Codes von einer lokalen Datei scannen? Verwenden Sie stattdessen QR-Code-Sicherung.",
+    "message": "Möchten Sie einen QR-Code aus einer lokalen Datei scannen? Verwenden Sie stattdessen „QR-Bildsicherung importieren“.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -206,11 +202,11 @@
     "description": "Popup Page Settings"
   },
   "scale": {
-    "message": "Skalieren",
+    "message": "Skalierung",
     "description": "Scale"
   },
   "export_info": {
-    "message": "Warnung: Alle Sicherungen sind unverschlüsselt! Wollen Sie ein Konto zu einer anderen App hinzufügen? Fahren Sie mit dem Mauszeiger über den oberen, rechten Teil des Kontos und drücken Sie die versteckte Schaltfläche.",
+    "message": "Warnung: Alle Sicherungen sind unverschlüsselt! Wollen Sie ein Konto zu einer anderen App hinzufügen? Fahren Sie mit dem Mauszeiger über den oberen rechten Teil des Kontos und drücken Sie die versteckte Schaltfläche.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -234,12 +230,44 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Text-Sicherung importieren",
+    "message": "OTPAuth-URI importieren",
     "description": "Import backup code."
   },
   "import_otp_urls": {
     "message": "OTP-URLs importieren",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Backup-Datei hierher ziehen oder klicken zum Durchsuchen",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Unterstützt .json- und .txt-Exporte",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Datei auswählen",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Wenn die Datei verschlüsselt ist, werden Sie nach der Auswahl nach dem Passwort gefragt.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Verschlüsselt – Passwort erforderlich",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Passwort der Datei eingeben",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Das ist das Passwort, das Sie beim Erstellen des Backups festgelegt haben.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Entschlüsseln & importieren",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Import erfolgreich, aber einige QR-Codes konnten nicht erkannt werden.",
@@ -254,7 +282,7 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "Vorsicht: Sicherungen, die in Dropbox gespeichert werden, sind nicht verschlüsselt. Benutzung auf eigene Gefahr.",
+    "message": "Vorsicht: Sicherungen sind unverschlüsselt. Nutzung auf eigene Gefahr.",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -262,7 +290,7 @@
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Ihr Passwort wird lokal gespeichert, bitte ändern Sie es im Sicherheitsmenü sofort.",
+    "message": "Ihr Passwort wird lokal gespeichert. Bitte ändern Sie es sofort im Sicherheitsmenü.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -297,13 +325,105 @@
     "message": "Autofill verwenden",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Hohen Kontrast benutzen",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Farbschema",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Erscheinungsbild",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Allgemein",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Konten bearbeiten",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "QR-Code anzeigen",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Oben anheften",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Lösen",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Tresor gesperrt",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Entsperren",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Dieses Konto übertragen",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Scannen Sie diesen Code mit OTPilot auf einem anderen Gerät, um dieses Konto zu übertragen – es verlässt niemals Ihre Geräte.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Auf diesem Gerät",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Cloud-Synchronisierung",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Verbunden",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nicht verbunden",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Codes werden angezeigt für",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Weitere Konten",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtern nach",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Codes, die Sie immer dabei haben",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Erstellen Sie sichere Zwei-Faktor-Codes für jedes Konto – verschlüsselt, offline und mit nur einem Tipp kopierbereit.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funktioniert komplett offline – nichts verlässt Ihr Gerät",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Verschlüsselter Tresor mit optionaler Passwortsperre",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "QR-Code scannen oder vorhandenes Backup importieren",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Los geht's",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Ich habe ein Backup zum Importieren",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Hell",
@@ -313,9 +433,9 @@
     "message": "Dunkel",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Einfach",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatisch",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompakt",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "Hoher Kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Flach",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatische Sicherung auf Drittanbieter-Speicher.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Browser-Synchronisation",
@@ -353,7 +465,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "Es gab ein Problem beim Verbinden zu ihrem $SERVICE$ Konto, bitte melden sie sich neu an.",
+    "message": "Es gab ein Problem beim Verbinden mit Ihrem $SERVICE$-Konto. Bitte melden Sie sich erneut an.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Du hast ein oder mehrere Steam- oder Blizzard-Konten. Unverschlüsselte Backups werden kein standardisiertes Backup-Format verwenden.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Sie können Backups aus einigen anderen Anwendungen importieren.",
@@ -384,10 +492,10 @@
     "message": "Minuten"
   },
   "advanced": {
-    "message": "Erweiterte"
+    "message": "Erweitert"
   },
   "period": {
-    "message": "Zeitraum"
+    "message": "Intervall"
   },
   "type": {
     "message": "Typ"
@@ -402,13 +510,10 @@
     "message": "Algorithmus"
   },
   "smart_filter": {
-    "message": "Intelligente Filter"
+    "message": "Intelligenter Filter"
   },
   "backup": {
     "message": "Sicherung"
-  },
-  "backup_file_info": {
-    "message": "Sichern Sie Ihre Daten in eine Datei."
   },
   "password_policy_default_hint": {
     "message": "Ihr Passwort entspricht nicht den Sicherheitsanforderungen Ihrer Organisation. Kontaktieren Sie Ihren Administrator für weitere Informationen."
@@ -417,28 +522,28 @@
     "message": "Ratgeber"
   },
   "advisor_insight_password_not_set": {
-    "message": "Lege ein Passwort zum Schutz deiner Daten fest."
+    "message": "Legen Sie ein Passwort fest, um Ihre Daten zu schützen."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "Erlaube automatisches Sperren, um deine Daten zu schützen."
+    "message": "Aktivieren Sie die automatische Sperre, um Ihre Daten zu schützen."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Browser-Synchronisation ist deaktiviert. Aktivieren erlaubt die Synchronisierung von Konten in Browsern."
+    "message": "Browser-Synchronisation ist deaktiviert. Das Aktivieren ermöglicht die browserübergreifende Synchronisierung von Konten."
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "Autofill kann aktiviert werden, um automatisch Codes in Webseiten auszufüllen."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Das Aktivieren von Smart Filter erlaubt schnellen Zugriff auf Konten."
+    "message": "Das Aktivieren des intelligenten Filters erlaubt schnellen Zugriff auf Konten."
   },
   "show_all_insights": {
-    "message": "Alle Warnungen anzeigen."
+    "message": "Alle Hinweise anzeigen."
   },
   "no_insight_available": {
-    "message": "Keine Warnungen, alle Einstellungen entsprechen den Empfehlungen!"
+    "message": "Keine Hinweise vorhanden, alles sieht gut aus!"
   },
   "danger": {
-    "message": "Risiko"
+    "message": "Gefahr"
   },
   "warning": {
     "message": "Warnung"
@@ -468,7 +573,7 @@
     "message": "Nicht widerrufbare Berechtigungen anzeigen"
   },
   "permission_required": {
-    "message": "Dies ist eine erforderliche Erlaubnis und kann nicht widerrufen werden."
+    "message": "Dies ist eine erforderliche Berechtigung und kann nicht widerrufen werden."
   },
   "permission_active_tab": {
     "message": "Zugriff auf die aktuelle Registerkarte, um QR-Codes zu scannen."
@@ -477,19 +582,19 @@
     "message": "Zugriff auf Browserspeicherung, um Kontodaten zu speichern."
   },
   "permission_identity": {
-    "message": "Einloggen bei externen Speicherdiensten zulassen."
+    "message": "Anmeldung bei externen Speicherdiensten zulassen."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Ermöglicht die automatische Sperre."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Fügt Skripte in die aktuelle Registerkarte ein, um QR-Codes zu scannen und Autofill zu ermöglichen."
   },
   "permission_clipboard_write": {
     "message": "Gewährt Schreibzugriff auf die Zwischenablage, um Codes in die Zwischenablage zu kopieren, wenn Sie auf das Konto klicken."
   },
   "permission_context_menus": {
-    "message": "Fügt Authenticator dem Kontextmenü hinzu."
+    "message": "Fügt OTPilot dem Kontextmenü hinzu."
   },
   "permission_sync_clock": {
     "message": "Synchronisierung mit Google zulassen."
@@ -500,25 +605,17 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Sie müssen zuerst das Dropbox-Backup deaktivieren."
   },
-  "permission_drive": {
-    "message": "Backup auf OneDrive zulassen."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Sie müssen zuerst das Google-Backup deaktivieren."
-  },
-  "permission_onedrive": {
-    "message": "Backup auf OneDrive zulassen."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Sie müssen zuerst das OneDrive-Backup deaktivieren."
-  },
   "permission_unknown_permission": {
     "message": "Unbekannte Berechtigung. Wenn Sie diese Nachricht sehen, senden Sie bitte einen Fehlerbericht."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Falsches Passwort"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Warnung: Der intelligente Filter ordnet den Domainnamen nur ungefähr einem Konto zu. Überprüfen Sie immer, ob Sie sich auf der richtigen Website befinden, bevor Sie einen Code eingeben!"
+  },
+  "backup_unavailable": {
+    "message": "Noch nicht verfügbar",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authenticator\n",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Uwierzytelnianie",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Witryna",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Najpierw ustaw hasło, aby móc korzystać z kopii zapasowej w chmurze — dzięki temu Twoje sekrety zostaną zaszyfrowane, zanim opuszczą to urządzenie.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator generuje w przeglądarce kody uwierzytelniania dwuskładnikowego.",
+    "message": "OTPilot Authenticator generuje kody uwierzytelniania dwuskładnikowego (2FA), oferując szyfrowaną kopię zapasową w chmurze, autouzupełnianie dopasowane do witryny oraz porady dotyczące bezpieczeństwa.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "Nie rozpoznano kodu QR.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Zeskanowany kod QR nie jest prawidłowym kodem otpauth.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Niepoprawny sekretny kod konta",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Nazwa wystawcy nie może zawierać znaków \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Dodaj konto",
@@ -42,10 +58,6 @@
   "migration_partly_fail": {
     "message": "Niektóre dane konta nie zostały pomyślnie zaimportowane.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Zamknij",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +111,6 @@
     "message": "Obecne hasło",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Nowe hasło",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Hasło",
     "description": "Passphrase."
@@ -120,18 +128,14 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Zresetuj dodatek Authenticator"
+    "message": "Zresetuj dodatek OTPilot"
   },
   "delete_all_warning": {
-    "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie dodatku Authenticator. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem dodatku Authenticator należy rozważyć zapisanie kopii zapasowej."
+    "message": "Spowoduje to usunięcie wszystkich danych i całkowite zresetowanie dodatku OTPilot. Nie będzie można odzyskać usuniętych danych! Przed zresetowaniem dodatku OTPilot należy rozważyć zapisanie kopii zapasowej."
   },
   "security_warning": {
     "message": "To hasło będzie służyć szyfrowaniu Twoich kont. Nikt ci nie pomoże, jeśli zapomnisz hasła.",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "Aktualizuj",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "Nie możesz dodać nowego konta, dopóki wszystkie konta nie zostaną odszyfrowane. Przed kontynuowaniem podaj prawidłowe hasło.",
@@ -157,10 +161,6 @@
     "message": "Uwagi",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Przetłumacz",
-    "description": "Translate."
-  },
   "source": {
     "message": "Kod źródłowy",
     "description": "Source Code."
@@ -172,10 +172,6 @@
   "sync_clock": {
     "message": "Synchronizuj zegar z Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "Zapamiętaj hasło",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "Uwaga! Twój lokalny zegar jest zbyt niedokładny, należy go ustawić przed kontynuowaniem.",
@@ -210,7 +206,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Uwaga: wszystkie kopie zapasowe są odszyfrowane. Chcesz dodać kono do innej aplikacji? Ustaw kursor nad prawym górnym rogiem dowolnego konta i naciśnij ukryty przycisk.",
+    "message": "Uwaga: wszystkie kopie zapasowe są niezaszyfrowane. Chcesz dodać konto do innej aplikacji? Najedź kursorem na prawy górny róg dowolnego konta i naciśnij ukryty przycisk.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -234,12 +230,44 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importuj tekstową kopię zapasową",
+    "message": "Importuj URI OTPAuth",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Importuj adresy URL OTP",
+    "message": "Importuj URI OTPAuth",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Upuść plik kopii zapasowej lub kliknij, aby wybrać",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Obsługuje eksporty .json i .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Wybierz plik",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Jeśli plik jest zaszyfrowany, po jego wybraniu zostaniesz poproszony o podanie hasła.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Zaszyfrowane — wymagane hasło",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Wprowadź hasło do pliku",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "To hasło ustawione podczas tworzenia kopii zapasowej.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Odszyfruj i importuj",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Importowanie powiodło się, ale niektóre kody QR nie zostały rozpoznane.",
@@ -258,11 +286,11 @@
     "description": "Backup risk warning."
   },
   "import_error_password": {
-    "message": "Należy podać prawidłowe hasło, żeby importować kopię zapasową.",
+    "message": "Należy podać prawidłowe hasło, żeby zaimportować kopię zapasową.",
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Hasła są przechowywane lokalnie, należy to natychmiast zmienić w menu Zabezpieczenia.",
+    "message": "Twoje hasło jest przechowywane lokalnie, zmień je jak najszybciej w menu Zabezpieczenia.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -297,13 +325,105 @@
     "message": "Użyj autowypełniania",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Użyj dużego kontrastu",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Motyw",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Wygląd",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Ogólne",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Edytuj konta",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Pokaż kod QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Przypnij na górze",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Odepnij",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Skarbiec zablokowany",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Odblokuj",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Przenieś to konto",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Zeskanuj ten kod za pomocą OTPilot na innym urządzeniu, aby przenieść to konto — dane nigdy nie opuszczają Twoich urządzeń.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Na tym urządzeniu",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Synchronizacja w chmurze",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Połączono",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Nie połączono",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Wyświetlanie kodów dla",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Inne konta",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtruj do",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kody, które są zawsze przy Tobie",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Generuj bezpieczne kody uwierzytelniania dwuskładnikowego dla każdego konta — zaszyfrowane, offline i zawsze o jedno dotknięcie od skopiowania.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Działa całkowicie offline — nic nie opuszcza Twojego urządzenia",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Zaszyfrowany skarbiec z opcjonalną blokadą hasłem",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Zeskanuj kod QR lub zaimportuj istniejącą kopię zapasową",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Rozpocznij",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Mam kopię zapasową do zaimportowania",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Jasny",
@@ -313,9 +433,9 @@
     "message": "Ciemny",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Prosty",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatyczny",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Kompaktowy",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "Wysoki kontrast",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "Płaski",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Automatycznie twórz kopie zapasowe danych w usługach przechowywania innych firm.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "Synchronizacja przeglądarki",
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Masz jedno lub więcej kont Steam lub Blizzard. Nieszyfrowane kopie zapasowe nie będą korzystać ze standardowego formatu kopii zapasowej.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Możesz importować kopie zapasowe z innych aplikacji.",
@@ -407,9 +515,6 @@
   "backup": {
     "message": "Kopia zapasowa"
   },
-  "backup_file_info": {
-    "message": "Zapisz kopię zapasową danych do pliku."
-  },
   "password_policy_default_hint": {
     "message": "Twoje hasło nie spełnia wymogów bezpieczeństwa Twojej organizacji. Aby uzyskać więcej informacji, skontaktuj się z administratorem."
   },
@@ -426,7 +531,7 @@
     "message": "Synchronizacja przeglądarki jest wyłączona. Włączenie jej umożliwia synchronizację kont pomiędzy przeglądarkami."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autouzupełnianie może być włączone, aby automatycznie wypełniać kody na stronach internetowych."
+    "message": "Włączenie autouzupełniania pozwala automatycznie wypełniać kody na stronach internetowych."
   },
   "advisor_insight_smart_filter_not_enabled": {
     "message": "Włączenie inteligentnego filtra umożliwia szybki dostęp do kont."
@@ -489,7 +594,7 @@
     "message": "Przyznaje dostęp tylko do zapisu do schowka w celu skopiowania kodów do schowka po kliknięciu konta."
   },
   "permission_context_menus": {
-    "message": "Dodaje dodatek Authenticator do menu kontekstowego."
+    "message": "Dodaje dodatek OTPilot do menu kontekstowego."
   },
   "permission_sync_clock": {
     "message": "Umożliwia synchronizację zegara z Google."
@@ -498,19 +603,7 @@
     "message": "Umożliwia tworzenie kopii zapasowej w Dropboksie."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "Musisz najpierw wyłączyć kopię zapasową Dropboksa."
-  },
-  "permission_drive": {
-    "message": "Umożliwia tworzenie kopii zapasowej na Dysku Google."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Musisz najpierw wyłączyć kopię zapasową Dysku Google."
-  },
-  "permission_onedrive": {
-    "message": "Umożliwia tworzenie kopii zapasowej w OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Musisz najpierw wyłączyć kopię zapasową OneDrive."
+    "message": "Musisz najpierw wyłączyć kopię zapasową w Dropboksie."
   },
   "permission_unknown_permission": {
     "message": "Nieznane uprawnienie. Jeśli widzisz ten komunikat, wyślij raport o błędzie."
@@ -520,5 +613,9 @@
   },
   "activate_auto_filter": {
     "message": "Ostrzeżenie: inteligentny filtr luźno dopasowuje nazwę domeny do konta. Zawsze sprawdzaj, czy jesteś na właściwej witrynie internetowej przed wprowadzeniem kodu!"
+  },
+  "backup_unavailable": {
+    "message": "Jeszcze niedostępne",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

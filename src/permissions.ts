@@ -1,6 +1,6 @@
 // Vue
-import Vue from "vue";
-import Vuex from "vuex";
+import { createApp } from "vue";
+import { createPinia, setActivePinia } from "pinia";
 
 // Components
 import PermissionsView from "./components/Permissions.vue";
@@ -8,31 +8,25 @@ import CommonComponents from "./components/common/index";
 
 // Other
 import { loadI18nMessages } from "./store/i18n";
-import { Permissions } from "./store/Permissions";
+import { usePermissionsStore } from "./store/Permissions";
 
 async function init() {
+  // Pinia
+  const pinia = createPinia();
+  setActivePinia(pinia);
+  const permissionsStore = usePermissionsStore();
+  await permissionsStore.init();
+
+  const app = createApp(PermissionsView);
+  app.use(pinia);
   // i18n
-  Vue.prototype.i18n = await loadI18nMessages();
-
-  // Load modules
-  Vue.use(Vuex);
-
+  app.config.globalProperties.i18n = await loadI18nMessages();
   // Load common components globally
   for (const component of CommonComponents) {
-    Vue.component(component.name, component.component);
+    app.component(component.name, component.component);
   }
 
-  // State
-  const store = new Vuex.Store({
-    modules: {
-      permissions: await new Permissions().getModule(),
-    },
-  });
-
-  const instance = new Vue({
-    render: (h) => h(PermissionsView),
-    store,
-  }).$mount("#permissions");
+  const instance = app.mount("#permissions");
 
   // Set title
   try {

@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator はお使いのブラウザーで2段階認証コードを生成します。",
+    "message": "OTPilot Authenticatorは、暗号化クラウドバックアップ、サイトに応じた自動入力、セキュリティアドバイスを備えた2段階認証（2FA）コード生成アプリです。",
     "description": "Extension Description."
   },
   "added": {
@@ -16,12 +16,20 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "QR コードが認識できません。",
+    "message": "QRコードが認識できません。",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "スキャンしたQRコードは有効なotpauthコードではありません。",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
-    "message": "無効なアカウントのシークレットキー",
+    "message": "無効なアカウントのシークレット",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "発行者に「::」を含めることはできません",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "アカウントを追加",
@@ -42,10 +50,6 @@
   "migration_partly_fail": {
     "message": "いくつかのアカウントデータは正常にインポートされませんでした。",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "閉じる",
-    "description": "Close."
   },
   "ok": {
     "message": "OK",
@@ -99,10 +103,6 @@
     "message": "現在のパスワード",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "新しいパスワード",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "パスワード",
     "description": "Passphrase."
@@ -116,22 +116,18 @@
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
-    "message": "私はすべてのデータが削除されて復旧できないことを承知しています。",
+    "message": "すべてのデータが完全に削除され、復元できないことを理解しています。",
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "認証システムをリセット"
+    "message": "OTPilotをリセット"
   },
   "delete_all_warning": {
-    "message": "これにより、すべてのデータが削除され、認証システムが完全にリセットされます。 削除されたデータを復元することはできません。 認証システムをリセットする前にバックアップを保存することをお勧めします。"
+    "message": "これにより、すべてのデータが削除され、OTPilotが完全にリセットされます。削除されたデータを復元することはできません。OTPilotをリセットする前にバックアップを保存することをお勧めします。"
   },
   "security_warning": {
-    "message": "このパスワードであなたのアカウントを暗号化します。パスワードを紛失すると復旧できなくなりますのでご注意ください。",
+    "message": "このパスワードはアカウントの暗号化に使用されます。パスワードを忘れると、誰にも復旧できません。",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "更新",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "すべてのアカウントが復号化されるまで、新しいアカウントを追加することはできません。続行する前に正しいパスワードを入力してください。",
@@ -146,7 +142,7 @@
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "暗号化",
+    "message": "暗号化済み",
     "description": "Encrypted."
   },
   "copied": {
@@ -154,15 +150,11 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "ご意見",
+    "message": "フィードバック",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "翻訳",
-    "description": "Translate."
-  },
   "source": {
-    "message": "ソース コード",
+    "message": "ソースコード",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -170,12 +162,8 @@
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "Google と時刻を同期\n",
+    "message": "Google と時刻を同期",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "パスワードを記憶させる",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "危険！お使いの環境の日時が実際の日時と離れすぎています。続ける前にまずは修正してください。",
@@ -190,15 +178,15 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "ローカルファイルからQRコードをスキャンしようとしていますか？ 代わりにQRイメージバックアップをインポートしてください。",
+    "message": "ローカルファイルからQRコードをスキャンしようとしていますか？ 代わりに「QR画像のバックアップをインポート」をご利用ください。",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "タイム ベース",
+    "message": "タイムベース",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "カウンター ベース",
+    "message": "カウンターベース",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -226,19 +214,19 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "QR 画像のバックアップをインポート",
+    "message": "QR画像のバックアップをインポート",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "QRコード画像をインポート",
+    "message": "QR画像をインポート",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "テキストのバックアップのインポート",
+    "message": "OTPAuth URIをインポート",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "OTP URLをインポート",
+    "message": "OTPAuth URIをインポート",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
@@ -246,15 +234,15 @@
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "バッチでバックアップをインポートするファイルを複数選択できます。",
+    "message": "複数のファイルを選択して、バックアップを一括インポートできます。",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
-    "message": "すべての登録を表示",
+    "message": "すべての項目を表示",
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "警告: バックアップは暗号化されていません。お気をつけください。",
+    "message": "警告: バックアップは暗号化されていません。自己責任でご使用ください。",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -297,10 +285,6 @@
     "message": "自動入力を使用する",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "高コントラストにする",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "テーマ",
     "description": "Theme"
@@ -313,10 +297,6 @@
     "message": "ダーク",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "シンプル",
-    "description": "Simple theme"
-  },
   "theme_compact": {
     "message": "コンパクト",
     "description": "Compact theme"
@@ -325,16 +305,8 @@
     "message": "高コントラスト",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "フラット",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "サードパーティのストレージサービスへ自動的にデータをバックアップします。",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
-    "message": "ブラウザ間で同期",
+    "message": "ブラウザ同期",
     "description": "Storage location"
   },
   "sign_in": {
@@ -342,11 +314,11 @@
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
-    "message": "Sign in (Business)",
+    "message": "サインイン（ビジネス）",
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "なぜビジネスアカウントにはより多くの権限が必要なのですか?"
+    "message": "なぜビジネスアカウントにはより多くの権限が必要なのですか？"
   },
   "log_out": {
     "message": "ログアウト",
@@ -362,10 +334,6 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "使用できないアカウントが含まれています。暗号化されていないバックアップでは、標準のバックアップ形式を使用できません。",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
     "message": "他のアプリのバックアップをインポートできます。",
     "description": "Info text on import page"
@@ -378,13 +346,13 @@
     "message": "読み込み中..."
   },
   "autolock": {
-    "message": "ロック時間"
+    "message": "自動ロックまでの時間"
   },
   "minutes": {
     "message": "分"
   },
   "advanced": {
-    "message": "その他"
+    "message": "詳細設定"
   },
   "period": {
     "message": "期間"
@@ -407,9 +375,6 @@
   "backup": {
     "message": "バックアップ"
   },
-  "backup_file_info": {
-    "message": "データをファイルにバックアップします。"
-  },
   "password_policy_default_hint": {
     "message": "パスワードが組織のセキュリティ要件を満たしていません。詳しくは管理者にお問い合わせください。"
   },
@@ -417,19 +382,19 @@
     "message": "アドバイザー"
   },
   "advisor_insight_password_not_set": {
-    "message": "データを保護するためにパスワードを設定します。"
+    "message": "データを保護するために、パスワードを設定しましょう。"
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "自動ロックを有効にしてデータを保護します。"
+    "message": "データを保護するために、自動ロックを有効にしましょう。"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "ブラウザの同期が無効になっています。アカウントを有効にするとブラウザ間で同期することができます。"
+    "message": "ブラウザ同期が無効になっています。有効にすると、アカウントをブラウザ間で同期できるようになります。"
   },
   "advisor_insight_auto_fill_not_enabled": {
     "message": "自動入力を有効にすると、ウェブサイトで自動的にコードを入力できます。"
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "スマートフィルタを有効にすると、アカウントへ素早くアクセスできます。"
+    "message": "スマートフィルターを有効にすると、アカウントへ素早くアクセスできます。"
   },
   "show_all_insights": {
     "message": "すべてのインサイトを表示します。"
@@ -441,16 +406,16 @@
     "message": "危険"
   },
   "warning": {
-    "message": "注意"
+    "message": "警告"
   },
   "info": {
-    "message": "お知らせ"
+    "message": "情報"
   },
   "dismiss": {
-    "message": "消去する"
+    "message": "閉じる"
   },
   "learn_more": {
-    "message": "続きを読む"
+    "message": "詳細"
   },
   "enable_context_menu": {
     "message": "コンテキストメニューに追加"
@@ -480,45 +445,177 @@
     "message": "サードパーティのストレージサービスへのサインインを許可します。"
   },
   "permission_alarms": {
-    "message": "機能を有効化するには、画面の自動ロックを有効にします。"
+    "message": "自動ロック機能を動作させるために使用します。"
   },
   "permission_scripting": {
-    "message": "現在のタブにスクリプトを挿入してQRコードをスキャンし、自動入力がが機能するようにする。"
+    "message": "現在のタブにスクリプトを挿入してQRコードをスキャンし、自動入力が機能するようにします。"
   },
   "permission_clipboard_write": {
     "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
   },
   "permission_context_menus": {
-    "message": "コンテキストメニューに認証システムを追加します。"
+    "message": "コンテキストメニューにOTPilotを追加します。"
   },
   "permission_sync_clock": {
     "message": "Google との時刻の同期を許可します。"
   },
   "permission_dropbox": {
-    "message": "Dropboxへバックアップを行います。"
+    "message": "Dropboxへのバックアップを許可します。"
   },
   "permission_dropbox_cannot_revoke": {
     "message": "最初にDropboxのバックアップを無効にする必要があります。"
-  },
-  "permission_drive": {
-    "message": "Google ドライブへバックアップを行います。"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "まず、Google ドライブのバックアップを無効にする必要があります。"
-  },
-  "permission_onedrive": {
-    "message": "OneDriveへバックアップを行います。"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "最初にOneDriveへのバックアップを無効にする必要があります。"
   },
   "permission_unknown_permission": {
     "message": "不明な権限です。このメッセージが表示される場合はバグレポートを送信してください。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "パスワードが違います。"
   },
   "activate_auto_filter": {
-    "message": "警告：スマートフィルタはアカウントのドメイン名とほぼ一致します。常にあなたが正しいウェブサイトにいることを確認してください！"
+    "message": "警告：スマートフィルターは、ドメイン名のゆるやかな一致でアカウントを判定します。コードを入力する前に、必ず正しいウェブサイトにいることを確認してください！"
+  },
+  "backup_cloud_sync": {
+    "message": "クラウド同期",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "接続済み",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "未接続",
+    "description": "Cloud provider not-connected status"
+  },
+  "backup_on_device": {
+    "message": "この端末",
+    "description": "Backup section: local"
+  },
+  "backup_requires_password": {
+    "message": "クラウドバックアップを使うには、先にパスワードを設定してください。シークレットはこの端末を離れる前に暗号化されます。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
+  "edit_accounts": {
+    "message": "アカウントを編集",
+    "description": "Header title while in edit mode"
+  },
+  "filter_to_site": {
+    "message": "絞り込み：",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "host": {
+    "message": "ウェブサイト",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "import_choose_file": {
+    "message": "ファイルを選択",
+    "description": "File import dropzone button"
+  },
+  "import_decrypt": {
+    "message": "復号してインポート",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
+  "import_drop_file": {
+    "message": "バックアップファイルをドロップ、またはクリックして選択",
+    "description": "File import dropzone title"
+  },
+  "import_enc_required": {
+    "message": "暗号化済み — パスフレーズが必要",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_encrypted_note": {
+    "message": "ファイルが暗号化されている場合、選択後にパスフレーズの入力を求められます。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_file_accepts": {
+    "message": ".json と .txt のエクスポートに対応",
+    "description": "File import dropzone hint"
+  },
+  "import_pass_hint": {
+    "message": "バックアップ作成時に設定したパスワードです。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_pass_placeholder": {
+    "message": "ファイルのパスフレーズを入力",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "パスワードロック（任意）付きの暗号化保管庫",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_offline": {
+    "message": "完全オフラインで動作 — データは端末から出ません",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "QRコードをスキャン、または既存のバックアップをインポート",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "はじめる",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "インポートするバックアップがあります",
+    "description": "Onboarding secondary button"
+  },
+  "onboarding_subtitle": {
+    "message": "すべてのアカウントに安全な2段階認証コードを生成 — 暗号化、オフライン、ワンタップでコピー。",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_title": {
+    "message": "持ち歩ける認証コード",
+    "description": "Onboarding headline"
+  },
+  "other_accounts": {
+    "message": "その他のアカウント",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "pin_to_top": {
+    "message": "上部に固定",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "qr_transfer_desc": {
+    "message": "別の端末の OTPilot でこのコードをスキャンすると、このアカウントを移行できます — データが端末の外に出ることはありません。",
+    "description": "QR sheet caption body"
+  },
+  "qr_transfer_title": {
+    "message": "このアカウントを移行",
+    "description": "QR sheet caption title"
+  },
+  "settings_appearance": {
+    "message": "外観",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "一般",
+    "description": "Settings section: general"
+  },
+  "show_qr": {
+    "message": "QRコードを表示",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "showing_codes_for": {
+    "message": "次のサイトのコードを表示中：",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "theme_auto": {
+    "message": "自動",
+    "description": "Follow the system light/dark setting"
+  },
+  "unlock": {
+    "message": "ロック解除",
+    "description": "Unlock button"
+  },
+  "unpin": {
+    "message": "固定を解除",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "保管庫はロックされています",
+    "description": "Title on the unlock screen"
+  },
+  "backup_unavailable": {
+    "message": "未対応",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

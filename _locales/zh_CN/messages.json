@@ -1,34 +1,50 @@
 {
   "extName": {
-    "message": "身份验证器",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "身份验证器",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "网站",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "请先设置密码才能使用云备份，您的密钥会在离开此设备前先行加密。",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "身份验证器用以在浏览器中生成二步认证代码。",
+    "message": "OTPilot Authenticator 可生成两步验证 (2FA) 验证码，并提供加密云备份、按网站匹配的自动填充和安全建议。",
     "description": "Extension Description."
   },
   "added": {
-    "message": "已添加。",
+    "message": " 已添加。",
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "无法识别的QR码。",
+    "message": "无法识别的二维码。",
     "description": "QR Error."
+  },
+  "error_not_otpauth": {
+    "message": "扫描的二维码不是有效的 otpauth 验证码。",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
   },
   "errorsecret": {
     "message": "无效的密钥",
     "description": "Secret Error."
   },
+  "errorissuer": {
+    "message": "签发方不能包含“::”",
+    "description": "Issuer Error."
+  },
   "add_code": {
-    "message": "添加账号",
+    "message": "添加账户",
     "description": "Add account."
   },
   "add_qr": {
-    "message": "扫描QR码",
+    "message": "扫描二维码",
     "description": "Scan QR Code."
   },
   "add_secret": {
@@ -36,16 +52,12 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "导入失败。 如果您要从Google Authenticator迁移数据，请从Google Authenticator重新导出数据，然后重试。",
+    "message": "导入失败。如果您要从 Google Authenticator 迁移数据，请从 Google Authenticator 重新导出数据，然后重试。",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "某些帐户数据未成功导入。",
+    "message": "某些账户数据未成功导入。",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "关闭",
-    "description": "Close."
   },
   "ok": {
     "message": "确定",
@@ -99,10 +111,6 @@
     "message": "当前密码",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "新密码",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "密码",
     "description": "Passphrase."
@@ -112,7 +120,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "您确定要删除此密钥吗？该操作无法撤销。",
+    "message": "您确定要删除此账户吗？此操作无法撤销。",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -120,25 +128,21 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "重置身份验证器"
+    "message": "重置 OTPilot"
   },
   "delete_all_warning": {
-    "message": "这将删除所有数据并完全重置身份验证器。 任何已删除的数据都无法恢复！在重置身份验证器之前您应保存备份。"
+    "message": "这将删除所有数据并完全重置 OTPilot。任何已删除的数据都无法恢复！在重置 OTPilot 之前您应保存备份。"
   },
   "security_warning": {
-    "message": "您的账户数据将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
+    "message": "您的账户数据将使用此密码进行加密。如果您忘记了密码，没有人能够提供帮助。",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "更新",
-    "description": "Update."
-  },
   "phrase_incorrect": {
-    "message": "部分账户与密码不匹配，您无法添加新账户或者更改密码。请提供正确的密码后重试。",
+    "message": "在所有账户解密之前，您无法添加新账户。请先输入正确的密码再继续。",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "备份文件不会包含无法解密的账号。",
+    "message": "备份文件不会包含无法解密的账户。",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -157,25 +161,17 @@
     "message": "问题反馈",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "参与翻译",
-    "description": "Translate."
-  },
   "source": {
     "message": "源代码",
     "description": "Source Code."
   },
   "passphrase_info": {
-    "message": "输入密码以解码账户数据。",
+    "message": "输入密码以解密账户数据。",
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "通过Google校准时间",
+    "message": "通过 Google 校准时间",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "记住密码",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "注意！您的本地时钟时间差过大，请修正后再进行操作。",
@@ -186,11 +182,11 @@
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "捕捉失败，请重载您正在浏览的页面后重试。",
+    "message": "捕捉失败，请重新加载页面后重试。",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "您是否正在尝试从本地文件扫描QR码？ 改为使用导入QR图像备份。",
+    "message": "您是否正在尝试从本地文件扫描二维码？请改用「导入二维码图片备份」功能。",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -202,7 +198,7 @@
     "description": "Counter Based"
   },
   "resize_popup_page": {
-    "message": "偏好",
+    "message": "偏好设置",
     "description": "Popup Page Settings"
   },
   "scale": {
@@ -210,7 +206,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "警告：所有备份均未加密。想要将账号添加至其他应用？请点击账号右上角隐藏的图标。",
+    "message": "警告：所有备份均未加密。想要将账户添加到其他应用？将鼠标悬停在任意账户右上角，点击隐藏的按钮即可。",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -226,27 +222,59 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "导入 QR 图片备份",
+    "message": "导入二维码图片备份",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "导入QR码图片",
+    "message": "导入二维码图片",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "导入备份文本",
+    "message": "导入 OTP 链接",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "导入OTP链接",
+    "message": "导入 OTP 链接",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "拖放备份文件到此，或点击浏览",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "支持 .json 和 .txt 导出文件",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "选择文件",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "若文件已加密，选择后会要求输入其密码。",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "已加密 — 需要密码",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "输入文件的密码",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "这是您创建备份时设置的密码。",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "解密并导入",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "导入成功，但部分二维码无法识别。",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "您可以同时选择多个文件进行批量导入",
+    "message": "您可以同时选择多个文件进行批量导入。",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
@@ -297,13 +325,105 @@
     "message": "启用自动填充",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "使用高对比度",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "主题",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "外观",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "常规",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "编辑账户",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "显示二维码",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "置顶",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "取消置顶",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "保险库已锁定",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "解锁",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "转移此账户",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "在另一台设备上用 OTPilot 扫描此二维码即可转移此账户 — 数据绝不离开您的设备。",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "本机",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "云同步",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "已连接",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "未连接",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "正在显示以下网站的验证码：",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "其他账户",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "筛选至",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "随身携带的验证码",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "为每个账户生成安全的两步验证码 — 加密、离线，且始终一键复制。",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "完全离线运行 — 数据不会离开您的设备",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "加密保险库，可选密码锁",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "扫描二维码或导入现有备份",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "开始使用",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "我有备份要导入",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "浅色",
@@ -313,9 +433,9 @@
     "message": "深色",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "简约",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "自动",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "精简视图",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "高对比度",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "扁平",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "自动备份您的数据至第三方服务。",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "浏览器数据同步",
@@ -346,14 +458,14 @@
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "为何企业版账户需要更高权限？"
+    "message": "为何企业版账户需要更多权限？"
   },
   "log_out": {
     "message": "注销",
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "连接到您的 $SERVICE$ 账号时出错，请重试。",
+    "message": "连接到您的 $SERVICE$ 账号时出错，请重新登录。",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -362,12 +474,8 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "您添加了Steam或战网账号，所以备份文件将不会使用标准输出格式。",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
-    "message": "您可以从一些其它的应用中导入备份。",
+    "message": "您可以从一些其他应用导入备份。",
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
@@ -375,7 +483,7 @@
     "description": "learn more link on import page. Placed after otp_backup_inform"
   },
   "loading": {
-    "message": "正在载入..."
+    "message": "加载中..."
   },
   "autolock": {
     "message": "在"
@@ -393,7 +501,7 @@
     "message": "类型"
   },
   "invalid": {
-    "message": "无效代码"
+    "message": "无效"
   },
   "digits": {
     "message": "位数"
@@ -407,14 +515,11 @@
   "backup": {
     "message": "备份"
   },
-  "backup_file_info": {
-    "message": "备份数据到文件。"
-  },
   "password_policy_default_hint": {
     "message": "您的密码不符合您组织的安全要求。有关详细信息，请联系组织管理员。"
   },
   "advisor": {
-    "message": "建议"
+    "message": "安全建议"
   },
   "advisor_insight_password_not_set": {
     "message": "设置密码以保护您的数据。"
@@ -423,19 +528,19 @@
     "message": "启用自动锁定来保护您的数据。"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "浏览器同步已被禁用。启用它以允许跨浏览器的帐户同步。"
+    "message": "浏览器同步已被禁用。启用它以允许跨浏览器的账户同步。"
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "可以启用自动填充以自动将代码填充到网站中。"
+    "message": "启用自动填充，即可将验证码自动填入网站。"
   },
   "advisor_insight_smart_filter_not_enabled": {
     "message": "开启智能过滤以便快速访问账户。"
   },
   "show_all_insights": {
-    "message": "显示所有见解。"
+    "message": "显示所有建议。"
   },
   "no_insight_available": {
-    "message": "没有可供参考的见解，一切看起来都很好！"
+    "message": "暂无可参考的建议，一切看起来都很好！"
   },
   "danger": {
     "message": "危险"
@@ -474,7 +579,7 @@
     "message": "访问当前标签页以扫描二维码。"
   },
   "permission_storage": {
-    "message": "访问浏览器存储以存储帐户数据。"
+    "message": "访问浏览器存储以存储账户数据。"
   },
   "permission_identity": {
     "message": "用以登录第三方存储服务。"
@@ -486,39 +591,31 @@
     "message": "将脚本注入当前标签页以扫描二维码并允许自动填充功能生效。"
   },
   "permission_clipboard_write": {
-    "message": "剪贴板只写权限以当您点击该帐户时复制代码到剪贴板。"
+    "message": "授予剪贴板只写权限，以便在您点击账户时将验证码复制到剪贴板。"
   },
   "permission_context_menus": {
-    "message": "将身份验证器添加到右键菜单。"
+    "message": "将 OTPilot 添加到右键菜单。"
   },
   "permission_sync_clock": {
-    "message": "允许从 Google 同步时间"
+    "message": "允许从 Google 同步时间。"
   },
   "permission_dropbox": {
-    "message": "允许备份到 Dropbox"
+    "message": "允许备份到 Dropbox。"
   },
   "permission_dropbox_cannot_revoke": {
     "message": "您必须先停用 Dropbox 备份。"
-  },
-  "permission_drive": {
-    "message": "允许备份到 Google Drive。"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "您必须先停用 Google Drive 备份。"
-  },
-  "permission_onedrive": {
-    "message": "允许备份到 OneDrive。"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "您必须先停用 OneDrive 备份。"
   },
   "permission_unknown_permission": {
     "message": "未知权限。如果您看到此消息，请发送错误报告。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "密码错误"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "警告：智能过滤器是通过粗略匹配域名来关联账户的。在输入验证码前，请务必确认您所在的网站正确无误！"
+  },
+  "backup_unavailable": {
+    "message": "暂不支持",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

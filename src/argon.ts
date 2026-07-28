@@ -11,13 +11,14 @@ window.addEventListener("message", (event) => {
   switch (message.action) {
     case "hash":
       Argon.hash(message.value, message.salt).then((hash) => {
-        source.postMessage({ response: hash }, event.origin);
+        // echo the request id so the caller can match the reply to its request
+        source.postMessage({ id: message.id, response: hash }, event.origin);
       });
       break;
 
     case "verify":
       Argon.compareHash(message.hash, message.value).then((result) => {
-        source.postMessage({ response: result }, event.origin);
+        source.postMessage({ id: message.id, response: result }, event.origin);
       });
       break;
 
@@ -50,8 +51,10 @@ class Argon {
           encoded: hash,
         })
         .then(() => resolve(true))
-        .catch((e: { message: string; code: number }) => {
-          console.error("Error decoding hash", e);
+        .catch(() => {
+          // verify() rejects on a wrong passphrase (the common case) as well as
+          // on a malformed hash; both just mean "cannot unlock", so report a
+          // non-match instead of logging an error for every mistyped password.
           resolve(false);
         });
     });

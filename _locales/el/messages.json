@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Επαληθευτής",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Επαληθευτής",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Ιστότοπος",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Ορίστε πρώτα έναν κωδικό πρόσβασης για να χρησιμοποιήσετε το αντίγραφο ασφαλείας στο cloud, ώστε τα μυστικά σας να κρυπτογραφούνται πριν φύγουν από αυτή τη συσκευή.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
+    "message": "Το OTPilot Authenticator δημιουργεί κωδικούς δύο παραγόντων (2FA), με κρυπτογραφημένο αντίγραφο ασφαλείας στο cloud, αυτόματη συμπλήρωση βάσει ιστότοπου και συμβουλές ασφαλείας.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "Ο κώδικας QR δεν αναγνωρίστηκε.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Ο σαρωμένος κωδικός QR δεν είναι έγκυρος κωδικός otpauth.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
-    "message": "Μην έγκυρο μυστικό λογαριασμού",
+    "message": "Μη έγκυρο μυστικό λογαριασμού",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Ο εκδότης δεν μπορεί να περιέχει «::»",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Προσθήκη λογαριασμού",
@@ -42,10 +58,6 @@
   "migration_partly_fail": {
     "message": "Ορισμένα από τα δεδομένα του λογαριασμού σας δεν εισήχθησαν με επιτυχία.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Κλείσιμο",
-    "description": "Close."
   },
   "ok": {
     "message": "Εντάξει",
@@ -96,12 +108,8 @@
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Τρέχον Κωδικός",
+    "message": "Τρέχων κωδικός πρόσβασης",
     "description": "Current Passphrase."
-  },
-  "new_phrase": {
-    "message": "Νέος κωδικός πρόσβασης",
-    "description": "New Passphrase."
   },
   "phrase": {
     "message": "Κωδικός πρόσβασης",
@@ -129,10 +137,6 @@
     "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει σε περίπτωση που τον ξεχάσετε.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Ενημέρωση",
-    "description": "Update."
-  },
   "phrase_incorrect": {
     "message": "Δεν μπορείτε να προσθέσετε ένα νέο λογαριασμό μέχρι όλοι οι λογαριασμοί να έχουν αποκρυπτογραφηθεί. Εισάγετε τον σωστό κωδικό πρόσβασης για να συνεχίσετε.",
     "description": "Passphrase Incorrect."
@@ -154,12 +158,8 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "Αξιολογήστε μας",
+    "message": "Σχόλια",
     "description": "Feedback."
-  },
-  "translate": {
-    "message": "Συνεισφέρετε στη μετάφραση",
-    "description": "Translate."
   },
   "source": {
     "message": "Πηγαίος κώδικας",
@@ -173,12 +173,8 @@
     "message": "Συγχρονισμός ρολογιού με την Google",
     "description": "Sync Clock"
   },
-  "remember_phrase": {
-    "message": "Απομνημόνευση κωδικού πρόσβασης",
-    "description": "Remember Passphrase"
-  },
   "clock_too_far_off": {
-    "message": "Προσοχή! Τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
+    "message": "Προσοχή! Το τοπικό ρολόι σας απέχει πάρα πολύ από την πραγματική ώρα. Διορθώστε το για να συνεχίσετε.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
@@ -214,7 +210,7 @@
     "description": "Export menu info text"
   },
   "download_backup": {
-    "message": "Λήψη αρχείου",
+    "message": "Λήψη αρχείου αντιγράφου ασφαλείας",
     "description": "Download backup file."
   },
   "import_backup": {
@@ -222,7 +218,7 @@
     "description": "Import backup."
   },
   "import_backup_file": {
-    "message": "Import Backup File",
+    "message": "Εισαγωγή αρχείου αντιγράφου ασφαλείας",
     "description": "Import backup file."
   },
   "import_backup_qr": {
@@ -234,19 +230,51 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Εισαγωγή αντιγράφου ασφαλείας κειμένου",
+    "message": "Εισαγωγή OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Εισαγωγή διευθύνσεων URL OTP",
+    "message": "Εισαγωγή OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "Σύρετε ένα αρχείο αντιγράφου ασφαλείας ή κάντε κλικ για περιήγηση",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Δέχεται εξαγωγές .json και .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Επιλογή αρχείου",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Αν το αρχείο είναι κρυπτογραφημένο, θα σας ζητηθεί ο κωδικός πρόσβασής του μετά την επιλογή.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Κρυπτογραφημένο — απαιτείται κωδικός πρόσβασης",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Εισαγάγετε τον κωδικό πρόσβασης του αρχείου",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Αυτός είναι ο κωδικός πρόσβασης που ορίσατε όταν δημιουργήσατε το αντίγραφο ασφαλείας.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Αποκρυπτογράφηση και εισαγωγή",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "Η εισαγωγή ολοκληρώθηκε με επιτυχία, αλλά ορισμένοι κώδικες QR δεν αναγνωρίστηκαν.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "Μπορείτε να επιλέξετε περισσότερα από ένα αρχεία αντιγράφων ασφαλείας.",
+    "message": "Μπορείτε να επιλέξετε πολλά αρχεία για να εισαγάγετε αντίγραφα ασφαλείας μαζικά.",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
@@ -297,13 +325,105 @@
     "message": "Αυτόματη συμπλήρωση",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Χρήση υψηλής αντίθεσης",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Θέμα",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "Εμφάνιση",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Γενικά",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Επεξεργασία λογαριασμών",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Εμφάνιση κωδικού QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Καρφίτσωμα στην κορυφή",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Ξεκαρφίτσωμα",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Το θησαυροφυλάκιο είναι κλειδωμένο",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Ξεκλείδωμα",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Μεταφορά αυτού του λογαριασμού",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Σαρώστε αυτόν τον κωδικό με το OTPilot σε άλλη συσκευή για να μεταφέρετε αυτόν τον λογαριασμό — δεν φεύγει ποτέ από τις συσκευές σας.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Σε αυτή τη συσκευή",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Συγχρονισμός cloud",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "Συνδεδεμένο",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "Μη συνδεδεμένο",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Εμφάνιση κωδικών για",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Άλλοι λογαριασμοί",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Φιλτράρισμα σε",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Κωδικοί που σας συνοδεύουν παντού",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Δημιουργήστε ασφαλείς κωδικούς δύο παραγόντων για κάθε λογαριασμό — κρυπτογραφημένους, εκτός σύνδεσης και πάντα ένα πάτημα μακριά από την αντιγραφή.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Λειτουργεί πλήρως εκτός σύνδεσης — τίποτα δεν φεύγει από τη συσκευή σας",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Κρυπτογραφημένο θησαυροφυλάκιο με προαιρετικό κλείδωμα κωδικού πρόσβασης",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Σαρώστε έναν κωδικό QR ή εισαγάγετε ένα υπάρχον αντίγραφο ασφαλείας",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Ξεκινήστε",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Έχω ένα αντίγραφο ασφαλείας για εισαγωγή",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "Φωτεινό",
@@ -313,9 +433,9 @@
     "message": "Σκούρο",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "Απλό",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Αυτόματο",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "Συμπαγές",
@@ -325,16 +445,8 @@
     "message": "Υψηλή αντίθεση",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "Απλό",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Δημιουργήστε αυτόματα αντίγραφα ασφαλείας των δεδομένων σας σε υπηρεσίες αποθήκευσης τρίτων.",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
-    "message": "Συγχρονισμός δεδομένων",
+    "message": "Συγχρονισμός προγράμματος περιήγησης",
     "description": "Storage location"
   },
   "sign_in": {
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "Έχετε έναν ή παραπάνω Steam ή Blizzard λογαριασμούς. Τα αντίγραφα ασφαλείας που δεν έχουν κρυπτογραφηθεί δε θα ακολουθήσουν τη συνηθισμένη μορφή των άλλων αντιγράφων.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "Μπορείτε να εισάγετε αντίγραφα ασφαλείας από άλλες εφαρμογές.",
@@ -407,11 +515,8 @@
   "backup": {
     "message": "Αντίγραφο Ασφαλείας"
   },
-  "backup_file_info": {
-    "message": "Αποθηκεύστε τα δεδομένα σας σε ένα αρχείο."
-  },
   "password_policy_default_hint": {
-    "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τοn διαχειριστή σας για περισσότερες πληροφορίες."
+    "message": "Ο κωδικός πρόσβασής σας δεν πληροί τις προαπαιτήσεις ασφαλείας του οργανισμού σας. Επικοινωνήστε με τον διαχειριστή σας για περισσότερες πληροφορίες."
   },
   "advisor": {
     "message": "Σύμβουλος"
@@ -465,7 +570,7 @@
     "message": "Ανάκληση"
   },
   "permission_show_required_permissions": {
-    "message": "Εμφάνιση αδειών που δεν ανακαλούνται"
+    "message": "Εμφάνιση μη ανακλήσιμων δικαιωμάτων"
   },
   "permission_required": {
     "message": "Αυτό είναι ένα δικαίωμα που απαιτείται και δεν μπορεί να ανακληθεί."
@@ -483,10 +588,10 @@
     "message": "Επιτρέπει το αυτόματο κλείδωμα να λειτουργήσει."
   },
   "permission_scripting": {
-    "message": "Χορηγεί κώδικα στην τρέχουσα καρτέλα για να σκανάρει κωδικούς QR και να συμπληρώσει αυτόματα ώστε να λειτουργήσει."
+    "message": "Εισάγει σενάρια (scripts) στην τρέχουσα καρτέλα για τη σάρωση κωδικών QR και για να λειτουργεί η αυτόματη συμπλήρωση."
   },
   "permission_clipboard_write": {
-    "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
+    "message": "Παραχωρεί πρόσβαση μόνο για εγγραφή στο πρόχειρο, ώστε να αντιγράφονται οι κωδικοί όταν κάνετε κλικ στον λογαριασμό."
   },
   "permission_context_menus": {
     "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
@@ -500,18 +605,6 @@
   "permission_dropbox_cannot_revoke": {
     "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Dropbox."
   },
-  "permission_drive": {
-    "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "Πρέπει πρώτα να απενεργοποιήσετε τη δημιουργία αντιγράφων ασφαλείας του Google Drive."
-  },
-  "permission_onedrive": {
-    "message": "Επιτρέπει τη δημιουργία αντιγράφων ασφαλείας στο OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "Πρέπει πρώτα να απενεργοποιήσετε τα αντίγραφα ασφαλείας του OneDrive."
-  },
   "permission_unknown_permission": {
     "message": "Άγνωστο δικαίωμα. Αν δείτε αυτό το μήνυμα, στείλτε μας μια αναφορά σφάλματος."
   },
@@ -520,5 +613,9 @@
   },
   "activate_auto_filter": {
     "message": "Προσοχή: Το έξυπνο φίλτρο δεν αντιστοιχίζει με ακρίβεια τον κάθε λογαριασμό με την ιστοσελίδα όπου αυτός δημιουργήθηκε. Για τον λόγο αυτό, πρέπει πάντα να ελέγχετε αν βρίσκεστε στη σωστή ιστοσελίδα προτού εισάγετε τον κωδικό!"
+  },
+  "backup_unavailable": {
+    "message": "Δεν είναι ακόμη διαθέσιμο",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

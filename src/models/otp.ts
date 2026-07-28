@@ -47,10 +47,31 @@ export class OTPUtil {
   }
 }
 
+// Upstream encoded an autofill-bound host inside the issuer field as
+// "Name::host". Split that into the dedicated host field on read so old
+// entries keep working and get normalized on the next save.
+function migrateLegacyHost(
+  issuer: string,
+  host: string,
+): { issuer: string; host: string } {
+  const sepIndex = issuer.lastIndexOf("::");
+  if (!host && sepIndex !== -1) {
+    return {
+      issuer: issuer.slice(0, sepIndex),
+      host: issuer
+        .slice(sepIndex + 2)
+        .replace(/^\.+/, "")
+        .toLowerCase(),
+    };
+  }
+  return { issuer, host };
+}
+
 export class OTPEntry implements OTPEntryInterface {
   type: OTPType;
   index: number;
   issuer: string;
+  host: string;
   secret: string | null;
   account: string;
   hash: string;
@@ -63,7 +84,7 @@ export class OTPEntry implements OTPEntryInterface {
   encData?: string;
   encSecret?: string;
   keyId?: string;
-  code = "&bull;&bull;&bull;&bull;&bull;&bull;";
+  code = "••••••";
 
   constructor(
     entry:
@@ -72,6 +93,7 @@ export class OTPEntry implements OTPEntryInterface {
           encrypted: boolean;
           index: number;
           issuer?: string;
+          host?: string;
           secret: string;
           type: OTPType;
           counter?: number;
@@ -88,7 +110,7 @@ export class OTPEntry implements OTPEntryInterface {
           hash: string;
           index: number;
         },
-    encryption?: EncryptionInterface
+    encryption?: EncryptionInterface,
   ) {
     this.encryption = encryption;
     this.index = entry.index;
@@ -102,6 +124,7 @@ export class OTPEntry implements OTPEntryInterface {
       // defaults
       this.type = OTPType.totp;
       this.issuer = "";
+      this.host = "";
       this.account = "";
       this.counter = 0;
       this.period = 30;
@@ -122,6 +145,11 @@ export class OTPEntry implements OTPEntryInterface {
       this.issuer = entry.issuer;
     } else {
       this.issuer = "";
+    }
+    {
+      const migrated = migrateLegacyHost(this.issuer, entry.host || "");
+      this.issuer = migrated.issuer;
+      this.host = migrated.host;
     }
     if (entry.account) {
       this.account = entry.account;
@@ -182,14 +210,14 @@ export class OTPEntry implements OTPEntryInterface {
     return;
   }
 
-  applyEncryption(encryption: EncryptionInterface) {
+  async applyEncryption(encryption: EncryptionInterface) {
     if (!encryption || !encryption.getEncryptionStatus()) {
       return;
     }
 
     if (this.encSecret) {
       // v2 encryption
-      this.secret = encryption.decryptSecretString(this.encSecret);
+      this.secret = await encryption.decryptSecretString(this.encSecret);
       if (this.secret) {
         this.encSecret = "";
       }
@@ -197,21 +225,23 @@ export class OTPEntry implements OTPEntryInterface {
     }
 
     // check if its a rawotpstorage
-    const decryptedData = encryption.decryptEncSecret(this);
+    const decryptedData = await encryption.decryptEncSecret(this);
     if (decryptedData === null) {
       return;
     }
 
     if (decryptedData?.dataType !== "OTPStorage") {
       console.warn("Decrypt successful, but malformed encData!", this.hash);
+      return;
     }
 
     if (decryptedData.hash !== this.hash) {
       console.warn(
         "Decrypt successful, but hash mismatch!",
         this.hash,
-        decryptedData.hash
+        decryptedData.hash,
       );
+      return;
     }
 
     this.account = decryptedData.account || "";
@@ -220,6 +250,12 @@ export class OTPEntry implements OTPEntryInterface {
     this.counter = decryptedData.counter || 0;
     this.digits = decryptedData.digits || 6;
     this.issuer = decryptedData.issuer || "";
+    this.host = decryptedData.host || "";
+    {
+      const migrated = migrateLegacyHost(this.issuer, this.host);
+      this.issuer = migrated.issuer;
+      this.host = migrated.host;
+    }
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;
@@ -256,16 +292,17 @@ export class OTPEntry implements OTPEntryInterface {
   }
 
   generate() {
-    const offset = UserSettings.items ? UserSettings.items.offset : 0;
     if (!UserSettings.items) {
-      // browser storage is async, so we need to wait for it to load
-      // and re-generate the code
-      // don't change the code to async, it will break the mutation
-      // for Accounts store to export data
+      // browser storage is async, so wait for it to load and re-generate.
+      // don't change this to async: it would break the Accounts store
+      // mutation that exports data. Return so we don't first generate a
+      // code with offset 0 and then race the reload over it.
       UserSettings.updateItems().then(() => {
         this.generate();
       });
+      return;
     }
+    const offset = UserSettings.items.offset;
 
     if (!this.secret && !this.encData) {
       this.code = CodeState.Invalid;
@@ -280,7 +317,7 @@ export class OTPEntry implements OTPEntryInterface {
           this.period,
           this.digits,
           this.algorithm,
-          offset
+          offset,
         );
       } catch (error) {
         this.code = CodeState.Invalid;

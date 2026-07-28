@@ -14,7 +14,7 @@ export class AdvisorInsight implements AdvisorInsightInterface {
 
   constructor(insight: AdvisorInsightInterface) {
     this.id = insight.id;
-    this.level = insight.level as InsightLevel;
+    this.level = insight.level;
     this.levelText = chrome.i18n.getMessage(insight.level);
     this.description = insight.description;
     this.link = insight.link;

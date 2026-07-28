@@ -5,7 +5,7 @@ export function getCredentials() {
       client_secret: "", // Google client secret
     },
     dropbox: {
-      client_id: "", // Dropbox client ID
+      client_id: "lmii0f2hnnztmvv", // Dropbox client ID
     },
     onedrive: {
       client_id: "", // Microsoft Identity client ID

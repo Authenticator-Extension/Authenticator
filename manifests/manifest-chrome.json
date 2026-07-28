@@ -1,8 +1,9 @@
 {
     "manifest_version": 3,
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv1vBiM9sm3mAj4/i0+XIgOVhVedsypV2XVpGW864RwWPuaOnVi0xJ3rhg4jxulOwA0CS/zoO5rxeK+yhT9PByZ9YlGtJGR7Cg6tPHlIXf37Oy5w6dCXCuqjhVAaI0Ka+oXA5XPWd07Em0v2xlqEZdHTu95XDy7oOexDKbSJEXzg6BsdymIzn/tw1LG7+iWUOYfm+7sTIOTYQPFvFgPV5AuVPSOeQNDloT89jxYpmJFD7LMkrd6gQx+MRB9J93kmG8LY2thfLpgQh3kbeuObGD0Zh1xoeCoMPOstrDYTK8kHRhB/CFSb3XAn1+wrh3CUnr+Rc/m7eGb85OsYArJyFoQIDAQAB",
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "8.0.2",
+    "version": "8.0.5",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "icons": {
@@ -34,14 +35,8 @@
     "storage": {
         "managed_schema": "schema.json"
     },
-    "oauth2": {
-        "client_id": "292457304165-u8ve4j79gag5o231n5u2pdtdrbfdo1hh.apps.googleusercontent.com",
-        "scopes": [
-            "https://www.googleapis.com/auth/drive.file"
-        ]
-    },
     "background": {
-        "service_worker": "dist/background.js"
+        "service_worker": "js/background.js"
     },
     "sandbox": {
         "pages": [
@@ -61,14 +56,10 @@
     ],
     "optional_host_permissions": [
         "https://www.google.com/",
-        "https://*.dropboxapi.com/*",
-        "https://www.googleapis.com/*",
-        "https://accounts.google.com/o/oauth2/revoke",
-        "https://graph.microsoft.com/me/*",
-        "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        "https://*.dropboxapi.com/*"
     ],
     "content_security_policy": {
-        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'",
+        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'",
         "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
     }
   }

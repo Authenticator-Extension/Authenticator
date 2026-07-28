@@ -21,14 +21,16 @@ export async function syncTimeWithGoogle() {
               return resolve("updateFailure");
             }
             const serverTime = new Date(date).getTime();
+            if (isNaN(serverTime)) {
+              // unparseable date header — report a failure, not a huge offset
+              return resolve("updateFailure");
+            }
             const clientTime = new Date().getTime();
             const offset = Math.round((serverTime - clientTime) / 1000);
 
             if (Math.abs(offset) <= 300) {
               // within 5 minutes
-              UserSettings.items.offset = Math.round(
-                (serverTime - clientTime) / 1000
-              );
+              UserSettings.items.offset = offset;
               UserSettings.commitItems();
               return resolve("updateSuccess");
             } else {
@@ -40,6 +42,6 @@ export async function syncTimeWithGoogle() {
       } catch (error) {
         return reject(error as Error);
       }
-    }
+    },
   );
 }

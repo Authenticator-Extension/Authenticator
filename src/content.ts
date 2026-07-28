@@ -1,7 +1,3 @@
-// @ts-expect-error - no typings
-import QRCode from "qrcode-reader";
-import jsQR from "jsqr";
-
 // @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
 
@@ -12,14 +8,8 @@ if (!document.getElementById("__ga_grayLayout__")) {
         sendResponse("beginCapture");
         showGrayLayout();
         break;
-      case "sendCaptureUrl":
-        qrDecode(
-          message.info.url,
-          message.info.captureBoxLeft,
-          message.info.captureBoxTop,
-          message.info.captureBoxWidth,
-          message.info.captureBoxHeight
-        );
+      case "errorqr":
+        alert(chrome.i18n.getMessage("errorqr"));
         break;
       case "errorsecret":
         alert(chrome.i18n.getMessage("errorsecret") + message.secret);
@@ -61,9 +51,10 @@ if (!document.getElementById("__ga_grayLayout__")) {
         // invalid command, ignore it
         break;
     }
-
-    // https://stackoverflow.com/a/56483156
-    return true;
+    // Only "capture" responds, and it does so synchronously, so don't return
+    // true. Returning true kept the channel open waiting for a response that
+    // never came for the other actions (e.g. errorqr when a scan finds no QR),
+    // making the background sender's sendMessage promise reject.
   });
 }
 
@@ -72,12 +63,7 @@ sessionStorage.setItem("captureBoxPositionTop", "0");
 
 function showGrayLayout() {
   let grayLayout = document.getElementById("__ga_grayLayout__");
-  let qrCanvas = document.getElementById("__ga_qrCanvas__");
   if (!grayLayout) {
-    qrCanvas = document.createElement("canvas");
-    qrCanvas.id = "__ga_qrCanvas__";
-    qrCanvas.style.display = "none";
-    document.body.appendChild(qrCanvas);
     grayLayout = document.createElement("div");
     grayLayout.id = "__ga_grayLayout__";
     document.body.appendChild(grayLayout);
@@ -98,6 +84,10 @@ function showGrayLayout() {
       event.preventDefault();
       return;
     };
+    // Belt-and-suspenders: explicitly refuse native drag (e.g. dragging over an
+    // image/link under the overlay), which otherwise shows the no-drop cursor.
+    grayLayout.ondragstart = () => false;
+    grayLayout.style.userSelect = "none";
   }
   grayLayout.style.display = "block";
 }
@@ -111,6 +101,10 @@ function grayLayoutDown(event: MouseEvent) {
   if (!captureBox) {
     return;
   }
+
+  // Stop the browser from starting a native text-selection / image drag, which
+  // shows the "no-drop" cursor and steals the gesture from our drag-select.
+  event.preventDefault();
 
   sessionStorage.setItem("captureBoxPositionLeft", event.clientX.toString());
   sessionStorage.setItem("captureBoxPositionTop", event.clientY.toString());
@@ -132,6 +126,12 @@ function grayLayoutMove(event: MouseEvent) {
     event.preventDefault();
     return;
   }
+  // Only redraw while the left button is actually held. Without this the box
+  // tracked every bare pointer move (before the first click and after release),
+  // so the selection felt jumpy and "undraggable".
+  if (event.buttons !== 1) {
+    return;
+  }
   const captureBox = document.getElementById("__ga_captureBox__");
   if (!captureBox) {
     return;
@@ -139,19 +139,19 @@ function grayLayoutMove(event: MouseEvent) {
 
   const captureBoxLeft = Math.min(
     Number(sessionStorage.getItem("captureBoxPositionLeft")),
-    event.clientX
+    event.clientX,
   );
   const captureBoxTop = Math.min(
     Number(sessionStorage.getItem("captureBoxPositionTop")),
-    event.clientY
+    event.clientY,
   );
   const captureBoxWidth =
     Math.abs(
-      Number(sessionStorage.getItem("captureBoxPositionLeft")) - event.clientX
+      Number(sessionStorage.getItem("captureBoxPositionLeft")) - event.clientX,
     ) - 1;
   const captureBoxHeight =
     Math.abs(
-      Number(sessionStorage.getItem("captureBoxPositionTop")) - event.clientY
+      Number(sessionStorage.getItem("captureBoxPositionTop")) - event.clientY,
     ) - 1;
   captureBox.style.left = captureBoxLeft + "px";
   captureBox.style.top = captureBoxTop + "px";
@@ -180,106 +180,55 @@ function grayLayoutUp(event: MouseEvent) {
   const captureBoxLeft =
     Math.min(
       Number(sessionStorage.getItem("captureBoxPositionLeft")),
-      event.clientX
+      event.clientX,
     ) + 1;
   const captureBoxTop =
     Math.min(
       Number(sessionStorage.getItem("captureBoxPositionTop")),
-      event.clientY
+      event.clientY,
     ) + 1;
   const captureBoxWidth =
     Math.abs(
-      Number(sessionStorage.getItem("captureBoxPositionLeft")) - event.clientX
+      Number(sessionStorage.getItem("captureBoxPositionLeft")) - event.clientX,
     ) - 1;
   const captureBoxHeight =
     Math.abs(
-      Number(sessionStorage.getItem("captureBoxPositionTop")) - event.clientY
+      Number(sessionStorage.getItem("captureBoxPositionTop")) - event.clientY,
     ) - 1;
 
   // make sure captureBox and grayLayout is hidden
   setTimeout(() => {
-    chrome.runtime.sendMessage({
-      action: "getCapture",
-      info: {
-        captureBoxLeft,
-        captureBoxTop,
-        captureBoxWidth,
-        captureBoxHeight,
-      },
-    });
+    chrome.runtime
+      .sendMessage({
+        action: "getCapture",
+        info: {
+          captureBoxLeft,
+          captureBoxTop,
+          captureBoxWidth,
+          captureBoxHeight,
+          // Sent so the background can recover the display's device pixel ratio
+          // (bitmap.width / windowInnerWidth) when cropping the captured image.
+          windowInnerWidth: window.innerWidth,
+        },
+      })
+      .catch(() => {
+        // The background listener never sendResponse()s or returns true for
+        // getCapture (see background.ts), so a normal round-trip resolves
+        // with undefined and never reaches here. This only rejects when the
+        // service worker itself is unreachable (e.g. failed to start), which
+        // otherwise left the user staring at a capture box that silently did
+        // nothing.
+        alert(chrome.i18n.getMessage("capture_failed"));
+      });
   }, 200);
   return false;
 }
 
-async function qrDecode(
-  url: string,
-  left: number,
-  top: number,
-  width: number,
-  height: number
-) {
-  const canvas = document.getElementById(
-    "__ga_qrCanvas__"
-  ) as HTMLCanvasElement;
-  const qr = new Image();
-  qr.onload = () => {
-    const devicePixelRatio = qr.width / window.innerWidth;
-    canvas.width = qr.width;
-    canvas.height = qr.height;
-    canvas.getContext("2d")?.drawImage(qr, 0, 0);
-    const imageData = canvas
-      .getContext("2d")
-      ?.getImageData(
-        left * devicePixelRatio,
-        top * devicePixelRatio,
-        width * devicePixelRatio,
-        height * devicePixelRatio
-      );
-    if (imageData) {
-      canvas.width = imageData.width;
-      canvas.height = imageData.height;
-      canvas.getContext("2d")?.putImageData(imageData, 0, 0);
-
-      const qrReader = new QRCode();
-      qrReader.callback = (
-        error: string,
-        text: {
-          result: string;
-          points: Array<{
-            x: number;
-            y: number;
-            count: number;
-            estimatedModuleSize: number;
-          }>;
-        }
-      ) => {
-        let qrRes = "";
-        if (error) {
-          console.error(error);
-          const jsQrCode = jsQR(
-            imageData.data,
-            imageData.width,
-            imageData.height
-          );
-
-          if (jsQrCode) {
-            qrRes = jsQrCode.data;
-          } else {
-            alert(chrome.i18n.getMessage("errorqr"));
-          }
-        } else {
-          qrRes = text.result;
-        }
-
-        chrome.runtime.sendMessage({
-          action: "getTotp",
-          info: qrRes,
-        });
-      };
-      qrReader.decode(imageData);
-    }
-  };
-  qr.src = url;
+// Skip inputs the user can't see (hidden honeypots, off-screen fields) so the
+// code doesn't land in the wrong box. checkVisibility is guarded for older
+// browsers that don't support it. (#1273, #1136)
+function isVisibleInput(input: HTMLInputElement) {
+  return typeof input.checkVisibility !== "function" || input.checkVisibility();
 }
 
 function pasteCode(code: string) {
@@ -287,10 +236,11 @@ function pasteCode(code: string) {
   const inputBoxes: HTMLInputElement[] = [];
   for (let i = 0; i < _inputBoxes.length; i++) {
     if (
-      _inputBoxes[i].type === "text" ||
-      _inputBoxes[i].type === "number" ||
-      _inputBoxes[i].type === "tel" ||
-      _inputBoxes[i].type === "password"
+      (_inputBoxes[i].type === "text" ||
+        _inputBoxes[i].type === "number" ||
+        _inputBoxes[i].type === "tel" ||
+        _inputBoxes[i].type === "password") &&
+      isVisibleInput(_inputBoxes[i])
     ) {
       inputBoxes.push(_inputBoxes[i]);
     }

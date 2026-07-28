@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "احراز هویت کننده",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "وب‌سایت",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "ابتدا یک کلمه عبور تنظیم کنید تا از پشتیبان‌گیری ابری استفاده کنید؛ به این ترتیب رمزهای شما پیش از خروج از این دستگاه رمزنگاری می‌شوند.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "افزونه Authenticator کدهای تأیید هویت دو مرحله‌ای را در مرورگر شما تولید می‌کند.",
+    "message": "OTPilot Authenticator کدهای تأیید دو مرحله‌ای (2FA) تولید می‌کند؛ همراه با پشتیبان‌گیری ابری رمزنگاری‌شده، تکمیل خودکار مطابق با وب‌سایت، و توصیه‌های امنیتی.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "QR code شناسایی نشد.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "کد QR اسکن‌شده یک کد otpauth معتبر نیست.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "رمز حساب نامعتبر است",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "صادرکننده نمی‌تواند شامل «::» باشد",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "افزودن حساب",
@@ -32,7 +48,7 @@
     "description": "Scan QR Code."
   },
   "add_secret": {
-    "message": "وارد کردن بصورت دستی",
+    "message": "ورود دستی",
     "description": "Manual Entry."
   },
   "migration_fail": {
@@ -42,10 +58,6 @@
   "migration_partly_fail": {
     "message": "برخی داده‌های حساب به طور موفق وارد نشدند.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "بستن",
-    "description": "Close."
   },
   "ok": {
     "message": "تایید",
@@ -99,10 +111,6 @@
     "message": "کلمه عبور فعلی",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "کلمه عبور جدید",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "کلمه عبور",
     "description": "Passphrase."
@@ -120,21 +128,17 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "بازنشانی Authenticator"
+    "message": "بازنشانی OTPilot"
   },
   "delete_all_warning": {
-    "message": "این تمام داده‌های شما را حذف کرده و افزونه Authenticator را به طور کامل بازنشانی می‌کند. شما بعداً قادر نخواهید بود داده‌های حذف شده را بازیابی کنید! شما باید قبل از بازنشانی افزونه Authenticator از داده‌های خود نسخه پشتیبان تهیه کنید."
+    "message": "این تمام داده‌های شما را حذف کرده و افزونه OTPilot را به طور کامل بازنشانی می‌کند. شما بعداً قادر نخواهید بود داده‌های حذف شده را بازیابی کنید! شما باید قبل از بازنشانی افزونه OTPilot از داده‌های خود نسخه پشتیبان تهیه کنید."
   },
   "security_warning": {
     "message": "این کلمه عبور برای رمزنگاری حساب‌های شما استفاده خواهد شد. اگر این کلمه عبور را فراموش کنید راه دیگری برای بازگردانی آن وجود ندارد.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "به‌روز رسانی",
-    "description": "Update."
-  },
   "phrase_incorrect": {
-    "message": "تا رمزگشایی همه حساب ها ، نمی توانید حساب جدیدی اضافه کنید. لطفا قبل از ادامه رمز عبور صحیح را وارد کنید.",
+    "message": "تا زمانی که همهٔ حساب‌ها رمزگشایی نشوند، نمی‌توانید حساب جدیدی اضافه کنید. لطفاً پیش از ادامه، کلمه عبور صحیح را وارد کنید.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -146,7 +150,7 @@
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "رمزگذاری شده",
+    "message": "رمزنگاری‌شده",
     "description": "Encrypted."
   },
   "copied": {
@@ -154,12 +158,8 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "ﺑﺎﺯﺧﻮﺭﺩ",
+    "message": "بازخورد",
     "description": "Feedback."
-  },
-  "translate": {
-    "message": "ترجمه",
-    "description": "Translate."
   },
   "source": {
     "message": "کد منبع",
@@ -170,12 +170,8 @@
     "description": "Passphrase Info"
   },
   "sync_clock": {
-    "message": "همگام‌سازی ساعت با گوگل",
+    "message": "همگام‌سازی ساعت با Google",
     "description": "Sync Clock"
-  },
-  "remember_phrase": {
-    "message": "به خاطر سپردن کلمه عبور",
-    "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
     "message": "اخطار! ساعت محلی شما نادرست است، لطفا قبل از ادامه آن را تصحیح نمایید.",
@@ -190,7 +186,7 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "آیا شما میخواهید رمزینه را از روی یک فایل در دستگاه خود اسکن کنید؟ بجای آن از گزینه ورود عکس پشتیبان استفاده کنید.",
+    "message": "آیا می‌خواهید کد QR را از یک فایل روی دستگاه خود اسکن کنید؟ به‌جای آن از گزینه «وارد کردن نسخه پشتیبان تصویر QR» استفاده کنید.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -210,7 +206,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری شده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
+    "message": "هشدار: تمام نسخه‌های پشتیبان رمزنگاری نشده‌اند. آیا می‌خواهید یک حساب را به اپلیکیشن دیگری اضافه کنید؟ به قسمت سمت راست و بالای هر حساب رفته و دکمه مخفی را کلیک کنید.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -218,7 +214,7 @@
     "description": "Download backup file."
   },
   "import_backup": {
-    "message": "ایمپورت کردن فایل پشتیبان",
+    "message": "وارد کردن پشتیبان",
     "description": "Import backup."
   },
   "import_backup_file": {
@@ -234,12 +230,44 @@
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "وارد کردن پشتیبان متنی",
+    "message": "وارد کردن OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "URL های OTP را وارد کنید",
+    "message": "وارد کردن OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "فایل پشتیبان را رها کنید یا برای مرور کلیک کنید",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "فایل‌های خروجی .json و .txt پذیرفته می‌شوند",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "انتخاب فایل",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "اگر فایل رمزنگاری شده باشد، پس از انتخاب آن کلمه عبورش از شما پرسیده خواهد شد.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "رمزنگاری شده — نیاز به کلمه عبور",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "کلمه عبور فایل را وارد کنید",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "این همان کلمه عبوری است که هنگام ایجاد نسخه پشتیبان تنظیم کرده‌اید.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "رمزگشایی و وارد کردن",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "درون ریزی با موفقیت انجام شد، اما برخی از کدهای QR شناسایی نشدند.",
@@ -297,13 +325,105 @@
     "message": "استفاده از قابلیت تکمیل خودکار",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "استفاده از کنتراست بالا",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "تم",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "ظاهر",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "عمومی",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "ویرایش حساب‌ها",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "نمایش QR Code",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "سنجاق کردن به بالا",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "لغو سنجاق",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "خزانه قفل شده است",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "باز کردن قفل",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "انتقال این حساب",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "این کد را با OTPilot در دستگاه دیگری اسکن کنید تا این حساب منتقل شود — هرگز از دستگاه‌های شما خارج نمی‌شود.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "روی این دستگاه",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "همگام‌سازی ابری",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "متصل",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "متصل نیست",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "نمایش کدها برای",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "سایر حساب‌ها",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "فیلتر برای",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "کدهایی که همراه شما هستند",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "برای هر حساب کدهای امن دو مرحله‌ای تولید کنید — رمزنگاری‌شده، آفلاین و همیشه با یک ضربه قابل کپی.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "کاملاً به‌صورت آفلاین کار می‌کند — هیچ چیز از دستگاه شما خارج نمی‌شود",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "خزانه رمزنگاری‌شده با قفل کلمه عبور اختیاری",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "یک QR Code را اسکن کنید یا یک نسخه پشتیبان موجود را ایمپورت کنید",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "شروع کنید",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "یک نسخه پشتیبان برای ایمپورت دارم",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "روشن",
@@ -313,9 +433,9 @@
     "message": "تیره",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "ساده",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "خودکار",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "حالت فشرده",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "کنتراست بالا",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "تخت",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "گرفتن نسخه پشتیبان خودکار از داده‌های شما توسط سرویس‌های شخص ثالث.",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "همگام‌سازی مرورگر",
@@ -346,7 +458,7 @@
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "چرا حساب تجاری نیاز به مجوزهای امنیتی بیشتری دارد ؟"
+    "message": "چرا حساب‌های تجاری به مجوزهای بیشتری نیاز دارند؟"
   },
   "log_out": {
     "message": "خروج از حساب",
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "شما یک یا چند حساب Steam یا Blizzard دارید. نسخه‌های پشتیبان رمزنگاری نشده از فرمت پشتیبان استانداردسازی شده استفاده نخواهند کرد.",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "می‌توانید نسخه‌های پشتیبان را از سایر برنامه‌ها ایمپورت کنید.",
@@ -407,20 +515,17 @@
   "backup": {
     "message": "پشتیبان گیری"
   },
-  "backup_file_info": {
-    "message": "ایجاد فایل پشتیبان از داده‌های شما"
-  },
   "password_policy_default_hint": {
-    "message": "رمز عبور شما شرایط امنیتی سازمان شما را برآورده نمی کند. برای کسب اطلاعات بیشتر با سرپرست خود تماس بگیرید."
+    "message": "کلمه عبور شما شرایط امنیتی سازمان شما را برآورده نمی‌کند. برای کسب اطلاعات بیشتر با سرپرست خود تماس بگیرید."
   },
   "advisor": {
     "message": "مشاور"
   },
   "advisor_insight_password_not_set": {
-    "message": "برای محافظت از داده های خود رمز عبور تعیین کنید."
+    "message": "برای محافظت از داده‌های خود، کلمه عبور تعیین کنید."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "برای محافظت از داده های خود ، قفل خودکار را فعال کنید."
+    "message": "برای محافظت از داده‌های خود، قفل خودکار را فعال کنید."
   },
   "advisor_insight_browser_sync_not_enabled": {
     "message": "همگام سازی مرورگر غیرفعال شده است. فعال کردن آن اجازه می دهد تا حساب ها در سراسر مرورگرها همگام سازی شوند."
@@ -432,10 +537,10 @@
     "message": "فعال کردن فیلتر هوشمند اجازه دسترسی سریع به حساب ها را می دهد."
   },
   "show_all_insights": {
-    "message": "نمایش همه اطلاعات آماری."
+    "message": "نمایش همه بینش‌ها."
   },
   "no_insight_available": {
-    "message": "بینشی یافت نشد ، همه چیز خوب به نظر می رسد!"
+    "message": "بینشی یافت نشد، همه چیز خوب به نظر می‌رسد!"
   },
   "danger": {
     "message": "خطر"
@@ -459,13 +564,13 @@
     "message": "هیچ حسابی برای نمایش وجود ندارد. اکنون اولین حساب خود را اضافه کنید."
   },
   "permissions": {
-    "message": "دسترسي ها"
+    "message": "دسترسی‌ها"
   },
   "permission_revoke": {
     "message": "ابطال"
   },
   "permission_show_required_permissions": {
-    "message": "نمایش دسترسی های غیر قابل لغو"
+    "message": "نمایش دسترسی‌های غیرقابل لغو"
   },
   "permission_required": {
     "message": "این یک مجوز الزامی است و قابل ابطال نیست."
@@ -489,7 +594,7 @@
     "message": "وقتی روی حساب کلیک می‌کنید، به کلیپ‌بورد دسترسی فقط نوشتنی برای کپی کردن کدها در کلیپ‌بورد می‌دهد."
   },
   "permission_context_menus": {
-    "message": "Authenticator را به منوی زمینه اضافه می کند."
+    "message": "OTPilot را به منوی زمینه اضافه می کند."
   },
   "permission_sync_clock": {
     "message": "اجازه همگام سازی ساعت با Google را می دهد."
@@ -500,25 +605,17 @@
   "permission_dropbox_cannot_revoke": {
     "message": "ابتدا باید پشتیبان گیری Dropbox را غیرفعال کنید."
   },
-  "permission_drive": {
-    "message": "امکان تهیه نسخه پشتیبان در Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "ابتدا باید پشتیبان‌گیری Google Drive را غیرفعال کنید."
-  },
-  "permission_onedrive": {
-    "message": "امکان تهیه نسخه پشتیبان در OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "ابتدا باید پشتیبان گیری OneDrive را غیرفعال کنید."
-  },
   "permission_unknown_permission": {
     "message": "مجوز نامعلوم. در صورت مشاهده این پیام، لطفاً یک گزارش اشکال ارسال کنید."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "کلمه عبور اشتباه است."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "هشدار: فیلتر هوشمند نام دامنه را به‌طور تقریبی با یک حساب مطابقت می‌دهد. همیشه پیش از وارد کردن کد، مطمئن شوید که در وب‌سایت درست هستید!"
+  },
+  "backup_unavailable": {
+    "message": "هنوز در دسترس نیست",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

@@ -1,5 +1,8 @@
 import { OTPType, OTPAlgorithm, OTPUtil } from "./otp";
-import * as CryptoJS from "crypto-js";
+import { hmac } from "@noble/hashes/hmac.js";
+import { sha1 } from "@noble/hashes/legacy.js";
+import { sha256, sha512 } from "@noble/hashes/sha2.js";
+import { hexToBytes, bytesToHex } from "@noble/hashes/utils.js";
 import {
   gostEngine as GostEngine,
   GostDigest,
@@ -21,21 +24,6 @@ export class KeyUtilities {
     return Number(`0x${s}`);
   }
 
-  private static hex2str(hex: string) {
-    let str = "";
-    for (let i = 0; i < hex.length; i += 2) {
-      str += String.fromCharCode(this.hex2dec(hex.substr(i, 2)));
-    }
-    return str;
-  }
-
-  private static leftpad(str: string, len: number, pad: string): string {
-    if (len + 1 >= str.length) {
-      str = new Array(len + 1 - str.length).join(pad) + str;
-    }
-    return str;
-  }
-
   private static base32tohex(base32: string): string {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
     let bits = "";
@@ -48,7 +36,10 @@ export class KeyUtilities {
         padding++;
       } else {
         const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-        bits += this.leftpad(val.toString(2), 5, "0");
+        if (val === -1) {
+          throw new Error("Invalid Base32 string");
+        }
+        bits += val.toString(2).padStart(5, "0");
       }
     }
 
@@ -96,28 +87,6 @@ export class KeyUtilities {
     return output;
   }
 
-  private static cryptoJsWordArrayToUint8Array(
-    wordArray: CryptoJS.lib.WordArray
-  ) {
-    const l = wordArray.sigBytes;
-    const words = wordArray.words;
-    const result = new Uint8Array(l);
-    let i = 0 /*dst*/,
-      j = 0; /*src*/
-    while (i < l) {
-      // here i is a multiple of 4
-      const w = words[j++];
-      result[i++] = (w & 0xff000000) >>> 24;
-      if (i === l) break;
-      result[i++] = (w & 0x00ff0000) >>> 16;
-      if (i === l) break;
-      result[i++] = (w & 0x0000ff00) >>> 8;
-      if (i === l) break;
-      result[i++] = w & 0x000000ff;
-    }
-    return result;
-  }
-
   static generate(
     type: OTPType,
     secret: string,
@@ -125,7 +94,7 @@ export class KeyUtilities {
     period: number,
     len?: number,
     algorithm?: OTPAlgorithm,
-    clockOffset?: number
+    clockOffset?: number,
   ) {
     secret = secret.replace(/\s/g, "");
     if (!len) {
@@ -167,7 +136,7 @@ export class KeyUtilities {
       counter = Math.floor(epoch / period);
     }
 
-    const time = this.leftpad(this.dec2hex(counter), 16, "0");
+    const time = this.dec2hex(counter).padStart(16, "0");
 
     if (key.length % 2 === 1) {
       if (key.substr(-1) === "0") {
@@ -180,19 +149,13 @@ export class KeyUtilities {
     let alg: AlgorithmIndentifier;
     let gostCipher: GostDigest;
 
-    let hmacObj: CryptoJS.lib.WordArray;
+    let hmacBytes: Uint8Array;
     switch (algorithm) {
       case OTPAlgorithm.SHA256:
-        hmacObj = CryptoJS.HmacSHA256(
-          CryptoJS.enc.Hex.parse(time),
-          CryptoJS.enc.Hex.parse(key)
-        );
+        hmacBytes = hmac(sha256, hexToBytes(key), hexToBytes(time));
         break;
       case OTPAlgorithm.SHA512:
-        hmacObj = CryptoJS.HmacSHA512(
-          CryptoJS.enc.Hex.parse(time),
-          CryptoJS.enc.Hex.parse(key)
-        );
+        hmacBytes = hmac(sha512, hexToBytes(key), hexToBytes(time));
         break;
       case OTPAlgorithm.GOST3411_2012_256:
       case OTPAlgorithm.GOST3411_2012_512:
@@ -203,27 +166,21 @@ export class KeyUtilities {
           length: OTPUtil.getOTPAlgorithmSpec(algorithm).length,
         };
         gostCipher = GostEngine.getGostDigest(alg);
-        hmacObj = CryptoJS.lib.WordArray.create(
-          gostCipher.sign(
-            this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(key)),
-            this.cryptoJsWordArrayToUint8Array(CryptoJS.enc.Hex.parse(time))
-          )
+        hmacBytes = new Uint8Array(
+          gostCipher.sign(hexToBytes(key), hexToBytes(time)),
         );
         break;
       default:
-        hmacObj = CryptoJS.HmacSHA1(
-          CryptoJS.enc.Hex.parse(time),
-          CryptoJS.enc.Hex.parse(key)
-        );
+        hmacBytes = hmac(sha1, hexToBytes(key), hexToBytes(time));
         break;
     }
 
-    const hmac = CryptoJS.enc.Hex.stringify(hmacObj);
+    const hmacHex = bytesToHex(hmacBytes);
 
-    const offset = this.hex2dec(hmac.substring(hmac.length - 1));
+    const offset = this.hex2dec(hmacHex.substring(hmacHex.length - 1));
 
     let otp =
-      (this.hex2dec(hmac.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +
+      (this.hex2dec(hmacHex.substr(offset * 2, 8)) & this.hex2dec("7fffffff")) +
       "";
 
     if (b26) {

@@ -3,9 +3,9 @@
     <label class="combo-label" style="margin: 20px 10px">{{ label }}</label>
     <select
       style="margin: 20px 10px"
-      :value="value"
+      :value="modelValue"
       :disabled="disabled"
-      @input="$emit('input', $event.target.value)"
+      @input="onInput"
       @change="$emit('change')"
     >
       <slot></slot>
@@ -13,9 +13,28 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent, PropType } from "vue";
 
-export default Vue.extend({
-  props: ["label", "value", "disabled"],
+export default defineComponent({
+  props: {
+    label: String,
+    modelValue: [String, Number, Boolean],
+    disabled: Boolean,
+    // Vue 3 passes v-model modifiers (e.g. .number) here for the child to apply
+    modelModifiers: {
+      type: Object as PropType<{ number?: boolean }>,
+      default: () => ({}),
+    },
+  },
+  emits: ["update:modelValue", "change"],
+  methods: {
+    onInput(event: Event) {
+      const value = (event.target as HTMLSelectElement).value;
+      this.$emit(
+        "update:modelValue",
+        this.modelModifiers.number ? Number(value) : value,
+      );
+    },
+  },
 });
 </script>

@@ -1,7 +1,33 @@
 <template>
   <div class="header">
-    <span v-on:dblclick="popOut()">{{ i18n.extName }}</span>
-    <div v-show="!isPopup()">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke="currentColor"
+            stroke-opacity="0.3"
+            stroke-width="2.5"
+          ></circle>
+          <circle
+            cx="12"
+            cy="12"
+            r="9"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-dasharray="42.4 14.2"
+            transform="rotate(-90 12 12)"
+          ></circle>
+        </svg>
+      </div>
+      <span class="brand-name" v-on:dblclick="popOut()">{{
+        style.isEditing ? i18n.edit_accounts : i18n.extName
+      }}</span>
+    </div>
+    <div class="header-actions" v-show="!isPopup()">
       <div
         class="icon"
         id="i-menu"
@@ -72,9 +98,15 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { mapState } from "vuex";
+import { defineComponent } from "vue";
+import { mapState as mapPiniaState } from "pinia";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useBackupStore } from "../../store/Backup";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -87,9 +119,13 @@ import IconPlus from "../../../svg/plus.svg";
 import { isFirefox } from "../../browser";
 
 const computedPrototype = [
-  mapState("style", ["style"]),
-  mapState("accounts", ["defaultEncryption"]),
-  mapState("backup", ["driveToken", "dropboxToken", "oneDriveToken"]),
+  mapPiniaState(useStyleStore, ["style"]),
+  mapPiniaState(useAccountsStore, ["defaultEncryption"]),
+  mapPiniaState(useBackupStore, [
+    "driveToken",
+    "dropboxToken",
+    "oneDriveToken",
+  ]),
 ];
 
 let computed = {};
@@ -98,7 +134,7 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
-export default Vue.extend({
+export default defineComponent({
   computed,
   methods: {
     isPopup() {
@@ -121,40 +157,46 @@ export default Vue.extend({
       window.close();
     },
     showMenu() {
-      this.$store.commit("style/showMenu");
+      useStyleStore().showMenu();
     },
     showInfo(page: string) {
       if (page === "AddMethodPage") {
         if (
-          this.$store.state.menu.enforcePassword &&
-          !this.$store.state.accounts.defaultEncryption
+          useMenuStore().enforcePassword &&
+          !useAccountsStore().defaultEncryption
         ) {
           page = "SetPasswordPage";
         }
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", page);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(page);
     },
     editEntry() {
-      this.$store.commit("style/toggleEdit");
-      this.$store.commit("accounts/stopFilter");
+      useStyleStore().toggleEdit();
+      useAccountsStore().stopFilter();
     },
     lock() {
-      chrome.runtime.sendMessage({ action: "lock" }, window.close);
+      // The background "lock" handler is fire-and-forget (no sendResponse), so
+      // the callback fires once the port closes with lastError set. Read it so
+      // it isn't logged as an unchecked error, then close the popup.
+      chrome.runtime.sendMessage({ action: "lock" }, () => {
+        void chrome.runtime.lastError;
+        window.close();
+      });
       return;
     },
     async beginCapture() {
       if (
-        this.$store.state.menu.enforcePassword &&
-        !this.$store.state.accounts.defaultEncryption
+        useMenuStore().enforcePassword &&
+        !useAccountsStore().defaultEncryption
       ) {
-        this.$store.commit("style/showInfo");
-        this.$store.commit("currentView/changeView", "SetPasswordPage");
+        useStyleStore().showInfo();
+        useCurrentViewStore().changeView("SetPasswordPage");
         return;
       }
 
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
-        this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+      if (useAccountsStore().currentlyEncrypted) {
+        useNotificationStore().alert(this.i18n.phrase_incorrect);
         return;
       }
 
@@ -163,7 +205,7 @@ export default Vue.extend({
       if (okToInjectContentScript(tab)) {
         await chrome.scripting.executeScript({
           target: { tabId: tab.id },
-          files: ["/dist/content.js"],
+          files: ["/js/content.js"],
         });
         await chrome.scripting.insertCSS({
           target: { tabId: tab.id },
@@ -172,9 +214,8 @@ export default Vue.extend({
 
         if (tab.url?.startsWith("file:")) {
           if (
-            await this.$store.dispatch(
-              "notification/confirm",
-              this.i18n.capture_local_file_failed
+            await useNotificationStore().confirm(
+              this.i18n.capture_local_file_failed,
             )
           ) {
             window.open("import.html?QrImport", "_blank");
@@ -185,7 +226,7 @@ export default Vue.extend({
         chrome.runtime.sendMessage({ action: "updateContentTab", data: tab });
         chrome.tabs.sendMessage(tab.id, { action: "capture" }, (result) => {
           if (result !== "beginCapture") {
-            this.$store.commit("notification/alert", this.i18n.capture_failed);
+            useNotificationStore().alert(this.i18n.capture_failed);
           } else {
             window.close();
           }

@@ -1,7 +1,10 @@
 <template>
   <div>
     <div>
-      <div class="text warning" v-show="!isEncrypted || !defaultEncryption">
+      <div
+        class="text warning"
+        v-show="backupToken && (!isEncrypted || !defaultEncryption)"
+      >
         {{ i18n.dropbox_risk }}
       </div>
       <div v-show="backupToken">
@@ -40,13 +43,17 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { OneDrive } from "../../models/backup";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
+import { useBackupStore } from "../../store/Backup";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
 const service = "onedrive";
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       email: this.i18n.loading,
@@ -57,26 +64,21 @@ export default Vue.extend({
   },
   computed: {
     defaultEncryption: function () {
-      return this.$store.state.accounts.defaultEncryption;
+      return useAccountsStore().defaultEncryption;
     },
     isEncrypted: {
       get(): boolean {
-        if (UserSettings.items.oneDriveEncrypted === null) {
-          this.$store.commit("backup/setEnc", { service, value: true });
-          UserSettings.items.oneDriveEncrypted = true;
-          UserSettings.commitItems();
-          return true;
-        }
-        return this.$store.state.backup.driveEncrypted;
+        return useBackupStore().oneDriveEncrypted;
       },
       set(newValue: string) {
-        UserSettings.items.driveEncrypted = newValue === "true";
+        const encrypted = newValue === "true";
+        UserSettings.items.oneDriveEncrypted = encrypted;
         UserSettings.commitItems();
-        this.$store.commit("backup/setEnc", { service, value: newValue });
+        useBackupStore().setEnc({ service, value: encrypted });
       },
     },
     backupToken: function () {
-      return this.$store.state.backup.oneDriveToken;
+      return useBackupStore().oneDriveToken;
     },
   },
   methods: {
@@ -93,25 +95,25 @@ export default Vue.extend({
       UserSettings.items.oneDriveToken = undefined;
       UserSettings.items.oneDriveRefreshToken = undefined;
       UserSettings.commitItems();
-      this.$store.commit("backup/setToken", { service, value: false });
-      this.$store.commit("style/hideInfo");
+      useBackupStore().setToken({ service, value: false });
+      useStyleStore().hideInfo();
     },
     async backupUpload() {
       const oneDrive = new OneDrive();
+      const accountsStore = useAccountsStore();
       const response = await oneDrive.upload(
-        this.$store.state.accounts.encryption
+        accountsStore.encryption.get(accountsStore.defaultEncryption),
       );
       if (response === true) {
-        this.$store.commit("notification/alert", this.i18n.updateSuccess);
+        useNotificationStore().alert(this.i18n.updateSuccess);
       } else if (UserSettings.items.oneDriveRevoked === true) {
-        this.$store.commit(
-          "notification/alert",
-          chrome.i18n.getMessage("token_revoked", ["OneDrive"])
+        useNotificationStore().alert(
+          chrome.i18n.getMessage("token_revoked", ["OneDrive"]),
         );
         UserSettings.removeItem("oneDriveRevoked");
-        this.$store.commit("backup/setToken", { service, value: false });
+        useBackupStore().setToken({ service, value: false });
       } else {
-        this.$store.commit("notification/alert", this.i18n.updateFailure);
+        useNotificationStore().alert(this.i18n.updateFailure);
       }
     },
     async getUser() {

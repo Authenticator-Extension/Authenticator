@@ -46,22 +46,25 @@
         </p>
       </div>
       <div class="menuList">
-        <p v-bind:title="i18n.feedback" v-on:click="openHelp()">
+        <p
+          v-bind:title="i18n.feedback"
+          v-on:click="
+            openLink('https://github.com/Hank076/Authenticator/issues')
+          "
+        >
           <span><IconComments /></span>{{ i18n.feedback }}
         </p>
         <p
-          v-bind:title="i18n.translate"
-          v-on:click="openLink('https://otp.ee/translate')"
-        >
-          <span><IconGlobe /></span>{{ i18n.translate }}
-        </p>
-        <p
           v-bind:title="i18n.source"
-          v-on:click="openLink('https://otp.ee/sourcecode')"
+          v-on:click="openLink('https://github.com/Hank076/Authenticator')"
         >
           <span><IconCode /></span>{{ i18n.source }}
         </p>
-        <a href="licenses.html" target="_blank" style="text-decoration: none">
+        <a
+          href="https://github.com/Hank076/Authenticator/blob/dev/LICENSE"
+          target="_blank"
+          style="text-decoration: none"
+        >
           <p v-bind:title="i18n.about">
             <span><IconInfo /></span>{{ i18n.about }}
           </p>
@@ -72,82 +75,65 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { syncTimeWithGoogle } from "../../syncTime";
 
 import IconArrowLeft from "../../../svg/arrow-left.svg";
 import IconInfo from "../../../svg/info.svg";
 import IconExchange from "../../../svg/exchange.svg";
-import IconDatabase from "../../../svg/database.svg";
 import IconLock from "../../../svg/lock.svg";
 import IconSync from "../../../svg/sync.svg";
 import IconWrench from "../../../svg/wrench.svg";
 import IconAdvisor from "../../../svg/lightbulb.svg";
 import IconComments from "../../../svg/comments.svg";
-import IconGlobe from "../../../svg/globe.svg";
 import IconCode from "../../../svg/code.svg";
 import IconClipboardCheck from "../../../svg/clipboard-check.svg";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { useStyleStore } from "../../store/Style";
+import { useCurrentViewStore } from "../../store/CurrentView";
+import { useMenuStore } from "../../store/Menu";
+import { useNotificationStore } from "../../store/Notification";
+import { useAccountsStore } from "../../store/Accounts";
 
-export default Vue.extend({
+export default defineComponent({
   components: {
     IconArrowLeft,
     IconInfo,
     IconExchange,
-    IconDatabase,
     IconLock,
     IconSync,
     IconWrench,
     IconAdvisor,
     IconComments,
-    IconGlobe,
     IconCode,
     IconClipboardCheck,
   },
   computed: {
     version: function () {
-      return this.$store.state.menu.version;
+      return useMenuStore().version;
     },
-    isSupported: {
-      get(): boolean {
-        return !isSafari;
-      },
+    isSupported(): boolean {
+      return !isSafari;
     },
   },
   methods: {
     hideMenu() {
-      this.$store.commit("style/hideMenu");
-    },
-    openHelp() {
-      let url = "https://otp.ee/chromeissues";
-
-      if (navigator.userAgent.indexOf("Firefox") !== -1) {
-        url = "https://otp.ee/firefoxissues";
-      } else if (navigator.userAgent.indexOf("Edg") !== -1) {
-        url = "https://otp.ee/edgeissues";
-      }
-
-      const feedbackURL = this.$store.state.menu.feedbackURL;
-      if (typeof feedbackURL === "string" && feedbackURL) {
-        url = feedbackURL;
-      }
-
-      chrome.tabs.create({ url });
+      useStyleStore().hideMenu();
     },
     openLink(url: string) {
       window.open(url, "_blank");
       return;
     },
     showInfo(tab: string) {
-      if (this.$store.getters["accounts/currentlyEncrypted"]) {
+      if (useAccountsStore().currentlyEncrypted) {
         if (tab === "SetPasswordPage") {
-          this.$store.commit("notification/alert", this.i18n.phrase_incorrect);
+          useNotificationStore().alert(this.i18n.phrase_incorrect);
           return;
         }
       }
-      this.$store.commit("style/showInfo");
-      this.$store.commit("currentView/changeView", tab);
+      useStyleStore().showInfo();
+      useCurrentViewStore().changeView(tab);
       return;
     },
     syncClock() {
@@ -157,10 +143,10 @@ export default Vue.extend({
           if (granted) {
             await UserSettings.updateItems();
             const message = await syncTimeWithGoogle();
-            this.$store.commit("notification/alert", this.i18n[message]);
+            useNotificationStore().alert(this.i18n[message]);
           }
           return;
-        }
+        },
       );
       return;
     },

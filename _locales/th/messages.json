@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authentication",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authentication",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "เว็บไซต์",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "ตั้งรหัสผ่านก่อนจึงจะใช้การสำรองข้อมูลบนคลาวด์ได้ เพื่อให้ข้อมูลลับของคุณถูกเข้ารหัสก่อนออกจากอุปกรณ์นี้",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Authenticator สำหรับสร้างรหัสยืนยัน 2 ชั้นบนเบราว์เซอร์",
+    "message": "OTPilot Authenticator สร้างรหัสยืนยันตัวตนแบบสองขั้นตอน (2FA) พร้อมการสำรองข้อมูลบนคลาวด์แบบเข้ารหัส การป้อนรหัสอัตโนมัติที่ตรงกับเว็บไซต์ และคำแนะนำด้านความปลอดภัย",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "QR code ไม่ถูกต้อง",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "QR code ที่สแกนไม่ใช่รหัส otpauth ที่ถูกต้อง",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "รหัสลับของบัญชีไม่ถูกต้อง",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "ผู้ออกต้องไม่มี \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "เพิ่มบัญชี",
@@ -40,12 +56,8 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "บ้างบัญชีไม่สามารถถูกนำเข้าให้สำเร็จได้",
+    "message": "ข้อมูลบัญชีบางส่วนไม่สามารถนำเข้าได้สำเร็จ",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "ปิด",
-    "description": "Close."
   },
   "ok": {
     "message": "ตกลง",
@@ -99,10 +111,6 @@
     "message": "รหัสผ่านปัจจุบัน",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "รหัสผ่านใหม่",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "รหัสผ่าน",
     "description": "Passphrase."
@@ -112,29 +120,25 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "คุณแน่ใจต้องการลบบัญชีนี้ ? การกระทำดังกล่าวไม่สามารถกู้คืนกลับมาได้",
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชีนี้? การกระทำนี้ไม่สามารถย้อนกลับได้",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
-    "message": "ฉันเข้าใจว่าข้อมูลทั้งหมดของฉันจะถูกลบเเละไม่สามารถกู้คืนได้",
+    "message": "ฉันเข้าใจว่าข้อมูลทั้งหมดของฉันจะถูกลบและไม่สามารถกู้คืนได้",
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
+    "message": "รีเซ็ต OTPilot"
   },
   "delete_all_warning": {
-    "message": "นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
+    "message": "การดำเนินการนี้จะลบข้อมูลทั้งหมดของคุณและรีเซ็ต OTPilot อย่างสมบูรณ์ คุณจะไม่สามารถกู้คืนข้อมูลที่ถูกลบได้เลย ควรพิจารณาสำรองข้อมูลก่อนรีเซ็ต OTPilot"
   },
   "security_warning": {
-    "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",
+    "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "อัพ​เด​ต",
-    "description": "Update."
-  },
   "phrase_incorrect": {
-    "message": "คุณไม่สามารถเพิ่มบัญชีใหม่หรือส่งออกข้อมูลจนกว่าบัญชีทั้งหมดจะถูกถอดรหัส กรุณาใส่รหัสผ่านที่ถูกต้องก่อนดำเนินการต่อ",
+    "message": "คุณไม่สามารถเพิ่มบัญชีใหม่ได้จนกว่าบัญชีทั้งหมดจะถูกถอดรหัส กรุณาใส่รหัสผ่านที่ถูกต้องก่อนดำเนินการต่อ",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -154,15 +158,11 @@
     "description": "Copied."
   },
   "feedback": {
-    "message": "เสียงตอบรับ",
+    "message": "ข้อเสนอแนะ",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "แปลภาษา",
-    "description": "Translate."
-  },
   "source": {
-    "message": "แหล่งที่มา",
+    "message": "ซอร์สโค้ด",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -173,16 +173,12 @@
     "message": "ซิงค์เวลาผ่าน Google",
     "description": "Sync Clock"
   },
-  "remember_phrase": {
-    "message": "จดจำรหัสผ่าน",
-    "description": "Remember Passphrase"
-  },
   "clock_too_far_off": {
     "message": "ระวัง! เวลาของคุณไม่ถูกต้อง โปรดแก้ไขก่อนดำเนินการขั้นต่อไป",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "คุณมีข้อมูลสำรองสำหรับบัญชีของคุณหรือไม่ ? โปรดอย่ารอจนสายเกินไป",
+    "message": "คุณมีข้อมูลสำรองสำหรับบัญชีของคุณหรือไม่? โปรดอย่ารอจนสายเกินไป",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -190,15 +186,15 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "คุณกำลังพยายามสแกนคิวอาร์โค้ดจากไฟล์ในเครื่องหรือไม่? ใช้นำเข้ารูปคิวอาร์โค้ดที่สำรองไว้แทน",
+    "message": "คุณกำลังพยายามสแกน QR code จากไฟล์ในเครื่องหรือไม่? ใช้การนำเข้ารูป QR code ที่สำรองไว้แทน",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "Time Based",
+    "message": "ตามเวลา",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Counter Based",
+    "message": "ตามตัวนับ",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -226,7 +222,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "นำเข้ารูปQR การสำรองข้อมูล",
+    "message": "นำเข้ารูป QR การสำรองข้อมูล",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -241,8 +237,40 @@
     "message": "นำเข้า URL OTP",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "ลากไฟล์สำรองข้อมูลมาวาง หรือคลิกเพื่อเรียกดู",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "รองรับไฟล์ส่งออกนามสกุล .json และ .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "เลือกไฟล์",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "หากไฟล์ถูกเข้ารหัส ระบบจะขอรหัสผ่านของไฟล์หลังจากที่คุณเลือกไฟล์แล้ว",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "เข้ารหัสแล้ว — ต้องใช้รหัสผ่าน",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "ป้อนรหัสผ่านของไฟล์",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "นี่คือรหัสผ่านที่คุณตั้งไว้ตอนสร้างข้อมูลสำรอง",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "ถอดรหัสและนำเข้า",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
-    "message": "นำเข้าเสร็จสิ้นเเล้ว เเต่ คิวอาร์โค้ด บางรูปไม่สามารอ่านค่าได้",
+    "message": "นำเข้าสำเร็จแล้ว แต่ QR code บางรูปไม่สามารถอ่านค่าได้",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -297,13 +325,105 @@
     "message": "ใช้งานการป้อนอัตโนมัติ",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "ใช้งานความคมชัดสูง",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "ธีม",
     "description": "Theme"
+  },
+  "settings_appearance": {
+    "message": "รูปลักษณ์",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "ทั่วไป",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "แก้ไขบัญชี",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "แสดง QR Code",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "ปักหมุดไว้บนสุด",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "เลิกปักหมุด",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "ข้อมูลถูกล็อก",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "ปลดล็อก",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "โอนย้ายบัญชีนี้",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "สแกนโค้ดนี้ด้วย OTPilot บนอุปกรณ์อื่นเพื่อโอนย้ายบัญชีนี้ไป — ข้อมูลจะไม่ออกจากอุปกรณ์ของคุณเลย",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "บนอุปกรณ์นี้",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "ซิงค์บนคลาวด์",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "เชื่อมต่อแล้ว",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "ยังไม่เชื่อมต่อ",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "กำลังแสดงรหัสสำหรับ",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "บัญชีอื่น ๆ",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "กรองเฉพาะ",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "รหัสยืนยันที่ติดตัวคุณไปทุกที่",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "สร้างรหัสยืนยัน 2 ชั้นที่ปลอดภัยให้ทุกบัญชี — เข้ารหัส ใช้งานออฟไลน์ และคัดลอกได้เพียงแตะเดียวเสมอ",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "ทำงานแบบออฟไลน์เต็มรูปแบบ — ไม่มีข้อมูลออกจากอุปกรณ์ของคุณ",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "ข้อมูลถูกเข้ารหัส พร้อมล็อกด้วยรหัสผ่านได้ตามต้องการ",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "สแกน QR Code หรือนำเข้าข้อมูลสำรองที่มีอยู่",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "เริ่มต้นใช้งาน",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "ฉันมีข้อมูลสำรองที่ต้องการนำเข้า",
+    "description": "Onboarding secondary button"
   },
   "theme_light": {
     "message": "สว่าง",
@@ -313,9 +433,9 @@
     "message": "มืด",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "เรียบง่าย",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "อัตโนมัติ (ตามระบบ)",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "กะทัดรัด",
@@ -324,14 +444,6 @@
   "theme_high_contrast": {
     "message": "ความคมชัดสูง",
     "description": "High Contrast theme"
-  },
-  "theme_flat": {
-    "message": "แบน",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "สำรองข้อมูลของคุณโดยอัตโนมัติ ไปยังผู้บริการอื่นๆ",
-    "description": "3rd party backup info"
   },
   "browser_sync": {
     "message": "ซิงค์กับเบราว์เซอร์",
@@ -342,7 +454,7 @@
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
-    "message": "ลงทะเบียน (ธุรกิจ)",
+    "message": "ลงชื่อเข้าใช้ (ธุรกิจ)",
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
@@ -361,10 +473,6 @@
         "example": "Google Drive"
       }
     }
-  },
-  "otp_unsupported_warn": {
-    "message": "คุณมีบัญชี Steam หรือ Blizzard อย่างน้อยหนึ่งบัญชี ? การสำรองข้อมูลที่ไม่ได้เข้ารหัสจะไม่ใช้รูปแบบการสำรองข้อมูลมาตรฐาน",
-    "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
     "message": "คุณสามารถนำเข้าข้อมูลสำรองจากแอปพลิเคชั่นอื่น ๆ",
@@ -407,9 +515,6 @@
   "backup": {
     "message": "สำรองข้อมูล"
   },
-  "backup_file_info": {
-    "message": "สำรองข้อมูลของคุณเป็นไฟล์"
-  },
   "password_policy_default_hint": {
     "message": "รหัสผ่านของคุณไม่ตรงตามความปลอดภัยขององค์กรของคุณที่กำหนดไว้ สำหรับข้อมูลเพิ่มเติมโปรดติดต่อผู้ดูแลระบบของคุณ"
   },
@@ -420,13 +525,13 @@
     "message": "ตั้งรหัสผ่านเพื่อป้องกันข้อมูลของคุณ."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "เปิดใช้งาน การล็อกอัตโนมัติ เพื่อป้องกันข้อมูลของคุณ"
+    "message": "เปิดใช้งานการล็อกอัตโนมัติเพื่อป้องกันข้อมูลของคุณ"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Browser sync is disabled. Enabling it allows accounts to be synced across browsers."
+    "message": "การซิงค์เบราว์เซอร์ถูกปิดใช้งานอยู่ การเปิดใช้งานจะช่วยให้บัญชีของคุณซิงค์ข้ามเบราว์เซอร์ได้"
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autofill can be enabled to automatically fill codes into websites."
+    "message": "เปิดใช้งานการป้อนอัตโนมัติเพื่อกรอกรหัสลงในเว็บไซต์ให้คุณโดยอัตโนมัติ"
   },
   "advisor_insight_smart_filter_not_enabled": {
     "message": "เปิดใช้งานตัวกรองอัจฉริยะช่วยให้เข้าถึงบัญชีได้อย่างรวดเร็ว."
@@ -447,13 +552,13 @@
     "message": "ข้อมูล"
   },
   "dismiss": {
-    "message": "ยกเลิก"
+    "message": "ปิด"
   },
   "learn_more": {
     "message": "เรียนรู้เพิ่มเติม"
   },
   "enable_context_menu": {
-    "message": "เพิ่มไปยังเมนู"
+    "message": "เพิ่มไปยังเมนูบริบท"
   },
   "no_entires": {
     "message": "ยังไม่มีบัญชีผู้ใช้ เพิ่มบัญชีผู้ใช้ของคุณเลยตอนนี้"
@@ -480,16 +585,16 @@
     "message": "อนุญาตให้ลงชื่อเข้าใช้บริการพื้นที่เก็บข้อมูลของบุคคลที่สาม"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "อนุญาตให้ระบบล็อกอัตโนมัติทำงานได้"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "แทรกสคริปต์เข้าไปในแท็บปัจจุบันเพื่อสแกน QR code และให้การป้อนอัตโนมัติทำงานได้"
   },
   "permission_clipboard_write": {
     "message": "ให้สิทธิ์การเข้าถึงแบบเขียนอย่างเดียวในคลิปบอร์ดเพื่อคัดลอกรหัสไปยังคลิปบอร์ดเมื่อคุณคลิกที่บัญชี"
   },
   "permission_context_menus": {
-    "message": "เพิ่ม Authenticator ให้กับเมนูบริบท"
+    "message": "เพิ่ม OTPilot ให้กับเมนูบริบท"
   },
   "permission_sync_clock": {
     "message": "อนุญาตให้ซิงค์นาฬิกากับ Google"
@@ -500,25 +605,17 @@
   "permission_dropbox_cannot_revoke": {
     "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Dropbox ก่อน"
   },
-  "permission_drive": {
-    "message": "อนุญาตให้สำรองข้อมูลไปยัง Google Drive"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "คุณต้องปิดใช้งานการสำรองข้อมูล Google ไดรฟ์ก่อน"
-  },
-  "permission_onedrive": {
-    "message": "อนุญาตให้สำรองข้อมูลไปยัง OneDrive"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "คุณต้องปิดใช้งานการสำรองข้อมูล OneDrive ก่อน"
-  },
   "permission_unknown_permission": {
     "message": "ไม่ทราบการอนุญาต หากเห็นข้อความนี้ โปรดส่งรายงานข้อบกพร่อง"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "รหัสผ่านไม่ถูกต้อง"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "คำเตือน: ตัวกรองอัจฉริยะจะจับคู่ชื่อโดเมนกับบัญชีแบบคร่าว ๆ เท่านั้น โปรดตรวจสอบให้แน่ใจเสมอว่าคุณอยู่บนเว็บไซต์ที่ถูกต้องก่อนป้อนรหัส!"
+  },
+  "backup_unavailable": {
+    "message": "ยังไม่รองรับ",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

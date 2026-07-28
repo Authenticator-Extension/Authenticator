@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Authentication",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "सत्यापन",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "वेबसाइट",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "क्लाउड बैकअप का उपयोग करने के लिए पहले एक पासवर्ड सेट करें, ताकि आपके सीक्रेट्स इस डिवाइस से बाहर जाने से पहले ही एन्क्रिप्ट हो जाएं।",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "ऑथेंटिकेटर आपके ब्राउज़र में \"टू-फैक्टर ऑथेंटिकेशन\" कोड जेनरेट करता है।",
+    "message": "OTPilot Authenticator एन्क्रिप्टेड क्लाउड बैकअप, होस्ट-आधारित स्वतः भरण और सुरक्षा सलाह के साथ टू-फैक्टर (2FA) कोड जेनरेट करता है।",
     "description": "Extension Description."
   },
   "added": {
@@ -16,19 +24,27 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "अपरिचित \"क्यूआर कोड\"।",
+    "message": "अपरिचित क्यूआर कोड।",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "स्कैन किया गया क्यूआर कोड मान्य otpauth कोड नहीं है।",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
-    "message": "अमान्य \"खाता गुप्त\"",
+    "message": "अमान्य खाता सीक्रेट",
     "description": "Secret Error."
   },
+  "errorissuer": {
+    "message": "जारीकर्ता में \"::\" नहीं हो सकता",
+    "description": "Issuer Error."
+  },
   "add_code": {
-    "message": "खाता जोड़ो",
+    "message": "खाता जोड़ें",
     "description": "Add account."
   },
   "add_qr": {
-    "message": "स्कैन \"क्यू-आर कोड\"",
+    "message": "क्यूआर कोड स्कैन करें",
     "description": "Scan QR Code."
   },
   "add_secret": {
@@ -36,16 +52,12 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "आयात विफल. यदि आप Google Authenticator से डेटा माइग्रेट कर रहे हैं, तो कृपया Google प्रमाणक से अपना डेटा पुनः निर्यात करें और पुनः प्रयास करें।",
+    "message": "आयात विफल. यदि आप Google Authenticator से डेटा माइग्रेट कर रहे हैं, तो कृपया Google Authenticator से अपना डेटा पुनः निर्यात करें और पुनः प्रयास करें।",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
     "message": "कुछ खाता डेटा सफलतापूर्वक आयात नहीं किया गया था।",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "बंद",
-    "description": "Close."
   },
   "ok": {
     "message": "ठीक",
@@ -68,11 +80,11 @@
     "description": "Account Name."
   },
   "issuer": {
-    "message": "ज़ारीकर्ता",
+    "message": "जारीकर्ता",
     "description": "Issuer."
   },
   "secret": {
-    "message": "रहस्य",
+    "message": "सीक्रेट",
     "description": "Secret."
   },
   "updateSuccess": {
@@ -84,7 +96,7 @@
     "description": "Update Failure."
   },
   "about": {
-    "message": "अबाउट",
+    "message": "परिचय",
     "description": "About."
   },
   "settings": {
@@ -98,10 +110,6 @@
   "current_phrase": {
     "message": "वर्तमान पासवर्ड",
     "description": "Current Passphrase."
-  },
-  "new_phrase": {
-    "message": "नया पासवर्ड",
-    "description": "New Passphrase."
   },
   "phrase": {
     "message": "पासवर्ड",
@@ -120,18 +128,14 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "प्रमाणक रीसेट करें"
+    "message": "OTPilot रीसेट करें"
   },
   "delete_all_warning": {
-    "message": "यह आपके सभी डेटा को हटा देगा और प्रमाणक को पूरी तरह से रीसेट कर देगा। आप किसी भी हटाए गए डेटा को पुनर्प्राप्त नहीं कर पाएंगे! प्रमाणक को रीसेट करने से पहले आपको एक बैकअप सहेजने पर विचार करना चाहिए।"
+    "message": "यह आपके सभी डेटा को हटा देगा और OTPilot को पूरी तरह से रीसेट कर देगा। आप किसी भी हटाए गए डेटा को पुनर्प्राप्त नहीं कर पाएंगे! OTPilot को रीसेट करने से पहले आपको एक बैकअप सहेजने पर विचार करना चाहिए।"
   },
   "security_warning": {
     "message": "इस पासवर्ड का उपयोग आपके खातों को एन्क्रिप्ट करने के लिए किया जाएगा। अगर आप पासवर्ड भूल जाते हैं तो कोई आपकी मदद नहीं कर सकता।",
     "description": "Passphrase Warning."
-  },
-  "update": {
-    "message": "अपडेट करें",
-    "description": "Update."
   },
   "phrase_incorrect": {
     "message": "जब तक सभी खाते डिक्रिप्ट नहीं हो जाते, तब तक आप एक नया खाता नहीं जोड़ सकते। जारी रखने से पहले कृपया सही पासवर्ड दर्ज करें।",
@@ -142,24 +146,20 @@
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "गलत पासवर्ड",
+    "message": "पासवर्ड मेल नहीं खाता।",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
-    "message": "गोपित",
+    "message": "एन्क्रिप्टेड",
     "description": "Encrypted."
   },
   "copied": {
-    "message": "कॉपीड",
+    "message": "कॉपी किया गया",
     "description": "Copied."
   },
   "feedback": {
-    "message": "प्रतिपुष्टि",
+    "message": "प्रतिक्रिया",
     "description": "Feedback."
-  },
-  "translate": {
-    "message": "अनुवाद करें",
-    "description": "Translate."
   },
   "source": {
     "message": "सोर्स कोड",
@@ -173,16 +173,12 @@
     "message": "घड़ी को Google के साथ सिंक करें",
     "description": "Sync Clock"
   },
-  "remember_phrase": {
-    "message": "पासवर्ड याद रखें",
-    "description": "Remember Passphrase"
-  },
   "clock_too_far_off": {
-    "message": "आपकी स्थानीय घड़ी बहुत दूर है, कृपया जारी रखने से पहले इसे ठीक कर लें।",
+    "message": "सावधान! आपकी स्थानीय घड़ी का समय बहुत गलत है, कृपया आगे बढ़ने से पहले इसे ठीक करें।",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "क्या आपके पास अपने खातों का बैकअप है?",
+    "message": "क्या आपके पास अपने खातों का बैकअप है? देर हो जाने से पहले बैकअप बना लें!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -206,7 +202,7 @@
     "description": "Popup Page Settings"
   },
   "scale": {
-    "message": "परिमाण",
+    "message": "स्केल",
     "description": "Scale"
   },
   "export_info": {
@@ -230,16 +226,48 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "क्यूआर छवियाँ आयात करें",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "टेक्स्ट बैकअप आयात करें",
+    "message": "OTPAuth यूआरआई आयात करें",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "OTPAuth यूआरआई आयात करें",
     "description": "Import OTP URLs. Shown as add account method."
+  },
+  "import_drop_file": {
+    "message": "बैकअप फ़ाइल यहाँ छोड़ें या ब्राउज़ करने के लिए क्लिक करें",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": ".json और .txt एक्सपोर्ट स्वीकार किए जाते हैं",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "फ़ाइल चुनें",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "यदि फ़ाइल एन्क्रिप्टेड है, तो इसे चुनने के बाद आपसे इसका पासवर्ड पूछा जाएगा।",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "एन्क्रिप्टेड — पासवर्ड आवश्यक है",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "फ़ाइल का पासवर्ड दर्ज करें",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "यह वह पासवर्ड है जो आपने बैकअप बनाते समय सेट किया था।",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "डिक्रिप्ट करें और आयात करें",
+    "description": "Button to decrypt and import an encrypted backup"
   },
   "import_backup_qr_partly_failed": {
     "message": "आयात सफल रहा, लेकिन कुछ क्यूआर कोड पहचाने नहीं जा सके।",
@@ -254,7 +282,7 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "चेतावनी: बैकअप अनएन्क्रिप्टेड हैं। अपने जोखिम पार इस्तेमाल करें।",
+    "message": "चेतावनी: बैकअप अनएन्क्रिप्टेड हैं। अपने जोखिम पर इस्तेमाल करें।",
     "description": "Backup risk warning."
   },
   "import_error_password": {
@@ -278,7 +306,7 @@
     "description": "Search"
   },
   "popout": {
-    "message": "पॉप अप मोड",
+    "message": "पॉप-अप मोड",
     "description": "Make window turn into persistent popup"
   },
   "lock": {
@@ -286,36 +314,128 @@
     "description": "Lock accounts"
   },
   "edit": {
-    "message": "संपादित",
+    "message": "संपादित करें",
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "मैनुअल बैकअप I",
+    "message": "मैनुअल बैकअप",
     "description": "Manual backup"
   },
   "use_autofill": {
     "message": "स्वतः भरण का उपयोग करें",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "अधिक कंट्रास्ट",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "थीम",
     "description": "Theme"
   },
+  "settings_appearance": {
+    "message": "रूप-रंग",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "सामान्य",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "खाते संपादित करें",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "क्यूआर कोड दिखाएं",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "शीर्ष पर पिन करें",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "पिन हटाएं",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "वॉल्ट लॉक है",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "अनलॉक करें",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "इस खाते को स्थानांतरित करें",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "इस खाते को दूसरे डिवाइस पर ले जाने के लिए वहां OTPilot से इस कोड को स्कैन करें — यह आपके डिवाइस से कभी बाहर नहीं जाता।",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "इस डिवाइस पर",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "क्लाउड सिंक",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "कनेक्टेड",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "कनेक्टेड नहीं है",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "इसके लिए कोड दिखाए जा रहे हैं",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "अन्य खाते",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "इस पर फ़िल्टर करें",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "आपके साथ चलने वाले कोड",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "हर खाते के लिए सुरक्षित टू-फैक्टर कोड जेनरेट करें — एन्क्रिप्टेड, ऑफ़लाइन, और हमेशा एक टैप में कॉपी करने के लिए तैयार।",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "पूरी तरह ऑफ़लाइन काम करता है — कुछ भी आपके डिवाइस से बाहर नहीं जाता",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "वैकल्पिक पासवर्ड लॉक के साथ एन्क्रिप्टेड वॉल्ट",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "क्यूआर कोड स्कैन करें या मौजूदा बैकअप आयात करें",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "शुरू करें",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "मेरे पास आयात करने के लिए एक बैकअप है",
+    "description": "Onboarding secondary button"
+  },
   "theme_light": {
-    "message": "हल्की",
+    "message": "लाइट",
     "description": "Light theme"
   },
   "theme_dark": {
     "message": "डार्क",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "सरल",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "ऑटो",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
     "message": "सघन",
@@ -325,20 +445,12 @@
     "message": "अधिक कंट्रास्ट",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "सपाट",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "अपने डेटा को तृतीय पक्ष संग्रहण सेवाओं में स्वचालित रूप से बैकअप लें।",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
     "message": "ब्राउज़र सिंक",
     "description": "Storage location"
   },
   "sign_in": {
-    "message": "अंदर आएं",
+    "message": "साइन इन करें",
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
@@ -362,10 +474,6 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "आपके पास एक या अधिक स्टीम या बर्फ़ीला तूफ़ान खाते हैं। अनएन्क्रिप्टेड बैकअप मानकीकृत बैकअप प्रारूप का उपयोग नहीं करेंगे।",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
     "message": "आप कुछ अन्य एप्लिकेशन से बैकअप आयात कर सकते हैं।",
     "description": "Info text on import page"
@@ -378,7 +486,7 @@
     "message": "लोड हो रहा है..."
   },
   "autolock": {
-    "message": "के बाद लॉक ऐप"
+    "message": "इतने समय बाद लॉक करें"
   },
   "minutes": {
     "message": "मिनट"
@@ -406,9 +514,6 @@
   },
   "backup": {
     "message": "बैकअप"
-  },
-  "backup_file_info": {
-    "message": "एक फ़ाइल में अपने डेटा का बैकअप लें।"
   },
   "password_policy_default_hint": {
     "message": "आपका पासवर्ड आपके संगठन की सुरक्षा आवश्यकताओं को पूरा नहीं करता है। अधिक जानकारी के लिए अपने व्यवस्थापक से संपर्क करें।"
@@ -447,13 +552,13 @@
     "message": "जानकारी"
   },
   "dismiss": {
-    "message": "खारिज"
+    "message": "खारिज करें"
   },
   "learn_more": {
     "message": "और अधिक जानें"
   },
   "enable_context_menu": {
-    "message": "प्रसंग मेनू में जोड़ें"
+    "message": "संदर्भ मेनू में जोड़ें"
   },
   "no_entires": {
     "message": "प्रदर्शित करने के लिए कोई खाता नहीं है। अपना पहला खाता अभी जोड़ें।"
@@ -462,13 +567,13 @@
     "message": "अनुमतियां"
   },
   "permission_revoke": {
-    "message": "रद्द करना"
+    "message": "रद्द करें"
   },
   "permission_show_required_permissions": {
-    "message": "गैर-प्रतिसंहरणीय अनुमतियां दिखाएं"
+    "message": "गैर-रद्द करने योग्य अनुमतियां दिखाएं"
   },
   "permission_required": {
-    "message": "यह एक आवश्यक अनुमति है और इसे निरस्त नहीं किया जा सकता है।"
+    "message": "यह एक आवश्यक अनुमति है और इसे रद्द नहीं किया जा सकता है।"
   },
   "permission_active_tab": {
     "message": "क्यूआर कोड स्कैन करने के लिए वर्तमान टैब तक पहुंचें।"
@@ -480,45 +585,37 @@
     "message": "तृतीय पक्ष संग्रहण सेवाओं में साइन इन करने की अनुमति देता है।"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "ऑटो-लॉक को काम करने की अनुमति देता है।"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "क्यूआर कोड स्कैन करने और स्वतः भरण को सक्षम करने के लिए वर्तमान टैब में स्क्रिप्ट इंजेक्ट करता है।"
   },
   "permission_clipboard_write": {
     "message": "जब आप खाते पर क्लिक करते हैं तो कोड को क्लिपबोर्ड पर कॉपी करने के लिए क्लिपबोर्ड पर केवल-लिखने की पहुंच प्रदान करता है।"
   },
   "permission_context_menus": {
-    "message": "संदर्भ मेनू में प्रमाणक जोड़ता है।"
+    "message": "संदर्भ मेनू में OTPilot जोड़ता है।"
   },
   "permission_sync_clock": {
     "message": "घड़ी को Google के साथ सिंक करने की अनुमति देता है।"
   },
   "permission_dropbox": {
-    "message": "Dropbox बैकअप की अनुमति देता है"
+    "message": "Dropbox बैकअप की अनुमति देता है।"
   },
   "permission_dropbox_cannot_revoke": {
     "message": "आपको पहले Dropbox बैकअप को अक्षम करना होगा।"
-  },
-  "permission_drive": {
-    "message": "Google Drive पर बैकअप की अनुमति देता है।"
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "आपको पहले Google Drive बैकअप को अक्षम करना होगा।"
-  },
-  "permission_onedrive": {
-    "message": "OneDrive पर बैकअप की अनुमति देता है।"
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "आपको पहले OneDrive बैकअप को अक्षम करना होगा।"
   },
   "permission_unknown_permission": {
     "message": "अज्ञात अनुमति। यदि आप यह संदेश देखते हैं, तो कृपया एक बग रिपोर्ट भेजें।"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "पासवर्ड गलत है।"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "चेतावनी: स्मार्ट फ़िल्टर डोमेन नाम को किसी खाते से मोटे तौर पर मिलाता है। कोड दर्ज करने से पहले हमेशा सुनिश्चित करें कि आप सही वेबसाइट पर हैं!"
+  },
+  "backup_unavailable": {
+    "message": "अभी उपलब्ध नहीं है",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

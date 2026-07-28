@@ -1,14 +1,22 @@
 {
   "extName": {
-    "message": "Autentifikuesi",
+    "message": "OTPilot Authenticator",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentifikuesi",
+    "message": "OTPilot",
     "description": "Extension Short Name."
   },
+  "host": {
+    "message": "Faqja e internetit",
+    "description": "Bound website host used to restrict autofill to a matching page."
+  },
+  "backup_requires_password": {
+    "message": "Vendosni fillimisht një fjalëkalim për të përdorur backup-in në cloud, që kodet tuaja sekrete të kriptohen përpara se të largohen nga kjo pajisje.",
+    "description": "Shown in the cloud backup section when no master password is set."
+  },
   "extDesc": {
-    "message": "Autentifikuesi gjeneron kode autentifikimi me 2 faktorë në shletuesin tuaj.",
+    "message": "OTPilot Authenticator gjeneron kode me dy faktorë (2FA), me kopje rezervë të enkriptuar në cloud, plotësim automatik të përshtatur me faqen e internetit, dhe këshilla sigurie.",
     "description": "Extension Description."
   },
   "added": {
@@ -19,9 +27,17 @@
     "message": "Kod QR i panjohur.",
     "description": "QR Error."
   },
+  "error_not_otpauth": {
+    "message": "Kodi QR i skanuar nuk është një kod otpauth i vlefshëm.",
+    "description": "Shown when a scanned QR code decodes successfully but the text is not an otpauth or otpauth-migration URI."
+  },
   "errorsecret": {
     "message": "Kodi sekret i llogarisë është i pavlefshëm",
     "description": "Secret Error."
+  },
+  "errorissuer": {
+    "message": "Lëshuesi nuk mund të përmbajë \"::\"",
+    "description": "Issuer Error."
   },
   "add_code": {
     "message": "Shto llogari",
@@ -40,12 +56,8 @@
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "Disa të dhëna të llogarisë nuk janë importuar në mënyrë të sukseshme.",
+    "message": "Disa të dhëna të llogarisë nuk u importuan me sukses.",
     "description": "Some migration data is broken."
-  },
-  "close": {
-    "message": "Mbyll",
-    "description": "Close."
   },
   "ok": {
     "message": "Në rregull",
@@ -68,7 +80,7 @@
     "description": "Account Name."
   },
   "issuer": {
-    "message": "Lëshuar nga",
+    "message": "Lëshuesi",
     "description": "Issuer."
   },
   "secret": {
@@ -99,10 +111,6 @@
     "message": "Fjalëkalimi aktual",
     "description": "Current Passphrase."
   },
-  "new_phrase": {
-    "message": "Fjalëkalim i ri",
-    "description": "New Passphrase."
-  },
   "phrase": {
     "message": "Fjalëkalimi",
     "description": "Passphrase."
@@ -112,37 +120,33 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "A jeni i sigurtë qe doni të fshini këtë llogari? Ky veprim nuk mund të zhbëhet.",
+    "message": "A jeni i sigurt që doni ta fshini këtë llogari? Ky veprim nuk mund të zhbëhet.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
-    "message": "E kuptoj se të gjithë të dhënat e mia do të fshihen dhe do të jenë të parikuperueshme.",
+    "message": "E kuptoj se të gjitha të dhënat e mia do të fshihen përfundimisht dhe nuk do të mund të rikuperohen.",
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Kthe në gjendje fillestare Authenticator-in"
+    "message": "Kthe OTPilot-in në gjendjen fillestare"
   },
   "delete_all_warning": {
-    "message": "Kjo do të fshijë të gjithë plotësisht të dhënat tuaja dhe kthejë Authenticator në gjendje fillestare. Ju nuk do të jeni në gjendje të riktheni të dhënat e fshira! Ju duhet të konsideroni ruajtjen e një kopje rezervë përpara rikthimit në gjëndje fillestare të Authenticator-it."
+    "message": "Kjo do të fshijë plotësisht të gjitha të dhënat tuaja dhe do ta kthejë OTPilot-in në gjendjen fillestare. Nuk do të jeni në gjendje të riktheni asnjë të dhënë të fshirë! Duhet të konsideroni ruajtjen e një kopje rezervë përpara se ta rivendosni OTPilot-in."
   },
   "security_warning": {
-    "message": "Ky fjalëkalim do të përdoret për të kriptuar llogarinë tënde. Askush nuk mund tju ndihmojë ju nëse ju harroni fjalëkalimin.",
+    "message": "Ky fjalëkalim do të përdoret për të enkriptuar llogaritë tuaja. Askush nuk mund t'ju ndihmojë nëse harroni fjalëkalimin.",
     "description": "Passphrase Warning."
   },
-  "update": {
-    "message": "Përditëso",
-    "description": "Update."
-  },
   "phrase_incorrect": {
-    "message": "Ju nuk mund të shtoni një llogari të re derisa të gjitha llogaritë janë të dekriptuara. Ju lutem vendosni fjalkalimin korrekt përpara se të vazhdoni.",
+    "message": "Ju nuk mund të shtoni një llogari të re derisa të gjitha llogaritë janë të dekriptuara. Ju lutem vendosni fjalëkalimin korrekt përpara se të vazhdoni.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Llogaritë që nuk mundën të dekriptohen nuk do të përfshihen në këtë backup.",
+    "message": "Llogaritë që nuk munden të dekriptohen nuk do të përfshihen në këtë kopje rezervë.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "Fajlëkalimi nuk përputhet.",
+    "message": "Fjalëkalimi nuk përputhet.",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -157,10 +161,6 @@
     "message": "Reagime",
     "description": "Feedback."
   },
-  "translate": {
-    "message": "Përkthe",
-    "description": "Translate."
-  },
   "source": {
     "message": "Kodi burimor",
     "description": "Source Code."
@@ -173,24 +173,20 @@
     "message": "Sinkronizo Orën me Google",
     "description": "Sync Clock"
   },
-  "remember_phrase": {
-    "message": "Kujto fjalëkalimin",
-    "description": "Remember Passphrase"
-  },
   "clock_too_far_off": {
-    "message": "Kujdes! Ora juaj lokale është mbrapa, ju lutem rregullojeni përpara se të vazhdoni.",
+    "message": "Kujdes! Ora juaj lokale është shumë e pasaktë, ju lutem rregullojeni përpara se të vazhdoni.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "A keni backup për llogaritë tuaja? Mos prit derisa të jetë shumë vonë!",
+    "message": "A keni kopje rezervë për llogaritë tuaja? Mos prisni derisa të jetë shumë vonë!",
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "Rregjistrimi i imazhit dështoi, ju lutem ringarkoni faqen dhe provoni përsëri.",
+    "message": "Regjistrimi i imazhit dështoi, ju lutem ringarkoni faqen dhe provoni përsëri.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "A jeni duke provuar skanimin e kodit QR nga një skedar lokal? Në vënd të kësaj përdor importimin e kopjes rezervë të imazhit QR.",
+    "message": "A jeni duke provuar të skanoni kodin QR nga një skedar lokal? Në vend të kësaj, përdorni importimin e kopjes rezervë të imazhit QR.",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
@@ -210,43 +206,75 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Lajmërim: të gjitha kopjet rezervë nuk janë të kriptura. Kërkoni të shtoni një llogari në një app tjetër? Shkoni në krye në anën e djathtë të cdo llogarie dhe shtyp butonin 'hidden'.",
+    "message": "Lajmërim: të gjitha kopjet rezervë janë të pakriptuara. Doni të shtoni një llogari në një aplikacion tjetër? Kaloni me miun mbi pjesën e sipërme djathtas të çdo llogarie dhe shtypni butonin e fshehur.",
     "description": "Export menu info text"
   },
   "download_backup": {
-    "message": "Shkarko skedarin Backup",
+    "message": "Shkarko skedarin e kopjes rezervë",
     "description": "Download backup file."
   },
   "import_backup": {
-    "message": "Importo Backup",
+    "message": "Importo kopjen rezervë",
     "description": "Import backup."
   },
   "import_backup_file": {
-    "message": "Importo skedarin Backup",
+    "message": "Importo skedarin e kopjes rezervë",
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "Importo Backup të imazhit QR",
+    "message": "Importo kopjen rezervë nga imazhi QR",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "استحضار صور رموز الاستجابة السريع",
+    "message": "Importo imazhe QR",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
-    "message": "Importo Backup të tekstit",
+    "message": "Importo OTPAuth URI",
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "إستحضار رمز المرور المؤقت",
+    "message": "Importo OTPAuth URI",
     "description": "Import OTP URLs. Shown as add account method."
   },
+  "import_drop_file": {
+    "message": "Lësho një skedar kopje rezervë këtu, ose kliko për të shfletuar",
+    "description": "File import dropzone title"
+  },
+  "import_file_accepts": {
+    "message": "Pranon eksportime .json dhe .txt",
+    "description": "File import dropzone hint"
+  },
+  "import_choose_file": {
+    "message": "Zgjidh skedarin",
+    "description": "File import dropzone button"
+  },
+  "import_encrypted_note": {
+    "message": "Nëse skedari është i enkriptuar, do t'ju kërkohet fjalëkalimi i tij pasi ta zgjidhni.",
+    "description": "File import note about encrypted backups"
+  },
+  "import_enc_required": {
+    "message": "Enkriptuar — kërkohet fjalëkalim",
+    "description": "Badge on a picked encrypted backup file"
+  },
+  "import_pass_placeholder": {
+    "message": "Vendos fjalëkalimin e skedarit",
+    "description": "Passphrase input placeholder for encrypted import"
+  },
+  "import_pass_hint": {
+    "message": "Ky është fjalëkalimi që keni vendosur kur krijuat kopjen rezervë.",
+    "description": "Hint under the import passphrase field"
+  },
+  "import_decrypt": {
+    "message": "Dekripto dhe importo",
+    "description": "Button to decrypt and import an encrypted backup"
+  },
   "import_backup_qr_partly_failed": {
-    "message": "تم الاستحضار بنجاح، لاكن بعض رموز الاستجابة السريعة لم يتم التعرف عليها.",
+    "message": "Importimi u krye me sukses, por disa kode QR nuk u njohën.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
-    "message": "Ju mund të selektoni shumë skedarë për të importuar në sasi kopjet rezervë.",
+    "message": "Ju mund të zgjidhni disa skedarë për të importuar kopjet rezervë në grupe.",
     "description": "You can select multiple image files to import backup in batches."
   },
   "show_all_entries": {
@@ -254,15 +282,15 @@
     "description": "Show all entries."
   },
   "dropbox_risk": {
-    "message": "Lajmërim: kopjet rezervë nuk janë të kriptuara. Përdorni duke marrë vetë rrezikun.",
+    "message": "Lajmërim: kopjet rezervë nuk janë të enkriptuara. Përdorimi bëhet me përgjegjësinë tuaj.",
     "description": "Backup risk warning."
   },
   "import_error_password": {
-    "message": "Ju duhet të ofroni fjalëkalimin korrekt për importimin e kopjeve rezervë.",
+    "message": "Ju duhet të vendosni fjalëkalimin e saktë për të importuar kopjet rezervë.",
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Fjalëkalimi juaj është ruajtur në mënyrë lokale, ju lutem menjëherë ndryshoni atë në menu-ja e sigurisë.",
+    "message": "Fjalëkalimi juaj është ruajtur në mënyrë lokale, ju lutem ndryshojeni menjëherë në menynë e sigurisë.",
     "description": "localStorage password warning."
   },
   "remove": {
@@ -290,51 +318,135 @@
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "Krijo kopje rezervë",
+    "message": "Kopje rezervë manuale",
     "description": "Manual backup"
   },
   "use_autofill": {
     "message": "Përdor Autofill",
     "description": "Use Autofill"
   },
-  "use_high_contrast": {
-    "message": "Përdor kontrast të lartë",
-    "description": "Use High Contrast"
-  },
   "theme": {
     "message": "Tema",
     "description": "Theme"
   },
+  "settings_appearance": {
+    "message": "Pamja",
+    "description": "Settings section: appearance"
+  },
+  "settings_general": {
+    "message": "Të përgjithshme",
+    "description": "Settings section: general"
+  },
+  "edit_accounts": {
+    "message": "Ndrysho llogaritë",
+    "description": "Header title while in edit mode"
+  },
+  "show_qr": {
+    "message": "Shfaq kodin QR",
+    "description": "Context-menu action to show an account's QR code"
+  },
+  "pin_to_top": {
+    "message": "Ngjit në krye",
+    "description": "Context-menu action to pin an account to the top"
+  },
+  "unpin": {
+    "message": "Hiq nga krye",
+    "description": "Context-menu action to unpin an account"
+  },
+  "vault_locked": {
+    "message": "Kasaforta e kyçur",
+    "description": "Title on the unlock screen"
+  },
+  "unlock": {
+    "message": "Zhkyç",
+    "description": "Unlock button"
+  },
+  "qr_transfer_title": {
+    "message": "Transfero këtë llogari",
+    "description": "QR sheet caption title"
+  },
+  "qr_transfer_desc": {
+    "message": "Skano këtë kod me OTPilot në një pajisje tjetër për të transferuar këtë llogari — ajo nuk largohet kurrë nga pajisjet tuaja.",
+    "description": "QR sheet caption body"
+  },
+  "backup_on_device": {
+    "message": "Në këtë pajisje",
+    "description": "Backup section: local"
+  },
+  "backup_cloud_sync": {
+    "message": "Sinkronizim në Cloud",
+    "description": "Backup section: cloud"
+  },
+  "backup_connected": {
+    "message": "I lidhur",
+    "description": "Cloud provider connected status"
+  },
+  "backup_not_connected": {
+    "message": "I palidhur",
+    "description": "Cloud provider not-connected status"
+  },
+  "showing_codes_for": {
+    "message": "Duke shfaqur kodet për",
+    "description": "Smart-filter banner prefix, followed by the site domain"
+  },
+  "other_accounts": {
+    "message": "Llogari të tjera",
+    "description": "Divider above non-matching accounts in the filter view"
+  },
+  "filter_to_site": {
+    "message": "Filtro sipas",
+    "description": "Banner prefix to re-apply the site filter, followed by the domain"
+  },
+  "onboarding_title": {
+    "message": "Kode që udhëtojnë me ju",
+    "description": "Onboarding headline"
+  },
+  "onboarding_subtitle": {
+    "message": "Krijoni kode të sigurta me dy faktorë për çdo llogari — të enkriptuara, offline, dhe gjithmonë vetëm një prekje larg kopjimit.",
+    "description": "Onboarding subtitle"
+  },
+  "onboarding_feature_offline": {
+    "message": "Funksionon plotësisht offline — asgjë nuk largohet nga pajisja juaj",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_encrypted": {
+    "message": "Ruajtje e enkriptuar me kyçje fjalëkalimi opsionale",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_feature_scan": {
+    "message": "Skano një kod QR ose importo një kopje rezervë ekzistuese",
+    "description": "Onboarding feature bullet"
+  },
+  "onboarding_get_started": {
+    "message": "Fillo",
+    "description": "Onboarding primary button"
+  },
+  "onboarding_import": {
+    "message": "Kam një kopje rezervë për të importuar",
+    "description": "Onboarding secondary button"
+  },
   "theme_light": {
-    "message": "E çelur",
+    "message": "E çelët",
     "description": "Light theme"
   },
   "theme_dark": {
     "message": "E errët",
     "description": "Dark theme"
   },
-  "theme_simple": {
-    "message": "بسيط",
-    "description": "Simple theme"
+  "theme_auto": {
+    "message": "Automatik",
+    "description": "Follow the system light/dark setting"
   },
   "theme_compact": {
-    "message": "معقد او مركب",
+    "message": "Kompakte",
     "description": "Compact theme"
   },
   "theme_high_contrast": {
     "message": "Kontrast i lartë",
     "description": "High Contrast theme"
   },
-  "theme_flat": {
-    "message": "مسطح",
-    "description": "Flat theme"
-  },
-  "storage_sync_info": {
-    "message": "Ruaj në mënyrë automatike një kopje rezervë të të dhënave tuaja në shërbimet me palë të 3ta të magazinimit.",
-    "description": "3rd party backup info"
-  },
   "browser_sync": {
-    "message": "Sinkronizo Shfletuesin",
+    "message": "Sinkronizim i shfletuesit",
     "description": "Storage location"
   },
   "sign_in": {
@@ -353,7 +465,7 @@
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
-    "message": "Është një problem në lidhjen me të dhënat e llogarise suaj $SERVICE$, ju identikohuni përsëri.",
+    "message": "Pati një problem në lidhjen me llogarinë tuaj në $SERVICE$, ju lutem identifikohuni përsëri.",
     "description": "Error authenticating to backup service. $SERVICE$ will be replaced with a proper noun (E.g.: 'Google Drive' or 'Dropbox')",
     "placeholders": {
       "service": {
@@ -362,12 +474,8 @@
       }
     }
   },
-  "otp_unsupported_warn": {
-    "message": "Ju keni një ose më shumë llogari Steam ose Blizzard. Backup-et jo të kriptuar nuk do të përdorin formatin backup të standardizuar.",
-    "description": "Warning if using account that is not supported by standard backup format."
-  },
   "otp_backup_inform": {
-    "message": "Ju mund të importoni backup-et nga disa aplikacione të tjerë.",
+    "message": "Ju mund të importoni kopje rezervë nga disa aplikacione të tjera.",
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
@@ -384,7 +492,7 @@
     "message": "minuta"
   },
   "advanced": {
-    "message": "E Avancuar"
+    "message": "E avancuar"
   },
   "period": {
     "message": "Periudha"
@@ -396,7 +504,7 @@
     "message": "I pavlefshëm"
   },
   "digits": {
-    "message": "Numrat"
+    "message": "Shifrat"
   },
   "algorithm": {
     "message": "Algoritmi"
@@ -405,120 +513,109 @@
     "message": "Filtri inteligjent"
   },
   "backup": {
-    "message": "Krijo kopje rezervë"
-  },
-  "backup_file_info": {
-    "message": "Krijo një kopje rezervë të të dhënave tuaja në një skedar."
+    "message": "Kopje rezervë"
   },
   "password_policy_default_hint": {
-    "message": "كلمة مرورك الخاصة لا تستوفى المتطلبات الخاصة بمنظمتك. الرجاء التواصل مع مديرك للمزيد من المعلومات."
+    "message": "Fjalëkalimi juaj nuk i plotëson kërkesat e sigurisë të organizatës suaj. Kontaktoni administratorin tuaj për më shumë informacion."
   },
   "advisor": {
-    "message": "مساعدة"
+    "message": "Këshilltar"
   },
   "advisor_insight_password_not_set": {
-    "message": "إنشاء كلمة مرور لحماية بياناتك."
+    "message": "Vendosni një fjalëkalim për të mbrojtur të dhënat tuaja."
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "الرجاء تفعيل الإغلاق الالى لحماية بياناتك."
+    "message": "Aktivizoni kyçjen automatike për të mbrojtur të dhënat tuaja."
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "مزامنة المتصفح غير نشط. تفعيل المزامنة يسمح لحسابك بالمزامنه مع المواقع المختلفة."
+    "message": "Sinkronizimi i shfletuesit është i çaktivizuar. Aktivizimi i tij lejon sinkronizimin e llogarive ndërmjet shfletuesve."
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "تفعيل الملء التلقائي يسمح بملء رموز التفعيل داخل المتصفحات المختلفة."
+    "message": "Plotësimi automatik mund të aktivizohet për të plotësuar automatikisht kodet në faqet e internetit."
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "تفعيل المنقى الذكى يسمح بالدخول بسرعة الى مختلف الحسابات."
+    "message": "Aktivizimi i filtrit inteligjent lejon qasje të shpejtë në llogaritë tuaja."
   },
   "show_all_insights": {
-    "message": "إظهار كافة الاقتراحات."
+    "message": "Shfaq të gjitha këshillat."
   },
   "no_insight_available": {
-    "message": "لا يوجد اى إقتراحات، كل شئ يبدو جيد!"
+    "message": "Nuk u gjet asnjë këshillë, gjithçka duket në rregull!"
   },
   "danger": {
-    "message": "خطر"
+    "message": "Rrezik"
   },
   "warning": {
-    "message": "تحزير"
+    "message": "Paralajmërim"
   },
   "info": {
-    "message": "معلومات"
+    "message": "Informacion"
   },
   "dismiss": {
-    "message": "الغاء"
+    "message": "Hiq"
   },
   "learn_more": {
-    "message": "معرفة المزيد"
+    "message": "Mëso më shumë"
   },
   "enable_context_menu": {
-    "message": "إضافة الى قائمة السياق النصى"
+    "message": "Shto në menynë e kontekstit"
   },
   "no_entires": {
-    "message": "لا يوجد لديك حسابات لإظهاره. انشاء حسابك الاول الان."
+    "message": "Nuk ka llogari për të shfaqur. Shtoni llogarinë tuaj të parë tani."
   },
   "permissions": {
-    "message": "الموافقة"
+    "message": "Lejet"
   },
   "permission_revoke": {
-    "message": "إبطال"
+    "message": "Revoko"
   },
   "permission_show_required_permissions": {
-    "message": "اظهار رموز المرور الغير قابلة للإلغاء"
+    "message": "Shfaq lejet që nuk mund të revokohen."
   },
   "permission_required": {
-    "message": "هذا رمز مرور الزامي ولا يمكن ابطاله."
+    "message": "Ky është një leje e detyrueshme dhe nuk mund të revokohet."
   },
   "permission_active_tab": {
-    "message": "الرجاء اختيار علامة التبويب الحالية لمسح رمز الاستجابة السريع."
+    "message": "Qasje te skeda aktuale për të skanuar kodet QR."
   },
   "permission_storage": {
-    "message": "الرجاء الدخول الى مساحة تخزين المتصفح لتخزين بيانات الحساب."
+    "message": "Qasje te hapësira ruajtëse e shfletuesit për të ruajtur të dhënat e llogarisë."
   },
   "permission_identity": {
-    "message": "يسمح بالمرور إلى خدمات تخزين الطرف الثالث."
+    "message": "Lejon identifikimin në shërbimet e ruajtjes së palëve të treta."
   },
   "permission_alarms": {
-    "message": "يسمح للإغلاق التلقائي بالعمل."
+    "message": "Lejon funksionimin e kyçjes automatike."
   },
   "permission_scripting": {
-    "message": "ادخل النص إلى علامة التبويب الحالية لمسح رموز الإستجابة السريعة والسماح للملء التلقائي بالعمل."
+    "message": "Injekton skripte në skedën aktuale për të skanuar kodet QR dhe për të mundësuar funksionimin e plotësimit automatik."
   },
   "permission_clipboard_write": {
-    "message": "يضمن حق الوصول للكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر فوق الحساب."
+    "message": "Jep qasje vetëm për shkrim në clipboard, për të kopjuar kodet aty kur klikoni mbi llogarinë."
   },
   "permission_context_menus": {
-    "message": "يضيف المصادقة إلى قائمة السياق النصى."
+    "message": "Shton OTPilot në menynë e kontekstit."
   },
   "permission_sync_clock": {
-    "message": "يسمح بمزامنة الساعة مع جوجل."
+    "message": "Lejon sinkronizimin e orës me Google."
   },
   "permission_dropbox": {
-    "message": "يسمح بنسخة احتياطية فى موقع Dropbox."
+    "message": "Lejon krijimin e kopjeve rezervë në Dropbox."
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "يجب الغاء تفعيل النسخة الاحتياطية على موقع Dropbox أولاً."
-  },
-  "permission_drive": {
-    "message": "السماح بالنسخ الاحتياطى على موقع Google Drive."
-  },
-  "permission_drive_cannot_revoke": {
-    "message": "يجب إلغاء تفعيل النسخ الاحتياطية على موقع Google Drive أولاً."
-  },
-  "permission_onedrive": {
-    "message": "السماح بالنسخ الاحتياطي على موقع OneDrive."
-  },
-  "permission_onedrive_cannot_revoke": {
-    "message": "الغاء تفعيل النسخة الاحتياطي على موقع OneDrive أولاً."
+    "message": "Duhet të çaktivizoni fillimisht kopjen rezervë në Dropbox."
   },
   "permission_unknown_permission": {
-    "message": "موافقة مجهولة. اذا رأيت هذه الرساله، الرجاء ارسال تقرير اختراق."
+    "message": "Leje e panjohur. Nëse e shihni këtë mesazh, ju lutem dërgoni një raport gabimi."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Fjalëkalimi është i pasaktë."
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Kujdes: Filtri inteligjent përputh në mënyrë të përafërt emrin e domainit me një llogari. Gjithmonë verifikoni që jeni në faqen e saktë përpara se të vendosni një kod!"
+  },
+  "backup_unavailable": {
+    "message": "Ende jo i disponueshëm",
+    "description": "Shown on a cloud provider that is not implemented yet."
   }
 }

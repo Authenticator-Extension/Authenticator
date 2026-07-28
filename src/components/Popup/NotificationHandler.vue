@@ -25,18 +25,19 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
-import { mapState } from "vuex";
+import { defineComponent } from "vue";
+import { mapState } from "pinia";
+import { useNotificationStore } from "../../store/Notification";
 
-export default Vue.extend({
-  computed: mapState("notification", [
+export default defineComponent({
+  computed: mapState(useNotificationStore, [
     "message",
     "messageIdle",
     "confirmMessage",
   ]),
   methods: {
     closeAlert() {
-      this.$store.commit("notification/closeAlert");
+      useNotificationStore().closeAlert();
     },
     confirmOK() {
       const confirmEvent = new CustomEvent("confirm", { detail: true });

@@ -5,9 +5,8 @@ import { DataType } from "./otp";
 export class BrowserStorage {
   private static async getStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
-    const managedLocation = await ManagedStorage.get<StorageLocation>(
-      "storageArea"
-    );
+    const managedLocation =
+      await ManagedStorage.get<StorageLocation>("storageArea");
     if (
       managedLocation === StorageLocation.Sync ||
       managedLocation === StorageLocation.Local
@@ -27,13 +26,13 @@ export class BrowserStorage {
       return new Promise((resolve, reject) => {
         let amountSync: number;
         let amountLocal: number;
-        chrome.storage.local.get((local) => {
+        chrome.storage.local.get((local: { [key: string]: unknown }) => {
           amountLocal = Object.keys(local).length;
           if (local.LocalStorage) {
             amountLocal--;
           }
           try {
-            chrome.storage.sync.get((sync) => {
+            chrome.storage.sync.get((sync: { [key: string]: unknown }) => {
               amountSync = Object.keys(sync).length;
               // If storage location can't be found try to auto-detect storage
               // location
@@ -63,7 +62,6 @@ export class BrowserStorage {
     }
   }
 
-  // TODO: promise this
   static async get() {
     const storageLocation = await this.getStorageLocation();
     const removeOtherData = function (items: Record<string, unknown>): void {
@@ -129,10 +127,22 @@ export class BrowserStorage {
 
   static async set(data: object) {
     const storageLocation = await this.getStorageLocation();
-    if (storageLocation === StorageLocation.Local) {
-      await chrome.storage.local.set(data);
-    } else if (storageLocation === StorageLocation.Sync) {
-      await chrome.storage.sync.set(data);
+    try {
+      if (storageLocation === StorageLocation.Local) {
+        await chrome.storage.local.set(data);
+      } else if (storageLocation === StorageLocation.Sync) {
+        await chrome.storage.sync.set(data);
+      }
+    } catch (error) {
+      // Usually the sync quota (MAX_ITEMS / QUOTA_BYTES_PER_ITEM). Re-throw with
+      // a clear message instead of failing as a silent unhandled rejection that
+      // leaves the entry visible in the UI but never persisted.
+      console.error("Storage write failed", storageLocation, error);
+      throw new Error(
+        storageLocation === StorageLocation.Sync
+          ? "Browser sync storage is full. Switch to local storage in Preferences."
+          : "Storage write failed: " + String(error),
+      );
     }
     return;
   }
@@ -166,36 +176,37 @@ export class BrowserStorage {
 export function isOldKey(key: unknown): key is OldKey {
   return Boolean(
     key &&
-      typeof key === "object" &&
-      "enc" in key &&
-      "hash" in key &&
-      key.enc &&
-      key.hash &&
-      typeof key.enc === "string" &&
-      typeof key.hash === "string"
+    typeof key === "object" &&
+    "enc" in key &&
+    "hash" in key &&
+    key.enc &&
+    key.hash &&
+    typeof key.enc === "string" &&
+    typeof key.hash === "string",
   );
 }
 
 function isKey(key: unknown): key is Key {
   return Boolean(
     key &&
-      typeof key === "object" &&
-      "dataType" in key &&
-      "id" in key &&
-      "salt" in key &&
-      key.dataType === "Key" &&
-      key.id &&
-      key.salt &&
-      typeof key.id === "string" &&
-      typeof key.salt === "string"
+    typeof key === "object" &&
+    "dataType" in key &&
+    "id" in key &&
+    "salt" in key &&
+    key.dataType === "Key" &&
+    key.id &&
+    key.salt &&
+    typeof key.id === "string" &&
+    typeof key.salt === "string",
   );
 }
 
 export class EntryStorage {
-  private static getOTPStorageFromEntry(
+  private static async getOTPStorageFromEntry(
     entry: OTPEntry,
-    unencrypted?: boolean
-  ): OTPStorage {
+    unencrypted?: boolean,
+    forBackup?: boolean,
+  ): Promise<OTPStorage> {
     let secret: string;
     if (!entry.secret && entry.encData && entry.keyId) {
       return {
@@ -238,8 +249,22 @@ export class EntryStorage {
       storageItem.period = entry.period;
     }
 
-    if (entry.issuer) {
-      storageItem.issuer = entry.issuer;
+    if (forBackup && entry.host) {
+      // Backups encode the bound host as "issuer::host" (the upstream
+      // convention import's migrateLegacyHost understands) rather than a
+      // separate host field, so the website round-trips through importers
+      // that only keep issuer.
+      storageItem.issuer = entry.issuer
+        ? `${entry.issuer}::${entry.host}`
+        : `::${entry.host}`;
+    } else {
+      if (entry.issuer) {
+        storageItem.issuer = entry.issuer;
+      }
+
+      if (entry.host) {
+        storageItem.host = entry.host;
+      }
     }
 
     if (entry.account) {
@@ -266,8 +291,8 @@ export class EntryStorage {
       entry.encryption?.getEncryptionStatus() &&
       entry.encryption.getEncryptionKeyId()
     ) {
-      const encData = entry.encryption.getEncryptedString(
-        JSON.stringify(storageItem)
+      const encData = await entry.encryption.getEncryptedString(
+        JSON.stringify(storageItem),
       );
       return {
         dataType: DataType.EncOTPStorage,
@@ -312,7 +337,7 @@ export class EntryStorage {
 
         return mergedData;
       },
-      {}
+      {},
     );
 
     return newData;
@@ -332,7 +357,7 @@ export class EntryStorage {
 
   private static isValidEntry(
     _data: { [hash: string]: OTPStorage },
-    hash: string
+    hash: string,
   ) {
     if (typeof _data[hash] !== "object") {
       console.log('Key "' + hash + '" is not an object');
@@ -355,7 +380,7 @@ export class EntryStorage {
     }
   }
 
-  static getExport(data: OTPEntryInterface[], encrypted?: boolean) {
+  static async getExport(data: OTPEntryInterface[], encrypted?: boolean) {
     try {
       const exportData: { [hash: string]: OTPStorage } = {};
       for (const entry of data) {
@@ -364,7 +389,11 @@ export class EntryStorage {
           continue;
         }
 
-        exportData[entry.hash] = this.getOTPStorageFromEntry(entry, !encrypted);
+        exportData[entry.hash] = await this.getOTPStorageFromEntry(
+          entry,
+          !encrypted,
+          true,
+        );
       }
       return exportData;
     } catch (error) {
@@ -384,11 +413,42 @@ export class EntryStorage {
         continue;
       }
 
-      const entry = _data[hash];
+      let entry = _data[hash];
 
-      // TODO: fix this
       if (entry.dataType === "EncOTPStorage") {
-        continue;
+        if (encrypted) {
+          // Encrypted backup: keep the ciphertext as-is (plus the keys
+          // appended below) so decryptBackupData can unlock it on restore.
+          continue;
+        }
+
+        // Plaintext export: this entry is still AES-GCM ciphertext and must
+        // be decrypted here, otherwise it ends up mixed into a supposedly
+        // "unencrypted" backup - either lost on restore (no passphrase to
+        // unlock it) or leaked as raw ciphertext mislabeled as plaintext.
+        const decryptedData = await encryption.decryptEncSecret({
+          encData: entry.data,
+        } as OTPEntryInterface);
+
+        if (!decryptedData) {
+          // Can't unlock this entry (no/incorrect master password) - drop it
+          // rather than emit ciphertext disguised as a plaintext entry.
+          delete _data[hash];
+          continue;
+        }
+
+        const plainEntry: RawOTPStorage = {
+          ...decryptedData,
+          encrypted: false,
+        };
+        // Must not carry keyId/dataType forward: FileImport.vue treats any
+        // entry with a keyId (or encrypted=true) as ciphertext requiring a
+        // passphrase, which this plaintext entry no longer needs or has.
+        delete plainEntry.keyId;
+        delete plainEntry.dataType;
+
+        _data[hash] = plainEntry;
+        entry = plainEntry;
       }
 
       // remove unnecessary fields
@@ -403,7 +463,15 @@ export class EntryStorage {
         delete entry.period;
       }
 
-      if (!entry.issuer) {
+      // Encode the bound host as "issuer::host" (upstream convention) so the
+      // website survives import, and drop the separate host field. Mirrors
+      // getOTPStorageFromEntry's forBackup branch.
+      if (entry.host) {
+        entry.issuer = entry.issuer
+          ? `${entry.issuer}::${entry.host}`
+          : `::${entry.host}`;
+        delete entry.host;
+      } else if (!entry.issuer) {
         delete entry.issuer;
       }
 
@@ -424,7 +492,9 @@ export class EntryStorage {
       if (!encrypted) {
         // decrypt the data to export
         if (entry.encrypted) {
-          const decryptedSecret = encryption.decryptSecretString(entry.secret);
+          const decryptedSecret = await encryption.decryptSecretString(
+            entry.secret,
+          );
           if (decryptedSecret !== entry.secret && decryptedSecret !== null) {
             entry.secret = decryptedSecret;
             entry.encrypted = false;
@@ -452,7 +522,7 @@ export class EntryStorage {
 
   static async import(
     encryption: Encryption,
-    data: { [hash: string]: RawOTPStorage }
+    data: { [hash: string]: RawOTPStorage },
   ) {
     let _data = await BrowserStorage.get();
     for (const hash of Object.keys(data)) {
@@ -463,12 +533,22 @@ export class EntryStorage {
         continue;
       }
 
+      // type and algorithm are stored as their names (e.g. "hotp", "SHA256"),
+      // not numbers, so parseInt would yield NaN and silently fall back to the
+      // default. Map the name back to the enum instead. Fixes imported HOTP /
+      // Steam entries becoming TOTP (Authenticator-Extension/Authenticator#1292,
+      // #405) and SHA256/SHA512 reverting to SHA1 (#1442, #1294, #1089).
+      const typeFromName = OTPType[data[hash].type as keyof typeof OTPType];
       const rawAlgorithm = data[hash].algorithm;
+      const algorithmFromName = rawAlgorithm
+        ? OTPAlgorithm[rawAlgorithm.toUpperCase() as keyof typeof OTPAlgorithm]
+        : undefined;
       const entryData: {
         account: string;
         encrypted: false;
         index: number;
         issuer: string;
+        host: string;
         secret: string;
         type: OTPType;
         counter: number;
@@ -478,18 +558,20 @@ export class EntryStorage {
         algorithm: OTPAlgorithm;
         pinned: boolean;
       } = {
-        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        type: typeof typeFromName === "number" ? typeFromName : OTPType.totp,
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
+        host: data[hash].host || "",
         account: data[hash].account || "",
         encrypted: false,
         secret: data[hash].secret,
         counter: data[hash].counter || 0,
         period: data[hash].period || 30,
         digits: data[hash].digits || 6,
-        algorithm: rawAlgorithm
-          ? (parseInt(rawAlgorithm) as OTPAlgorithm)
-          : OTPAlgorithm.SHA1,
+        algorithm:
+          typeof algorithmFromName === "number"
+            ? algorithmFromName
+            : OTPAlgorithm.SHA1,
         pinned: data[hash].pinned || false,
         hash: data[hash].hash || hash,
       };
@@ -543,7 +625,7 @@ export class EntryStorage {
       // not a valid / old hash
       if (
         !/^[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}$/.test(
-          hash
+          hash,
         )
       ) {
         entryData.hash = crypto.randomUUID();
@@ -551,7 +633,7 @@ export class EntryStorage {
       }
 
       const entry = new OTPEntry(entryData, encryption);
-      _data[entryData.hash] = this.getOTPStorageFromEntry(entry);
+      _data[entryData.hash] = await this.getOTPStorageFromEntry(entry);
     }
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
@@ -559,7 +641,7 @@ export class EntryStorage {
 
   static async add(entry: OTPEntry) {
     await BrowserStorage.set({
-      [entry.hash]: this.getOTPStorageFromEntry(entry),
+      [entry.hash]: await this.getOTPStorageFromEntry(entry),
     });
   }
 
@@ -568,7 +650,7 @@ export class EntryStorage {
     if (!Object.prototype.hasOwnProperty.call(_data, entry.hash)) {
       throw new Error("Entry to change does not exist.");
     }
-    const storageItem = this.getOTPStorageFromEntry(entry);
+    const storageItem = await this.getOTPStorageFromEntry(entry);
     _data[entry.hash] = storageItem;
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
@@ -576,10 +658,10 @@ export class EntryStorage {
 
   static async set(entries: OTPEntry[]) {
     let _data = await BrowserStorage.get();
-    entries.forEach((entry) => {
-      const storageItem = this.getOTPStorageFromEntry(entry);
+    for (const entry of entries) {
+      const storageItem = await this.getOTPStorageFromEntry(entry);
       _data[entry.hash] = storageItem;
-    });
+    }
     _data = this.ensureUniqueIndex(_data);
     await BrowserStorage.set(_data);
   }
@@ -607,7 +689,7 @@ export class EntryStorage {
             keyId: entryData.keyId,
             hash,
             index: entryData.index,
-          })
+          }),
         );
         continue;
       }
@@ -652,6 +734,7 @@ export class EntryStorage {
         hash: entryData.hash,
         index: entryData.index,
         issuer: entryData.issuer,
+        host: entryData.host,
         secret: entryData.secret,
         type,
         counter: entryData.counter,
@@ -694,13 +777,13 @@ export class ManagedStorage {
     const managedStoragePromise = new Promise(
       (resolve: (result: T | undefined) => void) => {
         if (chrome.storage.managed) {
-          chrome.storage.managed.get((data) => {
+          chrome.storage.managed.get((data: { [key: string]: unknown }) => {
             if (chrome.runtime.lastError) {
               return resolve(defaultValue);
             }
             if (data) {
               if (data[key]) {
-                return resolve(data[key]);
+                return resolve(data[key] as T);
               }
             }
             return resolve(defaultValue);
@@ -709,7 +792,7 @@ export class ManagedStorage {
           // no available in Safari
           resolve(defaultValue);
         }
-      }
+      },
     );
 
     const timeoutPromise = new Promise((resolve) => {
