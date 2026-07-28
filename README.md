@@ -2,7 +2,7 @@
 
 > OTPilot Authenticator generates 2-Step Verification (OTP) codes in your browser.
 
-[**Install from the Chrome Web Store**](https://chromewebstore.google.com/detail/otpilot-authenticator/compmlfocdmifebgiecbajaidkmgkonc)
+**Install:** [Chrome Web Store](https://chromewebstore.google.com/detail/otpilot-authenticator/compmlfocdmifebgiecbajaidkmgkonc) · [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/otpilot-authenticator/)
 
 This is a fork of [Authenticator-Extension/Authenticator](https://github.com/Authenticator-Extension/Authenticator) ([source of this fork](https://github.com/Hank076/Authenticator)). On top of upstream, this fork adds:
 
