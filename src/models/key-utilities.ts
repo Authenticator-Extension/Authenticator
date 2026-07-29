@@ -26,48 +26,27 @@ export class KeyUtilities {
 
   private static base32tohex(base32: string): string {
     const base32chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+    // Strip trailing padding first, then decode each data character to 5
+    // bits. Only keep whole bytes (floor to a multiple of 8 bits) -- this is
+    // the standard, permissive Base32 (RFC 4648) decode and correctly
+    // handles secrets that are missing their `=` padding entirely (upstream
+    // issue #1546), not just the mod-8 padded case the old switch handled.
+    const data = base32.replace(/=+$/, "");
     let bits = "";
-    let hex = "";
-    let padding = 0;
 
-    for (let i = 0; i < base32.length; i++) {
-      if (base32.charAt(i) === "=") {
-        bits += "00000";
-        padding++;
-      } else {
-        const val = base32chars.indexOf(base32.charAt(i).toUpperCase());
-        if (val === -1) {
-          throw new Error("Invalid Base32 string");
-        }
-        bits += val.toString(2).padStart(5, "0");
+    for (let i = 0; i < data.length; i++) {
+      const val = base32chars.indexOf(data.charAt(i).toUpperCase());
+      if (val === -1) {
+        throw new Error("Invalid Base32 string");
       }
+      bits += val.toString(2).padStart(5, "0");
     }
 
-    for (let i = 0; i + 4 <= bits.length; i += 4) {
+    const byteBits = Math.floor(bits.length / 8) * 8;
+    let hex = "";
+    for (let i = 0; i + 4 <= byteBits; i += 4) {
       const chunk = bits.substr(i, 4);
       hex = hex + Number(`0b${chunk}`).toString(16);
-    }
-
-    // if (hex.length % 2 && hex[hex.length - 1] === '0') {
-    //   hex = hex.substr(0, hex.length - 1);
-    // }
-    switch (padding) {
-      case 0:
-        break;
-      case 6:
-        hex = hex.substr(0, hex.length - 8);
-        break;
-      case 4:
-        hex = hex.substr(0, hex.length - 6);
-        break;
-      case 3:
-        hex = hex.substr(0, hex.length - 4);
-        break;
-      case 1:
-        hex = hex.substr(0, hex.length - 2);
-        break;
-      default:
-        throw new Error("Invalid Base32 string");
     }
 
     return hex;

@@ -433,6 +433,35 @@ describe("KeyUtilities.generate rejects invalid Base32 secrets", () => {
   });
 });
 
+// Upstream issue #1546: a Base32 secret whose data-character count isn't a
+// multiple of 8 (so it needs `=` padding to reach a mod-8 length) produced a
+// wrong OTP when the `=` padding was missing, because the old decoder derived
+// how many trailing bits to discard from a count of literal `=` characters
+// rather than from the bit length itself -- no padding meant no truncation,
+// leaving one extra garbage nibble in the HMAC key. base32tohex now always
+// truncates to a whole number of bytes (floor(bits.length / 8) * 8), so
+// padding is optional and, when present, purely cosmetic.
+describe("KeyUtilities.generate handles unpadded Base32 secrets (#1546)", () => {
+  const unpadded = "J3WWIV3PTGJPQV5QAICM";
+  const padded = "J3WWIV3PTGJPQV5QAICM====";
+  // Independently verified (standalone RFC 4648 decoder, see scratchpad
+  // base32check.js) that both secrets above decode to this 12-byte key --
+  // this is the correctness anchor, not just "both branches agree".
+  const expectedHexKey = "4eed64576f9992f857b00204";
+
+  it("produces the same TOTP whether or not the secret is padded", () => {
+    const withoutPadding = KeyUtilities.generate(OTPType.totp, unpadded, 0, 30);
+    const withPadding = KeyUtilities.generate(OTPType.totp, padded, 0, 30);
+    expect(withoutPadding).to.equal(withPadding);
+  });
+
+  it("decodes the unpadded secret to the independently-verified key bytes", () => {
+    const fromBase32 = KeyUtilities.generate(OTPType.hotp, unpadded, 0, 30);
+    const fromHex = KeyUtilities.generate(OTPType.hhex, expectedHexKey, 0, 30);
+    expect(fromBase32).to.equal(fromHex);
+  });
+});
+
 // The QR migration (jsqr -> @zxing/library) replaced the decoder used by both
 // the popup import flow (QrImport.vue) and the injected content script
 // (content.ts) with the shared decodeQrFromImageData leaf module. Generate a
