@@ -5,8 +5,7 @@
       style="margin: 20px 10px"
       :value="value"
       :disabled="disabled"
-      @input="$emit('input', $event.target.value)"
-      @change="$emit('change')"
+      @change="onChange"
     >
       <slot></slot>
     </select>
@@ -17,5 +16,20 @@ import Vue from "vue";
 
 export default Vue.extend({
   props: ["label", "value", "disabled"],
+  methods: {
+    getSelectedValue(event: Event) {
+      const target = event.target as HTMLSelectElement;
+      const selectedOption = target.options[target.selectedIndex] as
+        | (HTMLOptionElement & { _value?: unknown })
+        | undefined;
+      return selectedOption && "_value" in selectedOption
+        ? selectedOption._value
+        : target.value;
+    },
+    onChange(event: Event) {
+      this.$emit("input", this.getSelectedValue(event));
+      this.$emit("change");
+    },
+  },
 });
 </script>
