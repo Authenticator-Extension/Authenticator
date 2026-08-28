@@ -71,6 +71,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { isSafari } from "../../browser";
+import { OTPUtil } from "../../models/otp";
 
 export default Vue.extend({
   data: function () {
@@ -202,6 +203,15 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
   const otpAuthLines: string[] = [];
   for (const hash of Object.keys(entryData)) {
     const otpStorage = entryData[hash];
+    // Key records and EncOTPStorage have no exportable otpauth line
+    if (
+      !otpStorage ||
+      typeof otpStorage !== "object" ||
+      !("secret" in otpStorage) ||
+      !otpStorage.secret
+    ) {
+      continue;
+    }
     if (otpStorage.issuer) {
       otpStorage.issuer = removeUnsafeData(otpStorage.issuer);
     }
@@ -211,10 +221,12 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
     const label = otpStorage.issuer
       ? otpStorage.issuer + ":" + (otpStorage.account || "")
       : otpStorage.account || "";
+    // Normalize numeric or string OTP types (EncOTPStorage round-trips can leave numbers)
+    const normalizedType = OTPUtil.otpTypeName(otpStorage.type);
     let type = "";
-    if (otpStorage.type === "totp" || otpStorage.type === "hex") {
+    if (normalizedType === "totp" || normalizedType === "hex") {
       type = "totp";
-    } else if (otpStorage.type === "hotp" || otpStorage.type === "hhex") {
+    } else if (normalizedType === "hotp" || normalizedType === "hhex") {
       type = "hotp";
     } else {
       continue;
@@ -233,7 +245,9 @@ function getOneLineOtpBackupFile(entryData: { [hash: string]: RawOTPStorage }) {
         ? "&period=" + otpStorage.period
         : "") +
       (otpStorage.digits ? "&digits=" + otpStorage.digits : "") +
-      (otpStorage.algorithm ? "&algorithm=" + otpStorage.algorithm : "");
+      (otpStorage.algorithm
+        ? "&algorithm=" + OTPUtil.otpAlgorithmName(otpStorage.algorithm)
+        : "");
 
     otpAuthLines.push(otpAuthLine);
   }

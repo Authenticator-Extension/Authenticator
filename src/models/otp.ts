@@ -45,6 +45,57 @@ export class OTPUtil {
         return { length: 0 };
     }
   }
+
+  /** Accept stored type as enum number or name string ("totp"). */
+  static normalizeOTPType(type: unknown): OTPType {
+    if (typeof type === "number" && typeof OTPType[type] === "string") {
+      return type as OTPType;
+    }
+    if (typeof type === "string") {
+      const byName = OTPType[type as keyof typeof OTPType];
+      if (typeof byName === "number") {
+        return byName;
+      }
+      const asNumber = Number(type);
+      if (!Number.isNaN(asNumber) && typeof OTPType[asNumber] === "string") {
+        return asNumber as OTPType;
+      }
+    }
+    return OTPType.totp;
+  }
+
+  /** Always export type as a name string for otpauth / JSON backups. */
+  static otpTypeName(type: unknown): string {
+    return OTPType[this.normalizeOTPType(type)] as string;
+  }
+
+  /** Accept stored algorithm as enum number or name string ("SHA1"). */
+  static normalizeOTPAlgorithm(algorithm: unknown): OTPAlgorithm {
+    if (
+      typeof algorithm === "number" &&
+      typeof OTPAlgorithm[algorithm] === "string"
+    ) {
+      return algorithm as OTPAlgorithm;
+    }
+    if (typeof algorithm === "string") {
+      const byName = OTPAlgorithm[algorithm as keyof typeof OTPAlgorithm];
+      if (typeof byName === "number") {
+        return byName;
+      }
+      const asNumber = Number(algorithm);
+      if (
+        !Number.isNaN(asNumber) &&
+        typeof OTPAlgorithm[asNumber] === "string"
+      ) {
+        return asNumber as OTPAlgorithm;
+      }
+    }
+    return OTPAlgorithm.SHA1;
+  }
+
+  static otpAlgorithmName(algorithm: unknown): string {
+    return OTPAlgorithm[this.normalizeOTPAlgorithm(algorithm)] as string;
+  }
 }
 
 export class OTPEntry implements OTPEntryInterface {
@@ -215,16 +266,14 @@ export class OTPEntry implements OTPEntryInterface {
     }
 
     this.account = decryptedData.account || "";
-    // @ts-expect-error need a better way to do this
-    this.algorithm = OTPAlgorithm[decryptedData.algorithm] || OTPAlgorithm.SHA1;
+    this.algorithm = OTPUtil.normalizeOTPAlgorithm(decryptedData.algorithm);
     this.counter = decryptedData.counter || 0;
     this.digits = decryptedData.digits || 6;
     this.issuer = decryptedData.issuer || "";
     this.period = decryptedData.period || 30;
     this.pinned = decryptedData.pinned || false;
     this.secret = decryptedData.secret;
-    // @ts-expect-error need a better way to do this
-    this.type = OTPType[decryptedData.type] || OTPType.totp;
+    this.type = OTPUtil.normalizeOTPType(decryptedData.type);
 
     if (this.type !== OTPType.hotp && this.type !== OTPType.hhex) {
       this.generate();

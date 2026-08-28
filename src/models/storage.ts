@@ -1,7 +1,13 @@
 import { Encryption } from "./encryption";
-import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
+import {
+  OTPEntry,
+  OTPType,
+  OTPAlgorithm,
+  OTPUtil,
+  CodeState,
+  DataType,
+} from "./otp";
 import { StorageLocation, UserSettings } from "./settings";
-import { DataType } from "./otp";
 export class BrowserStorage {
   private static async getStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
@@ -222,7 +228,7 @@ export class EntryStorage {
       encrypted,
       hash: entry.hash,
       index: entry.index,
-      type: OTPType[entry.type],
+      type: OTPUtil.otpTypeName(entry.type),
       secret,
     };
 
@@ -251,7 +257,7 @@ export class EntryStorage {
     }
 
     if (entry.algorithm && entry.algorithm !== OTPAlgorithm.SHA1) {
-      storageItem.algorithm = OTPAlgorithm[entry.algorithm];
+      storageItem.algorithm = OTPUtil.otpAlgorithmName(entry.algorithm);
     }
 
     if (entry.encryption?.getEncryptionKeyId()) {
@@ -384,11 +390,52 @@ export class EntryStorage {
         continue;
       }
 
-      const entry = _data[hash];
+      let entry = _data[hash];
 
-      // TODO: fix this
+      // EncOTPStorage: keep as-is for encrypted backups; decrypt for plaintext.
       if (entry.dataType === "EncOTPStorage") {
-        continue;
+        if (encrypted) {
+          continue;
+        }
+
+        const decrypted = encryption.decryptEncSecret({
+          encData: entry.data,
+          hash,
+        } as OTPEntryInterface);
+
+        if (!decrypted?.secret) {
+          delete _data[hash];
+          continue;
+        }
+
+        const rawEntry: RawOTPStorage = {
+          account: decrypted.account,
+          encrypted: false,
+          hash: decrypted.hash || hash,
+          index: entry.index,
+          issuer: decrypted.issuer,
+          secret: decrypted.secret,
+          type: OTPUtil.otpTypeName(decrypted.type),
+          counter: decrypted.counter,
+          period: decrypted.period,
+          digits: decrypted.digits,
+          algorithm: decrypted.algorithm
+            ? OTPUtil.otpAlgorithmName(decrypted.algorithm)
+            : undefined,
+          pinned: decrypted.pinned,
+          dataType: DataType.OTPStorage,
+        };
+
+        _data[hash] = rawEntry;
+        entry = rawEntry;
+      }
+
+      // Ensure type/algorithm are name strings before field cleanup
+      if ("type" in entry && entry.type !== undefined) {
+        entry.type = OTPUtil.otpTypeName(entry.type);
+      }
+      if ("algorithm" in entry && entry.algorithm !== undefined) {
+        entry.algorithm = OTPUtil.otpAlgorithmName(entry.algorithm);
       }
 
       // remove unnecessary fields
@@ -415,7 +462,10 @@ export class EntryStorage {
         delete entry.digits;
       }
 
-      if (entry.algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]) {
+      if (
+        !entry.algorithm ||
+        entry.algorithm === OTPAlgorithm[OTPAlgorithm.SHA1]
+      ) {
         delete entry.algorithm;
       }
 
@@ -478,7 +528,7 @@ export class EntryStorage {
         algorithm: OTPAlgorithm;
         pinned: boolean;
       } = {
-        type: (parseInt(data[hash].type) as OTPType) || OTPType[OTPType.totp],
+        type: OTPUtil.normalizeOTPType(data[hash].type),
         index: data[hash].index || 0,
         issuer: data[hash].issuer || "",
         account: data[hash].account || "",
@@ -487,9 +537,7 @@ export class EntryStorage {
         counter: data[hash].counter || 0,
         period: data[hash].period || 30,
         digits: data[hash].digits || 6,
-        algorithm: rawAlgorithm
-          ? (parseInt(rawAlgorithm) as OTPAlgorithm)
-          : OTPAlgorithm.SHA1,
+        algorithm: OTPUtil.normalizeOTPAlgorithm(rawAlgorithm),
         pinned: data[hash].pinned || false,
         hash: data[hash].hash || hash,
       };
@@ -620,15 +668,19 @@ export class EntryStorage {
         entryData.type = OTPType[OTPType.totp];
       }
 
+      // Normalize type whether stored as name ("totp") or enum number (1)
+      const typeName = OTPUtil.otpTypeName(entryData.type);
+      entryData.type = typeName;
+
       let type: OTPType;
-      switch (entryData.type) {
+      switch (typeName) {
         case "totp":
         case "hotp":
         case "battle":
         case "steam":
         case "hex":
         case "hhex":
-          type = OTPType[entryData.type];
+          type = OTPType[typeName];
           break;
         default:
           // we need correct the type here
@@ -657,8 +709,7 @@ export class EntryStorage {
         counter: entryData.counter,
         period,
         digits: entryData.digits ? Number(entryData.digits) : undefined,
-        // @ts-expect-error - it's fine if this ends up undefined
-        algorithm: OTPAlgorithm[entryData.algorithm],
+        algorithm: OTPUtil.normalizeOTPAlgorithm(entryData.algorithm),
         pinned: entryData.pinned,
       });
 

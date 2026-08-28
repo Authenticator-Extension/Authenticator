@@ -42,11 +42,11 @@ interface RawOTPStorage {
   index: number;
   issuer?: string;
   secret: string;
-  type: string;
+  type: string | number;
   counter?: number;
   period?: number;
   digits?: number;
-  algorithm?: string;
+  algorithm?: string | number;
   pinned?: boolean;
 }
 
