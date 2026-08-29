@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentifikatorius generuoja dviejų veiksnių autentifikavimo kodus naršyklėje.",
+    "message": "Autentifikatorius generuoja dviejų faktorių autentifikavimo kodus jūsų naršyklėje.",
     "description": "Extension Description."
   },
   "added": {
@@ -20,7 +20,7 @@
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Netinkama paskyros paslaptis",
+    "message": "Neteisinga paskyros paslaptis",
     "description": "Secret Error."
   },
   "add_code": {
@@ -36,7 +36,7 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Importuoti nepavyko. Jei migruojate duomenis iš \"Google Authenticator\", iš naujo eksportuokite duomenis iš \"Google Authenticator\" ir bandykite dar kartą.",
+    "message": "Nepavyko importuoti. Jei duomenis perkeliate iš „Google“ autentifikavimo priemonės, iš naujo eksportuokite duomenis iš „Google“ autentifikavimo priemonės ir bandykite dar kartą.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
@@ -48,7 +48,7 @@
     "description": "Close."
   },
   "ok": {
-    "message": "Ok",
+    "message": "Gerai",
     "description": "OK."
   },
   "yes": {
@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Import QR Images",
+    "message": "Importuoti QR vaizdus",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -238,7 +238,7 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Import OTP URLs",
+    "message": "Importuoti OTP URL",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
@@ -480,10 +480,10 @@
     "message": "Leidžia prisijungti prie trečiosios šalies saugojimo paslaugų."
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "Leidžia veikti automatiniam užrakinimui."
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "Įšvirkškite scenarijus į dabartinį skirtuką, kad nuskaitytumėte QR kodus ir leistų automatiniam pildymui veikti."
   },
   "permission_clipboard_write": {
     "message": "Suteikiama tik rašymo prieiga prie iškarpinės, kad, spustelėjus paskyrą, kodai būtų kopijuojami į iškarpinę."
@@ -516,9 +516,9 @@
     "message": "Nežinomas leidimas. Jei matote šį pranešimą, atsiųskite pranešimą apie klaidą."
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "Neteisingas slaptažodis"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "Įspėjimas: išmanusis filtras laisvai atitinka domeno pavadinimą paskyrai. Visada patikrinkite, ar esate tinkamoje svetainėje, prieš įvesdami kodą!"
   }
 }
