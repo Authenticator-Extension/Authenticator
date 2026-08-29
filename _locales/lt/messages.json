@@ -112,7 +112,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Ar tikrai norite ištrinti paskyrą? Šio veiksmo anuliuoti negalima.",
+    "message": "Ar tikrai norite ištrinti šią paskyrą? Šio veiksmo anuliuoti negalima.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -120,13 +120,13 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Iš naujo nustatyti autentifikatorių"
+    "message": "Iš naujo nustatyti autentifikavimo priemonę"
   },
   "delete_all_warning": {
     "message": "Taip ištrinsite visus duomenis ir visiškai iš naujo nustatysite Autentifikatorių. Negalėsite atkurti jokių ištrintų duomenų! Prieš iš naujo nustatydami Autentifikatorių, turėtumėte išsaugoti atsarginę kopiją."
   },
   "security_warning": {
-    "message": "Šis slaptažodis bus naudojamas jūsų paskyroms šifruoti. Jei slaptažodį pamiršite, niekas jums nepadės.",
+    "message": "Šis slaptažodis bus naudojamas jūsų paskyroms užšifruoti. Niekas negalės jums padėti, jei pamiršite slaptažodį.",
     "description": "Passphrase Warning."
   },
   "update": {
@@ -134,7 +134,7 @@
     "description": "Update."
   },
   "phrase_incorrect": {
-    "message": "Negalite pridėti naujos paskyros, kol visos paskyros neiššifruotos. Prieš tęsdami įveskite teisingą slaptažodį.",
+    "message": "Negalite pridėti naujos paskyros, kol visos paskyros nėra iššifruotos. Įveskite teisingą slaptažodį prieš tęsdami.",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
@@ -162,7 +162,7 @@
     "description": "Translate."
   },
   "source": {
-    "message": "Programinis kodas",
+    "message": "Pirminis kodas",
     "description": "Source Code."
   },
   "passphrase_info": {
@@ -178,15 +178,15 @@
     "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
-    "message": "Dėmesio! Jūsų vietinis laikrodis yra per daug nutolęs, prieš tęsdami darbą jį pataisykite.",
+    "message": "Dėmesio! Jūsų vietinis laikrodis per daug nukrypęs, prašome jį pataisyti prieš tęsiant.",
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Ar turite atsarginę paskyros kopiją? Nelaukite, kol bus per vėlu!",
+    "message": "Ar turite savo paskyrų atsargines kopijas? Nelaukite, kol bus per vėlu!",
     "description": "Remind Backup"
   },
   "capture_failed": {
-    "message": "Užfiksuoti nepavyko, įkelkite puslapį iš naujo ir bandykite dar kartą.",
+    "message": "Užfiksuoti nepavyko, prašome perkrauti puslapį ir bandyti dar kartą.",
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
