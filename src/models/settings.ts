@@ -56,8 +56,51 @@ const LocalUserSettingsDataKeys = [
 export class UserSettings {
   static items: UserSettingsData = {};
 
+  // Settings are read from chrome.storage on nearly every storage operation
+  // (see BrowserStorage.getStorageLocation). Reading them afresh each time
+  // costs one or two IPC round trips per call, which adds up to dozens of
+  // serialized round trips before the popup can render. Cache the result and
+  // drop the cache whenever anything writes to storage, so callers still
+  // observe changes made by other extension contexts.
+  private static cachedItems: UserSettingsData | null = null;
+  private static pendingRead: Promise<UserSettingsData> | null = null;
+  private static invalidationHooked = false;
+
+  private static hookInvalidation() {
+    if (UserSettings.invalidationHooked) {
+      return;
+    }
+    UserSettings.invalidationHooked = true;
+    chrome.storage.onChanged?.addListener(() => {
+      UserSettings.invalidateCache();
+    });
+  }
+
+  static invalidateCache() {
+    UserSettings.cachedItems = null;
+  }
+
   static async updateItems() {
-    UserSettings.items = await UserSettings.getAllItems();
+    UserSettings.hookInvalidation();
+
+    if (UserSettings.cachedItems) {
+      UserSettings.items = UserSettings.cachedItems;
+      return;
+    }
+
+    // Coalesce concurrent readers onto a single read.
+    if (!UserSettings.pendingRead) {
+      UserSettings.pendingRead = UserSettings.getAllItems()
+        .then((items) => {
+          UserSettings.cachedItems = items;
+          return items;
+        })
+        .finally(() => {
+          UserSettings.pendingRead = null;
+        });
+    }
+
+    UserSettings.items = await UserSettings.pendingRead;
   }
 
   static async convertFromLocalStorage(
@@ -108,6 +151,7 @@ export class UserSettings {
       ]);
     }
 
+    UserSettings.invalidateCache();
     await UserSettings.updateItems();
   }
 

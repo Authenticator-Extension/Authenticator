@@ -3,7 +3,23 @@ import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
 import { StorageLocation, UserSettings } from "./settings";
 import { DataType } from "./otp";
 export class BrowserStorage {
-  private static async getStorageLocation(): Promise<StorageLocation> {
+  private static pendingLocation: Promise<StorageLocation> | null = null;
+
+  // Every storage operation resolves the storage location first. Share one
+  // resolution between concurrent callers so parallel readers don't each
+  // re-run the auto-detection branch (which can also commit settings).
+  private static getStorageLocation(): Promise<StorageLocation> {
+    if (!BrowserStorage.pendingLocation) {
+      BrowserStorage.pendingLocation = BrowserStorage.resolveStorageLocation().finally(
+        () => {
+          BrowserStorage.pendingLocation = null;
+        }
+      );
+    }
+    return BrowserStorage.pendingLocation;
+  }
+
+  private static async resolveStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
     const managedLocation = await ManagedStorage.get<StorageLocation>(
       "storageArea"
@@ -688,34 +704,82 @@ export class EntryStorage {
 }
 
 export class ManagedStorage {
+  // The managed policy is a single object, but callers read it one key at a
+  // time (the menu store alone reads eight). Fetch it once and answer
+  // subsequent lookups from memory, dropping the cache if policy changes.
+  private static cachedPolicy: ManagedPolicy | null = null;
+  private static pendingPolicy: Promise<ManagedPolicy> | null = null;
+  private static invalidationHooked = false;
+
+  private static hookInvalidation() {
+    if (ManagedStorage.invalidationHooked) {
+      return;
+    }
+    ManagedStorage.invalidationHooked = true;
+    chrome.storage.onChanged?.addListener((_changes, areaName) => {
+      if (areaName === "managed") {
+        ManagedStorage.cachedPolicy = null;
+        ManagedStorage.pendingPolicy = null;
+      }
+    });
+  }
+
+  private static readPolicy(): Promise<ManagedPolicy> {
+    return new Promise((resolve: (result: ManagedPolicy) => void) => {
+      if (chrome.storage.managed) {
+        chrome.storage.managed.get((data) => {
+          if (chrome.runtime.lastError) {
+            return resolve({});
+          }
+          return resolve(data || {});
+        });
+      } else {
+        // no available in Safari
+        resolve({});
+      }
+    });
+  }
+
+  // Share a single underlying read between all callers. The read is kept
+  // running even if an individual lookup times out below, so a policy that
+  // arrives late still populates the cache for subsequent lookups.
+  private static getPolicy(): Promise<ManagedPolicy> {
+    if (!ManagedStorage.pendingPolicy) {
+      ManagedStorage.pendingPolicy = ManagedStorage.readPolicy().then(
+        (data) => {
+          ManagedStorage.cachedPolicy = data;
+          return data;
+        }
+      );
+    }
+    return ManagedStorage.pendingPolicy;
+  }
+
   static get<T>(key: string): T | undefined;
   static get<T>(key: string, defaultValue: T): T;
   static get<T>(key: string, defaultValue?: T) {
-    const managedStoragePromise = new Promise(
-      (resolve: (result: T | undefined) => void) => {
-        if (chrome.storage.managed) {
-          chrome.storage.managed.get((data) => {
-            if (chrome.runtime.lastError) {
-              return resolve(defaultValue);
-            }
-            if (data) {
-              if (data[key]) {
-                return resolve(data[key]);
-              }
-            }
-            return resolve(defaultValue);
-          });
-        } else {
-          // no available in Safari
-          resolve(defaultValue);
-        }
+    ManagedStorage.hookInvalidation();
+
+    const pick = (data: ManagedPolicy) =>
+      data && data[key] ? (data[key] as T) : defaultValue;
+
+    if (ManagedStorage.cachedPolicy) {
+      return Promise.resolve(pick(ManagedStorage.cachedPolicy));
+    }
+
+    // Preserve the original contract: never make a caller wait more than
+    // ~10ms on managed storage.
+    const timeoutPromise = new Promise(
+      (resolve: (r: T | undefined) => void) => {
+        setTimeout(() => resolve(defaultValue), 10);
       }
     );
 
-    const timeoutPromise = new Promise((resolve) => {
-      setTimeout(() => resolve(defaultValue), 10);
-    });
-
-    return Promise.race([managedStoragePromise, timeoutPromise]);
+    return Promise.race([
+      ManagedStorage.getPolicy().then(pick),
+      timeoutPromise,
+    ]);
   }
 }
+
+type ManagedPolicy = Record<string, unknown>;

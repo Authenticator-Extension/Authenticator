@@ -100,19 +100,19 @@ export class Advisor implements Module {
         ? JSON.parse(UserSettings.items.advisorIgnoreList || "[]")
         : UserSettings.items.advisorIgnoreList || [];
 
-    const filteredInsightsData: AdvisorInsightInterface[] = [];
+    // The validations are independent reads, so run them concurrently instead
+    // of paying for each one in turn. Order is preserved by index.
+    const candidates = insightsData.filter(
+      (insightData) => !advisorIgnoreList.includes(insightData.id)
+    );
 
-    for (const insightData of insightsData) {
-      if (advisorIgnoreList.includes(insightData.id)) {
-        continue;
-      }
+    const validations = await Promise.all(
+      candidates.map((insightData) => insightData.validation())
+    );
 
-      const validation = await insightData.validation();
-
-      if (validation) {
-        filteredInsightsData.push(insightData);
-      }
-    }
+    const filteredInsightsData: AdvisorInsightInterface[] = candidates.filter(
+      (_, index) => validations[index]
+    );
 
     return filteredInsightsData.map(
       (insightData) => new AdvisorInsight(insightData)

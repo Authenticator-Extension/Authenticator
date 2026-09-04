@@ -34,9 +34,6 @@ async function init() {
   await migrateLocalStorageToBrowserStorage();
   await UserSettings.updateItems();
 
-  // Add globals
-  Vue.prototype.i18n = await loadI18nMessages();
-
   // Load modules
   Vue.use(Vuex);
   Vue.use(Vue2Dragula);
@@ -46,14 +43,27 @@ async function init() {
     Vue.component(component.name, component.component);
   }
 
+  // The i18n catalog and the async store modules don't depend on one another,
+  // so resolve them concurrently instead of awaiting each in turn.
+  const [i18nMessages, accounts, advisor, backup, menu] = await Promise.all([
+    loadI18nMessages(),
+    new Accounts().getModule(),
+    new Advisor().getModule(),
+    new Backup().getModule(),
+    new Menu().getModule(),
+  ]);
+
+  // Add globals
+  Vue.prototype.i18n = i18nMessages;
+
   // State
   const store = new Vuex.Store({
     modules: {
-      accounts: await new Accounts().getModule(),
-      advisor: await new Advisor().getModule(),
-      backup: await new Backup().getModule(),
+      accounts,
+      advisor,
+      backup,
       currentView: new CurrentView().getModule(),
-      menu: await new Menu().getModule(),
+      menu,
       notification: new Notification().getModule(),
       qr: new Qr().getModule(),
       style: new Style().getModule(),
