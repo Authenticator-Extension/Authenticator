@@ -38,7 +38,15 @@
     >
       <IconRedo />
     </div>
-    <div class="issuer">
+    <div
+      class="issuer"
+      v-on:mousedown="startLongPress('issuer')"
+      v-on:mouseup="cancelLongPress"
+      v-on:mouseleave="cancelLongPress"
+      v-on:touchstart="startLongPress('issuer')"
+      v-on:touchend="cancelLongPress"
+      v-on:touchmove="cancelLongPress"
+    >
       {{
         entry.issuer.split("::")[0] +
         (theme === "compact" ? ` (${entry.account})` : "")
@@ -46,6 +54,7 @@
     </div>
     <div class="issuerEdit">
       <input
+        ref="issuerInput"
         v-bind:placeholder="i18n.issuer"
         type="text"
         v-model="entry.issuer"
@@ -60,9 +69,20 @@
       }"
       v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
-    <div class="issuer account">{{ entry.account }}</div>
+    <div
+      class="issuer account"
+      v-on:mousedown="startLongPress('account')"
+      v-on:mouseup="cancelLongPress"
+      v-on:mouseleave="cancelLongPress"
+      v-on:touchstart="startLongPress('account')"
+      v-on:touchend="cancelLongPress"
+      v-on:touchmove="cancelLongPress"
+    >
+      {{ entry.account }}
+    </div>
     <div class="issuerEdit">
       <input
+        ref="accountInput"
         v-bind:placeholder="i18n.accountName"
         type="text"
         v-model="entry.account"
@@ -116,13 +136,44 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
+const LONG_PRESS_MS = 500;
+
 export default Vue.extend({
   computed,
   props: {
     entry: OTPEntry,
     tabindex: Number,
   },
+  data() {
+    return {
+      longPressTimer: null as number | null,
+    };
+  },
   methods: {
+    startLongPress(field: "issuer" | "account") {
+      this.cancelLongPress();
+      this.longPressTimer = window.setTimeout(() => {
+        this.enableRename(field);
+      }, LONG_PRESS_MS);
+    },
+    cancelLongPress() {
+      if (this.longPressTimer !== null) {
+        clearTimeout(this.longPressTimer);
+        this.longPressTimer = null;
+      }
+    },
+    enableRename(field: "issuer" | "account") {
+      if (!this.$store.state.style.style.isEditing) {
+        this.$store.commit("style/toggleEdit");
+      }
+      this.$nextTick(() => {
+        const input = (field === "issuer"
+          ? this.$refs.issuerInput
+          : this.$refs.accountInput) as HTMLInputElement;
+        input.focus();
+        input.select();
+      });
+    },
     noCopy(code: string) {
       return (
         code === CodeState.Encrypted ||
