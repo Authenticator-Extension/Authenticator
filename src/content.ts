@@ -240,43 +240,35 @@ async function qrDecode(
       canvas.height = imageData.height;
       canvas.getContext("2d")?.putImageData(imageData, 0, 0);
 
-      const qrReader = new QRCode();
-      qrReader.callback = (
-        error: string,
-        text: {
-          result: string;
-          points: Array<{
-            x: number;
-            y: number;
-            count: number;
-            estimatedModuleSize: number;
-          }>;
-        }
-      ) => {
-        let qrRes = "";
-        if (error) {
-          console.error(error);
-          const jsQrCode = jsQR(
-            imageData.data,
-            imageData.width,
-            imageData.height
-          );
+      // jsQR decodes byte-mode QR data as UTF-8, unlike qrcode-reader below
+      // which decodes it as Latin-1 and garbles non-ASCII text (e.g. Chinese).
+      const jsQrCode = jsQR(imageData.data, imageData.width, imageData.height);
 
-          if (jsQrCode) {
-            qrRes = jsQrCode.data;
-          } else {
-            alert(chrome.i18n.getMessage("errorqr"));
-          }
-        } else {
-          qrRes = text.result;
-        }
-
+      if (jsQrCode) {
         chrome.runtime.sendMessage({
           action: "getTotp",
-          info: qrRes,
+          info: jsQrCode.data,
         });
-      };
-      qrReader.decode(imageData);
+      } else {
+        // fallback: qrcode-reader can decode some images jsQR fails on,
+        // but mangles non-ASCII text - only used when jsQR finds nothing.
+        const qrReader = new QRCode();
+        qrReader.callback = (error: string, text: { result: string }) => {
+          let qrRes = "";
+          if (error) {
+            console.error(error);
+            alert(chrome.i18n.getMessage("errorqr"));
+          } else {
+            qrRes = text.result;
+          }
+
+          chrome.runtime.sendMessage({
+            action: "getTotp",
+            info: qrRes,
+          });
+        };
+        qrReader.decode(imageData);
+      }
     }
   };
   qr.src = url;
