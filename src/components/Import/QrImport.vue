@@ -92,74 +92,51 @@ export default Vue.extend({
   },
 });
 
+function isOtpAuthUrl(text: string): boolean {
+  return (
+    text.indexOf("otpauth://") === 0 ||
+    text.indexOf("otpauth-migration://") === 0
+  );
+}
+
 async function getOtpUrlFromQrFile(file: File): Promise<string | null> {
   return new Promise((resolve) => {
     const reader = new FileReader();
     reader.onload = () => {
       const imageUrl = reader.result as string;
-      const qrReader = new QRCode();
-      qrReader.callback = (
-        error: string,
-        text: {
-          result: string;
-          points: Array<{
-            x: number;
-            y: number;
-            count: number;
-            estimatedModuleSize: number;
-          }>;
+
+      const image: HTMLImageElement = document.createElement("img");
+      image.onload = () => {
+        const canvas: HTMLCanvasElement = document.createElement("canvas");
+        const ctx: CanvasRenderingContext2D = canvas.getContext(
+          "2d"
+        ) as CanvasRenderingContext2D;
+
+        canvas.width = image.width;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0);
+
+        const qrImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        // jsQR decodes byte-mode QR data as UTF-8, unlike qrcode-reader below
+        // which decodes it as Latin-1 and garbles non-ASCII text (e.g. Chinese).
+        const jsQrCode = jsQR(qrImageData.data, canvas.width, canvas.height);
+
+        if (jsQrCode && jsQrCode.data && isOtpAuthUrl(jsQrCode.data)) {
+          return resolve(jsQrCode.data);
         }
-      ) => {
-        if (error) {
-          console.error(error);
 
-          const image: HTMLImageElement = document.createElement("img");
-          image.onload = () => {
-            const canvas: HTMLCanvasElement = document.createElement("canvas");
-            const ctx: CanvasRenderingContext2D = canvas.getContext(
-              "2d"
-            ) as CanvasRenderingContext2D;
-
-            canvas.width = image.width;
-            canvas.height = image.height;
-            ctx.drawImage(image, 0, 0);
-
-            const qrImageData = ctx.getImageData(
-              0,
-              0,
-              canvas.width,
-              canvas.height
-            );
-            const jsQrCode = jsQR(
-              qrImageData.data,
-              canvas.width,
-              canvas.height
-            );
-
-            if (jsQrCode && jsQrCode.data) {
-              if (
-                jsQrCode.data.indexOf("otpauth://") !== 0 &&
-                jsQrCode.data.indexOf("otpauth-migration://") !== 0
-              ) {
-                return resolve(null);
-              }
-              return resolve(jsQrCode.data);
-            } else {
-              return resolve(null);
-            }
-          };
-          image.src = imageUrl;
-        } else {
-          if (
-            text.result.indexOf("otpauth://") !== 0 &&
-            text.result.indexOf("otpauth-migration://") !== 0
-          ) {
+        // fallback: qrcode-reader can decode some images jsQR fails on,
+        // but mangles non-ASCII text - only used when jsQR finds nothing.
+        const qrReader = new QRCode();
+        qrReader.callback = (error: string, text: { result: string }) => {
+          if (error || !isOtpAuthUrl(text.result)) {
             return resolve(null);
           }
           return resolve(text.result);
-        }
+        };
+        qrReader.decode(imageUrl);
       };
-      qrReader.decode(imageUrl);
+      image.src = imageUrl;
     };
     reader.readAsDataURL(file);
   });

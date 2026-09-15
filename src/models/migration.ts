@@ -69,7 +69,9 @@ function wordArrayToByteArray(wordArray: CryptoJS.lib.WordArray) {
 }
 
 function byteArray2String(bytes: number[]) {
-  return String.fromCharCode.apply(null, bytes);
+  // account/issuer are UTF-8 encoded in the migration protobuf;
+  // String.fromCharCode treats each byte as Latin-1, garbling non-ASCII text.
+  return new TextDecoder().decode(new Uint8Array(bytes));
 }
 
 function subBytesArray(bytes: number[], start: number, length: number) {
