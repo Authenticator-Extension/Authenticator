@@ -1,6 +1,10 @@
 export async function getSiteName() {
   const tab = await getCurrentTab();
-  const query = new URLSearchParams(document.location.search.substring(1));
+  // The popup passes the tab's title and url in its own query string. The MV3
+  // service worker calls this too and has no document, so fall back to the tab.
+  const query = new URLSearchParams(
+    typeof document !== "undefined" ? document.location.search.substring(1) : ""
+  );
 
   let title: string | null;
   let url: string | null;
