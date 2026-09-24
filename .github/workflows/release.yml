@@ -38,7 +38,8 @@ jobs:
           cp manifests/manifest-firefox.json firefox/manifest.json
           cp manifests/manifest-pwa.json firefox/manifest-pwa.json
           cp js/*.js js/*.LICENSE.txt firefox/js/
-          cp css/*.css css/*.woff2 firefox/css/
+          cp css/*.css firefox/css/
+          cp sass/mocha.css sass/DroidSansMono.woff2 firefox/css/
           test -z "$(find firefox -name '*.map' -print -quit)"
 
       - name: Package Firefox
