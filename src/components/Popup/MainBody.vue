@@ -1,5 +1,5 @@
 <template>
-  <div id="codes" v-bind:class="{ search: showSearch }">
+  <div id="codes" v-bind:class="{ search: searchActive }">
     <!-- Smart-filter banner — toggles the site filter on/off -->
     <div id="filter" v-if="showFilterBanner" v-on:click="toggleFilter()">
       <svg
@@ -130,6 +130,7 @@ import { useStyleStore } from "../../store/Style";
 import { useCurrentViewStore } from "../../store/CurrentView";
 import { useMenuStore } from "../../store/Menu";
 import { useAccountsStore } from "../../store/Accounts";
+import { shouldApplySearchFilter } from "../../utils";
 
 import EntryComponent from "./EntryComponent.vue";
 
@@ -151,6 +152,9 @@ export default defineComponent({
     ...mapPiniaState(useAccountsStore, { entries: "sortedEntries" }),
     isEditing(): boolean {
       return useStyleStore().style.isEditing;
+    },
+    searchActive(): boolean {
+      return shouldApplySearchFilter(this.showSearch, this.searchText);
     },
     // Smart-filter split: matched (or pinned) accounts vs. everything else.
     matchedList(): OTPEntry[] {

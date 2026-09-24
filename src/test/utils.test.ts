@@ -1,7 +1,11 @@
 import "mocha";
 import { expect } from "chai";
 import { createPinia, setActivePinia } from "pinia";
-import { getMatchedEntries, cloudBackupAllowed } from "../utils";
+import {
+  getMatchedEntries,
+  cloudBackupAllowed,
+  shouldApplySearchFilter,
+} from "../utils";
 import { EntryStorage } from "../models/storage";
 import { UserSettings } from "../models/settings";
 import { OTPEntry, OTPType, OTPAlgorithm } from "../models/otp";
@@ -122,6 +126,16 @@ describe("getMatchedEntries loose (display filtering, unchanged)", () => {
       false,
     );
     expect(matched).to.be.an("array").with.lengthOf(1);
+  });
+});
+
+describe("shouldApplySearchFilter", () => {
+  it("applies text filtering when the visible search field has input", () => {
+    expect(shouldApplySearchFilter(false, "unifi")).to.equal(true);
+  });
+
+  it("does not apply text filtering when search is inactive and empty", () => {
+    expect(shouldApplySearchFilter(false, "")).to.equal(false);
   });
 });
 

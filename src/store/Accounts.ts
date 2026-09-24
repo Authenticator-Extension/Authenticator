@@ -6,6 +6,7 @@ import { legacyDecryptToHex } from "../models/legacy-decrypt";
 import { OTPType, OTPAlgorithm } from "../models/otp";
 import { useCurrentViewStore } from "./CurrentView";
 import { useStyleStore } from "./Style";
+import { useMenuStore } from "./Menu";
 import { getSiteName, getMatchedEntriesHash } from "../utils";
 import { isChromium } from "../browser";
 import { StorageLocation, UserSettings } from "../models/settings";
@@ -104,11 +105,7 @@ export const useAccountsStore = defineStore("accounts", () => {
     // the `false` via a manual string[] annotation. Guard it — `false` and a
     // zero-length array are both falsy, matching the original truthiness.
     const matched = matchedEntries.value;
-    return (
-      UserSettings.items.smartFilter === true &&
-      matched !== false &&
-      matched.length
-    );
+    return useMenuStore().smartFilter && matched !== false && matched.length;
   });
 
   const currentlyEncrypted = computed(() => {
