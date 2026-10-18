@@ -6,6 +6,7 @@ import { loadI18nMessages } from "./store/i18n";
 import { Encryption } from "./models/encryption";
 import { EntryStorage } from "./models/storage";
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
+import { OTPAlgorithm } from "./models/otp";
 import * as CryptoJS from "crypto-js";
 
 async function init() {
@@ -311,7 +312,12 @@ export async function getEntryDataFromOTPAuthPerLine(importCode: string) {
           exportData[hash].digits = digits;
         }
         if (algorithm) {
-          exportData[hash].algorithm = algorithm;
+          const algorithmValue =
+            OTPAlgorithm[algorithm.toUpperCase() as keyof typeof OTPAlgorithm];
+          exportData[hash].algorithm =
+            typeof algorithmValue === "number"
+              ? String(algorithmValue)
+              : algorithm;
         }
 
         succeededCount++;
