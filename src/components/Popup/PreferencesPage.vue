@@ -5,6 +5,7 @@
       v-model="theme"
       style="margin-left: 10px"
     >
+      <option value="system">{{ i18n.theme_system }}</option>
       <option value="normal">{{ i18n.theme_light }}</option>
       <option value="dark">{{ i18n.theme_dark }}</option>
       <option value="simple">{{ i18n.theme_simple }}</option>
