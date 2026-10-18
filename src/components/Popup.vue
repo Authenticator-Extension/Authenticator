@@ -3,16 +3,16 @@
     v-cloak
     v-bind:class="{
       'theme-normal':
-        theme !== 'accessibility' &&
-        theme !== 'dark' &&
-        theme !== 'simple' &&
-        theme !== 'compact' &&
-        theme !== 'flat',
-      'theme-accessibility': theme === 'accessibility',
-      'theme-dark': theme === 'dark',
-      'theme-simple': theme === 'simple',
-      'theme-compact': theme === 'compact',
-      'theme-flat': theme === 'flat',
+        effectiveTheme !== 'accessibility' &&
+        effectiveTheme !== 'dark' &&
+        effectiveTheme !== 'simple' &&
+        effectiveTheme !== 'compact' &&
+        effectiveTheme !== 'flat',
+      'theme-accessibility': effectiveTheme === 'accessibility',
+      'theme-dark': effectiveTheme === 'dark',
+      'theme-simple': effectiveTheme === 'simple',
+      'theme-compact': effectiveTheme === 'compact',
+      'theme-flat': effectiveTheme === 'flat',
       hideoutline,
     }"
     v-on:mousedown="hideoutline = true"
@@ -88,14 +88,35 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
+Object.assign(computed, {
+  effectiveTheme(this: { theme: string; systemDark: boolean }) {
+    if (this.theme === "system") {
+      return this.systemDark ? "dark" : "normal";
+    }
+    return this.theme;
+  },
+});
+
+const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
 export default Vue.extend({
   data: function () {
     return {
       hideoutline: true,
+      systemDark: darkQuery.matches,
     };
   },
   computed,
+  created() {
+    darkQuery.addEventListener("change", this.onSystemThemeChange);
+  },
+  beforeDestroy() {
+    darkQuery.removeEventListener("change", this.onSystemThemeChange);
+  },
   methods: {
+    onSystemThemeChange(event: MediaQueryListEvent) {
+      this.systemDark = event.matches;
+    },
     hideQr() {
       this.$store.commit("style/hideQr");
     },
