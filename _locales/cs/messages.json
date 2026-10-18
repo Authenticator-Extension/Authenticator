@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
+    "message": "Authenticator generates two-factor authentication codes in your browser.",
     "description": "Extension Description."
   },
   "added": {
@@ -16,15 +16,15 @@
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "QR kód nebyl rozpoznán.",
+    "message": "Unrecognized QR code.",
     "description": "QR Error."
   },
   "errorsecret": {
-    "message": "Neplatné číslo účtu",
+    "message": "Invalid account secret",
     "description": "Secret Error."
   },
   "add_code": {
-    "message": "Přidat účet",
+    "message": "Add account",
     "description": "Add account."
   },
   "add_qr": {
@@ -36,11 +36,11 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "Import se nezdařil. Pokud migrujete data z Google Authenticator, prosím znovu exportujte svá data z Google Authenticator a zkuste to znovu.",
+    "message": "Import failed. If you are migrating data from Google Authenticator, please re-export your data from Google Authenticator and try again.",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "Některá data účtu nebyla úspěšně importována.",
+    "message": "Some account data was not imported successfully.",
     "description": "Some migration data is broken."
   },
   "close": {
@@ -56,7 +56,7 @@
     "description": "Yes."
   },
   "no": {
-    "message": "Ne",
+    "message": "No",
     "description": "No."
   },
   "account": {
@@ -64,7 +64,7 @@
     "description": "Account."
   },
   "accountName": {
-    "message": "Název účtu",
+    "message": "Username",
     "description": "Account Name."
   },
   "issuer": {
@@ -76,7 +76,7 @@
     "description": "Secret."
   },
   "updateSuccess": {
-    "message": "Úspěch.",
+    "message": "Success.",
     "description": "Update Success."
   },
   "updateFailure": {
@@ -96,7 +96,7 @@
     "description": "Security."
   },
   "current_phrase": {
-    "message": "Stávající heslo",
+    "message": "Current Password",
     "description": "Current Passphrase."
   },
   "new_phrase": {
@@ -112,7 +112,7 @@
     "description": "Confirm Passphrase."
   },
   "confirm_delete": {
-    "message": "Opravdu chcete tento účet smazat? Tuto akci nelze vrátit zpět.",
+    "message": "Are you sure you want to delete this account? This action cannot be undone.",
     "description": "Remove entry confirmation"
   },
   "confirm_delete_all": {
@@ -123,10 +123,10 @@
     "message": "Resetovat autentifikátor"
   },
   "delete_all_warning": {
-    "message": "Tímto smažete všechna vaše data a kompletně obnovíte autentifikátor. Nebudete moci obnovit žádná odstraněná data! Před resetováním autentifikátoru byste měli zvážit uložení zálohy."
+    "message": "This will delete all of your data and completely reset Authenticator. You will not be able to recover any deleted data! You should consider saving a backup before resetting Authenticator."
   },
   "security_warning": {
-    "message": "Toto heslo bude použito k šifrování vašich účtů. Nikdo vám nemůže pomoci, pokud zapomenete heslo.",
+    "message": "This password will be used to encrypt your accounts. No one can help you if you forget the password.",
     "description": "Passphrase Warning."
   },
   "update": {
@@ -138,7 +138,7 @@
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "Účty které nebylo možno dešifrovat nebudou zahrnuty v této záloze.",
+    "message": "Accounts that were not able to be decrypted will not be included in this backup.",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
@@ -174,7 +174,7 @@
     "description": "Sync Clock"
   },
   "remember_phrase": {
-    "message": "Zapamatovat si heslo",
+    "message": "Remember Password",
     "description": "Remember Passphrase"
   },
   "clock_too_far_off": {
@@ -182,7 +182,7 @@
     "description": "Local Time is Too Far Off"
   },
   "remind_backup": {
-    "message": "Máte zálohu vašich účtů? Nečekejte než je příliš pozdě!",
+    "message": "Do you have a backup for your accounts? Don't wait until it's too late!",
     "description": "Remind Backup"
   },
   "capture_failed": {
@@ -194,15 +194,15 @@
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "Na základě času",
+    "message": "Time Based",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "Založeno na počítadle",
+    "message": "Counter Based",
     "description": "Counter Based"
   },
   "resize_popup_page": {
-    "message": "Vyskakovací stránka",
+    "message": "Preferences",
     "description": "Popup Page Settings"
   },
   "scale": {
@@ -210,7 +210,7 @@
     "description": "Scale"
   },
   "export_info": {
-    "message": "Upozornění: Všechny zálohy jsou nešifrované. Chcete přidat účet do jiné aplikace? Najeďte na pravou horní část libovolného účtu a stiskněte na skryté tlačítko.",
+    "message": "Warning: all backups are unencrypted. Want to add an account to another app? Hover over the top right part of any account and hit the hidden button.",
     "description": "Export menu info text"
   },
   "download_backup": {
@@ -230,7 +230,7 @@
     "description": "Import qr image backup."
   },
   "import_qr_images": {
-    "message": "Importovat QR obrázky",
+    "message": "Import QR Images",
     "description": "Import qr images. Shown as add account method."
   },
   "import_backup_code": {
@@ -238,11 +238,11 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "Importovat OTP URL",
+    "message": "Import OTP URLs",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "Import proběhl úspěšně, ale některé kódy QR se nepodařilo rozpoznat.",
+    "message": "Import successful, but some QR codes could not be recognized.",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -258,63 +258,63 @@
     "description": "Backup risk warning."
   },
   "import_error_password": {
-    "message": "Je nutné zadat správné heslo pro import zálohy.",
+    "message": "You must provide correct password to import backups.",
     "description": "Error password warning when import backups."
   },
   "local_passphrase_warning": {
-    "message": "Vaše heslo je lokálně uloženo, prosím změňte to ihned v menu zabezpečení.",
+    "message": "Your password is stored locally, please change it in the security menu immediately.",
     "description": "localStorage password warning."
   },
   "remove": {
-    "message": "Odstranit",
+    "message": "Remove",
     "description": "Remove password."
   },
   "download_enc_backup": {
-    "message": "Stáhnout zálohy chráněné heslem",
+    "message": "Download Password-Protected Backup",
     "description": "Download Encrypted Backup"
   },
   "search": {
-    "message": "Hledat",
+    "message": "Search",
     "description": "Search"
   },
   "popout": {
-    "message": "Popup mód",
+    "message": "Popup mode",
     "description": "Make window turn into persistent popup"
   },
   "lock": {
-    "message": "Zámek",
+    "message": "Lock",
     "description": "Lock accounts"
   },
   "edit": {
-    "message": "Upravit",
+    "message": "Edit",
     "description": "Edit"
   },
   "manual_dropbox": {
-    "message": "Ruční zálohování",
+    "message": "Manual Backup",
     "description": "Manual backup"
   },
   "use_autofill": {
-    "message": "Použití automatického vyplňování",
+    "message": "Use Autofill",
     "description": "Use Autofill"
   },
   "use_high_contrast": {
-    "message": "Použít vysoký kontrast",
+    "message": "Use High Contrast",
     "description": "Use High Contrast"
   },
   "theme": {
-    "message": "Motiv",
+    "message": "Theme",
     "description": "Theme"
   },
   "theme_light": {
-    "message": "Světlý",
+    "message": "Light",
     "description": "Light theme"
   },
   "theme_dark": {
-    "message": "Tmavý",
+    "message": "Dark",
     "description": "Dark theme"
   },
   "theme_simple": {
-    "message": "Jednoduché",
+    "message": "Simple",
     "description": "Simple theme"
   },
   "theme_compact": {
@@ -322,11 +322,11 @@
     "description": "Compact theme"
   },
   "theme_high_contrast": {
-    "message": "Vysoký kontrast",
+    "message": "High Contrast",
     "description": "High Contrast theme"
   },
   "theme_flat": {
-    "message": "Ploché",
+    "message": "Flat",
     "description": "Flat theme"
   },
   "storage_sync_info": {
@@ -338,7 +338,7 @@
     "description": "Storage location"
   },
   "sign_in": {
-    "message": "Přihlásit se",
+    "message": "Sign in",
     "description": "Sign in to 3rd party storage services"
   },
   "sign_in_business": {
@@ -349,7 +349,7 @@
     "message": "Why do business accounts require more permissions?"
   },
   "log_out": {
-    "message": "Odhlásit se",
+    "message": "Logout",
     "description": "Sign out of 3rd party storage services"
   },
   "token_revoked": {
@@ -375,16 +375,16 @@
     "description": "learn more link on import page. Placed after otp_backup_inform"
   },
   "loading": {
-    "message": "Načítání..."
+    "message": "Loading..."
   },
   "autolock": {
-    "message": "Zamknout po"
+    "message": "Lock after"
   },
   "minutes": {
-    "message": "minutách"
+    "message": "minutes"
   },
   "advanced": {
-    "message": "Pokročilé"
+    "message": "Advanced"
   },
   "period": {
     "message": "Sekunda"
@@ -396,16 +396,16 @@
     "message": "Neplatné"
   },
   "digits": {
-    "message": "Klávesa"
+    "message": ""
   },
   "algorithm": {
-    "message": "Algoritmus"
+    "message": ""
   },
   "smart_filter": {
-    "message": "Chytrý filtr"
+    "message": ""
   },
   "backup": {
-    "message": "Záloha"
+    "message": ""
   },
   "backup_file_info": {
     "message": "Zálohovat data do souboru."
@@ -414,111 +414,111 @@
     "message": "Vaše heslo nesplňuje bezpečnostní požadavky vaší organizace. Pro více informací kontaktujte svého správce."
   },
   "advisor": {
-    "message": "Poradce"
+    "message": ""
   },
   "advisor_insight_password_not_set": {
-    "message": "Nastavte si heslo pro ochranu vašich dat."
+    "message": ""
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "Enable auto-lock to protect your data."
+    "message": ""
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "Synchronizace prohlížeče je vypnuta. Zapnutím zapnete synchronizaci účtu napříč prohlížeči."
+    "message": ""
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "Autofill can be enabled to automatically fill codes into websites."
+    "message": ""
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "Povolení smart filtru umožňuje rychlý přístup k účtům."
+    "message": ""
   },
   "show_all_insights": {
-    "message": "Zobrazit všechny náhledy."
+    "message": ""
   },
   "no_insight_available": {
-    "message": "Nebyly nalezeny žádné náhledy, vše vypadá dobře!"
+    "message": ""
   },
   "danger": {
-    "message": "Nebezpečí"
+    "message": ""
   },
   "warning": {
-    "message": "Varování"
+    "message": ""
   },
   "info": {
     "message": "Info"
   },
   "dismiss": {
-    "message": "Zavřít"
+    "message": ""
   },
   "learn_more": {
-    "message": "Zjistit více"
+    "message": ""
   },
   "enable_context_menu": {
-    "message": "Přidat do kontextové nabídky"
+    "message": ""
   },
   "no_entires": {
-    "message": "Žádné účty k zobrazení. Přidejte svůj první účet nyní."
+    "message": ""
   },
   "permissions": {
-    "message": "Oprávnění"
+    "message": ""
   },
   "permission_revoke": {
-    "message": "Odvoláno"
+    "message": ""
   },
   "permission_show_required_permissions": {
-    "message": "Zobrazit neodvolatelná oprávnění"
+    "message": ""
   },
   "permission_required": {
-    "message": "Tato složka je vyžadována systémem, proto nemůže být odstraněna."
+    "message": ""
   },
   "permission_active_tab": {
-    "message": "Přístup k aktuální záložce pro skenování QR kódů."
+    "message": ""
   },
   "permission_storage": {
-    "message": "Přístup k úložišti prohlížeče pro ukládání dat účtu."
+    "message": ""
   },
   "permission_identity": {
-    "message": "Umožňuje přihlášení ke službám úložiště třetích stran."
+    "message": ""
   },
   "permission_alarms": {
-    "message": "Umožňuje funkci automatického zamykání."
+    "message": ""
   },
   "permission_scripting": {
-    "message": "Vloží do aktuální karty skripty pro skenování QR kódů a umožní automatické vyplňování."
+    "message": ""
   },
   "permission_clipboard_write": {
-    "message": "Umožňuje přístup do schránky pouze pro zápis a kopírování kódů do schránky po kliknutí na účet."
+    "message": ""
   },
   "permission_context_menus": {
-    "message": "Přidá Authenticator do kontextové nabídky."
+    "message": ""
   },
   "permission_sync_clock": {
-    "message": "Umožnit synchronizaci hodin s Google."
+    "message": ""
   },
   "permission_dropbox": {
-    "message": "Umožňuje zálohování na Dropbox."
+    "message": ""
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "Nejdříve musíte zakázat zálohu Dropboxu."
+    "message": ""
   },
   "permission_drive": {
-    "message": "Umožňuje zálohování na Disk Google."
+    "message": ""
   },
   "permission_drive_cannot_revoke": {
-    "message": "Nejdříve musíte zakázat zálohu Google drive."
+    "message": ""
   },
   "permission_onedrive": {
-    "message": "Umožňuje zálohu do One drive."
+    "message": ""
   },
   "permission_onedrive_cannot_revoke": {
-    "message": "Nejdříve musíte zakázat zálohu One drive."
+    "message": ""
   },
   "permission_unknown_permission": {
-    "message": "Neznámé oprávnění. Pokud uvidíte tuto zprávu, pošlete prosím hlášení o chybě."
+    "message": ""
   },
   "phrase_wrong": {
-    "message": "Neplatné heslo"
+    "message": ""
   },
   "activate_auto_filter": {
-    "message": "Varování: Inteligentní filtr volně přiřazuje název domény k účtu. Před zadáním kódu vždy zkontrolujte, zda jste na správné webové stránce!"
+    "message": ""
   }
 }
