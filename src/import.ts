@@ -36,7 +36,7 @@ async function init() {
     app.config.globalProperties.$entries = entries;
     app.config.globalProperties.$encryption = encryption;
 
-    const instance = app.mount("#import");
+    const instance = app.mount("#import-app");
 
     // Set title
     try {

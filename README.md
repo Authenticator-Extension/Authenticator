@@ -8,6 +8,7 @@ This is a fork of [Authenticator-Extension/Authenticator](https://github.com/Aut
 
 - **Native Web Crypto encryption** — crypto-js is no longer maintained, so the vault moved to Web Crypto AES-GCM (Argon2id-derived key, a fresh random IV per record, GCM auth tag). A wrong password or tampered data now fails loudly instead of decrypting into a silently wrong code; legacy CBC ciphertext stays readable and upgrades on the next write.
 - **Host-bound autofill** — codes are only injected when the page's real host matches the account. Upstream matched on the page title, which the visited site controls.
+- **Smart filtering and search** — accounts related to the current site are highlighted by default. Search narrows the list by issuer or account name; you can turn smart filtering off in Preferences.
 - **Master password required for cloud backup** — uploads are blocked entirely until one is set, so an unencrypted vault can never leave the device.
 - **Dropbox backup via OAuth PKCE** — Authorization Code + PKCE through `chrome.identity.launchWebAuthFlow`; no client secret ships in the extension. (Google Drive backup was removed in 2026-07; OneDrive is a disabled placeholder.)
 - **Smaller footprint in your tabs** — QR decoding moved from the content script into the background worker, cutting injected code from ~1.9 MiB to ~55 KiB. Four unused OAuth host permissions and their CSP `connect-src` entries were removed.

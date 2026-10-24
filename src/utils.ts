@@ -68,6 +68,13 @@ export async function getSiteName() {
   return [title, nameFromDomain, hostname];
 }
 
+export function shouldApplySearchFilter(
+  showSearch: boolean,
+  searchText: string,
+): boolean {
+  return showSearch || searchText !== "";
+}
+
 // `strict` is used by autofill, which pastes a live OTP into the page: it drops
 // the page-controlled <title> match and anchors the host match to a real domain
 // boundary, so a hostile page can't claim another origin's code. Display

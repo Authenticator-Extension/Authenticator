@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extName__",
     "short_name": "__MSG_extShortName__",
-    "version": "8.0.5",
+    "version": "8.0.6",
     "default_locale": "en",
     "description": "__MSG_extDesc__",
     "applications": {
@@ -50,11 +50,7 @@
     "optional_permissions": [
         "clipboardWrite",
         "https://www.google.com/",
-        "https://*.dropboxapi.com/*",
-        "https://www.googleapis.com/*",
-        "https://accounts.google.com/o/oauth2/revoke",
-        "https://graph.microsoft.com/me/*",
-        "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+        "https://*.dropboxapi.com/*"
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/o/oauth2/revoke https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'"
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com; default-src 'none'"
 }

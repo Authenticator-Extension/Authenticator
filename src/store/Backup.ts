@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { UserSettings } from "../models/settings";
+import { isCloudProviderEnabled } from "../cloud-providers";
 
 export const useBackupStore = defineStore("backup", () => {
   // default to encrypted when unset, matching backup.ts upload behaviour
@@ -17,12 +18,32 @@ export const useBackupStore = defineStore("backup", () => {
   async function init() {
     await UserSettings.updateItems();
 
+    let removedDisabledProviderToken = false;
+    for (const key of [
+      "driveToken",
+      "driveRefreshToken",
+      "oneDriveToken",
+      "oneDriveRefreshToken",
+    ] as const) {
+      if (UserSettings.items[key] !== undefined) {
+        delete UserSettings.items[key];
+        removedDisabledProviderToken = true;
+      }
+    }
+    if (removedDisabledProviderToken) {
+      await UserSettings.commitItems();
+    }
+
     dropboxEncrypted.value = UserSettings.items.dropboxEncrypted !== false;
     driveEncrypted.value = UserSettings.items.driveEncrypted !== false;
     oneDriveEncrypted.value = UserSettings.items.oneDriveEncrypted !== false;
     dropboxToken.value = Boolean(UserSettings.items.dropboxToken);
-    driveToken.value = Boolean(UserSettings.items.driveToken);
-    oneDriveToken.value = Boolean(UserSettings.items.oneDriveToken);
+    driveToken.value = isCloudProviderEnabled("drive")
+      ? Boolean(UserSettings.items.driveToken)
+      : false;
+    oneDriveToken.value = isCloudProviderEnabled("onedrive")
+      ? Boolean(UserSettings.items.oneDriveToken)
+      : false;
   }
 
   function setToken(args: { service: string; value: boolean }) {

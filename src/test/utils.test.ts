@@ -1,7 +1,11 @@
 import "mocha";
 import { expect } from "chai";
 import { createPinia, setActivePinia } from "pinia";
-import { getMatchedEntries, cloudBackupAllowed } from "../utils";
+import {
+  getMatchedEntries,
+  cloudBackupAllowed,
+  shouldApplySearchFilter,
+} from "../utils";
 import { EntryStorage } from "../models/storage";
 import { UserSettings } from "../models/settings";
 import { OTPEntry, OTPType, OTPAlgorithm } from "../models/otp";
@@ -11,6 +15,12 @@ import { KeyUtilities } from "../models/key-utilities";
 import { MultiFormatWriter, BarcodeFormat } from "@zxing/library";
 import { decodeQrFromImageData, computeQrCropRegion } from "../qr-decoder";
 import { useAdvisorStore } from "../store/Advisor";
+import { useBackupStore } from "../store/Backup";
+import {
+  generateDropboxOAuthState,
+  isCloudProviderEnabled,
+  isValidDropboxOAuthState,
+} from "../cloud-providers";
 
 // getSiteName() returns [title, nameFromDomain, hostname]. autofill paths call
 // getMatchedEntries(siteName, entries, strict=true). These tests pin the strict
@@ -119,6 +129,16 @@ describe("getMatchedEntries loose (display filtering, unchanged)", () => {
   });
 });
 
+describe("shouldApplySearchFilter", () => {
+  it("applies text filtering when the visible search field has input", () => {
+    expect(shouldApplySearchFilter(false, "unifi")).to.equal(true);
+  });
+
+  it("does not apply text filtering when search is inactive and empty", () => {
+    expect(shouldApplySearchFilter(false, "")).to.equal(false);
+  });
+});
+
 // A cloud backup must never carry plaintext secrets off the device. Uploading
 // is only permitted once a master password is set, so the export is encrypted
 // before it leaves for Dropbox / Drive / OneDrive. cloudBackupAllowed only
@@ -141,6 +161,72 @@ describe("cloudBackupAllowed (no plaintext cloud upload without a password)", ()
 
   it("blocks cloud upload when no encryption instance is provided", () => {
     expect(cloudBackupAllowed(undefined)).to.equal(false);
+  });
+});
+
+describe("cloud provider security boundary", () => {
+  it("only enables Dropbox", () => {
+    expect(isCloudProviderEnabled("dropbox")).to.equal(true);
+    expect(isCloudProviderEnabled("drive")).to.equal(false);
+    expect(isCloudProviderEnabled("onedrive")).to.equal(false);
+    expect(isCloudProviderEnabled("unknown")).to.equal(false);
+  });
+
+  it("accepts only the state from the same Dropbox OAuth request", () => {
+    const state = generateDropboxOAuthState();
+    expect(state).to.match(/^[0-9a-f]{32}$/);
+    expect(isValidDropboxOAuthState(state, state)).to.equal(true);
+    expect(isValidDropboxOAuthState(state, "different-state")).to.equal(false);
+    expect(isValidDropboxOAuthState(state, null)).to.equal(false);
+  });
+});
+
+describe("useBackupStore disabled provider token cleanup", () => {
+  let originalUserSettings: unknown;
+
+  beforeEach(async () => {
+    originalUserSettings = (await chrome.storage.local.get("UserSettings"))
+      .UserSettings;
+  });
+
+  afterEach(async () => {
+    if (originalUserSettings === undefined) {
+      await chrome.storage.local.remove("UserSettings");
+    } else {
+      await chrome.storage.local.set({ UserSettings: originalUserSettings });
+    }
+    await UserSettings.updateItems();
+  });
+
+  it("removes disabled provider tokens in one initialization while keeping preferences", async () => {
+    await chrome.storage.local.set({
+      UserSettings: {
+        driveToken: "drive-access-token",
+        driveRefreshToken: "drive-refresh-token",
+        oneDriveToken: "onedrive-access-token",
+        oneDriveRefreshToken: "onedrive-refresh-token",
+        driveFolder: "backup-folder",
+        oneDriveBusiness: true,
+      },
+    });
+
+    setActivePinia(createPinia());
+    const store = useBackupStore();
+    await store.init();
+
+    const stored = (await chrome.storage.local.get("UserSettings"))
+      .UserSettings as {
+      driveFolder?: string;
+      oneDriveBusiness?: boolean;
+    };
+    expect(stored).to.not.have.property("driveToken");
+    expect(stored).to.not.have.property("driveRefreshToken");
+    expect(stored).to.not.have.property("oneDriveToken");
+    expect(stored).to.not.have.property("oneDriveRefreshToken");
+    expect(stored.driveFolder).to.equal("backup-folder");
+    expect(stored.oneDriveBusiness).to.equal(true);
+    expect(store.driveToken).to.equal(false);
+    expect(store.oneDriveToken).to.equal(false);
   });
 });
 

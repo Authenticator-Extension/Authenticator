@@ -22,6 +22,9 @@ jobs:
       - name: Prettier
         run: ./node_modules/.bin/prettier --check ./src/* ./src/**/* ./src/**/**/* ./sass/*.scss
 
+      - name: Check cloud permissions
+        run: node scripts/check-cloud-permissions.js
+
   build:
     runs-on: ubuntu-latest
     name: Build ${{ matrix.platform }}

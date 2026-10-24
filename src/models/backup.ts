@@ -3,6 +3,7 @@ import { Encryption } from "./encryption";
 import { UserSettings } from "./settings";
 import { EntryStorage } from "./storage";
 import { cloudBackupAllowed } from "../utils";
+import { isCloudProviderEnabled } from "../cloud-providers";
 
 export class Dropbox implements BackupProvider {
   private async refreshToken(): Promise<boolean> {
@@ -286,6 +287,9 @@ export class OneDrive implements BackupProvider {
   }
 
   async upload(encryption: Encryption) {
+    if (!isCloudProviderEnabled("onedrive")) {
+      return false;
+    }
     if (!cloudBackupAllowed(encryption)) {
       return false;
     }

@@ -1,7 +1,7 @@
 import { getCredentials } from "./models/credentials";
 import { Encryption } from "./models/encryption";
 import { EntryStorage, ManagedStorage } from "./models/storage";
-import { Dropbox, OneDrive } from "./models/backup";
+import { Dropbox } from "./models/backup";
 import {
   getSiteName,
   getMatchedEntries,
@@ -14,6 +14,11 @@ import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
 import { isChrome, isFirefox } from "./browser";
 import { UserSettings } from "./models/settings";
 import { decodeQrFromImageData, computeQrCropRegion } from "./qr-decoder";
+import {
+  generateDropboxOAuthState,
+  isCloudProviderEnabled,
+  isValidDropboxOAuthState,
+} from "./cloud-providers";
 
 chrome.runtime.onMessage.addListener((message, sender) => {
   // Only act on messages from our own extension pages / content scripts, never
@@ -58,7 +63,7 @@ chrome.runtime.onMessage.addListener((message, sender) => {
       });
       chrome.alarms.clear("autolock");
       setAutolock();
-    } else if (["dropbox", "onedrive"].indexOf(message.action) > -1) {
+    } else if (isCloudProviderEnabled(message.action)) {
       getBackupToken(message.action);
     } else if (message.action === "lock") {
       chrome.storage.session.set({ cachedPassphrase: null, cachedKeyId: null });
@@ -414,11 +419,16 @@ async function generatePkce(): Promise<{
 }
 
 function getBackupToken(service: string) {
+  if (!isCloudProviderEnabled(service)) {
+    return;
+  }
+
   if (service === "dropbox") {
     // Upgrade from implicit flow to Authorization Code + PKCE (no secret).
     void (async () => {
       const { codeVerifier, codeChallenge } = await generatePkce();
       const redirUrl = chrome.identity.getRedirectURL();
+      const state = generateDropboxOAuthState();
       const authUrl =
         "https://www.dropbox.com/oauth2/authorize" +
         "?response_type=code" +
@@ -429,7 +439,9 @@ function getBackupToken(service: string) {
         "&code_challenge=" +
         encodeURIComponent(codeChallenge) +
         "&code_challenge_method=S256" +
-        "&token_access_type=offline";
+        "&token_access_type=offline" +
+        "&state=" +
+        encodeURIComponent(state);
 
       chrome.identity.launchWebAuthFlow(
         { url: authUrl, interactive: true },
@@ -440,15 +452,17 @@ function getBackupToken(service: string) {
               .catch(() => undefined);
             return;
           }
-          // Authorization Code is in the query string: ?code=...
+          // callback 必須帶回同一次授權請求的 state，否則不交換 token。
           let code: string | undefined;
+          let callbackState: string | null = null;
           try {
             const parsedUrl = new URL(redirectedTo);
             code = parsedUrl.searchParams.get("code") ?? undefined;
+            callbackState = parsedUrl.searchParams.get("state");
           } catch {
             /* invalid URL — fall through */
           }
-          if (!code) {
+          if (!code || !isValidDropboxOAuthState(state, callbackState)) {
             chrome.runtime
               .sendMessage({ action: "dropboxauthdone" })
               .catch(() => undefined);
@@ -476,18 +490,24 @@ function getBackupToken(service: string) {
                   "&grant_type=authorization_code",
               },
             );
-            const res = await response.json();
-            if (res.error) {
-              console.error(res.error_description);
-            } else {
-              UserSettings.items.dropboxToken = res.access_token;
-              UserSettings.items.dropboxRefreshToken = res.refresh_token;
-              UserSettings.items.dropboxRevoked = false;
-              await UserSettings.commitItems();
-              uploadBackup("dropbox");
+            if (!response.ok) {
+              console.error(
+                "Dropbox token exchange failed: HTTP " + response.status,
+              );
+              return;
             }
+            const res = await response.json();
+            if (!res.access_token) {
+              console.error("Dropbox token exchange failed");
+              return;
+            }
+            UserSettings.items.dropboxToken = res.access_token;
+            UserSettings.items.dropboxRefreshToken = res.refresh_token;
+            UserSettings.items.dropboxRevoked = false;
+            await UserSettings.commitItems();
+            await uploadBackup("dropbox");
           } catch (error) {
-            console.error(error);
+            console.error("Dropbox token exchange failed", error);
           }
           chrome.runtime
             .sendMessage({ action: "dropboxauthdone" })
@@ -575,6 +595,10 @@ function getBackupToken(service: string) {
 }
 
 async function uploadBackup(service: string) {
+  if (!isCloudProviderEnabled(service)) {
+    return;
+  }
+
   const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
   const encryption = new Encryption(
     cachedPassphrase as string,
@@ -584,10 +608,6 @@ async function uploadBackup(service: string) {
   switch (service) {
     case "dropbox":
       await new Dropbox().upload(encryption);
-      break;
-
-    case "onedrive":
-      await new OneDrive().upload(encryption);
       break;
 
     default:

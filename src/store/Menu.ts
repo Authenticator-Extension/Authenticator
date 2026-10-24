@@ -29,7 +29,7 @@ export const useMenuStore = defineStore("menu", () => {
   const version = ref(chrome.runtime.getManifest()?.version || "0.0.0");
   const zoom = ref(100);
   const useAutofill = ref(false);
-  const smartFilter = ref(false);
+  const smartFilter = ref(true);
   const enableContextMenu = ref(false);
   const theme = ref("light");
   const onboardingComplete = ref(false);
@@ -51,7 +51,7 @@ export const useMenuStore = defineStore("menu", () => {
 
     zoom.value = Number(UserSettings.items.zoom) || 100;
     useAutofill.value = UserSettings.items.autofill === true;
-    smartFilter.value = UserSettings.items.smartFilter === true;
+    smartFilter.value = UserSettings.items.smartFilter !== false;
     enableContextMenu.value = UserSettings.items.enableContextMenu === true;
     theme.value = normalizeTheme(UserSettings.items.theme);
     onboardingComplete.value = UserSettings.items.onboardingComplete === true;

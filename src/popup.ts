@@ -15,7 +15,7 @@ import { useCurrentViewStore } from "./store/CurrentView";
 import { useMenuStore } from "./store/Menu";
 import { useNotificationStore } from "./store/Notification";
 import { useAdvisorStore } from "./store/Advisor";
-import { Dropbox, OneDrive } from "./models/backup";
+import { Dropbox } from "./models/backup";
 import { Encryption } from "./models/encryption";
 import { syncTimeWithGoogle } from "./syncTime";
 import { StorageLocation, UserSettings } from "./models/settings";
@@ -244,45 +244,6 @@ async function runScheduledBackup(
               );
               UserSettings.items.dropboxRevoked = undefined;
               UserSettings.removeItem("dropboxRevoked");
-            }
-          } catch (error) {
-            // a failed scheduled backup shouldn't be completely silent
-            console.error("Scheduled backup failed", error);
-          }
-        }
-        notificationStore.alert(instance.i18n.remind_backup);
-        UserSettings.items.lastRemindingBackupTime = clientTime;
-        UserSettings.commitItems();
-      },
-    );
-  }
-  if (backupStore.oneDriveToken) {
-    chrome.permissions.contains(
-      {
-        origins: [
-          "https://graph.microsoft.com/me/*",
-          "https://login.microsoftonline.com/common/oauth2/v2.0/token",
-        ],
-      },
-      async (hasPermission) => {
-        if (hasPermission) {
-          try {
-            const onedrive = new OneDrive();
-            const res = await onedrive.upload(
-              accountsStore.encryption.get(
-                accountsStore.defaultEncryption,
-              ) as Encryption,
-            );
-            if (res) {
-              UserSettings.items.lastRemindingBackupTime = clientTime;
-              UserSettings.commitItems();
-              return;
-            } else if (UserSettings.items.oneDriveRevoked === true) {
-              notificationStore.alert(
-                chrome.i18n.getMessage("token_revoked", ["OneDrive"]),
-              );
-              UserSettings.items.oneDriveRevoked = undefined;
-              UserSettings.removeItem("oneDriveRevoked");
             }
           } catch (error) {
             // a failed scheduled backup shouldn't be completely silent
