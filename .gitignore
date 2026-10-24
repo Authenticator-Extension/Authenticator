@@ -20,6 +20,8 @@ cert.pfx
 
 # local docs / AI working notes
 docs/
+AGENTS.md
+CLAUDE.md
 
 # editor & local tool settings
 .vscode

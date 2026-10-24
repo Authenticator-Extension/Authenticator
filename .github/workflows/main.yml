@@ -25,6 +25,15 @@ jobs:
       - name: Check cloud permissions
         run: node scripts/check-cloud-permissions.js
 
+      - name: Check local-only files are not tracked
+        run: |
+          tracked="$(git ls-files -- docs AGENTS.md CLAUDE.md)"
+          if [ -n "$tracked" ]; then
+            echo "::error::Local-only files must not be committed:"
+            echo "$tracked"
+            exit 1
+          fi
+
   build:
     runs-on: ubuntu-latest
     name: Build ${{ matrix.platform }}
