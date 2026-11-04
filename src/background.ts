@@ -11,13 +11,31 @@ import {
 import { CodeState } from "./models/otp";
 
 import { getOTPAuthPerLineFromOPTAuthMigration } from "./models/migration";
-import { isChrome, isFirefox } from "./browser";
+import {
+  containingAppId,
+  driveRedirect,
+  isChrome,
+  isFirefox,
+  isSafari,
+} from "./browser";
 import { UserSettings } from "./models/settings";
 
 let contentTab: chrome.tabs.Tab | undefined;
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
   await UserSettings.updateItems();
+
+  if (
+    message.action === "cachePassphrase" ||
+    message.action === "lock" ||
+    message.action === "dropbox" ||
+    message.action === "drive" ||
+    message.action === "onedrive"
+  ) {
+    if (sender.id !== chrome.runtime.id || sender.tab) {
+      return true;
+    }
+  }
 
   if (message.action === "getCapture") {
     if (!sender.tab) {
@@ -240,7 +258,79 @@ async function getTotp(text: string, silent = false) {
   }
 }
 
+async function exchangeDriveCode(code: string, encodedRedirect: string) {
+  const response = await fetch(
+    "https://www.googleapis.com/oauth2/v4/token?client_id=" +
+      getCredentials().drive.client_id +
+      "&client_secret=" +
+      getCredentials().drive.client_secret +
+      "&code=" +
+      code +
+      "&redirect_uri=" +
+      encodedRedirect +
+      "&grant_type=authorization_code",
+    {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  );
+  const res = await response.json();
+  if (res.error) {
+    console.error(res.error_description);
+    return false;
+  }
+  UserSettings.items.driveToken = res.access_token;
+  UserSettings.items.driveRefreshToken = res.refresh_token;
+  await UserSettings.commitItems();
+  return true;
+}
+
+function signInDriveSafari() {
+  const encodedRedirect = encodeURIComponent(driveRedirect);
+  const authUrl =
+    "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
+    getCredentials().drive.client_id +
+    "&scope=https%3A//www.googleapis.com/auth/drive.file&prompt=consent&redirect_uri=" +
+    encodedRedirect;
+  chrome.runtime.sendNativeMessage(
+    containingAppId,
+    { action: "drive-auth", url: authUrl },
+    async (response: { ok?: boolean; url?: string }) => {
+      if (!response || !response.ok || !response.url) {
+        return;
+      }
+      let callback: URL;
+      try {
+        callback = new URL(response.url);
+      } catch (error) {
+        console.error(error);
+        return;
+      }
+      if (callback.origin + callback.pathname !== driveRedirect) {
+        return;
+      }
+      const code = callback.searchParams.get("code");
+      if (!code) {
+        return;
+      }
+      const exchanged = await exchangeDriveCode(code, encodedRedirect);
+      if (!exchanged) {
+        return;
+      }
+      chrome.runtime.sendMessage({ action: "drivetoken" });
+      uploadBackup("drive");
+    }
+  );
+}
+
 function getBackupToken(service: string) {
+  if (isSafari && service === "drive") {
+    signInDriveSafari();
+    return;
+  }
   if (isChrome && service === "drive") {
     chrome.identity.getAuthToken(
       {

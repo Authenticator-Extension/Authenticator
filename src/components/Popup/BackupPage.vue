@@ -57,14 +57,24 @@
     <a-button-link href="import.html">{{ i18n.import_backup }}</a-button-link>
     <br />
     <!-- 3rd Party Backup Services -->
-    <div v-show="!backupDisabled && isBackupServiceSupported">
+    <div v-show="!backupDisabled">
       <div class="text">
         {{ i18n.storage_sync_info }}
       </div>
       <p></p>
       <a-button @click="showInfo('DrivePage')"> Google Drive </a-button>
-      <a-button @click="showInfo('OneDrivePage')"> OneDrive </a-button>
-      <a-button @click="showInfo('DropboxPage')"> Dropbox </a-button>
+      <a-button
+        v-show="isBackupServiceSupported"
+        @click="showInfo('OneDrivePage')"
+      >
+        OneDrive
+      </a-button>
+      <a-button
+        v-show="isBackupServiceSupported"
+        @click="showInfo('DropboxPage')"
+      >
+        Dropbox
+      </a-button>
     </div>
   </div>
 </template>
@@ -119,6 +129,11 @@ export default Vue.extend({
         );
         return;
       } else if (tab === "DrivePage") {
+        if (isSafari) {
+          this.$store.commit("style/showInfo");
+          this.$store.commit("currentView/changeView", tab);
+          return;
+        }
         chrome.permissions.request(
           {
             origins: [

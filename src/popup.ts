@@ -18,6 +18,7 @@ import { Notification } from "./store/Notification";
 import { Qr } from "./store/Qr";
 import { Advisor } from "./store/Advisor";
 import { Dropbox, Drive, OneDrive } from "./models/backup";
+import { isSafari } from "./browser";
 import { syncTimeWithGoogle } from "./syncTime";
 import { StorageLocation, UserSettings } from "./models/settings";
 
@@ -241,46 +242,48 @@ async function runScheduledBackup(clientTime: number, instance: Vue) {
     );
   }
   if (instance.$store.state.backup.driveToken) {
-    chrome.permissions.contains(
-      {
-        origins: [
-          "https://www.googleapis.com/*",
-          "https://accounts.google.com/o/oauth2/revoke",
-        ],
-      },
-      async (hasPermission) => {
-        if (hasPermission) {
-          try {
-            const drive = new Drive();
-            const res = await drive.upload(
-              instance.$store.state.accounts.encryption.get(
-                instance.$store.state.accounts.defaultEncryption
-              )
+    const uploadDrive = async (hasPermission: boolean) => {
+      if (hasPermission) {
+        try {
+          const drive = new Drive();
+          const res = await drive.upload(
+            instance.$store.state.accounts.encryption.get(
+              instance.$store.state.accounts.defaultEncryption
+            )
+          );
+          if (res) {
+            UserSettings.items.lastRemindingBackupTime = clientTime;
+            UserSettings.commitItems();
+            return;
+          } else if (UserSettings.items.driveRevoked === true) {
+            instance.$store.commit(
+              "notification/alert",
+              chrome.i18n.getMessage("token_revoked", ["Google Drive"])
             );
-            if (res) {
-              UserSettings.items.lastRemindingBackupTime = clientTime;
-              UserSettings.commitItems();
-              return;
-            } else if (UserSettings.items.driveRevoked === true) {
-              instance.$store.commit(
-                "notification/alert",
-                chrome.i18n.getMessage("token_revoked", ["Google Drive"])
-              );
-              UserSettings.items.driveRevoked = undefined;
-              UserSettings.removeItem("driveRevoked");
-            }
-          } catch (error) {
-            // ignore
+            UserSettings.items.driveRevoked = undefined;
+            UserSettings.removeItem("driveRevoked");
           }
+        } catch (error) {
+          // ignore
         }
-        instance.$store.commit(
-          "notification/alert",
-          instance.i18n.remind_backup
-        );
-        UserSettings.items.lastRemindingBackupTime = clientTime;
-        UserSettings.commitItems();
       }
-    );
+      instance.$store.commit("notification/alert", instance.i18n.remind_backup);
+      UserSettings.items.lastRemindingBackupTime = clientTime;
+      UserSettings.commitItems();
+    };
+    if (isSafari) {
+      uploadDrive(true);
+    } else {
+      chrome.permissions.contains(
+        {
+          origins: [
+            "https://www.googleapis.com/*",
+            "https://accounts.google.com/o/oauth2/revoke",
+          ],
+        },
+        uploadDrive
+      );
+    }
   }
   if (instance.$store.state.backup.oneDriveToken) {
     chrome.permissions.contains(

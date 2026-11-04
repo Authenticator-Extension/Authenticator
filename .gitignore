@@ -3,6 +3,7 @@ build
 chrome*
 firefox*
 edge*
+safari*
 dist
 .vscode
 .atom-build.yml

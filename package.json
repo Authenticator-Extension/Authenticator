@@ -6,6 +6,7 @@
     "compile": "bash scripts/build.sh firefox",
     "dev:chrome": "npm run pretest && webpack --config ./webpack.watch.js",
     "chrome": "bash scripts/build.sh chrome",
+    "safari": "bash scripts/build.sh safari",
     "firefox": "bash scripts/build.sh firefox",
     "edge": "bash scripts/build.sh edge",
     "prod": "bash scripts/build.sh prod",

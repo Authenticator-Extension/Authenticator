@@ -13,14 +13,14 @@ CREDREGEX='^.*".+".*".+".*".+".*".+".*".+".*$'
 STYLEFILES="./src/* ./src/**/* ./src/**/**/* ./src/**/**/**/* ./sass/*.scss"
 set -e
 
-if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]] && [[ $PLATFORM != "prod" ]] && [[ $PLATFORM != "test" ]]; then
-    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', 'test', and 'prod'"
+if [[ $PLATFORM != "chrome" ]] && [[ $PLATFORM != "firefox" ]] && [[ $PLATFORM != "edge" ]] && [[ $PLATFORM != "safari" ]] && [[ $PLATFORM != "prod" ]] && [[ $PLATFORM != "test" ]]; then
+    echo "Invalid platform type. Supported platforms are 'chrome', 'firefox', 'safari', 'test', and 'prod'"
     exit 1
 fi
 
 echo "Removing old build files..."
 rm -rf build dist
-rm -rf firefox chrome edge release test
+rm -rf firefox chrome edge safari release test
 echo "Checking style..."
 if ./node_modules/.bin/prettier --check $STYLEFILES 1> /dev/null ; then
     true
@@ -39,7 +39,7 @@ if ! [[ $CREDS =~ $CREDREGEX ]] ; then
     fi
 fi
 
-if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git"* || $REMOTE = *"git@github.com:Authenticator-Extension/Authenticator.git"* || $CI ]] ; then
+if [[ $PLATFORM != "safari" ]] && ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git"* || $REMOTE = *"git@github.com:Authenticator-Extension/Authenticator.git"* || $CI ]] ; then
     echo
     echo -e "\e[7m\033[33mNotice\033[0m"
     echo
@@ -80,7 +80,7 @@ postCompile () {
         cp manifests/manifest-$1.json $1/manifest.json
     fi
 
-    if [[ $1 = "chrome" ]] || [[ $1 = "edge" ]]; then
+    if [[ $1 = "chrome" ]] || [[ $1 = "edge" ]] || [[ $1 = "safari" ]]; then
         cp manifests/schema-chrome.json $1/schema.json
     fi
 

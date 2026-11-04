@@ -1,10 +1,18 @@
 import argon2 from "argon2-browser";
 
+function isExtensionOrigin(origin: string): boolean {
+  return (
+    origin.indexOf("chrome-extension://") === 0 ||
+    origin.indexOf("safari-web-extension://") === 0 ||
+    origin.indexOf("moz-extension://") === 0
+  );
+}
+
 window.addEventListener("message", (event) => {
   const message = event.data;
   const source = event.source as Window;
 
-  if (!source) {
+  if (!source || !isExtensionOrigin(event.origin)) {
     return;
   }
 

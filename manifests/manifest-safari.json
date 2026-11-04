@@ -1,0 +1,76 @@
+{
+    "manifest_version": 3,
+    "name": "__MSG_extName__",
+    "short_name": "__MSG_extShortName__",
+    "version": "8.0.2",
+    "default_locale": "en",
+    "description": "__MSG_extDesc__",
+    "icons": {
+        "16": "images/icon16.png",
+        "48": "images/icon48.png",
+        "128": "images/icon128.png"
+    },
+    "action": {
+        "default_icon": {
+            "19": "images/icon19.png",
+            "38": "images/icon38.png"
+        },
+        "default_title": "__MSG_extShortName__",
+        "default_popup": "view/popup.html"
+    },
+    "commands": {
+        "_execute_action": {},
+        "scan-qr": {
+            "description": "Scan a QR code"
+        },
+        "autofill": {
+            "description": "Autofill the matched code"
+        }
+    },
+    "options_ui": {
+        "page": "view/options.html",
+        "open_in_tab": false
+    },
+    "storage": {
+        "managed_schema": "schema.json"
+    },
+    "oauth2": {
+        "client_id": "292457304165-u8ve4j79gag5o231n5u2pdtdrbfdo1hh.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/drive.file"
+        ]
+    },
+    "background": {
+        "service_worker": "dist/background.js"
+    },
+    "sandbox": {
+        "pages": [
+            "view/argon.html"
+        ]
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "identity",
+        "alarms",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://www.google.com/",
+        "https://www.googleapis.com/*",
+        "https://accounts.google.com/*"
+    ],
+    "optional_permissions": [
+        "clipboardWrite",
+        "contextMenus"
+    ],
+    "optional_host_permissions": [
+        "https://*.dropboxapi.com/*",
+        "https://graph.microsoft.com/me/*",
+        "https://login.microsoftonline.com/common/oauth2/v2.0/token"
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; font-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; connect-src https://www.google.com/ https://*.dropboxapi.com https://www.googleapis.com/ https://accounts.google.com/ https://oauth2.googleapis.com/ https://login.microsoftonline.com/common/oauth2/v2.0/token https://graph.microsoft.com/; default-src 'none'",
+        "sandbox": "sandbox allow-scripts; script-src 'self' 'unsafe-eval';"
+    }
+}
