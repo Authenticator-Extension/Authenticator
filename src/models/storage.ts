@@ -1,10 +1,43 @@
 import { Encryption } from "./encryption";
 import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
+import { isSafari } from "../browser";
 import { StorageLocation, UserSettings } from "./settings";
 import { DataType } from "./otp";
 export class BrowserStorage {
+  private static async migrateSyncToLocal(): Promise<void> {
+    const flag = await chrome.storage.local.get("safariStorageMigrated");
+    if (flag.safariStorageMigrated === true) {
+      return;
+    }
+    const sync = await chrome.storage.sync.get();
+    const syncKeys = Object.keys(sync);
+    const local = await chrome.storage.local.get();
+    const localKeys = Object.keys(local).filter(
+      (key) => key !== "safariStorageMigrated"
+    );
+    if (syncKeys.length === 0 || localKeys.length > 0) {
+      await chrome.storage.local.set({ safariStorageMigrated: true });
+      return;
+    }
+    await chrome.storage.local.set(sync);
+    const copied = await chrome.storage.local.get(syncKeys);
+    if (Object.keys(copied).length !== syncKeys.length) {
+      return;
+    }
+    await chrome.storage.sync.remove(syncKeys);
+    await chrome.storage.local.set({ safariStorageMigrated: true });
+  }
+
   private static async getStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
+    if (isSafari) {
+      await this.migrateSyncToLocal();
+      if (UserSettings.items.storageLocation !== StorageLocation.Local) {
+        UserSettings.items.storageLocation = StorageLocation.Local;
+        await UserSettings.commitItems();
+      }
+      return StorageLocation.Local;
+    }
     const managedLocation = await ManagedStorage.get<StorageLocation>(
       "storageArea"
     );

@@ -4,6 +4,8 @@ export const isEdge = navigator.userAgent.indexOf("Edg") >= 0;
 export const isChromium = navigator.userAgent.indexOf("Chrome") >= 0;
 export const isSafari =
   !isChromium && navigator.userAgent.indexOf("Safari") >= 0;
+export const containingAppId = "com.yourCompany.Authenticator";
+export const driveRedirect = "https://authenticator.cc/oauth";
 export const isChrome =
   navigator.userAgent.indexOf("Chrome") !== -1 &&
   navigator.userAgent.indexOf("Edg") === -1;

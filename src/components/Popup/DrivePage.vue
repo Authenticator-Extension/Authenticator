@@ -100,6 +100,7 @@ export default Vue.extend({
         xhr.send();
       });
       UserSettings.removeItem("driveToken");
+      UserSettings.removeItem("driveRefreshToken");
       this.$store.commit("backup/setToken", { service, value: false });
       this.$store.commit("style/hideInfo");
     },
@@ -130,6 +131,15 @@ export default Vue.extend({
     if (this.backupToken) {
       this.email = await this.getUser();
     }
+    chrome.runtime.onMessage.addListener((message) => {
+      if (message.action !== "drivetoken") {
+        return;
+      }
+      this.$store.commit("backup/setToken", { service, value: true });
+      this.getUser().then((email: string) => {
+        this.email = email;
+      });
+    });
   },
 });
 </script>
