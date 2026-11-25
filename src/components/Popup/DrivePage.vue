@@ -33,6 +33,7 @@
 import Vue from "vue";
 import { isChrome } from "../../browser";
 import { Drive } from "../../models/backup";
+import { Encryption } from "../../models/encryption";
 import { UserSettings } from "../../models/settings";
 
 const service = "drive";
@@ -106,7 +107,9 @@ export default Vue.extend({
     async backupUpload() {
       const drive = new Drive();
       const response = await drive.upload(
-        this.$store.state.accounts.encryption
+        this.$store.state.accounts.encryption.get(
+          this.$store.state.accounts.defaultEncryption
+        ) ?? new Encryption("", "")
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);

@@ -32,6 +32,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { Dropbox } from "../../models/backup";
+import { Encryption } from "../../models/encryption";
 import { UserSettings } from "../../models/settings";
 
 const service = "dropbox";
@@ -95,7 +96,11 @@ export default Vue.extend({
     },
     async backupUpload() {
       const dbox = new Dropbox();
-      const response = await dbox.upload(this.$store.state.accounts.encryption);
+      const response = await dbox.upload(
+        this.$store.state.accounts.encryption.get(
+          this.$store.state.accounts.defaultEncryption
+        ) ?? new Encryption("", "")
+      );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
       } else if (UserSettings.items.dropboxRevoked === true) {
