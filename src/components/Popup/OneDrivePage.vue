@@ -42,6 +42,7 @@
 <script lang="ts">
 import Vue from "vue";
 import { OneDrive } from "../../models/backup";
+import { Encryption } from "../../models/encryption";
 import { UserSettings } from "../../models/settings";
 
 const service = "onedrive";
@@ -99,7 +100,9 @@ export default Vue.extend({
     async backupUpload() {
       const oneDrive = new OneDrive();
       const response = await oneDrive.upload(
-        this.$store.state.accounts.encryption
+        this.$store.state.accounts.encryption.get(
+          this.$store.state.accounts.defaultEncryption
+        ) ?? new Encryption("", "")
       );
       if (response === true) {
         this.$store.commit("notification/alert", this.i18n.updateSuccess);
